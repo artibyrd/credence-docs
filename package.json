@@ -1,0 +1,16 @@
+{
+  "name": "credence-docs",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Decoupled documentation and editorial blog engine for the Credence network.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.28.0",
+    "astro": "^4.15.0"
+  }
+}
