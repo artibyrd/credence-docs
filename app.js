@@ -298,6 +298,14 @@ function parseMarkdown(md) {
       tableHeaderParsed = false;
     }
 
+    if (line.trim().startsWith('$$') && line.trim().endsWith('$$') && line.trim().length > 2) {
+      if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+      if (inTable) { html.push('</tbody></table>'); inTable = false; tableHeaderParsed = false; }
+      const mathContent = line.trim().slice(2, -2).trim();
+      html.push(`<div class="math-block" style="text-align: center; margin: 1.25rem 0; padding: 0.85rem 1rem; background: var(--bg-card, #121824); border: 1px solid var(--border-subtle, rgba(255,255,255,0.08)); border-radius: 8px; font-family: monospace; font-size: 1.05rem; overflow-x: auto; color: var(--accent-cyan, #38bdf8);">${formatMath(mathContent)}</div>`);
+      continue;
+    }
+
     if (/^#{1,6}\s+/.test(line)) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       const level = line.match(/^#{1,6}/)[0].length;
@@ -362,8 +370,40 @@ function parseMarkdown(md) {
   return html.join('\n');
 }
 
+function formatMath(expr) {
+  let res = expr
+    .replace(/\\ge/g, '≥')
+    .replace(/\\le/g, '≤')
+    .replace(/\\times/g, '×')
+    .replace(/\\to/g, '→')
+    .replace(/\\in/g, '∈')
+    .replace(/\\sum/g, '∑')
+    .replace(/\\mid/g, '|')
+    .replace(/\\dots/g, '…')
+    .replace(/\\beta/g, 'β')
+    .replace(/\\text\{([^}]+)\}/g, '$1')
+    .replace(/\\left\(/g, '(')
+    .replace(/\\right\)/g, ')')
+    .replace(/_i\b/g, 'ᵢ')
+    .replace(/_v\b/g, 'ᵥ')
+    .replace(/_\{(\w+)\}/g, '₍$1₎')
+    .replace(/\^2/g, '²')
+    .replace(/\^\{([^}]+)\}/g, '^$1');
+  return res;
+}
+
 function formatInline(text) {
   let res = escapeHtml(text);
+  
+  // Format inline math $...$ while preserving standard currency like $0.00
+  res = res.replace(/\$([^\$]+)\$/g, (match, expr) => {
+    const trimmed = expr.trim();
+    if (/^\d+(\.\d+)?(\/\w+)?$/.test(trimmed)) {
+      return `$${trimmed}`;
+    }
+    return `<span class="math-inline" style="font-family: monospace; color: var(--accent-cyan, #38bdf8); font-style: italic;">${formatMath(trimmed)}</span>`;
+  });
+
   res = res.replace(/`([^`]+)`/g, '<code>$1</code>');
   res = res.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   res = res.replace(/\*([^*]+)\*/g, '<em>$1</em>');

@@ -21,10 +21,10 @@ Credence operates on the principle that **absence of evidence is not evidence of
 
 ### Key Architectural Invariants
 
-* **Whitespace-Insensitive Grounding ($G = 1.0$)**: Every identified violation must cite an exact verbatim substring from the source document. If a node fabricates or hallucinates a citation, its reputation score ($Q_i$) is slashed by 50%.
-* **Poe's Law Safeguards**: Legitimate humor and satire (*The Onion, The Babylon Bee*) are classified neutrally ($0.00$ suspicion score), preventing false alarms while signaling downstream AI agents not to treat hyperbole as literal fact. However, bad-faith cloaked disinformation triggers **`SPJ-1.6`** hard overrides.
+* **Whitespace-Insensitive Grounding (G = 1.0)**: Every identified violation must cite an exact verbatim substring from the source document. If a node fabricates or hallucinates a citation, its reputation score (Qᵢ) is slashed by 50%.
+* **Poe's Law Safeguards**: Legitimate humor and satire (*The Onion, The Babylon Bee*) are classified neutrally (0.00 suspicion score), preventing false alarms while signaling downstream AI agents not to treat hyperbole as literal fact. However, bad-faith cloaked disinformation triggers **`SPJ-1.6`** hard overrides.
 * **RFC 8785 Canonical JSON & Ed25519 Signatures**: Every audit produces a deterministic, cryptographically signed `.credence.json` envelope. Relay nodes gossip signed attestations without re-signing or altering payloads.
-* **13-Node Watts-Strogatz Small-World Lattice**: Decentralized nodes form a peer-to-peer gossip mesh resilient to Byzantine cartels ($N \ge 3f + 1, f = 4$), network partitions (Barbell splits), and linear daisy-chain TTL exhaustion.
+* **13-Node Watts-Strogatz Small-World Lattice**: Decentralized nodes form a peer-to-peer gossip mesh resilient to Byzantine cartels (N ≥ 3f + 1, f = 4), network partitions (Barbell splits), and linear daisy-chain TTL exhaustion.
 * **BitTorrent Work-Sharing**: Mesh nodes divide syndicated feeds across peers to achieve over 92% compute savings at $0.00 token cost for adopting nodes.
 
 ---
