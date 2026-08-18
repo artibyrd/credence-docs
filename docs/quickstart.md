@@ -14,7 +14,7 @@ curl -fsSL https://credence.run/install.sh | bash
 ### Option B: Local Repository Installation
 
 ```bash
-git clone https://github.com/credence-network/credence.git
+git clone https://github.com/artibyrd/credence.git
 cd credence
 poetry install
 ```

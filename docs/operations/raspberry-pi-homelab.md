@@ -26,7 +26,7 @@ sudo apt update && sudo apt install -y python3-pip python3-venv git curl
 curl -sSL https://install.python-poetry.org | python3 -
 
 # 3. Clone and install Credence
-git clone https://github.com/credence-network/credence.git /opt/credence
+git clone https://github.com/artibyrd/credence.git /opt/credence
 cd /opt/credence
 poetry install --only main
 ```

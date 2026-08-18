@@ -87,7 +87,8 @@ export const DOCS_REGISTRY = [
       { id: "docs/protocols/scoring", title: "Scoring & Saturation Math", path: "docs/protocols/scoring.md" },
       { id: "docs/protocols/adversarial-defense", title: "Adversarial Threat Matrix", path: "docs/protocols/adversarial-defense.md" },
       { id: "docs/protocols/white-label", title: "White-Label Federation", path: "docs/protocols/white-label.md" },
-      { id: "docs/protocols/benchmark-suite", title: "Golden 12 Benchmark Suite", path: "docs/protocols/benchmark-suite.md" }
+      { id: "docs/protocols/benchmark-suite", title: "Golden 12 Benchmark Suite", path: "docs/protocols/benchmark-suite.md" },
+      { id: "docs/protocols/cross-model-pareto-benchmark", title: "Cross-Model Pareto Benchmark", path: "docs/protocols/cross-model-pareto-benchmark.md" }
     ]
   },
   {
@@ -126,6 +127,8 @@ export const DOCS_REGISTRY = [
   {
     category: "Editorial Dispatches & Blog",
     items: [
+      { id: "blog/the-pareto-frontier-of-truth", title: "The $0.34 Pareto Frontier", path: "blog/the-pareto-frontier-of-truth.md" },
+      { id: "blog/bittorrent-for-truth", title: "BitTorrent for Truth (92.3% Savings)", path: "blog/bittorrent-for-truth.md" },
       { id: "blog/the-blue-checkmark-is-dead", title: "The Blue Checkmark is Dead", path: "blog/the-blue-checkmark-is-dead.md" },
       { id: "blog/the-anti-diploma-invariant", title: "The Anti-Diploma Invariant", path: "blog/the-anti-diploma-invariant.md" },
       { id: "blog/bittorrent-economics-of-fact-checking", title: "BitTorrent Economics of Fact-Checking", path: "blog/bittorrent-economics-of-fact-checking.md" },

@@ -26,7 +26,7 @@ resource "aws_ecs_task_definition" "credence" {
 
   container_definitions = jsonencode([{
     name      = "credence"
-    image     = "ghcr.io/credence-network/credence:latest"
+    image     = "ghcr.io/artibyrd/credence:latest"
     essential = true
     portMappings = [{
       containerPort = 8000
@@ -54,7 +54,7 @@ az containerapp create \
   --name credence-server \
   --resource-group rg-credence \
   --environment env-credence \
-  --image ghcr.io/credence-network/credence:latest \
+  --image ghcr.io/artibyrd/credence:latest \
   --target-port 8000 \
   --ingress external \
   --min-replicas 0 \
@@ -75,7 +75,7 @@ version: '3.8'
 
 services:
   credence:
-    image: ghcr.io/credence-network/credence:latest
+    image: ghcr.io/artibyrd/credence:latest
     restart: always
     ports:
       - "8000:8000"
