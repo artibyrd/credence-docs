@@ -791,7 +791,7 @@ export async function loadDocument(docId) {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.0.0';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.0.1';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 
