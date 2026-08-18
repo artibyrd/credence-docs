@@ -7,10 +7,11 @@
   <meta name="description" content="Decoupled documentation and sovereign editorial blog engine for the Credence network. Zero npm dependencies, 100% zero-build.">
   
   <!-- Invariant 20: Strict CSP & Zero Supply-Chain Security -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://credence.run; style-src 'self' 'unsafe-inline' https://credence.run; script-src 'self' 'unsafe-inline'; img-src 'self' data: https://credence.run; connect-src 'self' https://credence.run;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://credence.run; style-src 'self' 'unsafe-inline' https://credence.run; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; img-src 'self' data: https://credence.run; connect-src 'self' https://credence.run https://cloudflareinsights.com;">
   
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <script src="assets/mermaid.min.js"></script>
 </head>
 <body>
 
@@ -18,7 +19,7 @@
   <nav class="credence-nav">
     <a href="https://credence.run" class="brand">
       <img src="assets/logo.svg" alt="Credence Shield" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 0.5rem;">
-      Credence <span class="badge">v1.0.1</span>
+      Credence <span class="badge">v1.1.1</span>
     </a>
     <ul class="nav-links">
       <li><a href="https://credence.run">Home</a></li>

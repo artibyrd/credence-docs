@@ -163,15 +163,61 @@ const MODELS_PRICING = [
   { name: "Anthropic Claude 3.7 Sonnet", inputPerM: 3.00, outputPerM: 15.00, ttft: "1200ms", badge: "HIGH-NUANCE THINKING", badgeClass: "suspicious", sovereignty: "Anthropic API" }
 ];
 
+// Initialize Mermaid with Credence Dark Aesthetic
+if (typeof window !== 'undefined' && window.mermaid) {
+  try {
+    window.mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      securityLevel: 'loose',
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      themeVariables: {
+        darkMode: true,
+        background: '#0d121f',
+        primaryColor: '#1e293b',
+        primaryBorderColor: '#38bdf8',
+        primaryTextColor: '#f8fafc',
+        lineColor: '#60a5fa',
+        secondaryColor: '#12192b',
+        tertiaryColor: '#0a0f1d',
+        nodeBorder: '#38bdf8',
+        mainBkg: '#0d121f',
+        clusterBkg: '#0a0f1d',
+        clusterBorder: '#1e293b',
+        edgeLabelBackground: '#0d121f',
+        actorBkg: '#0d121f',
+        actorBorder: '#38bdf8',
+        actorTextColor: '#f8fafc',
+        actorLineColor: '#60a5fa',
+        signalColor: '#38bdf8',
+        signalTextColor: '#f8fafc',
+        labelBoxBkgColor: '#0d121f',
+        labelBoxBorderColor: '#38bdf8',
+        labelTextColor: '#f8fafc',
+        loopTextColor: '#f8fafc',
+        noteBorderColor: '#f59e0b',
+        noteBkgColor: '#1e293b',
+        noteTextColor: '#f8fafc'
+      }
+    });
+  } catch (e) {
+    console.warn("Mermaid initialization warning:", e);
+  }
+}
+
 function isBlogContext() {
   const host = window.location.hostname;
   return host === 'blog.credence.run' || window.location.hash.startsWith('#blog');
 }
 
 function escapeHtml(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
+  if (typeof str !== 'string') return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }
 
 function computeSimHash(str) {
@@ -221,7 +267,120 @@ function getHammingDistance(hexA, hexB) {
   return dist;
 }
 
-function parseMarkdown(md) {
+export function formatMath(expr) {
+  let res = expr;
+  // Unescape LaTeX escaped symbols
+  res = res.replace(/\\([$&%#_])/g, '$1');
+
+  // Greek letters
+  res = res.replace(/\\alpha\b/g, 'α')
+    .replace(/\\beta\b/g, 'β')
+    .replace(/\\gamma\b/g, 'γ')
+    .replace(/\\delta\b/g, 'δ')
+    .replace(/\\epsilon\b/g, 'ε')
+    .replace(/\\theta\b/g, 'θ')
+    .replace(/\\lambda\b/g, 'λ')
+    .replace(/\\mu\b/g, 'μ')
+    .replace(/\\sigma\b/g, 'σ')
+    .replace(/\\phi\b/g, 'φ')
+    .replace(/\\omega\b/g, 'ω')
+    .replace(/\\Delta\b/g, 'Δ')
+    .replace(/\\Sigma\b/g, 'Σ');
+
+  // Delimiters & Operators (must run before short prefix replacements like \le)
+  res = res.replace(/\\left\(/g, '(')
+    .replace(/\\right\)/g, ')')
+    .replace(/\\left\[/g, '[')
+    .replace(/\\right\]/g, ']')
+    .replace(/\\left\{/g, '{')
+    .replace(/\\right\}/g, '}')
+    .replace(/\\le\b/g, '≤')
+    .replace(/\\ge\b/g, '≥')
+    .replace(/\\neq\b/g, '≠')
+    .replace(/\\approx\b/g, '≈')
+    .replace(/\\pm\b/g, '±')
+    .replace(/\\times\b/g, '×')
+    .replace(/\\to\b/g, '→')
+    .replace(/\\in\b/g, '∈')
+    .replace(/\\notin\b/g, '∉')
+    .replace(/\\mid\b/g, '|')
+    .replace(/\\dots\b/g, '…')
+    .replace(/\\log_2/g, 'log₂')
+    .replace(/\\log\b/g, 'log')
+    .replace(/\\ln\b/g, 'ln')
+    .replace(/\\exp\b/g, 'exp')
+    .replace(/\\sum_\{([^}]+)\}\^(\\w+|\{[^}]+\})/g, '∑₍$1₎^$2')
+    .replace(/\\sum\b/g, '∑')
+    .replace(/\\prod\b/g, '∏')
+    .replace(/\\int\b/g, '∫');
+
+  // Text & Fractions & Accents
+  res = res.replace(/\\text\{([^}]+)\}/g, '$1')
+    .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '($1 / $2)')
+    .replace(/\\bar\{([^}]+)\}/g, '$1̄');
+
+  // Subscripts & Superscripts
+  res = res.replace(/_i\b/g, 'ᵢ')
+    .replace(/_j\b/g, 'ⱼ')
+    .replace(/_v\b/g, 'ᵥ')
+    .replace(/_k\b/g, 'ₖ')
+    .replace(/_\{([^}]+)\}/g, '₍$1₎')
+    .replace(/\^2\b/g, '²')
+    .replace(/\^3\b/g, '³')
+    .replace(/\^\{([^}]+)\}/g, '^$1');
+
+  return res;
+}
+
+export function formatInline(text) {
+  // First format code spans so inline math/formatting inside backticks is preserved
+  const codeSpans = [];
+  let masked = text.replace(/`([^`]+)`/g, (m, code) => {
+    codeSpans.push(code);
+    return `__CODE_SPAN_${codeSpans.length - 1}__`;
+  });
+
+  let res = escapeHtml(masked);
+
+  // Parenthetical math \(...\)
+  res = res.replace(/\\\(([\s\S]+?)\\\)/g, (match, expr) => {
+    return `<span class="math-inline">${formatMath(expr.trim())}</span>`;
+  });
+
+  // Standard inline math $...$ (preserving currency like $0.00, $15.00, $1k)
+  res = res.replace(/\$([^\$\n]+?)\$/g, (match, expr) => {
+    const trimmed = expr.trim();
+    if (/^\d+(\.\d+)?(\/\w+)?(k|M|B)?$/.test(trimmed) || /^\d+(\.\d+)?\s*(token|spend|USD|cost|audits)/i.test(trimmed)) {
+      return `$${trimmed}`;
+    }
+    return `<span class="math-inline">${formatMath(trimmed)}</span>`;
+  });
+
+  // Markdown strong, em, del
+  res = res.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  res = res.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  res = res.replace(/~~([^~]+)~~/g, '<del>$1</del>');
+
+  // Markdown links [text](url)
+  res = res.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, linkText, url) => {
+    if (url.startsWith('/')) {
+      const hash = url.replace(/^\//, '').replace(/\/$/, '');
+      return `<a href="#docs/${hash}">${linkText}</a>`;
+    }
+    const isExternal = url.startsWith('http');
+    return `<a href="${url}" ${isExternal ? 'target="_blank" rel="noopener"' : ''}>${linkText}</a>`;
+  });
+
+  // Restore code spans
+  res = res.replace(/__CODE_SPAN_(\d+)__/g, (m, idx) => {
+    return `<code>${escapeHtml(codeSpans[parseInt(idx, 10)])}</code>`;
+  });
+
+  return res;
+}
+
+export function parseMarkdown(md) {
+  // Strip YAML frontmatter
   let text = md.replace(/^---[\s\S]*?---\s*/, '');
 
   const lines = text.split('\n');
@@ -233,39 +392,59 @@ function parseMarkdown(md) {
   let listType = '';
   let inTable = false;
   let tableHeaderParsed = false;
-  let inRawHtmlBlock = false;
-  let rawHtmlBuffer = [];
+  let inAlertBox = false;
+  let alertType = '';
+  let alertIcon = '';
+  let alertTitle = '';
+  let alertBuffer = [];
+
+  const HTML_TAG_START_REGEX = /^<\/?(div|section|article|aside|nav|header|footer|main|svg|g|defs|filter|linearGradient|rect|circle|text|path|line|span|button|textarea|input|label|table|thead|tbody|tr|th|td|form|select|option|code|pre|p|h[1-6]|ul|ol|li|details|summary|hr|style|script|blockquote|!--)/i;
 
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i];
 
-    if (line.trim().startsWith('<div') || line.trim().startsWith('<input') || line.trim().startsWith('<table') || inRawHtmlBlock) {
-      if (line.includes('</div>') && !line.includes('<div')) {
-        rawHtmlBuffer.push(line);
-        html.push(rawHtmlBuffer.join('\n'));
-        rawHtmlBuffer = [];
-        inRawHtmlBlock = false;
-      } else {
-        inRawHtmlBlock = true;
-        rawHtmlBuffer.push(line);
-        if (line.trim().endsWith('</div>') && line.split('<div').length === line.split('</div>').length) {
-          html.push(rawHtmlBuffer.join('\n'));
-          rawHtmlBuffer = [];
-          inRawHtmlBlock = false;
-        }
-      }
-      continue;
-    }
-
+    // 1. Code Block boundary check MUST take precedence
     if (line.startsWith('```')) {
       if (inCodeBlock) {
-        html.push(`<pre><code class="language-${codeLang}">${escapeHtml(codeBuffer.join('\n'))}</code></pre>`);
+        if (codeLang.toLowerCase() === 'mermaid') {
+          html.push(`
+            <div class="mermaid-wrapper">
+              <div class="mermaid-code" data-mermaid="${escapeHtml(codeBuffer.join('\n'))}">
+                <pre><code class="language-mermaid">${escapeHtml(codeBuffer.join('\n'))}</code></pre>
+              </div>
+            </div>
+          `);
+        } else {
+          const displayLang = codeLang.trim() || 'text';
+          html.push(`
+            <div class="code-block-wrapper">
+              <div class="code-header">
+                <span class="code-lang">${escapeHtml(displayLang)}</span>
+                <button type="button" class="copy-btn" onclick="navigator.clipboard.writeText(this.closest('.code-block-wrapper').querySelector('code').innerText).then(() => { this.textContent = 'Copied!'; setTimeout(() => this.textContent = 'Copy', 2000); })">Copy</button>
+              </div>
+              <pre><code class="language-${escapeHtml(displayLang)}">${escapeHtml(codeBuffer.join('\n'))}</code></pre>
+            </div>
+          `);
+        }
         inCodeBlock = false;
         codeBuffer = [];
         codeLang = '';
       } else {
         if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-        if (inTable) { html.push('</tbody></table>'); inTable = false; tableHeaderParsed = false; }
+        if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
+        if (inAlertBox) {
+          html.push(`
+            <div class="alert-box alert-${alertType}">
+              <div class="alert-header">
+                <span class="alert-icon">${alertIcon}</span>
+                <strong>${alertTitle}</strong>
+              </div>
+              <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
+            </div>
+          `);
+          inAlertBox = false;
+          alertBuffer = [];
+        }
         inCodeBlock = true;
         codeLang = line.slice(3).trim();
       }
@@ -277,10 +456,107 @@ function parseMarkdown(md) {
       continue;
     }
 
+    // 2. Direct Raw HTML Lines / Elements (e.g. interactive widgets, custom SVG illustrations)
+    if (line.trim().startsWith('<') || line.trim().startsWith('</') || line.trim().startsWith('<!--') || line.trim().endsWith('>') || line.trim().endsWith('/>')) {
+      if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+      if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
+      if (inAlertBox) {
+        html.push(`
+          <div class="alert-box alert-${alertType}">
+            <div class="alert-header">
+              <span class="alert-icon">${alertIcon}</span>
+              <strong>${alertTitle}</strong>
+            </div>
+            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
+          </div>
+        `);
+        inAlertBox = false;
+        alertBuffer = [];
+      }
+      html.push(line);
+      continue;
+    }
+
+    // 3. GitHub Alert Callout Banners (> [!NOTE], > [!TIP], > [!IMPORTANT], > [!WARNING], > [!CAUTION])
+    const alertMatch = line.match(/^>\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*(.*)$/i);
+    if (alertMatch) {
+      if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+      if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
+      if (inAlertBox) {
+        html.push(`
+          <div class="alert-box alert-${alertType}">
+            <div class="alert-header">
+              <span class="alert-icon">${alertIcon}</span>
+              <strong>${alertTitle}</strong>
+            </div>
+            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
+          </div>
+        `);
+      }
+      inAlertBox = true;
+      alertType = alertMatch[1].toLowerCase();
+      alertTitle = alertMatch[1].toUpperCase();
+      alertBuffer = [];
+
+      switch (alertType) {
+        case 'note': alertIcon = '📘'; break;
+        case 'tip': alertIcon = '💡'; break;
+        case 'important': alertIcon = '🛡️'; break;
+        case 'warning': alertIcon = '⚠️'; break;
+        case 'caution': alertIcon = '🛑'; break;
+        default: alertIcon = '📌';
+      }
+
+      if (alertMatch[2].trim()) {
+        alertBuffer.push(alertMatch[2].trim());
+      }
+      continue;
+    }
+
+    if (inAlertBox) {
+      if (line.startsWith('>')) {
+        alertBuffer.push(line.replace(/^>\s*/, ''));
+        continue;
+      } else {
+        html.push(`
+          <div class="alert-box alert-${alertType}">
+            <div class="alert-header">
+              <span class="alert-icon">${alertIcon}</span>
+              <strong>${alertTitle}</strong>
+            </div>
+            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
+          </div>
+        `);
+        inAlertBox = false;
+        alertBuffer = [];
+      }
+    }
+
+    // 4. Standard Blockquotes
+    if (line.startsWith('>')) {
+      if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+      if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
+      const content = line.replace(/^>\s*/, '');
+      html.push(`<blockquote>${formatInline(content)}</blockquote>`);
+      continue;
+    }
+
+    // 5. Display Math Blocks ($$...$$ or \[...\])
+    if ((line.trim().startsWith('$$') && line.trim().endsWith('$$') && line.trim().length > 2) ||
+        (line.trim().startsWith('\\[') && line.trim().endsWith('\\]') && line.trim().length > 2)) {
+      if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+      if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
+      const rawMath = line.trim().startsWith('$$') ? line.trim().slice(2, -2).trim() : line.trim().slice(2, -2).trim();
+      html.push(`<div class="math-block">${formatMath(rawMath)}</div>`);
+      continue;
+    }
+
+    // 6. GFM Tables
     if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       const cells = line.split('|').slice(1, -1).map(c => c.trim());
       
+      // Separator row check (| :--- | ---: |)
       if (cells.every(c => /^:?-+:?$/.test(c))) {
         continue;
       }
@@ -288,7 +564,7 @@ function parseMarkdown(md) {
       if (!inTable) {
         inTable = true;
         tableHeaderParsed = false;
-        html.push('<table><thead><tr>');
+        html.push('<div class="table-container"><table><thead><tr>');
         cells.forEach(c => html.push(`<th>${formatInline(c)}</th>`));
         html.push('</tr></thead><tbody>');
         tableHeaderParsed = true;
@@ -299,19 +575,12 @@ function parseMarkdown(md) {
       }
       continue;
     } else if (inTable) {
-      html.push('</tbody></table>');
+      html.push('</tbody></table></div>');
       inTable = false;
       tableHeaderParsed = false;
     }
 
-    if (line.trim().startsWith('$$') && line.trim().endsWith('$$') && line.trim().length > 2) {
-      if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-      if (inTable) { html.push('</tbody></table>'); inTable = false; tableHeaderParsed = false; }
-      const mathContent = line.trim().slice(2, -2).trim();
-      html.push(`<div class="math-block" style="text-align: center; margin: 1.25rem 0; padding: 0.85rem 1rem; background: var(--bg-card, #121824); border: 1px solid var(--border-subtle, rgba(255,255,255,0.08)); border-radius: 8px; font-family: monospace; font-size: 1.05rem; overflow-x: auto; color: var(--accent-cyan, #38bdf8);">${formatMath(mathContent)}</div>`);
-      continue;
-    }
-
+    // 7. Headings (# to ######)
     if (/^#{1,6}\s+/.test(line)) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       const level = line.match(/^#{1,6}/)[0].length;
@@ -321,19 +590,14 @@ function parseMarkdown(md) {
       continue;
     }
 
-    if (line.startsWith('>')) {
-      if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-      const content = line.replace(/^>\s*/, '');
-      html.push(`<blockquote>${formatInline(content)}</blockquote>`);
-      continue;
-    }
-
+    // 8. Horizontal Rules
     if (/^(\*\*\*|---|___)$/.test(line.trim())) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       html.push('<hr>');
       continue;
     }
 
+    // 9. Unordered Lists & Task Lists
     if (/^[\*\-]\s+/.test(line)) {
       if (!inList || listType !== 'ul') {
         if (inList) html.push(listType === 'ul' ? '</ul>' : '</ol>');
@@ -341,11 +605,17 @@ function parseMarkdown(md) {
         inList = true;
         listType = 'ul';
       }
-      const item = line.replace(/^[\*\-]\s+/, '');
+      let item = line.replace(/^[\*\-]\s+/, '');
+      if (item.startsWith('[ ] ')) {
+        item = `<input type="checkbox" disabled class="task-checkbox"> ` + item.slice(4);
+      } else if (item.startsWith('[x] ') || item.startsWith('[X] ')) {
+        item = `<input type="checkbox" checked disabled class="task-checkbox"> ` + item.slice(4);
+      }
       html.push(`<li>${formatInline(item)}</li>`);
       continue;
     }
 
+    // 10. Ordered Lists
     if (/^\d+\.\s+/.test(line)) {
       if (!inList || listType !== 'ol') {
         if (inList) html.push(listType === 'ul' ? '</ul>' : '</ol>');
@@ -364,64 +634,51 @@ function parseMarkdown(md) {
       continue;
     }
 
+    // 11. Regular Paragraphs
     if (line.trim() !== '') {
       html.push(`<p>${formatInline(line)}</p>`);
     }
   }
 
-  if (inCodeBlock) html.push(`<pre><code>${escapeHtml(codeBuffer.join('\n'))}</code></pre>`);
+  if (inCodeBlock) {
+    html.push(`<pre><code>${escapeHtml(codeBuffer.join('\n'))}</code></pre>`);
+  }
   if (inList) html.push(listType === 'ul' ? '</ul>' : '</ol>');
-  if (inTable) html.push('</tbody></table>');
+  if (inTable) html.push('</tbody></table></div>');
+  if (inAlertBox) {
+    html.push(`
+      <div class="alert-box alert-${alertType}">
+        <div class="alert-header">
+          <span class="alert-icon">${alertIcon}</span>
+          <strong>${alertTitle}</strong>
+        </div>
+        <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
+      </div>
+    `);
+  }
 
   return html.join('\n');
 }
 
-function formatMath(expr) {
-  let res = expr
-    .replace(/\\ge/g, '≥')
-    .replace(/\\le/g, '≤')
-    .replace(/\\times/g, '×')
-    .replace(/\\to/g, '→')
-    .replace(/\\in/g, '∈')
-    .replace(/\\sum/g, '∑')
-    .replace(/\\mid/g, '|')
-    .replace(/\\dots/g, '…')
-    .replace(/\\beta/g, 'β')
-    .replace(/\\text\{([^}]+)\}/g, '$1')
-    .replace(/\\left\(/g, '(')
-    .replace(/\\right\)/g, ')')
-    .replace(/_i\b/g, 'ᵢ')
-    .replace(/_v\b/g, 'ᵥ')
-    .replace(/_\{(\w+)\}/g, '₍$1₎')
-    .replace(/\^2/g, '²')
-    .replace(/\^\{([^}]+)\}/g, '^$1');
-  return res;
-}
+let mermaidRenderId = 0;
+export async function renderMermaidDiagrams() {
+  if (typeof window === 'undefined' || !window.mermaid) return;
+  const elements = document.querySelectorAll('.mermaid-code');
+  if (elements.length === 0) return;
 
-function formatInline(text) {
-  let res = escapeHtml(text);
-  
-  // Format inline math $...$ while preserving standard currency like $0.00
-  res = res.replace(/\$([^\$]+)\$/g, (match, expr) => {
-    const trimmed = expr.trim();
-    if (/^\d+(\.\d+)?(\/\w+)?$/.test(trimmed)) {
-      return `$${trimmed}`;
+  for (const el of elements) {
+    const code = el.getAttribute('data-mermaid');
+    if (!code) continue;
+    const container = el.parentElement;
+    const diagramId = `mermaid-chart-${++mermaidRenderId}`;
+    try {
+      const { svg } = await window.mermaid.render(diagramId, code.trim());
+      container.innerHTML = `<div class="mermaid-rendered">${svg}</div>`;
+    } catch (err) {
+      console.warn("Mermaid render fallback for diagram:", err);
+      container.innerHTML = `<pre class="mermaid-fallback"><code class="language-mermaid">${escapeHtml(code)}</code></pre>`;
     }
-    return `<span class="math-inline" style="font-family: monospace; color: var(--accent-cyan, #38bdf8); font-style: italic;">${formatMath(trimmed)}</span>`;
-  });
-
-  res = res.replace(/`([^`]+)`/g, '<code>$1</code>');
-  res = res.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-  res = res.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-  res = res.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, url) => {
-    if (url.startsWith('/')) {
-      const hash = url.replace(/^\//, '').replace(/\/$/, '');
-      return `<a href="#docs/${hash}">${text}</a>`;
-    }
-    const isExternal = url.startsWith('http');
-    return `<a href="${url}" ${isExternal ? 'target="_blank" rel="noopener"' : ''}>${text}</a>`;
-  });
-  return res;
+  }
 }
 
 export function renderSidebar(activeId) {
@@ -432,7 +689,6 @@ export function renderSidebar(activeId) {
   let groups = [...DOCS_REGISTRY];
 
   if (isBlog) {
-    // Reorder: Blog first when on blog.credence.run
     const blogGroup = groups.find(g => g.category.includes("Blog"));
     const techGroups = groups.filter(g => !g.category.includes("Blog"));
     groups = [
@@ -458,7 +714,7 @@ export function renderSidebar(activeId) {
   `).join('');
 }
 
-function renderTableOfContents() {
+export function renderTableOfContents() {
   const tocContainer = document.getElementById('toc-list');
   if (!tocContainer) return;
 
@@ -477,7 +733,7 @@ function renderTableOfContents() {
 }
 
 // Setup Interactive Playgrounds
-function setupPlaygroundWidgets() {
+export function setupPlaygroundWidgets() {
   // 1. 13-Node Watts-Strogatz Mesh Simulator
   const svg = document.getElementById('mesh-svg');
   const btnBroadcast = document.getElementById('btn-broadcast-gossip');
@@ -507,11 +763,11 @@ function setupPlaygroundWidgets() {
     for (let i = 0; i < N; i++) {
       for (let offset of [1, 2]) {
         const j = (i + offset) % N;
-        svgContent += `<line x1="${nodes[i].x}" y1="${nodes[i].y}" x2="${nodes[j].x}" y2="${nodes[j].y}" stroke="rgba(56, 189, 248, 0.2)" stroke-width="1.5" />`;
+        svgContent += `<line x1="${nodes[i].x}" y1="${nodes[i].y}" x2="${nodes[j].x}" y2="${nodes[j].y}" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1.5" />`;
       }
     }
-    svgContent += `<line x1="${nodes[0].x}" y1="${nodes[0].y}" x2="${nodes[6].x}" y2="${nodes[6].y}" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.5" stroke-dasharray="4,4" />`;
-    svgContent += `<line x1="${nodes[2].x}" y1="${nodes[2].y}" x2="${nodes[9].x}" y2="${nodes[9].y}" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.5" stroke-dasharray="4,4" />`;
+    svgContent += `<line x1="${nodes[0].x}" y1="${nodes[0].y}" x2="${nodes[6].x}" y2="${nodes[6].y}" stroke="rgba(56, 189, 248, 0.45)" stroke-width="1.5" stroke-dasharray="4,4" />`;
+    svgContent += `<line x1="${nodes[2].x}" y1="${nodes[2].y}" x2="${nodes[9].x}" y2="${nodes[9].y}" stroke="rgba(56, 189, 248, 0.45)" stroke-width="1.5" stroke-dasharray="4,4" />`;
 
     nodes.forEach(n => {
       let fill = '#0ea5e9';
@@ -539,12 +795,12 @@ function setupPlaygroundWidgets() {
     logBox.className = "widget-status idle";
     logBox.innerHTML = `<strong>Hop 0 (0ms):</strong> Node 1 signs and broadcasts audit report.`;
 
-    await new Promise(r => setTimeout(r, 400));
+    await new Promise(r => setTimeout(r, 350));
     [1, 2, 6, 11, 12].forEach(idx => nodes[idx].infected = true);
     renderMeshSVG();
     logBox.innerHTML += `<br><strong>Hop 1 (120ms):</strong> Attestation diffused to 5 peer nodes.`;
 
-    await new Promise(r => setTimeout(r, 400));
+    await new Promise(r => setTimeout(r, 350));
     nodes.forEach(n => n.infected = true);
     renderMeshSVG();
     logBox.className = "widget-status verified";
@@ -624,7 +880,7 @@ function setupPlaygroundWidgets() {
     const q = groundQuote.value.replace(/\s+/g, ' ').trim();
 
     const idx = src.indexOf(q);
-    if (idx !== -1) {
+    if (idx !== -1 && q.length > 0) {
       const endIdx = idx + q.length;
       groundStatus.className = "widget-status verified";
       groundStatus.innerHTML = `
@@ -655,33 +911,40 @@ function setupPlaygroundWidgets() {
     const s = parseFloat(sInput.value);
     const c = parseFloat(cInput.value);
 
-    document.getElementById('val-violations').textContent = v;
-    document.getElementById('val-severity').textContent = s.toFixed(1);
-    document.getElementById('val-confidence').textContent = c.toFixed(2);
+    const valV = document.getElementById('val-violations');
+    const valS = document.getElementById('val-severity');
+    const valC = document.getElementById('val-confidence');
+    if (valV) valV.textContent = v;
+    if (valS) valS.textContent = s.toFixed(1);
+    if (valC) valC.textContent = c.toFixed(2);
 
     const raw = v * s * c;
     const cal = 100 * (1 - Math.exp(-raw / 12));
 
-    document.getElementById('calc-raw-score').textContent = raw.toFixed(2);
-    document.getElementById('calc-saturation-pct').textContent = cal.toFixed(1) + '%';
+    const rawElem = document.getElementById('calc-raw-score');
+    const satElem = document.getElementById('calc-saturation-pct');
+    if (rawElem) rawElem.textContent = raw.toFixed(2);
+    if (satElem) satElem.textContent = cal.toFixed(1) + '%';
     
     const scoreElem = document.getElementById('calc-result-score');
     const badgeElem = document.getElementById('calc-result-badge');
 
-    scoreElem.textContent = cal.toFixed(1);
+    if (scoreElem) scoreElem.textContent = cal.toFixed(1);
 
-    if (cal < 25.0) {
-      badgeElem.className = "verdict-tag reliable";
-      badgeElem.textContent = "RELIABLE / GROUNDED";
-    } else if (cal < 50.0) {
-      badgeElem.className = "verdict-tag mixed";
-      badgeElem.textContent = "MIXED / QUESTIONABLE";
-    } else if (cal < 75.0) {
-      badgeElem.className = "verdict-tag suspicious";
-      badgeElem.textContent = "SUSPICIOUS / UNGROUNDED";
-    } else {
-      badgeElem.className = "verdict-tag disinfo";
-      badgeElem.textContent = "FLAGRANT DISINFORMATION";
+    if (badgeElem) {
+      if (cal < 25.0) {
+        badgeElem.className = "verdict-tag reliable";
+        badgeElem.textContent = "RELIABLE / GROUNDED";
+      } else if (cal < 50.0) {
+        badgeElem.className = "verdict-tag mixed";
+        badgeElem.textContent = "MIXED / QUESTIONABLE";
+      } else if (cal < 75.0) {
+        badgeElem.className = "verdict-tag suspicious";
+        badgeElem.textContent = "SUSPICIOUS / UNGROUNDED";
+      } else {
+        badgeElem.className = "verdict-tag disinfo";
+        badgeElem.textContent = "FLAGRANT DISINFORMATION";
+      }
     }
   }
 
@@ -701,7 +964,7 @@ function setupPlaygroundWidgets() {
     suspicion_score: 54.2,
     classification: "SUSPICIOUS",
     evaluator_pubkey: "ed25519:e4d9b2a1f0c8e7d6b5a4938271605f4e3d2c1b0a9f8e7d6c5b4a3928170f",
-    timestamp_utc: "2026-08-17T18:00:00Z",
+    timestamp_utc: "2026-08-18T12:00:00Z",
     evaluation_method: "multi_agent_specialist",
     signature_ed25519: "a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef0"
   };
@@ -909,7 +1172,7 @@ export async function loadDocument(docId) {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.0.1';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.1.1';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 
@@ -937,6 +1200,9 @@ export async function loadDocument(docId) {
     contentArea.innerHTML = parseMarkdown(md);
     window.scrollTo(0, 0);
     renderTableOfContents();
+
+    // Render Mermaid diagrams
+    await renderMermaidDiagrams();
 
     if (target.id === 'docs/playground') {
       setupPlaygroundWidgets();
