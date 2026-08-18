@@ -21,6 +21,10 @@ All notable changes to the **Credence** network and documentation are documented
   - **Textual TUI**: Added Morning Digest tab (`tab_digest`) and live dynamic quality ranking table columns.
   - **Zero-Build Web UI**: Added Section 8 interactive Feed Quality & Astroturfing Simulator in `docs/playground.md`.
 - **Tutorial 09 & Sovereign Blog Essay**: Published [Tutorial 09: Zero-Trust Feed Sifter & Morning Digest](docs/tutorials/09-zero-trust-feed-sifter-digest.md) and [The Pizza Hut Problem & Topic Entropy](blog/the-pizza-hut-problem.md).
+- **Cloudflare Multi-Domain Edge Hardening & Performance**:
+  - Provisioned **HTTP/3 (QUIC)**, **Early Hints (103)**, and **0-RTT connection resumption** across all 4 production zones (`credence.run`, `credence.nexus`, `credence.foundation`, `credence.report`).
+  - Strict SSL/TLS enforcement, automatic HTTPS rewrites, and zero-latency P2P SRV routing via Terraform IaC ([`terraform/cloudflare.tf`](terraform/cloudflare.tf)).
+  - AI Crawler policy governance with unhindered coding assistant access (Claude Desktop, Cursor, Antigravity) and zero-build edge routing.
 
 ---
 
