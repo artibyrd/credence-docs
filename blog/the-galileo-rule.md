@@ -1,10 +1,8 @@
 ---
-title: "The Galileo Rule: Why 1,000 Swarm Nodes Can't Dismiss a Single Grounded Citation"
-description: "How Credence solves asymmetric evidence and Byzantine cartels in decentralized trust networks."
-pubDate: 2026-08-28
-author: "Credence Network Contributors"
-tags: ["consensus", "byzantine-fault-tolerance", "galileo-rule", "math"]
-heroImage: "/images/blog/galileo-rule.png"
+title: "The Galileo Rule: Asymmetric Grounded Evidence"
+description: "Why 1,000 swarm nodes cannot dismiss a single verified, grounded citation in decentralized trust networks."
+sidebar:
+  order: 4
 ---
 
 In 1633, Galileo Galilei stood alone against the entire astronomical consensus of Europe when asserting that the Earth orbits the Sun. 

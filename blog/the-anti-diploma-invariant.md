@@ -1,10 +1,8 @@
 ---
-title: "The Anti-Diploma Invariant: Why Credentials Don't Equal Authority in Autonomous Systems"
+title: "The Anti-Diploma Invariant: Why Credentials Don't Equal Authority"
 description: "Why mathematical authority must be earned through empirical grounding and domain entropy, not static paper credentials."
-pubDate: 2026-08-20
-author: "Credence Network Contributors"
-tags: ["governance", "math", "reputation", "sybil-resistance"]
-heroImage: "/images/blog/anti-diploma.png"
+sidebar:
+  order: 2
 ---
 
 In traditional institutions, authority is granted by static credentials: a diploma from an elite university, a press pass from an established newspaper, or a title on LinkedIn.

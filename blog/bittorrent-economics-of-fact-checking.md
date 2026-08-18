@@ -1,10 +1,8 @@
 ---
-title: "The BitTorrent Economics of Fact-Checking: Slashing LLM Compute Bills by 92%"
+title: "The BitTorrent Economics of Fact-Checking: Slashing LLM Bills by 92%"
 description: "How cooperative P2P feed pre-ingestion turns syndicated news auditing into a zero-token cooperative commons."
-pubDate: 2026-08-24
-author: "Credence Network Contributors"
-tags: ["p2p", "economics", "bittorrent", "llm-costs"]
-heroImage: "/images/blog/bittorrent-economics.png"
+sidebar:
+  order: 3
 ---
 
 Running large language models to evaluate real-time information is expensive.
@@ -27,6 +25,6 @@ Credence borrows the proven economics of BitTorrent and applies them to epistemi
 
 ## The Results: 92.3% Compute Savings
 
-In our 13-node cluster benchmarks ([`tests/test_mesh_cluster.py`](file:///home/pendragon/Projects/credence/tests/test_mesh_cluster.py)), cooperative feed pre-ingestion achieved **92.3% compute savings** compared to standalone evaluation.
+In our 13-node cluster benchmarks, cooperative feed pre-ingestion achieved **92.3% compute savings** compared to standalone evaluation.
 
 By turning epistemic evaluation into a decentralized, content-addressed cooperative commons, we make high-rigor fact-checking economically sustainable for everyone.

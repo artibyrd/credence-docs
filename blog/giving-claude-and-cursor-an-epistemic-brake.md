@@ -1,10 +1,8 @@
 ---
-title: "Giving Claude and Cursor an Epistemic Brake: Live Web Ingestion with FastMCP 2.0"
+title: "Giving Claude and Cursor an Epistemic Brake: FastMCP 2.0"
 description: "How autonomous coding agents can audit claims in real time to prevent hallucinated dependencies and architectural flaws."
-pubDate: 2026-09-02
-author: "Credence Network Contributors"
-tags: ["ai-agents", "mcp", "cursor", "claude", "fastmcp"]
-heroImage: "/images/blog/claude-cursor-mcp.png"
+sidebar:
+  order: 5
 ---
 
 When autonomous coding assistants like Claude Desktop and Cursor are instructed to "search the web for the best Python library to do X", they encounter a dangerous hazard: **SEO spam and synthetic AI slop**.

@@ -1,10 +1,8 @@
 ---
 title: "The Blue Checkmark is Dead: Verifiable Epistemic Consensus in the Age of AI"
 description: "Why centralized badges fail to establish truth, and how content-addressed cryptographic attestations replace platform arbiters."
-pubDate: 2026-08-17
-author: "Credence Network Contributors"
-tags: ["epistemology", "cryptography", "open-source", "p2p"]
-heroImage: "/images/blog/blue-checkmark-dead.png"
+sidebar:
+  order: 1
 ---
 
 For nearly two decades, internet trust has relied on a fragile illusion: the centralized blue checkmark. 
