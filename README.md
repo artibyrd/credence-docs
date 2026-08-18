@@ -10,36 +10,62 @@ It follows **Invariant 26 (Zero-Build Web Standards)**:
 
 ---
 
-## Repository Structure
+## Complete Repository Architecture
 
 ```text
 credence-docs/
-├── .github/workflows/deploy.yml   # Zero-Build Cloudflare Pages deployment
-├── index.html                     # Zero-Build dynamic documentation portal
-├── styles.css                     # Documentation typography & responsive layout
-├── app.js                         # Lightweight vanilla ES module renderer (0 npm)
+├── .github/workflows/deploy.yml         # Zero-Build Cloudflare Pages deploy (0 npm)
+├── index.html                           # Zero-Build dynamic documentation portal
+├── styles.css                           # Documentation typography, responsive layout & widgets
+├── app.js                               # Zero-dependency vanilla ES module renderer & playgrounds
 ├── assets/
-│   ├── logo.svg                   # Vector shield branding
-│   └── credence-ui.css            # Master ecosystem design system
-├── docs/                          # Technical documentation and guides
-│   ├── intro.md
-│   ├── quickstart.md
-│   ├── feature-parity.md
-│   ├── operator-guide.md
-│   ├── invariants.md
-│   ├── architecture.md
-│   ├── deployment-cloudrun.md
-│   ├── bootstrap-seeds.md
-│   ├── frontend-architecture.md
-│   ├── protocols/                 # 7 Deep dive protocol specifications
-│   │   ├── token-governor.md
-│   │   ├── mesh-protocol.md
-│   │   ├── fastmcp.md
-│   │   ├── scoring.md
-│   │   ├── adversarial-defense.md
-│   │   ├── white-label.md
-│   │   └── benchmark-suite.md
-│   └── tutorials/                 # 8 Step-by-step interactive tutorials
+│   ├── logo.svg                         # Vector shield branding
+│   └── credence-ui.css                  # Master ecosystem design system
+├── docs/                                # Complete technical documentation suite (42 guides/specs)
+│   ├── intro.md                         # Getting Started: Intro & Epistemic Philosophy
+│   ├── quickstart.md                    # Getting Started: CLI, FastMCP & TUI setup
+│   ├── feature-parity.md                # Getting Started: 4-Interface Capability Matrix
+│   ├── playground.md                    # Interactive: Mesh Simulator, SimHash, WebCrypto & Calc
+│   ├── operator-guide.md                # Operations: 10-Section Bootstrap Runbook
+│   ├── invariants.md                    # Invariants: 32 Architectural & Epistemic Invariants
+│   ├── architecture.md                  # Architecture: Multi-Tier Ingestion & Consensus Specs
+│   ├── deployment-cloudrun.md           # Operations: GCP Cloud Run v2 Provisioning
+│   ├── bootstrap-seeds.md               # Operations: 5-Factor Seed Governance & Discovery
+│   ├── frontend-architecture.md         # Architecture: Zero-Build WebCrypto Rationale
+│   ├── cookbooks/                       # 🍳 4 Developer Integration Cookbooks
+│   │   ├── agentic-epistemic-brake.md   # LangGraph, CrewAI & Antigravity SDK
+│   │   ├── taxonomy-engineering.md      # Authoring Namespaced YAML Catalogs
+│   │   ├── morning-feed-sifter.md       # Automated RSS Pre-Ingestion & Briefs
+│   │   └── financial-disclosures.md     # 10-K Filings & ULTRA Thinking Profile
+│   ├── security/                        # 🛡️ 3 Adversarial Security & Red Team Specs
+│   │   ├── adversarial-attack-surface.md# Indirect Prompt Injection & Cloaking
+│   │   ├── grounding-mechanics.md       # Verbatim Grounding & 50% Slash Math
+│   │   └── satire-cloaking-defense.md   # Poe's Law & SPJ-1.6 Cloaking Overrides
+│   ├── blueprints/                      # 🏥 3 Specialized Industry Blueprints
+│   │   ├── health-medical-claims.md     # In Vitro Extrapolation & Clinical Trials
+│   │   ├── election-civic-integrity.md  # Polling Methodology & Voting Deadlines
+│   │   └── synthetic-media-provenance.md# C2PA Metadata & Pink Slime Farm Rings
+│   ├── integrations/                    # 🔌 3 Client Ecosystem Guides
+│   │   ├── browser-extension-mv3.md     # Zero-Build Manifest V3 Browser Extension
+│   │   ├── cli-scripting-guide.md       # jq Pipelines, xargs & GitHub Actions PR Gates
+│   │   └── tui-workstation.md           # Textual TUI Terminal Workstation & Keybindings
+│   ├── mesh-engineering/               # 🕸️ 3 P2P Mesh & Distributed Systems Specs
+│   │   ├── watts-strogatz-dynamics.md   # Small-World Network Topology (N=13, k=4)
+│   │   ├── airgapped-sneakernets.md     # Offline Epistemic Truth Bundles
+│   │   └── dns-srv-discovery.md         # RFC 2782 DNS SRV Dynamic Discovery
+│   ├── protocols/                       # 📜 7 Core Protocol Specifications
+│   │   ├── token-governor.md            # Headroom Economics & Circuit Breakers
+│   │   ├── mesh-protocol.md             # Watts-Strogatz Consensus & Epistemic Relays
+│   │   ├── fastmcp.md                   # FastMCP 2.0 Tools, Resources & Prompts
+│   │   ├── scoring.md                   # Exponential Saturation Math
+│   │   ├── adversarial-defense.md       # Red Team Attack Matrix & SSRF Guards
+│   │   ├── white-label.md               # Federation & Sovereign Organizations
+│   │   └── benchmark-suite.md           # Golden 12 Cross-Profile Evaluation Suite
+│   ├── mathematics/                     # 📐 3 Mathematical Foundations Deep Dives
+│   │   ├── robust-consensus-proofs.md   # Weighted Medians & Galileo Rule Proof
+│   │   ├── simhash-mirror-detection.md  # 64-Bit SimHash & Hamming Distances
+│   │   └── economics-of-truth.md        # BitTorrent Work-Sharing & Cost Model
+│   └── tutorials/                       # 🎓 8 Step-by-Step Interactive Tutorials
 │       ├── 01-clickbait-teardown.md
 │       ├── 02-satire-vs-disinformation.md
 │       ├── 03-claude-cursor-fastmcp.md
@@ -48,32 +74,27 @@ credence-docs/
 │       ├── 06-thirteen-node-chaos-lab.md
 │       ├── 07-air-gapped-and-adhoc-mesh.md
 │       └── 08-sybil-cartel-demolition.md
-├── blog/                          # Sovereign editorial essays (YAML frontmatter)
-│   ├── the-blue-checkmark-is-dead.md
-│   ├── the-anti-diploma-invariant.md
-│   ├── bittorrent-economics-of-fact-checking.md
-│   ├── the-galileo-rule.md
-│   └── giving-claude-and-cursor-an-epistemic-brake.md
-├── AGENTS.md                      # Master ecosystem guidelines & invariants
-├── LICENSE                        # Apache-2.0
-└── README.md
+└── blog/                                # 5 Sovereign Editorial Dispatches
+    ├── the-blue-checkmark-is-dead.md
+    ├── the-anti-diploma-invariant.md
+    ├── bittorrent-economics-of-fact-checking.md
+    ├── the-galileo-rule.md
+    └── giving-claude-and-cursor-an-epistemic-brake.md
 ```
 
 ---
 
 ## Local Development & Preview
 
-Because `credence-docs` is 100% Zero-Build with zero build tools, you can preview it immediately with any static HTTP server:
+Preview the zero-build portal with any static HTTP server:
 
 ```bash
-# Python 3 built-in HTTP server
+# In credence-docs directory
 python3 -m http.server 8080
 
-# Or via just from core repo
+# Or from core repository
 just serve-web
 ```
-
-Open `http://localhost:8080` in your browser.
 
 ---
 
