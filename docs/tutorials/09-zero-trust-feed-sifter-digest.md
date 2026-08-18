@@ -7,6 +7,22 @@ sidebar:
 
 Traditional RSS aggregators and news monitoring tools rely on static whitelists. But static whitelists suffer from an insurmountable vulnerability: **The "Pizza Hut Problem"** — what happens when a trusted publication is quietly acquired, compromised, or shifts editorial policy to covert native advertising?
 
+```mermaid
+flowchart TD
+    A["Target Domain / Webpage"] --> B["Autodiscover Endpoints<br>(link tags & well-known paths)"]
+    B --> C["Pre-Flight Forensic Audit"]
+    C --> D{"Topic Entropy (H) >= 0.70?"}
+    D -- "Yes (Diverse Coverage)" --> E["Dynamic Sifter Active Queue"]
+    D -- "No (Astroturf H < 0.30)" --> F["Quarantine / Evict Feed"]
+    E --> G["Rendezvous Hash (HRW)<br>Swarm Partitioning"]
+    G --> H["Evaluate with Gemini 3.7 Flash<br>Sign Ed25519 Attestation"]
+    H --> I["P2P Gossip Diffusion<br>(92.3% Compute Savings)"]
+    I --> J["Morning Epistemic Digest<br>(CLI, FastMCP 2.0, Newsletter)"]
+```
+
+> [!IMPORTANT]
+> **The Anti-Diploma Invariant**: In Credence, no domain name, masthead badge, or historic reputation grants permanent trust. Every feed is continuously evaluated on empirical evidence, semantic entropy, and verbatim grounding.
+
 In this hands-on tutorial, you will configure Credence to:
 1. **Autodiscover feed endpoints dynamically** from live websites without hardcoded lists.
 2. **Execute Pre-Flight Forensic Audits** evaluating Topic Entropy ($H_{\text{topic}}$) to detect commercial astroturfing before subscribing.
@@ -78,6 +94,21 @@ $$H = -\sum_{i=1}^V p_i \log_2(p_i)$$
 When combined with top-token concentration penalties:
 - **Broad, diverse journalism**: $H \ge 0.70$ (Approved for active rotation).
 - **Repetitive promotional takeovers** (e.g. 85% of articles repeating sponsored product keywords): $H < 0.30 \implies$ **Quarantine Alert**.
+
+### Dynamic Quality & Rotation Thresholds
+
+Credence continuously evaluates the 4-Factor Dynamic Feed Score ($F_j$):
+
+$$F_j = 0.35 \left(1.0 - \frac{\bar{S}_j}{100}\right) + 0.25 G_j + 0.20 H_{\text{topic}} + 0.20 T_{\text{freshness}}$$
+
+| Tier | Quality Score ($F_j$) | Topic Entropy ($H$) | Action & Routing Policy |
+| :--- | :--- | :--- | :--- |
+| **Active Rotation** | $F_j \ge 0.70$ | $H \ge 0.30$ | Full continuous polling, seeded across P2P swarm. |
+| **Probation** | $0.40 \le F_j < 0.70$ | $H \ge 0.30$ | Polled only when cluster token headroom exceeds 50%. |
+| **Quarantine / Eviction** | $F_j < 0.40$ | $H < 0.30$ | **Autonomous eviction**. Peer nodes alerted via gossip. |
+
+> [!TIP]
+> Use the **Zero-Trust Feed Quality Simulator** in the [Interactive Playground](../playground.md#8-zero-trust-dynamic-feed-discovery--quality-fj-simulator) to experiment with different suspicion and entropy weights live in your browser.
 
 ---
 

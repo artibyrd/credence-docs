@@ -15,6 +15,15 @@ export const DOCS_REGISTRY = [
     ]
   },
   {
+    category: "Feature Walkthroughs",
+    items: [
+      { id: "docs/walkthroughs/01-auditing-webpages-and-text", title: "Auditing Webpages & Text", path: "docs/walkthroughs/01-auditing-webpages-and-text.md" },
+      { id: "docs/walkthroughs/02-zero-trust-feed-sifting", title: "Zero-Trust Feed Sifting", path: "docs/walkthroughs/02-zero-trust-feed-sifting.md" },
+      { id: "docs/walkthroughs/03-p2p-mesh-consensus", title: "P2P Mesh Consensus", path: "docs/walkthroughs/03-p2p-mesh-consensus.md" },
+      { id: "docs/walkthroughs/04-morning-digest-briefings", title: "Morning Epistemic Digest", path: "docs/walkthroughs/04-morning-digest-briefings.md" }
+    ]
+  },
+  {
     category: "Platform Portability & Sovereignty",
     items: [
       { id: "docs/portability/multi-model-adapters", title: "Multi-Model Provider Adapters", path: "docs/portability/multi-model-adapters.md" },
@@ -402,6 +411,82 @@ export function parseMarkdown(md) {
 
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i];
+
+    // 0. Tabs Container Block (:::tabs ... :::)
+    if (!inCodeBlock && line.trim().startsWith(':::tabs')) {
+      if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+      if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
+      if (inAlertBox) {
+        html.push(`
+          <div class="alert-box alert-${alertType}">
+            <div class="alert-header">
+              <span class="alert-icon">${alertIcon}</span>
+              <strong>${alertTitle}</strong>
+            </div>
+            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
+          </div>
+        `);
+        inAlertBox = false;
+        alertBuffer = [];
+      }
+
+      let tabBlockLines = [];
+      let j = i + 1;
+      let codeFenceCount = 0;
+      for (; j < lines.length; j++) {
+        const subLine = lines[j];
+        if (subLine.startsWith('```')) {
+          codeFenceCount++;
+        }
+        if (codeFenceCount % 2 === 0 && subLine.trim() === ':::') {
+          break;
+        }
+        tabBlockLines.push(subLine);
+      }
+      i = j; // Advance outer loop index
+
+      // Parse individual tab panels within the tab block
+      const tabEntries = [];
+      let currentTabName = '';
+      let currentTabLines = [];
+
+      for (const tabLine of tabBlockLines) {
+        const tabHeaderMatch = tabLine.match(/^===\s*(.+)$/);
+        if (tabHeaderMatch) {
+          if (currentTabName || currentTabLines.length > 0) {
+            tabEntries.push({ name: currentTabName || 'Tab', content: currentTabLines.join('\n') });
+            currentTabLines = [];
+          }
+          currentTabName = tabHeaderMatch[1].trim();
+        } else {
+          currentTabLines.push(tabLine);
+        }
+      }
+      if (currentTabName || currentTabLines.length > 0) {
+        tabEntries.push({ name: currentTabName || 'Tab', content: currentTabLines.join('\n') });
+      }
+
+      if (tabEntries.length > 0) {
+        const tabGroupHtml = [];
+        tabGroupHtml.push('<div class="tab-group">');
+        tabGroupHtml.push('<div class="tab-header" role="tablist">');
+        tabEntries.forEach((tab, tIdx) => {
+          const isActive = tIdx === 0 ? ' active' : '';
+          const isSelected = tIdx === 0 ? 'true' : 'false';
+          tabGroupHtml.push(`<button type="button" class="tab-btn${isActive}" role="tab" aria-selected="${isSelected}" data-tab-index="${tIdx}" data-tab-name="${escapeHtml(tab.name)}">${escapeHtml(tab.name)}</button>`);
+        });
+        tabGroupHtml.push('</div>');
+        tabGroupHtml.push('<div class="tab-panels">');
+        tabEntries.forEach((tab, tIdx) => {
+          const isActive = tIdx === 0 ? ' active' : '';
+          const renderedInner = parseMarkdown(tab.content);
+          tabGroupHtml.push(`<div class="tab-panel${isActive}" role="tabpanel" data-panel-index="${tIdx}" data-tab-name="${escapeHtml(tab.name)}">${renderedInner}</div>`);
+        });
+        tabGroupHtml.push('</div></div>');
+        html.push(tabGroupHtml.join('\n'));
+      }
+      continue;
+    }
 
     // 1. Code Block boundary check MUST take precedence
     if (line.startsWith('```')) {
@@ -1172,7 +1257,7 @@ export async function loadDocument(docId) {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.1.1';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.2.0';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 
@@ -1204,6 +1289,9 @@ export async function loadDocument(docId) {
     // Render Mermaid diagrams
     await renderMermaidDiagrams();
 
+    // Synchronize tabbed interface groups to preferred interface
+    syncAllTabGroups();
+
     if (target.id === 'docs/playground') {
       setupPlaygroundWidgets();
     }
@@ -1216,6 +1304,77 @@ export async function loadDocument(docId) {
       </div>
     `;
   }
+}
+
+export function activateTabInGroup(group, targetIndex) {
+  const buttons = group.querySelectorAll('.tab-header .tab-btn');
+  const panels = group.querySelectorAll('.tab-panels .tab-panel');
+
+  buttons.forEach((btn, idx) => {
+    if (String(idx) === String(targetIndex)) {
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+    } else {
+      btn.classList.remove('active');
+      btn.setAttribute('aria-selected', 'false');
+    }
+  });
+
+  panels.forEach((panel, idx) => {
+    if (String(idx) === String(targetIndex)) {
+      panel.classList.add('active');
+    } else {
+      panel.classList.remove('active');
+    }
+  });
+}
+
+export function syncAllTabGroups(preferredName) {
+  if (!preferredName) {
+    try {
+      preferredName = localStorage.getItem('credence_preferred_interface');
+    } catch (e) {}
+  }
+  if (!preferredName) return;
+
+  const prefLower = preferredName.toLowerCase().trim();
+  const groups = document.querySelectorAll('.tab-group');
+
+  groups.forEach(group => {
+    const buttons = Array.from(group.querySelectorAll('.tab-header .tab-btn'));
+    if (buttons.length === 0) return;
+
+    // Find matching button: exact match, substring, or fuzzy keyword match
+    let matchIdx = buttons.findIndex(b => {
+      const name = (b.getAttribute('data-tab-name') || b.textContent).toLowerCase().trim();
+      return name === prefLower || name.includes(prefLower) || prefLower.includes(name);
+    });
+
+    if (matchIdx !== -1) {
+      activateTabInGroup(group, matchIdx);
+    }
+  });
+}
+
+// Global click event delegation for GCP-style tab buttons
+if (typeof document !== 'undefined') {
+  document.addEventListener('click', (e) => {
+    const tabBtn = e.target.closest('.tab-btn');
+    if (!tabBtn) return;
+
+    const tabGroup = tabBtn.closest('.tab-group');
+    if (!tabGroup) return;
+
+    const tabName = tabBtn.getAttribute('data-tab-name') || tabBtn.textContent.trim();
+    const tabIndex = tabBtn.getAttribute('data-tab-index');
+
+    try {
+      localStorage.setItem('credence_preferred_interface', tabName);
+    } catch (err) {}
+
+    activateTabInGroup(tabGroup, tabIndex);
+    syncAllTabGroups(tabName);
+  });
 }
 
 export function setupSearch() {

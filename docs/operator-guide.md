@@ -32,13 +32,16 @@ graph TD
     User([User / AI Agent / Peer Node]) --> CF{Cloudflare Edge Network}
     
     CF -->|credence.run| Pages1[Cloudflare Pages: Static Landing & Install Script]
-    CF -->|docs.credence.run| Pages2[Cloudflare Pages: Starlight Documentation Engine]
+    CF -->|docs.credence.run| Pages2[Cloudflare Pages: Zero-Build Documentation Engine]
     CF -->|blog.credence.run| Pages3[Cloudflare Pages: Sovereign Decoupled Blog Repo]
     CF -->|credence.report| Pages4[Cloudflare Pages: Zero-Build Cryptographic Viewer]
     CF -->|seeds.credence.nexus| R2[Cloudflare R2: Signed Bootstrap Seed Manifest]
     CF -->|taxonomies.credence.foundation| GCS[GCS Bucket: Static Taxonomy Catalogs & Root Keys]
     CF -->|mcp.credence.run| CR[GCP Cloud Run: FastMCP 2.0 SSE Engine]
 ```
+
+> [!NOTE]
+> **Zero-Build Invariant**: All web properties (`credence.run`, `docs.credence.run`, `blog.credence.run`, and `credence.report`) run purely on vanilla HTML5, native CSS Custom Properties, and ES modules with **0 npm dependencies and 0 build steps**.
 
 ### Canonical Domain Routing Matrix
 

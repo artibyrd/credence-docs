@@ -7,7 +7,24 @@ description: "Mathematical proofs of the Domain Authority Weighted Median, Byzan
 
 Decentralized consensus over qualitative or factual evaluations cannot rely on simple majority voting or arithmetic means. A cartel of shallow or dishonest nodes could easily manipulate averages.
 
-This document presents the formal mathematical proofs underlying Credence's **Domain Authority Weighted Median** and **The Galileo Rule**.
+```mermaid
+flowchart TD
+    A["Swarm Evaluations (S_1..S_N)"] --> B["Compute Composite Weights<br>W_i = 0.20 Q_i + 0.80 E_i"]
+    B --> C["Sort Evaluations<br>S_(1) <= S_(2) <= ... <= S_(N)"]
+    C --> D["Calculate Domain Authority Weighted Median"]
+    D --> E{"Galileo Check: Grounded Citation (G=1.0)<br>by Authority (W >= 0.70)?"}
+    E -- "Yes (Asymmetric Evidence)" --> F["Preserve Finding<br>(is_outlier = False)"]
+    E -- "No (Ungrounded / Cartel)" --> G["Adopt Weighted Median Consensus"]
+    F & G --> H["Final Cryptographic Consensus Verdict"]
+```
+
+### Consensus Mechanism Comparison
+
+| Mechanism | Sybil Cartel Resistance | Vulnerability to Outliers | Factual Discovery Protection |
+| :--- | :--- | :--- | :--- |
+| **Arithmetic Mean** | ❌ Fails (1 node shifts score by $100/N$) | Extremely High | ❌ Outliers skew truth |
+| **Unweighted Median** | ⚠️ Moderate ($>50\%$ cheap node puppet attack) | Low | ❌ Ignores solitary whistleblowers |
+| **Credence Weighted Median + Galileo** | ✅ **Resilient ($3f+1$ Domain Entropy)** | **Zero (Trimmed)** | ✅ **100% Protected (Asymmetric Grounding)** |
 
 ---
 

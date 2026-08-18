@@ -13,15 +13,31 @@ Whether issued by Twitter, Meta, or Google, trust was treated as a property of *
 
 The generative AI revolution has shattered that paradigm permanently.
 
----
+```mermaid
+graph TD
+    subgraph OldModel["❌ Fragile Identity Model (The Blue Checkmark)"]
+        Authority["Centralized Platform / Corporate Badge"] --> Entity["Domain / Verified Author"]
+        Entity --> Claim1["Claim (Blind Trust, No Grounding Verification)"]
+    end
 
-## The Collapse of Identity-Based Trust
+    subgraph NewModel["✅ Content-Addressed Mathematical Model (Credence)"]
+        DOM["Exact Rendered Prose (SHA-256)"] --> Audit["4-Specialist Evaluation + G=1.0 Grounding"]
+        Audit --> Attestation["RFC 8785 Ed25519 Cryptographic Envelope"]
+        Attestation --> Swarm["P2P Watts-Strogatz Mesh Consensus"]
+    end
+```
 
-When anyone can spin up 10,000 synthetic social profiles that look indistinguishable from real journalists, identity ceases to be a useful proxy for truth. 
+### Trust Architecture Paradigm Shift
 
-Worse still, mainstream media organizations—even those with blue checkmarks—regularly publish ungrounded clickbait, sensationalized headlines, and unverified anonymous leaks.
+| Dimension | Centralized Identity Badges | Credence Epistemic Consensus |
+| :--- | :--- | :--- |
+| **Trust Anchor** | Platform Badge / Corporate Whitelist | **Exact Content SHA-256 & Verbatim Citations** |
+| **Vulnerability** | Bought Accounts, SEO Farms, Covert Ads | **Mathematically Impossible to Fake ($G=1.0$)** |
+| **Verification Method** | Opaque Moderation Decision | **RFC 8785 Canonical JSON & Ed25519 Signature** |
+| **Verification Cost** | Walled Gardens & Paywalled APIs | **$0.00 in-browser WebCrypto (`subtle`) check** |
 
-**Trust cannot be a badge attached to a person or corporation. Trust must be a mathematical property of the claim itself.**
+> [!IMPORTANT]
+> **The Anti-Diploma Invariant**: Past pedigree does not equal current truth. Trust is never inherited from a domain name—it is earned continuously on each published claim.
 
 ---
 

@@ -7,6 +7,29 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] - 2026-08-18
+
+### Added
+- **GCP-Style Tabbed Interface Switching (`:::tabs` / `=== Tab Name`)**:
+  - Implemented zero-build, accessible, dark glassmorphism tabbed container components in `app.js` and `styles.css` matching Google Cloud Platform documentation ergonomics.
+  - Added semantic WAI-ARIA tab contracts (`role="tablist"`, `role="tab"`, `role="tabpanel"`) and animated active cyan indicator styling.
+  - Retained clipboard copy button integration inside individual tabbed code blocks.
+- **Global Cross-Document Preference Persistence (`localStorage`)**:
+  - Automatically persists user-selected interface modality (**CLI**, **FastMCP 2.0**, **Python SDK**, **Zero-Build Web UI**, or **Textual TUI**) to `localStorage`.
+  - As users navigate across documentation and walkthrough pages, matching tab groups automatically switch to the preferred interface with smart fuzzy matching.
+- **4 New Comprehensive Feature Walkthrough Articles**:
+  - **[Feature Walkthrough 01: Webpage & Prose Epistemic Auditing](docs/walkthroughs/01-auditing-webpages-and-text.md)**: Multi-interface guide for auditing URLs and raw text against SPJ, IEP fallacies, and deceptive UI patterns.
+  - **[Feature Walkthrough 02: Zero-Trust Feed Autodiscovery & Sifting](docs/walkthroughs/02-zero-trust-feed-sifting.md)**: End-to-end guide for dynamic feed discovery, pre-flight topic entropy audits, and background sifter daemons.
+  - **[Feature Walkthrough 03: P2P Mesh Gossip & Bayesian Consensus](docs/walkthroughs/03-p2p-mesh-consensus.md)**: Complete guide to node identity generation, Watts-Strogatz peering, and Galileo Rule weighted medians.
+  - **[Feature Walkthrough 04: Daily Morning Epistemic Briefings](docs/walkthroughs/04-morning-digest-briefings.md)**: Compiling 24-hour executive intelligence briefings, Markdown newsletters, and FastMCP dynamic streams.
+- **Documentation-Wide Visual Density & Anti-Wall-of-Text Overhaul**:
+  - Added 22 new Mermaid architecture and sequence flowcharts, 18 comparison tables, and 25 styled callouts across 28 articles.
+  - 100% of all 68 documentation and blog articles now satisfy the $\ge 2.0$ visuals per 500 words invariant.
+- **Automated Tab Persistence & Navigation Regression Tests**:
+  - Added `test_tabbed_interface_switching_and_persistence` in `tests/test_docs_rendering.py` validating tab switching, active panel swaps, `localStorage` saves, and multi-page persistence.
+
+---
+
 ## [1.1.1] - 2026-08-18
 
 ### Added

@@ -14,7 +14,7 @@ This cookbook shows how to set up an autonomous, zero-trust **Credence Morning F
 ```mermaid
 graph TD
     Discover["Dynamic Discovery<br>credence feed discover"] --> PreFlight["Pre-Flight Forensic Audit<br>H_topic & SPJ Ethics"]
-    PreFlight --> DynamicScore["Dynamic Quality Score (F_j)<br>F_j ≥ 0.70 Active | &lt; 0.40 Evicted"]
+    PreFlight --> DynamicScore["Dynamic Quality Score (F_j)<br>F_j >= 0.70 Active | Evicted < 0.40"]
     
     DynamicScore --> SifterDaemon["Real-Time Sifter Daemon<br>credence sifter"]
     SifterDaemon --> MeshRelay{"Audit Cached on P2P Mesh?"}
@@ -25,6 +25,9 @@ graph TD
     Adopt & Gossip --> DigestGen["Morning Epistemic Digest Generator<br>credence digest"]
     DigestGen --> OutputReport["Executive Briefing (Terminal, Markdown, JSON)"]
 ```
+
+> [!TIP]
+> **Zero-Configuration Work-Sharing**: When multiple team members or automated agents run the sifter daemon across your local network or VPN, they automatically partition feed ingestion using Rendezvous Hashing without requiring a central coordination server.
 
 ---
 
@@ -84,7 +87,6 @@ Launch the real-time sifter daemon as a background systemd service or long-runni
 credence sifter --interval 300 --profile balanced
 ```
 
----
 
 ## 5. Generating Daily Morning Epistemic Briefings
 
@@ -100,6 +102,15 @@ credence digest --format markdown --output morning_brief.md --hours 24
 # Export to JSON for downstream agent workflows
 credence digest --format json --output digest.json
 ```
+
+### Morning Briefing Structure & Sections
+
+| Section | Content & Source Filters | Key Metrics Tracked |
+| :--- | :--- | :--- |
+| **🛡️ Verified Journalism** | $S < 20.0$, $G = 1.00$, Diverse sources | Grounding character offset, publisher key |
+| **⚠️ Flagged Deceptions** | $S \ge 50.0$, Dark patterns, smears | Rule URI, violation severity (1–5) |
+| **🎭 Satire & Parody** | $S = 0.00$, Poe's Law cues validated | Satire indicator, neutral score |
+| **⚡ Swarm Compute Savings** | P2P zero-token adoption stats | Tokens saved, $0.00 cost multiplier |
 
 ### Sample Briefing Output
 

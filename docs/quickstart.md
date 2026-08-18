@@ -7,23 +7,48 @@ description: "Get started with Credence CLI, FastMCP 2.0 server, and Textual TUI
 
 Get started with the Credence CLI, FastMCP 2.0 server, and Textual TUI workstation in minutes.
 
+```mermaid
+flowchart LR
+    Step1["1. Install<br>curl -fsSL credence.run | sh"] --> Step2["2. Run Audit<br>credence audit <url>"]
+    Step2 --> Step3["3. Choose Interface"]
+    Step3 --> TUI["Terminal Workstation<br>credence tui"]
+    Step3 --> MCP["AI Assistant Tool<br>FastMCP stdio/SSE"]
+    Step3 --> Web["Zero-Build Web<br>credence.report"]
+```
+
+### Operational Cost Profiles
+
+| Profile | Target Latency | Thinking Tokens | Cost per 1k Audits | Best For |
+| :--- | :--- | :--- | :--- | :--- |
+| **`FREE`** | < 0.1s | 0 tokens (Offline) | **$0.00** | Hermetic CI/CD, offline air-gap |
+| **`BALANCED`** | 2.4s – 3.8s | 1,024 – 4,096 tokens | **$0.34 – $0.68** | Daily news, RSS sifter (Default) |
+| **`ULTRA`** | 5.0s – 8.0s | 8,192 – 16,384 tokens | **$1.10 – $2.20** | Deep investigative 10-K & legal filings |
+
+> [!TIP]
+> **Token Headroom Safety**: Credence includes an automatic circuit breaker that falls back to 100% offline structural heuristics whenever your API budget reaches 30% remaining headroom.
+
 ---
 
 ## 1. Quick Installation
 
-### Option A: POSIX One-Liner Install
-
+:::tabs
+=== POSIX One-Liner (macOS & Linux)
 ```bash
 curl -fsSL https://credence.run/install.sh | bash
 ```
 
-### Option B: Local Repository Installation
-
+=== Git Clone & Poetry
 ```bash
 git clone https://github.com/artibyrd/credence.git
 cd credence
 poetry install
 ```
+
+=== Docker Container
+```bash
+docker run -d -p 8000:8000 -p 8765:8765 ghcr.io/artibyrd/credence:latest
+```
+:::
 
 ---
 

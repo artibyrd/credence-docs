@@ -9,6 +9,20 @@ Credence's evaluation engine is completely decoupled from hardcoded heuristics. 
 
 This guide walks you through authoring a new domain taxonomy catalog (e.g. for `FINANCIAL_DISCLOSURES` or `MEDICAL_CLAIMS`).
 
+```mermaid
+graph TD
+    Domain["Domain: FINANCIAL_DISCLOSURES"] --> Cluster1["Cluster: PROJECTIONS"]
+    Domain --> Cluster2["Cluster: REVENUE_RECOGNITION"]
+    Cluster1 --> Rule1["Rule: ungrounded_ebitda@1.0.0 (Severity 4)"]
+    Cluster1 --> Rule2["Rule: unsupported_guidance@1.0.0 (Severity 3)"]
+    
+    Rule1 --> Invariant["Pinned SHA-256 Hash Verification"]
+    Invariant --> Evaluator["Multi-Agent Auditor Invocation"]
+```
+
+> [!IMPORTANT]
+> **Immutable URI Invariant**: Rule IDs are permanently pinned by catalog SHA-256 digests. Evaluator models cannot invent ad-hoc rules outside the active registered taxonomy.
+
 ---
 
 ## 1. Catalog Architecture & Namespacing

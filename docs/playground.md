@@ -7,6 +7,38 @@ description: "In-browser WebCrypto Ed25519 verification, 13-node mesh gossip sim
 
 Experience Credence's core mathematical models, cryptographic verification, and distributed consensus in real time directly inside your browser. All tools below run **100% client-side** using standard W3C Web APIs with zero external dependencies.
 
+```mermaid
+graph TD
+    subgraph Browser["100% Client-Side In-Browser Runtime (Zero-Build)"]
+        W1["1. 13-Node Mesh Simulator"]
+        W2["2. SimHash-64 & Hamming"]
+        W3["3. Quote Grounding G=1.0"]
+        W4["4. Saturation Curve"]
+        W5["5. WebCrypto Ed25519"]
+        W6["6. Taxonomy Explorer"]
+        W7["7. Pareto Model Comparator"]
+        W8["8. Feed Sifter Simulator"]
+    end
+
+    WebAPIs["W3C Web Standards (WebCrypto subtle, SVG DOM, ES Modules)"] --> Browser
+```
+
+### Interactive Playground Directory
+
+| Widget | Interactive Model | Core Web Standard |
+| :--- | :--- | :--- |
+| **1. 13-Node Mesh Gossip** | Watts-Strogatz epidemic diffusion & splits | SVG Canvas & DOM Event Animation |
+| **2. SimHash-64 & Hamming** | 64-bit locality-sensitive hashing | Bitwise XOR & popcount |
+| **3. Grounding Validator** | $G=1.00$ character-offset substring locator | Unicode NFKC & Whitespace Collapser |
+| **4. Saturation Calculator** | Exponential asymptotic score curve | Floating-point Math equations |
+| **5. WebCrypto Verifier** | RFC 8785 Ed25519 signature checks | W3C `window.crypto.subtle` |
+| **6. Taxonomy Explorer** | Real-time fuzzy rule search | JSON Catalog Client Filters |
+| **7. Model Comparator** | Pareto frontier cost/thinking explorer | Interactive SVG Range Sliders |
+| **8. Feed Sifter Simulator** | 4-factor dynamic feed score ($F_j$) | Real-time Slider Formula Engine |
+
+> [!TIP]
+> **Zero Network Overhead**: None of these playgrounds make backend server calls. All cryptographic verification, hashing, and graph animations run entirely within your local browser.
+
 ---
 
 ## 1. 13-Node Watts-Strogatz Mesh Gossip Simulator

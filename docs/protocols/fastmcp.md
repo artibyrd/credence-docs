@@ -9,12 +9,34 @@ sidebar:
 
 Credence implements a fully compliant **Model Context Protocol (FastMCP 2.0)** server allowing AI coding assistants (Antigravity, Claude Desktop, Cursor, and custom autonomous agents) to invoke epistemic tools and inspect live taxonomy resources.
 
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Agent as AI Assistant (Claude / Cursor / Antigravity)
+    participant MCP as Credence FastMCP 2.0 Server
+    participant Engine as Epistemic Audit Pipeline
+    participant Mesh as P2P Trust Mesh
+
+    Agent->>MCP: GET /sse (Establish Event Stream)
+    MCP-->>Agent: SSE Endpoint Assigned (session_id)
+    Agent->>MCP: POST /messages (tools/call: credence_check_url)
+    MCP->>Engine: Run 4-Specialist Audit & Verbatim Grounding
+    Engine->>Mesh: Gossip Signed Attestation (RFC 8785 Ed25519)
+    Engine-->>MCP: AuditReport (Score, Findings, Ed25519 Sig)
+    MCP-->>Agent: JSON-RPC Result (Epistemic Verdict)
+```
+
 ---
 
-## 1. Transports Supported
+## 1. Transports & Capabilities Supported
 
-1. **Standard I/O (`stdio`)**: Best for local interactive agents and desktop tools (`credence serve --transport stdio`).
-2. **Server-Sent Events (`SSE / HTTP`)**: Best for multi-agent clusters, remote microservices, and Google Cloud Run (`credence serve --transport sse --port 8000`).
+| Transport | Command | Use Case | Latency |
+| :--- | :--- | :--- | :--- |
+| **Standard I/O (`stdio`)** | `credence serve --transport stdio` | Local IDEs (Cursor, Claude Desktop, Antigravity) | < 1ms |
+| **Server-Sent Events (`SSE`)** | `credence serve --transport sse --port 8000` | Remote Multi-Agent Swarms & GCP Cloud Run | Real-time Stream |
+
+> [!IMPORTANT]
+> **Reverse Proxy Security Settings**: When proxying FastMCP over Cloudflare or reverse proxies, configure `TransportSecuritySettings(enable_dns_rebinding_protection=False, allowed_hosts=["*"], allowed_origins=["*"])` to prevent `Invalid Host` rejections.
 
 ---
 

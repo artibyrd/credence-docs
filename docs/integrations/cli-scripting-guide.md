@@ -5,7 +5,27 @@ description: "Advanced shell automation using JSON output, jq filtering, paralle
 
 The **`credence` CLI** is built with rich formatting for human terminals and structured JSON streams for shell automation, CI/CD pipelines, and data processing.
 
-This guide provides practical command-line recipes for advanced developers and DevOps engineers.
+```mermaid
+flowchart LR
+    A["Input Stream<br>(URLs / RSS / Text)"] --> B["credence audit --json"]
+    B --> C{"Score Evaluation"}
+    C -- "Score < 25.0 (Reliable)" --> D["Pass CI Gate (Exit 0)"]
+    C -- "Score >= 50.0 (Flagged)" --> E["Block / Alert (Exit 1)"]
+    B --> F["jq / xargs Automation"]
+    F --> G["Slack Webhooks / JSON DB"]
+```
+
+### CLI Exit Codes & CI Behavior
+
+| Exit Code | Classification | Meaning & Recommended CI Action |
+| :--- | :--- | :--- |
+| **`0`** | `RELIABLE / GROUNDED` | Suspicion score $< 25.0$, all citations verified. Pass PR. |
+| **`1`** | `QUESTIONABLE / DECEPTIVE` | Suspicion score $\ge 50.0$, fallacies or deceptive patterns detected. Fail PR. |
+| **`2`** | `OFFLINE HEURISTIC` | Evaluated under offline structural rules (quota preserved). |
+| **`3`** | `INGESTION ERROR` | Network timeout, SSRF rejection, or invalid target format. |
+
+> [!TIP]
+> **Zero-Cost CI Runs**: Use `--profile FREE` in GitHub Actions and GitLab CI to run 100% offline structural heuristic audits in $< 0.1\text{s}$ at **$0.00 token cost**.
 
 ---
 

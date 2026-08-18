@@ -36,9 +36,37 @@ Credence solves the Duplication Trap by treating truth attestations like BitTorr
 3. **Multi-Hop Epidemic Gossip**: Node 1 broadcasts the signed envelope across the Watts-Strogatz small-world lattice ($k=4, p=0.15$).
 4. **Zero-Token Adoption**: Nodes 2 through 13 receive the gossip envelope, verify the Ed25519 signature and citation grounding locally in $<1\text{ms}$, and store the attestation in cache.
 
-**Total LLM token spend for 13 nodes: Exactly 1 node ($0.0003 spend). 12 nodes spend $0.00 tokens.**
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Source as RSS / Web Source
+    participant Node1 as Assigned Auditor (Node 1)
+    participant LLM as Gemini 3.7 Flash
+    participant Swarm as 12 Peer Nodes (Nodes 2..13)
+
+    Source->>Node1: Ingest Breaking URL
+    Node1->>LLM: Audit ($0.0003 spend, 4k thinking)
+    LLM-->>Node1: Extracted Violations & Grounded Quotes
+    Note over Node1: Verifies G=1.00 & signs RFC 8785 Ed25519 envelope
+    Node1->>Swarm: Multi-Hop Epidemic Gossip Broadcast
+    Note over Swarm: Verify Ed25519 signature & DOM offset in <1ms
+    Swarm-->>Swarm: Adopt Attestation at $0.00 Token Spend (92.3% Savings)
+```
+
+### Economic Comparison: Centralized Silos vs. P2P Mesh
+
+| Metric | Centralized Siloed AI | Credence BitTorrent Mesh |
+| :--- | :--- | :--- |
+| **Token Cost per 13 Nodes** | 13x Full LLM Inference ($0.0039) | **1x Single Audit ($0.0003)** |
+| **Peer Adoption Cost** | Full API pricing ($15.00/M tokens) | **$0.00 (Zero LLM Tokens)** |
+| **Cluster Compute Savings** | 0.0% (Massive Duplication) | **92.3% Compute Reduction** |
+| **Verification Latency** | 2.5s – 5.0s per agent | **< 1ms local signature check** |
+| **Censorship Vulnerability** | Single Point of Failure (API outage) | **Decentralized Multi-Hop Resilience** |
 
 $$\text{Compute Savings} = \frac{N - 1}{N} = \frac{13 - 1}{13} = 92.3\%$$
+
+> [!NOTE]
+> **Rendezvous Hashing Partitioning**: Work assignment is determined deterministically by $\text{Affinity} = \text{SHA256}(\text{PubKey} \parallel \text{URL})$, requiring zero central coordinator or master scheduler.
 
 ---
 
@@ -120,6 +148,9 @@ In classical voting systems, a simple majority rules. But in Credence, **reputat
 * **The Galileo Rule Invariant**: A single verified domain authority submitting 100% grounded citations cannot be dismissed by a colluding cartel of ungrounded Sybil nodes ($N \ge 3f + 1$).
 
 When a rogue node broadcasts a hallucinated quote, peer nodes detect the ungrounded citation locally, discard the fake attestation, and **slash the rogue node's quality score by 50%**.
+
+> [!WARNING]
+> **50% Slashing Penalty**: Any node publishing citations that fail verbatim DOM substring grounding ($G < 1.0$) immediately incurs a 50% reputation slash, dropping its consensus voting weight below the quarantine threshold.
 
 ---
 

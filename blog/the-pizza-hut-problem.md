@@ -36,8 +36,11 @@ graph TD
     DynamicAudit["🛡️ Credence Zero-Trust Engine<br>(Continuous Metric Evaluation)"] --> PreFlight["Pre-Flight Forensic Audit"]
     PreFlight --> TopicEntropy["Calculate Shannon Topic Entropy (H_topic)"]
     TopicEntropy --> DynamicScore["Dynamic Quality Metric (F_j)"]
-    DynamicScore --> AutonomousEviction["Automatic Eviction & Quarantine<br>(F_j &lt; 0.40)"]
+    DynamicScore --> AutonomousEviction["Automatic Eviction & Quarantine<br>(Evicted when F_j < 0.40)"]
 ```
+
+> [!IMPORTANT]
+> **Dynamic Trust Invariant**: Credence never relies on static domain whitelists. Every outlet is continuously re-evaluated on live topic entropy, verbatim citation grounding, and empirical suspicion metrics.
 
 ---
 
@@ -54,6 +57,14 @@ Where:
 In a healthy newsroom covering world events, economics, science, and culture, token frequency is widely distributed across thousands of distinct concepts. **Topic entropy is high ($H \ge 0.70$)**.
 
 When an outlet pivots to commercial promotion, sponsored native ads, or astroturfing, specific branded keywords (e.g., *"pizza"*, *"order"*, *"coupon"*, *"discount"*) consume 30% to 50% of the total token distribution. **Topic entropy collapses ($H < 0.30$)**.
+
+### Topic Entropy ($H$) & Concentration ($C_{\text{top3}}$) Thresholds
+
+| Journalistic State | Shannon Entropy ($H$) | Top-3 Token Concentration ($C_{\text{top3}}$) | Sifter Ingestion Action |
+| :--- | :--- | :--- | :--- |
+| **Diverse Journalism** | $H \ge 0.70$ | $C_{\text{top3}} \le 12.0\%$ | ✅ **Active Ingestion & Swarm Seeding** |
+| **Focused Editorial** | $0.40 \le H < 0.70$ | $12.0\% < C_{\text{top3}} \le 25.0\%$ | ⚠️ **Probation (Conditional Polling)** |
+| **Astroturfing Takeover** | $H < 0.30$ | $C_{\text{top3}} > 35.0\%$ | 🚨 **Autonomous Eviction & Quarantine Alert** |
 
 ---
 

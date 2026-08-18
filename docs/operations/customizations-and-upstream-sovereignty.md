@@ -47,6 +47,18 @@ graph TD
     Core -.->|Upstream Dependency| InitOrg
 ```
 
+### Customization Layer Separation Matrix
+
+| Layer | Files & Paths | Git Status | Upstream Commit Policy |
+| :--- | :--- | :--- | :--- |
+| **1. Upstream Core** | `credence/`, `taxonomies/*.yaml` | Tracked in Git | ✅ Merged via PR (Universal standards only) |
+| **2. Runtime State** | `data/credence.db`, `data/logs/` | **.gitignored** | ❌ Never committed (Local SQLite database) |
+| **3. Config Overlays** | `config/*.local.yaml` | **.gitignored** | ❌ Never committed (Local town/entity graphs) |
+| **4. Sovereign Orgs** | `/srv/credence-org/` | Independent Repo | 🏢 Separate sovereign git repository |
+
+> [!WARNING]
+> **Strict Upstream Neutrality**: Never commit hyper-local news outlets, local politician entity maps, or proprietary credentials to the core `credence` repository. Always use local overlays (`*.local.yaml`) or sovereign organization workspaces.
+
 ---
 
 ## 🔍 Layer Breakdown & Boundaries

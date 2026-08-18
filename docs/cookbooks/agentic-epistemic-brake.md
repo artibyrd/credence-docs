@@ -22,6 +22,18 @@ graph TD
     Check -- "No (Deceptive / Disinfo)" --> Quarantine["Quarantine URL & Signal Alternative Source"]
 ```
 
+### Agentic Verification Decision Policy
+
+| Suspicion Score ($S$) | Classification | Agent Behavior & Policy |
+| :--- | :--- | :--- |
+| **$S < 25.0$** | `RELIABLE` | ✅ Ingest source directly into context window |
+| **$25.0 \le S < 50.0$** | `NEUTRAL / OPINION` | ⚠️ Ingest with warning tag to prompt synthesizer |
+| **$S \ge 50.0$** | `QUESTIONABLE / DECEPTIVE` | 🛑 **Trigger Epistemic Brake**: Discard URL & query alternate source |
+| **Satire Detected** | `SATIRE / PARODY` | 🎭 Pass satire label to avoid taking jokes literally |
+
+> [!TIP]
+> **Context Isolation**: When ingesting external text, always enclose it in `<untrusted_source_text>` tags to prevent malicious websites from injecting system prompt overrides.
+
 ---
 
 ## 2. Python Recipe: LangGraph & Custom Agents

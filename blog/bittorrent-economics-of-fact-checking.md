@@ -13,6 +13,31 @@ If 100 developers, newsrooms, and AI agent frameworks each independently ingest 
 
 Why are 100 different computers doing the exact same evaluation 100 times?
 
+```mermaid
+graph LR
+    subgraph SwarmEconomics["Cooperative Work-Sharing Economics"]
+        Feed["High-Volume Feed Stream<br>(500 Articles/day)"] --> Part["Consistent Hashing Partition"]
+        Part --> N1["Node 1 (Audits Feed Part A)"]
+        Part --> N2["Node 2 (Audits Feed Part B)"]
+        Part --> N3["Node 3 (Audits Feed Part C)"]
+        N1 & N2 & N3 --> Mesh["P2P Watts-Strogatz Lattice"]
+        Mesh --> Adopt["All 13 Nodes Cache Full Stream<br>(92.3% Savings at $0.00 Tokens)"]
+    end
+```
+
+### Swarm Scaling & Monthly LLM API Cost
+
+| Swarm Size ($N$) | Centralized Redundant Cost (500 Arts/day) | Credence P2P Mesh Cost | Net Compute Savings |
+| :--- | :--- | :--- | :--- |
+| **1 Node** | $45.00 / month | $45.00 / month | 0.0% |
+| **5 Nodes** | $225.00 / month | $45.00 / month | **80.0%** |
+| **13 Nodes (Default)** | $585.00 / month | $45.00 / month | **92.3%** |
+| **50 Nodes** | $2,250.00 / month | $45.00 / month | **98.0%** |
+| **100 Nodes** | $4,500.00 / month | $45.00 / month | **99.0%** |
+
+> [!NOTE]
+> **Zero-Token Attestation Adoption**: Peer nodes verify RFC 8785 Ed25519 envelopes and DOM character offsets in $< 1\text{ms}$ using local CPU cycles, consuming exactly **0 LLM API tokens**.
+
 ---
 
 ## Lessons from BitTorrent: Divide, Sign, and Seed

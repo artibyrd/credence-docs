@@ -7,6 +7,33 @@ description: "Deploying the Credence FastMCP server and mesh relays to AWS ECS F
 
 While our reference Terraform infrastructure targets **Google Cloud Platform (Cloud Run v2)**, Credence is packaged as a lightweight, standard OCI container that can run seamlessly on any cloud provider or bare-metal VPS.
 
+```mermaid
+graph TD
+    subgraph MultiCloud["Decentralized Multi-Cloud Mesh Federation"]
+        GCP["GCP Cloud Run v2<br>(FastMCP SSE Reference)"]
+        AWS["AWS ECS Fargate<br>(Scale-to-Zero Container)"]
+        Azure["Azure Container Apps<br>(Managed Ingress)"]
+        Hetzner["Hetzner Cloud / VPS<br>(Sovereign $5/mo CAX11)"]
+        K8s["Bare-Metal k3s / K8s<br>(Air-Gapped Newsroom)"]
+    end
+
+    CF["Cloudflare Multi-Domain Edge CDN"] --> GCP & AWS & Azure & Hetzner & K8s
+    GCP <-->|P2P Gossip 8765| AWS
+    AWS <-->|P2P Gossip 8765| Azure
+    Azure <-->|P2P Gossip 8765| Hetzner
+    Hetzner <-->|P2P Gossip 8765| K8s
+```
+
+### Multi-Cloud Provider Matrix
+
+| Platform | Recommended Target | Monthly Cost | Scale-to-Zero | Sovereignty Level |
+| :--- | :--- | :--- | :--- | :--- |
+| **GCP Cloud Run v2** | Reference FastMCP SSE deployment | $0.00 – $5.00 | ✅ Yes | Commercial Cloud |
+| **AWS ECS Fargate** | Enterprise AWS environments | $8.00 – $15.00 | ⚠️ Minimum 1 task | Commercial Cloud |
+| **Azure Container Apps** | Microsoft Azure stacks | $0.00 – $5.00 | ✅ Yes | Commercial Cloud |
+| **Hetzner Cloud (CAX11)** | Dedicated sovereign nodes | **$4.00 fixed** | ❌ Always-on | **100% Sovereign EU** |
+| **Bare-Metal / k3s** | Air-gapped newsrooms | **$0.00 (Self-hosted)** | ❌ Always-on | **100% Air-Gapped** |
+
 ---
 
 ## 1. AWS Deployment (ECS Fargate & Secrets Manager)

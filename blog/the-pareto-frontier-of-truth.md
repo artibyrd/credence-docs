@@ -29,6 +29,17 @@ When building **Credence**—our autonomous, decentralized truth and deception e
 
 The empirical results were striking. Flagship Pro models were not just **30x to 50x more expensive** and **10x slower**; they actually produced **inferior truth audits** on complex human discourse.
 
+```mermaid
+graph LR
+    A["News / Discourse Input"] --> B{"Model Selection"}
+    B --> C["Flagship Pro Models ($18.29/1k)<br>23.9s Latency | Over-analysis & Hallucination"]
+    B --> D["Gemini 3.7 Flash 4k ($0.55/1k)<br>3.8s Latency | 100% Grounded & Satire Neutral"]
+    B --> E["Offline Heuristics ($0.00/1k)<br>0.0s Latency | Structural Safety Net"]
+```
+
+> [!IMPORTANT]
+> **The 4,096 Thinking Token Invariant**: In accordance with Golden 12 cross-model benchmarks, Gemini 3.7 Flash with a 4,096 thinking token budget represents the optimal Pareto frontier ($0.34–$0.68/1k audits, 2.4s–5.1s latency) achieving 100% verbatim grounding without flagship cost penalties.
+
 ---
 
 ## 2. The Empirical Benchmark Matrix

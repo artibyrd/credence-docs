@@ -7,6 +7,24 @@ description: "Core architectural invariants, mathematical rules, and safety cons
 
 This document outlines mandatory rules and design invariants for human contributors and AI agents working on Credence.
 
+```mermaid
+graph TD
+    subgraph Invariants["32 Core Agent & Architectural Invariants"]
+        Pillar1["1. Engineering & Runtime Safety<br>(Hermetic CI, SSRF Guard, Red Team, Mk1 Eyeball)"]
+        Pillar2["2. Epistemic Scoring & Ingestion<br>(Topic Entropy, Poe's Law, G=1.0 Grounding)"]
+        Pillar3["3. Cryptographic Mesh & Authority<br>(RFC 8785, Ed25519, Anti-Diploma, Galileo Rule)"]
+        Pillar4["4. Universal Presentation & Web<br>(4-Way Parity, Zero-Build, Zero-npm, Math Unicode)"]
+    end
+
+    Pillar1 --> Core["Autonomous Epistemic Trust Engine"]
+    Pillar2 --> Core
+    Pillar3 --> Core
+    Pillar4 --> Core
+```
+
+> [!IMPORTANT]
+> **Continuous Verification Invariant**: All code changes must pass the hermetic test suite (`pytest tests/test_docs_integrity.py tests/test_docs_rendering.py`) with zero network dependencies before presenting for human review ("Mk1 Eyeball").
+
 ---
 
 ## 1. Core Engineering & Runtime Safety
