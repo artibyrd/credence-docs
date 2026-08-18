@@ -14,6 +14,16 @@ export const DOCS_REGISTRY = [
     ]
   },
   {
+    category: "Platform Portability & Sovereignty",
+    items: [
+      { id: "docs/portability/multi-model-adapters", title: "Multi-Model Provider Adapters", path: "docs/portability/multi-model-adapters.md" },
+      { id: "docs/portability/gemini-economic-rationale", title: "ADR: Why Gemini 3.7 Flash", path: "docs/portability/gemini-economic-rationale.md" },
+      { id: "docs/portability/multi-cloud-deployment", title: "Multi-Cloud (AWS, Azure, Hetzner, K8s)", path: "docs/portability/multi-cloud-deployment.md" },
+      { id: "docs/portability/universal-agent-interop", title: "Universal Agent Interoperability", path: "docs/portability/universal-agent-interop.md" },
+      { id: "docs/portability/local-llm-airgap", title: "Zero-Cloud Sovereign Local LLMs", path: "docs/portability/local-llm-airgap.md" }
+    ]
+  },
+  {
     category: "Hands-On Tutorials",
     items: [
       { id: "docs/tutorials/01-clickbait-teardown", title: "01. Clickbait Teardown", path: "docs/tutorials/01-clickbait-teardown.md" },
@@ -137,22 +147,27 @@ const SAMPLE_TAXONOMY_RULES = [
   { uri: "ELECTION_INTEGRITY:PROCEDURES/false_deadline@1.0.0", severity: 5, cluster: "Voting Procedures", desc: "Misrepresenting official voter registration or mail-in ballot deadlines." }
 ];
 
-// Helper: Escape HTML
+// Models Matrix for Comparator
+const MODELS_PRICING = [
+  { name: "Google Gemini 3.7 Flash", inputPerM: 0.075, outputPerM: 0.30, ttft: "450ms", badge: "DEFAULT / ULTRA-LOW COST", badgeClass: "reliable", sovereignty: "Google Cloud API" },
+  { name: "Local Ollama (Llama 3.3 70B)", inputPerM: 0.00, outputPerM: 0.00, fixedMonthly: 4.00, ttft: "800ms", badge: "100% AIR-GAPPED PRIVATE", badgeClass: "reliable", sovereignty: "Zero-Cloud Sovereign" },
+  { name: "DeepSeek-R1 (API)", inputPerM: 0.55, outputPerM: 2.19, ttft: "2500ms", badge: "OPEN-WEIGHTS REASONING", badgeClass: "mixed", sovereignty: "DeepSeek API" },
+  { name: "OpenAI GPT-4o", inputPerM: 2.50, outputPerM: 10.00, ttft: "900ms", badge: "ENTERPRISE AZURE / OPENAI", badgeClass: "mixed", sovereignty: "OpenAI / Microsoft" },
+  { name: "Anthropic Claude 3.7 Sonnet", inputPerM: 3.00, outputPerM: 15.00, ttft: "1200ms", badge: "HIGH-NUANCE THINKING", badgeClass: "suspicious", sovereignty: "Anthropic API" }
+];
+
 function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
 }
 
-// 64-Bit SimHash in pure JS
 function computeSimHash(str) {
   const tokens = str.toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/).filter(Boolean);
   if (tokens.length === 0) return '0'.repeat(16);
 
   const v = new Array(64).fill(0);
-
   tokens.forEach(tok => {
-    // 32-bit FNV-1a hash extended to 64-bit representation
     let h1 = 0x811c9dc5;
     let h2 = 0x5b79a12f;
     for (let i = 0; i < tok.length; i++) {
@@ -161,7 +176,6 @@ function computeSimHash(str) {
       h2 ^= tok.charCodeAt(i) * (i + 1);
       h2 = Math.imul(h2, 0x01000193);
     }
-
     for (let bit = 0; bit < 32; bit++) {
       v[bit] += (h1 & (1 << bit)) ? 1 : -1;
       v[bit + 32] += (h2 & (1 << bit)) ? 1 : -1;
@@ -181,7 +195,6 @@ function computeSimHash(str) {
   return hex;
 }
 
-// Hamming Distance between two hex strings
 function getHammingDistance(hexA, hexB) {
   let dist = 0;
   for (let i = 0; i < Math.min(hexA.length, hexB.length); i += 2) {
@@ -196,7 +209,6 @@ function getHammingDistance(hexA, hexB) {
   return dist;
 }
 
-// Lightweight Zero-Dependency Markdown Parser
 function parseMarkdown(md) {
   let text = md.replace(/^---[\s\S]*?---\s*/, '');
 
@@ -426,18 +438,15 @@ function setupPlaygroundWidgets() {
     if (!svg) return;
     let svgContent = '';
 
-    // Draw regular ring edges (k=4) + shortcuts
     for (let i = 0; i < N; i++) {
       for (let offset of [1, 2]) {
         const j = (i + offset) % N;
         svgContent += `<line x1="${nodes[i].x}" y1="${nodes[i].y}" x2="${nodes[j].x}" y2="${nodes[j].y}" stroke="rgba(56, 189, 248, 0.2)" stroke-width="1.5" />`;
       }
     }
-    // Shortcuts (Watts-Strogatz rewiring)
     svgContent += `<line x1="${nodes[0].x}" y1="${nodes[0].y}" x2="${nodes[6].x}" y2="${nodes[6].y}" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.5" stroke-dasharray="4,4" />`;
     svgContent += `<line x1="${nodes[2].x}" y1="${nodes[2].y}" x2="${nodes[9].x}" y2="${nodes[9].y}" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.5" stroke-dasharray="4,4" />`;
 
-    // Draw nodes
     nodes.forEach(n => {
       let fill = '#0ea5e9';
       if (n.infected) fill = '#22c55e';
@@ -459,20 +468,17 @@ function setupPlaygroundWidgets() {
     nodes.forEach(n => n.infected = false);
     renderMeshSVG();
 
-    // Hop 1
     nodes[0].infected = true;
     renderMeshSVG();
     logBox.className = "widget-status idle";
     logBox.innerHTML = `<strong>Hop 0 (0ms):</strong> Node 1 signs and broadcasts audit report.`;
 
     await new Promise(r => setTimeout(r, 400));
-    // Hop 1: Neighbors (2, 3, 12, 13, 7 via shortcut)
     [1, 2, 6, 11, 12].forEach(idx => nodes[idx].infected = true);
     renderMeshSVG();
     logBox.innerHTML += `<br><strong>Hop 1 (120ms):</strong> Attestation diffused to 5 peer nodes.`;
 
     await new Promise(r => setTimeout(r, 400));
-    // Hop 2: Remaining nodes
     nodes.forEach(n => n.infected = true);
     renderMeshSVG();
     logBox.className = "widget-status verified";
@@ -682,6 +688,66 @@ function setupPlaygroundWidgets() {
 
   taxSearch?.addEventListener('input', (e) => renderTaxonomy(e.target.value));
   renderTaxonomy();
+
+  // 7. Multi-Model Cost, Latency & Sovereignty Comparator
+  const artSlider = document.getElementById('comp-articles-slider');
+  const lenSlider = document.getElementById('comp-length-slider');
+  const artVal = document.getElementById('comp-articles-val');
+  const lenVal = document.getElementById('comp-length-val');
+  const cardsContainer = document.getElementById('model-cards-container');
+
+  function updateModelComparator() {
+    if (!artSlider || !lenSlider || !cardsContainer) return;
+    const dailyArticles = parseInt(artSlider.value, 10);
+    const avgWords = parseInt(lenSlider.value, 10);
+
+    if (artVal) artVal.textContent = dailyArticles.toLocaleString();
+    if (lenVal) lenVal.textContent = avgWords.toLocaleString();
+
+    // 1 word ~= 1.33 tokens. Plus ~1,500 thinking/output tokens per audit
+    const inputTokensPerAudit = Math.round(avgWords * 1.33);
+    const outputTokensPerAudit = 1500;
+    const monthlyArticles = dailyArticles * 30;
+
+    const totalMonthlyInputTokensM = (monthlyArticles * inputTokensPerAudit) / 1000000;
+    const totalMonthlyOutputTokensM = (monthlyArticles * outputTokensPerAudit) / 1000000;
+
+    cardsContainer.innerHTML = MODELS_PRICING.map(m => {
+      let cost = 0;
+      if (m.fixedMonthly !== undefined) {
+        cost = m.fixedMonthly;
+      } else {
+        cost = (totalMonthlyInputTokensM * m.inputPerM) + (totalMonthlyOutputTokensM * m.outputPerM);
+      }
+
+      return `
+        <div class="model-comp-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <h4 style="margin: 0; color: #fff; font-size: 1.05rem;">${escapeHtml(m.name)}</h4>
+              <div style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.2rem;">Sovereignty: <strong>${escapeHtml(m.sovereignty)}</strong></div>
+            </div>
+            <span class="verdict-tag ${m.badgeClass}" style="font-size: 0.65rem; padding: 0.2rem 0.5rem;">${escapeHtml(m.badge)}</span>
+          </div>
+
+          <div style="margin: 1rem 0;">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em;">Estimated Monthly Bill</div>
+            <div class="model-price-val">$${cost.toFixed(2)}<span style="font-size: 0.85rem; font-weight: 400; color: var(--text-muted);">/mo</span></div>
+          </div>
+
+          <div class="model-metrics-row">
+            <div>TTFT: <strong>${escapeHtml(m.ttft)}</strong></div>
+            <div>In: <strong>$${m.inputPerM.toFixed(3)}/M</strong></div>
+            <div>Out: <strong>$${m.outputPerM.toFixed(2)}/M</strong></div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  artSlider?.addEventListener('input', updateModelComparator);
+  lenSlider?.addEventListener('input', updateModelComparator);
+  updateModelComparator();
 }
 
 export async function loadDocument(docId) {

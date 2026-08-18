@@ -21,17 +21,23 @@ credence-docs/
 ├── assets/
 │   ├── logo.svg                         # Vector shield branding
 │   └── credence-ui.css                  # Master ecosystem design system
-├── docs/                                # Complete technical documentation suite (42 guides/specs)
+├── docs/                                # Complete technical documentation suite (47 guides/specs)
 │   ├── intro.md                         # Getting Started: Intro & Epistemic Philosophy
 │   ├── quickstart.md                    # Getting Started: CLI, FastMCP & TUI setup
 │   ├── feature-parity.md                # Getting Started: 4-Interface Capability Matrix
-│   ├── playground.md                    # Interactive: Mesh Simulator, SimHash, WebCrypto & Calc
+│   ├── playground.md                    # Interactive: 7 Zero-Build Web Playgrounds
 │   ├── operator-guide.md                # Operations: 10-Section Bootstrap Runbook
 │   ├── invariants.md                    # Invariants: 32 Architectural & Epistemic Invariants
 │   ├── architecture.md                  # Architecture: Multi-Tier Ingestion & Consensus Specs
 │   ├── deployment-cloudrun.md           # Operations: GCP Cloud Run v2 Provisioning
 │   ├── bootstrap-seeds.md               # Operations: 5-Factor Seed Governance & Discovery
 │   ├── frontend-architecture.md         # Architecture: Zero-Build WebCrypto Rationale
+│   ├── portability/                     # 🌐 5 Platform Portability & Sovereignty Specs
+│   │   ├── multi-model-adapters.md      # Claude 3.7, GPT-4o, DeepSeek-R1, Ollama
+│   │   ├── gemini-economic-rationale.md # ADR: 16k Thinking Economics & Rationale
+│   │   ├── multi-cloud-deployment.md    # AWS Fargate, Azure Apps, Hetzner, K8s
+│   │   ├── universal-agent-interop.md   # Claude Desktop, Cursor, Windsurf, Cline
+│   │   └── local-llm-airgap.md          # 100% Private Local LLMs via vLLM / Ollama
 │   ├── cookbooks/                       # 🍳 4 Developer Integration Cookbooks
 │   │   ├── agentic-epistemic-brake.md   # LangGraph, CrewAI & Antigravity SDK
 │   │   ├── taxonomy-engineering.md      # Authoring Namespaced YAML Catalogs

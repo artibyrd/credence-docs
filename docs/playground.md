@@ -160,3 +160,25 @@ $$S_{\text{calibrated}} = 100 \times \left(1 - e^{-S_{\text{raw}} / 12}\right)$$
     </table>
   </div>
 </div>
+
+---
+
+## 7. Multi-Model Cost, Latency & Sovereignty Comparator
+
+Compare estimated monthly operational costs, latency (TTFT), and cloud sovereignty across different frontier APIs and local models:
+
+<div class="interactive-widget" id="model-comparator-widget">
+  <div class="widget-row">
+    <div class="widget-col">
+      <label for="comp-articles-slider" class="widget-label">Daily Audited Articles: <span id="comp-articles-val" class="widget-val">500</span></label>
+      <input type="range" id="comp-articles-slider" min="10" max="2000" step="10" value="500" class="widget-slider">
+
+      <label for="comp-length-slider" class="widget-label">Average Article Length (Words): <span id="comp-length-val" class="widget-val">1,500</span></label>
+      <input type="range" id="comp-length-slider" min="500" max="5000" step="250" value="1500" class="widget-slider">
+    </div>
+  </div>
+
+  <div class="model-cards-grid" id="model-cards-container" style="margin-top: 1.5rem;">
+    <!-- Injected dynamically by app.js -->
+  </div>
+</div>
