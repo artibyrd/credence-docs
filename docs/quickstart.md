@@ -64,7 +64,28 @@ export CREDENCE_GEMINI_API_KEY="your-gemini-api-key"
 
 ---
 
-## 3. Running Your First Audit
+## 3. Instant Node Germination (Rapid "Miracle-Gro" Bootstrap)
+
+Instead of starting with an empty database and zero mesh activity, run `credence germinate` to ignite your node in under 5 seconds:
+
+```bash
+# Rapid node germination: identity genesis, 0-token mesh inoculation, 24 preset feeds, initial burst
+credence germinate
+
+# Or using standard workspace recipe:
+just germinate
+```
+
+This single zero-friction command:
+1. 🔑 **Epistemic Genesis**: Generates and registers your local cryptographic Ed25519 node keypair.
+2. 💧 **Peer Mesh Inoculation**: Fetches verified peer attestations from Genesis seeds (`seeds.credence.nexus`) at **$0.00 token cost**.
+3. 🌱 **Soil Preparation**: Sows 24 preset categorized feed subscriptions across 4 tiers with Rendezvous hashing affinity.
+4. ⚡ **Miracle-Gro Burst**: Audits top novel articles and produces signed local attestations.
+5. 📦 **Web Hydration**: Syncs `reports.json` so the local Zero-Build Web UI (`just serve-web`) is immediately hot and responsive.
+
+---
+
+## 4. Running Your First Audit
 
 Audit any URL directly from your terminal:
 
@@ -94,7 +115,7 @@ Attestation Signed: Ed25519 (Node ID: e4d9...)
 
 ---
 
-## 4. Launching the Textual TUI
+## 5. Launching the Textual TUI
 
 Launch the full-screen terminal workstation with live mesh node monitors, audit history, and real-time epidemic gossip visualizations:
 
@@ -104,7 +125,7 @@ credence tui
 
 ---
 
-## 5. FastMCP 2.0 Integration
+## 6. FastMCP 2.0 Integration
 
 ### Claude Desktop Configuration
 

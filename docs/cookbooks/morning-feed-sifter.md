@@ -46,6 +46,9 @@ credence feed inspect "https://arstechnica.com/feed"
 # 3. Bootstrap diverse categorized presets (investigative tech, science preprints, regional)
 credence feed bootstrap-presets --category investigative-tech
 credence feed bootstrap-presets --category science-preprints
+
+# 4. Or ignite all 24 presets with 0-token mesh peer adoption in 1 command:
+credence germinate
 ```
 
 ---

@@ -7,6 +7,36 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.6.0] - 2026-08-18
+
+### Added
+- **Autonomous Node Germination & Miracle-Gro Ignition Engine (`credence/germinate.py`)**:
+  - Implemented `credence germinate` (and `just germinate`) providing a 5-step rapid node ignition lifecycle:
+    - **Phase 1: Epistemic Genesis**: Verifies or generates local Ed25519 identity keypair.
+    - **Phase 2: Peer Mesh Inoculation**: Imports signed Genesis seed attestations (`genesis_attestations.json`) with Ed25519 signature and taxonomy verification at **$0.00 token cost**.
+    - **Phase 3: Soil Preparation**: Sows 24 preset categorized feed subscriptions across 4 tiers with Rendezvous hashing affinity.
+    - **Phase 4: Miracle-Gro Sifting Burst**: Evaluates novel articles and produces signed local attestations within governor headroom limits.
+    - Phase 5: Web Hydration: Auto-exports `reports.json` for immediate Zero-Build Web UI parity.
+  - Added dedicated CLI command with botanical Rich progress tree rendering (`🌱`, `🔑`, `🌐`, `💧`, `⚡`, `🌳`) and telemetry summary table.
+  - Added Starlette `POST /api/germinate` REST API endpoint and zero-touch background auto-germination on blank node startup.
+  - Added Genesis Attestation Pack (`web/credence.nexus/genesis_attestations.json`).
+  - Added hermetic unit test suite (`tests/test_germinate.py`).
+- **Swarm Rendezvous Partitioning & 13-Node Mesh Hardening**:
+  - Implemented Highest Random Weight (HRW) feed affinity sorting (`compute_feed_affinity`) in Miracle-Gro burst, preventing swarm dogpiling across concurrent nodes.
+  - Implemented atomic commit/rollback sub-transactions in seeding and Genesis inoculation, eliminating multi-node database race conditions.
+  - Added `test_13_node_concurrent_swarm_germination_and_mesh_cross_adoption` to `tests/test_mesh_cluster.py`.
+- **New Documentation & Sovereign Dispatches**:
+  - **Engineering Guide**: `docs/mesh-engineering/featherweight-swarm-testing.md` (Low-resource 13-node simulation in <150MB RAM).
+  - **Blog Dispatch**: `blog/testing-13-node-swarms-on-a-raspberry-pi.md` (The Featherweight Mesh Architecture on edge hardware).
+  - **Tutorial 11**: `docs/tutorials/11-autonomous-node-germination-and-swarm-ignition.md` (Hands-on cold-start guide).
+  - **Blog Dispatch**: `blog/miracle-gro-for-truth-nodes.md` (Architectural essay on solving the Cold-Start Ghost Town problem).
+  - **Protocol Specification**: `docs/protocols/node-germination-lifecycle.md` (Formal mathematical specification of 5-phase germination & HRW partitioning).
+- **Unified CI/CD Deployment Pipeline & CLI Visibility**:
+  - Added automated Cloudflare Worker Edge deployment workflow (`.github/workflows/deploy-edge.yml`) on push to `main` (`web/**`).
+  - Added single-command deployment recipes in `Justfile`: `just deploy-edge`, `just deploy-backend`, and `just deploy-all`.
+  - Added terminal-native pipeline and edge observability recipes: `just pipeline-status`, `just pipeline-watch`, `just edge-status`, `just edge-logs`, and `just edge-login`.
+  - Formalized the 3 Delivery Planes (Edge Plane, Compute Plane, Infra Plane) in documentation and ecosystem invariants (`AGENTS.md`).
+
 ## [1.5.2] - 2026-08-18
 
 ### Added

@@ -55,7 +55,8 @@ export const DOCS_REGISTRY = [
       { id: "docs/tutorials/07-air-gapped-and-adhoc-mesh", title: "07. Air-Gapped Truth Bundles", path: "docs/tutorials/07-air-gapped-and-adhoc-mesh.md" },
       { id: "docs/tutorials/08-sybil-cartel-demolition", title: "08. Sybil Cartel Demolition", path: "docs/tutorials/08-sybil-cartel-demolition.md" },
       { id: "docs/tutorials/09-zero-trust-feed-sifter-digest", title: "09. Zero-Trust Feed Sifter & Digest", path: "docs/tutorials/09-zero-trust-feed-sifter-digest.md" },
-      { id: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet", title: "10. Reusable Live E2E & Mesh Gauntlet", path: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet.md" }
+      { id: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet", title: "10. Reusable Live E2E & Mesh Gauntlet", path: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet.md" },
+      { id: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition", title: "11. Node Germination & Swarm Ignition", path: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition.md" }
     ]
   },
   {
@@ -94,6 +95,7 @@ export const DOCS_REGISTRY = [
   {
     category: "P2P Mesh & Graph Theory",
     items: [
+      { id: "docs/mesh-engineering/featherweight-swarm-testing", title: "Featherweight Swarm Simulation", path: "docs/mesh-engineering/featherweight-swarm-testing.md" },
       { id: "docs/mesh-engineering/watts-strogatz-dynamics", title: "Watts-Strogatz Small-World", path: "docs/mesh-engineering/watts-strogatz-dynamics.md" },
       { id: "docs/mesh-engineering/airgapped-sneakernets", title: "Air-Gapped Truth Bundles", path: "docs/mesh-engineering/airgapped-sneakernets.md" },
       { id: "docs/mesh-engineering/dns-srv-discovery", title: "DNS SRV Dynamic Discovery", path: "docs/mesh-engineering/dns-srv-discovery.md" }
@@ -104,6 +106,7 @@ export const DOCS_REGISTRY = [
     items: [
       { id: "docs/protocols/token-governor", title: "Token Safety Governor", path: "docs/protocols/token-governor.md" },
       { id: "docs/protocols/mesh-protocol", title: "P2P Mesh & Consensus", path: "docs/protocols/mesh-protocol.md" },
+      { id: "docs/protocols/node-germination-lifecycle", title: "Node Germination & Swarm Ignition", path: "docs/protocols/node-germination-lifecycle.md" },
       { id: "docs/protocols/fastmcp", title: "FastMCP 2.0 Integration", path: "docs/protocols/fastmcp.md" },
       { id: "docs/protocols/scoring", title: "Scoring & Saturation Math", path: "docs/protocols/scoring.md" },
       { id: "docs/protocols/adversarial-defense", title: "Adversarial Threat Matrix", path: "docs/protocols/adversarial-defense.md" },
@@ -151,7 +154,9 @@ export const DOCS_REGISTRY = [
   {
     category: "Editorial Dispatches & Blog",
     items: [
-            { id: "blog/architecting-sovereign-ai-with-google-antigravity", title: "Architecting Sovereign AI with Antigravity", path: "blog/architecting-sovereign-ai-with-google-antigravity.md" },
+      { id: "blog/testing-13-node-swarms-on-a-raspberry-pi", title: "Testing 13-Node Swarms on a $35 Pi", path: "blog/testing-13-node-swarms-on-a-raspberry-pi.md" },
+      { id: "blog/miracle-gro-for-truth-nodes", title: "Miracle-Gro for Truth Nodes", path: "blog/miracle-gro-for-truth-nodes.md" },
+      { id: "blog/architecting-sovereign-ai-with-google-antigravity", title: "Architecting Sovereign AI with Antigravity", path: "blog/architecting-sovereign-ai-with-google-antigravity.md" },
       { id: "blog/the-six-tier-pyramid-of-decentralized-truth", title: "The 6-Tier Verification Pyramid", path: "blog/the-six-tier-pyramid-of-decentralized-truth.md" },
       { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Entropy", path: "blog/the-pizza-hut-problem.md" },
       { id: "blog/the-pareto-frontier-of-truth", title: "The $0.34 Pareto Frontier", path: "blog/the-pareto-frontier-of-truth.md" },
@@ -1356,7 +1361,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.5.2';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.6.0';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 

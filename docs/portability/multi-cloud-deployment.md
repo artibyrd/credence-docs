@@ -167,3 +167,32 @@ Credence is completely self-contained and does not require Google Cloud Platform
 
 > [!TIP]
 > All audit snapshots, attestation records, and token consumption ledgers are stored in local SQLite WAL (`credence.db`) with zero network dependencies. Signed Ed25519 attestations are produced with your node's local keypair (`node_identity.json`).
+
+---
+
+## 6. The 3 Delivery Planes & Unified Deployment Architecture
+
+Credence strictly isolates deployment concerns into three independent operational planes:
+
+```mermaid
+flowchart TD
+    Plane1["1. Edge Plane (Zero-Build CDN)<br>Cloudflare Pages (credence-docs)<br>Cloudflare Workers (credence/web/)"]
+    Plane2["2. Compute Plane (FastMCP & REST API)<br>Google Cloud Run (credence-server)<br>Self-Hosted Docker/K3s"]
+    Plane3["3. Infra Plane (Static Shells)<br>Terraform (GCP IAM, DNS, GCS Buckets)"]
+
+    Plane1 -->|Automated via deploy-edge.yml / just deploy-edge| LiveEdge["Public Edge CDN"]
+    Plane2 -->|Automated via release.yml / just deploy-backend| LiveCompute["Cloud Run Service"]
+    Plane3 -->|Manual via tf-apply| LiveInfra["Cloud Resources"]
+```
+
+| Operational Plane | Managed Artifacts | Deployment Mechanism |
+| :--- | :--- | :--- |
+| **Edge Plane** | `web/_worker.js`, static HTML5/CSS, `reports.json` | `just deploy-edge` or `.github/workflows/deploy-edge.yml` on push to `main` |
+| **Compute Plane** | `credence-server` container (FastMCP SSE + REST API + Sifter) | `just deploy-backend` or `.github/workflows/release.yml` on version tag |
+| **Infra Plane** | DNS Zones, SSL strict mode, IAM roles, GCS storage buckets | `just tf-apply` (executed only when cloud resource topologies change) |
+
+```bash
+# Deploy full stack atomically across Edge and Compute:
+just deploy-all
+```
+
