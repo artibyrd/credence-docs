@@ -3,6 +3,8 @@ title: "The Mathematics of Robust Consensus"
 description: "Mathematical proofs of the Domain Authority Weighted Median, Byzantine 3f+1 tolerance, and the Galileo Rule."
 ---
 
+# The Mathematics of Robust Consensus
+
 Decentralized consensus over qualitative or factual evaluations cannot rely on simple majority voting or arithmetic means. A cartel of shallow or dishonest nodes could easily manipulate averages.
 
 This document presents the formal mathematical proofs underlying Credence's **Domain Authority Weighted Median** and **The Galileo Rule**.

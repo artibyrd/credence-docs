@@ -5,6 +5,8 @@ sidebar:
   order: 2
 ---
 
+# Mesh Protocol & P2P Consensus
+
 The **Credence Mesh** is an asynchronous, decentralized peer-to-peer trust network that enables independent Credence nodes to exchange, verify, and aggregate Ed25519-signed audit attestations over WebSockets.
 
 ---

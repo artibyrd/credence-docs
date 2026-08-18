@@ -5,6 +5,8 @@ sidebar:
   order: 4
 ---
 
+# Scoring Calibration & Mathematical Rubrics
+
 This document provides the formal mathematical specifications and calibration curves used by the **Credence Scoring Engine**.
 
 ---

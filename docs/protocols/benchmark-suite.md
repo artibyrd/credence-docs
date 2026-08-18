@@ -5,6 +5,8 @@ sidebar:
   order: 7
 ---
 
+# Golden 12 Benchmark Suite Specification
+
 The **Golden 12 Epistemic Benchmark Suite** is Credence's standard verification testbed. It evaluates news articles, editorials, web pages, and synthetic content across all registered taxonomy domains under `FREE`, `BALANCED`, and `ULTRA` operational cost profiles.
 
 ---

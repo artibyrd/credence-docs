@@ -3,6 +3,8 @@ title: "Decentralized Architecture"
 description: "Multi-tier architecture specification spanning ingestion, multi-agent evaluation, token governance, and P2P mesh."
 ---
 
+# Decentralized Architecture
+
 **Credence** is an autonomous epistemic evaluation engine, FastMCP 2.0 server, and decentralized trust network designed to analyze digital media against formal journalistic ethics, logical fallacies, and deceptive UI patterns.
 
 ```mermaid

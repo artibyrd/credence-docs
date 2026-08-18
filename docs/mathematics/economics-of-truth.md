@@ -3,6 +3,8 @@ title: "The Economics of Decentralized Truth"
 description: "Economic modeling of BitTorrent-style attestation sharing, token budget optimization, and 92.3% compute savings."
 ---
 
+# The Economics of Decentralized Truth
+
 Evaluating internet content at scale using frontier AI models presents an economic dilemma: standalone evaluation of high-volume feeds burns thousands of dollars in redundant token costs.
 
 This document models the economics of **BitTorrent-style attestation work-sharing** in the Credence network.

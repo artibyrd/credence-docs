@@ -5,6 +5,8 @@ sidebar:
   order: 3
 ---
 
+# FastMCP 2.0 Integration Specification
+
 Credence implements a fully compliant **Model Context Protocol (FastMCP 2.0)** server allowing AI coding assistants (Antigravity, Claude Desktop, Cursor, and custom autonomous agents) to invoke epistemic tools and inspect live taxonomy resources.
 
 ---

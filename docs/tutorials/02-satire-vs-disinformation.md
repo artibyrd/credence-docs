@@ -5,6 +5,8 @@ sidebar:
   order: 2
 ---
 
+# Tutorial 02: Poe's Law & Satire Cloaking
+
 Explore how **Credence** handles the nuance between legitimate satire (like *The Onion*) and deceptive "satire-cloaked" disinformation that advances harmful medical or civic falsehoods.
 
 ---

@@ -5,6 +5,8 @@ sidebar:
   order: 7
 ---
 
+# Tutorial 07: Air-Gapped Truth & Offline Shuttling
+
 Learn how investigative journalists, field researchers, and air-gapped secure facilities can export, verify, and shuttle cryptographically signed `.credence.json` bundles across physically isolated networks.
 
 ---

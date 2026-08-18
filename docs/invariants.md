@@ -3,6 +3,8 @@ title: "32 Agent Invariants"
 description: "Core architectural invariants, mathematical rules, and safety constraints governing the Credence network."
 ---
 
+# Core Architectural Invariants
+
 This document outlines mandatory rules and design invariants for human contributors and AI agents working on Credence.
 
 ---

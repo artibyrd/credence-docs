@@ -3,6 +3,8 @@ title: "Air-Gapped Truth Bundles & Sneakernets"
 description: "Exporting and importing cryptographically signed .credence.bundle archives across air-gapped secure facilities, vessels, or conflict zones."
 ---
 
+# Air-Gapped Truth Bundles & Sneakernets
+
 In environments with total internet censorship, maritime isolation, or military air-gaps, live WebSocket mesh peering is impossible.
 
 Credence supports **Air-Gapped Truth Bundles (`.credence.bundle`)** allowing offline nodes to exchange signed attestations, consensus scores, and taxonomy catalogs over physical media (USB drives, SD cards, local ad-hoc Wi-Fi).

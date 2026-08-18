@@ -3,6 +3,8 @@ title: "The Multi-Model Provider Architecture"
 description: "Configuring Credence with Anthropic Claude 3.7 Sonnet, OpenAI GPT-4o / o3-mini, DeepSeek-R1, and Local Ollama / vLLM."
 ---
 
+# Multi-Model Provider Architecture
+
 While Credence uses **Google Gemini 3.7 Flash** as its default reference engine, the core epistemic evaluation pipeline is completely **model-agnostic**.
 
 Credence abstracts model inference behind a decoupled `LLMProvider` protocol interface, allowing newsrooms, enterprises, and independent researchers to plug in any frontier API or self-hosted open-weights model.

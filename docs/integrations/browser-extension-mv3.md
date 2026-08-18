@@ -3,6 +3,8 @@ title: "Building a Zero-Build Browser Extension (Manifest V3)"
 description: "How to build a lightweight, zero-npm Chrome and Firefox extension to query Credence scores on active browser tabs."
 ---
 
+# Building a Zero-Build Browser Extension (Manifest V3)
+
 Readers and researchers want real-time epistemic scores as they browse the web.
 
 This guide shows how to build a **100% Zero-Build browser extension (Manifest V3)** for Chrome, Brave, Edge, and Firefox that connects to your local or remote Credence node with **0 npm dependencies**.

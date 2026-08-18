@@ -3,6 +3,8 @@ title: "Universal Agent Interoperability (Claude, Cursor, Cline, Windsurf)"
 description: "Connecting Credence FastMCP 2.0 to Claude Desktop, Cursor, Windsurf, Cline, LangGraph, and CrewAI without vendor lock-in."
 ---
 
+# Universal Agent Interoperability (Claude, Cursor, Cline, Windsurf)
+
 Credence implements the open **Model Context Protocol (FastMCP 2.0)** standard. While our developer kit repository (`credence-agent`) includes Google Antigravity IDE integrations, Credence is **100% interoperable with every major AI agent and IDE framework**.
 
 This guide demonstrates setting up Credence across all non-Google AI environments.

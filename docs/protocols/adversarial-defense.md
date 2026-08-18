@@ -5,6 +5,8 @@ sidebar:
   order: 5
 ---
 
+# Adversarial Defense & Threat Matrix
+
 A preemptive guide to frequently challenged design decisions, adversarial attack vectors, and mathematical threat models in the Credence protocol.
 
 ---

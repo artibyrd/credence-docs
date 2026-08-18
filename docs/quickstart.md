@@ -3,6 +3,12 @@ title: "Quickstart & Installation"
 description: "Get started with Credence CLI, FastMCP 2.0 server, and Textual TUI in minutes."
 ---
 
+# Quickstart & Installation
+
+Get started with the Credence CLI, FastMCP 2.0 server, and Textual TUI workstation in minutes.
+
+---
+
 ## 1. Quick Installation
 
 ### Option A: POSIX One-Liner Install

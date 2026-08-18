@@ -5,6 +5,8 @@ sidebar:
   order: 4
 ---
 
+# The Galileo Rule: Asymmetric Grounded Evidence
+
 In 1633, Galileo Galilei stood alone against the entire astronomical consensus of Europe when asserting that the Earth orbits the Sun. 
 
 If scientific consensus had been determined by a naive democracy or majority voting swarm, Galileo's discovery would have been discarded as an outlier.

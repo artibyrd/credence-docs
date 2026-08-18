@@ -3,6 +3,8 @@ title: "Tailscale & WireGuard Sovereign Peering"
 description: "Connecting private P2P mesh clusters across newsrooms and research labs without public firewall ports."
 ---
 
+# Tailscale & WireGuard Sovereign Peering
+
 Newsrooms, human rights organizations, and university research collectives often need to share signed epistemic attestations privately without exposing public IPv4 listening ports to the internet.
 
 This guide demonstrates how to peer Credence nodes across **Tailscale** or **WireGuard** virtual mesh overlays.

@@ -5,6 +5,8 @@ sidebar:
   order: 8
 ---
 
+# Tutorial 08: Sybil Cartel Demolition
+
 Learn how Credence mathematically detects and neutralizes colluding Sybil cartels attempting to farm domain authority or whitewash deceptive websites.
 
 ---

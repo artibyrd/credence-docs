@@ -3,6 +3,8 @@ title: "Multi-Cloud Deployment: AWS, Azure, Hetzner & K8s"
 description: "Deploying the Credence FastMCP server and mesh relays to AWS ECS Fargate, Azure Container Apps, Hetzner, and Kubernetes."
 ---
 
+# Multi-Cloud Deployment: AWS, Azure, Hetzner & K8s
+
 While our reference Terraform infrastructure targets **Google Cloud Platform (Cloud Run v2)**, Credence is packaged as a lightweight, standard OCI container that can run seamlessly on any cloud provider or bare-metal VPS.
 
 ---

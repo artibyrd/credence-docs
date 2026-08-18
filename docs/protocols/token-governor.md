@@ -5,6 +5,8 @@ sidebar:
   order: 1
 ---
 
+# Token Safety Governor Specification
+
 The **TokenBudgetGovernor** manages LLM token consumption, cost caps, and reasoning quality to ensure autonomous audits never exhaust shared API quotas or starve interactive developer pairing sessions.
 
 ---

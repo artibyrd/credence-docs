@@ -3,6 +3,8 @@ title: "Textual TUI Terminal Workstation Deep Dive"
 description: "Mastering the interactive terminal user interface, keybindings, SSE log streaming, and visual DOM inspection."
 ---
 
+# Textual TUI Terminal Workstation Deep Dive
+
 Credence includes an interactive terminal workstation powered by **Textual** (`credence tui`).
 
 It provides real-time audit monitoring, mesh peer status displays, feed stream logs, and keyboard-driven epistemic inspection directly inside your terminal emulator.

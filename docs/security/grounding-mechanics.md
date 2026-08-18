@@ -3,6 +3,8 @@ title: "Verbatim Grounding Mechanics & Slashing"
 description: "How exact character substring offsets, whitespace collapsing, and 50% reputation slashes eliminate model hallucinations."
 ---
 
+# Verbatim Grounding Mechanics & Slashing
+
 The fundamental vulnerability of LLM-based evaluation is **hallucination**: models frequently fabricate plausible-sounding quotes or misattribute statements to justify findings.
 
 In Credence, an evaluation that cannot cite exact, verifiable substrings from the source document is mathematically invalid ($G < 1.0$).

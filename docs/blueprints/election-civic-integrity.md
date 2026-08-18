@@ -3,6 +3,8 @@ title: "Election & Civic Information Integrity Blueprint"
 description: "Auditing polling methodology disclosures, voter registration deadlines, and candidate quote contexts for democratic institutions."
 ---
 
+# Election & Civic Information Integrity Blueprint
+
 Democratic elections depend on accurate, verified civic information. Disinformation campaigns regularly target polling locations, ballot deadlines, candidate quotes, and voting rules to suppress turnout or undermine trust.
 
 This blueprint describes configuring Credence for **election integrity and newsroom civic verification**.

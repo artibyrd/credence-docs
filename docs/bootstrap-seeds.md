@@ -3,6 +3,8 @@ title: "Bootstrap Seed Governance & Node Quality"
 description: "5-factor node quality equation (Q_i), signed seed directory distribution, and 4-tier discovery fallback."
 ---
 
+# Bootstrap Seed Governance & Node Quality
+
 Credence employs a decentralized, cryptographically verifiable **Bootstrap Seed Protocol** to allow new and recovering nodes to discover healthy peers without relying on centralized coordination servers.
 
 ---

@@ -3,6 +3,8 @@ title: "Watts-Strogatz Small-World Dynamics"
 description: "Mathematical formulation of small-world network topology (N=13, k=4, p=0.20), clustering coefficients, and epidemic gossip diffusion."
 ---
 
+# Watts-Strogatz Small-World Dynamics
+
 Decentralized epistemic mesh networks require two competing properties:
 1. **High Local Clustering ($C$)**: Dense local peer connections for robust cooperative verification and fault tolerance.
 2. **Short Characteristic Path Length ($L$)**: Rapid multi-hop gossip diffusion to propagate signed attestations globally in sub-second time.

@@ -3,6 +3,8 @@ title: "DNS SRV & Dynamic Discovery Architecture"
 description: "Configuring RFC 2782 DNS SRV records (_mesh._tcp.credence.nexus) with weighted priorities and failover sequences."
 ---
 
+# DNS SRV & Dynamic Discovery Architecture
+
 When HTTPS seed endpoints are unreachable or undergoing maintenance, Credence falls back to **Tier 2 Discovery: Dynamic DNS SRV Records** (RFC 2782).
 
 DNS SRV allows the Credence network to advertise live WebSocket relays and bootstrap seed peers with priority weights and port assignments directly via decentralized DNS resolution.

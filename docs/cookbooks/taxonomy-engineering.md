@@ -3,6 +3,8 @@ title: "Taxonomy Rule Engineering 101"
 description: "Authoring custom namespaced YAML catalogs, calibrating numerical severities, and defining grounded citation requirements."
 ---
 
+# Taxonomy Rule Engineering 101
+
 Credence's evaluation engine is completely decoupled from hardcoded heuristics. All auditing logic is defined in **namespaced, content-addressed YAML taxonomy catalogs**.
 
 This guide walks you through authoring a new domain taxonomy catalog (e.g. for `FINANCIAL_DISCLOSURES` or `MEDICAL_CLAIMS`).

@@ -5,11 +5,27 @@ sidebar:
   order: 3
 ---
 
+# Tutorial 03: FastMCP 2.0 with Claude & Cursor
+
 Give your AI coding assistant or autonomous research agent an epistemic brake. Learn how to configure **Credence FastMCP 2.0** so Claude Desktop and Cursor can verify web pages before ingesting text.
 
 ---
 
-## 1. Configuring Claude Desktop
+## 1. FastMCP Architecture for AI Agents
+
+```mermaid
+graph LR
+    User["User Prompt in Claude / Cursor"] --> LLM["AI Assistant (Claude 3.7 / GPT-4o)"]
+    LLM --> FastMCP["FastMCP 2.0 Server (stdio / SSE)"]
+    FastMCP --> Grounding["Verbatim Citation Gate (G=1.0)"]
+    Grounding --> Report["Signed Attestation (.credence.json)"]
+    Report --> LLM
+    LLM --> SafeResponse["Grounded Response with Verifiable Citations"]
+```
+
+---
+
+## 2. Configuring Claude Desktop
 
 Edit your `claude_desktop_config.json`:
 
@@ -24,27 +40,32 @@ Edit your `claude_desktop_config.json`:
 }
 ```
 
-Restart Claude Desktop. You will see registered tools under `credence`:
-- `credence_check_url`: Capture snapshot and run full epistemic audit on any URL.
-- `credence_evaluate_text`: Audit arbitrary prose text against active taxonomies.
-- `credence_get_consensus`: Check multi-peer Bayesian consensus for an audited URL.
-- `credence_get_quota_status`: Check remaining token budget and cache rates.
+Restart Claude Desktop. You will now see the `credence` hammer icon with tools available:
+- `credence_check_url`: Audits any live webpage.
+- `credence_evaluate_text`: Audits prose without web scraping.
+- `credence_discover_feeds`: Autonomously discovers RSS/Atom endpoints.
+- `credence_inspect_feed_health`: Runs pre-flight topic entropy forensic audits.
+- `credence_generate_digest`: Pulls 24-hour morning epistemic intelligence digests.
 
 ---
 
-## 2. Using FastMCP in Agent Prompts
+## 3. Remote SSE Server for Multi-Agent Swarms
 
-When asking Claude or Cursor to research a technical claim or library:
+For multi-agent clusters or remote services, launch FastMCP in Server-Sent Events mode:
 
-> **User Prompt**: "Research the performance claims for Library X at `https://example.com/benchmark`. Before summarizing the article, use `credence_check_url` to audit its sourcing attribution and grounded citation score."
-
-Claude will call the tool:
-```json
-{
-  "url": "https://example.com/benchmark",
-  "cost_profile": "BALANCED"
-}
+```bash
+# Start SSE server on port 8000
+credence serve --transport sse --port 8000
 ```
 
-### Automatic Prompt Injection Neutralization (Invariant 30):
-All text returned from external websites is containerized in `<untrusted_source_text>` blocks, ensuring malicious website text cannot hijack Claude's instructions.
+Connect your agents to `http://localhost:8000/sse` or `https://mcp.credence.run/sse`.
+
+---
+
+## 4. Testing Live Tools in Claude
+
+Ask Claude:
+
+> *"Audit https://arstechnica.com/feed using Credence and summarize the top clean investigative articles from the morning digest."*
+
+Claude will invoke `credence_generate_digest` and format a structured, zero-hallucination executive brief backed by cryptographic Ed25519 signatures.

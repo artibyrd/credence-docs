@@ -3,6 +3,8 @@ title: "The Agentic Epistemic Brake Cookbook"
 description: "Integration patterns for LangGraph, CrewAI, Antigravity SDK, and Cursor to halt or flag unreliable web citations."
 ---
 
+# The Agentic Epistemic Brake Cookbook
+
 When autonomous AI coding assistants and multi-agent frameworks browse the live web, they risk ingesting hallucinated dependencies, SEO slop, and deceptive marketing claims.
 
 This cookbook provides copy-paste integration recipes to give your agents an **epistemic brake** using Credence FastMCP 2.0.

@@ -3,6 +3,8 @@ title: "Zero-Build Web Architecture"
 description: "Architectural decisions, W3C WebCrypto in-browser verification, and zero supply-chain attack surface."
 ---
 
+# Zero-Build Web Architecture
+
 This document records the architectural decisions and invariants governing the public web surfaces across the **Credence** ecosystem (`credence.run`, `credence.nexus`, `credence.foundation`, `credence.report`).
 
 ---

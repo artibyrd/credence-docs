@@ -3,6 +3,8 @@ title: "Zero-Cloud Sovereign Operations: Local LLMs"
 description: "Running a 100% private, offline Credence node using local open-weights models with Ollama or vLLM on Mac Studio / RTX 4090."
 ---
 
+# Zero-Cloud Sovereign Operations: Local LLMs
+
 Investigative journalists, corporate internal audit teams, and defense analysts often work with confidential whistleblower documents, unredacted legal filings, or trade secrets that **can never be transmitted to third-party cloud AI APIs**.
 
 Credence supports **100% Zero-Cloud, Air-Gapped Local Inference** using open-weights models (such as **Llama 3.3 70B** or **Qwen 2.5 72B**) executed locally via **Ollama** or **vLLM**.

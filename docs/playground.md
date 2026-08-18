@@ -3,6 +3,8 @@ title: "Interactive Zero-Build Playgrounds"
 description: "In-browser WebCrypto Ed25519 verification, 13-node mesh gossip simulator, SimHash calculator, and taxonomy explorer."
 ---
 
+# Interactive Zero-Build Playgrounds
+
 Experience Credence's core mathematical models, cryptographic verification, and distributed consensus in real time directly inside your browser. All tools below run **100% client-side** using standard W3C Web APIs with zero external dependencies.
 
 ---

@@ -5,6 +5,8 @@ sidebar:
   order: 3
 ---
 
+# The BitTorrent Economics of Fact-Checking: Slashing LLM Bills by 92%
+
 Running large language models to evaluate real-time information is expensive.
 
 If 100 developers, newsrooms, and AI agent frameworks each independently ingest and fact-check the top 500 articles from Reuters, the Associated Press, and Bloomberg every day, they are collectively burning **tens of thousands of dollars per month in redundant LLM API tokens**.

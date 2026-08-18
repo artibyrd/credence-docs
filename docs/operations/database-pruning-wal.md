@@ -3,6 +3,8 @@ title: "Database Pruning & SQLite WAL Maintenance"
 description: "SQLite write-ahead logging tuning, checkpointing strategies, and automated 30-day retention pruning."
 ---
 
+# Database Pruning & SQLite WAL Maintenance
+
 Credence nodes use embedded **SQLite** with Write-Ahead Logging (WAL) via SQLModel and `aiosqlite`.
 
 When running 24/7 nodes that ingest hundreds of daily news feeds, database files and rendered DOM snapshots must be maintained to ensure fast query response times and prevent disk bloat.

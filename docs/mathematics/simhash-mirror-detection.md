@@ -3,6 +3,8 @@ title: "SimHash-64 & Mirror Network Detection"
 description: "Mathematical formulation of 64-bit SimHash, Hamming distances, and detecting coordinated propaganda syndication rings."
 ---
 
+# SimHash-64 & Mirror Network Detection
+
 Coordinated disinformation networks frequently clone articles across dozens of disposable domain names (`news-daily1.test`, `breaking-wire2.test`), modifying only minor ad tags, comment counters, or timestamps to evade exact SHA-256 matching.
 
 Credence uses **64-bit SimHash with Hamming Distance comparison** to detect near-duplicate content mirrors in $O(1)$ time.

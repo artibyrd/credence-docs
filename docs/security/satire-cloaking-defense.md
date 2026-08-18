@@ -3,6 +3,8 @@ title: "Poe's Law & Satire Cloaking Defense"
 description: "How Credence distinguishes legitimate parody from weaponized disinformation using Schema.org badges and SPJ-1.6 cloaking overrides."
 ---
 
+# Poe's Law & Satire Cloaking Defense
+
 **Poe's Law** states that without a clear indicator of the author's intent, it is impossible to create a parody of extreme views so obviously exaggerated that it cannot be mistaken by some readers for sincere belief.
 
 In adversarial media ecosystems, bad actors exploit this ambiguity by publishing defamatory allegations, hate speech, or dangerous medical fraud, then claiming *"it was just satire"* when confronted.

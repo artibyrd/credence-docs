@@ -3,6 +3,8 @@ title: "Medical & Health Claim Auditing Blueprint"
 description: "Auditing health journalism, supplement landing pages, and clinical trial reporting against peer-reviewed meta-analyses."
 ---
 
+# Medical & Health Claim Auditing Blueprint
+
 Health misinformation and unverified medical claims present direct threats to public well-being. From predatory dietary supplement landing pages to sensationalized interpretations of preliminary laboratory studies, evaluating medical prose requires strict evidentiary standards.
 
 This blueprint outlines deploying Credence for **medical and public health auditing**.

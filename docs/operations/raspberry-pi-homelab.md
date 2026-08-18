@@ -3,6 +3,8 @@ title: "Raspberry Pi & HomeLab 24/7 Node Runbook"
 description: "Deploying a low-power ARM64 Credence mesh node with systemd, automated SQLite maintenance, and dynamic DNS."
 ---
 
+# Raspberry Pi & HomeLab 24/7 Node Runbook
+
 Running a persistent Credence node on a **Raspberry Pi 5 (8GB)** or low-power mini-PC contributes seed capacity to the Credence Mesh, seeds syndicated news attestations to peers, and provides a local 0-token caching proxy for home and office AI agents.
 
 ---

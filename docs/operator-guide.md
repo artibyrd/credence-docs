@@ -3,6 +3,8 @@ title: "Bootstrap Operator Guide"
 description: "Comprehensive 10-section operational runbook for multi-cloud deployment, P2P mesh operations, and seed governance."
 ---
 
+# Bootstrap Operator Guide & Runbook
+
 A comprehensive, unabridged operations runbook for deploying, configuring, securing, and maintaining **Credence** nodes, multi-cloud production infrastructure, P2P mesh clusters, sovereign federations, and decoupled editorial platforms.
 
 ---

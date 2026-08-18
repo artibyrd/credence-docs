@@ -5,6 +5,8 @@ sidebar:
   order: 6
 ---
 
+# Tutorial 06: 13-Node Chaos Lab
+
 Launch the local 13-node Watts-Strogatz small-world mesh cluster, inspect live epidemic gossip diffusion, and simulate Barbell netsplits and Byzantine cartels.
 
 ---

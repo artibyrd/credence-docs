@@ -3,6 +3,8 @@ title: "Synthetic AI Content & Media Provenance Blueprint"
 description: "Fingerprinting automated AI-generated news farms, detecting stripped C2PA metadata, and identifying syndication rings."
 ---
 
+# Synthetic AI Content & Media Provenance Blueprint
+
 The proliferation of autonomous generative AI tools has enabled the mass creation of synthetic content farms—often termed **"pink slime" journalism**. These automated networks publish thousands of rewritten, ungrounded articles daily to harvest ad revenue and manipulate public perception.
 
 This blueprint details how Credence identifies synthetic content farms and validates digital provenance.

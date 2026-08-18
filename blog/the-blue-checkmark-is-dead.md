@@ -5,6 +5,8 @@ sidebar:
   order: 1
 ---
 
+# The Blue Checkmark is Dead: Verifiable Epistemic Consensus in the Age of AI
+
 For nearly two decades, internet trust has relied on a fragile illusion: the centralized blue checkmark. 
 
 Whether issued by Twitter, Meta, or Google, trust was treated as a property of *identity*. If a platform verified that you were a famous person or a major media outlet, your statements were implicitly boosted as trustworthy.

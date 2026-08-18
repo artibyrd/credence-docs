@@ -3,6 +3,8 @@ title: "GCP Cloud Run Deployment"
 description: "Deploy the FastMCP 2.0 server to Google Cloud Run with scale-to-zero, Secret Manager, and billing alerts."
 ---
 
+# GCP Cloud Run Deployment
+
 This guide covers deploying the **Credence FastMCP Server** to **Google Cloud Platform (Cloud Run v2)** with strict cost controls ($15/month budget ceiling, scale-to-zero) and automated **Cloud Build CI/CD**.
 
 ---

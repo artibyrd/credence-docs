@@ -5,6 +5,8 @@ sidebar:
   order: 2
 ---
 
+# The Anti-Diploma Invariant: Why Credentials Don't Equal Authority
+
 In traditional institutions, authority is granted by static credentials: a diploma from an elite university, a press pass from an established newspaper, or a title on LinkedIn.
 
 In decentralized and autonomous systems, static credentials are a severe vulnerability. They create single points of failure, gatekeeping cartels, and susceptibility to social engineering.

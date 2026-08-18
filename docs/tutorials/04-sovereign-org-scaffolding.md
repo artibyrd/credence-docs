@@ -5,6 +5,8 @@ sidebar:
   order: 4
 ---
 
+# Tutorial 04: Sovereign Org Scaffolding
+
 Learn how newsrooms, universities, and sovereign consortiums can instantiate an independent Credence federation with custom root keys, custom taxonomies, and multi-cloud Terraform templates.
 
 ---

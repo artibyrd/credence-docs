@@ -5,6 +5,8 @@ sidebar:
   order: 1
 ---
 
+# Tutorial 01: Auditing Anonymous Clickbait
+
 Learn how to use the **Credence CLI** to audit an unverified, sensationalized web article, inspect its DOM extraction, verify grounded quote offsets ($G = 1.0$), and calculate suspicion scores.
 
 ---

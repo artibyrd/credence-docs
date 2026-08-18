@@ -5,6 +5,8 @@ sidebar:
   order: 6
 ---
 
+# White-Label Federation Specification
+
 Credence is designed from first principles to support **sovereign white-label federation**. Newsrooms, university journalism departments, enterprise compliance teams, and DAOs can spin up and host their own independent, brand-customized mesh networks that interoperate with the broader Credence ecosystem.
 
 ---
