@@ -138,7 +138,8 @@ export const DOCS_REGISTRY = [
     items: [
       { id: "docs/invariants", title: "36 Core Invariants", path: "docs/invariants.md" },
       { id: "docs/architecture", title: "Decentralized Architecture", path: "docs/architecture.md" },
-      { id: "docs/frontend-architecture", title: "Zero-Build Web Architecture", path: "docs/frontend-architecture.md" }
+      { id: "docs/frontend-architecture", title: "Zero-Build Web Architecture", path: "docs/frontend-architecture.md" },
+      { id: "docs/roadmap", title: "Roadmap & Backlog", path: "docs/roadmap.md" }
     ]
   },
   {

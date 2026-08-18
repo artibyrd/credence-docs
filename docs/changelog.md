@@ -23,6 +23,12 @@ All notable changes to the **Credence** network and documentation are documented
   - Added anti-tampering assertions ensuring modifying signed audit fields causes Ed25519 verification rejection.
   - Added error-handling verification for invalid tool calls over remote FastMCP 2.0 SSE session streams.
 
+- **Sovereign In-Repo Roadmap & Known Issues Backlog**:
+  - Authored `docs/roadmap.md` and published to docs portal (`docs/roadmap.md`), establishing a local, in-tree Markdown source of truth for observed edge cases, live mitigations, and thematic future backlog items for autonomous AI agents.
+- **Crawler Resilience & Syndicated Date Parsing**:
+  - Added multi-format epoch timestamp fallback (seconds & milliseconds) to `credence/feeds/parser.py` date extraction.
+  - Hardened Playwright browser context in `credence/ingestion/snapshot.py` with standard locale and transient network retry fallback.
+
 ### Fixed
 - **Engine Resilience & Bug Fixes**:
   - Persisted `evaluation_method` in `AuditRecord` SQLModel and added SQLite automatic schema migration in `init_db()`.
