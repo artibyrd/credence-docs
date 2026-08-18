@@ -98,6 +98,7 @@ export const DOCS_REGISTRY = [
       { id: "docs/operations/raspberry-pi-homelab", title: "Raspberry Pi & HomeLab Node", path: "docs/operations/raspberry-pi-homelab.md" },
       { id: "docs/operations/tailscale-wireguard-mesh", title: "Tailscale & WireGuard Peering", path: "docs/operations/tailscale-wireguard-mesh.md" },
       { id: "docs/operations/database-pruning-wal", title: "Database Pruning & WAL Care", path: "docs/operations/database-pruning-wal.md" },
+      { id: "docs/operations/customizations-and-upstream-sovereignty", title: "Customizations vs. Upstream Core", path: "docs/operations/customizations-and-upstream-sovereignty.md" },
       { id: "docs/operator-guide", title: "Bootstrap Operator Guide", path: "docs/operator-guide.md" },
       { id: "docs/deployment-cloudrun", title: "GCP Cloud Run Deployment", path: "docs/deployment-cloudrun.md" },
       { id: "docs/bootstrap-seeds", title: "Bootstrap Seed Governance", path: "docs/bootstrap-seeds.md" }

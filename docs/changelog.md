@@ -25,6 +25,9 @@ All notable changes to the **Credence** network and documentation are documented
   - Provisioned **HTTP/3 (QUIC)**, **Early Hints (103)**, and **0-RTT connection resumption** across all 4 production zones (`credence.run`, `credence.nexus`, `credence.foundation`, `credence.report`).
   - Strict SSL/TLS enforcement, automatic HTTPS rewrites, and zero-latency P2P SRV routing via Terraform IaC ([`terraform/cloudflare.tf`](terraform/cloudflare.tf)).
   - AI Crawler policy governance with unhindered coding assistant access (Claude Desktop, Cursor, Antigravity) and zero-build edge routing.
+- **Architectural Boundary Blueprint & Municipal Governance Catalog**:
+  - Published [Managing Customizations vs. Core Upstream](docs/operations/customizations-and-upstream-sovereignty.md) establishing strict 4-tier boundaries between Upstream Core, Gitignored Database State, Local Overlays, and Sovereign Deployments.
+  - Added universal [Local News & Municipal Governance](credence/subjects/catalogs/municipal_governance.yaml) semantic subject catalog (`journalism.news.municipal_governance`) with conflict-of-interest detection rubrics.
 
 ---
 
