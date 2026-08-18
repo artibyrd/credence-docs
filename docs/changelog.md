@@ -7,6 +7,32 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.4.0] - 2026-08-18
+
+### Added
+- **Reusable Live Rotating & Mutating E2E Test Suite (`just test-live`)**:
+  - Implemented `tests/e2e/live_corpus.py` Stratified Master Corpus with deterministic daily seed rotation (`YYYY-MM-DD` / `CREDENCE_LIVE_SEED`) across 5 epistemic categories (Reference, Satire, Wire News, Tech Media, Syndicated RSS).
+  - Implemented `tests/e2e/test_live_rotating_suite.py` gauntlet testing CLI live audits, RSS feed quality ($F_j$), real-time dynamic article extraction, FastMCP 2.0 remote SSE tool invocation, and 13-node Watts-Strogatz P2P mesh BitTorrent work-sharing (92.3% compute savings) with Byzantine ungrounded smear slashing.
+- **6-Tier Testing Strategy & Verification Architecture Documentation**:
+  - Published comprehensive testing guide (`docs/protocols/testing-strategy.md` and `docs/testing-strategy.md`) detailing the 6 verification tiers, isolation guarantees, and operational test recipes.
+- **Hands-On Tutorial 10: Running the Reusable Live Rotating E2E & Byzantine Mesh Gauntlet**:
+  - Created step-by-step developer tutorial (`docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet.md`) for operating live seed mutation, dynamic feed sifting, and P2P mesh chaos testing.
+- **Editorial Blog Essay: The 6-Tier Verification Pyramid**:
+  - Published high-assurance testing essay (`blog/the-six-tier-pyramid-of-decentralized-truth.md`) exploring why static benchmarks fail in AI verification, how deterministic hashing prevents overfitting, and how zero-npm Playwright guarantees multi-decade stability.
+- **Anti-Tampering & FastMCP SSE Resilience**:
+  - Added anti-tampering assertions ensuring modifying signed audit fields causes Ed25519 verification rejection.
+  - Added error-handling verification for invalid tool calls over remote FastMCP 2.0 SSE session streams.
+
+### Fixed
+- **Engine Resilience & Bug Fixes**:
+  - Persisted `evaluation_method` in `AuditRecord` SQLModel and added SQLite automatic schema migration in `init_db()`.
+  - Refined XML entity expansion regex in `safe_parse_xml` to strictly match `<!DOCTYPE` and `<!ENTITY>` declarations without false-flagging text containing "system".
+  - Added `NullPool` and active event loop binding to async SQLite engine to eliminate event loop closure leaks across sequential tests.
+  - Converted Playwright live rendering test suite to native `async_playwright` with zero event loop thread pollution.
+  - Improved satire detection regexes in `credence/ingestion/extractor.py` to be attribute-order agnostic for modern hydration DOMs.
+
+---
+
 ## [1.3.0] - 2026-08-18
 
 ### Added

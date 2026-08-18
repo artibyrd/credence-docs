@@ -54,7 +54,8 @@ export const DOCS_REGISTRY = [
       { id: "docs/tutorials/06-thirteen-node-chaos-lab", title: "06. 13-Node Chaos Lab", path: "docs/tutorials/06-thirteen-node-chaos-lab.md" },
       { id: "docs/tutorials/07-air-gapped-and-adhoc-mesh", title: "07. Air-Gapped Truth Bundles", path: "docs/tutorials/07-air-gapped-and-adhoc-mesh.md" },
       { id: "docs/tutorials/08-sybil-cartel-demolition", title: "08. Sybil Cartel Demolition", path: "docs/tutorials/08-sybil-cartel-demolition.md" },
-      { id: "docs/tutorials/09-zero-trust-feed-sifter-digest", title: "09. Zero-Trust Feed Sifter & Digest", path: "docs/tutorials/09-zero-trust-feed-sifter-digest.md" }
+      { id: "docs/tutorials/09-zero-trust-feed-sifter-digest", title: "09. Zero-Trust Feed Sifter & Digest", path: "docs/tutorials/09-zero-trust-feed-sifter-digest.md" },
+      { id: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet", title: "10. Reusable Live E2E & Mesh Gauntlet", path: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet.md" }
     ]
   },
   {
@@ -108,7 +109,8 @@ export const DOCS_REGISTRY = [
       { id: "docs/protocols/adversarial-defense", title: "Adversarial Threat Matrix", path: "docs/protocols/adversarial-defense.md" },
       { id: "docs/protocols/white-label", title: "White-Label Federation", path: "docs/protocols/white-label.md" },
       { id: "docs/protocols/benchmark-suite", title: "Golden 12 Benchmark Suite", path: "docs/protocols/benchmark-suite.md" },
-      { id: "docs/protocols/cross-model-pareto-benchmark", title: "Cross-Model Pareto Benchmark", path: "docs/protocols/cross-model-pareto-benchmark.md" }
+      { id: "docs/protocols/cross-model-pareto-benchmark", title: "Cross-Model Pareto Benchmark", path: "docs/protocols/cross-model-pareto-benchmark.md" },
+      { id: "docs/protocols/testing-strategy", title: "6-Tier Testing Strategy", path: "docs/protocols/testing-strategy.md" }
     ]
   },
   {
@@ -149,6 +151,7 @@ export const DOCS_REGISTRY = [
     category: "Editorial Dispatches & Blog",
     items: [
             { id: "blog/architecting-sovereign-ai-with-google-antigravity", title: "Architecting Sovereign AI with Antigravity", path: "blog/architecting-sovereign-ai-with-google-antigravity.md" },
+      { id: "blog/the-six-tier-pyramid-of-decentralized-truth", title: "The 6-Tier Verification Pyramid", path: "blog/the-six-tier-pyramid-of-decentralized-truth.md" },
       { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Entropy", path: "blog/the-pizza-hut-problem.md" },
       { id: "blog/the-pareto-frontier-of-truth", title: "The $0.34 Pareto Frontier", path: "blog/the-pareto-frontier-of-truth.md" },
       { id: "blog/bittorrent-for-truth", title: "BitTorrent for Truth (92.3% Savings)", path: "blog/bittorrent-for-truth.md" },
@@ -1352,7 +1355,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.3.0';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.4.0';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 
