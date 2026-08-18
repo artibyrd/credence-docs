@@ -10,7 +10,8 @@ export const DOCS_REGISTRY = [
     items: [
       { id: "docs/intro", title: "Introduction & Overview", path: "docs/intro.md" },
       { id: "docs/quickstart", title: "Quickstart & Installation", path: "docs/quickstart.md" },
-      { id: "docs/feature-parity", title: "Universal Feature Parity", path: "docs/feature-parity.md" }
+      { id: "docs/feature-parity", title: "Universal Feature Parity", path: "docs/feature-parity.md" },
+      { id: "docs/changelog", title: "Release Changelog", path: "docs/changelog.md" }
     ]
   },
   {
