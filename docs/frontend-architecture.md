@@ -11,7 +11,7 @@ This document records the architectural decisions and invariants governing the p
 
 ## 1. Architectural Invariant (Invariant 20)
 
-> **Invariant 20: Web Frontend Zero-Build & Web Crypto Verification Invariant**
+> **[Invariant 20](docs/invariants.md#invariant-20): Web Frontend Zero-Build & Web Crypto Verification Invariant**
 > - All public web frontends across the Credence ecosystem must be built strictly using **vanilla modern web standards** (Semantic HTML5, CSS Custom Properties, and native ES Modules) with **zero Node.js/npm build dependencies**.
 > - Client-side cryptographic verification of signed audit reports must strictly use the native W3C **Web Cryptography API** (`window.crypto.subtle`) rather than external JavaScript crypto libraries.
 

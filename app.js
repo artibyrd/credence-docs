@@ -24,6 +24,16 @@ export const DOCS_REGISTRY = [
     ]
   },
   {
+    category: "Agentic Engineering & Workflows",
+    items: [
+      { id: "docs/agentic/01-antigravity-pair-programming-paradigm", title: "01. Antigravity Pair-Programming", path: "docs/agentic/01-antigravity-pair-programming-paradigm.md" },
+      { id: "docs/agentic/02-continuous-learning-and-invariant-synthesis", title: "02. /learn & Invariant Synthesis", path: "docs/agentic/02-continuous-learning-and-invariant-synthesis.md" },
+      { id: "docs/agentic/03-hermetic-testing-and-zero-npm-guardrails", title: "03. Hermetic Testing & Zero-npm", path: "docs/agentic/03-hermetic-testing-and-zero-npm-guardrails.md" },
+      { id: "docs/agentic/04-multi-model-pareto-and-token-governance", title: "04. Multi-Model Pareto & Token Governor", path: "docs/agentic/04-multi-model-pareto-and-token-governance.md" },
+      { id: "docs/agentic/05-fastmcp-dual-transport-and-four-way-parity", title: "05. FastMCP & 4-Way Parity", path: "docs/agentic/05-fastmcp-dual-transport-and-four-way-parity.md" }
+    ]
+  },
+  {
     category: "Platform Portability & Sovereignty",
     items: [
       { id: "docs/portability/multi-model-adapters", title: "Multi-Model Provider Adapters", path: "docs/portability/multi-model-adapters.md" },
@@ -124,7 +134,7 @@ export const DOCS_REGISTRY = [
   {
     category: "Invariants & Architecture",
     items: [
-      { id: "docs/invariants", title: "32 Agent Invariants", path: "docs/invariants.md" },
+      { id: "docs/invariants", title: "36 Core Invariants", path: "docs/invariants.md" },
       { id: "docs/architecture", title: "Decentralized Architecture", path: "docs/architecture.md" },
       { id: "docs/frontend-architecture", title: "Zero-Build Web Architecture", path: "docs/frontend-architecture.md" }
     ]
@@ -138,6 +148,7 @@ export const DOCS_REGISTRY = [
   {
     category: "Editorial Dispatches & Blog",
     items: [
+            { id: "blog/architecting-sovereign-ai-with-google-antigravity", title: "Architecting Sovereign AI with Antigravity", path: "blog/architecting-sovereign-ai-with-google-antigravity.md" },
       { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Entropy", path: "blog/the-pizza-hut-problem.md" },
       { id: "blog/the-pareto-frontier-of-truth", title: "The $0.34 Pareto Frontier", path: "blog/the-pareto-frontier-of-truth.md" },
       { id: "blog/bittorrent-for-truth", title: "BitTorrent for Truth (92.3% Savings)", path: "blog/bittorrent-for-truth.md" },
@@ -370,14 +381,33 @@ export function formatInline(text) {
   res = res.replace(/\*([^*]+)\*/g, '<em>$1</em>');
   res = res.replace(/~~([^~]+)~~/g, '<del>$1</del>');
 
-  // Markdown links [text](url)
+  // Markdown links [text](url) with sub-anchor and relative path resolution
   res = res.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, linkText, url) => {
-    if (url.startsWith('/')) {
-      const hash = url.replace(/^\//, '').replace(/\/$/, '');
-      return `<a href="#docs/${hash}">${linkText}</a>`;
+    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('mailto:')) {
+      return `<a href="${url}" target="_blank" rel="noopener">${linkText}</a>`;
     }
-    const isExternal = url.startsWith('http');
-    return `<a href="${url}" ${isExternal ? 'target="_blank" rel="noopener"' : ''}>${linkText}</a>`;
+
+    let clean = url.trim();
+    if (clean.startsWith('#')) {
+      return `<a href="${clean}">${linkText}</a>`;
+    }
+
+    clean = clean.replace(/^\.?\/?/, ''); // strip leading ./ or /
+    let anchor = '';
+    if (clean.includes('#')) {
+      const parts = clean.split('#');
+      clean = parts[0];
+      anchor = `#${parts[1]}`;
+    }
+
+    clean = clean.replace(/\.md$/, '');
+    clean = clean.replace(/^\.\.\//, '');
+
+    if (!clean.startsWith('docs/') && !clean.startsWith('blog/') && clean.length > 0) {
+      clean = `docs/${clean}`;
+    }
+
+    return `<a href="#${clean}${anchor}">${linkText}</a>`;
   });
 
   // Restore code spans
@@ -388,9 +418,42 @@ export function formatInline(text) {
   return res;
 }
 
+export function parseFrontmatter(md) {
+  const match = md.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
+  if (!match) return { frontmatter: {}, content: md };
+
+  const rawYaml = match[1];
+  const content = md.slice(match[0].length);
+  const data = {};
+
+  const lines = rawYaml.split('\n');
+  for (const line of lines) {
+    const kv = line.match(/^(\w+):\s*(.*)$/);
+    if (kv) {
+      const key = kv[1].trim();
+      let val = kv[2].trim();
+      if (val.startsWith('[') && val.endsWith(']')) {
+        try {
+          data[key] = val.slice(1, -1).split(',').map(s => s.trim().replace(/^["']|["']$/g, '')).filter(Boolean);
+        } catch (e) {
+          data[key] = val;
+        }
+      } else if (val.startsWith('"') && val.endsWith('"')) {
+        data[key] = val.slice(1, -1);
+      } else if (val.startsWith("'") && val.endsWith("'")) {
+        data[key] = val.slice(1, -1);
+      } else {
+        data[key] = val;
+      }
+    }
+  }
+
+  return { frontmatter: data, content };
+}
+
 export function parseMarkdown(md) {
-  // Strip YAML frontmatter
-  let text = md.replace(/^---[\s\S]*?---\s*/, '');
+  const { frontmatter, content } = parseFrontmatter(md);
+  let text = content;
 
   const lines = text.split('\n');
   let html = [];
@@ -742,7 +805,39 @@ export function parseMarkdown(md) {
     `);
   }
 
-  return html.join('\n');
+  let resultHtml = html.join('\n');
+
+  if (frontmatter && (frontmatter.difficulty || frontmatter.read_time || frontmatter.interfaces || frontmatter.invariants)) {
+    const metaBadges = [];
+    if (frontmatter.difficulty) {
+      metaBadges.push(`<span class="meta-badge difficulty">${escapeHtml(frontmatter.difficulty)}</span>`);
+    }
+    if (frontmatter.read_time) {
+      metaBadges.push(`<span class="meta-badge read-time">⏱️ ${escapeHtml(frontmatter.read_time)}</span>`);
+    }
+    if (Array.isArray(frontmatter.interfaces)) {
+      frontmatter.interfaces.forEach(i => {
+        metaBadges.push(`<span class="meta-badge interface">${escapeHtml(i)}</span>`);
+      });
+    }
+    if (Array.isArray(frontmatter.invariants)) {
+      frontmatter.invariants.forEach(inv => {
+        metaBadges.push(`<a href="#docs/invariants#invariant-${inv}" class="meta-badge invariant">🛡️ Invariant ${inv}</a>`);
+      });
+    }
+
+    if (metaBadges.length > 0) {
+      const metaBar = `<div class="doc-metadata-bar">${metaBadges.join(' ')}</div>`;
+      const firstHeadingIdx = resultHtml.indexOf('</h1>');
+      if (firstHeadingIdx !== -1) {
+        resultHtml = resultHtml.slice(0, firstHeadingIdx + 5) + '\n' + metaBar + resultHtml.slice(firstHeadingIdx + 5);
+      } else {
+        resultHtml = metaBar + '\n' + resultHtml;
+      }
+    }
+  }
+
+  return resultHtml;
 }
 
 let mermaidRenderId = 0;
@@ -1234,7 +1329,7 @@ export function setupPlaygroundWidgets() {
   updateFeedSimulator();
 }
 
-export async function loadDocument(docId) {
+export async function loadDocument(docId, anchorId = '') {
   let target = null;
   for (const group of DOCS_REGISTRY) {
     for (const item of group.items) {
@@ -1257,7 +1352,7 @@ export async function loadDocument(docId) {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.2.0';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.3.0';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 
@@ -1283,7 +1378,6 @@ export async function loadDocument(docId) {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const md = await res.text();
     contentArea.innerHTML = parseMarkdown(md);
-    window.scrollTo(0, 0);
     renderTableOfContents();
 
     // Render Mermaid diagrams
@@ -1294,6 +1388,19 @@ export async function loadDocument(docId) {
 
     if (target.id === 'docs/playground') {
       setupPlaygroundWidgets();
+    }
+
+    if (anchorId) {
+      setTimeout(() => {
+        const el = document.getElementById(anchorId) || document.querySelector(`[name="${anchorId}"]`);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          el.classList.add('highlight-anchor');
+          setTimeout(() => el.classList.remove('highlight-anchor'), 2500);
+        }
+      }, 50);
+    } else {
+      window.scrollTo(0, 0);
     }
   } catch (err) {
     contentArea.innerHTML = `
@@ -1381,22 +1488,89 @@ export function setupSearch() {
   const searchInput = document.getElementById('doc-search');
   if (!searchInput) return;
 
-  searchInput.addEventListener('input', (e) => {
-    const q = e.target.value.toLowerCase().trim();
+  let activeFilter = 'all';
+
+  function filterItems() {
+    const q = searchInput.value.toLowerCase().trim();
+    const isInvSearch = q.startsWith('inv:') || q.startsWith('#') || q.startsWith('invariant:');
+    const targetInv = isInvSearch ? q.replace(/^(inv:|#|invariant:)/, '').trim() : '';
+
     document.querySelectorAll('.sidebar-item').forEach(el => {
       const text = el.textContent.toLowerCase();
-      el.style.display = text.includes(q) ? '' : 'none';
+      const href = (el.getAttribute('href') || '').toLowerCase();
+      
+      let matchesFilter = true;
+      if (activeFilter === 'invariants') {
+        matchesFilter = href.includes('invariants');
+      } else if (activeFilter === 'agentic') {
+        matchesFilter = href.includes('agentic');
+      } else if (activeFilter === 'fastmcp') {
+        matchesFilter = text.includes('fastmcp') || href.includes('fastmcp');
+      } else if (activeFilter === 'tutorials') {
+        matchesFilter = href.includes('tutorials') || href.includes('walkthroughs');
+      }
+
+      let matchesQuery = true;
+      if (q) {
+        if (isInvSearch && targetInv) {
+          matchesQuery = href.includes('invariants') || text.includes(targetInv);
+        } else {
+          matchesQuery = text.includes(q) || href.includes(q);
+        }
+      }
+
+      el.style.display = (matchesFilter && matchesQuery) ? '' : 'none';
     });
+  }
+
+  searchInput.addEventListener('input', filterItems);
+
+  // Filter pills click
+  document.querySelectorAll('.filter-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeFilter = pill.getAttribute('data-filter') || 'all';
+      filterItems();
+    });
+  });
+
+  // Keyboard shortcut: '/' or 'Cmd/Ctrl+K' focuses search, 'Escape' clears
+  window.addEventListener('keydown', (e) => {
+    if ((e.key === '/' && document.activeElement !== searchInput && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) ||
+        ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k')) {
+      e.preventDefault();
+      searchInput.focus();
+      searchInput.select();
+    } else if (e.key === 'Escape' && document.activeElement === searchInput) {
+      searchInput.value = '';
+      searchInput.blur();
+      filterItems();
+    }
   });
 }
 
 export function initRouter() {
   function handleRoute() {
-    let hash = window.location.hash.slice(1);
-    if (!hash) {
-      hash = isBlogContext() ? 'blog/the-blue-checkmark-is-dead' : 'docs/intro';
+    let fullHash = window.location.hash.slice(1);
+    if (!fullHash) {
+      fullHash = isBlogContext() ? 'blog/the-blue-checkmark-is-dead' : 'docs/intro';
     }
-    loadDocument(hash);
+
+    let docId = fullHash;
+    let anchorId = '';
+
+    if (fullHash.includes('#')) {
+      const idx = fullHash.indexOf('#');
+      docId = fullHash.substring(0, idx);
+      anchorId = fullHash.substring(idx + 1);
+    } else if (fullHash.includes(':') && !fullHash.startsWith('http')) {
+      const idx = fullHash.indexOf(':');
+      docId = fullHash.substring(0, idx);
+      anchorId = fullHash.substring(idx + 1);
+    }
+
+    loadDocument(docId, anchorId);
   }
 
   window.addEventListener('hashchange', handleRoute);

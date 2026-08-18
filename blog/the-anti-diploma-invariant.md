@@ -11,7 +11,7 @@ In traditional institutions, authority is granted by static credentials: a diplo
 
 In decentralized and autonomous systems, static credentials are a severe vulnerability. They create single points of failure, gatekeeping cartels, and susceptibility to social engineering.
 
-In Credence, we codified this principle into **Invariant 17: The Anti-Diploma Invariant**.
+In Credence, we codified this principle into **[Invariant 17](docs/invariants.md#invariant-17): The Anti-Diploma Invariant**.
 
 ```mermaid
 graph TD

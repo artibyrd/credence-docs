@@ -82,7 +82,7 @@ terraform -chdir=terraform init \
 
 ## 3. Air-Gapped Root Ed25519 Key Ceremony & Seed Signing
 
-In accordance with **Invariant 16** (*Cryptographic Identity & RFC 8785 Canonical JSON Invariant*), bootstrap seed manifests (`peers.json`) must be cryptographically signed by an air-gapped root Ed25519 keypair.
+In accordance with **[Invariant 16](docs/invariants.md#invariant-16)** (*Cryptographic Identity & RFC 8785 Canonical JSON Invariant*), bootstrap seed manifests (`peers.json`) must be cryptographically signed by an air-gapped root Ed25519 keypair.
 
 ```bash
 # Step 1: On an air-gapped, offline secure workstation, generate root keypair

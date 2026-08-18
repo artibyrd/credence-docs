@@ -7,6 +7,30 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] - 2026-08-18
+
+### Added
+- **36 Invariants Reference Catalog & Deep Linking**:
+  - Expanded `docs/invariants.md` to 36 machine-verifiable invariants across 4 pillars with individual DOM IDs (`#invariant-1` to `#invariant-36`) and pillar architecture flowcharts.
+  - Implemented sub-anchor routing in `app.js` with smooth auto-scrolling and glowing cyan highlighting.
+  - Systematically linked all invariant mentions across all 74 catalog documents.
+  - Added automated static integrity tests (`test_all_invariant_link_anchors_exist`) and Playwright browser tests (`test_invariant_deep_linking_and_scrolling`).
+- **Rich Frontmatter Metadata & Zero-Build Faceted Search Engine**:
+  - Standardized frontmatter metadata schema (`tags`, `interfaces`, `invariants`, `difficulty`, `read_time`).
+  - Added interactive top-of-article metadata badge rows for rapid jumping to related interfaces and invariants.
+  - Added keyboard search shortcuts (`/` or `Ctrl+K` to focus, `Esc` to clear) and interactive sidebar filter pills (**All**, **Invariants**, **Agentic**, **FastMCP**, **Tutorials**).
+- **Dedicated "Agentic Engineering & Antigravity Workflows" Documentation Category**:
+  - **[01. Antigravity Pair-Programming](docs/agentic/01-antigravity-pair-programming-paradigm.md)**: Research phase, Planning Mode, background task orchestration, reactive messaging, and "Mk1 Eyeball" human gating.
+  - **[02. /learn & Invariant Synthesis](docs/agentic/02-continuous-learning-and-invariant-synthesis.md)**: Codifying post-mortems and edge-case discoveries into machine-verifiable rules in `AGENTS.md` and automated tests.
+  - **[03. Hermetic Testing & Zero-npm](docs/agentic/03-hermetic-testing-and-zero-npm-guardrails.md)**: In-memory SQLite fixtures, Playwright DOM/SVG geometry contracts, and Zero-npm longevity.
+  - **[04. Multi-Model Pareto & Token Governor](docs/agentic/04-multi-model-pareto-and-token-governance.md)**: Gemini 3.7 Flash 4k thinking token sweet spot ($0.075/1M), 30% offline circuit breakers, and prompt boundary defense.
+  - **[05. FastMCP & 4-Way Parity](docs/agentic/05-fastmcp-dual-transport-and-four-way-parity.md)**: Dual stdio/SSE FastMCP 2.0 transports, reverse proxy security, and 4-way synchronous interface parity.
+  - **[Blog Essay: Architecting Sovereign AI with Google Antigravity](blog/architecting-sovereign-ai-with-google-antigravity.md)**: High-assurance agentic engineering narrative.
+- **Formalized Milestone Completion & Multi-Repo Git Push Lifecycle**:
+  - Codified the 5-step milestone completion protocol: Present Walkthrough $\to$ Request "Mk1 Eyeball" Approval $\to$ Changelog & Version Sync $\to$ Multi-Repo Push (`just push-all`) $\to$ `/learn` Retrospective.
+
+---
+
 ## [1.2.0] - 2026-08-18
 
 ### Added

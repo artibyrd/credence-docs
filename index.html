@@ -19,7 +19,7 @@
   <nav class="credence-nav">
     <a href="https://credence.run" class="brand">
       <img src="assets/logo.svg" alt="Credence Shield" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 0.5rem;">
-      Credence <span class="badge">v1.2.0</span>
+      Credence <span class="badge">v1.3.0</span>
     </a>
     <ul class="nav-links">
       <li><a href="https://credence.run">Home</a></li>
@@ -35,7 +35,17 @@
     <!-- Sidebar Navigation -->
     <aside class="docs-sidebar">
       <div class="search-container">
-        <input type="text" id="doc-search" class="search-input" placeholder="Search documentation..." autocomplete="off">
+        <div class="search-input-wrapper">
+          <input type="text" id="doc-search" class="search-input" placeholder="Search docs, tags, #invariants..." autocomplete="off">
+          <kbd class="search-kbd">/</kbd>
+        </div>
+        <div class="search-filter-pills" id="search-filter-pills">
+          <button type="button" class="filter-pill active" data-filter="all">All</button>
+          <button type="button" class="filter-pill" data-filter="invariants">Invariants</button>
+          <button type="button" class="filter-pill" data-filter="agentic">Agentic</button>
+          <button type="button" class="filter-pill" data-filter="fastmcp">FastMCP</button>
+          <button type="button" class="filter-pill" data-filter="tutorials">Tutorials</button>
+        </div>
       </div>
       <div id="sidebar-nav">
         <!-- Injected dynamically by app.js -->

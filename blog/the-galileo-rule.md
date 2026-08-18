@@ -48,7 +48,7 @@ flowchart TD
 
 ---
 
-## Codifying Invariant 27: The Galileo Rule
+## Codifying [Invariant 27](docs/invariants.md#invariant-27): The Galileo Rule
 
 Credence enforces an explicit mathematical invariant to protect asymmetric grounded discoveries:
 
