@@ -7,6 +7,35 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.5.0] - 2026-08-18
+
+### Added
+- **Human-Centered Epistemic Report Viewer across 4 Interfaces**:
+  - **Zero-Build Web UI (`credence.report/viewer.html`)**:
+    - Built interactive in-context reading mode rendering snapshot article prose with color-coded highlight markers (`.hl-ethics`, `.hl-fallacy`, `.hl-deceptive`) and tooltip citations.
+    - Added Executive Epistemic Briefing card with plain-English human takeaways and 3-signal indicators (Ethics, Logic, Deceptive Design).
+    - Added 5 interactive tabs: Overview & Metrics, In-Context Reading Mode, Itemized Findings (with real-time search & domain filter chips), Cryptographic Proof (W3C WebCrypto Ed25519 validation), and Share & Export (1-click Markdown copier, JSON download, SVG trust badge).
+    - Preserved 100% Zero-Build standard (vanilla HTML5, CSS Custom Properties, native ES Modules, zero npm dependencies).
+  - **Textual TUI Workstation (`credence/tui/app.py`)**:
+    - Built Dual-Pane Inspector Split: left pane for filterable specialist findings table and right pane for in-context cited excerpts, severity badges, and reasoning.
+    - Added Executive Summary panel at the top of the inspector with human takeaways.
+    - Added live search filter input updating findings dynamically on keystrokes.
+    - Added keyboard shortcuts: `o` (open in web browser), `e` (export Markdown report to disk), and `f` (focus filter input).
+  - **Rich Terminal CLI (`credence/cli/main.py`)**:
+    - Prepend Executive Epistemic Briefing panel and visual Epistemic Trust Dimensions breakdown meters (`[████████████████████] Clean`).
+    - Added `--open` browser flag to `credence audit` and `credence lookup` subcommands.
+    - Added `credence report view <identifier> [--format {terminal,markdown,json}] [--open]` subcommand.
+  - **FastMCP 2.0 Server (`credence/server/app.py`)**:
+    - Added `format: str = "json"` (`json`, `markdown`, `human`) parameter to `credence_get_audit`.
+    - Registered `credence://reports/{identifier}/human` resource returning conversational Markdown briefings.
+    - Registered `explain_audit_report_prompt` prompt template instructing AI agents how to explain audit reports in plain English.
+  - **FastMCP Text Evaluation Persistence**:
+    - Persisted `SnapshotRecord`, `AuditRecord`, and `ViolationRecord` to SQLite with `text://inline` pseudo-URLs for all text evaluations to ensure cache lookup parity with live URL audits.
+  - **Universal Invariant Codification**:
+    - Codified *FastMCP Text Evaluation Persistence Invariant* and *Human-First In-Context Report Presentation Invariant* in `AGENTS.md`.
+
+---
+
 ## [1.4.0] - 2026-08-18
 
 ### Added

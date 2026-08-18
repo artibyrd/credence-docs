@@ -35,6 +35,7 @@ graph TD
 | **Audit Webpage (Live DOM)** | `credence audit <url>` | Tool: `credence_check_url` | `/` Shortcut Dialog | `credence.run` Form | **Full Parity** |
 | **Direct Text Evaluation** | `credence audit` | Tool: `credence_evaluate_text` | Live Inspector View | `credence.report` Form | **Full Parity** |
 | **Attestation Lookup** | `credence lookup <hash>` | Tool: `credence_get_audit` | Recent Table | `credence.report/viewer.html` | **Full Parity** |
+| **Human Report Viewer** | `credence report view --open` | Resource: `credence://reports/{id}/human` | Tab 1: 🛡️ Inspector Dual-Pane | `credence.report/viewer.html` (In-Context) | **Full Parity** |
 | **Dynamic Feed Discovery** | `credence feed discover <url>` | Tool: `credence_discover_feeds` | Feed Autodiscovery Bar | Feed Discovery Widget | **Full Parity** |
 | **Pre-Flight Feed Inspection** | `credence feed inspect <url>` | Tool: `credence_inspect_feed_health` | 1-Click Inspect Modal | Interactive Pre-Flight Modal | **Full Parity** |
 | **Dynamic Quality Scoring ($F_j$)**| `credence feed health` | Resource: `credence://feeds/status` | Tab 4: `📡 Feeds & Dedup` | Feed Status Dashboard | **Full Parity** |
