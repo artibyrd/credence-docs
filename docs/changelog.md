@@ -7,6 +7,43 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.5.1] - 2026-08-18
+
+### Added
+- **Multi-Display Mode Switcher & Machine-Ingestible Options across 4 Interfaces**:
+  - **Zero-Build Web UI (`credence.report/viewer.html`)**:
+    - Implemented 3-way Display Mode Switcher (`[🧠 Human]`, `[⚡ Compact]`, `[🤖 Machine (JSON)]`) with URL query parameter sync (`?view=human|compact|raw`).
+    - Added `[⚡ Compact]` view: dense single-screen epistemic breakdown with quick-scan verdict and tabular findings.
+    - Added `[🤖 Machine (JSON)]` view: full-width canonical RFC 8785 JSON inspector with pretty/minified formatting toggle and 1-click cURL API snippet.
+    - Embedded dynamic Schema.org `ClaimReview` JSON-LD into DOM `<head>` on every report render for autonomous AI agent scraping and search engine crawler ingestion.
+  - **Rich Terminal CLI (`credence/cli/main.py`)**:
+    - Added universal `--format {human,compact,json,ndjson,tsv}` flag across `credence audit`, `credence lookup`, and `credence report`.
+    - Compact format outputs concise score, density, confidence, and single-line findings; NDJSON outputs newline-delimited JSON stream; TSV outputs tab-separated tabular data for pipeline scripting.
+  - **FastMCP 2.0 Server (`credence/server/app.py`)**:
+    - Added `credence://reports/{identifier}/compact` resource providing token-efficient LLM briefings.
+    - Added `credence://reports/{identifier}/raw` resource returning raw signed RFC 8785 JSON attestations.
+    - Enhanced `credence_get_audit` tool with `format` parameter supporting `human`, `compact`, `json`, `ndjson`, and `tsv`.
+  - **Textual TUI Workstation (`credence/tui/app.py`)**:
+    - Added `v` keyboard shortcut to cycle live inspector view modes between Rich Human Executive Briefing, Compact Dense Summary, and Raw JSON Attestation.
+- **Categorical Epistemic Audit Discovery & Stream Explorer**:
+  - **Zero-Build Web UI (`credence.report/index.html` & `viewer.html`)**:
+    - Added Quick Discovery Toolbar with filter pills (`Recent`, `Surprise Me (Random)`, `Top Clean 0–15`, `Most Flagged 70+`, `Satire Showcase`).
+    - Built slide-down Discovery Drawer (`#discovery-drawer`) rendering category cards for 1-click loading without needing a known URL or hash.
+  - **Rich Terminal CLI (`credence/cli/main.py`)**:
+    - Added `credence report browse [--category {recent,best,worst,satire,random}] [--limit N] [--format FMT] [--open]` subcommand.
+    - Added discovery convenience flags to `credence lookup` (`--best`, `--worst`, `--satire`, `--random`).
+  - **FastMCP 2.0 Server (`credence/server/app.py`)**:
+    - Registered `credence_browse_audits` tool querying SQLite by category with configurable limits and formats.
+    - Registered `credence://reports/explore/{category}` streaming resource.
+  - **Textual TUI Workstation (`credence/tui/app.py`)**:
+    - Added `r` keyboard shortcut to select and load a random audit report from local database history.
+
+### Changed
+- **Stacked Share & Export Layout (`credence.report/viewer.html`)**:
+  - Replaced cramped 3-column horizontal export grid with full-width vertically stacked cards (`.export-stack`, `.export-card-stacked`) featuring horizontal action headers, 1-click copy buttons, and full-width syntax-highlighted previews for Markdown, RFC 8785 JSON, and SVG Trust Badges.
+
+---
+
 ## [1.5.0] - 2026-08-18
 
 ### Added
