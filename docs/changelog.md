@@ -7,6 +7,36 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.5.2] - 2026-08-18
+
+### Added
+- **Autonomous Epistemic Feed Sifter & Real-Time Ingestion Bridge**:
+  - **Live Feed Ingestion Execution (`credence/feeds/worker.py`)**:
+    - Wired novel article discovery directly to `audit_url` evaluation pipeline, creating `SnapshotRecord`, `AuditRecord`, and `ViolationRecord` entities in SQLite upon discovery.
+    - Added auto-bootstrapping of preset feed subscriptions if subscription catalog is empty.
+  - **Unified Starlette Server with REST API Gateway (`credence/server/app.py` & `credence/cli/main.py`)**:
+    - Expanded server runtime to combine FastMCP 2.0 SSE transport with Starlette REST API endpoints:
+      - `GET /health` & `GET /api/health`: Service health and version status.
+      - `GET /api/reports`: Paginated, categorized query endpoint (`recent`, `best`, `worst`, `satire`, `random`).
+      - `GET /api/reports/{identifier}`: Reconstitutes full `AuditReport` entity with snapshot metadata and itemized violations from SQLite.
+      - `POST /api/audit`: Live on-demand evaluation endpoint for arbitrary target URLs.
+      - `GET /api/sifter/status`: Real-time telemetry on active feed subscriptions, discovered articles, audited counts, and token savings.
+      - `POST /api/sifter/cycle`: Trigger immediate sifting pass.
+      - `GET /api/feeds/stream`: Stream recent discovered feed items.
+    - Added `--sifter` flag to `credence serve` and ASGI lifespan management for background `SifterDaemon`.
+    - Added `--once` flag to `credence sifter` for single-cycle execution in cron or batch environments.
+    - Added `credence export-catalog` CLI subcommand exporting SQLite database state to static `reports.json` catalog.
+  - **Cloudflare Worker Edge Router REST Proxying (`web/_worker.js`)**:
+    - Added transparent reverse proxying for `/api/*` and `/health` requests across all hosted domains to Google Cloud Run backend with full CORS headers.
+  - **Zero-Build Web UI Dynamic Auto-Discovery (`credence.report/viewer.html` & `index.html`)**:
+    - Implemented dynamic API base detection auto-switching between local `http://localhost:8000` during local development and `/api` on production.
+    - Added async dynamic corpus fetching from `/api/reports`, falling back gracefully to static `reports.json` and embedded scenarios.
+    - Connected live on-demand URL auditing directly in search/inspect inputs with animated status feedback.
+    - Added live feed audits stream container to `index.html`.
+  - **Zero-GCP Portability & Seed Automation**:
+    - Added `just seed-reports`, `just serve-sifter`, `just sifter-once`, and `just export-catalog` recipes.
+    - Documented 100% self-hosted, air-gapped local execution without commercial cloud lock-in in `docs/portability/multi-cloud-deployment.md`.
+
 ## [1.5.1] - 2026-08-18
 
 ### Added
