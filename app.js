@@ -34,7 +34,8 @@ export const DOCS_REGISTRY = [
       { id: "docs/tutorials/05-mesh-quickstart", title: "05. 3-Node Mesh Quickstart", path: "docs/tutorials/05-mesh-quickstart.md" },
       { id: "docs/tutorials/06-thirteen-node-chaos-lab", title: "06. 13-Node Chaos Lab", path: "docs/tutorials/06-thirteen-node-chaos-lab.md" },
       { id: "docs/tutorials/07-air-gapped-and-adhoc-mesh", title: "07. Air-Gapped Truth Bundles", path: "docs/tutorials/07-air-gapped-and-adhoc-mesh.md" },
-      { id: "docs/tutorials/08-sybil-cartel-demolition", title: "08. Sybil Cartel Demolition", path: "docs/tutorials/08-sybil-cartel-demolition.md" }
+      { id: "docs/tutorials/08-sybil-cartel-demolition", title: "08. Sybil Cartel Demolition", path: "docs/tutorials/08-sybil-cartel-demolition.md" },
+      { id: "docs/tutorials/09-zero-trust-feed-sifter-digest", title: "09. Zero-Trust Feed Sifter & Digest", path: "docs/tutorials/09-zero-trust-feed-sifter-digest.md" }
     ]
   },
   {
@@ -127,6 +128,7 @@ export const DOCS_REGISTRY = [
   {
     category: "Editorial Dispatches & Blog",
     items: [
+      { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Entropy", path: "blog/the-pizza-hut-problem.md" },
       { id: "blog/the-pareto-frontier-of-truth", title: "The $0.34 Pareto Frontier", path: "blog/the-pareto-frontier-of-truth.md" },
       { id: "blog/bittorrent-for-truth", title: "BitTorrent for Truth (92.3% Savings)", path: "blog/bittorrent-for-truth.md" },
       { id: "blog/the-blue-checkmark-is-dead", title: "The Blue Checkmark is Dead", path: "blog/the-blue-checkmark-is-dead.md" },
@@ -810,6 +812,77 @@ function setupPlaygroundWidgets() {
   artSlider?.addEventListener('input', updateModelComparator);
   lenSlider?.addEventListener('input', updateModelComparator);
   updateModelComparator();
+
+  // 8. Zero-Trust Dynamic Feed Discovery & Quality (F_j) Simulator
+  const feedSuspSlider = document.getElementById('feed-suspicion-slider');
+  const feedGrdSlider = document.getElementById('feed-grounding-slider');
+  const feedEntSlider = document.getElementById('feed-entropy-slider');
+  const feedFrshSlider = document.getElementById('feed-freshness-slider');
+
+  const feedSuspVal = document.getElementById('feed-suspicion-val');
+  const feedGrdVal = document.getElementById('feed-grounding-val');
+  const feedEntVal = document.getElementById('feed-entropy-val');
+  const feedFrshVal = document.getElementById('feed-freshness-val');
+
+  const feedScoreEl = document.getElementById('feed-result-score');
+  const feedBadgeEl = document.getElementById('feed-result-badge');
+  const feedAstroEl = document.getElementById('feed-astroturf-status');
+
+  function updateFeedSimulator() {
+    if (!feedSuspSlider || !feedGrdSlider || !feedEntSlider || !feedFrshSlider) return;
+
+    const S_bar = parseFloat(feedSuspSlider.value);
+    const G_j = parseFloat(feedGrdSlider.value) / 100.0;
+    const H_topic = parseFloat(feedEntSlider.value);
+    const T_fresh = parseFloat(feedFrshSlider.value);
+
+    if (feedSuspVal) feedSuspVal.textContent = S_bar.toFixed(1);
+    if (feedGrdVal) feedGrdVal.textContent = `${Math.round(G_j * 100)}%`;
+    if (feedEntVal) feedEntVal.textContent = H_topic.toFixed(2);
+    if (feedFrshVal) feedFrshVal.textContent = T_fresh.toFixed(2);
+
+    const suspicionComponent = Math.max(0, Math.min(1, 1.0 - (S_bar / 100.0)));
+    const F_j = (0.35 * suspicionComponent) + (0.25 * G_j) + (0.20 * H_topic) + (0.20 * T_fresh);
+    const roundedFj = Math.max(0, Math.min(1, F_j)).toFixed(2);
+
+    if (feedScoreEl) {
+      feedScoreEl.textContent = roundedFj;
+    }
+
+    if (H_topic < 0.30) {
+      if (feedAstroEl) {
+        feedAstroEl.textContent = '🚨 HIGH RISK (Suspected Commercial Astroturfing)';
+        feedAstroEl.style.color = '#ef4444';
+      }
+    } else {
+      if (feedAstroEl) {
+        feedAstroEl.textContent = 'NONE (Diverse Semantic Coverage)';
+        feedAstroEl.style.color = '#4ade80';
+      }
+    }
+
+    if (feedBadgeEl) {
+      if (F_j >= 0.70 && H_topic >= 0.30) {
+        feedBadgeEl.textContent = 'ACTIVE ROTATION (APPROVED)';
+        feedBadgeEl.className = 'verdict-tag reliable';
+        if (feedScoreEl) feedScoreEl.style.color = '#4ade80';
+      } else if (F_j >= 0.40 && H_topic >= 0.30) {
+        feedBadgeEl.textContent = 'PROBATION (TOKEN HEADROOM ONLY)';
+        feedBadgeEl.className = 'verdict-tag mixed';
+        if (feedScoreEl) feedScoreEl.style.color = '#f59e0b';
+      } else {
+        feedBadgeEl.textContent = 'QUARANTINE / EVICTED (HIGH RISK)';
+        feedBadgeEl.className = 'verdict-tag deceptive';
+        if (feedScoreEl) feedScoreEl.style.color = '#ef4444';
+      }
+    }
+  }
+
+  feedSuspSlider?.addEventListener('input', updateFeedSimulator);
+  feedGrdSlider?.addEventListener('input', updateFeedSimulator);
+  feedEntSlider?.addEventListener('input', updateFeedSimulator);
+  feedFrshSlider?.addEventListener('input', updateFeedSimulator);
+  updateFeedSimulator();
 }
 
 export async function loadDocument(docId) {

@@ -44,8 +44,20 @@ Returns real-time token safety headroom %, daily spend, and circuit breaker heal
 Calculates Bayesian multi-node consensus across peer evaluations for a given content hash, with optional empirical subject-weighted scoring.
 - **Parameters**: `content_sha256: str`, `subject_id: Optional[str] = None`
 
-### `credence_sync_feeds`
-Polls all active syndicated RSS/Atom/JSON feeds, executes mesh effort avoidance, and adopts peer attestations at $0.00 token cost.
+### `credence_discover_feeds`
+Autonomously discovers RSS, Atom, and JSON feed candidate endpoints from any target webpage.
+- **Parameters**: `target_url: str`
+- **Output**: JSON array of discovered feed candidates with format type and verified status.
+
+### `credence_inspect_feed_health`
+Runs pre-flight forensic audit on a candidate feed to calculate Topic Entropy (\(H_{\text{topic}}\)), SPJ ethics compliance, and composite quality score (\(F_j\)).
+- **Parameters**: `feed_url: str`
+- **Output**: Detailed pre-flight audit report with status (`ACTIVE`, `PROBATION`, `QUARANTINE`).
+
+### `credence_generate_digest`
+Generates a structured daily Morning Epistemic Briefing from evaluated articles.
+- **Parameters**: `hours: int = 24`
+- **Output**: Executive briefing JSON with clean, warning, deceptive, and satire items plus compute savings.
 
 ---
 
@@ -57,3 +69,4 @@ Polls all active syndicated RSS/Atom/JSON feeds, executes mesh effort avoidance,
 - `credence://mesh/seeds`: Signed bootstrap seed peers.
 - `credence://subjects/registry`: Hierarchical subject domain ontology.
 - `credence://feeds/status`: Syndicated feed status and compute savings.
+- `credence://digest/morning`: Live 24-hour executive morning epistemic digest.

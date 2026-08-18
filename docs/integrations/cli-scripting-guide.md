@@ -68,9 +68,37 @@ jobs:
           grep -oP 'https?://[^\s\)]+' README.md | while read -r url; do
             score=$(credence audit "$url" --profile FREE --json | jq '.suspicion_score')
             echo "Audited $url: Score $score"
-            if (( $(echo "$score > 60.0" | bc -l) )); then
-              echo "❌ Suspicious link detected in PR: $url (Score $score)"
-              exit 1
-            fi
-          done
+## 4. Automated Feed Discovery & Sifter Management
+
+Automate dynamic RSS/Atom discovery and run real-time background sifting:
+
+```bash
+# Autodiscover feed endpoints dynamically from a website
+credence feed discover https://arstechnica.com
+
+# Pre-flight forensic audit on a candidate feed
+credence feed inspect https://example.com/rss.xml
+
+# View live feed health rankings (F_j score, topic entropy, suspicion)
+credence feed health
+
+# Launch real-time background sifter daemon
+credence sifter --interval 300 --profile balanced
+```
+
+---
+
+## 5. Daily Morning Epistemic Digest Generation
+
+Compile daily intelligence briefings for newsletters, Slack webhooks, or automated reports:
+
+```bash
+# Terminal high-contrast view
+credence digest --format terminal
+
+# Export to clean Markdown for static sites / newsletters
+credence digest --format markdown --output /srv/web/morning_brief.md --hours 24
+
+# Stream JSON for custom alerting pipes
+credence digest --format json | jq '{clean: .clean_articles_count, flagged: .flagged_articles_count, tokens_saved: .estimated_tokens_saved}'
 ```

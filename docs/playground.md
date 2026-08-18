@@ -182,3 +182,39 @@ Compare estimated monthly operational costs, latency (TTFT), and cloud sovereign
     <!-- Injected dynamically by app.js -->
   </div>
 </div>
+
+---
+
+## 8. Zero-Trust Dynamic Feed Discovery & Quality (\(F_j\)) Simulator
+
+Test how Credence dynamically evaluates candidate feeds, calculates Topic Entropy (\(H_{\text{topic}}\)), detects commercial astroturfing (The "Pizza Hut Test"), and determines whether a feed is approved for active mesh rotation:
+
+$$F_j = 0.35 (1.0 - \bar{S}_j/100) + 0.25 G_j + 0.20 H_{\text{topic}} + 0.20 T_{\text{freshness}}$$
+
+<div class="interactive-widget" id="feed-simulator-widget">
+  <div class="widget-row">
+    <div class="widget-col">
+      <label for="feed-suspicion-slider" class="widget-label">Average Suspicion (\(\bar{S}_j\)): <span id="feed-suspicion-val" class="widget-val">12.0</span> / 100</label>
+      <input type="range" id="feed-suspicion-slider" min="0" max="100" step="1" value="12" class="widget-slider">
+
+      <label for="feed-grounding-slider" class="widget-label">Verbatim Grounding Precision (\(G_j\)): <span id="feed-grounding-val" class="widget-val">95%</span></label>
+      <input type="range" id="feed-grounding-slider" min="0" max="100" step="5" value="95" class="widget-slider">
+
+      <label for="feed-entropy-slider" class="widget-label">Topic Entropy / Diversity (\(H_{\text{topic}}\)): <span id="feed-entropy-val" class="widget-val">0.85</span></label>
+      <input type="range" id="feed-entropy-slider" min="0.0" max="1.0" step="0.05" value="0.85" class="widget-slider">
+
+      <label for="feed-freshness-slider" class="widget-label">Cadence Freshness Index (\(T_{\text{freshness}}\)): <span id="feed-freshness-val" class="widget-val">0.90</span></label>
+      <input type="range" id="feed-freshness-slider" min="0.1" max="1.0" step="0.05" value="0.90" class="widget-slider">
+    </div>
+
+    <div class="widget-col widget-result-box">
+      <div class="widget-metric-title">Composite Feed Quality Score (\(F_j\))</div>
+      <div id="feed-result-score" class="widget-score-big" style="color: #4ade80;">0.89</div>
+      <div id="feed-result-badge" class="verdict-tag reliable">ACTIVE ROTATION (APPROVED)</div>
+      <div class="widget-submetrics" style="margin-top: 1rem;">
+        <div>Astroturfing Alert: <strong id="feed-astroturf-status" style="color: #4ade80;">NONE (Diverse Coverage)</strong></div>
+        <div>Mesh Seeding: <strong style="color: #38bdf8;">ENABLED (0-Token Work-Sharing)</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
