@@ -1,0 +1,106 @@
+---
+title: "Multi-Cloud Deployment: AWS, Azure, Hetzner & K8s"
+description: "Deploying the Credence FastMCP server and mesh relays to AWS ECS Fargate, Azure Container Apps, Hetzner, and Kubernetes."
+---
+
+While our reference Terraform infrastructure targets **Google Cloud Platform (Cloud Run v2)**, Credence is packaged as a lightweight, standard OCI container that can run seamlessly on any cloud provider or bare-metal VPS.
+
+---
+
+## 1. AWS Deployment (ECS Fargate & Secrets Manager)
+
+Deploy scale-to-zero or low-cost serverless containers on Amazon Web Services:
+
+```hcl
+# terraform/aws/main.tf
+resource "aws_ecs_cluster" "credence" {
+  name = "credence-cluster"
+}
+
+resource "aws_ecs_task_definition" "credence" {
+  family                   = "credence-server"
+  requires_compatibilities = ["FARGATE"]
+  network_mode             = "awsvpc"
+  cpu                      = "512"
+  memory                   = "1024"
+
+  container_definitions = jsonencode([{
+    name      = "credence"
+    image     = "ghcr.io/credence-network/credence:latest"
+    essential = true
+    portMappings = [{
+      containerPort = 8000
+      hostPort      = 8000
+    }]
+    environment = [
+      { name = "CREDENCE_PROFILE", value = "BALANCED" }
+    ]
+    secrets = [
+      { name = "CREDENCE_GEMINI_API_KEY", valueFrom = aws_secretsmanager_secret.gemini_key.arn }
+    ]
+  }])
+}
+```
+
+---
+
+## 2. Microsoft Azure (Azure Container Apps)
+
+Scale-to-zero serverless deployment on Microsoft Azure:
+
+```bash
+# Create Azure Container App with scale-to-zero
+az containerapp create \
+  --name credence-server \
+  --resource-group rg-credence \
+  --environment env-credence \
+  --image ghcr.io/credence-network/credence:latest \
+  --target-port 8000 \
+  --ingress external \
+  --min-replicas 0 \
+  --max-replicas 3 \
+  --secrets gemini-key=YOUR_API_KEY \
+  --env-vars CREDENCE_GEMINI_API_KEY=secretref:gemini-key CREDENCE_PROFILE=BALANCED
+```
+
+---
+
+## 3. Hetzner / Sovereign Bare-Metal VPS ($5/Month)
+
+For maximum cost efficiency with zero cloud vendor lock-in, deploy on a $5/month Hetzner Cloud VPS (CAX11 ARM64 or CX22 x86):
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+
+services:
+  credence:
+    image: ghcr.io/credence-network/credence:latest
+    restart: always
+    ports:
+      - "8000:8000"
+      - "8765:8765"
+    environment:
+      - CREDENCE_GEMINI_API_KEY=${CREDENCE_GEMINI_API_KEY}
+      - CREDENCE_PROFILE=BALANCED
+    volumes:
+      - ./data:/app/data
+```
+
+```bash
+docker compose up -d
+```
+
+---
+
+## 4. Kubernetes / k3s Sovereign Newsroom Helm Deployment
+
+Deploy on sovereign Kubernetes clusters (`k3s` / `RKE2`):
+
+```bash
+helm repo add credence https://charts.credence.nexus
+helm install credence-node credence/credence-node \
+  --set profile=BALANCED \
+  --set persistence.size=10Gi \
+  --set apiKeySecret=credence-secrets
+```
