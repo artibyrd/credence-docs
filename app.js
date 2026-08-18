@@ -156,6 +156,11 @@ const MODELS_PRICING = [
   { name: "Anthropic Claude 3.7 Sonnet", inputPerM: 3.00, outputPerM: 15.00, ttft: "1200ms", badge: "HIGH-NUANCE THINKING", badgeClass: "suspicious", sovereignty: "Anthropic API" }
 ];
 
+function isBlogContext() {
+  const host = window.location.hostname;
+  return host === 'blog.credence.run' || window.location.hash.startsWith('#blog');
+}
+
 function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = str;
@@ -376,7 +381,21 @@ export function renderSidebar(activeId) {
   const container = document.getElementById('sidebar-nav');
   if (!container) return;
 
-  container.innerHTML = DOCS_REGISTRY.map(group => `
+  const isBlog = isBlogContext();
+  let groups = [...DOCS_REGISTRY];
+
+  if (isBlog) {
+    // Reorder: Blog first when on blog.credence.run
+    const blogGroup = groups.find(g => g.category.includes("Blog"));
+    const techGroups = groups.filter(g => !g.category.includes("Blog"));
+    groups = [
+      blogGroup,
+      { category: "Technical Reference", items: [{ id: "docs/intro", title: "← Return to Documentation Portal", path: "docs/intro.md" }] },
+      ...techGroups
+    ];
+  }
+
+  container.innerHTML = groups.map(group => `
     <div class="sidebar-group">
       <div class="sidebar-heading">${escapeHtml(group.category)}</div>
       <ul class="sidebar-list">
@@ -704,7 +723,6 @@ function setupPlaygroundWidgets() {
     if (artVal) artVal.textContent = dailyArticles.toLocaleString();
     if (lenVal) lenVal.textContent = avgWords.toLocaleString();
 
-    // 1 word ~= 1.33 tokens. Plus ~1,500 thinking/output tokens per audit
     const inputTokensPerAudit = Math.round(avgWords * 1.33);
     const outputTokensPerAudit = 1500;
     const monthlyArticles = dailyArticles * 30;
@@ -763,10 +781,31 @@ export async function loadDocument(docId) {
   }
 
   if (!target) {
-    target = DOCS_REGISTRY[0].items[0];
+    const isBlog = isBlogContext();
+    target = isBlog ? DOCS_REGISTRY[DOCS_REGISTRY.length - 1].items[0] : DOCS_REGISTRY[0].items[0];
   }
 
   renderSidebar(target.id);
+
+  // Update header and document title
+  const isBlog = isBlogContext();
+  const brandBadge = document.querySelector('.credence-nav .badge');
+  if (brandBadge) {
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.0.0';
+  }
+  document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
+
+  // Update active navbar link
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    const href = a.getAttribute('href');
+    if (isBlog && href.includes('blog')) {
+      a.classList.add('active');
+    } else if (!isBlog && href.includes('docs')) {
+      a.classList.add('active');
+    } else {
+      a.classList.remove('active');
+    }
+  });
 
   const contentArea = document.getElementById('doc-content');
   if (!contentArea) return;
@@ -810,7 +849,10 @@ export function setupSearch() {
 
 export function initRouter() {
   function handleRoute() {
-    const hash = window.location.hash.slice(1) || 'docs/intro';
+    let hash = window.location.hash.slice(1);
+    if (!hash) {
+      hash = isBlogContext() ? 'blog/the-blue-checkmark-is-dead' : 'docs/intro';
+    }
     loadDocument(hash);
   }
 
