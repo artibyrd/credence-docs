@@ -57,7 +57,8 @@ export const DOCS_REGISTRY = [
       { id: "docs/tutorials/09-zero-trust-feed-sifter-digest", title: "09. Zero-Trust Feed Sifter & Digest", path: "docs/tutorials/09-zero-trust-feed-sifter-digest.md" },
       { id: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet", title: "10. Reusable Live E2E & Mesh Gauntlet", path: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet.md" },
       { id: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition", title: "11. Node Germination & Swarm Ignition", path: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition.md" },
-      { id: "docs/tutorials/12-climbing-the-epistemic-tiers", title: "12. Climbing the Epistemic Tiers", path: "docs/tutorials/12-climbing-the-epistemic-tiers.md" }
+      { id: "docs/tutorials/12-climbing-the-epistemic-tiers", title: "12. Climbing the Epistemic Tiers", path: "docs/tutorials/12-climbing-the-epistemic-tiers.md" },
+      { id: "docs/tutorials/13-discord-alerting-and-basement-monitoring", title: "13. Discord Alerts & Basement Ops", path: "docs/tutorials/13-discord-alerting-and-basement-monitoring.md" }
     ]
   },
   {
@@ -117,6 +118,7 @@ export const DOCS_REGISTRY = [
       { id: "docs/protocols/epistemic-merit-and-leaderboards", title: "Epistemic Merit & Leaderboards", path: "docs/protocols/epistemic-merit-and-leaderboards.md" },
       { id: "docs/protocols/web-epistemic-intelligence", title: "Global Web Intelligence & DEI", path: "docs/protocols/web-epistemic-intelligence.md" },
       { id: "docs/protocols/closed-loop-traffic-shaping", title: "Closed-Loop Routing & Traffic", path: "docs/protocols/closed-loop-traffic-shaping.md" },
+      { id: "docs/protocols/telemetry-loopback", title: "Interface Telemetry Loopback (ITLP-v1)", path: "docs/protocols/telemetry-loopback.md" },
       { id: "docs/protocols/testing-strategy", title: "6-Tier Testing Strategy", path: "docs/protocols/testing-strategy.md" }
     ]
   },
@@ -171,7 +173,9 @@ export const DOCS_REGISTRY = [
       { id: "blog/the-anti-diploma-invariant", title: "The Anti-Diploma Invariant", path: "blog/the-anti-diploma-invariant.md" },
       { id: "blog/bittorrent-economics-of-fact-checking", title: "BitTorrent Economics of Fact-Checking", path: "blog/bittorrent-economics-of-fact-checking.md" },
       { id: "blog/the-galileo-rule", title: "The Galileo Rule", path: "blog/the-galileo-rule.md" },
-      { id: "blog/giving-claude-and-cursor-an-epistemic-brake", title: "Giving AI an Epistemic Brake", path: "blog/giving-claude-and-cursor-an-epistemic-brake.md" }
+      { id: "blog/giving-claude-and-cursor-an-epistemic-brake", title: "Giving AI an Epistemic Brake", path: "blog/giving-claude-and-cursor-an-epistemic-brake.md" },
+      { id: "blog/interface-telemetry-loopback", title: "Interface Telemetry Loopback", path: "blog/interface-telemetry-loopback.md" },
+      { id: "blog/basement-ops-and-discord-alerting", title: "Basement Ops & Discord Alerting", path: "blog/basement-ops-and-discord-alerting.md" }
     ]
   }
 ];
@@ -1381,7 +1385,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.9.0';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.10.0';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 

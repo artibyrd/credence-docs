@@ -7,6 +7,30 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.10.0] - 2026-08-18
+
+### Added
+- **Dual-Tier SRE Observability & Discord Webhook Integration**:
+  - Implemented the **"Guy in His Basement" Easy Mode** (`monitoring_tier = "simple"`, default):
+    - 3 Essential Failure Guardrails: Service Outage (global HTTP `/health` uptime probe), 5xx Error Spikes ($>5$ in 5m), and Container Memory Pressure ($>85\%$ RAM).
+    - First-class Discord & Powercord incoming webhook integration (`discord_webhook_url`) using native GCP `webhook_tokenauth` channels.
+    - Automated budget alert integration at 50%, 80%, and 100% of the $15.00/mo cap.
+  - Implemented the **Advanced Production Tier** (`monitoring_tier = "advanced"`):
+    - Log-based error metric (`credence_error_logs`), P95 request latency degradation alert ($>5000\text{ms}$), CPU saturation alert ($>90\%$), and Cloud Scheduler feed publisher failure monitor.
+  - Upgraded SRE Telemetry Dashboard with multi-chart visual grid.
+- **Interface Telemetry Loopback Protocol (ITLP-v1)**:
+  - Added thread-safe in-memory `ServerTelemetryTracker` aggregating rolling 5-minute request distributions (Total, 2xx, 3xx, 4xx, 5xx), memory consumption (`resource.getrusage`), and latency percentiles.
+  - Added Starlette `TelemetryMiddleware` and enriched `/health` and `/api/health` REST endpoints with real-time telemetry and active alert diagnostics.
+  - Added FastMCP 2.0 tool `credence_get_health_status` and resource `credence://node/health` for agent self-awareness.
+  - Added Terminal CLI commands `credence health` and `credence alerts` with Rich diagnostic panels.
+  - Upgraded Textual TUI with live Header Alert Status Badge (`🟢 Healthy` / `🟡 High Memory` / `🔴 ⚠️ 5xx Spike Detected`) and dedicated `🚨 Ops & Alerts` tab (Key `8`).
+- **Comprehensive Documentation & Published Articles**:
+  - Featured Blog Essay: *"Interface Telemetry Loopback: Closing the Circuit Between Cloud SRE, Local TUIs, and AI Agents"*.
+  - Blog Essay: *"Basement Ops: Zero-Bloat Cloud Monitoring, Discord Webhooks & TUI Telemetry for Sovereign Nodes"*.
+  - Protocol Specification: `ITLP-v1` (*Interface Telemetry Loopback Protocol*).
+  - Hands-On Tutorial: `Tutorial 13: Dual-Tier Cloud Monitoring, Discord Webhooks & Interface Telemetry`.
+  - Updated GCP Cloud Run Deployment Guides.
+
 ## [1.9.0] - 2026-08-18
 
 ### Added
