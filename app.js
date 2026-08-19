@@ -11,6 +11,7 @@ export const DOCS_REGISTRY = [
       { id: "docs/intro", title: "Introduction & Overview", path: "docs/intro.md", desc: "Welcome to Credence, key concepts, and progressive on-ramp.", keywords: ["intro", "overview", "welcome", "philosophy", "grounding", "basics", "start", "truth", "ethics", "ai"] },
       { id: "docs/quickstart", title: "Quickstart & Installation", path: "docs/quickstart.md", desc: "Install Credence, set API keys, and run your first audit in 60 seconds.", keywords: ["quickstart", "install", "curl", "poetry", "docker", "gemini", "api key", "first audit", "setup", "run", "cli"] },
       { id: "docs/topic-index", title: "Topic Index & Concept Directory", path: "docs/topic-index.md", desc: "The Marbles in the Oatmeal: complete categorized cheat sheet and index.", keywords: ["index", "cheat sheet", "search", "topics", "sitemap", "directory", "marbles", "lookup", "concepts", "all", "reference", "find"] },
+      { id: "docs/sitemap", title: "Ecosystem Master Sitemap", path: "docs/sitemap.md", desc: "Visual and structural sitemap covering all 5 sovereign domains, 12 playgrounds, 38 invariants, and 72 guides.", keywords: ["sitemap", "map", "directory", "tree", "overview", "domains", "navigation", "all pages", "structure"] },
       { id: "docs/social-launch-templates", title: "Community Launch & Reddit Templates", path: "docs/social-launch-templates.md", desc: "Short hooks, subreddit outreach templates, and article distribution matrix.", keywords: ["community", "reddit", "templates", "launch", "social", "outreach", "distribution", "matrix"] },
       { id: "docs/feature-parity", title: "Universal Feature Parity", path: "docs/feature-parity.md", desc: "Synchronous 4-way parity across CLI, FastMCP, TUI, and Web UI.", keywords: ["parity", "interfaces", "cli", "tui", "mcp", "web", "terminal", "browser"] },
       { id: "docs/changelog", title: "Release Changelog", path: "docs/changelog.md", desc: "Version history, updates, and release notes across releases.", keywords: ["changelog", "releases", "versions", "history", "notes"] }
@@ -3427,6 +3428,70 @@ export function setupPublisherAggregateCard() {
   });
 }
 
+export function renderGlobalFooter() {
+  return `
+    <footer class="credence-footer">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4>🌐 Sovereign Domains</h4>
+            <ul>
+              <li><a href="https://credence.run">credence.run (Core Engine)</a></li>
+              <li><a href="https://docs.credence.run">docs.credence.run (Docs Portal)</a></li>
+              <li><a href="https://blog.credence.run">blog.credence.run (Forensic Essays)</a></li>
+              <li><a href="https://credence.report">credence.report (Report Hub)</a></li>
+              <li><a href="https://credence.nexus">credence.nexus (Mesh Directory)</a></li>
+              <li><a href="https://credence.foundation">credence.foundation (Root Custody)</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>🎮 Interactive & Tools</h4>
+            <ul>
+              <li><a href="#docs/playground">12 Zero-Build Playgrounds</a></li>
+              <li><a href="https://credence.report/viewer.html">Multi-Mode Report Viewer</a></li>
+              <li><a href="#docs/walkthroughs/01-auditing-webpages-and-text">Auditing Webpages & Text</a></li>
+              <li><a href="#docs/walkthroughs/02-zero-trust-feed-sifting">Zero-Trust Feed Sifter</a></li>
+              <li><a href="#docs/tutorials/03-claude-cursor-fastmcp">Claude & Cursor FastMCP</a></li>
+              <li><a href="https://seeds.credence.nexus/peers.json">P2P Seed Manifest (peers.json)</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>🏛️ Knowledge & Proofs</h4>
+            <ul>
+              <li><a href="#docs/sitemap">Ecosystem Master Sitemap</a></li>
+              <li><a href="#docs/topic-index">Master Topic Index (Oatmeal)</a></li>
+              <li><a href="#docs/invariants">38 Core System Invariants</a></li>
+              <li><a href="#docs/mathematics/robust-consensus-proofs">Robust Consensus Proofs</a></li>
+              <li><a href="#docs/mathematics/economics-of-truth">Economics of Decentralized Truth</a></li>
+              <li><a href="#docs/changelog">Release Changelog (v1.13.0)</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>⚖️ Governance & Source</h4>
+            <ul>
+              <li><a href="https://keys.credence.foundation/root.pub">Root Public Key (root.pub)</a></li>
+              <li><a href="https://credence.foundation/v1/spj_ethics.json">SPJ Ethics Taxonomy JSON</a></li>
+              <li><a href="https://credence.foundation/v1/iep_fallacies.json">IEP Fallacies Catalog JSON</a></li>
+              <li><a href="https://credence.foundation/v1/deceptive_patterns.json">Deceptive Patterns JSON</a></li>
+              <li><a href="https://github.com/artibyrd/credence" target="_blank" rel="noopener">GitHub Repository</a></li>
+              <li><a href="https://github.com/artibyrd/credence/blob/main/LICENSE" target="_blank" rel="noopener">Apache-2.0 Open Source</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>&copy; 2026 Credence Network &bull; Zero npm dependencies &bull; 100% Zero-Build Sovereign Web</div>
+          <div class="footer-bottom-links">
+            <a href="#docs/sitemap">Sitemap</a>
+            <a href="#docs/topic-index">Topic Index</a>
+            <a href="#docs/invariants">Invariants</a>
+            <a href="https://github.com/artibyrd/credence">Source</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  `;
+}
+
 export async function loadDocument(docId, anchorId = '') {
   let target = null;
   for (const group of DOCS_REGISTRY) {
@@ -3450,7 +3515,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.12.5';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.13.0';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 
@@ -3475,7 +3540,7 @@ export async function loadDocument(docId, anchorId = '') {
     const res = await fetch(target.path);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const md = await res.text();
-    contentArea.innerHTML = parseMarkdown(md);
+    contentArea.innerHTML = parseMarkdown(md) + renderGlobalFooter();
     renderTableOfContents();
 
     // Render Mermaid diagrams

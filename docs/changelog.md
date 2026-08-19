@@ -7,6 +7,20 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.13.0] - 2026-08-19
+
+### Added
+- **Ecosystem Master Sitemap (`docs/sitemap.md`)**:
+  - Comprehensive visual and categorical directory indexing all 5 sovereign domains (`credence.run`, `docs.credence.run`, `blog.credence.run`, `credence.report`, `credence.nexus`, `credence.foundation`), 12 zero-build interactive playgrounds, 38 system invariants, 17 investigative essays, and 72 documentation guides.
+  - Registered in `DOCS_REGISTRY` in `app.js` with instant search keywords and Mermaid ecosystem relationship map.
+- **Cross-Domain Unified Header Navigation (`.credence-nav`)**:
+  - Harmonized navigation header across all 5 domains with instant links to Home, Docs, Playgrounds, Blog, Reports, Nexus, Foundation, Sitemap, and GitHub.
+- **Rich 4-Column Ecosystem Footer (`.credence-footer`)**:
+  - Implemented 4-column structured footer layout (Sovereign Domains, Interactive & Tools, Knowledge & Proofs, Governance & Source) across all 5 domain web entrypoints and dynamically appended to documentation articles.
+- **Automated Regression Prevention Suites**:
+  - Added `test_sitemap_integrity_and_route_coverage` in `test_docs_integrity.py` to assert 100% sitemap route coverage.
+  - Added `test_cross_domain_consistent_navigation_and_footers` in `test_docs_rendering.py` to audit live header navigation, footer structure, and static domain templates.
+
 ## [1.12.5] - 2026-08-19
 
 ### Changed
