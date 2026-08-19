@@ -58,6 +58,11 @@ feeds = await discover_feed_endpoints("https://arstechnica.com")
 for f in feeds:
     print(f"Found: {f['title']} ({f['format']}) -> {f['url']}")
 ```
+
+=== 📟 Textual TUI Workstation
+1. Launch `credence tui`.
+2. Press `4` to switch to the **📡 Feeds & Dedup** workstation pane.
+3. Press `s` to execute live background feed synchronization and check mesh effort avoidance.
 :::
 
 ---
@@ -97,10 +102,12 @@ print(f"Topic Entropy (H): {report['topic_entropy']}")
 print(f"Status: {report['status']}")
 ```
 
-=== Textual TUI Workstation
-1. Launch `credence tui`.
-2. Press `F4` to navigate to the **Syndicated Feeds** panel.
-3. Select any feed and press `I` to view real-time Topic Entropy curves and dynamic quality scores ($F_j$).
+=== 📟 Textual TUI Workstation
+1. In `credence tui`, press `4` to view the active feed subscriptions table.
+2. Review priority tiers (`T1`–`T4`), dynamic composite quality scores ($F_j$), classified subject namespaces, and active statuses.
+3. Press `3` to cross-reference hierarchical domain subjects in the taxonomy browser.
+
+![Credence TUI Feeds Stream](assets/tui/07-feeds-stream.svg)
 :::
 
 ---
@@ -145,6 +152,11 @@ services:
       - CREDENCE_GEMINI_API_KEY=${CREDENCE_GEMINI_API_KEY}
     restart: always
 ```
+
+=== 📟 Textual TUI Workstation
+1. In `credence tui`, press `s` to trigger background sifting on demand.
+2. Watch status notifications report newly discovered articles vs items adopted from the mesh at $0.00 token cost.
+3. Switch to Tab `7` (`Morning Digest`) to review accumulated swarm compute savings.
 :::
 
 ---

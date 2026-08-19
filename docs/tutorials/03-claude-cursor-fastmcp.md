@@ -13,15 +13,16 @@ Give your AI coding assistant or autonomous research agent an epistemic brake. L
 
 ## 1. FastMCP Architecture for AI Agents
 
-```mermaid
-graph LR
-    User["User Prompt in Claude / Cursor"] --> LLM["AI Assistant (Claude 3.7 / GPT-4o)"]
-    LLM --> FastMCP["FastMCP 2.0 Server (stdio / SSE)"]
-    FastMCP --> Grounding["Verbatim Citation Gate (G=1.0)"]
-    Grounding --> Report["Signed Attestation (.credence.json)"]
-    Report --> LLM
-    LLM --> SafeResponse["Grounded Response with Verifiable Citations"]
-```
+:::tabs
+=== 🛠️ FastMCP 2.0 Tool & Resource Roster
+| FastMCP Endpoint | Type | Input Arguments | Output Description |
+| :--- | :--- | :--- | :--- |
+| **`credence_check_url`** | Tool | `url: str`, `profile: str` | Evaluates live URL across 4 dimensions; returns score, findings & Ed25519 signature |
+| **`credence_evaluate_text`** | Tool | `text: str`, `title: str` | Standalone forensic analysis of raw prose with SQLite persistence |
+| **`credence_get_audit`** | Tool | `identifier: str` | Instant 0-token retrieval of cached audit by URL or SHA-256 hash |
+| **`credence://reports/{id}`** | Resource | Canonical Resource URI | Complete RFC 8785 signed JSON audit record |
+| **`credence://reports/{id}/human`** | Resource | Human Summary URI | Formatted Markdown executive briefing with quoted findings |
+:::
 
 ---
 

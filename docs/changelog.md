@@ -7,6 +7,22 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.7.0] - 2026-08-18
+
+### Added
+- **Automated Textual TUI Vector Exporter & Documentation Integration**:
+  - Built automated headless SVG export engine (`tools/export_tui_assets.py` & `just generate-tui-assets`) generating 11 vector terminal captures across all 7 tabs, modal dialogs, and 3 view modes (`Rich`, `Compact`, `Raw JSON`).
+  - Added native zero-build Markdown `![alt](url)` image parser in `app.js` and responsive elevated styling in `styles.css`.
+  - Upgraded all 4 feature walkthroughs (`01-auditing-webpages-and-text.md`, `02-zero-trust-feed-sifting.md`, `03-p2p-mesh-consensus.md`, `04-morning-digest-briefings.md`) with rich **📟 Textual TUI Workstation** tabs, step-by-step keybinding instructions, and embedded vector SVGs.
+  - Completely overhauled the TUI Workstation Deep Dive guide (`docs/integrations/tui-workstation.md`) with layout anatomy diagrams, global keybinding tables, and 4-way view mode comparison tabs.
+- **Mermaid Diagram Audit, High-Density Replacements & Accessibility Elevation**:
+  - Audited all 83 Mermaid diagrams across the ecosystem, pruning 10 low-information/filler flowcharts and replacing them with high-density structured components (Comparison Matrices, Adversarial Threat Cards, Governance Indexes, and Action Tables).
+  - Built a framed diagram window display engine (`.mermaid-window`, `.mermaid-window-header`, `.window-dot`) with semantic ARIA roles.
+  - Enforced strict **WCAG 2.1 AA/AAA anti-light-on-light contrast rules** (`fill: #f8fafc !important;` on `#0f172a`/`#1e293b` slate with amber-guarded sequence notes).
+  - Added accessible 2px offset `:focus-visible` glow rings across all interactive controls.
+- **Formalized Post-Walkthrough Release Protocol**:
+  - Codified the mandatory human-gated 6-step release workflow (`/learn` -> review changelog/roadmap -> commit -> tag -> push -> monitor deployment) in `AGENTS.md`.
+
 ## [1.6.0] - 2026-08-18
 
 ### Added

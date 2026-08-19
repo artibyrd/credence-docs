@@ -13,16 +13,13 @@ Credence abstracts model inference behind a decoupled `LLMProvider` protocol int
 
 ## 1. The Decoupled Provider Protocol
 
-```mermaid
-graph TD
-    Pipeline[Credence Specialist Pipeline] --> Gateway[LLMProvider Gateway Interface]
-    
-    Gateway --> Gemini[Google Gemini 3.7 Flash]
-    Gateway --> Claude[Anthropic Claude 3.7 Sonnet / Extended Thinking]
-    Gateway --> OpenAI[OpenAI GPT-4o / o3-mini]
-    Gateway --> DeepSeek[DeepSeek-R1 / DeepSeek-V3]
-    Gateway --> Local[Local Ollama / vLLM Engine]
-```
+| Engine / Model | Thinking Token Budget | Input / Output per 1M | Latency SLA | Air-Gap Support | Headroom Circuit Breaker |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Google Gemini 3.7 Flash** (Default) | 4,096 tokens (Pareto optimal) | **$0.075 / $0.30** | 2.4s – 3.8s | Cloud API | Auto-trips at 30% quota |
+| **Anthropic Claude 3.7 Sonnet** | Up to 16k tokens | **$3.00 / $15.00** | 4.8s – 7.2s | Cloud API | Supported |
+| **OpenAI GPT-4o / o3-mini** | 0 – 8k reasoning tokens | **$2.50 / $10.00** | 3.5s – 5.5s | Azure / OpenAI | Supported |
+| **DeepSeek-R1 (API)** | Up to 16k tokens | **$0.55 / $2.19** | 6.0s – 12.0s | Open-Weights API | Supported |
+| **Ollama / vLLM (Llama 3.3 70B)** | 0 tokens (Direct prompt) | **$0.00** (Local hardware) | 3.0s – 6.0s | **100% Air-Gapped** | Offline mode (`$0.00`) |
 
 ---
 

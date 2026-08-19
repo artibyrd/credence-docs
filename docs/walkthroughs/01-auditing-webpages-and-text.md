@@ -81,6 +81,18 @@ asyncio.run(main())
 2. Enter `https://arstechnica.com/science/2026/08/fusion-breakthrough` into the URL field.
 3. Select **Balanced (4k Thinking)**.
 4. Click **Run Epistemic Audit** to view rendered DOM highlights and character-offset verification in real time.
+
+=== 📟 Textual TUI Workstation
+1. Launch `credence tui`.
+2. Press `/` to open the **Target URL Audit** modal.
+3. Enter `https://arstechnica.com/science/2026/08/fusion-breakthrough` and press `Enter`.
+4. Inspect the split-screen report:
+   - **Top Banner**: Calibrated suspicion score, classification badge, and density per 1k words.
+   - **Left Panel**: Itemized grounded findings table with severity indicators (1–5).
+   - **Right Panel**: In-context cited excerpts and specialist reasoning.
+   - Press `f` to live-filter findings by keyword (e.g. `MED`, `SPJ`, `fallacy`).
+
+![Credence TUI Inspector](assets/tui/01-inspector-rich.svg)
 :::
 
 ---
@@ -128,10 +140,12 @@ for v in report.violations:
     print(f"[{v.rule_id}] Sev {v.severity}: {v.quote}")
 ```
 
-=== Textual TUI Workstation
-1. Launch `credence tui`.
-2. Press `Ctrl+N` to open the **Raw Prose Auditor** modal.
-3. Paste your draft text and press `Enter` to run the concurrent multi-specialist audit.
+=== 📟 Textual TUI Workstation
+1. In `credence tui`, press `/` to audit or paste content into the terminal inspector.
+2. Press `v` to cycle between **Rich Takeaway**, **Compact Digest**, and **Raw RFC 8785 JSON** view modes.
+3. Review flagged deceptions with instant severity highlighting and grounding checks.
+
+![Credence TUI Compact View](assets/tui/02-inspector-compact.svg)
 :::
 
 ---
@@ -179,6 +193,13 @@ const isValid = await window.crypto.subtle.verify(
   canonicalJsonBytes
 );
 ```
+
+=== 📟 Textual TUI Workstation
+1. Launch `credence tui` and select any audit in the **Recent Audits** sidebar (`Up`/`Down` arrows).
+2. The header automatically verifies the cryptographic signature: `[✓ Signed]` or `[Unsigned]`.
+3. Press `6` to jump to the **Node Identity** pane to inspect your local Ed25519 public key and attestation capabilities.
+
+![Credence Node Identity](assets/tui/10-node-identity.svg)
 :::
 
 ---

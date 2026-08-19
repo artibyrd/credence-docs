@@ -58,6 +58,13 @@ priv = generate_node_keypair()
 print('Air-gapped seed key generated.')
 "
 ```
+
+=== 📟 Textual TUI Workstation
+1. Launch `credence tui`.
+2. Press `6` to switch to the **🔑 Node Identity** tab.
+3. Review your node's local Ed25519 Public Key (Hex), private keyfile path, and cryptographic attestation readiness.
+
+![Credence Node Identity](assets/tui/10-node-identity.svg)
 :::
 
 ---
@@ -104,6 +111,13 @@ print(f"Consensus Score: {consensus_result.score}")
 print(f"Participating Peers: {consensus_result.node_count}")
 print(f"Galileo Rule Triggered: {consensus_result.galileo_override}")
 ```
+
+=== 📟 Textual TUI Workstation
+1. In `credence tui`, press `1` to open the active **🛡️ Inspector**.
+2. Select any recent audit to observe whether peer attestation consensus was reached or if the Galileo Rule override was invoked.
+3. Press `v` to view the canonical multi-node signatures in the raw RFC 8785 envelope.
+
+![Credence TUI Inspector](assets/tui/01-inspector-rich.svg)
 :::
 
 ---
@@ -113,10 +127,12 @@ print(f"Galileo Rule Triggered: {consensus_result.galileo_override}")
 Inspect the 13-node Watts-Strogatz topology and real-time gossip propagation.
 
 :::tabs
-=== Textual TUI Workstation
+=== 📟 Textual TUI Workstation
 1. Launch `credence tui`.
-2. Navigate to the **P2P Mesh Map** tab.
-3. Observe live WebSocket peer connections, heartbeat latencies ($T_i$), and incoming gossip packets.
+2. Press `4` to switch to **📡 Feeds & Dedup** to view live peer adoptions and effort avoidance.
+3. Observe real-time sync indicators reporting zero-token peer attestation exchanges.
+
+![Credence TUI Feeds Stream](assets/tui/07-feeds-stream.svg)
 
 === Interactive Web Visualizer
 1. Open the [Interactive 13-Node Mesh Simulator](../playground.md#1-13-node-watts-strogatz-mesh-gossip-simulator) in your browser.

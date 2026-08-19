@@ -9,19 +9,13 @@ When you clone and launch a decentralized verification node, the biggest hurdle 
 
 **Credence Node Germination** ("Miracle-Gro") solves this by executing a zero-friction, 5-phase ignition lifecycle in $<13\text{s}$.
 
-```mermaid
-flowchart LR
-    Step1["1. Epistemic Genesis<br>(Ed25519 Keypair)"] --> Step2["2. Mesh Inoculation<br>(0 Tokens / $0.00)"]
-    Step2 --> Step3["3. Epistemic Soil<br>(26 Preset Feeds)"]
-    Step3 --> Step4["4. Miracle-Gro Burst<br>(HRW Novel Audits)"]
-    Step4 --> Step5["5. Web Hydration<br>(reports.json Sync)"]
-
-    style Step1 fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style Step2 fill:#1e293b,stroke:#34d399,stroke-width:2px,color:#f8fafc
-    style Step3 fill:#1e293b,stroke:#fbbf24,stroke-width:2px,color:#f8fafc
-    style Step4 fill:#1e293b,stroke:#f472b6,stroke-width:2px,color:#f8fafc
-    style Step5 fill:#1e293b,stroke:#a78bfa,stroke-width:2px,color:#f8fafc
-```
+| Phase | Botanical Stage | Operational Action | Token Cost | Elapsed SLA |
+| :--- | :--- | :--- | :--- | :--- |
+| **Stage 1** | **Epistemic Genesis** | Mints or loads local Ed25519 node identity (`~/.credence/identity.key`) | **$0.00** | $< 0.1\text{s}$ |
+| **Stage 2** | **Mesh Inoculation** | Ingests signed Genesis bootstrap seed attestations (`peers.json`) | **$0.00** | $< 0.5\text{s}$ |
+| **Stage 3** | **Epistemic Soil** | Subscribes 24–26 pre-configured categorized feeds across 5 tiers | **$0.00** | $< 0.8\text{s}$ |
+| **Stage 4** | **Miracle-Gro Burst** | Partitions novel items via HRW Rendezvous Hashing & audits top $N$ items | Low ($0.34\text{/1k}$) | $< 8.0\text{s}$ |
+| **Stage 5** | **Web Hydration** | Syncs static cryptographic catalog (`reports.json`) for zero-build UI | **$0.00** | $< 0.2\text{s}$ |
 
 ---
 

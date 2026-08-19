@@ -13,12 +13,14 @@ Learn how to boot a 3-node local P2P mesh cluster, divide syndicated feeds acros
 
 ## 🏛️ 3-Node Small Mesh Topology
 
-```mermaid
-graph LR
-    N1["Node 1 (Port 8765)<br>Seed Node Alpha"] <--> N2["Node 2 (Port 8766)<br>Peer Beta"]
-    N2 <--> N3["Node 3 (Port 8767)<br>Peer Gamma"]
-    N3 <--> N1
-```
+| Node Alias | WebSocket Port | Node Role | Peer Interconnects | Latency SLA ($T_i$) |
+| :--- | :--- | :--- | :--- | :--- |
+| **`seed-node-alpha`** | `:8765` | Bootstrap Seed Node | Accepts inbound connections from Beta & Gamma | $< 50\text{ms}$ |
+| **`peer-beta`** | `:8766` | Sifting Peer (Tier 1 & 2) | Connects to `ws://127.0.0.1:8765` (Alpha) | $< 100\text{ms}$ |
+| **`peer-gamma`** | `:8767` | Sifting Peer (Tier 3 & 4) | Connects to `ws://127.0.0.1:8765` & `8766` | $< 100\text{ms}$ |
+
+> [!TIP]
+> **Zero-Token Adoption**: When `peer-beta` evaluates an article and signs its RFC 8785 envelope, `seed-node-alpha` and `peer-gamma` ingest and verify the cryptographic signature in $<1\text{ms}$, caching the evaluation locally with **zero LLM API calls**.
 
 ---
 

@@ -273,25 +273,60 @@
   font-weight: 600;
 }
 
-/* Mermaid Diagrams Container */
+/* Mermaid Diagrams Framed Window Container */
 .mermaid-wrapper {
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.mermaid-window {
   background: rgba(13, 18, 31, 0.95);
   border: 1px solid rgba(56, 189, 248, 0.25);
   border-radius: 12px;
-  padding: 1.75rem 1.25rem;
-  margin: 2rem 0;
-  overflow-x: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.mermaid-window-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: rgba(15, 23, 42, 0.85);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+}
+
+.window-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.window-dot.red { background: #ef4444; }
+.window-dot.yellow { background: #f59e0b; }
+.window-dot.green { background: #22c55e; }
+
+.mermaid-window-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin-left: 0.35rem;
+  text-transform: uppercase;
+}
+
+.mermaid-code {
+  padding: 1.5rem 1rem;
 }
 
 .mermaid-rendered {
   width: 100%;
+  padding: 1.5rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: auto;
 }
 
 .mermaid-rendered svg {
@@ -299,11 +334,48 @@
   height: auto;
 }
 
+/* Anti-Light-on-Light SVG Typography Enforcement (WCAG 2.1 AA/AAA) */
+.mermaid-rendered svg text,
+.mermaid-rendered svg .nodeLabel,
+.mermaid-rendered svg .edgeLabel,
+.mermaid-rendered svg .actor,
+.mermaid-rendered svg .messageText,
+.mermaid-rendered svg .noteText,
+.mermaid-rendered svg .loopText {
+  fill: #f8fafc !important;
+  color: #f8fafc !important;
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif) !important;
+  font-size: 13px !important;
+}
+
+.mermaid-rendered svg .edgeLabel rect,
+.mermaid-rendered svg .labelBox {
+  fill: #0f172a !important;
+  stroke: #334155 !important;
+}
+
+.mermaid-rendered svg .note {
+  fill: #1e293b !important;
+  stroke: #f59e0b !important;
+}
+
 .mermaid-fallback {
   background: transparent;
   border: none;
   padding: 0;
   margin: 0;
+}
+
+/* Accessible Focus-Visible Rings Across All Interactive Controls */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.tab-btn:focus-visible {
+  outline: 2px solid #38bdf8 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4) !important;
 }
 
 /* LaTeX & Math Blocks */
@@ -1012,5 +1084,17 @@
   border-color: #38bdf8;
   color: #38bdf8;
 }
+
+/* Document Images & TUI Vector SVGs */
+.doc-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
 
 

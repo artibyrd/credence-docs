@@ -51,3 +51,43 @@ graph TD
 | **Hierarchical Subjects** | `credence subjects list` | Resource: `credence://subjects/registry`| Tab 3: `🧠 Domain Subjects` | Subject Explorer | **Full Parity** |
 | **White-Label Org Generator** | `credence init-org` | *Intentionally CLI-Only* | *Intentionally CLI-Only* | *Intentionally CLI-Only* | OS Scaffolding |
 | **P2P Relay Daemon** | `credence mesh` | *Intentionally CLI-Only* | *Intentionally CLI-Only* | *Intentionally CLI-Only* | OS Daemon |
+
+---
+
+## 2. 4-Way Presentation Layer Showcase
+
+See how the same epistemic audit report is presented across all four surfaces:
+
+:::tabs
+=== 📟 Textual TUI Workstation
+![TUI Inspector](assets/tui/01-inspector-rich.svg)
+*Full-screen terminal workstation with split-pane finding navigation, live filtering (`f`), and in-context evidence.*
+
+=== 🌐 Zero-Build Web UI
+Navigate to **`credence.report`** for a zero-build client-side cryptographic viewer featuring responsive dark mode, trust dimension breakdowns, and W3C WebCrypto Ed25519 signature validation.
+
+=== 🖥️ Rich CLI
+```bash
+$ credence audit https://arstechnica.com/science/2026/08/fusion-breakthrough
+🛡️ Credence Audit Report
+├─ Verdict: FACTUAL_REPORTING (Score: 8.5 / 100.0)
+├─ Density: 0.0 violations / 1k words  |  Confidence: 98%
+├─ Content SHA-256: 1a2b3c4d5e6f7a8b...
+└─ Attestation: ✓ Signed (Ed25519: 7a4c9f...)
+```
+
+=== ⚡ FastMCP 2.0 JSON-LD
+```json
+{
+  "url": "https://arstechnica.com/science/2026/08/fusion-breakthrough",
+  "content_sha256": "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b",
+  "suspicion_score": 8.5,
+  "suspicion_density": 0.0,
+  "confidence_score": 0.98,
+  "classification": "FACTUAL_REPORTING",
+  "is_satire": false,
+  "node_signature": "ed25519:sig:clean123456789",
+  "violations": []
+}
+```
+:::

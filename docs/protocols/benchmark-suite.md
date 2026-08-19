@@ -13,23 +13,15 @@ The **Golden 12 Epistemic Benchmark Suite** is Credence's standard verification 
 
 ## 1. Benchmark Fixtures Architecture
 
-```mermaid
-graph TD
-    subgraph Suite ["The Golden 12 Epistemic Benchmark Suite"]
-        F1["1. Clean Investigative News (Ground Truth)"]
-        F2["2. Overt Parody & Satire (Poe's Law)"]
-        F3["3. Deceptive UI & Dark Patterns"]
-        F4["4. Fallacious Editorial"]
-        F5["5. Sensational Clickbait"]
-        F6["6. Cloaked Native Ad"]
-        F7["7. Unsourced Health Cures"]
-        F8["8. Subtle Partisan Framing"]
-        F9["9. Bad-Faith Satire Cloaking (SPJ-1.6)"]
-        F10["10. Transparent Correction"]
-        F11["11. Synthetic AI Slop"]
-        F12["12. Statistical Distortion"]
-    end
-```
+:::tabs
+=== 🎯 Benchmark Evaluation Dimensions
+| Dimension | Primary Metric | Calibration Target | Grounding Guarantee |
+| :--- | :--- | :--- | :--- |
+| **Ground Truth Precision** | Clean Investigative News | $S = 0.0$ (`CLEAN`) | $G = 1.00$ (Zero false-positive findings) |
+| **Poe's Law Satire Neutralization** | Overt Parody (Onion / Babylon Bee) | $S = 0.0$ (`SATIRE`) | Satire badge tagged; zero token penalty |
+| **Satire Cloaking Defense** | Defamatory / Health Allegations | $S \ge 60.0$ (`SUSPICIOUS`) | `SPJ-1.6` override disarms satire immunity |
+| **Forensic Quote Grounding** | All 12 Fixtures | $G \ge 0.90$ (Avg $1.00$) | 100% exact DOM character offsets |
+:::
 
 ---
 

@@ -51,3 +51,15 @@ credence audit https://deceptive-site.test/fake-vaccine-claim
   Finding: Unsubstantiated lethal medical allegation cannot be cloaked as satire.
   Satire Protection: DISABLED
   ```
+
+---
+
+## 3. Inspecting Satire Neutralization in the TUI
+
+Launch `credence tui` to view how legitimate parody is visually represented in the terminal workstation:
+
+![TUI Satire View](assets/tui/04-inspector-satire.svg)
+
+* The top status banner prominently displays the cyan badge `[🎭 SATIRE / PARODY (Poe's Law Neutralized)]`.
+* The executive summary confirms the neutralization rationale, explaining that legitimate exaggeration is not penalized with epistemic suspicion points.
+

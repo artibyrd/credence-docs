@@ -72,6 +72,16 @@ credence digest --format markdown --output morning_brief.md --hours 24
 # Export structured JSON for database ingestion or webhook alerts
 credence digest --format json --output /var/log/credence/digest.json
 ```
+
+=== 📟 Textual TUI Workstation
+1. Launch `credence tui`.
+2. Navigate to the **🌅 Morning Digest** pane (or Tab 5).
+3. Review the live 24-hour briefing breakdown:
+   - Total articles evaluated & clean verified coverage.
+   - Flagged deceptions with violation rule IDs and severity scores.
+   - Swarm mesh compute savings ($0.00 zero-token adoptions).
+
+![Credence TUI Morning Digest](assets/tui/08-morning-digest.svg)
 :::
 
 ---
@@ -108,6 +118,13 @@ print(f"Total Sifted: {stats.total_articles}")
 print(f"Tokens Saved: {stats.tokens_saved}")
 print(f"Mesh Savings %: {stats.savings_percentage}%")
 ```
+
+=== 📟 Textual TUI Workstation
+1. In `credence tui`, press `5` to open the **⚡ Token Quota** pane.
+2. Monitor your hourly and daily token headroom budgets in real time.
+3. Verify that the **Circuit Breaker Status** remains `🟢 HEALTHY (Normal Concurrency)` and review 24h estimated spend.
+
+![Credence TUI Token Quota](assets/tui/09-token-quota.svg)
 :::
 
 ---

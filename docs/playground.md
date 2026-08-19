@@ -7,21 +7,14 @@ description: "In-browser WebCrypto Ed25519 verification, 13-node mesh gossip sim
 
 Experience Credence's core mathematical models, cryptographic verification, and distributed consensus in real time directly inside your browser. All tools below run **100% client-side** using standard W3C Web APIs with zero external dependencies.
 
-```mermaid
-graph TD
-    subgraph Browser["100% Client-Side In-Browser Runtime (Zero-Build)"]
-        W1["1. 13-Node Mesh Simulator"]
-        W2["2. SimHash-64 & Hamming"]
-        W3["3. Quote Grounding G=1.0"]
-        W4["4. Saturation Curve"]
-        W5["5. WebCrypto Ed25519"]
-        W6["6. Taxonomy Explorer"]
-        W7["7. Pareto Model Comparator"]
-        W8["8. Feed Sifter Simulator"]
-    end
-
-    WebAPIs["W3C Web Standards (WebCrypto subtle, SVG DOM, ES Modules)"] --> Browser
-```
+:::tabs
+=== 🎛️ Client-Side Runtime Guarantees
+| Guarantee | Mechanism | Specification |
+| :--- | :--- | :--- |
+| **Zero Backend Roundtrips** | 100% Client-Side Evaluation | W3C Standard WebCrypto (`crypto.subtle`), Canvas & ES Modules |
+| **Hermetic Privacy** | Zero Telemetry / Analytics | No data, tokens, or plaintext leaves your browser session |
+| **Deterministic Math** | Bit-for-Bit Engine Equivalence | Identical SimHash-64, saturation curves & Ed25519 verification as the Python CLI |
+:::
 
 ### Interactive Playground Directory
 

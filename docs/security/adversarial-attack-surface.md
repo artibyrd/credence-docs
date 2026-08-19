@@ -13,13 +13,12 @@ This document details Credence's threat model and protocol defenses against adve
 
 ## 1. Threat Taxonomy
 
-```mermaid
-graph TD
-    Attacker["Adversarial Threat Actor"] --> T1["1. Indirect Prompt Injection<br/>(Hidden directives in scraped prose)"]
-    Attacker --> T2["2. DOM & CSS Cloaking<br/>(White-on-white text, display:none)"]
-    Attacker --> T3["3. Character-Level Obfuscation<br/>(Unicode homoglyphs & zero-width spaces)"]
-    Attacker --> T4["4. Protocol Exploitation<br/>(SSRF & Billion Laughs XML entity expansion)"]
-```
+| Attack Vector | Exploitation Mechanism | Credence Defense Layer | Invariant Reference | Severity Rating |
+| :--- | :--- | :--- | :--- | :--- |
+| **Indirect Prompt Injection** | Embedded system override instructions in scraped prose | `<untrusted_source_text>` isolation & non-override directives | [Invariant 8](docs/invariants.md#invariant-8) | **CRITICAL (Tier 4)** |
+| **DOM & CSS Cloaking** | `display:none` or white-on-white text hiding deceptive claims | Dual-Capture (Playwright rendered DOM + Trafilatura text) | [Invariant 1](docs/invariants.md#invariant-1) | **HIGH (Tier 3)** |
+| **Character Obfuscation** | Cyrillic homoglyphs & zero-width spaces (`\u200C`) | Strict Unicode NFKC normalization & whitespace collapsing | [Invariant 22](docs/invariants.md#invariant-22) | **MEDIUM (Tier 2)** |
+| **Protocol & SSRF Exploits** | Loopback, RFC 1918 private subnets, Billion Laughs XML bomb | Ingestion SSRF Guard + defused XML entity parser | [Invariant 8 & 9](docs/invariants.md#invariant-8) | **CRITICAL (Tier 4)** |
 
 ---
 

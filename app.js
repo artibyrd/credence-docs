@@ -192,7 +192,7 @@ const MODELS_PRICING = [
   { name: "Anthropic Claude 3.7 Sonnet", inputPerM: 3.00, outputPerM: 15.00, ttft: "1200ms", badge: "HIGH-NUANCE THINKING", badgeClass: "suspicious", sovereignty: "Anthropic API" }
 ];
 
-// Initialize Mermaid with Credence Dark Aesthetic
+// Initialize Mermaid with Credence Dark Aesthetic & WCAG 2.1 AA Contrast Standards
 if (typeof window !== 'undefined' && window.mermaid) {
   try {
     window.mermaid.initialize({
@@ -207,20 +207,20 @@ if (typeof window !== 'undefined' && window.mermaid) {
         primaryBorderColor: '#38bdf8',
         primaryTextColor: '#f8fafc',
         lineColor: '#60a5fa',
-        secondaryColor: '#12192b',
+        secondaryColor: '#1e293b',
         tertiaryColor: '#0a0f1d',
         nodeBorder: '#38bdf8',
-        mainBkg: '#0d121f',
+        mainBkg: '#1e293b',
         clusterBkg: '#0a0f1d',
-        clusterBorder: '#1e293b',
-        edgeLabelBackground: '#0d121f',
-        actorBkg: '#0d121f',
+        clusterBorder: '#334155',
+        edgeLabelBackground: '#0f172a',
+        actorBkg: '#1e293b',
         actorBorder: '#38bdf8',
         actorTextColor: '#f8fafc',
         actorLineColor: '#60a5fa',
         signalColor: '#38bdf8',
         signalTextColor: '#f8fafc',
-        labelBoxBkgColor: '#0d121f',
+        labelBoxBkgColor: '#0f172a',
         labelBoxBorderColor: '#38bdf8',
         labelTextColor: '#f8fafc',
         loopTextColor: '#f8fafc',
@@ -389,6 +389,12 @@ export function formatInline(text) {
   res = res.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   res = res.replace(/\*([^*]+)\*/g, '<em>$1</em>');
   res = res.replace(/~~([^~]+)~~/g, '<del>$1</del>');
+
+  // Markdown images ![alt](url)
+  res = res.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, altText, url) => {
+    let clean = url.trim();
+    return `<img src="${clean}" alt="${altText}" class="doc-image" />`;
+  });
 
   // Markdown links [text](url) with sub-anchor and relative path resolution
   res = res.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, linkText, url) => {
@@ -566,8 +572,16 @@ export function parseMarkdown(md) {
         if (codeLang.toLowerCase() === 'mermaid') {
           html.push(`
             <div class="mermaid-wrapper">
-              <div class="mermaid-code" data-mermaid="${escapeHtml(codeBuffer.join('\n'))}">
-                <pre><code class="language-mermaid">${escapeHtml(codeBuffer.join('\n'))}</code></pre>
+              <div class="mermaid-window" role="region" aria-label="Architecture and Protocol Diagram">
+                <div class="mermaid-window-header">
+                  <span class="window-dot red" aria-hidden="true"></span>
+                  <span class="window-dot yellow" aria-hidden="true"></span>
+                  <span class="window-dot green" aria-hidden="true"></span>
+                  <span class="mermaid-window-title">ARCHITECTURE / PROTOCOL SPECIFICATION</span>
+                </div>
+                <div class="mermaid-code" data-mermaid="${escapeHtml(codeBuffer.join('\n'))}">
+                  <pre><code class="language-mermaid">${escapeHtml(codeBuffer.join('\n'))}</code></pre>
+                </div>
               </div>
             </div>
           `);
@@ -862,10 +876,10 @@ export async function renderMermaidDiagrams() {
     const diagramId = `mermaid-chart-${++mermaidRenderId}`;
     try {
       const { svg } = await window.mermaid.render(diagramId, code.trim());
-      container.innerHTML = `<div class="mermaid-rendered">${svg}</div>`;
+      el.outerHTML = `<div class="mermaid-rendered" role="img" aria-label="Rendered Architecture Diagram">${svg}</div>`;
     } catch (err) {
       console.warn("Mermaid render fallback for diagram:", err);
-      container.innerHTML = `<pre class="mermaid-fallback"><code class="language-mermaid">${escapeHtml(code)}</code></pre>`;
+      el.innerHTML = `<pre class="mermaid-fallback"><code class="language-mermaid">${escapeHtml(code)}</code></pre>`;
     }
   }
 }
@@ -1361,7 +1375,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.6.0';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.7.0';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 

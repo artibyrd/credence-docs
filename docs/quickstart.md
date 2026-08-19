@@ -7,14 +7,14 @@ description: "Get started with Credence CLI, FastMCP 2.0 server, and Textual TUI
 
 Get started with the Credence CLI, FastMCP 2.0 server, and Textual TUI workstation in minutes.
 
-```mermaid
-flowchart LR
-    Step1["1. Install<br>curl -fsSL credence.run | sh"] --> Step2["2. Run Audit<br>credence audit <url>"]
-    Step2 --> Step3["3. Choose Interface"]
-    Step3 --> TUI["Terminal Workstation<br>credence tui"]
-    Step3 --> MCP["AI Assistant Tool<br>FastMCP stdio/SSE"]
-    Step3 --> Web["Zero-Build Web<br>credence.report"]
-```
+:::tabs
+=== 🚀 First-Run Flow (3 Steps)
+| Step | Action | Command / Target | Description |
+| :--- | :--- | :--- | :--- |
+| **1. Install** | Automated Shell Bootstrap | `curl -fsSL https://credence.run/install.sh \| bash` | Installs standalone binary & sets up SQLite WAL store |
+| **2. Audit** | Run Live URL Audit | `credence audit https://example.com/article` | Evaluates 4 ethical dimensions with verbatim citations |
+| **3. Interface** | Choose Presentation Layer | `credence tui` \| FastMCP (`stdio`/`SSE`) \| Web UI | Synchronous 4-way parity across terminal, agent & browser |
+:::
 
 ### Operational Cost Profiles
 
@@ -117,11 +117,16 @@ Attestation Signed: Ed25519 (Node ID: e4d9...)
 
 ## 5. Launching the Textual TUI
 
-Launch the full-screen terminal workstation with live mesh node monitors, audit history, and real-time epidemic gossip visualizations:
+Launch the full-screen terminal workstation with live audit history, split-pane grounded citation inspector, syndicated feed streams, and token headroom monitors:
 
 ```bash
 credence tui
 ```
+
+![Credence TUI Workstation](assets/tui/01-inspector-rich.svg)
+
+* Navigate between the 7 core panes using number keys `1`–`6` (`1` Inspector, `2` Taxonomies, `3` Subjects, `4` Feeds, `5` Quota, `6` Identity).
+* Press `/` to audit any new URL or `v` to cycle between Rich, Compact, and Raw JSON views.
 
 ---
 

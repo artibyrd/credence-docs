@@ -12,24 +12,12 @@ read_time: "12 min"
 
 Mandatory invariants, mathematical formulas, and runtime guardrails governing human contributors, AI pair programmers, and autonomous agents across the Credence network.
 
-```mermaid
-flowchart TD
-    subgraph Pillars["The 4 Invariant Pillars of Credence"]
-        P1["1. Core Engineering & Runtime Safety
-(Invariants 1–18)"]
-        P2["2. Epistemic Ingestion & Scoring
-(Invariants 19–23)"]
-        P3["3. Cryptographic Mesh & Authority
-(Invariants 24–29)"]
-        P4["4. Universal Presentation & Web
-(Invariants 30–36)"]
-    end
-    
-    P1 --> Engine["Autonomous Epistemic Trust Engine"]
-    P2 --> Engine
-    P3 --> Engine
-    P4 --> Engine
-```
+| Pillar Domain | Invariant Range | Primary Verification Gate | Core Engineering Guarantees |
+| :--- | :--- | :--- | :--- |
+| **1. Core Engineering & Runtime Safety** | Invariants 1–18 | `just test` (Hermetic in-memory SQLite) | Python 3.12 async, SSRF defense, 4k Pareto token budget |
+| **2. Epistemic Ingestion & Scoring** | Invariants 19–23 | `pytest tests/test_scoring.py` | Topic entropy astroturfing defense, $G=1.0$ grounding, satire cloaking overrides |
+| **3. Cryptographic Mesh & Authority** | Invariants 24–29 | `pytest tests/test_mesh.py` | RFC 8785 Ed25519 envelopes, 5-factor quality $Q_i$, Galileo Rule protection |
+| **4. Universal Presentation & Zero-Build** | Invariants 30–36 | `pytest tests/test_docs_rendering.py` | Zero npm / zero build, synchronous 4-way parity, framed accessible UX |
 
 > [!IMPORTANT]
 > **Continuous Verification Invariant**: Every code change must pass automated static verification (`pytest tests/test_docs_integrity.py`), Playwright live rendering suites (`tests/test_docs_rendering.py`), and version parity checks before presenting for human review (**"Mk1 Eyeball"**).

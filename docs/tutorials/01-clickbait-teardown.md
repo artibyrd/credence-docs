@@ -61,7 +61,27 @@ Detected Violations:
 
 ---
 
-## 3. Exporting the Signed Attestation
+---
+
+## 3. Inspecting in the Textual TUI Workstation
+
+You can also inspect clickbait and deceptive patterns interactively in the full-screen terminal workstation:
+
+```bash
+credence tui
+```
+
+Press `/`, submit the URL, and examine the dual-pane inspector:
+
+![Credence TUI Workstation](assets/tui/01-inspector-rich.svg)
+
+* **Left Panel**: Filter violations by severity or domain (e.g. `SPJ-1.1`, `MED-1.2`, `DP-1.1`).
+* **Right Panel**: Full verbatim grounded quotes and specialist justifications.
+* Press `v` to toggle between **Rich Takeaway**, **Compact Digest**, and **Raw RFC 8785 JSON** modes.
+
+---
+
+## 4. Exporting the Signed Attestation
 
 To export the signed RFC 8785 canonical JSON envelope:
 
