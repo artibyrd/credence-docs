@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version constant
-export const CURRENT_ECOSYSTEM_VERSION = 'v1.15.0';
+export const CURRENT_ECOSYSTEM_VERSION = 'v1.16.0';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -135,6 +135,7 @@ export const DOCS_REGISTRY = [
       { id: "docs/protocols/epistemic-merit-and-leaderboards", title: "Epistemic Merit & Leaderboards", path: "docs/protocols/epistemic-merit-and-leaderboards.md", desc: "5-factor node quality (Qi), empirical expertise (Ei), and P2P leaderboards.", keywords: ["leaderboard", "merit", "qi", "ei", "reputation", "expertise", "rank"] },
       { id: "docs/protocols/web-epistemic-intelligence", title: "Global Web Intelligence & DEI", path: "docs/protocols/web-epistemic-intelligence.md", desc: "Domain Epistemic Index (DEI) calculation and global web intelligence map.", keywords: ["dei", "intelligence", "domain", "index", "web", "reputation"] },
       { id: "docs/protocols/closed-loop-traffic-shaping", title: "Closed-Loop Routing & Traffic", path: "docs/protocols/closed-loop-traffic-shaping.md", desc: "Dynamic traffic shaping, cost optimization, and feed load-balancing.", keywords: ["traffic", "shaping", "routing", "load balancing", "closed-loop"] },
+      { id: "docs/protocols/boredom-and-root-expansion", title: "Boredom & Root Expansion (EPEP-16)", path: "docs/protocols/boredom-and-root-expansion.md", desc: "Technical protocol specification for opportunistic queue digestion and feed discovery.", keywords: ["protocol", "epep-16", "boredom", "roots", "expansion", "mesh", "gossip", "specification"] },
       { id: "docs/protocols/telemetry-loopback", title: "Interface Telemetry Loopback (ITLP-v1)", path: "docs/protocols/telemetry-loopback.md", desc: "Anonymous local usage metrics and interface performance telemetry.", keywords: ["telemetry", "itlp", "metrics", "performance", "privacy"] },
       { id: "docs/protocols/testing-strategy", title: "6-Tier Testing Strategy", path: "docs/protocols/testing-strategy.md", desc: "Hermetic unit, mock, integration, rotating live E2E, and gauntlet testing.", keywords: ["testing", "strategy", "pytest", "unit", "e2e", "gauntlet", "tiers"] }
     ]
@@ -164,7 +165,7 @@ export const DOCS_REGISTRY = [
   {
     category: "Invariants & Architecture",
     items: [
-      { id: "docs/invariants", title: "36 Core Invariants", path: "docs/invariants.md", desc: "Complete canonical list of 36 architectural, epistemic, and security invariants.", keywords: ["invariants", "rules", "architecture", "guarantees", "security", "core", "36"] },
+      { id: "docs/invariants", title: "The Invariant Bible", path: "docs/invariants.md", desc: "The living canon of mathematical rules, runtime safety guardrails, cryptographic protocols, and presentation invariants.", keywords: ["invariants", "bible", "canon", "rules", "architecture", "guarantees", "security", "core"] },
       { id: "docs/architecture", title: "Decentralized Architecture", path: "docs/architecture.md", desc: "End-to-end multi-agent pipeline, dual capture, and consensus engine specs.", keywords: ["architecture", "pipeline", "system", "components", "diagram", "specs"] },
       { id: "docs/frontend-architecture", title: "Zero-Build Web Architecture", path: "docs/frontend-architecture.md", desc: "Zero-build philosophy: vanilla HTML5, CSS Custom Properties, and Web Crypto.", keywords: ["frontend", "zero-build", "html5", "css", "webcrypto", "standards"] },
       { id: "docs/roadmap", title: "Roadmap & Backlog", path: "docs/roadmap.md", desc: "Current development roadmap, completed milestones, and upcoming features.", keywords: ["roadmap", "backlog", "future", "milestones", "features"] }
@@ -194,6 +195,7 @@ export const DOCS_REGISTRY = [
   {
     category: "Agentic Architecture & Sovereign AI",
     items: [
+      { id: "blog/the-boredom-engine-and-expanding-roots", title: "The Boredom Engine & Expanding Roots", path: "blog/the-boredom-engine-and-expanding-roots.md", desc: "How autonomous nodes self-direct epistemic discovery from idle token headroom and clean citation soil.", keywords: ["blog", "boredom", "roots", "citation soil", "discovery", "p2p", "mesh", "opportunistic", "tokens"] },
       { id: "blog/the-three-plane-architecture", title: "The 3-Plane Architecture (Zero-npm)", path: "blog/the-three-plane-architecture.md", desc: "Decoupling Cloudflare Edge, Cloud Run Compute, and Terraform for $0.00 idle costs and zero supply chain risk.", keywords: ["blog", "architecture", "3-plane", "cloudflare", "cloudrun", "terraform", "zero-npm", "scale-to-zero", "edge", "sovereignty"] },
       { id: "blog/architecting-sovereign-ai-with-google-antigravity", title: "Architecting Sovereign AI with Antigravity", path: "blog/architecting-sovereign-ai-with-google-antigravity.md", desc: "Pair programming with autonomous AI coding agents using Google Antigravity.", keywords: ["blog", "antigravity", "agentic", "sovereignty", "pair programming"] },
       { id: "blog/giving-claude-and-cursor-an-epistemic-brake", title: "Giving AI an Epistemic Brake", path: "blog/giving-claude-and-cursor-an-epistemic-brake.md", desc: "Preventing autonomous AI agents from spiraling into hallucinations.", keywords: ["blog", "claude", "cursor", "brake", "epistemic brake", "guardrails"] },
@@ -3564,10 +3566,10 @@ export function renderGlobalFooter() {
             <ul>
               <li><a href="#docs/sitemap">Ecosystem Master Sitemap</a></li>
               <li><a href="#docs/topic-index">Master Topic Index (Oatmeal)</a></li>
-              <li><a href="#docs/invariants">38 Core System Invariants</a></li>
+              <li><a href="#docs/invariants">The Invariant Bible</a></li>
               <li><a href="#docs/mathematics/robust-consensus-proofs">Robust Consensus Proofs</a></li>
               <li><a href="#docs/mathematics/economics-of-truth">Economics of Decentralized Truth</a></li>
-              <li><a href="#docs/changelog">Release Changelog (v1.13.0)</a></li>
+              <li><a href="#docs/changelog">Release Changelog (v1.16.0)</a></li>
             </ul>
           </div>
           <div class="footer-col">
@@ -3623,7 +3625,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.15.3';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.16.0';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 
