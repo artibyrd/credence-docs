@@ -198,17 +198,761 @@ export const DOCS_REGISTRY = [
   }
 ];
 
-// Sample Taxonomy Data
-const SAMPLE_TAXONOMY_RULES = [
-  { uri: "SPJ_ETHICS:TRUTH_VERIFICATION/anonymous_smear@1.0.0", severity: 4, cluster: "Truth & Verification", desc: "Publishing unverified anonymous allegations without secondary sourcing." },
-  { uri: "SPJ_ETHICS:MINIMIZE_HARM/doxxing_risk@1.0.0", severity: 4, cluster: "Minimize Harm", desc: "Exposing private personal identifiable info creating physical or harassment risks." },
-  { uri: "LOGICAL_FALLACY:RELEVANCE/ad_hominem@1.0.0", severity: 3, cluster: "Informal Relevance Fallacies", desc: "Attacking the speaker's personal character rather than the substantive argument." },
-  { uri: "LOGICAL_FALLACY:PRESUMPTION/false_dilemma@1.0.0", severity: 3, cluster: "Presumption Fallacies", desc: "Presenting two options as the only alternatives when multiple viable paths exist." },
-  { uri: "DECEPTIVE_PATTERNS:URGENCY/fake_countdown@1.0.0", severity: 3, cluster: "Urgency & Scarcity", desc: "Manipulative countdown timer that resets upon page reload." },
-  { uri: "DECEPTIVE_PATTERNS:OBSTRUCTION/confirmshaming@1.0.0", severity: 2, cluster: "Obstruction", desc: "Opt-out button styled to emotionally shame or induce guilt in the user." },
-  { uri: "FINANCIAL_DISCLOSURES:PROJECTIONS/ungrounded_ebitda@1.0.0", severity: 4, cluster: "Forward Projections", desc: "Promoting non-GAAP Adjusted EBITDA without GAAP reconciliation table." },
-  { uri: "MEDICAL:TRIALS/in_vitro_extrapolation@1.0.0", severity: 4, cluster: "Clinical Evidence", desc: "Reporting in vitro laboratory cell studies as proven human medical cures." },
-  { uri: "ELECTION_INTEGRITY:PROCEDURES/false_deadline@1.0.0", severity: 5, cluster: "Voting Procedures", desc: "Misrepresenting official voter registration or mail-in ballot deadlines." }
+// Master Taxonomy Data (46 Authentic Rules across SPJ, IEP, Deceptive Patterns, & Domain Extensions)
+const FULL_TAXONOMY_RULES = [
+  {
+    "id": "DP-1.1",
+    "name": "Disguised Ads & Fake UI Elements",
+    "uri": "deceptive-pattern:visual-and-attention-interference/DP-1.1@v1.0.0",
+    "catalog": "deceptive_patterns",
+    "domain": "DECEPTIVE_PATTERN",
+    "cluster_id": "VISUAL_AND_ATTENTION_INTERFERENCE",
+    "cluster": "Visual & Attention Interference",
+    "severity": 4,
+    "desc": "Advertisements styled to look like native site content, search results, system alert dialogs, or primary action buttons.",
+    "signals": [
+      "Banner ads styled as 'Download Now' or 'Scan System' system prompts.",
+      "Sponsored promotional links disguised as genuine editorial navigation."
+    ],
+    "evidence": "Identify the deceptive visual element or DOM selector and specify how it mimics native controls.",
+    "mitigations": null
+  },
+  {
+    "id": "DP-1.2",
+    "name": "Visual Contrast Suppression / Hidden Disclosures",
+    "uri": "deceptive-pattern:visual-and-attention-interference/DP-1.2@v1.0.0",
+    "catalog": "deceptive_patterns",
+    "domain": "DECEPTIVE_PATTERN",
+    "cluster_id": "VISUAL_AND_ATTENTION_INTERFERENCE",
+    "cluster": "Visual & Attention Interference",
+    "severity": 3,
+    "desc": "Making crucial terms, recurring billing conditions, or opt-out links nearly invisible using ultra-low contrast or microscopic fonts.",
+    "signals": [
+      "Light gray text on white background for critical subscription pricing.",
+      "Tiny disclaimers placed outside the visual viewport or below the fold."
+    ],
+    "evidence": "Quote the suppressed text and note its CSS styling, font size, or color contrast ratio.",
+    "mitigations": null
+  },
+  {
+    "id": "DP-1.3",
+    "name": "Preselection & Sneaking",
+    "uri": "deceptive-pattern:visual-and-attention-interference/DP-1.3@v1.0.0",
+    "catalog": "deceptive_patterns",
+    "domain": "DECEPTIVE_PATTERN",
+    "cluster_id": "VISUAL_AND_ATTENTION_INTERFERENCE",
+    "cluster": "Visual & Attention Interference",
+    "severity": 4,
+    "desc": "Pre-checking opt-ins for expensive add-ons, marketing lists, or recurring donations without user affirmative action.",
+    "signals": [
+      "Default checked boxes that add products or subscriptions to the cart."
+    ],
+    "evidence": "Identify the preselected checkbox, toggle, or stealth charge.",
+    "mitigations": null
+  },
+  {
+    "id": "DP-2.1",
+    "name": "Confirmshaming",
+    "uri": "deceptive-pattern:emotional-and-social-pressure/DP-2.1@v1.0.0",
+    "catalog": "deceptive_patterns",
+    "domain": "DECEPTIVE_PATTERN",
+    "cluster_id": "EMOTIONAL_AND_SOCIAL_PRESSURE",
+    "cluster": "Emotional & Social Pressure",
+    "severity": 3,
+    "desc": "Phrasing the opt-out option to guilt, insult, or shame the user into complying with the site's preferred choice.",
+    "signals": [
+      "'No thanks, I hate saving money' or 'No, I don't care about security' as the decline button text."
+    ],
+    "evidence": "Quote the manipulative reject button text and the positive accept alternative.",
+    "mitigations": null
+  },
+  {
+    "id": "DP-2.2",
+    "name": "Fake Urgency / Resetting Countdowns",
+    "uri": "deceptive-pattern:emotional-and-social-pressure/DP-2.2@v1.0.0",
+    "catalog": "deceptive_patterns",
+    "domain": "DECEPTIVE_PATTERN",
+    "cluster_id": "EMOTIONAL_AND_SOCIAL_PRESSURE",
+    "cluster": "Emotional & Social Pressure",
+    "severity": 4,
+    "desc": "Displaying artificial timers, countdowns, or claims of impending price hikes that automatically reset upon page refresh.",
+    "signals": [
+      "'Special deal expires in 04:59' timers that loop or reset upon reload.",
+      "Manufactured urgency with no real inventory expiration."
+    ],
+    "evidence": "Quote the timer or urgency claim and note its artificial reset behavior.",
+    "mitigations": null
+  },
+  {
+    "id": "DP-2.3",
+    "name": "Fabricated Social Proof / Fake Activity Tickers",
+    "uri": "deceptive-pattern:emotional-and-social-pressure/DP-2.3@v1.0.0",
+    "catalog": "deceptive_patterns",
+    "domain": "DECEPTIVE_PATTERN",
+    "cluster_id": "EMOTIONAL_AND_SOCIAL_PRESSURE",
+    "cluster": "Emotional & Social Pressure",
+    "severity": 4,
+    "desc": "Generating synthetic notifications claiming other users just purchased the item or that high demand is depleting stock.",
+    "signals": [
+      "Repeating toast popups ('John from Ohio just bought this!') generated randomly via client-side script."
+    ],
+    "evidence": "Quote the social proof popup or identify the client-side ticker script.",
+    "mitigations": null
+  },
+  {
+    "id": "DP-3.1",
+    "name": "Roach Motel / Trapped Cancellation",
+    "uri": "deceptive-pattern:forced-action-and-obstruction/DP-3.1@v1.0.0",
+    "catalog": "deceptive_patterns",
+    "domain": "DECEPTIVE_PATTERN",
+    "cluster_id": "FORCED_ACTION_AND_OBSTRUCTION",
+    "cluster": "Forced Action & Obstruction",
+    "severity": 5,
+    "desc": "Making it effortless to sign up or subscribe (1-click), but requiring phone calls, maze-like forms, or hidden menus to cancel.",
+    "signals": [
+      "Asymmetric friction: instant online signup vs mandatory telephone cancellation during limited hours."
+    ],
+    "evidence": "Identify the cancellation friction pathway compared to initial onboarding.",
+    "mitigations": null
+  },
+  {
+    "id": "DP-3.2",
+    "name": "Comparison Prevention",
+    "uri": "deceptive-pattern:forced-action-and-obstruction/DP-3.2@v1.0.0",
+    "catalog": "deceptive_patterns",
+    "domain": "DECEPTIVE_PATTERN",
+    "cluster_id": "FORCED_ACTION_AND_OBSTRUCTION",
+    "cluster": "Forced Action & Obstruction",
+    "severity": 3,
+    "desc": "Intentionally obfuscating unit prices, plan features, or metrics to prevent users from making an informed financial comparison.",
+    "signals": [
+      "Concealing per-ounce or per-month true costs behind arbitrary bundle points."
+    ],
+    "evidence": "Identify the obfuscated pricing tier and note the omitted standard metrics.",
+    "mitigations": null
+  },
+  {
+    "id": "DP-4.1",
+    "name": "Bait and Switch",
+    "uri": "deceptive-pattern:deceptive-navigation/DP-4.1@v1.0.0",
+    "catalog": "deceptive_patterns",
+    "domain": "DECEPTIVE_PATTERN",
+    "cluster_id": "DECEPTIVE_NAVIGATION",
+    "cluster": "Deceptive Navigation",
+    "severity": 5,
+    "desc": "Promising one outcome (e.g. clicking 'Close' or 'Skip') but executing an entirely different action (e.g. initiating download or checkout).",
+    "signals": [
+      "Clicking an 'X' button that opens a sponsored popup instead of closing the modal."
+    ],
+    "evidence": "Identify the deceptive trigger and its unexpected resulting action.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-1.1",
+    "name": "Ad Hominem (Abusive / Circumstantial)",
+    "uri": "logical-fallacy:relevance-and-personal-attacks/FALLACY-1.1@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "RELEVANCE_AND_PERSONAL_ATTACKS",
+    "cluster": "Relevance & Personal Attacks",
+    "severity": 3,
+    "desc": "Attacking an opponent's character, background, appearance, or motives instead of engaging with their substantive argument.",
+    "signals": [
+      "Name-calling, insults, or impugning personal morality rather than refuting premises.",
+      "Dismissing an argument simply because the proponent stands to benefit from the conclusion."
+    ],
+    "evidence": "Quote the personal insult or motive-questioning statement and indicate what substantive argument it replaces.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-1.2",
+    "name": "Tu Quoque (Whataboutism)",
+    "uri": "logical-fallacy:relevance-and-personal-attacks/FALLACY-1.2@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "RELEVANCE_AND_PERSONAL_ATTACKS",
+    "cluster": "Relevance & Personal Attacks",
+    "severity": 3,
+    "desc": "Deflecting criticism by accusing the accuser of hypocrisy or raising unrelated counter-allegations.",
+    "signals": [
+      "'What about when they did X?' or 'You do the same thing so your argument is invalid.'"
+    ],
+    "evidence": "Quote the counter-accusation and explain how it evades answering the initial point.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-1.3",
+    "name": "Poisoning the Well",
+    "uri": "logical-fallacy:relevance-and-personal-attacks/FALLACY-1.3@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "RELEVANCE_AND_PERSONAL_ATTACKS",
+    "cluster": "Relevance & Personal Attacks",
+    "severity": 4,
+    "desc": "Preemptively presenting adverse information about an opponent to discredit anything they might say beforehand.",
+    "signals": [
+      "Warning the audience that the opponent is an inveterate liar or corrupt before quoting them."
+    ],
+    "evidence": "Quote the preemptive disparagement aimed at invalidating future testimony.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-1.4",
+    "name": "Genetic Fallacy",
+    "uri": "logical-fallacy:relevance-and-personal-attacks/FALLACY-1.4@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "RELEVANCE_AND_PERSONAL_ATTACKS",
+    "cluster": "Relevance & Personal Attacks",
+    "severity": 2,
+    "desc": "Judging the validity of an idea purely on the basis of its origin or source history rather than its merits.",
+    "signals": [
+      "Rejecting an empirical claim solely because of the political or geographical origin of the speaker."
+    ],
+    "evidence": "Quote where the origin of the argument is used as sole justification for dismissal.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-2.1",
+    "name": "Begging the Question (Petitio Principii)",
+    "uri": "logical-fallacy:presumption-and-circularity/FALLACY-2.1@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "PRESUMPTION_AND_CIRCULARITY",
+    "cluster": "Presumption & Circularity",
+    "severity": 3,
+    "desc": "An argument whose premises assume the truth of the conclusion they are supposed to prove.",
+    "signals": [
+      "Circular reasoning where statement A is true because of B, and B is true because of A."
+    ],
+    "evidence": "Quote the circular argument and highlight where the premise restates the conclusion.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-2.2",
+    "name": "False Dilemma / False Dichotomy",
+    "uri": "logical-fallacy:presumption-and-circularity/FALLACY-2.2@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "PRESUMPTION_AND_CIRCULARITY",
+    "cluster": "Presumption & Circularity",
+    "severity": 3,
+    "desc": "Presenting complex, nuanced situations as an 'either/or' choice while ignoring viable middle grounds.",
+    "signals": [
+      "'You are either with us or against us' framing.",
+      "Ignoring third alternatives and treating two extremes as exhaustive."
+    ],
+    "evidence": "Quote the binary constraint and identify reasonable excluded options.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-2.3",
+    "name": "Loaded Question",
+    "uri": "logical-fallacy:presumption-and-circularity/FALLACY-2.3@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "PRESUMPTION_AND_CIRCULARITY",
+    "cluster": "Presumption & Circularity",
+    "severity": 3,
+    "desc": "Asking a question containing an unproven, incriminating presumption that cannot be answered simply without admitting guilt.",
+    "signals": [
+      "'Have you stopped taking bribes yet?' style interrogations."
+    ],
+    "evidence": "Quote the question and identify the presupposed unproven claim.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-2.4",
+    "name": "Cherry-Picking (Texas Sharpshooter)",
+    "uri": "logical-fallacy:presumption-and-circularity/FALLACY-2.4@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "PRESUMPTION_AND_CIRCULARITY",
+    "cluster": "Presumption & Circularity",
+    "severity": 4,
+    "desc": "Highlighting only confirming evidence or favorable outliers while ignoring vast contradictory data.",
+    "signals": [
+      "Selecting isolated quarters or single studies while concealing consensus meta-analyses."
+    ],
+    "evidence": "Quote the cherry-picked dataset and identify the omitted broader body of evidence.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-3.1",
+    "name": "Post Hoc Ergo Propter Hoc",
+    "uri": "logical-fallacy:causal-and-inductive-errors/FALLACY-3.1@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "CAUSAL_AND_INDUCTIVE_ERRORS",
+    "cluster": "Causal & Inductive Errors",
+    "severity": 3,
+    "desc": "Assuming that because Event B occurred after Event A, Event A must have caused Event B.",
+    "signals": [
+      "Claiming sequential coincidence proves causal linkage without mechanistic proof."
+    ],
+    "evidence": "Quote the passage asserting causation based solely on chronological order.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-3.2",
+    "name": "Correlation as Causation",
+    "uri": "logical-fallacy:causal-and-inductive-errors/FALLACY-3.2@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "CAUSAL_AND_INDUCTIVE_ERRORS",
+    "cluster": "Causal & Inductive Errors",
+    "severity": 3,
+    "desc": "Treating statistical correlation between two variables as definitive proof that one causes the other.",
+    "signals": [
+      "Overlooking confounding variables or reverse causality in statistical relationships."
+    ],
+    "evidence": "Quote the causal conclusion drawn from purely correlational data.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-3.3",
+    "name": "Hasty Generalization",
+    "uri": "logical-fallacy:causal-and-inductive-errors/FALLACY-3.3@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "CAUSAL_AND_INDUCTIVE_ERRORS",
+    "cluster": "Causal & Inductive Errors",
+    "severity": 2,
+    "desc": "Drawing a broad conclusion from a sample that is too small or unrepresentative.",
+    "signals": [
+      "Using a single personal anecdote to generalize about an entire demographic or scientific field."
+    ],
+    "evidence": "Quote the generalization and identify why the sample size is inadequate.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-3.4",
+    "name": "Slippery Slope",
+    "uri": "logical-fallacy:causal-and-inductive-errors/FALLACY-3.4@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "CAUSAL_AND_INDUCTIVE_ERRORS",
+    "cluster": "Causal & Inductive Errors",
+    "severity": 3,
+    "desc": "Claiming that a minor initial step will inevitably trigger a disastrous chain reaction without proving each link.",
+    "signals": [
+      "'If we allow X, then catastrophic Y and apocalypse Z will unavoidable follow.'"
+    ],
+    "evidence": "Quote the predicted catastrophic progression and note the missing intermediate proofs.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-4.1",
+    "name": "Appeal to Fear (Argumentum Ad Baculum / In Terrorem)",
+    "uri": "logical-fallacy:emotional-and-manipulative-appeals/FALLACY-4.1@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "EMOTIONAL_AND_MANIPULATIVE_APPEALS",
+    "cluster": "Emotional & Manipulative Appeals",
+    "severity": 4,
+    "desc": "Using fabricated, exaggerated, or apocalyptic terror scenarios to coerce acceptance of a claim.",
+    "signals": [
+      "Alarmist rhetoric designed to induce panic rather than explain empirical risks."
+    ],
+    "evidence": "Quote the fear-inducing rhetoric and specify how it substitutes for logical argument.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-4.2",
+    "name": "Appeal to Outrage / Anger",
+    "uri": "logical-fallacy:emotional-and-manipulative-appeals/FALLACY-4.2@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "EMOTIONAL_AND_MANIPULATIVE_APPEALS",
+    "cluster": "Emotional & Manipulative Appeals",
+    "severity": 3,
+    "desc": "Stoking moral outrage, hostility, and indignation to bypass critical evaluation of claims.",
+    "signals": [
+      "Hyper-charged emotional language framing opponents as monsters or existential threats."
+    ],
+    "evidence": "Quote the inflammatory rhetoric intended to provoke outrage.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-4.3",
+    "name": "Bandwagon / Appeal to Popularity (Ad Populum)",
+    "uri": "logical-fallacy:emotional-and-manipulative-appeals/FALLACY-4.3@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "EMOTIONAL_AND_MANIPULATIVE_APPEALS",
+    "cluster": "Emotional & Manipulative Appeals",
+    "severity": 2,
+    "desc": "Arguing that a claim must be true or good simply because many people believe or do it.",
+    "signals": [
+      "'Everyone knows that X' or 'Millions of people can't be wrong.'"
+    ],
+    "evidence": "Quote the appeal to consensus or popular belief as proof of validity.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-4.4",
+    "name": "Appeal to False Authority (Ad Verecundiam)",
+    "uri": "logical-fallacy:emotional-and-manipulative-appeals/FALLACY-4.4@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "EMOTIONAL_AND_MANIPULATIVE_APPEALS",
+    "cluster": "Emotional & Manipulative Appeals",
+    "severity": 3,
+    "desc": "Citing the opinion of a celebrity, non-expert, or authority in an unrelated field as definitive proof.",
+    "signals": [
+      "Using an entertainer's opinion to validate a complex epidemiological or cosmological claim."
+    ],
+    "evidence": "Quote the authority citation and specify why their expertise does not apply.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-5.1",
+    "name": "Straw Man",
+    "uri": "logical-fallacy:ambiguity-and-equivocation/FALLACY-5.1@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "AMBIGUITY_AND_EQUIVOCATION",
+    "cluster": "Ambiguity & Equivocation",
+    "severity": 4,
+    "desc": "Misrepresenting, exaggerating, or oversimplifying an opponent's argument to make it easier to attack.",
+    "signals": [
+      "Distorting an opponent's moderate position into an absurd, easily dismantled caricature."
+    ],
+    "evidence": "Quote the distorted summary alongside the authentic position being caricatured.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-5.2",
+    "name": "Equivocation",
+    "uri": "logical-fallacy:ambiguity-and-equivocation/FALLACY-5.2@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "AMBIGUITY_AND_EQUIVOCATION",
+    "cluster": "Ambiguity & Equivocation",
+    "severity": 3,
+    "desc": "Using a word or phrase with multiple meanings ambiguously in different parts of the argument.",
+    "signals": [
+      "Shifting definition of a key term mid-argument to manufacture a false conclusion."
+    ],
+    "evidence": "Quote the text and show how the key term's definition was shifted.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-5.3",
+    "name": "Fallacy of Accent / Out of Context",
+    "uri": "logical-fallacy:ambiguity-and-equivocation/FALLACY-5.3@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "AMBIGUITY_AND_EQUIVOCATION",
+    "cluster": "Ambiguity & Equivocation",
+    "severity": 3,
+    "desc": "Altering the meaning of an original statement by changing vocal emphasis or removing surrounding qualifiers.",
+    "signals": [
+      "Selective excerpting that conveys the opposite of what the original author intended."
+    ],
+    "evidence": "Quote the excerpt and provide the missing surrounding sentences.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-6.1",
+    "name": "False Equivalence",
+    "uri": "logical-fallacy:formal-and-deductive-errors/FALLACY-6.1@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "FORMAL_AND_DEDUCTIVE_ERRORS",
+    "cluster": "Formal & Deductive Errors",
+    "severity": 3,
+    "desc": "Equating two completely unequal situations, severity levels, or ethical transgressions as if they were identical.",
+    "signals": [
+      "Treating a minor clerical error and widespread systemic fraud as equivalent misconduct."
+    ],
+    "evidence": "Quote the comparison and explain why the two situations are fundamentally unequal.",
+    "mitigations": null
+  },
+  {
+    "id": "FALLACY-6.2",
+    "name": "Affirming the Consequent",
+    "uri": "logical-fallacy:formal-and-deductive-errors/FALLACY-6.2@v1.0.0",
+    "catalog": "iep_fallacies",
+    "domain": "LOGICAL_FALLACY",
+    "cluster_id": "FORMAL_AND_DEDUCTIVE_ERRORS",
+    "cluster": "Formal & Deductive Errors",
+    "severity": 3,
+    "desc": "Inferring the antecedent from the consequent (If P then Q; Q; therefore P).",
+    "signals": [
+      "Assuming an outcome could only have been caused by one specific prior event."
+    ],
+    "evidence": "Quote the deductive statement and point out alternative possible causes.",
+    "mitigations": null
+  },
+  {
+    "id": "SPJ-1.1",
+    "name": "Unsourced Factual Assertion",
+    "uri": "journalistic-ethics:seek-truth-and-report/SPJ-1.1@v1.0.0",
+    "catalog": "spj_ethics",
+    "domain": "JOURNALISTIC_ETHICS",
+    "cluster_id": "SEEK_TRUTH_AND_REPORT",
+    "cluster": "Seek Truth and Report It",
+    "severity": 3,
+    "desc": "Significant factual, scientific, or statistical claims made without citations, primary sources, or verifiable provenance.",
+    "signals": [
+      "Sweeping empirical claims presented without attribution ('studies show', 'experts say' without naming who or where).",
+      "Absence of hyperlinks or citations for non-obvious statistical assertions."
+    ],
+    "evidence": "Quote the unsupported factual claim and indicate what primary verification is missing.",
+    "mitigations": null
+  },
+  {
+    "id": "SPJ-1.2",
+    "name": "Headline / Body Distortion",
+    "uri": "journalistic-ethics:seek-truth-and-report/SPJ-1.2@v1.0.0",
+    "catalog": "spj_ethics",
+    "domain": "JOURNALISTIC_ETHICS",
+    "cluster_id": "SEEK_TRUTH_AND_REPORT",
+    "cluster": "Seek Truth and Report It",
+    "severity": 4,
+    "desc": "Misleading headline disparity where the article title or social preview contradicts or grossly inflates what the body text substantiates.",
+    "signals": [
+      "Sensationalist clickbait title making an absolute claim that is softened or debunked inside the body text.",
+      "Headline suggesting confirmed facts when the article only reports unverified rumors."
+    ],
+    "evidence": "Quote the headline alongside the contradicting excerpt from the article body.",
+    "mitigations": null
+  },
+  {
+    "id": "SPJ-1.3",
+    "name": "Uncorroborated Anonymous Sourcing",
+    "uri": "journalistic-ethics:seek-truth-and-report/SPJ-1.3@v1.0.0",
+    "catalog": "spj_ethics",
+    "domain": "JOURNALISTIC_ETHICS",
+    "cluster_id": "SEEK_TRUTH_AND_REPORT",
+    "cluster": "Seek Truth and Report It",
+    "severity": 3,
+    "desc": "Damaging assertions attributed exclusively to unnamed sources without explanatory justification or multiple independent corroborating points.",
+    "signals": [
+      "Relying on anonymous 'insiders' or 'officials' for severe defamatory allegations without explaining source motives or corroboration attempts."
+    ],
+    "evidence": "Quote the passage where anonymous claims are used and note the lack of corroborating context.",
+    "mitigations": null
+  },
+  {
+    "id": "SPJ-1.4",
+    "name": "Deceptive Context & Selective Omission",
+    "uri": "journalistic-ethics:seek-truth-and-report/SPJ-1.4@v1.0.0",
+    "catalog": "spj_ethics",
+    "domain": "JOURNALISTIC_ETHICS",
+    "cluster_id": "SEEK_TRUTH_AND_REPORT",
+    "cluster": "Seek Truth and Report It",
+    "severity": 4,
+    "desc": "Quoting individuals or citing data while intentionally omitting critical qualifiers, timestamps, or full context that changes the fundamental meaning.",
+    "signals": [
+      "Snipped quotes that reverse the speaker's stated intent.",
+      "Outdated reports or videos recirculated as breaking current events."
+    ],
+    "evidence": "Quote the trimmed statement and supply the omitted contextual qualifiers.",
+    "mitigations": null
+  },
+  {
+    "id": "SPJ-1.5",
+    "name": "Blurred Editorial Demarcation",
+    "uri": "journalistic-ethics:seek-truth-and-report/SPJ-1.5@v1.0.0",
+    "catalog": "spj_ethics",
+    "domain": "JOURNALISTIC_ETHICS",
+    "cluster_id": "SEEK_TRUTH_AND_REPORT",
+    "cluster": "Seek Truth and Report It",
+    "severity": 3,
+    "desc": "Op-eds, speculative commentary, or sponsored marketing presented with the visual styling and framing of objective hard news.",
+    "signals": [
+      "Heavy editorial opinions and prescriptive stances without an 'Opinion', 'Commentary', or 'Analysis' badge.",
+      "Lack of visual separation between editorial content and journalistic reporting."
+    ],
+    "evidence": "Quote opinionated passages and note the absence of clear editorial labeling.",
+    "mitigations": null
+  },
+  {
+    "id": "SPJ-1.6",
+    "name": "Cloaked Satire / Bad-Faith Parody Defense",
+    "uri": "journalistic-ethics:seek-truth-and-report/SPJ-1.6@v1.0.0",
+    "catalog": "spj_ethics",
+    "domain": "JOURNALISTIC_ETHICS",
+    "cluster_id": "SEEK_TRUTH_AND_REPORT",
+    "cluster": "Seek Truth and Report It",
+    "severity": 4,
+    "desc": "Malicious disinformation or defamatory falsehoods masquerading as 'satire' or 'a joke' to evade accountability while actively deceiving audiences.",
+    "signals": [
+      "Deceptive fabrication designed to look like authentic breaking news with no visible satire disclosures on the page or masthead.",
+      "Claiming satire only after being challenged on factual inaccuracies."
+    ],
+    "evidence": "Quote the fabricated claim and identify why it is deceptively framed as legitimate news.",
+    "mitigations": null
+  },
+  {
+    "id": "SPJ-2.1",
+    "name": "Sensational Exploitation of Tragedy",
+    "uri": "journalistic-ethics:minimize-harm/SPJ-2.1@v1.0.0",
+    "catalog": "spj_ethics",
+    "domain": "JOURNALISTIC_ETHICS",
+    "cluster_id": "MINIMIZE_HARM",
+    "cluster": "Minimize Harm",
+    "severity": 4,
+    "desc": "Gratuitous sensationalism exploiting private victims, minors, or grief for emotional engagement or ad clicks.",
+    "signals": [
+      "Ghoulish imagery, unredacted traumatic footage, or invasive reporting on grieving families."
+    ],
+    "evidence": "Quote or identify the sensationalized coverage of private grief.",
+    "mitigations": null
+  },
+  {
+    "id": "SPJ-2.2",
+    "name": "Doxxing & Unjustified Privacy Intrusion",
+    "uri": "journalistic-ethics:minimize-harm/SPJ-2.2@v1.0.0",
+    "catalog": "spj_ethics",
+    "domain": "JOURNALISTIC_ETHICS",
+    "cluster_id": "MINIMIZE_HARM",
+    "cluster": "Minimize Harm",
+    "severity": 5,
+    "desc": "Publishing private phone numbers, home addresses, or private identifying documents without legitimate public interest justification.",
+    "signals": [
+      "Exposing private personal identifiable information (PII) of non-public figures."
+    ],
+    "evidence": "Identify the private information exposed without public justification.",
+    "mitigations": null
+  },
+  {
+    "id": "SPJ-3.1",
+    "name": "Undisclosed Commercial or Political Conflict",
+    "uri": "journalistic-ethics:act-independently/SPJ-3.1@v1.0.0",
+    "catalog": "spj_ethics",
+    "domain": "JOURNALISTIC_ETHICS",
+    "cluster_id": "ACT_INDEPENDENTLY",
+    "cluster": "Act Independently",
+    "severity": 4,
+    "desc": "Favorable coverage of products, donors, or political candidates without disclosing financial, ownership, or affiliate ties.",
+    "signals": [
+      "Glowing review or uncritical endorsement without standard affiliate or sponsor disclosures."
+    ],
+    "evidence": "Quote promotional passages and document the missing conflict disclosure.",
+    "mitigations": null
+  },
+  {
+    "id": "SPJ-3.2",
+    "name": "Disguised Native Advertising",
+    "uri": "journalistic-ethics:act-independently/SPJ-3.2@v1.0.0",
+    "catalog": "spj_ethics",
+    "domain": "JOURNALISTIC_ETHICS",
+    "cluster_id": "ACT_INDEPENDENTLY",
+    "cluster": "Act Independently",
+    "severity": 5,
+    "desc": "Paid promotional marketing designed to mimic an independent investigative article.",
+    "signals": [
+      "Advertorial formatted as authentic news reporting without conspicuous 'Sponsored' or 'Ad' tags."
+    ],
+    "evidence": "Quote the article layout or text showing sponsored intent disguised as news.",
+    "mitigations": null
+  },
+  {
+    "id": "SPJ-4.1",
+    "name": "Ghost or Anonymous Publishing",
+    "uri": "journalistic-ethics:be-accountable-and-transparent/SPJ-4.1@v1.0.0",
+    "catalog": "spj_ethics",
+    "domain": "JOURNALISTIC_ETHICS",
+    "cluster_id": "BE_ACCOUNTABLE_AND_TRANSPARENT",
+    "cluster": "Be Accountable and Transparent",
+    "severity": 2,
+    "desc": "Articles completely lacking author bylines, editorial mastheads, or publisher identity.",
+    "signals": [
+      "News reports published without an author name, editorial board, or organization contact."
+    ],
+    "evidence": "Note the absence of author byline and organization masthead on the page.",
+    "mitigations": null
+  },
+  {
+    "id": "SPJ-4.2",
+    "name": "Lack of Corrections Policy",
+    "uri": "journalistic-ethics:be-accountable-and-transparent/SPJ-4.2@v1.0.0",
+    "catalog": "spj_ethics",
+    "domain": "JOURNALISTIC_ETHICS",
+    "cluster_id": "BE_ACCOUNTABLE_AND_TRANSPARENT",
+    "cluster": "Be Accountable and Transparent",
+    "severity": 2,
+    "desc": "Absence of a visible corrections log, contact channel for factual disputes, or retraction standards.",
+    "signals": [
+      "No mechanism for readers to submit corrections or verify editorial accountability."
+    ],
+    "evidence": "Note the absence of corrections policy or contact methods.",
+    "mitigations": null
+  },
+  {
+    "id": "FIN-1.1",
+    "name": "Ungrounded Non-GAAP Forward Projections",
+    "uri": "financial-disclosures:forward-projections/FIN-1.1@v1.0.0",
+    "catalog": "financial_disclosures",
+    "domain": "DOMAIN_SPECIFIC",
+    "cluster_id": "FORWARD_PROJECTIONS",
+    "cluster": "Forward Projections & Non-GAAP",
+    "severity": 4,
+    "desc": "Promoting non-GAAP Adjusted EBITDA or forward guidance without direct GAAP reconciliation table and explicit risk disclosures.",
+    "signals": [
+      "non-GAAP Adjusted EBITDA",
+      "projected 10x EBITDA without GAAP bridge",
+      "cherry-picked margin expansion"
+    ],
+    "evidence": "Citation must quote the exact financial claim and verify whether SEC Regulation G reconciliation is omitted.",
+    "mitigations": "Clear safe harbor statement alongside mandatory GAAP net income reconciliation table."
+  },
+  {
+    "id": "MED-1.1",
+    "name": "In Vitro Extrapolation to Human Cure",
+    "uri": "medical-claims:clinical-evidence/MED-1.1@v1.0.0",
+    "catalog": "medical_claims",
+    "domain": "DOMAIN_SPECIFIC",
+    "cluster_id": "CLINICAL_EVIDENCE",
+    "cluster": "Clinical Evidence & Trials",
+    "severity": 4,
+    "desc": "Reporting in vitro laboratory cell or rodent studies as proven human medical cures without Phase III clinical trial evidence.",
+    "signals": [
+      "miracle breakthrough in petri dishes",
+      "cures cancer in mouse models presented as human therapy"
+    ],
+    "evidence": "Citation must quote the therapeutic efficacy claim and identify the clinical trial phase (or lack thereof).",
+    "mitigations": "Explicit prominently placed disclosure of pre-clinical laboratory stage and unknown human efficacy."
+  },
+  {
+    "id": "ELEC-1.1",
+    "name": "Deceptive Voter Procedure / False Deadlines",
+    "uri": "election-integrity:voting-procedures/ELEC-1.1@v1.0.0",
+    "catalog": "election_integrity",
+    "domain": "DOMAIN_SPECIFIC",
+    "cluster_id": "VOTING_PROCEDURES",
+    "cluster": "Voting Procedures & Deadlines",
+    "severity": 5,
+    "desc": "Misrepresenting official voter registration deadlines, mail-in ballot return criteria, or polling precinct locations.",
+    "signals": [
+      "vote by text message",
+      "false registration closing date",
+      "wrong polling hours or ID requirements"
+    ],
+    "evidence": "Citation must quote the deceptive voting instruction verbatim and reference official county recorder statutes.",
+    "mitigations": "Satire or parody when labeled clearly, but strictly prohibited for operational voting mechanics."
+  },
+  {
+    "id": "CONFLICT-1.1",
+    "name": "Publisher-Politician Undisclosed Conflict",
+    "uri": "governance-ethics:publisher-independence/CONFLICT-1.1@v1.0.0",
+    "catalog": "governance_ethics",
+    "domain": "DOMAIN_SPECIFIC",
+    "cluster_id": "PUBLISHER_INDEPENDENCE",
+    "cluster": "Publisher Independence & Civic Governance",
+    "severity": 5,
+    "desc": "Publishing civic coverage or political endorsements where publication ownership holds direct commercial or political office without full masthead and per-article disclosure.",
+    "signals": [
+      "city council candidate owns sole local news outlet",
+      "editorial praise for publisher business land deal",
+      "favorable zoning coverage without ownership badge"
+    ],
+    "evidence": "Citation must quote the favorable civic coverage and cross-reference public municipal financial disclosure registries.",
+    "mitigations": "Total recusal of editorial control and prominent in-line masthead conflict disclosure."
+  }
 ];
 
 // Models Matrix for Comparator
@@ -1515,28 +2259,135 @@ export function setupPlaygroundWidgets() {
     }
   });
 
-  // 6. Taxonomy Explorer with Filter Chips
-  const taxBody = document.getElementById('taxonomy-table-body');
+  // 6. Taxonomy Explorer with Filter Chips & Responsive Cards (Invariant 38 Natural Flow)
+  const taxContainer = document.getElementById('taxonomy-cards-container');
   const taxSearch = document.getElementById('taxonomy-search-input');
+  const taxSevFilter = document.getElementById('taxonomy-severity-filter');
+  const taxVisibleCount = document.getElementById('tax-visible-count');
+  const taxPrevBtn = document.getElementById('tax-prev-btn');
+  const taxNextBtn = document.getElementById('tax-next-btn');
+  const taxPageIndicator = document.getElementById('tax-page-indicator');
+  const taxShowAllBtn = document.getElementById('tax-show-all-btn');
+
   let currentDomainFilter = 'ALL';
+  let currentSevFilter = 'ALL';
+  let currentPage = 1;
+  const pageSize = 8;
+  let showAllPages = false;
+
+  function getDomainLabel(catalog) {
+    if (catalog === 'spj_ethics') return 'SPJ Journalism';
+    if (catalog === 'iep_fallacies') return 'IEP Fallacy';
+    if (catalog === 'deceptive_patterns') return 'Deceptive UI';
+    if (catalog === 'financial_disclosures') return 'Financial';
+    if (catalog === 'medical_claims') return 'Medical';
+    if (catalog === 'election_integrity') return 'Election';
+    if (catalog === 'governance_ethics') return 'Governance';
+    return 'Domain Extension';
+  }
 
   function renderTaxonomy() {
-    if (!taxBody) return;
+    if (!taxContainer) return;
     const q = (taxSearch?.value || '').toLowerCase().trim();
-    const matches = SAMPLE_TAXONOMY_RULES.filter(r => {
-      const matchesSearch = r.uri.toLowerCase().includes(q) || r.cluster.toLowerCase().includes(q) || r.desc.toLowerCase().includes(q);
-      const matchesDomain = currentDomainFilter === 'ALL' || r.uri.toUpperCase().includes(currentDomainFilter);
-      return matchesSearch && matchesDomain;
+    
+    const matches = FULL_TAXONOMY_RULES.filter(r => {
+      const matchesSearch = !q || (
+        r.id.toLowerCase().includes(q) ||
+        r.name.toLowerCase().includes(q) ||
+        r.uri.toLowerCase().includes(q) ||
+        r.cluster.toLowerCase().includes(q) ||
+        r.desc.toLowerCase().includes(q) ||
+        (r.signals && r.signals.some(s => s.toLowerCase().includes(q))) ||
+        (r.evidence && r.evidence.toLowerCase().includes(q))
+      );
+
+      let matchesDomain = true;
+      if (currentDomainFilter === 'SPJ') matchesDomain = r.catalog === 'spj_ethics';
+      else if (currentDomainFilter === 'IEP') matchesDomain = r.catalog === 'iep_fallacies';
+      else if (currentDomainFilter === 'DECEPTIVE') matchesDomain = r.catalog === 'deceptive_patterns';
+      else if (currentDomainFilter === 'DOMAIN') matchesDomain = ['financial_disclosures', 'medical_claims', 'election_integrity', 'governance_ethics'].includes(r.catalog);
+
+      let matchesSev = true;
+      if (currentSevFilter !== 'ALL') {
+        matchesSev = r.severity === parseInt(currentSevFilter, 10);
+      }
+
+      return matchesSearch && matchesDomain && matchesSev;
     });
 
-    taxBody.innerHTML = matches.map(r => `
-      <tr>
-        <td><code>${escapeHtml(r.uri)}</code></td>
-        <td><span class="severity-badge sev-${r.severity}">Sev ${r.severity}</span></td>
-        <td>${escapeHtml(r.cluster)}</td>
-        <td>${escapeHtml(r.desc)}</td>
-      </tr>
-    `).join('');
+    if (taxVisibleCount) {
+      taxVisibleCount.textContent = matches.length.toString();
+    }
+
+    const totalPages = Math.max(1, Math.ceil(matches.length / pageSize));
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    const displayedRules = showAllPages ? matches : matches.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+
+    if (matches.length === 0) {
+      taxContainer.innerHTML = `
+        <div style="padding: 2rem; text-align: center; color: var(--text-muted); background: rgba(10, 15, 29, 0.6); border-radius: 8px; border: 1px dashed rgba(56, 189, 248, 0.2);">
+          🔍 No taxonomy rules found matching criteria: <code>${escapeHtml(q || currentDomainFilter || currentSevFilter)}</code>
+        </div>
+      `;
+    } else {
+      taxContainer.innerHTML = displayedRules.map(r => {
+        const domainLabel = getDomainLabel(r.catalog);
+        const signalsHtml = r.signals && r.signals.length > 0 ? `
+          <div class="taxonomy-signals-wrapper">
+            <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Detection Signals:</span>
+            ${r.signals.map(s => `<span class="taxonomy-signal-tag">${escapeHtml(s)}</span>`).join('')}
+          </div>
+        ` : '';
+
+        const evidenceHtml = r.evidence ? `
+          <div class="taxonomy-guidelines-box">
+            <strong style="color: #38bdf8;">Evidence Citation ($G=1.00$):</strong> ${escapeHtml(r.evidence)}
+          </div>
+        ` : '';
+
+        const mitigationHtml = r.mitigations ? `
+          <div style="font-size: 0.78rem; color: #4ade80; margin-top: 0.2rem;">
+            <strong>Exemption / Safe Harbor:</strong> ${escapeHtml(r.mitigations)}
+          </div>
+        ` : '';
+
+        return `
+          <div class="taxonomy-rule-card">
+            <div class="taxonomy-card-header">
+              <div class="taxonomy-card-title-group">
+                <span class="taxonomy-rule-id-badge">${escapeHtml(r.id)}</span>
+                <span class="taxonomy-rule-title">${escapeHtml(r.name)}</span>
+                <span class="verdict-tag reliable" style="font-size: 0.7rem; padding: 0.15rem 0.4rem;">${escapeHtml(domainLabel)}</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="severity-badge sev-${r.severity}">Sev ${r.severity}</span>
+                <button type="button" class="uri-copy-btn" onclick="navigator.clipboard.writeText('${escapeHtml(r.uri)}').then(() => { this.textContent = 'Copied!'; setTimeout(() => this.textContent = 'Copy URI', 2000); })">Copy URI</button>
+              </div>
+            </div>
+
+            <div class="taxonomy-card-meta-line">
+              <span class="taxonomy-uri-badge"><code>${escapeHtml(r.uri)}</code></span>
+              <span>&bull;</span>
+              <span><strong>Cluster:</strong> ${escapeHtml(r.cluster)}</span>
+            </div>
+
+            <div class="taxonomy-rule-desc">${escapeHtml(r.desc)}</div>
+            ${signalsHtml}
+            ${evidenceHtml}
+            ${mitigationHtml}
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Update pagination controls
+    if (taxPageIndicator) {
+      taxPageIndicator.textContent = showAllPages ? `All ${matches.length} Rules` : `Page ${currentPage} of ${totalPages}`;
+    }
+    if (taxPrevBtn) taxPrevBtn.disabled = showAllPages || currentPage <= 1;
+    if (taxNextBtn) taxNextBtn.disabled = showAllPages || currentPage >= totalPages;
+    if (taxShowAllBtn) taxShowAllBtn.textContent = showAllPages ? 'Paginate (8/page)' : 'Show All';
   }
 
   const taxChips = [
@@ -1553,11 +2404,42 @@ export function setupPlaygroundWidgets() {
       taxChips.forEach(c => document.getElementById(c.id)?.classList.remove('active'));
       el.classList.add('active');
       currentDomainFilter = chip.domain;
+      currentPage = 1;
       renderTaxonomy();
     });
   });
 
-  taxSearch?.addEventListener('input', () => renderTaxonomy());
+  taxSearch?.addEventListener('input', () => {
+    currentPage = 1;
+    renderTaxonomy();
+  });
+
+  taxSevFilter?.addEventListener('change', () => {
+    currentSevFilter = taxSevFilter.value;
+    currentPage = 1;
+    renderTaxonomy();
+  });
+
+  taxPrevBtn?.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderTaxonomy();
+      taxContainer?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  });
+
+  taxNextBtn?.addEventListener('click', () => {
+    currentPage++;
+    renderTaxonomy();
+    taxContainer?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  taxShowAllBtn?.addEventListener('click', () => {
+    showAllPages = !showAllPages;
+    currentPage = 1;
+    renderTaxonomy();
+  });
+
   renderTaxonomy();
 
   // 7. Multi-Model Cost, Latency & Sovereignty Comparator
@@ -1926,7 +2808,9 @@ export function setupPlaygroundWidgets() {
     const verdict = crVerdict.value;
     const url = crUrl.value;
 
+    const crHeaderBadge = document.getElementById('cr-header-badge');
     if (crActiveTab === 'claimreview') {
+      if (crHeaderBadge) crHeaderBadge.textContent = 'Schema.org ClaimReview JSON-LD';
       const claimReviewLD = {
         "@context": "https://schema.org",
         "@type": "ClaimReview",
@@ -1950,8 +2834,14 @@ export function setupPlaygroundWidgets() {
           "url": "https://credence.run"
         }
       };
-      crOutput.value = JSON.stringify(claimReviewLD, null, 2);
+      const formatted = JSON.stringify(claimReviewLD, null, 2);
+      if ('value' in crOutput && crOutput.tagName === 'TEXTAREA') {
+        crOutput.value = formatted;
+      } else {
+        crOutput.textContent = formatted;
+      }
     } else {
+      if (crHeaderBadge) crHeaderBadge.textContent = 'RFC 8785 Ed25519 Canonical Attestation Envelope';
       const canonicalEnvelope = {
         "classification": verdict === "True" ? "FACTUAL_REPORTING" : (verdict === "Satire" ? "SATIRE_PARODY" : "SUSPICIOUS"),
         "content_sha256": "4b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c",
@@ -1962,7 +2852,12 @@ export function setupPlaygroundWidgets() {
         "target_url": url,
         "timestamp_utc": "2026-08-18T20:00:00Z"
       };
-      crOutput.value = JSON.stringify(canonicalEnvelope, null, 2);
+      const formatted = JSON.stringify(canonicalEnvelope, null, 2);
+      if ('value' in crOutput && crOutput.tagName === 'TEXTAREA') {
+        crOutput.value = formatted;
+      } else {
+        crOutput.textContent = formatted;
+      }
     }
   }
 
@@ -1982,7 +2877,8 @@ export function setupPlaygroundWidgets() {
 
   btnCrCopy?.addEventListener('click', () => {
     if (crOutput) {
-      navigator.clipboard?.writeText(crOutput.value);
+      const textToCopy = crOutput.value || crOutput.textContent || '';
+      navigator.clipboard?.writeText(textToCopy);
       if (btnCrCopy) {
         btnCrCopy.textContent = '✅ Copied!';
         setTimeout(() => btnCrCopy.textContent = '📋 Copy JSON', 1500);
@@ -1992,7 +2888,8 @@ export function setupPlaygroundWidgets() {
 
   btnCrDownload?.addEventListener('click', () => {
     if (crOutput) {
-      const blob = new Blob([crOutput.value], { type: 'application/json' });
+      const textToSave = crOutput.value || crOutput.textContent || '';
+      const blob = new Blob([textToSave], { type: 'application/json' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
       a.download = crActiveTab === 'claimreview' ? 'claimreview.jsonld' : 'receipt.credence.json';
@@ -2553,7 +3450,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.12.4';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.12.5';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 

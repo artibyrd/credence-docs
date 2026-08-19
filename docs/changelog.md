@@ -7,6 +7,15 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.12.5] - 2026-08-19
+
+### Changed
+- **Taxonomy Rule Explorer Redesign & Complete Rule Catalog**:
+  - Replaced the cramped, dual-scrolling table in Widget 6 of `docs/playground.md` with an expansive, responsive **Rule Card List** adhering to Invariant 38 (Zero Scrollbars & Natural Document Flow).
+  - Expanded the rule database from 9 mock samples to all **46 authentic taxonomy rules** across SPJ Journalistic Ethics (12), IEP Logical Fallacies (21), Deceptive UI Patterns (9), Financial Disclosures (1), Medical Claims (1), Election Integrity (1), and Governance Conflicts (1).
+  - Added multi-dimensional filtering (Catalog Chips + Severity Dropdown + Real-Time Search) with 8-card pagination and 1-click canonical URI copying.
+  - Replaced `<textarea readonly>` in Widget 11 (ClaimReview Generator) with an auto-height preformatted `<pre>` container.
+
 ## [1.12.4] - 2026-08-19
 
 ### Fixed
