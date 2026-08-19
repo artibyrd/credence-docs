@@ -1,35 +1,42 @@
 ---
 title: "Quickstart & Installation"
-description: "Get started with Credence CLI, FastMCP 2.0 server, and Textual TUI in minutes."
+description: "Get started with Credence CLI, FastMCP 2.0 server, and Textual TUI in under 60 seconds."
 ---
 
-# Quickstart & Installation
+# Quickstart & Installation ⚡
 
-Get started with the Credence CLI, FastMCP 2.0 server, and Textual TUI workstation in minutes.
+Get started with the Credence CLI, AI Assistant integration (FastMCP 2.0), and Textual TUI workstation in under a minute.
+
+---
+
+## 🚀 3-Step Quickstart
 
 :::tabs
-=== 🚀 First-Run Flow (3 Steps)
-| Step | Action | Command / Target | Description |
-| :--- | :--- | :--- | :--- |
-| **1. Install** | Automated Shell Bootstrap | `curl -fsSL https://credence.run/install.sh \| bash` | Installs standalone binary & sets up SQLite WAL store |
-| **2. Audit** | Run Live URL Audit | `credence audit https://example.com/article` | Evaluates 4 ethical dimensions with verbatim citations |
-| **3. Interface** | Choose Presentation Layer | `credence tui` \| FastMCP (`stdio`/`SSE`) \| Web UI | Synchronous 4-way parity across terminal, agent & browser |
+=== 1. Install
+Install Credence via the automated installer, Poetry, or Docker:
+```bash
+# Automated installer (Linux & macOS)
+curl -fsSL https://credence.run/install.sh | bash
+```
+
+=== 2. Audit
+Run your first live audit on any URL or news article:
+```bash
+# Audit a live article
+credence audit https://example.com/news-story
+```
+
+=== 3. Interface
+Choose how you want to interact with Credence:
+```bash
+# Terminal Dashboard (TUI) | FastMCP (Claude/Cursor) | Daily Digest
+credence tui
+```
 :::
-
-### Operational Cost Profiles
-
-| Profile | Target Latency | Thinking Tokens | Cost per 1k Audits | Best For |
-| :--- | :--- | :--- | :--- | :--- |
-| **`FREE`** | < 0.1s | 0 tokens (Offline) | **$0.00** | Hermetic CI/CD, offline air-gap |
-| **`BALANCED`** | 2.4s – 3.8s | 1,024 – 4,096 tokens | **$0.34 – $0.68** | Daily news, RSS sifter (Default) |
-| **`ULTRA`** | 5.0s – 8.0s | 8,192 – 16,384 tokens | **$1.10 – $2.20** | Deep investigative 10-K & legal filings |
-
-> [!TIP]
-> **Token Headroom Safety**: Credence includes an automatic circuit breaker that falls back to 100% offline structural heuristics whenever your API budget reaches 30% remaining headroom.
 
 ---
 
-## 1. Quick Installation
+## 1. Installation Options
 
 :::tabs
 === POSIX One-Liner (macOS & Linux)
@@ -46,61 +53,41 @@ poetry install
 
 === Docker Container
 ```bash
-docker run -d -p 8000:8000 -p 8765:8765 ghcr.io/artibyrd/credence:latest
+docker run -d -p 8000:8000 ghcr.io/artibyrd/credence:latest
 ```
 :::
 
 ---
 
-## 2. API Key Configuration
+## 2. API Key Configuration (Optional)
 
-Credence uses **Gemini 3.7 Flash** for its multi-agent evaluation pipeline. Set your API key in your shell environment:
+Credence uses **Gemini 3.7 Flash** by default for deep multi-agent evaluation. Set your API key in your shell environment:
 
 ```bash
 export CREDENCE_GEMINI_API_KEY="your-gemini-api-key"
 ```
 
-> **Note**: Credence includes a built-in **Token Safety Governor** that defaults to offline structural heuristic fallback if no API key is provided or when budget limits are exceeded.
+> 💡 **Zero-Cost / Offline Heuristics**: If no API key is provided, Credence automatically runs in **100% offline heuristic mode** ($0.00 spend) using structural rules.
 
 ---
 
-## 3. Instant Node Germination (Rapid "Miracle-Gro" Bootstrap)
+## 3. Running Your First Audit
 
-Instead of starting with an empty database and zero mesh activity, run `credence germinate` to ignite your node in under 5 seconds:
-
-```bash
-# Rapid node germination: identity genesis, 0-token mesh inoculation, 24 preset feeds, initial burst
-credence germinate
-
-# Or using standard workspace recipe:
-just germinate
-```
-
-This single zero-friction command:
-1. 🔑 **Epistemic Genesis**: Generates and registers your local cryptographic Ed25519 node keypair.
-2. 💧 **Peer Mesh Inoculation**: Fetches verified peer attestations from Genesis seeds (`seeds.credence.nexus`) at **$0.00 token cost**.
-3. 🌱 **Soil Preparation**: Sows 24 preset categorized feed subscriptions across 4 tiers with Rendezvous hashing affinity.
-4. ⚡ **Miracle-Gro Burst**: Audits top novel articles and produces signed local attestations.
-5. 📦 **Web Hydration**: Syncs `reports.json` so the local Zero-Build Web UI (`just serve-web`) is immediately hot and responsive.
-
----
-
-## 4. Running Your First Audit
-
-Audit any URL directly from your terminal:
+Audit any webpage directly from your command line:
 
 ```bash
-# Basic audit with default Balanced profile (1,024 thinking tokens)
+# Default audit with Balanced profile (Gemini 3.7 Flash thinking model)
 credence audit https://example.com/news-story
 
-# Free tier audit (0 thinking tokens, fast & low cost)
+# Fast zero-cost audit (0 API tokens, 100% offline heuristics)
 credence audit https://example.com/news-story --profile free
 
-# Ultra depth audit (8,192 thinking tokens)
+# Deep investigative audit (for complex legal, financial, or technical claims)
 credence audit https://example.com/news-story --profile ultra
 ```
 
-Example terminal output:
+### Example Terminal Output
+
 ```text
 🛡️ Credence Audit: https://example.com/breaking-news
 Content SHA-256: 8f4e2b...
@@ -109,15 +96,15 @@ Suspicion Score: 0.12 (Low Suspicion)
 Violations Found: 1
   - [IEP:INFORMAL/straw_man@1.0.0] Severity: 2
     Quote: "Opponents believe that everyone should lose their jobs immediately."
-    Grounding: Verified (G = 1.00)
+    Grounding: Verified (Exact Verbatim Match)
 Attestation Signed: Ed25519 (Node ID: e4d9...)
 ```
 
 ---
 
-## 5. Launching the Textual TUI
+## 4. Launching the Interactive Terminal Dashboard (TUI)
 
-Launch the full-screen terminal workstation with live audit history, split-pane grounded citation inspector, syndicated feed streams, and token headroom monitors:
+Launch the full-screen terminal IDE to inspect live citation highlights, browse ethical taxonomies, and monitor token quotas:
 
 ```bash
 credence tui
@@ -125,12 +112,16 @@ credence tui
 
 ![Credence TUI Workstation](assets/tui/01-inspector-rich.svg)
 
-* Navigate between the 7 core panes using number keys `1`–`6` (`1` Inspector, `2` Taxonomies, `3` Subjects, `4` Feeds, `5` Quota, `6` Identity).
-* Press `/` to audit any new URL or `v` to cycle between Rich, Compact, and Raw JSON views.
+* Press **`/`** to audit a new URL.
+* Use **`j` / `k`** or **`↑` / `↓`** to navigate violations and view exact highlighted quotes.
+* Press **`1`–`6`** to switch between Inspector, Taxonomies, Subjects, Feeds, Quota, and Identity panes.
+* Press **`q`** to exit.
 
 ---
 
-## 6. FastMCP 2.0 Integration
+## 5. Connecting to Claude & Cursor (FastMCP 2.0)
+
+Equip your AI coding assistant with real-time fact-checking and source verification tools:
 
 ### Claude Desktop Configuration
 
@@ -141,7 +132,7 @@ Add Credence to your `claude_desktop_config.json`:
   "mcpServers": {
     "credence": {
       "command": "credence",
-      "args": ["mcp", "stdio"],
+      "args": ["serve", "--mcp"],
       "env": {
         "CREDENCE_GEMINI_API_KEY": "your-gemini-api-key"
       }
@@ -150,9 +141,16 @@ Add Credence to your `claude_desktop_config.json`:
 }
 ```
 
-### FastMCP SSE Server
+### Cursor IDE Setup
 
-Start the standalone SSE server for remote AI agents and browser clients:
+In Cursor settings under **Features &rarr; MCP Servers**, add:
+* **Name**: `credence`
+* **Type**: `command`
+* **Command**: `credence serve --mcp`
+
+### FastMCP HTTP / SSE Streaming Server
+
+For remote agents or network clients, launch the streaming SSE server:
 
 ```bash
 credence serve --transport sse --port 8000
@@ -161,11 +159,30 @@ Connect via `http://localhost:8000/sse`.
 
 ---
 
-## 6. Verification Suite
+## 6. Instant Node Germination (Bootstrap in 5s)
 
-Run the hermetic test suite to verify your local installation:
+If you are setting up a full node, run `credence germinate` to mint cryptographic keys, inoculate Genesis seed data at $0.00 cost, and sow 24 preset feeds:
+
+```bash
+credence germinate
+```
+
+---
+
+## 7. Running the Test Suite
+
+Verify your installation by running the hermetic test suite:
 
 ```bash
 just test
 ```
-All 144 unit and mesh tests execute hermetically in under 65 seconds with zero external network dependencies.
+All 144 unit tests execute hermetically in under 60 seconds with zero external network access.
+
+---
+
+## 🧭 Next Steps & Related Marbles
+
+* 🧭 **[Topic Index & Cheat Sheet](topic-index.md)**: Searchable reference covering all commands, settings, and flags.
+* 📖 **[Auditing Webpages & Text Walkthrough](walkthroughs/01-auditing-webpages-and-text.md)**: In-depth guide to interpreting suspicion scores and violation categories.
+* 📰 **[Morning Epistemic Digest](walkthroughs/04-morning-digest-briefings.md)**: Setting up automated daily 24-hour news briefings.
+* 🤖 **[Claude & Cursor Integration Tutorial](tutorials/03-claude-cursor-fastmcp.md)**: Detailed multi-agent setup patterns.

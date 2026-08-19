@@ -8,174 +8,175 @@ export const DOCS_REGISTRY = [
   {
     category: "Getting Started",
     items: [
-      { id: "docs/intro", title: "Introduction & Overview", path: "docs/intro.md" },
-      { id: "docs/quickstart", title: "Quickstart & Installation", path: "docs/quickstart.md" },
-      { id: "docs/feature-parity", title: "Universal Feature Parity", path: "docs/feature-parity.md" },
-      { id: "docs/changelog", title: "Release Changelog", path: "docs/changelog.md" }
+      { id: "docs/intro", title: "Introduction & Overview", path: "docs/intro.md", desc: "Welcome to Credence, key concepts, and progressive on-ramp.", keywords: ["intro", "overview", "welcome", "philosophy", "grounding", "basics", "start", "truth", "ethics", "ai"] },
+      { id: "docs/quickstart", title: "Quickstart & Installation", path: "docs/quickstart.md", desc: "Install Credence, set API keys, and run your first audit in 60 seconds.", keywords: ["quickstart", "install", "curl", "poetry", "docker", "gemini", "api key", "first audit", "setup", "run", "cli"] },
+      { id: "docs/topic-index", title: "Topic Index & Concept Directory", path: "docs/topic-index.md", desc: "The Marbles in the Oatmeal: complete categorized cheat sheet and index.", keywords: ["index", "cheat sheet", "search", "topics", "sitemap", "directory", "marbles", "lookup", "concepts", "all", "reference", "find"] },
+      { id: "docs/feature-parity", title: "Universal Feature Parity", path: "docs/feature-parity.md", desc: "Synchronous 4-way parity across CLI, FastMCP, TUI, and Web UI.", keywords: ["parity", "interfaces", "cli", "tui", "mcp", "web", "terminal", "browser"] },
+      { id: "docs/changelog", title: "Release Changelog", path: "docs/changelog.md", desc: "Version history, updates, and release notes across releases.", keywords: ["changelog", "versions", "releases", "v1.11.0", "history", "updates"] }
     ]
   },
   {
     category: "Feature Walkthroughs",
     items: [
-      { id: "docs/walkthroughs/01-auditing-webpages-and-text", title: "Auditing Webpages & Text", path: "docs/walkthroughs/01-auditing-webpages-and-text.md" },
-      { id: "docs/walkthroughs/02-zero-trust-feed-sifting", title: "Zero-Trust Feed Sifting", path: "docs/walkthroughs/02-zero-trust-feed-sifting.md" },
-      { id: "docs/walkthroughs/03-p2p-mesh-consensus", title: "P2P Mesh Consensus", path: "docs/walkthroughs/03-p2p-mesh-consensus.md" },
-      { id: "docs/walkthroughs/04-morning-digest-briefings", title: "Morning Epistemic Digest", path: "docs/walkthroughs/04-morning-digest-briefings.md" }
+      { id: "docs/walkthroughs/01-auditing-webpages-and-text", title: "Auditing Webpages & Text", path: "docs/walkthroughs/01-auditing-webpages-and-text.md", desc: "How to audit any URL or raw text using the CLI and interpret findings.", keywords: ["audit", "cli", "text", "url", "command", "report", "suspicion", "violations"] },
+      { id: "docs/walkthroughs/02-zero-trust-feed-sifting", title: "Zero-Trust Feed Sifting", path: "docs/walkthroughs/02-zero-trust-feed-sifting.md", desc: "Filter RSS/Atom feeds against promotional astroturfing and topic entropy collapse.", keywords: ["sifter", "rss", "atom", "feed", "entropy", "pizza hut", "astroturf", "filter"] },
+      { id: "docs/walkthroughs/03-p2p-mesh-consensus", title: "P2P Mesh Consensus", path: "docs/walkthroughs/03-p2p-mesh-consensus.md", desc: "How decentralized nodes gossip signed attestations and reach consensus.", keywords: ["mesh", "p2p", "consensus", "gossip", "attestation", "decentralized", "nodes"] },
+      { id: "docs/walkthroughs/04-morning-digest-briefings", title: "Morning Epistemic Digest", path: "docs/walkthroughs/04-morning-digest-briefings.md", desc: "Generate daily 24-hour executive news briefings and terminal digests.", keywords: ["digest", "morning", "briefing", "daily", "summary", "executive", "news"] }
     ]
   },
   {
     category: "Agentic Engineering & Workflows",
     items: [
-      { id: "docs/agentic/01-antigravity-pair-programming-paradigm", title: "01. Antigravity Pair-Programming", path: "docs/agentic/01-antigravity-pair-programming-paradigm.md" },
-      { id: "docs/agentic/02-continuous-learning-and-invariant-synthesis", title: "02. /learn & Invariant Synthesis", path: "docs/agentic/02-continuous-learning-and-invariant-synthesis.md" },
-      { id: "docs/agentic/03-hermetic-testing-and-zero-npm-guardrails", title: "03. Hermetic Testing & Zero-npm", path: "docs/agentic/03-hermetic-testing-and-zero-npm-guardrails.md" },
-      { id: "docs/agentic/04-multi-model-pareto-and-token-governance", title: "04. Multi-Model Pareto & Token Governor", path: "docs/agentic/04-multi-model-pareto-and-token-governance.md" },
-      { id: "docs/agentic/05-fastmcp-dual-transport-and-four-way-parity", title: "05. FastMCP & 4-Way Parity", path: "docs/agentic/05-fastmcp-dual-transport-and-four-way-parity.md" }
+      { id: "docs/agentic/01-antigravity-pair-programming-paradigm", title: "01. Antigravity Pair-Programming", path: "docs/agentic/01-antigravity-pair-programming-paradigm.md", desc: "Autonomous multi-agent pair programming with Google Antigravity SDK.", keywords: ["antigravity", "pair programming", "sdk", "subagents", "agentic", "gemini"] },
+      { id: "docs/agentic/02-continuous-learning-and-invariant-synthesis", title: "02. /learn & Invariant Synthesis", path: "docs/agentic/02-continuous-learning-and-invariant-synthesis.md", desc: "Capturing agent learnings, invariant synthesis, and knowledge governance.", keywords: ["learn", "invariants", "synthesis", "knowledge", "governance", "rules"] },
+      { id: "docs/agentic/03-hermetic-testing-and-zero-npm-guardrails", title: "03. Hermetic Testing & Zero-npm", path: "docs/agentic/03-hermetic-testing-and-zero-npm-guardrails.md", desc: "Hermetic offline test suites and zero-npm static web guardrails.", keywords: ["hermetic", "testing", "zero-npm", "offline", "pytest", "guardrails"] },
+      { id: "docs/agentic/04-multi-model-pareto-and-token-governance", title: "04. Multi-Model Pareto & Token Governor", path: "docs/agentic/04-multi-model-pareto-and-token-governance.md", desc: "Token budget governor, circuit breakers, and cost Pareto frontier.", keywords: ["pareto", "tokens", "governor", "circuit breaker", "budget", "cost", "headroom"] },
+      { id: "docs/agentic/05-fastmcp-dual-transport-and-four-way-parity", title: "05. FastMCP & 4-Way Parity", path: "docs/agentic/05-fastmcp-dual-transport-and-four-way-parity.md", desc: "FastMCP 2.0 dual transport (stdio and SSE) and 4-way feature parity.", keywords: ["fastmcp", "transport", "stdio", "sse", "parity", "mcp", "streaming"] }
     ]
   },
   {
     category: "Platform Portability & Sovereignty",
     items: [
-      { id: "docs/portability/multi-model-adapters", title: "Multi-Model Provider Adapters", path: "docs/portability/multi-model-adapters.md" },
-      { id: "docs/portability/gemini-economic-rationale", title: "ADR: Why Gemini 3.7 Flash", path: "docs/portability/gemini-economic-rationale.md" },
-      { id: "docs/portability/multi-cloud-deployment", title: "Multi-Cloud (AWS, Azure, Hetzner, K8s)", path: "docs/portability/multi-cloud-deployment.md" },
-      { id: "docs/portability/universal-agent-interop", title: "Universal Agent Interoperability", path: "docs/portability/universal-agent-interop.md" },
-      { id: "docs/portability/local-llm-airgap", title: "Zero-Cloud Sovereign Local LLMs", path: "docs/portability/local-llm-airgap.md" }
+      { id: "docs/portability/multi-model-adapters", title: "Multi-Model Provider Adapters", path: "docs/portability/multi-model-adapters.md", desc: "Plugging in Gemini, Claude 3.7, GPT-4o, DeepSeek-R1, and local Ollama.", keywords: ["models", "claude", "gpt-4o", "deepseek", "ollama", "adapters", "providers"] },
+      { id: "docs/portability/gemini-economic-rationale", title: "ADR: Why Gemini 3.7 Flash", path: "docs/portability/gemini-economic-rationale.md", desc: "Economic and architectural rationale for Gemini 3.7 Flash thinking models.", keywords: ["gemini", "gemini-3.7-flash", "thinking", "adr", "economics", "pricing"] },
+      { id: "docs/portability/multi-cloud-deployment", title: "Multi-Cloud (AWS, Azure, Hetzner, K8s)", path: "docs/portability/multi-cloud-deployment.md", desc: "Deploying Credence to AWS Fargate, Azure Container Apps, Hetzner, and K8s.", keywords: ["aws", "azure", "hetzner", "kubernetes", "k8s", "docker", "cloud", "deploy"] },
+      { id: "docs/portability/universal-agent-interop", title: "Universal Agent Interoperability", path: "docs/portability/universal-agent-interop.md", desc: "Connecting Windsurf, Cline, Claude Desktop, Cursor, and custom agent swarms.", keywords: ["windsurf", "cline", "cursor", "claude", "agents", "interop", "mcp"] },
+      { id: "docs/portability/local-llm-airgap", title: "Zero-Cloud Sovereign Local LLMs", path: "docs/portability/local-llm-airgap.md", desc: "100% private, zero-cloud air-gapped evaluation with Ollama and vLLM.", keywords: ["local", "ollama", "vllm", "airgap", "private", "offline", "sovereign"] }
     ]
   },
   {
     category: "Hands-On Tutorials",
     items: [
-      { id: "docs/tutorials/01-clickbait-teardown", title: "01. Clickbait Teardown", path: "docs/tutorials/01-clickbait-teardown.md" },
-      { id: "docs/tutorials/02-satire-vs-disinformation", title: "02. Satire vs Disinformation", path: "docs/tutorials/02-satire-vs-disinformation.md" },
-      { id: "docs/tutorials/03-claude-cursor-fastmcp", title: "03. Claude & Cursor FastMCP", path: "docs/tutorials/03-claude-cursor-fastmcp.md" },
-      { id: "docs/tutorials/04-sovereign-org-scaffolding", title: "04. Sovereign Org Scaffolding", path: "docs/tutorials/04-sovereign-org-scaffolding.md" },
-      { id: "docs/tutorials/05-mesh-quickstart", title: "05. 3-Node Mesh Quickstart", path: "docs/tutorials/05-mesh-quickstart.md" },
-      { id: "docs/tutorials/06-thirteen-node-chaos-lab", title: "06. 13-Node Chaos Lab", path: "docs/tutorials/06-thirteen-node-chaos-lab.md" },
-      { id: "docs/tutorials/07-air-gapped-and-adhoc-mesh", title: "07. Air-Gapped Truth Bundles", path: "docs/tutorials/07-air-gapped-and-adhoc-mesh.md" },
-      { id: "docs/tutorials/08-sybil-cartel-demolition", title: "08. Sybil Cartel Demolition", path: "docs/tutorials/08-sybil-cartel-demolition.md" },
-      { id: "docs/tutorials/09-zero-trust-feed-sifter-digest", title: "09. Zero-Trust Feed Sifter & Digest", path: "docs/tutorials/09-zero-trust-feed-sifter-digest.md" },
-      { id: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet", title: "10. Reusable Live E2E & Mesh Gauntlet", path: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet.md" },
-      { id: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition", title: "11. Node Germination & Swarm Ignition", path: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition.md" },
-      { id: "docs/tutorials/12-climbing-the-epistemic-tiers", title: "12. Climbing the Epistemic Tiers", path: "docs/tutorials/12-climbing-the-epistemic-tiers.md" },
-      { id: "docs/tutorials/13-discord-alerting-and-basement-monitoring", title: "13. Discord Alerts & Basement Ops", path: "docs/tutorials/13-discord-alerting-and-basement-monitoring.md" }
+      { id: "docs/tutorials/01-clickbait-teardown", title: "01. Clickbait Teardown", path: "docs/tutorials/01-clickbait-teardown.md", desc: "Step-by-step forensic teardown of sensationalist clickbait and unnamed claims.", keywords: ["tutorial", "clickbait", "teardown", "sources", "fallacy", "example"] },
+      { id: "docs/tutorials/02-satire-vs-disinformation", title: "02. Satire vs Disinformation", path: "docs/tutorials/02-satire-vs-disinformation.md", desc: "Navigating Poe's Law, satire neutralization, and SPJ-1.6 cloaking defense.", keywords: ["satire", "disinformation", "poe", "onion", "parody", "cloaking"] },
+      { id: "docs/tutorials/03-claude-cursor-fastmcp", title: "03. Claude & Cursor FastMCP", path: "docs/tutorials/03-claude-cursor-fastmcp.md", desc: "Connect Credence FastMCP server to Claude Desktop and Cursor IDE in 2 minutes.", keywords: ["claude", "cursor", "fastmcp", "config", "json", "setup", "tools"] },
+      { id: "docs/tutorials/04-sovereign-org-scaffolding", title: "04. Sovereign Org Scaffolding", path: "docs/tutorials/04-sovereign-org-scaffolding.md", desc: "Scaffold sovereign white-label federation organizations with credence init-org.", keywords: ["init-org", "white-label", "federation", "organization", "terraform"] },
+      { id: "docs/tutorials/05-mesh-quickstart", title: "05. 3-Node Mesh Quickstart", path: "docs/tutorials/05-mesh-quickstart.md", desc: "Spin up a local 3-node P2P mesh cluster and observe real-time gossip.", keywords: ["mesh", "3-node", "p2p", "cluster", "gossip", "docker"] },
+      { id: "docs/tutorials/06-thirteen-node-chaos-lab", title: "06. 13-Node Chaos Lab", path: "docs/tutorials/06-thirteen-node-chaos-lab.md", desc: "Run a 13-node Watts-Strogatz chaos simulation with Byzantine cartel attacks.", keywords: ["13-node", "chaos", "byzantine", "sybil", "watts-strogatz", "cartel"] },
+      { id: "docs/tutorials/07-air-gapped-and-adhoc-mesh", title: "07. Air-Gapped Truth Bundles", path: "docs/tutorials/07-air-gapped-and-adhoc-mesh.md", desc: "Export and verify signed truth attestations on offline USB sneakernets.", keywords: ["airgap", "sneakernet", "usb", "offline", "bundle", "verify"] },
+      { id: "docs/tutorials/08-sybil-cartel-demolition", title: "08. Sybil Cartel Demolition", path: "docs/tutorials/08-sybil-cartel-demolition.md", desc: "How weighted medians and Galileo Rule neutralize coordinated cartel attacks.", keywords: ["sybil", "cartel", "attack", "defense", "weighted median", "galileo"] },
+      { id: "docs/tutorials/09-zero-trust-feed-sifter-digest", title: "09. Zero-Trust Feed Sifter & Digest", path: "docs/tutorials/09-zero-trust-feed-sifter-digest.md", desc: "Full guide to automated morning news briefings and feed health scoring.", keywords: ["sifter", "digest", "rss", "briefing", "morning", "automation"] },
+      { id: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet", title: "10. Reusable Live E2E & Mesh Gauntlet", path: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet.md", desc: "Run live rotating test suites across multi-category news corpora.", keywords: ["e2e", "gauntlet", "live", "testing", "rotating", "corpus"] },
+      { id: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition", title: "11. Node Germination & Swarm Ignition", path: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition.md", desc: "5-second node germination: keys, genesis inoculation, and burst auditing.", keywords: ["germination", "genesis", "miracle-gro", "ignition", "bootstrap", "seeds"] },
+      { id: "docs/tutorials/12-climbing-the-epistemic-tiers", title: "12. Climbing the Epistemic Tiers", path: "docs/tutorials/12-climbing-the-epistemic-tiers.md", desc: "Earn empirical expertise, build domain authority, and climb P2P leaderboards.", keywords: ["tiers", "reputation", "leaderboard", "expertise", "quality", "rank"] },
+      { id: "docs/tutorials/13-discord-alerting-and-basement-monitoring", title: "13. Discord Alerts & Basement Ops", path: "docs/tutorials/13-discord-alerting-and-basement-monitoring.md", desc: "Setup real-time Discord webhook notifications for breaking high-suspicion stories.", keywords: ["discord", "webhook", "alerts", "monitoring", "basement", "notifications"] }
     ]
   },
   {
     category: "Developer Cookbooks",
     items: [
-      { id: "docs/cookbooks/agentic-epistemic-brake", title: "Agentic Epistemic Brake", path: "docs/cookbooks/agentic-epistemic-brake.md" },
-      { id: "docs/cookbooks/taxonomy-engineering", title: "Taxonomy Rule Engineering 101", path: "docs/cookbooks/taxonomy-engineering.md" },
-      { id: "docs/cookbooks/morning-feed-sifter", title: "Automated Morning Feed Sifter", path: "docs/cookbooks/morning-feed-sifter.md" },
-      { id: "docs/cookbooks/financial-disclosures", title: "Auditing Financial 10-K Filings", path: "docs/cookbooks/financial-disclosures.md" }
+      { id: "docs/cookbooks/agentic-epistemic-brake", title: "Agentic Epistemic Brake", path: "docs/cookbooks/agentic-epistemic-brake.md", desc: "Halting LLM agent action loops when grounded confidence falls below threshold.", keywords: ["brake", "langgraph", "crewai", "agent", "guardrail", "action"] },
+      { id: "docs/cookbooks/taxonomy-engineering", title: "Taxonomy Rule Engineering 101", path: "docs/cookbooks/taxonomy-engineering.md", desc: "How to author custom namespaced YAML taxonomy catalogs with test suites.", keywords: ["yaml", "taxonomy", "rules", "authoring", "ethics", "fallacies"] },
+      { id: "docs/cookbooks/morning-feed-sifter", title: "Automated Morning Feed Sifter", path: "docs/cookbooks/morning-feed-sifter.md", desc: "Cron recipe for scheduled morning news sifting and markdown briefings.", keywords: ["cron", "sifter", "morning", "automation", "briefing", "schedule"] },
+      { id: "docs/cookbooks/financial-disclosures", title: "Auditing Financial 10-K Filings", path: "docs/cookbooks/financial-disclosures.md", desc: "Audit non-GAAP metrics and earnings disclosures with Ultra thinking profile.", keywords: ["financial", "10-k", "sec", "ebitda", "earnings", "ultra", "thinking"] }
     ]
   },
   {
     category: "Adversarial Security & Red Team",
     items: [
-      { id: "docs/security/adversarial-attack-surface", title: "Adversarial Attack Surface", path: "docs/security/adversarial-attack-surface.md" },
-      { id: "docs/security/grounding-mechanics", title: "Verbatim Grounding & Slashing", path: "docs/security/grounding-mechanics.md" },
-      { id: "docs/security/satire-cloaking-defense", title: "Poe's Law & Satire Cloaking", path: "docs/security/satire-cloaking-defense.md" }
+      { id: "docs/security/adversarial-attack-surface", title: "Adversarial Attack Surface", path: "docs/security/adversarial-attack-surface.md", desc: "Threat modeling prompt injection, SSRF, XML entity expansion, and DoS.", keywords: ["security", "injection", "ssrf", "xml", "red team", "threat", "attacks"] },
+      { id: "docs/security/grounding-mechanics", title: "Verbatim Grounding & Slashing", path: "docs/security/grounding-mechanics.md", desc: "Exact character-offset verification and 50% reputation slash penalties.", keywords: ["grounding", "verbatim", "slashing", "hallucination", "evidence", "quotes"] },
+      { id: "docs/security/satire-cloaking-defense", title: "Poe's Law & Satire Cloaking", path: "docs/security/satire-cloaking-defense.md", desc: "Technical defense against cloaked disinformation pretending to be satire.", keywords: ["satire", "cloaking", "poe", "spj-1.6", "disinformation", "override"] }
     ]
   },
   {
     category: "Specialized Industry Blueprints",
     items: [
-      { id: "docs/blueprints/health-medical-claims", title: "Medical & Health Claims", path: "docs/blueprints/health-medical-claims.md" },
-      { id: "docs/blueprints/election-civic-integrity", title: "Election & Civic Integrity", path: "docs/blueprints/election-civic-integrity.md" },
-      { id: "docs/blueprints/synthetic-media-provenance", title: "Synthetic AI & Media Provenance", path: "docs/blueprints/synthetic-media-provenance.md" }
+      { id: "docs/blueprints/health-medical-claims", title: "Medical & Health Claims", path: "docs/blueprints/health-medical-claims.md", desc: "Evaluating clinical trials, in vitro extrapolation, and unproven treatments.", keywords: ["medical", "health", "clinical", "trials", "in vitro", "claims", "science"] },
+      { id: "docs/blueprints/election-civic-integrity", title: "Election & Civic Integrity", path: "docs/blueprints/election-civic-integrity.md", desc: "Auditing voting procedure misinformation, polling methodology, and civic claims.", keywords: ["election", "voting", "civic", "polls", "democracy", "misinformation"] },
+      { id: "docs/blueprints/synthetic-media-provenance", title: "Synthetic AI & Media Provenance", path: "docs/blueprints/synthetic-media-provenance.md", desc: "C2PA metadata, pink slime news farm rings, and deepfake provenance detection.", keywords: ["c2pa", "deepfake", "synthetic", "pink slime", "media", "ai generated"] }
     ]
   },
   {
     category: "Client Ecosystem & Integrations",
     items: [
-      { id: "docs/integrations/browser-extension-mv3", title: "Zero-Build Browser Extension", path: "docs/integrations/browser-extension-mv3.md" },
-      { id: "docs/integrations/cli-scripting-guide", title: "CLI Automation & Shell Scripts", path: "docs/integrations/cli-scripting-guide.md" },
-      { id: "docs/integrations/tui-workstation", title: "Textual TUI Workstation", path: "docs/integrations/tui-workstation.md" }
+      { id: "docs/integrations/browser-extension-mv3", title: "Zero-Build Browser Extension", path: "docs/integrations/browser-extension-mv3.md", desc: "Vanilla Manifest V3 browser extension for live in-tab credibility badges.", keywords: ["extension", "chrome", "manifest v3", "browser", "badge", "zero-build"] },
+      { id: "docs/integrations/cli-scripting-guide", title: "CLI Automation & Shell Scripts", path: "docs/integrations/cli-scripting-guide.md", desc: "jq pipelines, GitHub Actions CI PR gates, and headless automation.", keywords: ["cli", "jq", "scripts", "bash", "github actions", "ci", "pr gate"] },
+      { id: "docs/integrations/tui-workstation", title: "Textual TUI Workstation", path: "docs/integrations/tui-workstation.md", desc: "Full-screen keyboard-driven terminal IDE with interactive citation inspector.", keywords: ["tui", "textual", "terminal", "workstation", "keybindings", "keyboard"] }
     ]
   },
   {
     category: "P2P Mesh & Graph Theory",
     items: [
-      { id: "docs/mesh-engineering/featherweight-swarm-testing", title: "Featherweight Swarm Simulation", path: "docs/mesh-engineering/featherweight-swarm-testing.md" },
-      { id: "docs/mesh-engineering/watts-strogatz-dynamics", title: "Watts-Strogatz Small-World", path: "docs/mesh-engineering/watts-strogatz-dynamics.md" },
-      { id: "docs/mesh-engineering/airgapped-sneakernets", title: "Air-Gapped Truth Bundles", path: "docs/mesh-engineering/airgapped-sneakernets.md" },
-      { id: "docs/mesh-engineering/dns-srv-discovery", title: "DNS SRV Dynamic Discovery", path: "docs/mesh-engineering/dns-srv-discovery.md" }
+      { id: "docs/mesh-engineering/featherweight-swarm-testing", title: "Featherweight Swarm Simulation", path: "docs/mesh-engineering/featherweight-swarm-testing.md", desc: "Simulate dozens of P2P nodes locally in memory without heavy containers.", keywords: ["simulation", "swarm", "featherweight", "testing", "mesh", "nodes"] },
+      { id: "docs/mesh-engineering/watts-strogatz-dynamics", title: "Watts-Strogatz Small-World", path: "docs/mesh-engineering/watts-strogatz-dynamics.md", desc: "Graph theory, clustering coefficient, and 4-hop gossip diffusion dynamics.", keywords: ["watts-strogatz", "graph", "small-world", "diffusion", "hops", "topology"] },
+      { id: "docs/mesh-engineering/airgapped-sneakernets", title: "Air-Gapped Truth Bundles", path: "docs/mesh-engineering/airgapped-sneakernets.md", desc: "Offline sneakernet distribution and verification of signed JSON bundles.", keywords: ["sneakernet", "airgap", "offline", "bundle", "rfc8785", "ed25519"] },
+      { id: "docs/mesh-engineering/dns-srv-discovery", title: "DNS SRV Dynamic Discovery", path: "docs/mesh-engineering/dns-srv-discovery.md", desc: "RFC 2782 DNS SRV records for decentralized peer discovery without central trackers.", keywords: ["dns", "srv", "rfc2782", "discovery", "bootstrap", "peers"] }
     ]
   },
   {
     category: "Protocol Specifications",
     items: [
-      { id: "docs/protocols/token-governor", title: "Token Safety Governor", path: "docs/protocols/token-governor.md" },
-      { id: "docs/protocols/mesh-protocol", title: "P2P Mesh & Consensus", path: "docs/protocols/mesh-protocol.md" },
-      { id: "docs/protocols/node-germination-lifecycle", title: "Node Germination & Swarm Ignition", path: "docs/protocols/node-germination-lifecycle.md" },
-      { id: "docs/protocols/fastmcp", title: "FastMCP 2.0 Integration", path: "docs/protocols/fastmcp.md" },
-      { id: "docs/protocols/scoring", title: "Scoring & Saturation Math", path: "docs/protocols/scoring.md" },
-      { id: "docs/protocols/adversarial-defense", title: "Adversarial Threat Matrix", path: "docs/protocols/adversarial-defense.md" },
-      { id: "docs/protocols/white-label", title: "White-Label Federation", path: "docs/protocols/white-label.md" },
-      { id: "docs/protocols/benchmark-suite", title: "Golden 12 Benchmark Suite", path: "docs/protocols/benchmark-suite.md" },
-      { id: "docs/protocols/cross-model-pareto-benchmark", title: "Cross-Model Pareto Benchmark", path: "docs/protocols/cross-model-pareto-benchmark.md" },
-      { id: "docs/protocols/epistemic-merit-and-leaderboards", title: "Epistemic Merit & Leaderboards", path: "docs/protocols/epistemic-merit-and-leaderboards.md" },
-      { id: "docs/protocols/web-epistemic-intelligence", title: "Global Web Intelligence & DEI", path: "docs/protocols/web-epistemic-intelligence.md" },
-      { id: "docs/protocols/closed-loop-traffic-shaping", title: "Closed-Loop Routing & Traffic", path: "docs/protocols/closed-loop-traffic-shaping.md" },
-      { id: "docs/protocols/telemetry-loopback", title: "Interface Telemetry Loopback (ITLP-v1)", path: "docs/protocols/telemetry-loopback.md" },
-      { id: "docs/protocols/testing-strategy", title: "6-Tier Testing Strategy", path: "docs/protocols/testing-strategy.md" }
+      { id: "docs/protocols/token-governor", title: "Token Safety Governor", path: "docs/protocols/token-governor.md", desc: "CostProfile definitions, thinking token budgets, and 30% headroom breaker.", keywords: ["governor", "tokens", "budget", "headroom", "circuit breaker", "cost"] },
+      { id: "docs/protocols/mesh-protocol", title: "P2P Mesh & Consensus", path: "docs/protocols/mesh-protocol.md", desc: "RFC 8785 canonical JSON envelopes, Ed25519 signatures, and gossip routing.", keywords: ["protocol", "rfc8785", "ed25519", "signatures", "gossip", "consensus"] },
+      { id: "docs/protocols/node-germination-lifecycle", title: "Node Germination & Swarm Ignition", path: "docs/protocols/node-germination-lifecycle.md", desc: "Zero-touch node lifecycle: genesis keys, seed inoculation, and burst auditing.", keywords: ["germination", "lifecycle", "genesis", "inoculation", "seed", "ignition"] },
+      { id: "docs/protocols/fastmcp", title: "FastMCP 2.0 Integration", path: "docs/protocols/fastmcp.md", desc: "FastMCP tools, dynamic resources, prompts, and streaming HTTP/SSE.", keywords: ["fastmcp", "mcp", "tools", "resources", "prompts", "sse", "stdio"] },
+      { id: "docs/protocols/scoring", title: "Scoring & Saturation Math", path: "docs/protocols/scoring.md", desc: "Calibrated exponential saturation curve, raw score, and density index.", keywords: ["scoring", "math", "saturation", "suspicion", "density", "calibration"] },
+      { id: "docs/protocols/adversarial-defense", title: "Adversarial Threat Matrix", path: "docs/protocols/adversarial-defense.md", desc: "Systematic defenses against prompt injection, SSRF, DoS, and Sybil swarms.", keywords: ["threat matrix", "adversarial", "ssrf", "injection", "sybil", "defense"] },
+      { id: "docs/protocols/white-label", title: "White-Label Federation", path: "docs/protocols/white-label.md", desc: "Sovereign organization federation, custom branding, and independent roots.", keywords: ["white-label", "federation", "organization", "sovereign", "custom"] },
+      { id: "docs/protocols/benchmark-suite", title: "Golden 12 Benchmark Suite", path: "docs/protocols/benchmark-suite.md", desc: "Golden 12 standardized evaluation fixtures and verdict rubrics across tiers.", keywords: ["benchmark", "golden 12", "fixtures", "eval", "verdicts", "rubric"] },
+      { id: "docs/protocols/cross-model-pareto-benchmark", title: "Cross-Model Pareto Benchmark", path: "docs/protocols/cross-model-pareto-benchmark.md", desc: "Comparing accuracy, latency, and cost across Gemini, Claude, GPT-4o, and DeepSeek.", keywords: ["pareto", "benchmark", "comparison", "accuracy", "cost", "models"] },
+      { id: "docs/protocols/epistemic-merit-and-leaderboards", title: "Epistemic Merit & Leaderboards", path: "docs/protocols/epistemic-merit-and-leaderboards.md", desc: "5-factor node quality (Qi), empirical expertise (Ei), and P2P leaderboards.", keywords: ["leaderboard", "merit", "qi", "ei", "reputation", "expertise", "rank"] },
+      { id: "docs/protocols/web-epistemic-intelligence", title: "Global Web Intelligence & DEI", path: "docs/protocols/web-epistemic-intelligence.md", desc: "Domain Epistemic Index (DEI) calculation and global web intelligence map.", keywords: ["dei", "intelligence", "domain", "index", "web", "reputation"] },
+      { id: "docs/protocols/closed-loop-traffic-shaping", title: "Closed-Loop Routing & Traffic", path: "docs/protocols/closed-loop-traffic-shaping.md", desc: "Dynamic traffic shaping, cost optimization, and feed load-balancing.", keywords: ["traffic", "shaping", "routing", "load balancing", "closed-loop"] },
+      { id: "docs/protocols/telemetry-loopback", title: "Interface Telemetry Loopback (ITLP-v1)", path: "docs/protocols/telemetry-loopback.md", desc: "Anonymous local usage metrics and interface performance telemetry.", keywords: ["telemetry", "itlp", "metrics", "performance", "privacy"] },
+      { id: "docs/protocols/testing-strategy", title: "6-Tier Testing Strategy", path: "docs/protocols/testing-strategy.md", desc: "Hermetic unit, mock, integration, rotating live E2E, and gauntlet testing.", keywords: ["testing", "strategy", "pytest", "unit", "e2e", "gauntlet", "tiers"] }
     ]
   },
   {
     category: "Operations & Self-Hosting",
     items: [
-      { id: "docs/operations/raspberry-pi-homelab", title: "Raspberry Pi & HomeLab Node", path: "docs/operations/raspberry-pi-homelab.md" },
-      { id: "docs/operations/tailscale-wireguard-mesh", title: "Tailscale & WireGuard Peering", path: "docs/operations/tailscale-wireguard-mesh.md" },
-      { id: "docs/operations/database-pruning-wal", title: "Database Pruning & WAL Care", path: "docs/operations/database-pruning-wal.md" },
-      { id: "docs/operations/customizations-and-upstream-sovereignty", title: "Customizations vs. Upstream Core", path: "docs/operations/customizations-and-upstream-sovereignty.md" },
-      { id: "docs/operator-guide", title: "Bootstrap Operator Guide", path: "docs/operator-guide.md" },
-      { id: "docs/deployment-cloudrun", title: "GCP Cloud Run Deployment", path: "docs/deployment-cloudrun.md" },
-      { id: "docs/bootstrap-seeds", title: "Bootstrap Seed Governance", path: "docs/bootstrap-seeds.md" }
+      { id: "docs/operations/raspberry-pi-homelab", title: "Raspberry Pi & HomeLab Node", path: "docs/operations/raspberry-pi-homelab.md", desc: "Setting up a $0.00/mo self-hosted node on a Raspberry Pi 4/5.", keywords: ["raspberry pi", "homelab", "pi", "arm64", "self-host", "low power"] },
+      { id: "docs/operations/tailscale-wireguard-mesh", title: "Tailscale & WireGuard Peering", path: "docs/operations/tailscale-wireguard-mesh.md", desc: "Forming secure private P2P mesh overlays across home and cloud servers.", keywords: ["tailscale", "wireguard", "vpn", "overlay", "peering", "private"] },
+      { id: "docs/operations/database-pruning-wal", title: "Database Pruning & WAL Care", path: "docs/operations/database-pruning-wal.md", desc: "SQLite WAL optimization, checkpointing, and 30-day token record pruning.", keywords: ["sqlite", "wal", "database", "pruning", "retention", "cleanup", "sql"] },
+      { id: "docs/operations/customizations-and-upstream-sovereignty", title: "Customizations vs. Upstream Core", path: "docs/operations/customizations-and-upstream-sovereignty.md", desc: "Maintaining local sovereignty while pulling updates from upstream repos.", keywords: ["customizations", "upstream", "git", "fork", "sovereignty", "merge"] },
+      { id: "docs/operator-guide", title: "Bootstrap Operator Guide", path: "docs/operator-guide.md", desc: "10-section operational runbook for initial node setup, identity, and seeding.", keywords: ["operator", "runbook", "bootstrap", "guide", "setup", "admin"] },
+      { id: "docs/deployment-cloudrun", title: "GCP Cloud Run Deployment", path: "docs/deployment-cloudrun.md", desc: "Deploying to Google Cloud Run with Terraform, $15/mo budget cap, scale-to-zero.", keywords: ["gcp", "cloud run", "terraform", "google cloud", "budget", "serverless"] },
+      { id: "docs/bootstrap-seeds", title: "Bootstrap Seed Governance", path: "docs/bootstrap-seeds.md", desc: "Seed node governance, key rotation, and peers.json manifest format.", keywords: ["seeds", "peers", "manifest", "bootstrap", "governance", "nexus"] }
     ]
   },
   {
     category: "Mathematical Foundations",
     items: [
-      { id: "docs/mathematics/robust-consensus-proofs", title: "Mathematics of Robust Consensus", path: "docs/mathematics/robust-consensus-proofs.md" },
-      { id: "docs/mathematics/simhash-mirror-detection", title: "SimHash-64 & Mirror Detection", path: "docs/mathematics/simhash-mirror-detection.md" },
-      { id: "docs/mathematics/economics-of-truth", title: "Economics of Decentralized Truth", path: "docs/mathematics/economics-of-truth.md" }
+      { id: "docs/mathematics/robust-consensus-proofs", title: "Mathematics of Robust Consensus", path: "docs/mathematics/robust-consensus-proofs.md", desc: "Domain Authority Weighted Medians and formal Galileo Rule proof.", keywords: ["math", "consensus", "proofs", "galileo", "weighted median", "statistics"] },
+      { id: "docs/mathematics/simhash-mirror-detection", title: "SimHash-64 & Mirror Detection", path: "docs/mathematics/simhash-mirror-detection.md", desc: "64-bit Hamming distance and SimHash deduplication algorithm.", keywords: ["simhash", "hamming", "hash", "mirror", "deduplication", "algorithms"] },
+      { id: "docs/mathematics/economics-of-truth", title: "Economics of Decentralized Truth", path: "docs/mathematics/economics-of-truth.md", desc: "BitTorrent work-sharing mathematical model and 92.3% compute savings.", keywords: ["economics", "bittorrent", "work sharing", "cost model", "savings", "math"] }
     ]
   },
   {
     category: "Invariants & Architecture",
     items: [
-      { id: "docs/invariants", title: "36 Core Invariants", path: "docs/invariants.md" },
-      { id: "docs/architecture", title: "Decentralized Architecture", path: "docs/architecture.md" },
-      { id: "docs/frontend-architecture", title: "Zero-Build Web Architecture", path: "docs/frontend-architecture.md" },
-      { id: "docs/roadmap", title: "Roadmap & Backlog", path: "docs/roadmap.md" }
+      { id: "docs/invariants", title: "36 Core Invariants", path: "docs/invariants.md", desc: "Complete canonical list of 36 architectural, epistemic, and security invariants.", keywords: ["invariants", "rules", "architecture", "guarantees", "security", "core", "36"] },
+      { id: "docs/architecture", title: "Decentralized Architecture", path: "docs/architecture.md", desc: "End-to-end multi-agent pipeline, dual capture, and consensus engine specs.", keywords: ["architecture", "pipeline", "system", "components", "diagram", "specs"] },
+      { id: "docs/frontend-architecture", title: "Zero-Build Web Architecture", path: "docs/frontend-architecture.md", desc: "Zero-build philosophy: vanilla HTML5, CSS Custom Properties, and Web Crypto.", keywords: ["frontend", "zero-build", "html5", "css", "webcrypto", "standards"] },
+      { id: "docs/roadmap", title: "Roadmap & Backlog", path: "docs/roadmap.md", desc: "Current development roadmap, completed milestones, and upcoming features.", keywords: ["roadmap", "backlog", "future", "milestones", "features"] }
     ]
   },
   {
     category: "Interactive Playgrounds",
     items: [
-      { id: "docs/playground", title: "Interactive Zero-Build Playgrounds", path: "docs/playground.md" }
+      { id: "docs/playground", title: "Interactive Zero-Build Playgrounds", path: "docs/playground.md", desc: "In-browser interactive simulators: 13-node mesh, SimHash, and taxonomy explorer.", keywords: ["playground", "interactive", "simulator", "demo", "browser", "try"] }
     ]
   },
   {
     category: "Editorial Dispatches & Blog",
     items: [
-      { id: "blog/gamifying-truth-without-the-casino", title: "Folding@home for Truth (No Casino)", path: "blog/gamifying-truth-without-the-casino.md" },
-      { id: "blog/the-domain-epistemic-index", title: "The Domain Epistemic Index (DEI)", path: "blog/the-domain-epistemic-index.md" },
-      { id: "blog/testing-13-node-swarms-on-a-raspberry-pi", title: "Testing 13-Node Swarms on a $35 Pi", path: "blog/testing-13-node-swarms-on-a-raspberry-pi.md" },
-      { id: "blog/miracle-gro-for-truth-nodes", title: "Miracle-Gro for Truth Nodes", path: "blog/miracle-gro-for-truth-nodes.md" },
-      { id: "blog/architecting-sovereign-ai-with-google-antigravity", title: "Architecting Sovereign AI with Antigravity", path: "blog/architecting-sovereign-ai-with-google-antigravity.md" },
-      { id: "blog/the-six-tier-pyramid-of-decentralized-truth", title: "The 6-Tier Verification Pyramid", path: "blog/the-six-tier-pyramid-of-decentralized-truth.md" },
-      { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Entropy", path: "blog/the-pizza-hut-problem.md" },
-      { id: "blog/the-pareto-frontier-of-truth", title: "The $0.34 Pareto Frontier", path: "blog/the-pareto-frontier-of-truth.md" },
-      { id: "blog/bittorrent-for-truth", title: "BitTorrent for Truth (92.3% Savings)", path: "blog/bittorrent-for-truth.md" },
-      { id: "blog/the-blue-checkmark-is-dead", title: "The Blue Checkmark is Dead", path: "blog/the-blue-checkmark-is-dead.md" },
-      { id: "blog/the-anti-diploma-invariant", title: "The Anti-Diploma Invariant", path: "blog/the-anti-diploma-invariant.md" },
-      { id: "blog/bittorrent-economics-of-fact-checking", title: "BitTorrent Economics of Fact-Checking", path: "blog/bittorrent-economics-of-fact-checking.md" },
-      { id: "blog/the-galileo-rule", title: "The Galileo Rule", path: "blog/the-galileo-rule.md" },
-      { id: "blog/giving-claude-and-cursor-an-epistemic-brake", title: "Giving AI an Epistemic Brake", path: "blog/giving-claude-and-cursor-an-epistemic-brake.md" },
-      { id: "blog/interface-telemetry-loopback", title: "Interface Telemetry Loopback", path: "blog/interface-telemetry-loopback.md" },
-      { id: "blog/basement-ops-and-discord-alerting", title: "Basement Ops & Discord Alerting", path: "blog/basement-ops-and-discord-alerting.md" }
+      { id: "blog/gamifying-truth-without-the-casino", title: "Folding@home for Truth (No Casino)", path: "blog/gamifying-truth-without-the-casino.md", desc: "Why decentralized truth works like Folding@home without speculative crypto tokens.", keywords: ["blog", "folding", "gamification", "tokens", "casino", "philosophy"] },
+      { id: "blog/the-domain-epistemic-index", title: "The Domain Epistemic Index (DEI)", path: "blog/the-domain-epistemic-index.md", desc: "Measuring long-term credibility trends across global domain names.", keywords: ["blog", "dei", "domain", "trends", "credibility", "index"] },
+      { id: "blog/testing-13-node-swarms-on-a-raspberry-pi", title: "Testing 13-Node Swarms on a $35 Pi", path: "blog/testing-13-node-swarms-on-a-raspberry-pi.md", desc: "How we tested small-world P2P swarms on a low-cost single-board computer.", keywords: ["blog", "raspberry pi", "swarm", "testing", "homelab", "low power"] },
+      { id: "blog/miracle-gro-for-truth-nodes", title: "Miracle-Gro for Truth Nodes", path: "blog/miracle-gro-for-truth-nodes.md", desc: "Instant node ignition and Genesis seed inoculation in under 5 seconds.", keywords: ["blog", "germination", "genesis", "miracle gro", "bootstrap", "seeds"] },
+      { id: "blog/architecting-sovereign-ai-with-google-antigravity", title: "Architecting Sovereign AI with Antigravity", path: "blog/architecting-sovereign-ai-with-google-antigravity.md", desc: "Pair programming with autonomous AI coding agents using Google Antigravity.", keywords: ["blog", "antigravity", "agentic", "sovereignty", "pair programming"] },
+      { id: "blog/the-six-tier-pyramid-of-decentralized-truth", title: "The 6-Tier Verification Pyramid", path: "blog/the-six-tier-pyramid-of-decentralized-truth.md", desc: "From raw DOM capture to Bayesian multi-node consensus.", keywords: ["blog", "pyramid", "verification", "tiers", "consensus", "evidence"] },
+      { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Entropy", path: "blog/the-pizza-hut-problem.md", desc: "Why single-topic promotional pivots require topic entropy defense.", keywords: ["blog", "pizza hut", "entropy", "astroturf", "sifter", "feeds"] },
+      { id: "blog/the-pareto-frontier-of-truth", title: "The $0.34 Pareto Frontier", path: "blog/the-pareto-frontier-of-truth.md", desc: "Achieving high epistemic precision for pennies per 1,000 articles.", keywords: ["blog", "pareto", "cost", "economics", "efficiency", "pricing"] },
+      { id: "blog/bittorrent-for-truth", title: "BitTorrent for Truth (92.3% Savings)", path: "blog/bittorrent-for-truth.md", desc: "How work-sharing cuts compute bills across federated peer nodes.", keywords: ["blog", "bittorrent", "work sharing", "savings", "p2p", "mesh"] },
+      { id: "blog/the-blue-checkmark-is-dead", title: "The Blue Checkmark is Dead", path: "blog/the-blue-checkmark-is-dead.md", desc: "Why static authority badges fail and cryptographic receipts succeed.", keywords: ["blog", "blue checkmark", "authority", "cryptographic", "receipts"] },
+      { id: "blog/the-anti-diploma-invariant", title: "The Anti-Diploma Invariant", path: "blog/the-anti-diploma-invariant.md", desc: "Authority must be continuously earned through grounded performance.", keywords: ["blog", "anti diploma", "reputation", "merit", "performance"] },
+      { id: "blog/bittorrent-economics-of-fact-checking", title: "BitTorrent Economics of Fact-Checking", path: "blog/bittorrent-economics-of-fact-checking.md", desc: "Economic dynamics of decentralized cooperative auditing.", keywords: ["blog", "economics", "fact checking", "bittorrent", "cooperative"] },
+      { id: "blog/the-galileo-rule", title: "The Galileo Rule", path: "blog/the-galileo-rule.md", desc: "Why a single verified citation outweighs an ungrounded consensus.", keywords: ["blog", "galileo", "citation", "evidence", "consensus", "truth"] },
+      { id: "blog/giving-claude-and-cursor-an-epistemic-brake", title: "Giving AI an Epistemic Brake", path: "blog/giving-claude-and-cursor-an-epistemic-brake.md", desc: "Preventing autonomous AI agents from spiraling into hallucinations.", keywords: ["blog", "claude", "cursor", "brake", "epistemic brake", "guardrails"] },
+      { id: "blog/interface-telemetry-loopback", title: "Interface Telemetry Loopback", path: "blog/interface-telemetry-loopback.md", desc: "Privacy-preserving telemetry for multi-interface synchronization.", keywords: ["blog", "telemetry", "itlp", "interfaces", "privacy", "metrics"] },
+      { id: "blog/basement-ops-and-discord-alerting", title: "Basement Ops & Discord Alerting", path: "blog/basement-ops-and-discord-alerting.md", desc: "Running a 24/7 homelab node with real-time push alerts to your phone.", keywords: ["blog", "basement", "discord", "alerts", "homelab", "monitoring"] }
     ]
   }
 ];
@@ -906,7 +907,7 @@ export function renderSidebar(activeId) {
     const techGroups = groups.filter(g => !g.category.includes("Blog"));
     groups = [
       blogGroup,
-      { category: "Technical Reference", items: [{ id: "docs/intro", title: "← Return to Documentation Portal", path: "docs/intro.md" }] },
+      { category: "Technical Reference", items: [{ id: "docs/intro", title: "← Return to Documentation Portal", path: "docs/intro.md", desc: "Return to main documentation", keywords: ["docs", "return", "home", "portal"] }] },
       ...techGroups
     ];
   }
@@ -916,7 +917,7 @@ export function renderSidebar(activeId) {
       <div class="sidebar-heading">${escapeHtml(group.category)}</div>
       <ul class="sidebar-list">
         ${group.items.map(item => `
-          <li class="sidebar-item">
+          <li class="sidebar-item" data-keywords="${escapeHtml((item.keywords || []).join(' '))}" data-desc="${escapeHtml(item.desc || '')}" data-category="${escapeHtml(group.category)}">
             <a href="#${item.id}" class="sidebar-link ${item.id === activeId ? 'active' : ''}" data-doc-id="${item.id}">
               ${escapeHtml(item.title)}
             </a>
@@ -1385,7 +1386,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.10.0';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.11.0';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 
@@ -1528,31 +1529,45 @@ export function setupSearch() {
     const isInvSearch = q.startsWith('inv:') || q.startsWith('#') || q.startsWith('invariant:');
     const targetInv = isInvSearch ? q.replace(/^(inv:|#|invariant:)/, '').trim() : '';
 
-    document.querySelectorAll('.sidebar-item').forEach(el => {
-      const text = el.textContent.toLowerCase();
-      const href = (el.getAttribute('href') || '').toLowerCase();
-      
-      let matchesFilter = true;
-      if (activeFilter === 'invariants') {
-        matchesFilter = href.includes('invariants');
-      } else if (activeFilter === 'agentic') {
-        matchesFilter = href.includes('agentic');
-      } else if (activeFilter === 'fastmcp') {
-        matchesFilter = text.includes('fastmcp') || href.includes('fastmcp');
-      } else if (activeFilter === 'tutorials') {
-        matchesFilter = href.includes('tutorials') || href.includes('walkthroughs');
-      }
-
-      let matchesQuery = true;
-      if (q) {
-        if (isInvSearch && targetInv) {
-          matchesQuery = href.includes('invariants') || text.includes(targetInv);
-        } else {
-          matchesQuery = text.includes(q) || href.includes(q);
+    document.querySelectorAll('.sidebar-group').forEach(groupEl => {
+      let visibleInGroup = 0;
+      groupEl.querySelectorAll('.sidebar-item').forEach(el => {
+        const link = el.querySelector('a');
+        const text = (link?.textContent || el.textContent).toLowerCase();
+        const href = (link?.getAttribute('href') || '').toLowerCase();
+        const keywords = (el.getAttribute('data-keywords') || '').toLowerCase();
+        const desc = (el.getAttribute('data-desc') || '').toLowerCase();
+        const category = (el.getAttribute('data-category') || '').toLowerCase();
+        
+        let matchesFilter = true;
+        if (activeFilter === 'invariants') {
+          matchesFilter = href.includes('invariants') || keywords.includes('invariant');
+        } else if (activeFilter === 'agentic') {
+          matchesFilter = href.includes('agentic') || keywords.includes('agent');
+        } else if (activeFilter === 'fastmcp') {
+          matchesFilter = text.includes('fastmcp') || href.includes('fastmcp') || keywords.includes('mcp') || keywords.includes('claude') || keywords.includes('cursor');
+        } else if (activeFilter === 'tutorials') {
+          matchesFilter = href.includes('tutorials') || href.includes('walkthroughs') || category.includes('tutorial') || category.includes('walkthrough');
         }
-      }
 
-      el.style.display = (matchesFilter && matchesQuery) ? '' : 'none';
+        let matchesQuery = true;
+        if (q) {
+          if (isInvSearch && targetInv) {
+            matchesQuery = href.includes('invariants') || text.includes(targetInv) || keywords.includes(targetInv);
+          } else {
+            const terms = q.split(/\s+/).filter(Boolean);
+            const searchableText = `${text} ${href} ${keywords} ${desc} ${category}`;
+            matchesQuery = terms.every(term => searchableText.includes(term));
+          }
+        }
+
+        const isVisible = matchesFilter && matchesQuery;
+        el.style.display = isVisible ? '' : 'none';
+        if (isVisible) visibleInGroup++;
+      });
+
+      // Hide category headings that have no matching items when searching or filtering
+      groupEl.style.display = (visibleInGroup > 0 || (!q && activeFilter === 'all')) ? '' : 'none';
     });
   }
 
