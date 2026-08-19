@@ -1,42 +1,45 @@
 ---
 title: "Interactive Zero-Build Playgrounds"
-description: "In-browser WebCrypto Ed25519 verification, 13-node mesh gossip simulator, SimHash calculator, and taxonomy explorer."
+description: "In-browser WebCrypto verification, 13-node mesh gossip simulator, epistemic text scanner, and consensus engine."
 ---
 
-# Interactive Zero-Build Playgrounds
+# Interactive Zero-Build Playgrounds 🎮
 
-Experience Credence's core mathematical models, cryptographic verification, and distributed consensus in real time directly inside your browser. All tools below run **100% client-side** using standard W3C Web APIs with zero external dependencies.
+Experience Credence's core mathematical models, cryptographic verification, epistemic text heuristics, and distributed consensus in real time directly inside your browser. All tools below run **100% client-side** using standard W3C Web APIs with **zero backend roundtrips and zero external dependencies**.
 
 :::tabs
 === 🎛️ Client-Side Runtime Guarantees
 | Guarantee | Mechanism | Specification |
 | :--- | :--- | :--- |
-| **Zero Backend Roundtrips** | 100% Client-Side Evaluation | W3C Standard WebCrypto (`crypto.subtle`), Canvas & ES Modules |
+| **Zero Backend Roundtrips** | 100% Client-Side Evaluation | W3C Standard WebCrypto (`crypto.subtle`), SVG & ES Modules |
 | **Hermetic Privacy** | Zero Telemetry / Analytics | No data, tokens, or plaintext leaves your browser session |
 | **Deterministic Math** | Bit-for-Bit Engine Equivalence | Identical SimHash-64, saturation curves & Ed25519 verification as the Python CLI |
 :::
+
+---
 
 ### Interactive Playground Directory
 
 | Widget | Interactive Model | Core Web Standard |
 | :--- | :--- | :--- |
 | **1. 13-Node Mesh Gossip** | Watts-Strogatz epidemic diffusion & splits | SVG Canvas & DOM Event Animation |
-| **2. SimHash-64 & Hamming** | 64-bit locality-sensitive hashing | Bitwise XOR & popcount |
-| **3. Grounding Validator** | $G=1.00$ character-offset substring locator | Unicode NFKC & Whitespace Collapser |
-| **4. Saturation Calculator** | Exponential asymptotic score curve | Floating-point Math equations |
-| **5. WebCrypto Verifier** | RFC 8785 Ed25519 signature checks | W3C `window.crypto.subtle` |
-| **6. Taxonomy Explorer** | Real-time fuzzy rule search | JSON Catalog Client Filters |
-| **7. Model Comparator** | Pareto frontier cost/thinking explorer | Interactive SVG Range Sliders |
+| **2. SimHash-64 & Bit-Diff** | 64-bit locality-sensitive hashing | Bitwise XOR & 64-Tile Graphical Matrix |
+| **3. Grounding Validator** | $G=1.00$ character-offset substring locator | Live DOM Highlight & Whitespace Collapser |
+| **4. Saturation Calculator** | Exponential asymptotic score curve | Interactive SVG Calibration Curve Plot |
+| **5. WebCrypto Verifier** | RFC 8785 Ed25519 signature checks | W3C `window.crypto.subtle` & Anti-Tamper |
+| **6. Taxonomy Explorer** | Real-time fuzzy rule & domain filter | JSON Catalog Client Filter Chips |
+| **7. Multi-Model Comparator** | Pareto frontier cost & thinking budget | Multi-Slider Token Pricing Model |
 | **8. Feed Sifter Simulator** | 4-factor dynamic feed score ($F_j$) | Real-time Slider Formula Engine |
-
-> [!TIP]
-> **Zero Network Overhead**: None of these playgrounds make backend server calls. All cryptographic verification, hashing, and graph animations run entirely within your local browser.
+| **9. The Galileo Rule Consensus** | Domain Authority Weighted Median vs Sybils | Weighted Median & Histogram Engine |
+| **10. Epistemic Text Scanner** | Live clickbait, fallacy & urgency auditor | Client-Side Regex Pattern Tokenizer |
+| **11. ClaimReview & RFC 8785** | Google Fact-Check JSON-LD & envelope builder | Schema.org JSON & Canonical RFC 8785 |
+| **12. Token Governor & Circuit Breaker** | 30% Headroom quota preservation meter | Real-time Headroom Gauge & Circuit Breaker |
 
 ---
 
 ## 1. 13-Node Watts-Strogatz Mesh Gossip Simulator
 
-Interact with a live Watts-Strogatz small-world network ($N=13, k=4, p=0.20$). Simulate multi-hop epidemic gossip diffusion, test network split tolerance, and observe Byzantine cartel resilience:
+Interact with a live Watts-Strogatz small-world network ($N=13, k=4, p=0.20$). Click any node to inspect its simulated identity and reputation score ($Q_i$), simulate multi-hop epidemic gossip diffusion, and test network split tolerance:
 
 <div class="interactive-widget" id="mesh-simulator-widget">
   <div class="widget-toolbar">
@@ -46,36 +49,47 @@ Interact with a live Watts-Strogatz small-world network ($N=13, k=4, p=0.20$). S
   </div>
 
   <div class="mesh-visualizer-container">
-    <svg id="mesh-svg" viewBox="0 0 600 400" class="mesh-svg-canvas">
+    <svg id="mesh-svg" viewBox="0 0 600 400" class="mesh-svg-canvas" style="width: 100%; height: 320px;">
       <!-- Injected dynamically by app.js -->
     </svg>
   </div>
 
+  <div id="mesh-node-inspector" class="node-inspector-card" style="display: none;">
+    <div><strong>Selected: <span id="inspector-node-id" style="color: #38bdf8;">Node 1</span></strong> | Status: <span id="inspector-node-status" style="color: #4ade80;">Healthy Peer</span></div>
+    <div>Node Quality (\(Q_i\)): <strong id="inspector-node-qi" style="color: #38bdf8;">0.92</strong> | Peer Links: <strong id="inspector-node-links">4 edges</strong></div>
+  </div>
+
   <div id="mesh-event-log" class="widget-status idle">
-    <span>Ready. Click "Broadcast Attestation from Node 1" to observe 3-hop gossip diffusion.</span>
+    <span>Ready. Click "Broadcast Attestation from Node 1" or click any node circle to inspect.</span>
   </div>
 </div>
 
 ---
 
-## 2. SimHash-64 & Hamming Distance Visualizer
+## 2. SimHash-64 & Hamming Distance Bit-Diff Visualizer
 
-Compare two articles to compute their 64-bit SimHash fingerprints and Hamming Distance ($D_H$). Detect syndicated mirror networks and near-duplicate plagiarists:
+Compare two text snippets to compute their 64-bit SimHash fingerprints, Hamming Distance ($D_H$), and inspect the exact bit flips across all 64 bits:
 
 <div class="interactive-widget" id="simhash-calculator-widget">
+  <div class="filter-chip-group">
+    <button type="button" id="btn-preset-mirror" class="filter-chip active">Scenario: Syndicated Mirror (\(D_H \le 3\))</button>
+    <button type="button" id="btn-preset-plagiarism" class="filter-chip">Scenario: Paraphrased Content (\(D_H = 6\))</button>
+    <button type="button" id="btn-preset-distinct" class="filter-chip">Scenario: Distinct Article (\(D_H > 15\))</button>
+  </div>
+
   <div class="widget-row">
     <div class="widget-col">
       <label class="widget-label">Article A (Original Text):</label>
-      <textarea id="simhash-text-a" class="widget-textarea" style="height: 100px;">The international monetary conference reached a historic agreement today on cross-border liquidity standards.</textarea>
+      <textarea id="simhash-text-a" class="widget-textarea" style="height: 90px;">The international monetary conference reached a historic agreement today on cross-border liquidity standards.</textarea>
     </div>
     <div class="widget-col">
       <label class="widget-label">Article B (Mirror / Revision):</label>
-      <textarea id="simhash-text-b" class="widget-textarea" style="height: 100px;">The international monetary conference reached a historic agreement today on cross-border liquidity standards. [Updated with comments]</textarea>
+      <textarea id="simhash-text-b" class="widget-textarea" style="height: 90px;">The international monetary conference reached a historic agreement today on cross-border liquidity standards. [Updated with comments]</textarea>
     </div>
   </div>
 
   <div class="widget-toolbar" style="margin-top: 1rem;">
-    <button type="button" id="btn-calc-simhash" class="widget-btn primary">Compute 64-Bit SimHash &amp; Hamming Distance</button>
+    <button type="button" id="btn-calc-simhash" class="widget-btn primary">Compute 64-Bit SimHash &amp; Bit-Diff</button>
   </div>
 
   <div id="simhash-result-box" class="widget-result-box" style="margin-top: 1rem; text-align: left;">
@@ -86,28 +100,46 @@ Compare two articles to compute their 64-bit SimHash fingerprints and Hamming Di
       </div>
       <div id="simhash-verdict-badge" class="verdict-tag reliable">AWAITING INPUT</div>
     </div>
-    <div style="font-size: 0.85rem; margin-top: 0.75rem; color: #cbd5e1;">
+
+    <div style="font-size: 0.85rem; margin-top: 0.5rem; color: #cbd5e1;">
       <div>Fingerprint A: <code id="simhash-fp-a" style="font-size: 0.75rem;">--</code></div>
       <div style="margin-top: 0.25rem;">Fingerprint B: <code id="simhash-fp-b" style="font-size: 0.75rem;">--</code></div>
+    </div>
+
+    <div style="margin-top: 0.85rem;">
+      <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em;">64-Bit Binary Differential (<span style="color: #10b981;">■ Match</span> / <span style="color: #ef4444;">■ Flip</span>)</div>
+      <div id="simhash-bitdiff-grid" class="bit-diff-grid">
+        <!-- 64 bit tiles injected dynamically -->
+      </div>
     </div>
   </div>
 </div>
 
 ---
 
-## 3. Verbatim Quote Grounding Tester (\(G=1.0\))
+## 3. Verbatim Quote Grounding Validator (\(G=1.00\))
 
-Test character offset normalization and verbatim grounding validation. Ensure that model citations are 100% grounded in source DOM prose:
+Test character-offset substring matching and Unicode normalization. If an AI model hallucinates or paraphrases even a single word, the citation is rejected ($G=0.00$):
 
 <div class="interactive-widget" id="grounding-tester-widget">
-  <label class="widget-label">Source DOM Prose Text:</label>
-  <textarea id="grounding-source-text" class="widget-textarea" style="height: 90px;">The company reported revenue of $4.2 billion, but declined to provide second-quarter guidance due to supply chain headwinds.</textarea>
+  <div class="filter-chip-group">
+    <button type="button" id="btn-preset-verbatim" class="filter-chip active">Preset: Exact Verbatim Match (\(G=1.00\))</button>
+    <button type="button" id="btn-preset-paraphrase" class="filter-chip">Preset: Hallucinated Paraphrase (\(G=0.00\))</button>
+  </div>
 
-  <label class="widget-label" style="margin-top: 1rem;">Candidate Violation Quote to Verify:</label>
+  <label class="widget-label">Source DOM Prose Text:</label>
+  <textarea id="grounding-source-text" class="widget-textarea" style="height: 75px;">The company reported revenue of $4.2 billion, but declined to provide second-quarter guidance due to supply chain headwinds.</textarea>
+
+  <label class="widget-label" style="margin-top: 0.85rem;">Candidate Violation Quote to Verify:</label>
   <input type="text" id="grounding-quote-input" class="search-input" value="declined to provide second-quarter guidance">
 
   <div class="widget-toolbar" style="margin-top: 1rem;">
     <button type="button" id="btn-test-grounding" class="widget-btn primary">Validate Verbatim Grounding</button>
+  </div>
+
+  <label class="widget-label" style="margin-top: 0.85rem;">Live DOM Text Highlight Preview:</label>
+  <div id="grounding-preview-display" class="grounding-preview-box">
+    <!-- Live highlighted source text injected here -->
   </div>
 
   <div id="grounding-status" class="widget-status idle">
@@ -119,7 +151,7 @@ Test character offset normalization and verbatim grounding validation. Ensure th
 
 ## 4. Calibrated Saturation Curve Calculator
 
-Credence uses an exponential decay function to prevent score clipping:
+Credence uses an exponential saturation curve to prevent score clipping and ensure severe violations compound non-linearly:
 
 $$S_{\text{calibrated}} = 100 \times \left(1 - e^{-S_{\text{raw}} / 12}\right)$$
 
@@ -142,19 +174,29 @@ $$S_{\text{calibrated}} = 100 \times \left(1 - e^{-S_{\text{raw}} / 12}\right)$$
       <div id="calc-result-badge" class="verdict-tag mixed">MIXED / QUESTIONABLE</div>
       <div class="widget-submetrics">
         <div>Raw Score (\(S_{\text{raw}}\)): <strong id="calc-raw-score">8.10</strong></div>
-        <div>Saturation: <strong id="calc-saturation-pct">48.6%</strong> of theoretical max</div>
+        <div>Saturation: <strong id="calc-saturation-pct">48.6%</strong></div>
       </div>
     </div>
+  </div>
+
+  <div style="margin-top: 1.5rem; background: rgba(5, 10, 20, 0.8); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 8px; padding: 0.75rem;">
+    <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; margin-bottom: 0.25rem;">Live Asymptotic Saturation Plot (\(y = 100(1 - e^{-x/12})\))</div>
+    <svg id="calc-curve-svg" viewBox="0 0 500 160" style="width: 100%; height: 160px;">
+      <!-- Dynamic SVG Plot injected here -->
+    </svg>
   </div>
 </div>
 
 ---
 
-## 5. In-Browser Ed25519 WebCrypto Verifier
+## 5. In-Browser Ed25519 WebCrypto Verifier & Anti-Tamper Test
+
+Verify cryptographically signed audit envelopes using standard W3C WebCrypto. Test how altering a single score value causes signature verification to fail instantly:
 
 <div class="interactive-widget" id="webcrypto-verifier-widget">
   <div class="widget-toolbar">
-    <button type="button" id="btn-load-sample" class="widget-btn">Load Sample Signed Attestation</button>
+    <button type="button" id="btn-load-sample" class="widget-btn">Load Valid Signed Attestation</button>
+    <button type="button" id="btn-tamper-sample" class="widget-btn">Tamper Payload (Inject Fake Score)</button>
     <button type="button" id="btn-verify-crypto" class="widget-btn primary">Verify Signature In-Browser</button>
   </div>
 
@@ -169,8 +211,18 @@ $$S_{\text{calibrated}} = 100 \times \left(1 - e^{-S_{\text{raw}} / 12}\right)$$
 
 ## 6. Live Namespaced Taxonomy Rule Explorer
 
+Filter and inspect rules across the Society of Professional Journalists (SPJ), Internet Encyclopedia of Philosophy (IEP) Fallacies, Deceptive UI Patterns, and Medical claims:
+
 <div class="interactive-widget" id="taxonomy-explorer-widget">
-  <input type="text" id="taxonomy-search-input" class="search-input" placeholder="Filter rules by name, severity, or domain...">
+  <div class="filter-chip-group">
+    <button type="button" id="chip-tax-all" class="filter-chip active">All Catalogs</button>
+    <button type="button" id="chip-tax-spj" class="filter-chip">SPJ Journalism</button>
+    <button type="button" id="chip-tax-iep" class="filter-chip">IEP Fallacies</button>
+    <button type="button" id="chip-tax-deceptive" class="filter-chip">Deceptive UI</button>
+    <button type="button" id="chip-tax-domain" class="filter-chip">Domain Specific</button>
+  </div>
+
+  <input type="text" id="taxonomy-search-input" class="search-input" placeholder="Filter rules by keyword, severity, or domain URI...">
   <div class="taxonomy-table-container">
     <table class="taxonomy-table">
       <thead>
@@ -192,7 +244,7 @@ $$S_{\text{calibrated}} = 100 \times \left(1 - e^{-S_{\text{raw}} / 12}\right)$$
 
 ## 7. Multi-Model Cost, Latency & Sovereignty Comparator
 
-Compare estimated monthly operational costs, latency (TTFT), and cloud sovereignty across different frontier APIs and local models:
+Compare estimated monthly operational costs, latency (TTFT), and cloud sovereignty across different frontier APIs and local models with adjustable thinking token budgets:
 
 <div class="interactive-widget" id="model-comparator-widget">
   <div class="widget-row">
@@ -202,6 +254,9 @@ Compare estimated monthly operational costs, latency (TTFT), and cloud sovereign
 
       <label for="comp-length-slider" class="widget-label">Average Article Length (Words): <span id="comp-length-val" class="widget-val">1,500</span></label>
       <input type="range" id="comp-length-slider" min="500" max="5000" step="250" value="1500" class="widget-slider">
+
+      <label for="comp-thinking-slider" class="widget-label">Thinking Token Budget / Audit: <span id="comp-thinking-val" class="widget-val">4,096 tokens</span></label>
+      <input type="range" id="comp-thinking-slider" min="0" max="16384" step="1024" value="4096" class="widget-slider">
     </div>
   </div>
 
@@ -219,6 +274,11 @@ Test how Credence dynamically evaluates candidate feeds, calculates Topic Entrop
 $$F_j = 0.35 (1.0 - \bar{S}_j/100) + 0.25 G_j + 0.20 H_{\text{topic}} + 0.20 T_{\text{freshness}}$$
 
 <div class="interactive-widget" id="feed-simulator-widget">
+  <div class="filter-chip-group">
+    <button type="button" id="btn-preset-investigative" class="filter-chip active">Preset: High-Entropy Investigative Feed</button>
+    <button type="button" id="btn-preset-astroturf" class="filter-chip">Preset: Single-Topic Astroturfing Pivot (\(H < 0.30\))</button>
+  </div>
+
   <div class="widget-row">
     <div class="widget-col">
       <label for="feed-suspicion-slider" class="widget-label">Average Suspicion (\(\bar{S}_j\)): <span id="feed-suspicion-val" class="widget-val">12.0</span> / 100</label>
@@ -242,6 +302,158 @@ $$F_j = 0.35 (1.0 - \bar{S}_j/100) + 0.25 G_j + 0.20 H_{\text{topic}} + 0.20 T_{
         <div>Astroturfing Alert: <strong id="feed-astroturf-status" style="color: #4ade80;">NONE (Diverse Coverage)</strong></div>
         <div>Mesh Seeding: <strong style="color: #38bdf8;">ENABLED (0-Token Work-Sharing)</strong></div>
       </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## 9. "The Galileo Rule" Consensus Engine Simulator (Asymmetric Grounding)
+
+Simulate how Credence defeats Byzantine Sybil cartel attacks. In standard democratic voting, 20 ungrounded bot nodes reporting $S=0.0$ would overpower 2 domain experts reporting fraud ($S=75.0$). Under **The Galileo Rule**, verified domain experts with 100% grounded citations ($G=1.00$) cannot be outlier-dismissed:
+
+<div class="interactive-widget" id="galileo-consensus-widget">
+  <div class="widget-toolbar">
+    <button type="button" id="btn-toggle-galileo" class="widget-btn primary">Mode: Galileo Rule ON (Asymmetric Grounding)</button>
+  </div>
+
+  <div class="widget-row">
+    <div class="widget-col">
+      <label for="galileo-sybil-slider" class="widget-label">Sybil / Bot Nodes Reporting Score 0 (Ungrounded): <span id="galileo-sybil-val" class="widget-val">12 nodes</span></label>
+      <input type="range" id="galileo-sybil-slider" min="1" max="25" value="12" class="widget-slider">
+
+      <label for="galileo-expert-slider" class="widget-label">Verified Domain Authorities Reporting Score 75 (\(G=1.00\)): <span id="galileo-expert-val" class="widget-val">2 nodes</span></label>
+      <input type="range" id="galileo-expert-slider" min="1" max="10" value="2" class="widget-slider">
+    </div>
+
+    <div class="widget-col widget-result-box">
+      <div class="widget-metric-title">Resolved Consensus Score</div>
+      <div id="galileo-consensus-score" class="widget-score-big" style="color: #fb923c;">75.0</div>
+      <div id="galileo-verdict-badge" class="verdict-tag suspicious">SUSPICIOUS (GROUNDED EXPERTS UPHELD)</div>
+      <div class="widget-submetrics" style="margin-top: 0.85rem;">
+        <div>Cartel Status: <strong id="galileo-rule-status" style="color: #4ade80;">Sybil Attack Neutralized</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 1rem;">
+    <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em;">Consensus Attestation Distribution Histogram</div>
+    <div id="galileo-histogram" class="consensus-histogram">
+      <!-- Dynamic histogram bars injected here -->
+    </div>
+  </div>
+</div>
+
+---
+
+## 10. Real-Time Epistemic Heuristic Text Scanner
+
+Type or paste any headline, promotional copy, or news excerpt below. The client-side heuristic engine parses syntax patterns in real time to spot clickbait hooks, emotional superlatives, fake urgency, and weasel words:
+
+<div class="interactive-widget" id="epistemic-scanner-widget">
+  <div class="filter-chip-group">
+    <button type="button" id="btn-scan-clickbait" class="filter-chip active">Sample: Clickbait Curiosi-Trap</button>
+    <button type="button" id="btn-scan-urgency" class="filter-chip">Sample: Deceptive Urgency &amp; Superlatives</button>
+    <button type="button" id="btn-scan-clean" class="filter-chip">Sample: Neutral Factual Reporting</button>
+  </div>
+
+  <label class="widget-label">Input Text to Scan:</label>
+  <textarea id="scanner-text-input" class="widget-textarea" style="height: 80px;">Scientists are baffled by this shocking discovery! Everyone knows you won't believe what happens next. Act now before it's banned!</textarea>
+
+  <div class="widget-row" style="margin-top: 1rem;">
+    <div class="widget-col" style="flex: 2;">
+      <label class="widget-label">Live Analyzed Syntax with Highlighted Violations:</label>
+      <div id="scanner-highlight-output" class="scanner-highlight-pane">
+        <!-- Live highlighted output with colored spans -->
+      </div>
+    </div>
+
+    <div class="widget-col widget-result-box" style="flex: 1;">
+      <div class="widget-metric-title">Heuristic Suspicion</div>
+      <div id="scanner-heuristic-score" class="widget-score-big" style="color: #ef4444;">68.4</div>
+      <div id="scanner-verdict-badge" class="verdict-tag suspicious">SUSPICIOUS (4 PATTERNS)</div>
+      <div class="widget-submetrics" style="margin-top: 0.75rem;">
+        <div>Detected: <strong id="scanner-rules-detected">4 triggers</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+## 11. Schema.org `ClaimReview` & RFC 8785 Receipt Generator
+
+Generate Google Search-ready Schema.org `ClaimReview` JSON-LD and deterministic RFC 8785 canonical signed envelopes for any fact-checked assertion:
+
+<div class="interactive-widget" id="claimreview-generator-widget">
+  <div class="widget-row">
+    <div class="widget-col">
+      <label class="widget-label">Claim Text Checked:</label>
+      <input type="text" id="cr-claim-text" class="search-input" value="The Mediterranean Sea dried up completely last Tuesday.">
+
+      <label class="widget-label" style="margin-top: 0.75rem;">Claim Author / Source:</label>
+      <input type="text" id="cr-author-input" class="search-input" value="Anonymous Social Post">
+    </div>
+
+    <div class="widget-col">
+      <label class="widget-label">Credence Fact-Check Verdict:</label>
+      <select id="cr-verdict-select" class="search-input" style="height: 42px;">
+        <option value="False">False / Flagrant Disinformation</option>
+        <option value="Misleading">Misleading / Deceptive Framing</option>
+        <option value="Satire">Satire / Parody</option>
+        <option value="True">True / Factual Reporting</option>
+      </select>
+
+      <label class="widget-label" style="margin-top: 0.75rem;">Article Source URL:</label>
+      <input type="text" id="cr-source-url" class="search-input" value="https://example.com/viral-post-109">
+    </div>
+  </div>
+
+  <div class="widget-toolbar" style="margin-top: 1.25rem;">
+    <button type="button" id="btn-tab-claimreview" class="widget-btn primary">Schema.org ClaimReview JSON-LD</button>
+    <button type="button" id="btn-tab-rfc8785" class="widget-btn">RFC 8785 Canonical Envelope</button>
+    <button type="button" id="btn-cr-copy" class="widget-btn">📋 Copy JSON</button>
+    <button type="button" id="btn-cr-download" class="widget-btn">💾 Download .credence.json</button>
+  </div>
+
+  <textarea id="cr-json-output" class="widget-textarea" style="height: 160px;" readonly></textarea>
+</div>
+
+---
+
+## 12. Token Governor & 30% Headroom Circuit Breaker Simulator
+
+Simulate monthly API token burn and observe the automatic circuit breaker tripping into `QUOTA_PRESERVED` mode at 30% remaining headroom:
+
+<div class="interactive-widget" id="token-governor-widget">
+  <div class="widget-row">
+    <div class="widget-col">
+      <label for="gov-budget-slider" class="widget-label">Monthly Token Budget: <span id="gov-budget-val" class="widget-val">$15.00</span></label>
+      <input type="range" id="gov-budget-slider" min="5" max="50" step="5" value="15" class="widget-slider">
+
+      <label for="gov-burn-slider" class="widget-label">Current Monthly Spend: <span id="gov-burn-val" class="widget-val">$11.25</span></label>
+      <input type="range" id="gov-burn-slider" min="0" max="50" step="0.25" value="11.25" class="widget-slider">
+    </div>
+
+    <div class="widget-col widget-result-box">
+      <div class="widget-metric-title">Remaining Budget Headroom</div>
+      <div id="gov-headroom-pct" class="widget-score-big" style="color: #facc15;">25.0%</div>
+      <div id="gov-state-badge" class="verdict-tag mixed">QUOTA_PRESERVED (CIRCUIT TRIPPED)</div>
+      <div class="widget-submetrics" style="margin-top: 0.75rem;">
+        <div id="gov-status-desc">Mode: 100% Offline Structural Heuristics ($0.00 Spend)</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 1.25rem;">
+    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.25rem;">
+      <span>0% (Exhausted)</span>
+      <span style="color: #ef4444; font-weight: 700;">30% Safety Trip Point</span>
+      <span>100% (Full Budget)</span>
+    </div>
+    <div class="headroom-gauge-track">
+      <div class="headroom-threshold-marker"></div>
+      <div id="gov-headroom-fill" class="headroom-gauge-fill" style="width: 25%; background: #f59e0b;"></div>
     </div>
   </div>
 </div>
