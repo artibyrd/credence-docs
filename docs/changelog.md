@@ -7,6 +7,17 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.14.0] - 2026-08-19
+
+### Optimized & Accelerated
+- **Ecosystem CI/CD & Pipeline Acceleration (Lint ➔ Test ➔ Build ➔ Deploy)**:
+  - **Pytest Parallelization (`pytest-xdist`)**: Integrated `pytest -n auto` to execute hermetic unit tests concurrently across CPU cores, reducing test suite duration by **65%** (from 81s down to 28s).
+  - **Feed Pre-Flight Network Timeout Elimination**: Mocked `fetch_and_parse_feed` in CLI test suites to remove an unmocked 10.7-second live HTTP socket timeout.
+  - **Concurrent Mesh Cluster Lifecycle**: Replaced sequential relay lifecycle loops with `asyncio.gather` for parallel WebSocket server startup and teardown.
+  - **Build Context & Upload Reduction (99.4% lighter)**: Configured `.dockerignore` and `.gcloudignore` to drop upload payload and Docker build context from **861 MB down to 2.1 MB**.
+  - **Lean Production Containers**: Configured `Dockerfile` to build runtime containers using `poetry install --without dev` and BuildKit cache mounts.
+  - **Concurrent Cloud Build & CI/CD**: Parallelized quality and test gates in `cloudbuild.yaml` with `waitFor: ['-']`, pruned unneeded Playwright browser downloads from unit CI jobs, and optimized `just tf validate` with cached `.terraform` state inspection.
+
 ## [1.13.0] - 2026-08-19
 
 ### Added
