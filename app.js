@@ -2355,6 +2355,45 @@ export function setupInMaricopaCaseStudyWidget() {
   // Initial render
   renderArticle(0);
   updateReformSimulator();
+
+  // Setup Publisher Aggregate Profile Card
+  setupPublisherAggregateCard();
+}
+
+/**
+ * Setup Publisher Aggregate Profile Card interactive toggle
+ */
+export function setupPublisherAggregateCard() {
+  const btnVisual = document.getElementById('btn-pub-view-visual');
+  const btnRaw = document.getElementById('btn-pub-view-raw');
+  const panelVisual = document.getElementById('pub-panel-visual');
+  const panelRaw = document.getElementById('pub-panel-raw');
+  const btnCopyAscii = document.getElementById('btn-pub-copy-ascii');
+  const asciiContent = document.getElementById('pub-ascii-content');
+
+  if (!btnVisual || !btnRaw || !panelVisual || !panelRaw) return;
+
+  btnVisual.addEventListener('click', () => {
+    btnVisual.classList.add('active');
+    btnRaw.classList.remove('active');
+    panelVisual.style.display = 'block';
+    panelRaw.style.display = 'none';
+  });
+
+  btnRaw.addEventListener('click', () => {
+    btnRaw.classList.add('active');
+    btnVisual.classList.remove('active');
+    panelVisual.style.display = 'none';
+    panelRaw.style.display = 'block';
+  });
+
+  btnCopyAscii?.addEventListener('click', () => {
+    if (asciiContent) {
+      navigator.clipboard?.writeText(asciiContent.textContent || '');
+      btnCopyAscii.textContent = '✅ Copied!';
+      setTimeout(() => btnCopyAscii.textContent = '📋 Copy Raw Receipt', 1500);
+    }
+  });
 }
 
 export async function loadDocument(docId, anchorId = '') {
@@ -2380,7 +2419,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.12.0';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.12.1';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 

@@ -220,9 +220,191 @@ Credence ingested and evaluated a live corpus of articles published by `inmarico
 
 ## Aggregate Forensic Metrics Profile
 
-Aggregating all historical audits for `inmaricopa.com` yields the following calibrated forensic profile:
+Aggregating all historical audits for `inmaricopa.com` yields the following calibrated forensic profile across newsroom bylines, civic coverage, and commercial promotions:
 
-```
+<div class="pub-card" id="publisher-aggregate-card">
+  <!-- Card Header with Domain and Mode Switcher -->
+  <div class="pub-card-header">
+    <div class="pub-domain-title">
+      <span style="font-size: 1.4rem;">🌐</span>
+      <div>
+        <div style="font-size: 1.15rem; color: #fff; font-family: var(--font-mono, monospace);">inmaricopa.com</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">Exurban Digital News Outlet · Monitored Publisher</div>
+      </div>
+      <span class="verdict-tag mixed" style="margin-left: 0.5rem; font-size: 0.7rem;">CALIBRATED PROFILE</span>
+    </div>
+    <div class="pub-tab-group">
+      <button type="button" class="pub-tab-btn active" id="btn-pub-view-visual">📊 Visual Dashboard</button>
+      <button type="button" class="pub-tab-btn" id="btn-pub-view-raw">💻 Raw Canonical Receipt</button>
+    </div>
+  </div>
+
+  <!-- Panel 1: Visual Dashboard View -->
+  <div id="pub-panel-visual">
+    <!-- Top Hero Section: DEI Score & Spectrum Meter -->
+    <div class="pub-hero-grid">
+      <div class="pub-score-box">
+        <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted);">
+          Domain Epistemic Index (DEI)
+        </div>
+        <div class="pub-score-number">62.5</div>
+        <span class="verdict-tag mixed" style="font-size: 0.8rem; padding: 0.25rem 0.75rem;">TRUST BAND: MIXED</span>
+        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.5rem;">
+          Based on 13 analyzed domain snapshots
+        </div>
+      </div>
+
+      <div class="pub-spectrum-box">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.82rem; font-weight: 700; color: #fff;">DEI Reputation Tier Spectrum</span>
+          <span style="font-size: 0.78rem; font-family: var(--font-mono, monospace); color: #f59e0b; font-weight: 700;">Score: 62.5 / 100.0</span>
+        </div>
+        <div class="pub-spectrum-track">
+          <div class="pub-spectrum-marker" style="left: 62.5%;" title="InMaricopa Position: 62.5 (Mixed)"></div>
+        </div>
+        <div class="pub-spectrum-labels">
+          <span style="color: #ef4444;">🔴 Deceptive (&lt;50)</span>
+          <span style="color: #f59e0b;">🟡 Mixed (50–65)</span>
+          <span style="color: #38bdf8;">🔵 Reliable (65–80)</span>
+          <span style="color: #22c55e;">🟢 Trusted (80–100)</span>
+        </div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.65rem; line-height: 1.4;">
+          A score of <strong>62.5</strong> reflects an exurban publication with standard community reporting penalized by commercial advertorial blur and unrecused municipal governance conflicts.
+        </div>
+      </div>
+    </div>
+
+    <!-- Middle Section: Sourcing Ratios Breakdown Grid -->
+    <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.65rem; letter-spacing: 0.05em;">
+      Forensic Sourcing Ratios Breakdown
+    </div>
+    <div class="pub-ratios-grid">
+      <!-- Byline Transparency -->
+      <div class="pub-ratio-card">
+        <div class="pub-ratio-header">
+          <span class="pub-ratio-title">Byline Transparency</span>
+          <span class="pub-ratio-value" style="color: #f59e0b;">54.0%</span>
+        </div>
+        <div class="pub-meter-track">
+          <div class="pub-meter-fill warning" style="width: 54%;"></div>
+        </div>
+        <div class="pub-ratio-desc">
+          <strong>46% anonymous/staff handles</strong>. Reliance on generic "InMaricopa Staff" bylines conceals author identity on commercial and civic stories.
+        </div>
+      </div>
+
+      <!-- Single-Source Blotter Reliance -->
+      <div class="pub-ratio-card">
+        <div class="pub-ratio-header">
+          <span class="pub-ratio-title">Single-Source Blotter</span>
+          <span class="pub-ratio-value" style="color: #22c55e;">7.7%</span>
+        </div>
+        <div class="pub-meter-track">
+          <div class="pub-meter-fill success" style="width: 7.7%;"></div>
+        </div>
+        <div class="pub-ratio-desc">
+          <strong>Low overall volume</strong>. Routine police and highway patrol crash dispatches passed through with minimal independent corroboration.
+        </div>
+      </div>
+
+      <!-- Conflict of Interest Exposure -->
+      <div class="pub-ratio-card" style="border-color: rgba(239, 68, 68, 0.35);">
+        <div class="pub-ratio-header">
+          <span class="pub-ratio-title" style="color: #fca5a5;">Conflict of Interest Exposure</span>
+          <span class="pub-ratio-value" style="color: #ef4444;">100.0%</span>
+        </div>
+        <div class="pub-meter-track">
+          <div class="pub-meter-fill danger" style="width: 100%;"></div>
+        </div>
+        <div class="pub-ratio-desc">
+          <strong>Critical governance risk</strong>. 100% of analyzed civic op-eds involve official municipal land/zoning votes without independent recusal.
+        </div>
+      </div>
+
+      <!-- Advertorial Separation Index -->
+      <div class="pub-ratio-card">
+        <div class="pub-ratio-header">
+          <span class="pub-ratio-title">Advertorial Separation</span>
+          <span class="pub-ratio-value" style="color: #38bdf8;">84.6 / 100</span>
+        </div>
+        <div class="pub-meter-track">
+          <div class="pub-meter-fill info" style="width: 84.6%;"></div>
+        </div>
+        <div class="pub-ratio-desc">
+          <strong>Camouflaged commercial copy</strong>. Private laser clinic and rental management promotions published under regular news headlines.
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Section: Top Violated Rules -->
+    <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.65rem; letter-spacing: 0.05em;">
+      Top Codified Rule Violations
+    </div>
+    <div class="pub-rules-grid">
+      <div class="pub-rule-row">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <span class="rule-id-badge">SPJ-3.3</span>
+          <span style="font-size: 0.85rem; color: #fff; font-weight: 600;">Distinguish News from Advertising</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 0.78rem; color: var(--text-muted);">Clinic and property management sales pitches</span>
+          <span style="font-family: var(--font-mono, monospace); font-weight: 700; color: #f87171; font-size: 0.82rem;">15.4% of audits</span>
+        </div>
+      </div>
+
+      <div class="pub-rule-row">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <span class="rule-id-badge">AST-1.1</span>
+          <span style="font-size: 0.85rem; color: #fff; font-weight: 600;">Astroturfing &amp; Commercial Payload</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 0.78rem; color: var(--text-muted);">Commercial phone directories embedded in news feeds</span>
+          <span style="font-family: var(--font-mono, monospace); font-weight: 700; color: #f87171; font-size: 0.82rem;">15.4% of audits</span>
+        </div>
+      </div>
+
+      <div class="pub-rule-row">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <span class="rule-id-badge">SPJ-3.1</span>
+          <span style="font-size: 0.85rem; color: #fff; font-weight: 600;">Undisclosed Conflict of Interest</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 0.78rem; color: var(--text-muted);">City land disposal vote involving company publisher</span>
+          <span style="font-family: var(--font-mono, monospace); font-weight: 700; color: #f87171; font-size: 0.82rem;">7.7% of audits</span>
+        </div>
+      </div>
+
+      <div class="pub-rule-row">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <span class="rule-id-badge">DEC-1.4</span>
+          <span style="font-size: 0.85rem; color: #fff; font-weight: 600;">Deceptive Urgency Dark Pattern</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 0.78rem; color: var(--text-muted);">"Exclusive event pricing available only during launch"</span>
+          <span style="font-family: var(--font-mono, monospace); font-weight: 700; color: #f87171; font-size: 0.82rem;">7.7% of audits</span>
+        </div>
+      </div>
+
+      <div class="pub-rule-row">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <span class="rule-id-badge">SPJ-1.1</span>
+          <span style="font-size: 0.85rem; color: #fff; font-weight: 600;">Unsourced Police Blotter Pass-Through</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 0.78rem; color: var(--text-muted);">100% single-source DPS press release copy</span>
+          <span style="font-family: var(--font-mono, monospace); font-weight: 700; color: #f87171; font-size: 0.82rem;">7.7% of audits</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 2: Raw Canonical ASCII / JSON View -->
+  <div id="pub-panel-raw" style="display: none;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+      <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono, monospace);">RFC 8785 Canonical JSON &amp; Formatted Terminal Stream</span>
+      <button type="button" class="widget-btn" id="btn-pub-copy-ascii" style="padding: 0.3rem 0.75rem; font-size: 0.75rem;">📋 Copy Raw Receipt</button>
+    </div>
+    <pre id="pub-ascii-content" style="background: #020617; border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 8px; padding: 1rem; color: #38bdf8; font-family: var(--font-mono, monospace); font-size: 0.78rem; line-height: 1.45; overflow-x: auto; margin: 0;">
 ╭─────────────────────────────────────────────────────────────────────────────╮
 │                        Domain Epistemic Index (DEI)                         │
 │                                62.5 / 100.0                                 │
@@ -240,8 +422,99 @@ Aggregating all historical audits for `inmaricopa.com` yields the following cali
 │  • SPJ-3.1  (Undisclosed Conflict of Interest)   —  7.7% of audits          │
 │  • DEC-1.4  (Deceptive Urgency Patterns)         —  7.7% of audits          │
 │  • SPJ-1.1  (Unsourced Law Enforcement Blotter)  —  7.7% of audits          │
-╰─────────────────────────────────────────────────────────────────────────────╯
-```
+╰─────────────────────────────────────────────────────────────────────────────╯</pre>
+  </div>
+</div>
+
+---
+
+## 🧠 How to Read & Interpret Credence Epistemic Data
+
+Credence is fundamentally different from traditional commercial fact-checking organizations. Rather than issuing subjective binary verdicts ("True" or "False") on isolated political claims, Credence evaluates **structural journalistic ethics, provenance transparency, financial conflict exposure, and source grounding**.
+
+Here is how to interpret each dimension of a Credence audit report:
+
+### 1. The Domain Epistemic Index ($DEI$)
+The **Domain Epistemic Index ($DEI$)** is a calibrated composite score on a $[0.0, 100.0]$ scale that measures an entire publication's aggregate reliability across time:
+
+$$\text{DEI} = 100.0 - \left( 0.50 \cdot \bar{S}_{\text{recency}} + 0.30 \cdot \bar{D} + 0.20 \cdot (1 - R_{\text{byline}}) \cdot 100 \right)$$
+
+| Trust Band | Score Range | Journalistic Characteristics |
+| :--- | :---: | :--- |
+| 🟢 **Trusted & High Integrity** | **$80.0 - 100.0$** | High byline transparency ($>85\%$), clear commercial demarcations, multi-source corroboration, proactive conflict of interest disclosures. |
+| 🔵 **Reliable Newsroom** | **$65.0 - 79.9$** | Standard professional local reporting. Minor wire or blotter reliance, but maintain editorial firewalls. |
+| 🟡 **Mixed Reputation** | **$50.0 - 64.9$** | **Current InMaricopa.com state ($62.5$)**. Legitimate community event coverage blended with unlabelled commercial advertorials and municipal governance conflicts. |
+| 🔴 **Deceptive / High Risk** | **$< 50.0$** | Astroturfing networks, pink-slime syndication rings, algorithmic clickbait farms with opaque provenance. |
+
+---
+
+### 2. Demystifying the Forensic Sourcing Ratios
+
+Credence computes four primary mathematical ratios for every monitored outlet:
+
+1. **Byline Transparency ($R_{\text{byline}} = \frac{N_{\text{named}}}{N_{\text{total}}} = 54.0\%$)**:
+   - **What it measures**: The percentage of articles with named human journalist bylines versus generic "Staff" handles.
+   - **Why it matters**: In healthy newsrooms, journalists sign their work. In exurban news deserts, generic staff handles are frequently used to camouflage commercial marketing copy or political defense essays as regular newsroom reporting.
+
+2. **Conflict of Interest Exposure ($R_{\text{COI}} = 100.0\%$)**:
+   - **What it measures**: The fraction of civic and municipal governance articles where the author or publisher holds financial, political, or official ties to the subject matter without proactive recusal or disclosure.
+   - **Why it matters**: When an elected councilmember uses their own monopolistic news outlet to defend public land votes benefiting their company's publisher, $R_{\text{COI}}$ triggers a critical governance alert.
+
+3. **Advertorial Separation Index ($ASI = 84.6 / 100$)**:
+   - **What it measures**: The structural separation between paid commercial advertisements and independent news reporting.
+   - **Why it matters**: Advertorials published without explicit `[Sponsored]` banners, clear visual demarcation, or Schema.org `AdvertiserContentArticle` markup deceive readers into believing sales pitches are unbiased medical or consumer advice.
+
+4. **Single-Source Blotter Reliance ($R_{\text{single}} = 7.7\%$)**:
+   - **What it measures**: The percentage of crime, accident, and court reporting that relies exclusively on a single government or police dispatch press release.
+   - **Why it matters**: Passing through law enforcement PR verbatim without independent corroboration or witness interviews can distort community crime perception.
+
+---
+
+### 3. Suspicion Scores ($S$) and the $G=1.00$ Grounding Invariant
+
+Every article audit produces a calibrated Suspicion Score $S \in [0.0, 100.0]$:
+- **$0.0 - 25.0$ (Clean / Grounded)**: High journalistic integrity, zero deceptive patterns.
+- **$25.0 - 50.0$ (Review Recommended)**: Single-source pass-through or minor framing bias.
+- **$50.0 - 75.0$ (Suspicious)**: Camouflaged advertorials or undisclosed commercial insertion.
+- **$75.0 - 100.0$ (Deceptive / Unethical)**: Severe governance conflict of interest or deliberate dark patterns.
+
+> [!IMPORTANT]
+> **The Zero-Hallucination Grounding Invariant ($G=1.00$)**: Credence never relies on ungrounded AI summaries. Every single violation citation **must match a verbatim substring from the harvested web page ($G=1.00$)**. If an AI model flags a violation but cannot point to the exact quoted text in the article, the citation is mathematically rejected.
+
+---
+
+## 📡 Live Ongoing Monitoring: Continuous Verification & Anti-Cherry-Picking
+
+> [!TIP]
+> **Think these findings were an isolated fluke or cherry-picked?**
+> Credence does not perform one-time manual hit pieces. The decentralized Credence node mesh continuously ingests and audits `inmaricopa.com`'s live syndicated feeds in real-time, verifying every new publication as it goes live.
+
+You can inspect the up-to-the-minute live stream, query the REST API, or run your own independent audits right now:
+
+<div class="live-monitor-callout">
+  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem;">
+    <span style="font-size: 1.5rem;">⚡</span>
+    <h4 style="margin: 0; color: #fff; font-size: 1.05rem;">Live Real-Time Verification Channels for InMaricopa.com</h4>
+  </div>
+  <p style="margin: 0 0 1rem 0; color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;">
+    Verify current publisher metrics and test any recently published article against the sovereign Credence mesh:
+  </p>
+  <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+    <div>
+      🔍 <a href="https://credence.report/#analytics/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Inspect Live Publisher Analytics Dashboard on Credence Report</a> — Real-time DEI trendline, rolling sourcing ratios, and latest article stream.
+    </div>
+    <div>
+      ⚡ <a href="https://credence-server-663899237633.us-central1.run.app/api/analytics/publisher/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Direct Production REST API JSON Feed</a> — Live machine-readable publisher record on Google Cloud Run.
+    </div>
+    <div>
+      📡 <a href="#docs/protocols/fastmcp" style="color: var(--accent-cyan); font-weight: 600;">Query FastMCP Dynamic Resource</a> — Connect Claude or Cursor to <code>credence://analytics/publisher/inmaricopa.com</code>.
+    </div>
+  </div>
+  <div style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid rgba(56, 189, 248, 0.2);">
+    <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 600;">💻 Audit Any Current InMaricopa Article in Real Time from Your Terminal:</div>
+    <pre style="background: #020617; border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 6px; padding: 0.65rem 0.85rem; color: #38bdf8; font-family: var(--font-mono, monospace); font-size: 0.8rem; margin: 0;">credence audit https://inmaricopa.com/&lt;any-article-slug&gt; --profile balanced</pre>
+  </div>
+</div>
 
 ---
 
@@ -355,5 +628,6 @@ Explore the underlying algorithms, mathematical proofs, and taxonomy specificati
 * **Commercial Camouflage**: [FTC Enforcement Policy Statement on Deceptively Formatted Advertorials](https://www.ftc.gov/business-guidance/resources/native-advertising-guide-businesses)
 * **Public Records Statutory Protections**: [Arizona Public Records Law (A.R.S. § 39-121)](https://www.azleg.gov/ars/39/00121.htm)
 * **Structured Claim Markup**: [Schema.org ClaimReview Specification](https://schema.org/ClaimReview)
+
 
 

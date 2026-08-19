@@ -7,6 +7,22 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.12.1] - 2026-08-18
+
+### Added
+- **Rich Interactive Publisher Analytics Dashboard**:
+  - Replaced static ASCII formatting with a high-contrast, responsive glassmorphic publisher profile card on `blog.credence.run` and `docs.credence.run`.
+  - Added dual-mode tab switcher toggling seamlessly between **Visual Dashboard** and **Raw Canonical ASCII / JSON** views.
+  - Added visual Domain Epistemic Index (DEI) score meter with interactive 4-zone spectrum track and real-time position marker.
+  - Added interactive progress meters for the 4 primary forensic ratios: Byline Transparency ($R_{\text{byline}}$), Single-Source Blotter Reliance ($R_{\text{single}}$), Conflict of Interest Exposure ($R_{\text{COI}}$), and Advertorial Separation Index ($ASI$).
+  - Added interactive codified rule violation rows for `SPJ-3.3`, `AST-1.1`, `SPJ-3.1`, `DEC-1.4`, and `SPJ-1.1` with frequency badges and direct catalog links.
+- **Exhaustive Epistemic Data Interpretation Guide**:
+  - Added comprehensive educational section *"How to Read & Interpret Credence Epistemic Data"* explaining structural journalistic ethics vs. binary fact-checking.
+  - Detailed mathematical derivations and real-world interpretations of the Domain Epistemic Index (DEI), trust bands, and forensic sourcing ratios.
+  - Clarified Suspicion Score calibration ($S \in [0, 100]$) and the Zero-Hallucination Grounding Invariant ($G=1.00$) with exact DOM quotation proofs.
+- **Live Continuous Monitoring & Anti-Cherry-Picking Channels**:
+  - Added live real-time verification section with links to live publisher analytics on `credence.report`, production REST API endpoints (`GET /api/analytics/publisher/inmaricopa.com`), FastMCP dynamic resources (`credence://analytics/publisher/inmaricopa.com`), and CLI verification commands.
+
 ## [1.12.0] - 2026-08-18
 
 ### Added
