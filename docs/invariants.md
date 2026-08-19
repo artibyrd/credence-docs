@@ -274,6 +274,16 @@ flowchart TD
 <p>All UI and documentation rendering updates must be verified via automated Playwright live rendering test suites (<code>tests/test_docs_rendering.py</code>) ensuring non-zero SVG diagram dimensions, zero raw HTML tag leaks in rendered prose, and interactive widget state contracts.</p>
 </div>
 
+<div class="invariant-card" id="invariant-37">
+<h3><a href="#docs/invariants#invariant-37">Invariant 37: Zero-Build Inline HTML Tag & Nested Math Integrity</a></h3>
+<p>Zero-build Markdown parsers must mask and preserve safe author-supplied inline HTML tags (<code>&lt;a&gt;</code>, <code>&lt;code&gt;</code>, <code>&lt;span&gt;</code>) before entity escaping and use balanced-brace recursive parsing for nested LaTeX mathematical structures (e.g. <code>\frac{...}{...}</code>) to guarantee zero raw tag string leaks or unparsed backslashes across all surfaces.</p>
+</div>
+
+<div class="invariant-card" id="invariant-38">
+<h3><a href="#docs/invariants#invariant-38">Invariant 38: Anti-Scrollbox & Natural Flow Presentation</a></h3>
+<p>Document reading surfaces and forensic inspectors must never constrain content with fixed nested vertical scrollbars; article previews must expand naturally (<code>height: auto; overflow: visible;</code>) and dense technical payloads must be encapsulated in native <code>&lt;details&gt;</code> accordions with auto-height <code>&lt;pre&gt;</code> blocks.</p>
+</div>
+
 ---
 
 ## Invariant Reference Index Matrix
@@ -300,3 +310,5 @@ flowchart TD
 | **[Invariant 34](#invariant-34)** | Presentation | Mermaid Syntax Safety | Standard quoted graph syntax |
 | **[Invariant 35](#invariant-35)** | Presentation | Visual Density | $\ge 2.0$ visuals per 500 words |
 | **[Invariant 36](#invariant-36)** | Presentation | Live Playwright Tests | SVG geometry & 0 HTML leaks |
+| **[Invariant 37](#invariant-37)** | Presentation | Inline HTML & Math | Balanced-brace LaTeX & safe tag masking |
+| **[Invariant 38](#invariant-38)** | Presentation | Anti-Scrollbox Flow | Natural auto-height & details accordion |
