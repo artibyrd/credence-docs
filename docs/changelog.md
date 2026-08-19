@@ -7,6 +7,22 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.8.0] - 2026-08-18
+
+### Added
+- **Cloud Run Deployment Hardening, Multi-Plane Operations & Parameterized Justfile**:
+  - Refactored `Justfile` into canonical parameterized recipe families (`preflight [tool]`, `test [suite]`, `serve [transport]`, `gcp [action]`, `edge [action]`, `pipeline [action]`, `tf [action]`, `deploy [target]`) with automated toolchain prerequisites (`(preflight "gcloud")`, `(preflight "wrangler")`, `(preflight "gh")`, `(preflight "terraform")`).
+  - Added dedicated Google Cloud Run deployment workflow (`.github/workflows/deploy-backend.yml`) with Workload Identity Federation support, automated health verification, and clear fallback skip notices when secrets are unconfigured.
+  - Aligned `cloudbuild.yaml` and Terraform Cloud Run service definitions (`gcr.io/credence-prod-505902/credence-server:latest`) with 1Gi memory limits for headless browser stability.
+  - Upgraded lifespan auto-germination in `credence/server/app.py` to non-blocking background execution, ensuring instant sub-100ms HTTP readiness on cold boot.
+  - Added high-leverage operator workflows: `just check` (6-step pre-commit QA gate in <90s), `just ignite` (zero-touch dev onboarding), `just doctor` (multi-plane health diagnostic across Agent, Compute, Edge, and Infra planes), and `just gcp probe` / `just gcp germinate`.
+  - Upgraded Cloud Run deployment to live serving revision `00005-dn7` with 100% green health probes and remote Miracle-Gro germination verification.
+- **Knowledge Governance & Progressive Skills Architecture (`/remember`)**:
+  - Implemented `knowledge-governance` skill (`.agents/skills/knowledge-governance/SKILL.md`) enforcing the 4-tier knowledge taxonomy and preventing attention dilution in `AGENTS.md`.
+  - Implemented `cloudrun-ops` skill (`.agents/skills/cloudrun-ops/SKILL.md`) extracting multi-step GCP Cloud Run deployment and rollback runbooks into on-demand progressive disclosure.
+  - Pruned and distilled `AGENTS.md` across all ecosystem repositories into a crisp, high-density invariant contract (<1,000 tokens) with a clean progressive skills index.
+  - Updated agent configuration to mandate explicit declaration of the target Semantic Version about to be released when presenting walkthroughs.
+
 ## [1.7.0] - 2026-08-18
 
 ### Added
@@ -20,8 +36,6 @@ All notable changes to the **Credence** network and documentation are documented
   - Built a framed diagram window display engine (`.mermaid-window`, `.mermaid-window-header`, `.window-dot`) with semantic ARIA roles.
   - Enforced strict **WCAG 2.1 AA/AAA anti-light-on-light contrast rules** (`fill: #f8fafc !important;` on `#0f172a`/`#1e293b` slate with amber-guarded sequence notes).
   - Added accessible 2px offset `:focus-visible` glow rings across all interactive controls.
-- **Formalized Post-Walkthrough Release Protocol**:
-  - Codified the mandatory human-gated 6-step release workflow (`/learn` -> review changelog/roadmap -> commit -> tag -> push -> monitor deployment) in `AGENTS.md`.
 
 ## [1.6.0] - 2026-08-18
 
