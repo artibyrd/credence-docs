@@ -96,7 +96,7 @@ asyncio.run(main())
    - **Right Panel**: In-context cited excerpts and specialist reasoning.
    - Press `f` to live-filter findings by keyword (e.g. `MED`, `SPJ`, `fallacy`).
 
-![Credence TUI Inspector](assets/tui/01-inspector-rich.svg)
+![Credence TUI Inspector](../../assets/tui/01-inspector-rich.svg)
 :::
 
 ---
@@ -149,7 +149,7 @@ for v in report.violations:
 2. Press `v` to cycle between **Rich Takeaway**, **Compact Digest**, and **Raw RFC 8785 JSON** view modes.
 3. Review flagged deceptions with instant severity highlighting and grounding checks.
 
-![Credence TUI Compact View](assets/tui/02-inspector-compact.svg)
+![Credence TUI Compact View](../../assets/tui/02-inspector-compact.svg)
 :::
 
 ---
@@ -203,7 +203,7 @@ const isValid = await window.crypto.subtle.verify(
 2. The header automatically verifies the cryptographic signature: `[✓ Signed]` or `[Unsigned]`.
 3. Press `6` to jump to the **Node Identity** pane to inspect your local Ed25519 public key and attestation capabilities.
 
-![Credence Node Identity](assets/tui/10-node-identity.svg)
+![Credence Node Identity](../../assets/tui/10-node-identity.svg)
 :::
 
 ---

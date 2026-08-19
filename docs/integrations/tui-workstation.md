@@ -17,7 +17,7 @@ It provides real-time audit monitoring, grounded citation inspection, syndicated
 credence tui
 ```
 
-![Credence TUI Workstation](assets/tui/01-inspector-rich.svg)
+![Credence TUI Workstation](../../assets/tui/01-inspector-rich.svg)
 
 ---
 
@@ -65,7 +65,7 @@ graph TD
 ### Tab 1 (`1`): 🛡️ Epistemic Inspector & Grounded Evidence
 The primary analytical surface for inspecting multi-specialist findings. Select any audit from the sidebar to inspect the calibrated suspicion score, density per 1,000 words, and itemized violations.
 
-![TUI Inspector](assets/tui/01-inspector-rich.svg)
+![TUI Inspector](../../assets/tui/01-inspector-rich.svg)
 
 * **Left Panel**: Filterable DataTable listing Rule IDs, severity badges (`1/5` to `5/5`), taxonomy domains, and verbatim text excerpts.
 * **Right Panel**: Detailed evidence view displaying the exact grounded quote, specialist reasoning, and canonical rule URI.
@@ -75,7 +75,7 @@ The primary analytical surface for inspecting multi-specialist findings. Select 
 ### Tab 2 (`2`): 📚 Registered Taxonomy Catalogs
 Browse all loaded taxonomy rulebooks (SPJ Journalistic Ethics, Informal Logical Fallacies, Deceptive UI Patterns, Medical/Health Sourcing).
 
-![Taxonomies Tree](assets/tui/05-taxonomies-tree.svg)
+![Taxonomies Tree](../../assets/tui/05-taxonomies-tree.svg)
 
 * Collapsible tree hierarchy showing catalogs, thematic clusters, rule IDs, and baseline severity ratings.
 * Pinned by SHA-256 catalog hashes in accordance with **[Invariant 5](../invariants.md#invariant-5)** (Namespaced Fixed Taxonomies).
@@ -85,7 +85,7 @@ Browse all loaded taxonomy rulebooks (SPJ Journalistic Ethics, Informal Logical 
 ### Tab 3 (`3`): 🧠 Hierarchical Domain Subject Registry
 Explore the subject taxonomy used for domain-weighted consensus and specialist routing.
 
-![Domain Subjects](assets/tui/06-domain-subjects.svg)
+![Domain Subjects](../../assets/tui/06-domain-subjects.svg)
 
 * Multi-tier hierarchy spanning journalism, computing, science, biology, and satire.
 * Used to calculate empirical node expertise ($E_i$) and enforce the **[Anti-Diploma Invariant](../invariants.md#invariant-17)**.
@@ -95,7 +95,7 @@ Explore the subject taxonomy used for domain-weighted consensus and specialist r
 ### Tab 4 (`4`): 📡 Syndicated Feeds & Dedup Stream
 Monitor RSS, Atom, and JSON syndicated feeds partitioned across the swarm via Highest Random Weight (HRW) Rendezvous Hashing.
 
-![Feeds Stream](assets/tui/07-feeds-stream.svg)
+![Feeds Stream](../../assets/tui/07-feeds-stream.svg)
 
 * Displays priority tiers (`T1` Breaking to `T4` Satire), title, feed URL, classified subject tag, and active status.
 * Real-time composite quality metric ($F_j = 0.35 S + 0.25 G + 0.20 H + 0.20 T$).
@@ -106,7 +106,7 @@ Monitor RSS, Atom, and JSON syndicated feeds partitioned across the swarm via Hi
 ### Tab 5 (`5`): ⚡ Token Safety Governor & Quota
 Real-time monitoring of LLM token consumption and automatic circuit breakers.
 
-![Token Quota](assets/tui/09-token-quota.svg)
+![Token Quota](../../assets/tui/09-token-quota.svg)
 
 * **Hourly & Daily Headroom**: Percentage remaining and exact token counts.
 * **Spend Budget**: Estimated 24-hour spend in USD against daily ceilings.
@@ -117,7 +117,7 @@ Real-time monitoring of LLM token consumption and automatic circuit breakers.
 ### Tab 6 (`6`): 🔑 Cryptographic Node Identity (Ed25519)
 Inspect your node's cryptographic keypair used to sign and verify attestations across the P2P mesh.
 
-![Node Identity](assets/tui/10-node-identity.svg)
+![Node Identity](../../assets/tui/10-node-identity.svg)
 
 * Displays public key hex, private keyfile location, and verification readiness.
 * Guarantees 100% tamper-evident envelopes in compliance with RFC 8785.
@@ -127,7 +127,7 @@ Inspect your node's cryptographic keypair used to sign and verify attestations a
 ### Tab 7: 🌅 Morning Epistemic Briefing & Mesh Savings
 Review the automated 24-hour executive summary compiling articles sifted across all syndicated feeds.
 
-![Morning Digest](assets/tui/08-morning-digest.svg)
+![Morning Digest](../../assets/tui/08-morning-digest.svg)
 
 * Breakdown of total articles evaluated, clean verified coverage, flagged deceptions, and verified satire.
 * **Mesh Compute Savings**: Displays exact tokens and USD saved through zero-token peer attestation adoptions.
@@ -146,16 +146,16 @@ In accordance with **[Invariant 25](../invariants.md#invariant-25)**, the TUI su
 
 :::tabs
 === Rich Executive View
-![Rich View](assets/tui/01-inspector-rich.svg)
+![Rich View](../../assets/tui/01-inspector-rich.svg)
 
 === Compact Digest View
-![Compact View](assets/tui/02-inspector-compact.svg)
+![Compact View](../../assets/tui/02-inspector-compact.svg)
 
 === Raw RFC 8785 Schema
-![Raw JSON](assets/tui/03-inspector-raw-json.svg)
+![Raw JSON](../../assets/tui/03-inspector-raw-json.svg)
 
 === Satire Neutralization
-![Satire View](assets/tui/04-inspector-satire.svg)
+![Satire View](../../assets/tui/04-inspector-satire.svg)
 :::
 
 ---
@@ -165,7 +165,7 @@ In accordance with **[Invariant 25](../invariants.md#invariant-25)**, the TUI su
 ### URL Audit Modal (`/`)
 Pressing `/` opens an interactive modal to submit any public URL or local fixture for instant multi-agent evaluation without leaving the terminal:
 
-![Audit URL Modal](assets/tui/11-audit-modal.svg)
+![Audit URL Modal](../../assets/tui/11-audit-modal.svg)
 
 ### Real-Time Finding Filter (`f`)
 Pressing `f` focuses the filter input bar above the violations table. As you type, the table immediately filters findings across rule IDs, taxonomy domains, reasoning, and quoted excerpts:

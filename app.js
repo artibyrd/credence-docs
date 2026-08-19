@@ -169,11 +169,7 @@ export const DOCS_REGISTRY = [
       { id: "docs/frontend-architecture", title: "Zero-Build Web Architecture", path: "docs/frontend-architecture.md", desc: "Zero-build philosophy: vanilla HTML5, CSS Custom Properties, and Web Crypto.", keywords: ["frontend", "zero-build", "html5", "css", "webcrypto", "standards"] },
       { id: "docs/roadmap", title: "Roadmap & Backlog", path: "docs/roadmap.md", desc: "Current development roadmap, completed milestones, and upcoming features.", keywords: ["roadmap", "backlog", "future", "milestones", "features"] }
     ]
-  }
-];
-
-// Sovereign Blog Registry
-export const BLOG_REGISTRY = [
+  },
   {
     category: "Investigative Case Studies & Field Forensics",
     items: [
@@ -217,6 +213,9 @@ export const BLOG_REGISTRY = [
     ]
   }
 ];
+
+// Sovereign Blog Registry export
+export const BLOG_REGISTRY = DOCS_REGISTRY.filter(g => g.items.some(it => it.id.startsWith("blog/")));
 
 // Master Taxonomy Data (46 Authentic Rules across SPJ, IEP, Deceptive Patterns, & Domain Extensions)
 const FULL_TAXONOMY_RULES = [
@@ -3611,7 +3610,11 @@ export async function loadDocument(docId, anchorId = '') {
 
   if (!target) {
     const isBlog = isBlogContext();
-    target = isBlog ? DOCS_REGISTRY[DOCS_REGISTRY.length - 1].items[0] : DOCS_REGISTRY[0].items[0];
+    if (isBlog) {
+      target = DOCS_REGISTRY.flatMap(g => g.items).find(it => it.id === 'blog/conflict-of-pun-terest') || DOCS_REGISTRY[0].items[0];
+    } else {
+      target = DOCS_REGISTRY[0].items[0];
+    }
   }
 
   renderSidebar(target.id);
@@ -3620,7 +3623,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.15.0';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.15.1';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 

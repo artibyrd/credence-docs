@@ -111,7 +111,7 @@ print(f"Status: {report['status']}")
 2. Review priority tiers (`T1`–`T4`), dynamic composite quality scores ($F_j$), classified subject namespaces, and active statuses.
 3. Press `3` to cross-reference hierarchical domain subjects in the taxonomy browser.
 
-![Credence TUI Feeds Stream](assets/tui/07-feeds-stream.svg)
+![Credence TUI Feeds Stream](../../assets/tui/07-feeds-stream.svg)
 :::
 
 ---

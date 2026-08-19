@@ -85,7 +85,7 @@ credence digest --format json --output /var/log/credence/digest.json
    - Flagged deceptions with violation rule IDs and severity scores.
    - Swarm mesh compute savings ($0.00 zero-token adoptions).
 
-![Credence TUI Morning Digest](assets/tui/08-morning-digest.svg)
+![Credence TUI Morning Digest](../../assets/tui/08-morning-digest.svg)
 :::
 
 ---
@@ -128,7 +128,7 @@ print(f"Mesh Savings %: {stats.savings_percentage}%")
 2. Monitor your hourly and daily token headroom budgets in real time.
 3. Verify that the **Circuit Breaker Status** remains `🟢 HEALTHY (Normal Concurrency)` and review 24h estimated spend.
 
-![Credence TUI Token Quota](assets/tui/09-token-quota.svg)
+![Credence TUI Token Quota](../../assets/tui/09-token-quota.svg)
 :::
 
 ---

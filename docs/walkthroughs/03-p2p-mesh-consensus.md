@@ -68,7 +68,7 @@ print('Air-gapped seed key generated.')
 2. Press `6` to switch to the **🔑 Node Identity** tab.
 3. Review your node's local Ed25519 Public Key (Hex), private keyfile path, and cryptographic attestation readiness.
 
-![Credence Node Identity](assets/tui/10-node-identity.svg)
+![Credence Node Identity](../../assets/tui/10-node-identity.svg)
 :::
 
 ---
@@ -121,7 +121,7 @@ print(f"Galileo Rule Triggered: {consensus_result.galileo_override}")
 2. Select any recent audit to observe whether peer attestation consensus was reached or if the Galileo Rule override was invoked.
 3. Press `v` to view the canonical multi-node signatures in the raw RFC 8785 envelope.
 
-![Credence TUI Inspector](assets/tui/01-inspector-rich.svg)
+![Credence TUI Inspector](../../assets/tui/01-inspector-rich.svg)
 :::
 
 ---
@@ -136,7 +136,7 @@ Inspect the 13-node Watts-Strogatz topology and real-time gossip propagation.
 2. Press `4` to switch to **📡 Feeds & Dedup** to view live peer adoptions and effort avoidance.
 3. Observe real-time sync indicators reporting zero-token peer attestation exchanges.
 
-![Credence TUI Feeds Stream](assets/tui/07-feeds-stream.svg)
+![Credence TUI Feeds Stream](../../assets/tui/07-feeds-stream.svg)
 
 === Interactive Web Visualizer
 1. Open the [Interactive 13-Node Mesh Simulator](../playground.md#1-13-node-watts-strogatz-mesh-gossip-simulator) in your browser.
