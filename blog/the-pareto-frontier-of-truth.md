@@ -1,12 +1,19 @@
 ---
-title: "The $0.34 Pareto Frontier: Why Flagship Models Fail at Fact-Checking"
-description: "Why running $18/1k audit flagship models is not just cost-prohibitive, but produces worse truth audits. Live empirical benchmarks prove that Gemini 3.7 Flash with 4k thinking is the Pareto sweet spot."
-slug: "the-pareto-frontier-of-truth"
-date: "2026-08-18"
-author: "Credence Research & Architecture Team"
-category: "Empirical Benchmarks & Economics"
-read_time: "7 min read"
-summary: "Why running $18/1k audit flagship models is not just cost-prohibitive, but produces worse truth audits. Live empirical benchmarks prove that Gemini 3.7 Flash with a 4,096 thinking token budget is the undisputed champion of epistemic verification."
+title: 'The $0.34 Pareto Frontier: Why Flagship Models Fail at Fact-Checking'
+description: Why running $18/1k audit flagship models is not just cost-prohibitive,
+  but produces worse truth audits. Live empirical benchmarks prove that Gemini 3.7
+  Flash with 4k thinking is the Pareto sweet spot.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+slug: the-pareto-frontier-of-truth
+date: '2026-08-18'
+author: Credence Research & Architecture Team
+category: Empirical Benchmarks & Economics
+read_time: 7 min read
+summary: Why running $18/1k audit flagship models is not just cost-prohibitive, but
+  produces worse truth audits. Live empirical benchmarks prove that Gemini 3.7 Flash
+  with a 4,096 thinking token budget is the undisputed champion of epistemic verification.
 ---
 
 # The $0.34 Pareto Frontier: Why Flagship Models Fail at Fact-Checking

@@ -1,9 +1,13 @@
 ---
-title: "GCP Cloud Run Deployment & Dual-Tier Monitoring"
-description: "Deploy the FastMCP 2.0 server to Google Cloud Run with scale-to-zero, Secret Manager, billing alerts, Discord webhooks, and interface telemetry loopbacks."
+title: Cloud Run Deployment & Dual-Tier Monitoring Guide
+description: Deploying to Google Cloud Run with Terraform, $15/mo budget cap, scale-to-zero
+  compute, and automated CI/CD.
+since_version: v1.8.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 ---
 
-# GCP Cloud Run Deployment & Dual-Tier Monitoring
+# Cloud Run Deployment & Dual-Tier Monitoring Guide
 
 This guide covers deploying the **Credence FastMCP Server** to **Google Cloud Platform (Cloud Run v2)** with strict cost controls ($15/month budget ceiling, scale-to-zero compute), automated **Cloud Build CI/CD**, and **Dual-Tier SRE Observability** with **Discord & Powercord Alerting**.
 
@@ -56,24 +60,37 @@ Credence provisions observability according to two operational modes controlled 
 
 ## 3. Terraform Deployment Steps
 
-### Step 1: Configure Terraform Variables
+### Step 1: Initialize gcloud & Enable APIs
+```bash
+gcloud config set project YOUR_PROJECT_ID
+
+gcloud services enable \
+    run.googleapis.com \
+    secretmanager.googleapis.com \
+    artifactregistry.googleapis.com \
+    cloudbuild.googleapis.com \
+    billingbudgets.googleapis.com \
+    monitoring.googleapis.com
+```
+
+### Step 2: Configure Terraform Variables
 Create `terraform/terraform.tfvars`:
 ```hcl
 project_id                  = "YOUR_PROJECT_ID"
 region                      = "us-central1"
 service_name                = "credence-server"
-credence_profile            = "balanced"
+credence_profile            = "balanced" # or 'free', 'ultra'
 monthly_budget_limit_usd    = 15.00
 billing_account_id          = "YOUR_BILLING_ACCOUNT_ID"
 alert_email_addresses       = ["admin@yourdomain.com"]
 
-# Easy Mode Monitoring & Discord Integration
+# Dual-Tier Monitoring & Discord Webhook
 monitoring_tier             = "simple" # or "advanced"
 discord_webhook_url         = "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN"
 enable_uptime_check         = true
 ```
 
-### Step 2: Provision Infrastructure
+### Step 3: Initialize and Apply Terraform
 ```bash
 cd terraform
 terraform init
@@ -81,32 +98,61 @@ terraform plan
 terraform apply
 ```
 
-### Step 3: Verify Live SSE Service & Interface Telemetry
+### Step 4: Add Gemini API Key to Secret Manager
 ```bash
-# Verify FastMCP stream
-curl -i https://mcp.credence.run/sse
-
-# Inspect live telemetry loopback via CLI
-credence health
+echo -n "YOUR_GEMINI_API_KEY" | gcloud secrets versions add credence-gemini-api-key --data-file=-
 ```
 
 ---
 
-## 4. Operational Cross-References & External Documentation
+## 4. Connecting Antigravity & Claude Desktop to Cloud Run
 
-### 📚 Official Cloud & Provider Specifications
-* **Google Cloud Run v2**: [Cloud Run Service Configuration & Autoscaling](https://cloud.google.com/run/docs/configuring/services) &bull; [Scale-to-Zero Architecture](https://cloud.google.com/run/docs/about-instance-autoscaling)
-* **Google Secret Manager**: [Secret Manager IAM & Auto-Resolution](https://cloud.google.com/secret-manager/docs/access-secret-version)
-* **Google Cloud Billing**: [Billing Alert Thresholds & Webhook Integrations](https://cloud.google.com/billing/docs/how-to/budgets)
-* **Google Cloud Monitoring**: [Uptime Checks & Notification Channels](https://cloud.google.com/monitoring/alerts)
-* **Terraform Provider**: [HashiCorp Google Provider on Terraform Registry](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_run_v2_service)
-* **Discord Developer Portal**: [Discord Webhooks Protocol Guide](https://discord.com/developers/docs/resources/webhook)
-* **GitHub Actions CI/CD**: [Configuring Keyless Workload Identity Federation (WIF)](https://cloud.google.com/iam/docs/workload-identity-federation-with-deployment-pipelines)
+Once deployed, retrieve your Cloud Run SSE endpoint from Terraform outputs:
+```bash
+terraform output sse_endpoint
+# Output: https://credence-server-xxxxx-uc.a.run.app/sse
+```
 
-### 🔗 Related In-Depth Guides in Credence
-* 🛠️ [Tutorial 13: Discord Alerting & Basement Monitoring](tutorials/13-discord-alerting-and-basement-monitoring.md)
-* ☁️ [Multi-Cloud Deployments (AWS, Azure, Hetzner, K8s)](portability/multi-cloud-deployment.md)
-* ⚡ [FastMCP 2.0 Protocol & SSE Specifications](protocols/fastmcp.md)
-* 💰 [Cost Profiles & $15/mo Budget Caps](protocols/token-governor.md)
-* 🏛️ [System Invariants: 3-Plane Governance & Cloudflare Workers](invariants.md)
+Add the remote endpoint to your `mcp_config.json`:
+```json
+{
+  "mcpServers": {
+    "credence_remote": {
+      "url": "https://credence-server-xxxxx-uc.a.run.app/sse"
+    }
+  }
+}
+```
 
+---
+
+## 5. Parameterized Operator Workflows (`Justfile`)
+
+The repository provides a single canonical parameterized operator command family (`just gcp [action] [arg]`) with automated preflight validation:
+
+| Command | Action | Description |
+| :--- | :--- | :--- |
+| `just preflight gcloud` | Preflight Gate | Verifies `gcloud` binary installation and active authenticated account. |
+| `just gcp status` | Inspection | Displays active Cloud Run revision, image tag, CPU/memory, and traffic split. |
+| `just gcp logs [limit]` | Forensics | Queries structured Cloud Run logs via `gcloud logging read` (default: 30 lines). |
+| `just gcp tail` | Live Stream | Streams real-time container logs via `gcloud beta run services logs tail`. |
+| `just gcp revisions` | History | Lists all historical revisions with author, deploy timestamp, and traffic split. |
+| `just gcp describe` | Deep Inspect | Dumps full JSON/YAML service specification. |
+| `just gcp probe` | Multi-Probe | Probes `/health`, `/api/health`, `/sse`, `/api/reports`, and `/api/sifter/status`. |
+| `just gcp germinate [burst]` | Remote Sifting | Invokes remote `/api/germinate` endpoint to trigger Miracle-Gro ignition. |
+| `just gcp rollback <revision>` | Safe Revert | Rolls back 100% traffic allocation to a previous healthy revision. |
+| `just deploy backend` | Safe Deploy | Submits container build via Cloud Build, deploys to Cloud Run, and executes health probe. |
+
+---
+
+## 6. Scale-to-Zero Cold Start Optimization & SRE Tuning
+
+When operating under `min_instance_count = 0` ($0.00 idle compute ceiling), Credence implements a 5-pillar serverless cold start optimization framework:
+
+1. **Startup CPU Boost (`startup_cpu_boost = true`)**: Dynamically allocates 2–4 vCPUs during container boot to accelerate CPU-bound Python AST parsing and import graph loading.
+2. **Direct Virtualenv Binary Execution**: Bypasses Poetry's CLI wrapper by executing `/app/.venv/bin/credence serve` directly with `PATH="/app/.venv/bin:$PATH"`, saving ~950ms.
+3. **Build-Time Bytecode Precompilation (`compileall`)**: Docker images precompile `.pyc` files during build, eliminating AST compilation on cold boots.
+4. **Lazy Dependency Deferral**: Heavy modules (`trafilatura`, `dateparser`, `playwright`) are lazy-loaded inside tool handlers, dropping module import latency by >48%.
+5. **Aggressive HTTP Readiness Probing**: Startup probes check `http_get` on `/health` with a 2s period and 1s initial delay, cutting probe detection lag from up to 10s down to ~1.5–2.0s.
+
+*For complete benchmarks and mathematical breakdown, see the [Cloud Run Cold Start Blueprint](blueprints/cloudrun-scale-to-zero-cold-start-optimization.md) and [Engineering Blog Essay](../blog/taming-the-10-second-cold-start-scale-to-zero.md).*

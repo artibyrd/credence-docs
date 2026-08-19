@@ -1,6 +1,10 @@
 ---
-title: "Database Pruning & SQLite WAL Maintenance"
-description: "SQLite write-ahead logging tuning, checkpointing strategies, and automated 30-day retention pruning."
+title: Database Pruning & SQLite WAL Maintenance
+description: SQLite write-ahead logging tuning, checkpointing strategies, and automated
+  30-day retention pruning.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 ---
 
 # Database Pruning & SQLite WAL Maintenance

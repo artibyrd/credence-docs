@@ -1,6 +1,10 @@
 ---
-title: "Building a Zero-Build Browser Extension (Manifest V3)"
-description: "How to build a lightweight, zero-npm Chrome and Firefox extension to query Credence scores on active browser tabs."
+title: Building a Zero-Build Browser Extension (Manifest V3)
+description: How to build a lightweight, zero-npm Chrome and Firefox extension to
+  query Credence scores on active browser tabs.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 ---
 
 # Building a Zero-Build Browser Extension (Manifest V3)

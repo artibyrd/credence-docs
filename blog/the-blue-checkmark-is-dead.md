@@ -1,6 +1,10 @@
 ---
-title: "The Blue Checkmark is Dead: Verifiable Epistemic Consensus in the Age of AI"
-description: "Why centralized badges fail to establish truth, and how content-addressed cryptographic attestations replace platform arbiters."
+title: 'The Blue Checkmark is Dead: Verifiable Epistemic Consensus in the Age of AI'
+description: Why centralized badges fail to establish truth, and how content-addressed
+  cryptographic attestations replace platform arbiters.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 sidebar:
   order: 1
 ---

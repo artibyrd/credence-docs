@@ -1,6 +1,10 @@
 ---
-title: "Community Outreach & Reddit Post Templates"
-description: "Ready-to-post short hooks and templates for targeted subreddits across AI, engineering, journalism, homelab, and P2P communities."
+title: Community Outreach & Reddit Post Templates
+description: Ready-to-post short hooks and templates for targeted subreddits across
+  AI, engineering, journalism, homelab, and P2P communities.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 ---
 
 # 🚀 Credence Community Outreach & Reddit Templates

@@ -1,6 +1,10 @@
 ---
-title: "Tutorial 02: Poe's Law & Satire Cloaking"
-description: "How Credence protects legitimate parody while stripping satire protection from cloaked disinformation under SPJ-1.6."
+title: 'Tutorial 02: Poe''s Law & Satire Cloaking'
+description: How Credence protects legitimate parody while stripping satire protection
+  from cloaked disinformation under SPJ-1.6.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 sidebar:
   order: 2
 ---

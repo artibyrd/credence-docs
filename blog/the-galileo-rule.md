@@ -1,6 +1,10 @@
 ---
-title: "The Galileo Rule: Asymmetric Grounded Evidence"
-description: "Why 1,000 swarm nodes cannot dismiss a single verified, grounded citation in decentralized trust networks."
+title: 'The Galileo Rule: Asymmetric Grounded Evidence'
+description: Why 1,000 swarm nodes cannot dismiss a single verified, grounded citation
+  in decentralized trust networks.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 sidebar:
   order: 4
 ---

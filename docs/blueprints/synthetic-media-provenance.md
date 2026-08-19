@@ -1,6 +1,10 @@
 ---
-title: "Synthetic AI Content & Media Provenance Blueprint"
-description: "Fingerprinting automated AI-generated news farms, detecting stripped C2PA metadata, and identifying syndication rings."
+title: Synthetic AI Content & Media Provenance Blueprint
+description: Fingerprinting automated AI-generated news farms, detecting stripped
+  C2PA metadata, and identifying syndication rings.
+since_version: v1.11.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 ---
 
 # Synthetic AI Content & Media Provenance Blueprint

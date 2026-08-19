@@ -1,8 +1,12 @@
 ---
-title: "Testing 13-Node Swarms on a $35 Pi: The Featherweight Mesh Architecture"
-description: "How we run mathematically rigorous 13-node Byzantine P2P mesh cluster simulations in under 150MB of RAM and 4.5 seconds on edge hardware."
-date: "2026-08-18"
-author: "Credence Core Architecture Team"
+title: 'Testing 13-Node Swarms on a $35 Pi: The Featherweight Mesh Architecture'
+description: How we run mathematically rigorous 13-node Byzantine P2P mesh cluster
+  simulations in under 150MB of RAM and 4.5 seconds on edge hardware.
+since_version: v1.6.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+date: '2026-08-18'
+author: Credence Core Architecture Team
 ---
 
 # Testing 13-Node Swarms on a $35 Pi: The Featherweight Mesh Architecture

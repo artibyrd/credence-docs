@@ -1,6 +1,10 @@
 ---
-title: "Golden 12 Benchmark Suite"
-description: "Standard evaluation testbed across 12 diverse content scenarios and 3 operational cost profiles."
+title: Golden 12 Benchmark Suite
+description: Standard evaluation testbed across 12 diverse content scenarios and 3
+  operational cost profiles.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 sidebar:
   order: 7
 ---

@@ -1,6 +1,11 @@
 ---
-title: "Node Germination & Swarm Ignition Specification"
-description: "Technical protocol specification for Credence autonomous node ignition, Genesis peer mesh inoculation, HRW Rendezvous Hashing feed partitioning, and atomic sub-transaction invariants."
+title: Node Germination & Swarm Ignition Specification
+description: Technical protocol specification for Credence autonomous node ignition,
+  Genesis peer mesh inoculation, HRW Rendezvous Hashing feed partitioning, and atomic
+  sub-transaction invariants.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 ---
 
 # Node Germination & Swarm Ignition Specification

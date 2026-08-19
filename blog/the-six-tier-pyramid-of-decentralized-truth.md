@@ -1,11 +1,36 @@
 ---
-title: "The 6-Tier Verification Pyramid: Why Fact-Checking AI Requires Mutating Gauntlets, Zero-npm Longevity, and Byzantine Simulations"
-description: "Why static benchmarks fail in decentralized epistemic systems: How Credence combines hermetic unit isolation with daily mutating live web gauntlets, zero-npm Playwright rendering, and 13-node Byzantine mesh chaos labs."
-tags: ["testing", "e2e", "byzantine-defense", "playwright", "zero-npm", "epistemology", "mesh-network"]
-interfaces: ["CLI", "FastMCP 2.0", "Textual TUI", "Zero-Build Web UI", "Python SDK"]
-invariants: [4, 5, 23, 26, 31, 35, 36]
-difficulty: "Advanced"
-read_time: "11 min"
+title: 'The 6-Tier Verification Pyramid: Why Fact-Checking AI Requires Mutating Gauntlets,
+  Zero-npm Longevity, and Byzantine Simulations'
+description: 'Why static benchmarks fail in decentralized epistemic systems: How Credence
+  combines hermetic unit isolation with daily mutating live web gauntlets, zero-npm
+  Playwright rendering, and 13-node Byzantine mesh chaos labs.'
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+tags:
+- testing
+- e2e
+- byzantine-defense
+- playwright
+- zero-npm
+- epistemology
+- mesh-network
+interfaces:
+- CLI
+- FastMCP 2.0
+- Textual TUI
+- Zero-Build Web UI
+- Python SDK
+invariants:
+- 4
+- 5
+- 23
+- 26
+- 31
+- 35
+- 36
+difficulty: Advanced
+read_time: 11 min
 ---
 
 # The 6-Tier Verification Pyramid: Why Fact-Checking AI Requires Mutating Gauntlets, Zero-npm Longevity, and Byzantine Simulations

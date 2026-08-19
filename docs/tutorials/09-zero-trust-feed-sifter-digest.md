@@ -1,6 +1,10 @@
 ---
-title: "Tutorial 09: Zero-Trust Feed Sifter & Morning Digest"
-description: "Master zero-trust feed autodiscovery, pre-flight entropy auditing, dynamic quality governance, and automated morning intelligence briefings."
+title: 'Tutorial 09: Zero-Trust Feed Sifter & Morning Digest'
+description: Master zero-trust feed autodiscovery, pre-flight entropy auditing, dynamic
+  quality governance, and automated morning intelligence briefings.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 sidebar:
   order: 9
 ---

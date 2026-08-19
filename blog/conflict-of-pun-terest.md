@@ -1,6 +1,11 @@
 ---
-title: "Conflict of Pun-terest: 347 Reasons Why Maricopa's Publisher-Politician Problem Fails the Epistemic Smell Test"
-description: "Empirical case study of inmaricopa.com auditing the collision of municipal governance, unlabelled commercial advertorials, and local news monopoly."
+title: 'Conflict of Pun-terest: 347 Reasons Why Maricopa''s Publisher-Politician Problem
+  Fails the Epistemic Smell Test'
+description: Empirical case study of inmaricopa.com auditing the collision of municipal
+  governance, unlabelled commercial advertorials, and local news monopoly.
+since_version: v1.12.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 ---
 
 # Conflict of Pun-terest: 347 Reasons Why Maricopa's Publisher-Politician Problem Fails the Epistemic Smell Test

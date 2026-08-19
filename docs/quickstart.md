@@ -1,6 +1,10 @@
 ---
-title: "Quickstart & Installation"
-description: "Get started with Credence CLI, FastMCP 2.0 server, and Textual TUI in under 60 seconds."
+title: Quickstart & Installation
+description: Get started with Credence CLI, FastMCP 2.0 server, and Textual TUI in
+  under 60 seconds.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 ---
 
 # Quickstart & Installation ⚡

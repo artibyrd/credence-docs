@@ -1,11 +1,27 @@
 ---
-title: "Continuous Learning with /learn: Codifying Edge Cases into Machine Invariants"
-description: "How post-mortems and edge-case discoveries during Credence development are codified via /learn into permanent, machine-verifiable rules in AGENTS.md."
-tags: ["antigravity", "learn", "invariants", "agents-md", "continuous-learning"]
-interfaces: ["CLI", "Python SDK"]
-invariants: [3, 18, 34, 35, 36]
-difficulty: "Intermediate"
-read_time: "6 min"
+title: 'Continuous Learning with /learn: Codifying Edge Cases into Machine Invariants'
+description: How post-mortems and edge-case discoveries during Credence development
+  are codified via /learn into permanent, machine-verifiable rules in AGENTS.md.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+tags:
+- antigravity
+- learn
+- invariants
+- agents-md
+- continuous-learning
+interfaces:
+- CLI
+- Python SDK
+invariants:
+- 3
+- 18
+- 34
+- 35
+- 36
+difficulty: Intermediate
+read_time: 6 min
 ---
 
 # Continuous Learning with /learn: Codifying Edge Cases into Machine Invariants

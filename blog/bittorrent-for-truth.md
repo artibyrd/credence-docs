@@ -1,12 +1,20 @@
 ---
-title: "BitTorrent for Truth: Proving 92.3% Compute Savings in Decentralized AI Swarms"
-description: "When 1,000 autonomous AI agents browse the web, they waste 99.9% of their compute re-auditing identical news. We empirically proved how Credence achieves 92.3% compute savings at $0.00 token cost."
-slug: "bittorrent-for-truth"
-date: "2026-08-18"
-author: "Credence Research & Architecture Team"
-category: "P2P Mesh & Graph Theory"
-read_time: "8 min read"
-summary: "When 1,000 autonomous AI agents browse the web, they waste 99.9% of their compute re-auditing identical news articles. We empirically proved how Credence turns a 13-node Watts-Strogatz mesh into a BitTorrent work-sharing swarm, achieving 92.3% compute savings at $0.00 token cost."
+title: 'BitTorrent for Truth: Proving 92.3% Compute Savings in Decentralized AI Swarms'
+description: When 1,000 autonomous AI agents browse the web, they waste 99.9% of their
+  compute re-auditing identical news. We empirically proved how Credence achieves
+  92.3% compute savings at $0.00 token cost.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+slug: bittorrent-for-truth
+date: '2026-08-18'
+author: Credence Research & Architecture Team
+category: P2P Mesh & Graph Theory
+read_time: 8 min read
+summary: When 1,000 autonomous AI agents browse the web, they waste 99.9% of their
+  compute re-auditing identical news articles. We empirically proved how Credence
+  turns a 13-node Watts-Strogatz mesh into a BitTorrent work-sharing swarm, achieving
+  92.3% compute savings at $0.00 token cost.
 ---
 
 # BitTorrent for Truth: Proving 92.3% Compute Savings in Decentralized AI Swarms

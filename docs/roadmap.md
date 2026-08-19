@@ -1,11 +1,29 @@
 ---
-title: "Ecosystem Roadmap & Known Issues Backlog"
-description: "Sovereign in-tree tracker for architectural evolution, known edge cases, and future enhancements across the Credence ecosystem."
-tags: ["roadmap", "backlog", "known-issues", "architecture", "edge-cases"]
-interfaces: ["CLI", "FastMCP 2.0", "Textual TUI", "Zero-Build Web UI"]
-invariants: [1, 4, 11, 26, 31]
-difficulty: "Intermediate"
-read_time: "6 min"
+title: Ecosystem Roadmap & Known Issues Backlog
+description: Sovereign in-tree tracker for architectural evolution, known edge cases,
+  and future enhancements across the Credence ecosystem.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+tags:
+- roadmap
+- backlog
+- known-issues
+- architecture
+- edge-cases
+interfaces:
+- CLI
+- FastMCP 2.0
+- Textual TUI
+- Zero-Build Web UI
+invariants:
+- 1
+- 4
+- 11
+- 26
+- 31
+difficulty: Intermediate
+read_time: 6 min
 ---
 
 # Ecosystem Roadmap & Known Issues Backlog

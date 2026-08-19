@@ -1,11 +1,28 @@
 ---
-title: "Multi-Model Pareto Optimization: Token Safety Governors & Prompt Isolation"
-description: "Cross-model benchmarking, Pareto-optimal 4k thinking budgets, 30% offline circuit breakers, and defensive prompt injection isolation."
-tags: ["multi-model", "gemini", "pareto-frontier", "token-governor", "prompt-injection"]
-interfaces: ["CLI", "FastMCP 2.0", "Python SDK"]
-invariants: [7, 8, 9, 15, 23]
-difficulty: "Advanced"
-read_time: "9 min"
+title: 'Multi-Model Pareto Optimization: Token Safety Governors & Prompt Isolation'
+description: Cross-model benchmarking, Pareto-optimal 4k thinking budgets, 30% offline
+  circuit breakers, and defensive prompt injection isolation.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+tags:
+- multi-model
+- gemini
+- pareto-frontier
+- token-governor
+- prompt-injection
+interfaces:
+- CLI
+- FastMCP 2.0
+- Python SDK
+invariants:
+- 7
+- 8
+- 9
+- 15
+- 23
+difficulty: Advanced
+read_time: 9 min
 ---
 
 # Multi-Model Pareto Optimization: Token Safety Governors & Prompt Isolation

@@ -1,11 +1,31 @@
 ---
-title: "10. Reusable Live Rotating E2E & Byzantine Mesh Gauntlet"
-description: "Step-by-step tutorial on executing, customizing, and scaling the reusable live rotating test suite across CLI, FastMCP 2.0 SSE, and 13-node P2P mesh clusters."
-tags: ["tutorial", "e2e", "live-testing", "fastmcp-sse", "byzantine-defense", "mesh-simulation"]
-interfaces: ["CLI", "FastMCP 2.0", "Python SDK"]
-invariants: [4, 5, 23, 26, 31, 35, 36]
-difficulty: "Intermediate"
-read_time: "10 min"
+title: 10. Reusable Live Rotating E2E & Byzantine Mesh Gauntlet
+description: Step-by-step tutorial on executing, customizing, and scaling the reusable
+  live rotating test suite across CLI, FastMCP 2.0 SSE, and 13-node P2P mesh clusters.
+since_version: v1.4.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+tags:
+- tutorial
+- e2e
+- live-testing
+- fastmcp-sse
+- byzantine-defense
+- mesh-simulation
+interfaces:
+- CLI
+- FastMCP 2.0
+- Python SDK
+invariants:
+- 4
+- 5
+- 23
+- 26
+- 31
+- 35
+- 36
+difficulty: Intermediate
+read_time: 10 min
 ---
 
 # Tutorial 10: Running the Reusable Live Rotating E2E & Byzantine Mesh Gauntlet

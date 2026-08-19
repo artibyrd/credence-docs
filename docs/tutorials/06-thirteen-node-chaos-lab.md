@@ -1,6 +1,10 @@
 ---
-title: "Tutorial 06: 13-Node Chaos Lab"
-description: "Launch the local 13-node Watts-Strogatz small-world mesh cluster and simulate netsplits and gossip diffusion."
+title: 'Tutorial 06: 13-Node Chaos Lab'
+description: Launch the local 13-node Watts-Strogatz small-world mesh cluster and
+  simulate netsplits and gossip diffusion.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 sidebar:
   order: 6
 ---

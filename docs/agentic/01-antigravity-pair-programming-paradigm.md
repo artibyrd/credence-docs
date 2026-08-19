@@ -1,11 +1,28 @@
 ---
-title: "Antigravity Pair-Programming: Planning Mode, Background Tasks, & Mk1 Eyeball"
-description: "How human-agent pair programming with Google Antigravity accelerates complex software engineering through planning mode, asynchronous background tasks, and human gating."
-tags: ["antigravity", "pair-programming", "agentic-workflow", "planning-mode", "subagents"]
-interfaces: ["CLI", "FastMCP 2.0", "Python SDK"]
-invariants: [1, 4, 6, 18]
-difficulty: "Intermediate"
-read_time: "7 min"
+title: 'Antigravity Pair-Programming: Planning Mode, Background Tasks, & Mk1 Eyeball'
+description: How human-agent pair programming with Google Antigravity accelerates
+  complex software engineering through planning mode, asynchronous background tasks,
+  and human gating.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+tags:
+- antigravity
+- pair-programming
+- agentic-workflow
+- planning-mode
+- subagents
+interfaces:
+- CLI
+- FastMCP 2.0
+- Python SDK
+invariants:
+- 1
+- 4
+- 6
+- 18
+difficulty: Intermediate
+read_time: 7 min
 ---
 
 # Antigravity Pair-Programming: Planning Mode, Background Tasks, & Mk1 Eyeball

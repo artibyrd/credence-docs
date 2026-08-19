@@ -1,6 +1,10 @@
 ---
-title: "Election & Civic Information Integrity Blueprint"
-description: "Auditing polling methodology disclosures, voter registration deadlines, and candidate quote contexts for democratic institutions."
+title: Election & Civic Information Integrity Blueprint
+description: Auditing polling methodology disclosures, voter registration deadlines,
+  and candidate quote contexts for democratic institutions.
+since_version: v1.11.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 ---
 
 # Election & Civic Information Integrity Blueprint

@@ -1,6 +1,10 @@
 ---
-title: "Global Web Intelligence, DEI & Epistemic Weather"
-description: "Technical specification for Domain Epistemic Index (DEI), Top 10 Violated Rules Aggregator, Macro Epistemic Weather, and Community Bounties."
+title: Global Web Intelligence, DEI & Epistemic Weather
+description: Technical specification for Domain Epistemic Index (DEI), Top 10 Violated
+  Rules Aggregator, Macro Epistemic Weather, and Community Bounties.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 ---
 
 # Global Web Intelligence, DEI & Epistemic Weather

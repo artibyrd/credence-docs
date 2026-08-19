@@ -1,11 +1,31 @@
 ---
-title: "FastMCP 2.0 Substrate: Dual Transports & 4-Way Synchronous Parity"
-description: "Architecture of the FastMCP 2.0 dual stdio/SSE server, Cloudflare edge proxying, and maintaining synchronous feature parity across CLI, FastMCP, TUI, and Web."
-tags: ["fastmcp", "sse", "mcp", "feature-parity", "cloud-run", "cloudflare"]
-interfaces: ["CLI", "FastMCP 2.0", "Python SDK", "Zero-Build Web UI", "Textual TUI"]
-invariants: [12, 14, 16, 30]
-difficulty: "Advanced"
-read_time: "8 min"
+title: 'FastMCP 2.0 Substrate: Dual Transports & 4-Way Synchronous Parity'
+description: Architecture of the FastMCP 2.0 dual stdio/SSE server, Cloudflare edge
+  proxying, and maintaining synchronous feature parity across CLI, FastMCP, TUI, and
+  Web.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+tags:
+- fastmcp
+- sse
+- mcp
+- feature-parity
+- cloud-run
+- cloudflare
+interfaces:
+- CLI
+- FastMCP 2.0
+- Python SDK
+- Zero-Build Web UI
+- Textual TUI
+invariants:
+- 12
+- 14
+- 16
+- 30
+difficulty: Advanced
+read_time: 8 min
 ---
 
 # FastMCP 2.0 Substrate: Dual Transports & 4-Way Synchronous Parity

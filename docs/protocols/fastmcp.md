@@ -1,6 +1,10 @@
 ---
-title: "FastMCP 2.0 Integration"
-description: "Model Context Protocol tools, resources, prompt templates, and multi-transport specifications (stdio & SSE)."
+title: FastMCP 2.0 Integration
+description: Model Context Protocol tools, resources, prompt templates, and multi-transport
+  specifications (stdio & SSE).
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 sidebar:
   order: 3
 ---

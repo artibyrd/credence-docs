@@ -1,6 +1,10 @@
 ---
-title: "Tutorial 05: 3-Node Mesh Quickstart"
-description: "Boot a 3-node local P2P mesh cluster and verify zero-token attestation adoption across peers."
+title: 'Tutorial 05: 3-Node Mesh Quickstart'
+description: Boot a 3-node local P2P mesh cluster and verify zero-token attestation
+  adoption across peers.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 sidebar:
   order: 5
 ---

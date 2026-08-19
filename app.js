@@ -3,6 +3,9 @@
  * Pure Vanilla Modern ES Module — 0 npm dependencies, 0 build tools.
  */
 
+// Canonical ecosystem version constant
+export const CURRENT_ECOSYSTEM_VERSION = 'v1.15.0';
+
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
   {
@@ -93,7 +96,9 @@ export const DOCS_REGISTRY = [
       { id: "docs/blueprints/health-medical-claims", title: "Medical & Health Claims", path: "docs/blueprints/health-medical-claims.md", desc: "Evaluating clinical trials, in vitro extrapolation, and unproven treatments.", keywords: ["medical", "health", "clinical", "trials", "in vitro", "claims", "science"] },
       { id: "docs/blueprints/election-civic-integrity", title: "Election & Civic Integrity", path: "docs/blueprints/election-civic-integrity.md", desc: "Auditing voting procedure misinformation, polling methodology, and civic claims.", keywords: ["election", "voting", "civic", "polls", "democracy", "misinformation"] },
       { id: "docs/blueprints/synthetic-media-provenance", title: "Synthetic AI & Media Provenance", path: "docs/blueprints/synthetic-media-provenance.md", desc: "C2PA metadata, pink slime news farm rings, and deepfake provenance detection.", keywords: ["c2pa", "deepfake", "synthetic", "pink slime", "media", "ai generated"] },
-      { id: "docs/blueprints/domain-epistemic-index-and-sourcing-forensics", title: "DEI & Sourcing Forensics", path: "docs/blueprints/domain-epistemic-index-and-sourcing-forensics.md", desc: "Forensic sourcing ratios (byline, single-source, COI, advertorial) and DEI trust bands.", keywords: ["dei", "epistemic index", "sourcing", "byline", "single source", "coi", "conflict of interest", "advertorial", "asi", "trust bands", "publisher", "forensics"] }
+      { id: "docs/blueprints/domain-epistemic-index-and-sourcing-forensics", title: "DEI & Sourcing Forensics", path: "docs/blueprints/domain-epistemic-index-and-sourcing-forensics.md", desc: "Forensic sourcing ratios (byline, single-source, COI, advertorial) and DEI trust bands.", keywords: ["dei", "epistemic index", "sourcing", "byline", "single source", "coi", "conflict of interest", "advertorial", "asi", "trust bands", "publisher", "forensics"] },
+      { id: "docs/blueprints/invariant-scalability-and-knowledge-governance", title: "Invariant Scalability & Knowledge Governance", path: "docs/blueprints/invariant-scalability-and-knowledge-governance.md", desc: "The 3-tier architectural framework for scaling AI agent invariants without prompt bloat, attention dilution, or cognitive oatmeal.", keywords: ["invariants", "scalability", "knowledge governance", "agents.md", "prompt bloat", "attention dilution", "cognitive oatmeal", "shift-left", "blueprint"] },
+      { id: "docs/blueprints/node-and-mesh-telemetry-dashboard", title: "Node & Mesh Telemetry Dashboard", path: "docs/blueprints/node-and-mesh-telemetry-dashboard.md", desc: "Technical specification for real-time node operator observability, BitTorrent compute savings tracking, and 4-way parity telemetry interfaces.", keywords: ["dashboard", "telemetry", "mesh", "sre", "metrics", "observability", "latency", "bittorrent", "compute savings", "my node", "operator", "blueprint"] }
     ]
   },
   {
@@ -142,6 +147,7 @@ export const DOCS_REGISTRY = [
       { id: "docs/operations/tailscale-wireguard-mesh", title: "Tailscale & WireGuard Peering", path: "docs/operations/tailscale-wireguard-mesh.md", desc: "Forming secure private P2P mesh overlays across home and cloud servers.", keywords: ["tailscale", "wireguard", "vpn", "overlay", "peering", "private"] },
       { id: "docs/operations/database-pruning-wal", title: "Database Pruning & WAL Care", path: "docs/operations/database-pruning-wal.md", desc: "SQLite WAL optimization, checkpointing, and 30-day token record pruning.", keywords: ["sqlite", "wal", "database", "pruning", "retention", "cleanup", "sql"] },
       { id: "docs/operations/customizations-and-upstream-sovereignty", title: "Customizations vs. Upstream Core", path: "docs/operations/customizations-and-upstream-sovereignty.md", desc: "Maintaining local sovereignty while pulling updates from upstream repos.", keywords: ["customizations", "upstream", "git", "fork", "sovereignty", "merge"] },
+      { id: "docs/blueprints/cloudrun-scale-to-zero-cold-start-optimization", title: "Cloud Run Cold Start Optimization", path: "docs/blueprints/cloudrun-scale-to-zero-cold-start-optimization.md", desc: "The 5-pillar architectural framework for sub-2.5s serverless cold starts on scale-to-zero Cloud Run containers.", keywords: ["cold start", "scale to zero", "cloud run", "serverless", "startup cpu boost", "compileall", "bytecode", "probe", "optimization", "performance", "gcp", "blueprint"] },
       { id: "docs/operator-guide", title: "Bootstrap Operator Guide", path: "docs/operator-guide.md", desc: "10-section operational runbook for initial node setup, identity, and seeding.", keywords: ["operator", "runbook", "bootstrap", "guide", "setup", "admin"] },
       { id: "docs/deployment-cloudrun", title: "GCP Cloud Run Deployment", path: "docs/deployment-cloudrun.md", desc: "Deploying to Google Cloud Run with Terraform, $15/mo budget cap, scale-to-zero.", keywords: ["gcp", "cloud run", "terraform", "google cloud", "budget", "serverless"] },
       { id: "docs/bootstrap-seeds", title: "Bootstrap Seed Governance", path: "docs/bootstrap-seeds.md", desc: "Seed node governance, key rotation, and peers.json manifest format.", keywords: ["seeds", "peers", "manifest", "bootstrap", "governance", "nexus"] }
@@ -196,15 +202,18 @@ export const BLOG_REGISTRY = [
       { id: "blog/architecting-sovereign-ai-with-google-antigravity", title: "Architecting Sovereign AI with Antigravity", path: "blog/architecting-sovereign-ai-with-google-antigravity.md", desc: "Pair programming with autonomous AI coding agents using Google Antigravity.", keywords: ["blog", "antigravity", "agentic", "sovereignty", "pair programming"] },
       { id: "blog/giving-claude-and-cursor-an-epistemic-brake", title: "Giving AI an Epistemic Brake", path: "blog/giving-claude-and-cursor-an-epistemic-brake.md", desc: "Preventing autonomous AI agents from spiraling into hallucinations.", keywords: ["blog", "claude", "cursor", "brake", "epistemic brake", "guardrails"] },
       { id: "blog/miracle-gro-for-truth-nodes", title: "Miracle-Gro for Truth Nodes", path: "blog/miracle-gro-for-truth-nodes.md", desc: "Instant node ignition and Genesis seed inoculation in under 5 seconds.", keywords: ["blog", "germination", "genesis", "miracle gro", "bootstrap", "seeds"] },
-      { id: "blog/testing-13-node-swarms-on-a-raspberry-pi", title: "Testing 13-Node Swarms on a $35 Pi", path: "blog/testing-13-node-swarms-on-a-raspberry-pi.md", desc: "How we tested small-world P2P swarms on a low-cost single-board computer.", keywords: ["blog", "raspberry pi", "swarm", "testing", "homelab", "low power"] }
+      { id: "blog/testing-13-node-swarms-on-a-raspberry-pi", title: "Testing 13-Node Swarms on a $35 Pi", path: "blog/testing-13-node-swarms-on-a-raspberry-pi.md", desc: "How we tested small-world P2P swarms on a low-cost single-board computer.", keywords: ["blog", "raspberry pi", "swarm", "testing", "homelab", "low power"] },
+      { id: "blog/scaling-system-invariants-without-prompt-bloat", title: "Scaling Invariants Without Prompt Bloat", path: "blog/scaling-system-invariants-without-prompt-bloat.md", desc: "Why flat AGENTS.md rulebooks fail at scale, and how a 3-tier governance architecture with shift-left automated tests preserves LLM reasoning precision.", keywords: ["blog", "invariants", "prompt bloat", "attention dilution", "knowledge governance", "agents.md", "shift-left", "agentic", "scalability"] }
     ]
   },
   {
     category: "Homelab Ops & Field Infrastructure",
     items: [
       { id: "blog/from-860mb-to-2mb-sub-40s-cicd-pipeline", title: "From 860MB to 2MB: Sub-40s CI/CD", path: "blog/from-860mb-to-2mb-sub-40s-cicd-pipeline.md", desc: "How we eliminated unmocked socket timeouts, slashed build uploads by 99.7%, and parallelized 200+ tests.", keywords: ["blog", "ci/cd", "pipeline", "optimization", "docker", "gcloudignore", "pytest-xdist", "performance", "buildkit", "sub-40s"] },
+      { id: "blog/taming-the-10-second-cold-start-scale-to-zero", title: "Taming the 10s Cold Start", path: "blog/taming-the-10-second-cold-start-scale-to-zero.md", desc: "How we slashed Python Cloud Run container cold boots by 80% at $0.00 idle compute cost.", keywords: ["blog", "cloud run", "cold start", "scale to zero", "performance", "poetry", "trafilatura", "cpu boost", "gcp", "serverless"] },
       { id: "blog/basement-ops-and-discord-alerting", title: "Basement Ops & Discord Alerting", path: "blog/basement-ops-and-discord-alerting.md", desc: "Running a 24/7 homelab node with real-time push alerts to your phone.", keywords: ["blog", "basement", "discord", "alerts", "homelab", "monitoring"] },
-      { id: "blog/interface-telemetry-loopback", title: "Interface Telemetry Loopback", path: "blog/interface-telemetry-loopback.md", desc: "Privacy-preserving telemetry for multi-interface synchronization.", keywords: ["blog", "telemetry", "itlp", "interfaces", "privacy", "metrics"] }
+      { id: "blog/interface-telemetry-loopback", title: "Interface Telemetry Loopback", path: "blog/interface-telemetry-loopback.md", desc: "Privacy-preserving telemetry for multi-interface synchronization.", keywords: ["blog", "telemetry", "itlp", "interfaces", "privacy", "metrics"] },
+      { id: "blog/real-time-mesh-observability", title: "Real-Time Epistemic Mesh Observability", path: "blog/real-time-mesh-observability.md", desc: "How Credence delivers first-person node visibility, BitTorrent compute savings tracking, and peer swarm telemetry without centralized data collection.", keywords: ["blog", "observability", "mesh", "telemetry", "dashboard", "bittorrent", "compute savings", "sovereignty", "sre", "decentralized"] }
     ]
   }
 ];
@@ -1739,8 +1748,24 @@ export function parseMarkdown(md) {
 
   let resultHtml = html.join('\n');
 
-  if (frontmatter && (frontmatter.difficulty || frontmatter.read_time || frontmatter.interfaces || frontmatter.invariants)) {
+  if (frontmatter && (frontmatter.difficulty || frontmatter.read_time || frontmatter.interfaces || frontmatter.invariants || frontmatter.since_version || frontmatter.verified_version)) {
     const metaBadges = [];
+
+    // Version Verification and Provenance Badges
+    if (frontmatter.verified_version) {
+      const isLatest = frontmatter.verified_version === CURRENT_ECOSYSTEM_VERSION || frontmatter.verified_version === CURRENT_ECOSYSTEM_VERSION.replace(/^v/, '');
+      const dateTooltip = frontmatter.last_verified ? ` (Audited ${escapeHtml(frontmatter.last_verified)})` : '';
+      if (isLatest) {
+        metaBadges.push(`<span class="meta-badge verified-latest" title="Audited and verified against latest ${CURRENT_ECOSYSTEM_VERSION} codebase${dateTooltip}">✅ Verified in ${escapeHtml(frontmatter.verified_version)}</span>`);
+      } else {
+        metaBadges.push(`<span class="meta-badge verified-older" title="Verified in ${escapeHtml(frontmatter.verified_version)}; latest is ${CURRENT_ECOSYSTEM_VERSION}${dateTooltip}">🟡 Verified in ${escapeHtml(frontmatter.verified_version)}</span>`);
+      }
+    }
+
+    if (frontmatter.since_version) {
+      metaBadges.push(`<span class="meta-badge since-version" title="Originally introduced in ${escapeHtml(frontmatter.since_version)}">📦 Added in ${escapeHtml(frontmatter.since_version)}</span>`);
+    }
+
     if (frontmatter.difficulty) {
       metaBadges.push(`<span class="meta-badge difficulty">${escapeHtml(frontmatter.difficulty)}</span>`);
     }
@@ -1810,20 +1835,90 @@ export function renderSidebar(activeId) {
     ];
   }
 
-  container.innerHTML = groups.map(group => `
-    <div class="sidebar-group">
-      <div class="sidebar-heading">${escapeHtml(group.category)}</div>
-      <ul class="sidebar-list">
-        ${group.items.map(item => `
-          <li class="sidebar-item" data-keywords="${escapeHtml((item.keywords || []).join(' '))}" data-desc="${escapeHtml(item.desc || '')}" data-category="${escapeHtml(group.category)}">
-            <a href="#${item.id}" class="sidebar-link ${item.id === activeId ? 'active' : ''}" data-doc-id="${item.id}">
-              ${escapeHtml(item.title)}
-            </a>
-          </li>
-        `).join('')}
-      </ul>
+  let savedStates = {};
+  try {
+    const raw = localStorage.getItem('credence_sidebar_groups_state');
+    if (raw) savedStates = JSON.parse(raw);
+  } catch (e) {}
+
+  const renderedGroups = groups.map((group, groupIdx) => {
+    const hasActiveItem = group.items.some(it => it.id === activeId);
+    let isOpen = false;
+    if (hasActiveItem) {
+      isOpen = true;
+    } else if (savedStates[group.category] !== undefined) {
+      isOpen = Boolean(savedStates[group.category]);
+    } else if (groupIdx === 0) {
+      isOpen = true;
+    }
+
+    return `
+      <details class="sidebar-group" data-category="${escapeHtml(group.category)}" ${isOpen ? 'open' : ''}>
+        <summary class="sidebar-heading">
+          <span class="sidebar-heading-left">
+            <span class="sidebar-chevron" aria-hidden="true">▶</span>
+            <span class="sidebar-heading-text">${escapeHtml(group.category)}</span>
+          </span>
+          <span class="sidebar-badge">${group.items.length}</span>
+        </summary>
+        <ul class="sidebar-list">
+          ${group.items.map(item => `
+            <li class="sidebar-item" data-keywords="${escapeHtml((item.keywords || []).join(' '))}" data-desc="${escapeHtml(item.desc || '')}" data-category="${escapeHtml(group.category)}">
+              <a href="#${item.id}" class="sidebar-link ${item.id === activeId ? 'active' : ''}" data-doc-id="${item.id}">
+                ${escapeHtml(item.title)}
+              </a>
+            </li>
+          `).join('')}
+        </ul>
+      </details>
+    `;
+  }).join('');
+
+  container.innerHTML = `
+    <div class="sidebar-controls">
+      <button type="button" id="sidebar-toggle-all-btn" class="sidebar-toggle-btn" title="Toggle expand/collapse all categories">
+        <span class="toggle-icon">⇅</span> <span class="toggle-label">Toggle All</span>
+      </button>
     </div>
-  `).join('');
+    ${renderedGroups}
+  `;
+
+  // Attach toggle listeners to save preference
+  container.querySelectorAll('details.sidebar-group').forEach(el => {
+    el.addEventListener('toggle', () => {
+      const cat = el.getAttribute('data-category');
+      if (cat) {
+        try {
+          let cur = {};
+          const raw = localStorage.getItem('credence_sidebar_groups_state');
+          if (raw) cur = JSON.parse(raw);
+          cur[cat] = el.open;
+          localStorage.setItem('credence_sidebar_groups_state', JSON.stringify(cur));
+        } catch (e) {}
+      }
+    });
+  });
+
+  // Attach toggle-all button listener
+  const toggleAllBtn = document.getElementById('sidebar-toggle-all-btn');
+  if (toggleAllBtn) {
+    toggleAllBtn.addEventListener('click', () => {
+      const allDetails = container.querySelectorAll('details.sidebar-group');
+      const anyOpen = Array.from(allDetails).some(d => d.open);
+      const targetState = !anyOpen;
+      allDetails.forEach(d => {
+        d.open = targetState;
+      });
+      try {
+        let cur = {};
+        allDetails.forEach(d => {
+          const cat = d.getAttribute('data-category');
+          if (cat) cur[cat] = targetState;
+        });
+        localStorage.setItem('credence_sidebar_groups_state', JSON.stringify(cur));
+      } catch (e) {}
+    });
+  }
 }
 
 export function renderTableOfContents() {
@@ -3525,7 +3620,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.14.1';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.15.0';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 
@@ -3715,7 +3810,16 @@ export function setupSearch() {
         if (isVisible) visibleInGroup++;
       });
 
-      groupEl.style.display = (visibleInGroup > 0 || (!q && activeFilter === 'all')) ? '' : 'none';
+      if (q || activeFilter !== 'all') {
+        if (visibleInGroup > 0) {
+          groupEl.open = true;
+          groupEl.style.display = '';
+        } else {
+          groupEl.style.display = 'none';
+        }
+      } else {
+        groupEl.style.display = '';
+      }
     });
   }
 

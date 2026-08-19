@@ -1,6 +1,11 @@
 ---
-title: "From 860MB to 2MB: Engineering a Sub-40-Second Multi-Plane CI/CD Pipeline"
-description: "How we eliminated unmocked socket timeouts, slashed build context upload bloat by 99.7%, parallelized 200+ tests across cores, and achieved sub-40s pre-commit verification."
+title: 'From 860MB to 2MB: Engineering a Sub-40-Second Multi-Plane CI/CD Pipeline'
+description: How we eliminated unmocked socket timeouts, slashed build context upload
+  bloat by 99.7%, parallelized 200+ tests across cores, and achieved sub-40s pre-commit
+  verification.
+since_version: v1.14.1
+verified_version: v1.15.0
+last_verified: '2026-08-19'
 ---
 
 # From 860MB to 2MB: Engineering a Sub-40-Second Multi-Plane CI/CD Pipeline

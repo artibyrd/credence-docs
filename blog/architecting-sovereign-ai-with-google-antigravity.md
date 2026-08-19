@@ -1,11 +1,40 @@
 ---
-title: "Architecting Sovereign AI with Google Antigravity: Multi-Agent Workflows, Hermetic Guardrails, and Continuous /learn Evolution"
-description: "An in-depth post-mortem and architectural essay on building Credence with Google Antigravity: Planning mode, zero-npm longevity, multi-model Pareto optimization, and continuous /learn invariant synthesis."
-tags: ["antigravity", "agentic-workflow", "post-mortem", "invariants", "zero-npm", "gemini"]
-interfaces: ["CLI", "FastMCP 2.0", "Python SDK", "Zero-Build Web UI", "Textual TUI"]
-invariants: [1, 3, 4, 6, 7, 15, 18, 30, 31, 34, 35, 36]
-difficulty: "Advanced"
-read_time: "11 min"
+title: 'Architecting Sovereign AI with Google Antigravity: Multi-Agent Workflows,
+  Hermetic Guardrails, and Continuous /learn Evolution'
+description: 'An in-depth post-mortem and architectural essay on building Credence
+  with Google Antigravity: Planning mode, zero-npm longevity, multi-model Pareto optimization,
+  and continuous /learn invariant synthesis.'
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+tags:
+- antigravity
+- agentic-workflow
+- post-mortem
+- invariants
+- zero-npm
+- gemini
+interfaces:
+- CLI
+- FastMCP 2.0
+- Python SDK
+- Zero-Build Web UI
+- Textual TUI
+invariants:
+- 1
+- 3
+- 4
+- 6
+- 7
+- 15
+- 18
+- 30
+- 31
+- 34
+- 35
+- 36
+difficulty: Advanced
+read_time: 11 min
 ---
 
 # Architecting Sovereign AI with Google Antigravity: Multi-Agent Workflows, Hermetic Guardrails, and Continuous /learn Evolution

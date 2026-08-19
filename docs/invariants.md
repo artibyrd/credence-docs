@@ -1,11 +1,62 @@
 ---
-title: "Core Architectural & Agent Invariants"
-description: "Canonical reference for all mathematical rules, runtime safety guardrails, cryptographic protocols, and presentation invariants governing Credence."
-tags: ["invariants", "architecture", "mathematics", "security", "protocols", "zero-build"]
-interfaces: ["CLI", "FastMCP 2.0", "Python SDK", "Zero-Build Web UI", "Textual TUI"]
-invariants: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
-difficulty: "Specification"
-read_time: "12 min"
+title: Core Architectural & Agent Invariants
+description: Canonical reference for all mathematical rules, runtime safety guardrails,
+  cryptographic protocols, and presentation invariants governing Credence.
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+tags:
+- invariants
+- architecture
+- mathematics
+- security
+- protocols
+- zero-build
+interfaces:
+- CLI
+- FastMCP 2.0
+- Python SDK
+- Zero-Build Web UI
+- Textual TUI
+invariants:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+- 18
+- 19
+- 20
+- 21
+- 22
+- 23
+- 24
+- 25
+- 26
+- 27
+- 28
+- 29
+- 30
+- 31
+- 32
+- 33
+- 34
+- 35
+- 36
+difficulty: Specification
+read_time: 12 min
 ---
 
 # Core Architectural & Agent Invariants

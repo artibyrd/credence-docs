@@ -1,8 +1,13 @@
 ---
-title: "Miracle-Gro for Truth Nodes: Zero-Touch Germination and Swarm Ignition"
-description: "How Credence solves the Cold-Start Ghost Town problem in decentralized verification through 5-phase botanical germination, HRW Rendezvous Hashing, and zero-token mesh adoption."
-date: "2026-08-18"
-author: "Credence Core Architecture Team"
+title: 'Miracle-Gro for Truth Nodes: Zero-Touch Germination and Swarm Ignition'
+description: How Credence solves the Cold-Start Ghost Town problem in decentralized
+  verification through 5-phase botanical germination, HRW Rendezvous Hashing, and
+  zero-token mesh adoption.
+since_version: v1.6.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+date: '2026-08-18'
+author: Credence Core Architecture Team
 ---
 
 # Miracle-Gro for Truth Nodes: Zero-Touch Germination and Swarm Ignition

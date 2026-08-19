@@ -1,11 +1,33 @@
 ---
-title: "6-Tier Multi-Layered Testing Strategy"
-description: "Comprehensive guide to Credence's 6 testing tiers: hermetic unit tests, 4-way interface parity, 13-node P2P mesh simulation, adversarial red-teaming, zero-build Playwright rendering, and live rotating E2E gauntlets."
-tags: ["testing", "e2e", "playwright", "mesh-simulation", "hermetic-testing", "byzantine-defense"]
-interfaces: ["CLI", "FastMCP 2.0", "Textual TUI", "Zero-Build Web UI"]
-invariants: [4, 5, 23, 26, 31, 35, 36]
-difficulty: "Intermediate"
-read_time: "12 min"
+title: 6-Tier Multi-Layered Testing Strategy
+description: 'Comprehensive guide to Credence''s 6 testing tiers: hermetic unit tests,
+  4-way interface parity, 13-node P2P mesh simulation, adversarial red-teaming, zero-build
+  Playwright rendering, and live rotating E2E gauntlets.'
+since_version: v1.0.0
+verified_version: v1.15.0
+last_verified: '2026-08-19'
+tags:
+- testing
+- e2e
+- playwright
+- mesh-simulation
+- hermetic-testing
+- byzantine-defense
+interfaces:
+- CLI
+- FastMCP 2.0
+- Textual TUI
+- Zero-Build Web UI
+invariants:
+- 4
+- 5
+- 23
+- 26
+- 31
+- 35
+- 36
+difficulty: Intermediate
+read_time: 12 min
 ---
 
 # 6-Tier Multi-Layered Testing Strategy
