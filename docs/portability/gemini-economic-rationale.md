@@ -50,8 +50,6 @@ In accordance with our live empirical benchmarks across the Golden 12 fixture su
 2. **Thinking Density Without Latency Penalties**: Gemini 3.7 Flash executes 1,024 to 4,096 thinking tokens in 2.4s to 5.1s, enabling near-instant CLI and FastMCP response times.
 3. **Massive Context Headroom**: With a 1M+ token window, Credence can ingest massive 100-page regulatory filings, scientific papers, and raw DOM trees without chunking or context fragmentation.
 
----
-
 ## 5. When You Should Switch Providers
 
 | Scenario / Constraint | Recommended Provider | Why |
@@ -59,3 +57,23 @@ In accordance with our live empirical benchmarks across the Golden 12 fixture su
 | **Classified / Sensitive Intelligence** | **Local Ollama (Llama 3.3 70B)** | 100% air-gapped; zero data leaves your local RAM/VRAM. |
 | **Deep Legal & Philosophical Nuance** | **Claude 3.7 Sonnet (Thinking)** | Unmatched subtlety in identifying rhetoric and structural straw men. |
 | **Enterprise Azure/OpenAI Existing Credits** | **OpenAI GPT-4o / o3-mini** | Direct consumption of existing enterprise volume agreements. |
+
+---
+
+## 6. Official Model References & Benchmark Specifications
+
+### 📚 Official Model Provider Documentation
+* **Google Gemini**: [Gemini 3.7 Flash Thinking Overview](https://ai.google.dev/gemini-api/docs/thinking) &bull; [Google AI Pricing Calculator](https://ai.google.dev/pricing)
+* **Anthropic**: [Claude Extended Thinking Architecture](https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking) &bull; [Claude 3.7 Sonnet Model Card](https://www.anthropic.com/news/claude-3-7-sonnet)
+* **OpenAI**: [OpenAI Platform Models & Reasoning](https://platform.openai.com/docs/models) &bull; [OpenAI API Pricing](https://openai.com/api/pricing/)
+* **DeepSeek**: [DeepSeek-R1 Reasoning Repository](https://github.com/deepseek-ai/DeepSeek-R1)
+* **Ollama**: [Ollama Local LLM Architecture](https://ollama.com/) &bull; [Llama 3.3 70B Quantized Weights](https://ollama.com/library/llama3.3)
+
+### 🔗 Related Epistemic Benchmarks in Credence
+* 📊 [Cross-Model Pareto Benchmark: Gemini vs Claude vs GPT-4o vs DeepSeek](../protocols/cross-model-pareto-benchmark.md)
+* 🎯 [Golden 12 Benchmark Suite & Standardized Rubrics](../protocols/benchmark-suite.md)
+* 🛡️ [Token Safety Governor & 30% Headroom Circuit Breakers](../protocols/token-governor.md)
+* 🔌 [Multi-Model Provider Adapters Implementation Guide](multi-model-adapters.md)
+* 🔒 [Zero-Cloud Sovereign Local LLMs Guide](local-llm-airgap.md)
+* 💰 [Cost Profiles & Token Economics Matrix](../protocols/token-governor.md)
+

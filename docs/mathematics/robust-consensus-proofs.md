@@ -70,3 +70,21 @@ In an arithmetic mean, a single compromised node submitting $S=100.0$ shifts the
 $$S_{\text{consensus}} \ge \min_{v \in V_e} (\text{severity}_v \times \text{confidence}_v)$$
 
 4. Node $e$ is exempted from outlier trimming (`is_outlier = False`), guaranteeing that verified factual discovery cannot be silenced by uninformed majorities. $\blacksquare$
+
+---
+
+## 4. Academic Foundations & Mathematical Literature
+
+### 📚 Seminal Papers in Distributed Consensus & Robust Statistics
+* **Byzantine Fault Tolerance**: [Lamport, Shostak, & Pease (1982) - The Byzantine Generals Problem (*ACM TOPLAS*)](https://doi.org/10.1145/357172.357176)
+* **Robust Medians & High-Breakdown Estimation**: [Peter J. Rousseeuw (1984) - Least Median of Squares Regression (*JASA*)](https://doi.org/10.1080/01621459.1984.10478078)
+* **Sybil Cartel Defense**: [John R. Douceur (2002) - The Sybil Attack (*IPTPS*)](https://doi.org/10.1007/3-540-45748-8_24)
+* **Non-Parametric Ranked Estimation**: [Wilcoxon, F. (1945) - Individual Comparisons by Ranking Methods (*Biometrics*)](https://doi.org/10.2307/3001968)
+
+### 🔗 Related Theory & Empirical Case Studies in Credence
+* 🎮 [Interactive Playground: The Galileo Rule Simulator](../playground.md)
+* 💥 [Tutorial 08: Sybil Cartel Demolition & Weighted Medians](../tutorials/08-sybil-cartel-demolition.md)
+* ✍️ [Essay: The Galileo Rule & Asymmetric Evidence](../../blog/the-galileo-rule.md)
+* 🔬 [Case Study: Conflict of Pun-terest & Monopoly Forensics](../../blog/conflict-of-pun-terest.md)
+* 🏛️ [System Invariant 27 & 28: Grounding Slashing & The Galileo Rule](../invariants.md)
+

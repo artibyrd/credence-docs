@@ -74,7 +74,7 @@ Browse all loaded taxonomy rulebooks (SPJ Journalistic Ethics, Informal Logical 
 ![Taxonomies Tree](assets/tui/05-taxonomies-tree.svg)
 
 * Collapsible tree hierarchy showing catalogs, thematic clusters, rule IDs, and baseline severity ratings.
-* Pinned by SHA-256 catalog hashes in accordance with **[Invariant 5](docs/invariants.md#invariant-5)** (Namespaced Fixed Taxonomies).
+* Pinned by SHA-256 catalog hashes in accordance with **[Invariant 5](../invariants.md#invariant-5)** (Namespaced Fixed Taxonomies).
 
 ---
 
@@ -84,7 +84,7 @@ Explore the subject taxonomy used for domain-weighted consensus and specialist r
 ![Domain Subjects](assets/tui/06-domain-subjects.svg)
 
 * Multi-tier hierarchy spanning journalism, computing, science, biology, and satire.
-* Used to calculate empirical node expertise ($E_i$) and enforce the **[Anti-Diploma Invariant](docs/invariants.md#invariant-17)**.
+* Used to calculate empirical node expertise ($E_i$) and enforce the **[Anti-Diploma Invariant](../invariants.md#invariant-17)**.
 
 ---
 
@@ -132,7 +132,7 @@ Review the automated 24-hour executive summary compiling articles sifted across 
 
 ## 4. Multi-Display View Modes
 
-In accordance with **[Invariant 25](docs/invariants.md#invariant-25)**, the TUI supports 3 distinct presentation modes toggled via `v`:
+In accordance with **[Invariant 25](../invariants.md#invariant-25)**, the TUI supports 3 distinct presentation modes toggled via `v`:
 
 | Mode | Key | Primary Use Case | Output Format |
 |:---|:---|:---|:---|

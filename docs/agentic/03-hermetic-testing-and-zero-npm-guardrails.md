@@ -27,7 +27,7 @@ flowchart TD
 ```
 
 > [!IMPORTANT]
-> **[Invariant 31: Universal Zero-Build Standards (Zero-npm Invariant)](docs/invariants.md#invariant-31)**: All public web surfaces, documentation portals (`credence-docs`), and blogs strictly use vanilla HTML5, CSS Custom Properties, and native ES Modules with **zero npm dependencies, zero package.json, and zero build toolchains**.
+> **[Invariant 31: Universal Zero-Build Standards (Zero-npm Invariant)](../invariants.md#invariant-31)**: All public web surfaces, documentation portals (`credence-docs`), and blogs strictly use vanilla HTML5, CSS Custom Properties, and native ES Modules with **zero npm dependencies, zero package.json, and zero build toolchains**.
 
 ---
 

@@ -89,3 +89,24 @@ curl -i https://mcp.credence.run/sse
 # Inspect live telemetry loopback via CLI
 credence health
 ```
+
+---
+
+## 4. Operational Cross-References & External Documentation
+
+### 📚 Official Cloud & Provider Specifications
+* **Google Cloud Run v2**: [Cloud Run Service Configuration & Autoscaling](https://cloud.google.com/run/docs/configuring/services) &bull; [Scale-to-Zero Architecture](https://cloud.google.com/run/docs/about-instance-autoscaling)
+* **Google Secret Manager**: [Secret Manager IAM & Auto-Resolution](https://cloud.google.com/secret-manager/docs/access-secret-version)
+* **Google Cloud Billing**: [Billing Alert Thresholds & Webhook Integrations](https://cloud.google.com/billing/docs/how-to/budgets)
+* **Google Cloud Monitoring**: [Uptime Checks & Notification Channels](https://cloud.google.com/monitoring/alerts)
+* **Terraform Provider**: [HashiCorp Google Provider on Terraform Registry](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloud_run_v2_service)
+* **Discord Developer Portal**: [Discord Webhooks Protocol Guide](https://discord.com/developers/docs/resources/webhook)
+* **GitHub Actions CI/CD**: [Configuring Keyless Workload Identity Federation (WIF)](https://cloud.google.com/iam/docs/workload-identity-federation-with-deployment-pipelines)
+
+### 🔗 Related In-Depth Guides in Credence
+* 🛠️ [Tutorial 13: Discord Alerting & Basement Monitoring](tutorials/13-discord-alerting-and-basement-monitoring.md)
+* ☁️ [Multi-Cloud Deployments (AWS, Azure, Hetzner, K8s)](portability/multi-cloud-deployment.md)
+* ⚡ [FastMCP 2.0 Protocol & SSE Specifications](protocols/fastmcp.md)
+* 💰 [Cost Profiles & $15/mo Budget Caps](protocols/token-governor.md)
+* 🏛️ [System Invariants: 3-Plane Governance & Cloudflare Workers](invariants.md)
+

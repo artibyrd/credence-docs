@@ -88,3 +88,24 @@ def credence_audit_tool(url: str) -> dict:
 tools = [credence_audit_tool]
 tool_node = ToolNode(tools)
 ```
+
+---
+
+## 5. External Specifications & Agent Ecosystem References
+
+### 📚 Official AI Agent & IDE Documentation
+* **Model Context Protocol**: [Official MCP Specification](https://modelcontextprotocol.io/) &bull; [MCP Architecture Overview](https://modelcontextprotocol.io/docs/concepts/architecture)
+* **Anthropic**: [Claude Desktop MCP Quickstart](https://docs.anthropic.com/en/docs/agents-and-tools/mcp)
+* **Cursor**: [Cursor AI Editor & MCP Tools](https://docs.cursor.com/context/model-context-protocol)
+* **Windsurf**: [Codeium Windsurf IDE Cascade Architecture](https://codeium.com/windsurf)
+* **Cline**: [Cline Autonomous Coding Agent on GitHub](https://github.com/cline/cline)
+* **LangGraph**: [LangGraph Multi-Agent Workflows (LangChain)](https://langchain-ai.github.io/langgraph/)
+* **CrewAI**: [CrewAI Autonomous Agent Framework](https://docs.crewai.com/)
+
+### 🔗 Related Agentic Guides in Credence
+* 🛑 [Cookbook: Agentic Epistemic Brake for AI Workflows](../cookbooks/agentic-epistemic-brake.md)
+* ⚡ [FastMCP 2.0 Protocol & SSE Streaming Specification](../protocols/fastmcp.md)
+* 🔄 [Multi-Model Adapters (Gemini, Claude, GPT-4o, DeepSeek, Ollama)](multi-model-adapters.md)
+* 🤖 [Antigravity Pair-Programming Paradigm](../agentic/01-antigravity-pair-programming-paradigm.md)
+* 🎮 [Interactive Playground: In-Browser Text Scanner](../playground.md)
+

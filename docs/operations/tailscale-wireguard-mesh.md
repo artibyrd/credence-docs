@@ -66,3 +66,19 @@ graph LR
 * **NAT Traversal & CGNAT Bypass**: Nodes connect seamlessly even when behind complex corporate firewalls or carrier-grade NATs.
 * **Mutual TLS & End-to-End Encryption**: All WebSocket frames are encapsulated in WireGuard's ChaCha20-Poly1305 encryption.
 * **Zero Public Port Exposure**: Scanning tools cannot detect the running Credence WebSocket relay on the public internet.
+
+---
+
+## 4. Overlay Network References & Security Specs
+
+### 📚 Official VPN & Network Documentation
+* **Tailscale**: [Tailscale How-To & Knowledge Base](https://tailscale.com/kb/) &bull; [Tailscale NAT Traversal Paper](https://tailscale.com/blog/how-nat-traversal-works)
+* **WireGuard**: [WireGuard Technical Specification](https://www.wireguard.com/) &bull; [WireGuard Protocol Paper by Jason A. Donenfeld](https://www.wireguard.com/papers/wireguard.pdf)
+* **Headscale**: [Headscale Open-Source Tailscale Control Server](https://headscale.net/)
+
+### 🔗 Related Security Guides in Credence
+* 🕸️ [P2P Mesh Protocol & Ed25519 Envelopes](../protocols/mesh-protocol.md)
+* 💾 [Air-Gapped Sneakernet Distribution](../mesh-engineering/airgapped-sneakernets.md)
+* 🍓 [Raspberry Pi Homelab Node Setup](raspberry-pi-homelab.md)
+* 🧪 [Tutorial 05: 3-Node Mesh Quickstart](../tutorials/05-mesh-quickstart.md)
+

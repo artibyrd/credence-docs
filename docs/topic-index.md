@@ -13,25 +13,28 @@ description: "Comprehensive concept index, cheat sheet, and fast-lookup director
 
 | Category | Key Topics Covered |
 | :--- | :--- |
-| [🚀 Getting Started & Setup](#-1-getting-started--setup) | One-line install, Docker, API keys, first audit, node germination |
-| [💻 CLI & Workstation Reference](#-2-cli-commands--workstation-reference) | `audit`, `tui`, `digest`, `sifter`, `serve`, `quota`, `rank` |
-| [🤖 AI Agents & FastMCP 2.0](#-3-ai-agents--fastmcp-20-integrations) | Claude Desktop, Cursor, Antigravity SDK, LangGraph epistemic brake |
-| [💰 Cost, Tokens & Gemini Profiles](#-4-cost-profiles--token-economics) | `FREE`, `BALANCED`, `ULTRA`, 30% Headroom circuit breaker |
-| [📜 Ethics & Taxonomy Catalogs](#-5-ethics-logic--taxonomy-catalogs) | SPJ Ethics, IEP Fallacies, Deceptive Patterns, Custom YAML rules |
-| [🎭 Satire & Disinformation Defense](#-6-satire-parody--disinformation-defense) | Poe's Law, satire neutralization, `SPJ-1.6` cloaking override |
-| [🕸️ P2P Mesh Network & Consensus](#-7-p2p-mesh-network--consensus) | 3-node quickstart, 13-node chaos lab, seed nodes, DNS SRV |
-| [📐 Mathematical Proofs & Theory](#-8-mathematical-foundations--proofs) | Weighted medians, Galileo Rule proof, SimHash-64, BitTorrent model |
-| [☁️ Self-Hosting & Operations](#-9-self-hosting--operations) | Raspberry Pi, GCP Cloud Run, Tailscale, SQLite WAL maintenance |
-| [🏛️ 36 System Invariants](#-10-the-36-core-system-invariants) | Complete index of architectural, epistemic, and security rules |
+| [🎮 Interactive Zero-Build Playgrounds](playground.md) | 12 in-browser simulators: 13-node mesh, SimHash, Token Governor, Forensics |
+| [🚀 Getting Started & Setup](#1-getting-started-setup) | One-line install, Docker, API keys, first audit, node germination |
+| [💻 CLI & Workstation Reference](#2-cli-commands-workstation-reference) | `audit`, `tui`, `digest`, `sifter`, `serve`, `quota`, `rank` |
+| [🤖 AI Agents & FastMCP 2.0](#3-ai-agents-fastmcp-20-integrations) | Claude Desktop, Cursor, Antigravity SDK, LangGraph epistemic brake |
+| [💰 Cost, Tokens & Gemini Profiles](#4-cost-profiles-token-economics) | `FREE`, `BALANCED`, `ULTRA`, 30% Headroom circuit breaker |
+| [📜 Ethics & Taxonomy Catalogs](#5-ethics-logic-taxonomy-catalogs) | SPJ Ethics, IEP Fallacies, Deceptive Patterns, Custom YAML rules |
+| [🎭 Satire & Disinformation Defense](#6-satire-parody-disinformation-defense) | Poe's Law, satire neutralization, `SPJ-1.6` cloaking override |
+| [🕸️ P2P Mesh Network & Consensus](#7-p2p-mesh-network-consensus) | 3-node quickstart, 13-node chaos lab, seed nodes, DNS SRV |
+| [📐 Mathematical Proofs & Theory](#8-mathematical-foundations-proofs) | Weighted medians, Galileo Rule proof, SimHash-64, BitTorrent model |
+| [☁️ Self-Hosting & Operations](#9-self-hosting-operations) | Raspberry Pi, GCP Cloud Run, Tailscale, SQLite WAL maintenance |
+| [🏛️ 36 System Invariants](#10-the-36-core-system-invariants) | Complete index of architectural, epistemic, and security rules |
+| [🌐 External Standards & Specifications](#11-external-standards-authoritative-specifications) | IETF RFCs, W3C WebCrypto, Model Context Protocol, SPJ Ethics |
 
 ---
 
 ## 🚀 1. Getting Started & Setup
 
-* **One-Liner Install (POSIX)**: Run `curl -fsSL https://credence.run/install.sh | bash` &rarr; [Quickstart Guide](quickstart.md#1-quick-installation)
-* **Git & Poetry Setup**: Clone and setup via `poetry install` &rarr; [Quickstart Guide](quickstart.md#1-quick-installation)
-* **Docker Container**: Pre-built container with Chromium &rarr; [Quickstart Guide](quickstart.md#1-quick-installation)
-* **API Key Setup**: Setting `CREDENCE_GEMINI_API_KEY` in your shell &rarr; [API Configuration](quickstart.md#2-api-key-configuration)
+* **🎮 Interactive Playgrounds**: Test 12 in-browser models and the InMaricopa forensics workbench &rarr; [Interactive Playgrounds](playground.md)
+* **One-Liner Install (POSIX)**: Run `curl -fsSL https://credence.run/install.sh | bash` &rarr; [Quickstart Guide](quickstart.md#1-installation-options)
+* **Git & Poetry Setup**: Clone and setup via `poetry install` &rarr; [Quickstart Guide](quickstart.md#1-installation-options)
+* **Docker Container**: Pre-built container with Chromium &rarr; [Quickstart Guide](quickstart.md#1-installation-options)
+* **API Key Setup**: Setting `CREDENCE_GEMINI_API_KEY` in your shell &rarr; [API Configuration](quickstart.md#2-api-key-configuration-optional)
 * **Zero-Cost / Offline Mode**: Running audits with 0 API spend &rarr; [Token Governor](protocols/token-governor.md)
 * **Node Germination ("Miracle-Gro" Bootstrap)**: Instant key generation, seed inoculation, and initial burst &rarr; [Node Germination Protocol](protocols/node-germination-lifecycle.md)
 * **First Web Audit**: Running your very first URL audit in under 5 seconds &rarr; [Auditing Webpages & Text](walkthroughs/01-auditing-webpages-and-text.md)
@@ -44,7 +47,7 @@ description: "Comprehensive concept index, cheat sheet, and fast-lookup director
 | Command | Action | Deep Guide |
 | :--- | :--- | :--- |
 | `credence audit <url>` | Live forensic evaluation of a webpage | [Auditing Webpages & Text](walkthroughs/01-auditing-webpages-and-text.md) |
-| `credence audit <url> --profile free` | Low-latency zero-cost heuristic audit | [Operational Cost Profiles](cost-profiles.md) |
+| `credence audit <url> --profile free` | Low-latency zero-cost heuristic audit | [Operational Cost Profiles](protocols/token-governor.md) |
 | `credence tui` | Launch full-screen interactive terminal workstation | [Textual TUI Workstation](integrations/tui-workstation.md) |
 | `credence digest --format terminal` | Print 24-hour morning epistemic briefing | [Morning Digest Briefings](walkthroughs/04-morning-digest-briefings.md) |
 | `credence sifter --interval 300` | Run autonomous background RSS feed filter | [Zero-Trust Feed Sifting](walkthroughs/02-zero-trust-feed-sifting.md) |
@@ -52,6 +55,8 @@ description: "Comprehensive concept index, cheat sheet, and fast-lookup director
 | `credence serve --transport sse` | Start FastMCP 2.0 streaming HTTP/SSE server | [FastMCP 2.0 Protocol](protocols/fastmcp.md) |
 | `credence quota` | Inspect current token usage and headroom safety | [Token Governor Protocol](protocols/token-governor.md) |
 | `credence rank` | View local and peer P2P node quality leaderboard ($Q_i$) | [Epistemic Merit & Leaderboards](protocols/epistemic-merit-and-leaderboards.md) |
+| `credence rankings inmaricopa.com` | View publisher DEI score, trust band, and forensic sourcing ratios | [Conflict of Pun-terest](../blog/conflict-of-pun-terest.md) |
+| `credence export-analytics <domain>` | Export machine-readable publisher analytics JSON/CSV | [Conflict of Pun-terest](../blog/conflict-of-pun-terest.md) |
 | `credence benchmark` | Run the Golden 12 cross-profile evaluation suite | [Golden 12 Benchmark Suite](protocols/benchmark-suite.md) |
 | `credence germinate` | Autonomous node ignition and genesis inoculation | [Tutorial 11: Swarm Ignition](tutorials/11-autonomous-node-germination-and-swarm-ignition.md) |
 
@@ -71,7 +76,7 @@ description: "Comprehensive concept index, cheat sheet, and fast-lookup director
 
 ## 💰 4. Cost Profiles & Token Economics
 
-* **Profile Overview**: Compare latency, token limits, thinking tokens, and spend limits &rarr; [Cost Profiles Guide](cost-profiles.md)
+* **Profile Overview**: Compare latency, token limits, thinking tokens, and spend limits &rarr; [Cost Profiles Guide](protocols/token-governor.md)
 * **`FREE` Profile ($0.00 / Zero Spend)**: Strict zero-cost offline heuristic auditing &rarr; [Token Governor](protocols/token-governor.md)
 * **`BALANCED` Profile (Default)**: Gemini 3.7 Flash with 1,024–4,096 thinking tokens for daily news &rarr; [ADR: Why Gemini 3.7 Flash](portability/gemini-economic-rationale.md)
 * **`ULTRA` Profile (Investigative)**: Deep reasoning with up to 16,384 thinking tokens for legal/financial filings &rarr; [Financial 10-K Cookbook](cookbooks/financial-disclosures.md)
@@ -149,6 +154,28 @@ For complete engineering invariants, safety constraints, and mathematical guaran
 
 ---
 
+## 🌐 11. External Standards & Authoritative Specifications
+
+| Standard / Protocol | Authority | Scope in Credence | Official Specification |
+| :--- | :--- | :--- | :--- |
+| **Model Context Protocol (MCP)** | Anthropic & Open Source | FastMCP 2.0 dual transport (`stdio` & SSE) | [modelcontextprotocol.io](https://modelcontextprotocol.io/) |
+| **JSON Canonicalization (JCS)** | IETF (RFC 8785) | Deterministic cryptographic envelope hashing | [datatracker.ietf.org/doc/html/rfc8785](https://datatracker.ietf.org/doc/html/rfc8785) |
+| **Ed25519 Cryptography** | IETF (RFC 8032) | Node identity custody & attestation signing | [datatracker.ietf.org/doc/html/rfc8032](https://datatracker.ietf.org/doc/html/rfc8032) |
+| **DNS SRV Peer Discovery** | IETF (RFC 2782) | Decentralized mesh relay autodiscovery | [datatracker.ietf.org/doc/html/rfc2782](https://datatracker.ietf.org/doc/html/rfc2782) |
+| **Web Cryptography API** | W3C Recommendation | Zero-npm in-browser attestation verification | [w3.org/TR/WebCryptoAPI](https://www.w3.org/TR/WebCryptoAPI/) |
+| **SPJ Code of Ethics** | Society of Professional Journalists | Truth verification & conflict of interest rules | [spj.org/ethicscode.asp](https://www.spj.org/ethicscode.asp) |
+| **ClaimReview Markup** | Schema.org | Structured fact-check search interoperability | [schema.org/ClaimReview](https://schema.org/ClaimReview) |
+| **Google Cloud Run v2** | Google Cloud Platform | Serverless compute plane with scale-to-zero | [cloud.google.com/run](https://cloud.google.com/run/docs) |
+| **Cloudflare Workers** | Cloudflare Edge | Zero-build multi-domain edge routing CDN | [developers.cloudflare.com/workers](https://developers.cloudflare.com/workers/) |
+
+---
+
 ## 💬 Looking for Something Else?
+
+* 🔍 Use the documentation search bar at the top of the sidebar (`/` or `Ctrl+K`) to search across all topics and keywords.
+* 🎮 Try the **[12 Interactive Zero-Build Playgrounds](playground.md)** directly in your browser.
+* 🔬 Inspect the **[Conflict of Pun-terest Forensic Case Study](../blog/conflict-of-pun-terest.md)** for live exurban monopoly auditing.
+* 🐙 Open an issue or discussion on the **[Credence GitHub Repository](https://github.com/artibyrd/credence)**.
+
 
 Press <kbd>/</kbd> or <kbd>Ctrl+K</kbd> anywhere in the documentation to activate the instant search engine, or jump to the [Introduction](intro.md) to explore the core philosophy.

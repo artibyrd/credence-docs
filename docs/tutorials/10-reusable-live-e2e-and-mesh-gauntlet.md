@@ -125,7 +125,7 @@ CREDENCE_LIVE_SEED=seed_gamma_nature just test-live
 
 ## Step 3: Understanding the Epistemic Corpus Catalog
 
-Open [`tests/e2e/live_corpus.py`](file:///home/pendragon/Projects/credence-ecosystem/credence/tests/e2e/live_corpus.py). The corpus is organized into 5 curated categories:
+Open [`tests/e2e/live_corpus.py`](https://github.com/artibyrd/credence/blob/main/tests/e2e/live_corpus.py). The corpus is organized into 5 curated categories:
 
 ```python
 LIVE_CORPUS = {

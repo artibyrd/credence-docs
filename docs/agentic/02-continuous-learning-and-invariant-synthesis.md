@@ -24,7 +24,7 @@ flowchart LR
 ```
 
 > [!NOTE]
-> **[Invariant 18: Context Governance & Progressive Disclosure](docs/invariants.md#invariant-18)**: Keep `AGENTS.md` lean (<1,000 tokens) in thematic categories. Place multi-step runbooks in `.agents/skills/` and complete specifications in `docs/`.
+> **[Invariant 18: Context Governance & Progressive Disclosure](../invariants.md#invariant-18)**: Keep `AGENTS.md` lean (<1,000 tokens) in thematic categories. Place multi-step runbooks in `.agents/skills/` and complete specifications in `docs/`.
 
 ---
 
@@ -42,10 +42,10 @@ When an unexpected edge case occurs during pair-programming, Credence follows a 
 
 | Incident / Edge Case | Immediate Fix | Codified Invariant Added via `/learn` | Automated Guardrail |
 | :--- | :--- | :--- | :--- |
-| **Mermaid Syntax Crashes** | Quoted node strings | **[Invariant 34: Universal Mermaid Syntax Guardrail](docs/invariants.md#invariant-34)** | `test_mermaid_diagram_syntax_integrity` |
-| **Wall-of-Text Fatigue** | Added flowcharts & tables | **[Invariant 35: Visual Density Invariant ($\ge 2.0$/500w)](docs/invariants.md#invariant-35)** | `scratch/audit_visual_density.py` |
-| **Multi-Repo Version Drift** | Updated `credence.run` | **[Invariant 3: Version Parity Governance](docs/invariants.md#invariant-3)** | `test_ecosystem_version_parity` |
-| **Unlinked Invariant Mentions** | Cross-linked markdown | **[Invariant 30: Invariant Linking Guardrail](docs/invariants.md#invariant-30)** | `test_all_invariant_references_are_linked` |
+| **Mermaid Syntax Crashes** | Quoted node strings | **[Invariant 34: Universal Mermaid Syntax Guardrail](../invariants.md#invariant-34)** | `test_mermaid_diagram_syntax_integrity` |
+| **Wall-of-Text Fatigue** | Added flowcharts & tables | **[Invariant 35: Visual Density Invariant ($\ge 2.0$/500w)](../invariants.md#invariant-35)** | `scratch/audit_visual_density.py` |
+| **Multi-Repo Version Drift** | Updated `credence.run` | **[Invariant 3: Version Parity Governance](../invariants.md#invariant-3)** | `test_ecosystem_version_parity` |
+| **Unlinked Invariant Mentions** | Cross-linked markdown | **[Invariant 30: Invariant Linking Guardrail](../invariants.md#invariant-30)** | `test_all_invariant_references_are_linked` |
 
 ---
 

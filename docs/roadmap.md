@@ -83,6 +83,6 @@ Rather than committing to rigid version numbers, candidate enhancements are orga
 ## 3. Guiding Invariants for Roadmap Contributions
 
 When implementing items from this backlog, all contributors and autonomous agents must preserve:
-1. **[Invariant 31: Zero-npm Standard](docs/invariants.md#invariant-31)**: Never introduce Node.js or npm dependencies into web portals or documentation.
-2. **[Invariant 4: Hermetic Testing](docs/invariants.md#invariant-4)**: Default test suites must run 100% offline in-memory.
-3. **[Invariant 26: Universal Feature Parity](docs/invariants.md#invariant-26)**: New capabilities must be exposed symmetrically across CLI, FastMCP 2.0, Textual TUI, and Web.
+1. **[Invariant 31: Zero-npm Standard](invariants.md#invariant-31)**: Never introduce Node.js or npm dependencies into web portals or documentation.
+2. **[Invariant 4: Hermetic Testing](invariants.md#invariant-4)**: Default test suites must run 100% offline in-memory.
+3. **[Invariant 26: Universal Feature Parity](invariants.md#invariant-26)**: New capabilities must be exposed symmetrically across CLI, FastMCP 2.0, Textual TUI, and Web.

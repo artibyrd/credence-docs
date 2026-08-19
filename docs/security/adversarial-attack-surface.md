@@ -15,10 +15,10 @@ This document details Credence's threat model and protocol defenses against adve
 
 | Attack Vector | Exploitation Mechanism | Credence Defense Layer | Invariant Reference | Severity Rating |
 | :--- | :--- | :--- | :--- | :--- |
-| **Indirect Prompt Injection** | Embedded system override instructions in scraped prose | `<untrusted_source_text>` isolation & non-override directives | [Invariant 8](docs/invariants.md#invariant-8) | **CRITICAL (Tier 4)** |
-| **DOM & CSS Cloaking** | `display:none` or white-on-white text hiding deceptive claims | Dual-Capture (Playwright rendered DOM + Trafilatura text) | [Invariant 1](docs/invariants.md#invariant-1) | **HIGH (Tier 3)** |
-| **Character Obfuscation** | Cyrillic homoglyphs & zero-width spaces (`\u200C`) | Strict Unicode NFKC normalization & whitespace collapsing | [Invariant 22](docs/invariants.md#invariant-22) | **MEDIUM (Tier 2)** |
-| **Protocol & SSRF Exploits** | Loopback, RFC 1918 private subnets, Billion Laughs XML bomb | Ingestion SSRF Guard + defused XML entity parser | [Invariant 8 & 9](docs/invariants.md#invariant-8) | **CRITICAL (Tier 4)** |
+| **Indirect Prompt Injection** | Embedded system override instructions in scraped prose | `<untrusted_source_text>` isolation & non-override directives | [Invariant 8](../invariants.md#invariant-8) | **CRITICAL (Tier 4)** |
+| **DOM & CSS Cloaking** | `display:none` or white-on-white text hiding deceptive claims | Dual-Capture (Playwright rendered DOM + Trafilatura text) | [Invariant 1](../invariants.md#invariant-1) | **HIGH (Tier 3)** |
+| **Character Obfuscation** | Cyrillic homoglyphs & zero-width spaces (`\u200C`) | Strict Unicode NFKC normalization & whitespace collapsing | [Invariant 22](../invariants.md#invariant-22) | **MEDIUM (Tier 2)** |
+| **Protocol & SSRF Exploits** | Loopback, RFC 1918 private subnets, Billion Laughs XML bomb | Ingestion SSRF Guard + defused XML entity parser | [Invariant 8 & 9](../invariants.md#invariant-8) | **CRITICAL (Tier 4)** |
 
 ---
 

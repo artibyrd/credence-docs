@@ -78,6 +78,11 @@ Runs pre-flight forensic audit on a candidate feed to calculate Topic Entropy (\
 - **Parameters**: `feed_url: str`
 - **Output**: Detailed pre-flight audit report with status (`ACTIVE`, `PROBATION`, `QUARANTINE`).
 
+### `credence_get_publisher_analytics`
+Returns aggregate epistemic performance metrics, Domain Epistemic Index ($DEI$), trust band, and sourcing ratios for a publisher domain.
+- **Parameters**: `domain: str` (e.g. `inmaricopa.com`)
+- **Output**: JSON object with $DEI$, Trust Band, $R_{\text{byline}}$, $R_{\text{single}}$, $R_{\text{COI}}$, $ASI$, and longitudinal monthly trend buckets.
+
 ### `credence_generate_digest`
 Generates a structured daily Morning Epistemic Briefing from evaluated articles.
 - **Parameters**: `hours: int = 24`
@@ -94,3 +99,24 @@ Generates a structured daily Morning Epistemic Briefing from evaluated articles.
 - `credence://subjects/registry`: Hierarchical subject domain ontology.
 - `credence://feeds/status`: Syndicated feed status and compute savings.
 - `credence://digest/morning`: Live 24-hour executive morning epistemic digest.
+- `credence://analytics/publishers`: Summary list of all audited publisher outlets with DEI scores.
+- `credence://analytics/publisher/{domain}`: Detailed longitudinal analytics record for a specific domain.
+
+---
+
+## 4. External Protocols & Related Guides
+
+### 📚 Official Model Context Protocol Specifications
+* **MCP Specification**: [Model Context Protocol Official Specification](https://modelcontextprotocol.io/) &bull; [MCP Architecture Overview](https://modelcontextprotocol.io/docs/concepts/architecture)
+* **FastMCP Framework**: [FastMCP 2.0 Python Framework](https://github.com/jlowin/fastmcp)
+* **Anthropic Documentation**: [Connecting MCP to Claude Desktop](https://docs.anthropic.com/en/docs/agents-and-tools/mcp)
+* **Cursor Editor**: [Cursor MCP Tools & Context Configuration](https://docs.cursor.com/context/model-context-protocol)
+* **W3C Standards**: [W3C Server-Sent Events (SSE) Specification](https://html.spec.whatwg.org/multipage/server-sent-events.html)
+
+### 🔗 Related In-Depth Guides in Credence
+* 🤖 [Tutorial 03: Claude Desktop & Cursor FastMCP Setup](../tutorials/03-claude-cursor-fastmcp.md)
+* 🛑 [Cookbook: Agentic Epistemic Brake for AI Swarms](../cookbooks/agentic-epistemic-brake.md)
+* 🌐 [Universal Agent Interoperability (Windsurf, Cline, CrewAI)](../portability/universal-agent-interop.md)
+* 🔬 [Case Study: Conflict of Pun-terest Forensic Analysis](../../blog/conflict-of-pun-terest.md)
+* 🎮 [Interactive Playground: In-Browser Text Scanner & Receipts](../playground.md)
+

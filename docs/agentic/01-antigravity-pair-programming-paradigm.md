@@ -29,7 +29,7 @@ flowchart TD
 ```
 
 > [!IMPORTANT]
-> **[Invariant 6: Human Review Before Commits ("Mk1 Eyeball")](docs/invariants.md#invariant-6)**: Agents must never execute `git commit` or apply infrastructure changes autonomously without presenting live verification results for human approval first.
+> **[Invariant 6: Human Review Before Commits ("Mk1 Eyeball")](../invariants.md#invariant-6)**: Agents must never execute `git commit` or apply infrastructure changes autonomously without presenting live verification results for human approval first.
 
 ---
 

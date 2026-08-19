@@ -43,7 +43,7 @@ If an epistemic engine only tests against static HTML snapshots captured in 2024
 2. **Prompts Overfit to Static Text**: Model instructions tuned to pass 10 static fixtures frequently fail when exposed to novel linguistic nuance or modern rhetorical techniques.
 3. **Syndication Drift Goes Unnoticed**: RSS and Atom feeds evolve, adding novel enclosure tags, namespace extensions, and publication frequency patterns.
 
-To solve this, Credence introduced **Tier 6: Reusable Live Rotating & Mutating E2E Gauntlets** ([`tests/e2e/live_corpus.py`](file:///home/pendragon/Projects/credence-ecosystem/credence/tests/e2e/live_corpus.py)).
+To solve this, Credence introduced **Tier 6: Reusable Live Rotating & Mutating E2E Gauntlets** ([`tests/e2e/live_corpus.py`](https://github.com/artibyrd/credence/blob/main/tests/e2e/live_corpus.py)).
 
 ---
 
@@ -83,7 +83,7 @@ flowchart LR
 
 In modern AI systems, interfaces frequently drift out of sync. A feature implemented in the CLI is missing in the MCP server; a bug fixed in the Web UI persists in the Python SDK.
 
-Credence enforces **Universal Presentation Layer Parity** (**[Invariant 26](docs/invariants.md#invariant-26)**). All business logic is strictly isolated in `credence.pipeline` and `credence.mesh`, completely decoupled from presentation wrappers.
+Credence enforces **Universal Presentation Layer Parity** (**[Invariant 26](../docs/invariants.md#invariant-26)**). All business logic is strictly isolated in `credence.pipeline` and `credence.mesh`, completely decoupled from presentation wrappers.
 
 ```mermaid
 flowchart TD
@@ -123,7 +123,7 @@ sequenceDiagram
 
 The simulation mathematically proves:
 1. **BitTorrent Work-Sharing**: 12 peer nodes adopt the attestation in $0$ LLM tokens (**92.3% compute savings** at $\$0.00$ token cost).
-2. **The Galileo Rule ([Invariant 23](docs/invariants.md#invariant-23))**: Verified domain authorities with 100% grounded citations cannot be outlier-dismissed by ungrounded majorities.
+2. **The Galileo Rule ([Invariant 23](../docs/invariants.md#invariant-23))**: Verified domain authorities with 100% grounded citations cannot be outlier-dismissed by ungrounded majorities.
 3. **Byzantine Slashing**: Injected ungrounded smears ($S=95.0, G=0.0$) are filtered as outliers and dropped from the consensus score.
 
 ---
@@ -132,7 +132,7 @@ The simulation mathematically proves:
 
 Modern frontend test suites frequently require hundreds of megabytes of `node_modules`, Webpack/Vite build steps, and transitive dependencies that break after two years of neglected maintenance.
 
-Credence enforces the **Zero-npm Invariant** (**[Invariant 31](docs/invariants.md#invariant-31)**). The entire documentation portal and web surfaces are built in vanilla HTML5, CSS Custom Properties, and native ES Modules with **zero npm dependencies and zero build chains**.
+Credence enforces the **Zero-npm Invariant** (**[Invariant 31](../docs/invariants.md#invariant-31)**). The entire documentation portal and web surfaces are built in vanilla HTML5, CSS Custom Properties, and native ES Modules with **zero npm dependencies and zero build chains**.
 
 Tier 5 verifies this using async Playwright in Python:
 * Spawns an ephemeral Python HTTP server on port 0.

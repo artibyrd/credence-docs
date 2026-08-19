@@ -9,6 +9,10 @@ description: "Welcome to Credence: the open epistemic trust engine for AI and th
 
 Instead of subjective "truthiness" scores or centralized arbiters, Credence provides **transparent, verifiable receipts** that anyone can inspect.
 
+:::note
+🎮 **Try It in Your Browser**: Experience Credence's algorithms live without installing anything! Test the **[12 Interactive Zero-Build Playgrounds](playground.md)** (13-node mesh simulator, SimHash matrix, Token Governor) and the **[InMaricopa Forensic Case Study Workbench](../blog/conflict-of-pun-terest.md)** with live clickable DOM evidence and policy reform simulation.
+:::
+
 ---
 
 ## 🎯 Choose Your Path
@@ -17,7 +21,9 @@ Where would you like to start?
 
 | Your Goal | Recommended Starting Point | Time Needed |
 | :--- | :--- | :--- |
-| **🚀 Just jump in and try it** | [Quickstart & Installation Guide](quickstart.md) | **1 minute** |
+| **🎮 Try interactive browser playgrounds** | [Interactive Zero-Build Playgrounds](playground.md) | **Instant (Zero Install)** |
+| **🔬 Inspect live forensic case study** | [Conflict of Pun-terest: InMaricopa Case Study](../blog/conflict-of-pun-terest.md) | **2 minutes** |
+| **🚀 Just jump in and try the CLI** | [Quickstart & Installation Guide](quickstart.md) | **1 minute** |
 | **🧭 Find a specific command or topic** | [Topic Index & Concept Directory](topic-index.md) | **Instant** |
 | **🤖 Connect to Claude Desktop or Cursor** | [Claude & Cursor FastMCP Tutorial](tutorials/03-claude-cursor-fastmcp.md) | **2 minutes** |
 | **📰 Get an automated morning news brief** | [Morning Digest Walkthrough](walkthroughs/04-morning-digest-briefings.md) | **3 minutes** |

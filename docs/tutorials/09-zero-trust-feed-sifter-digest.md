@@ -108,7 +108,7 @@ $$F_j = 0.35 \left(1.0 - \frac{\bar{S}_j}{100}\right) + 0.25 G_j + 0.20 H_{\text
 | **Quarantine / Eviction** | $F_j < 0.40$ | $H < 0.30$ | **Autonomous eviction**. Peer nodes alerted via gossip. |
 
 > [!TIP]
-> Use the **Zero-Trust Feed Quality Simulator** in the [Interactive Playground](../playground.md#8-zero-trust-dynamic-feed-discovery--quality-fj-simulator) to experiment with different suspicion and entropy weights live in your browser.
+> Use the **Zero-Trust Feed Quality Simulator** in the [Interactive Playground](../playground.md#8-zero-trust-dynamic-feed-discovery-quality-fj-simulator) to experiment with different suspicion and entropy weights live in your browser.
 
 ---
 

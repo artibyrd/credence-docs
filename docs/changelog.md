@@ -7,6 +7,32 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.12.0] - 2026-08-18
+
+### Added
+- **Aggregate Public Publisher Analytics & Longitudinal Trend Visualization**:
+  - Implemented `get_publisher_analytics(session, domain)` and `list_all_publishers_summary(session)` in `credence/subjects/analytics.py`.
+  - Added composite **Domain Epistemic Index ($DEI$)**, 5 standardized Trust Bands (`HIGH_INTEGRITY`, `RELIABLE`, `MIXED`, `POOR`, `DECEPTIVE`), and **Forensic Sourcing Ratios**:
+    - **Byline Transparency Ratio ($R_{\text{byline}}$)**: Proportion of published articles containing verified human bylines.
+    - **Single-Source Reliance Ratio ($R_{\text{single}}$)**: Frequency of articles relying on a single uncorroborated press release (`SPJ-1.1`, `SPJ-1.2`).
+    - **Conflict Disclosure Rate ($R_{\text{COI}}$)**: Rate of explicit conflict of interest disclosures for municipal/commercial coverage (`SPJ-3.1`, `SPJ-3.2`).
+    - **Advertorial Separation Index ($ASI$)**: Separation metric isolating disguised native advertorials (`SPJ-3.3`, `DEC-1.4`, `AST-1.1`).
+  - Added monthly longitudinal trend buckets (`period_label`, `audits_count`, `avg_suspicion`, `avg_dei`, `violations_count`).
+- **Universal 4-Way Interface Parity for Publisher Analytics**:
+  - **FastMCP 2.0 Tools & Resources**: Added tool `credence_get_publisher_analytics` and live resources `credence://analytics/publishers` and `credence://analytics/publisher/{domain}`.
+  - **Starlette REST API Gateway**: Added endpoints `GET /api/analytics/publishers` and `GET /api/analytics/publisher/{domain:path}` with CORS support.
+  - **CLI Workstation**: Added `credence rankings outlet <domain>` terminal dashboard and `credence export-analytics <domain> --format [json|csv] -o <file>`.
+  - **Zero-Build Web UI**: Added interactive **Publisher Analytics & Trends** tab on `credence.report/viewer.html` with zero-build inline SVG trendline charts and 1-click clipboard export.
+- **InMaricopa Exurban Civic News Monopoly Case Study & Interactive Forensics Workbench**:
+  - Sowed `https://inmaricopa.com/feed/` into preset feed catalogs (`PRESET_FEED_CATALOGS["regional-civic"]`).
+  - Created hermetic benchmark test suite `tests/test_inmaricopa_casestudy.py` validating the 4 forensic case study pillars ($R_{\text{COI}}$, $ASI$, $R_{\text{multi-source}}$, and $DEI$).
+  - Published editorial investigative whitepaper `blog/conflict-of-pun-terest.md` (*"Conflict of Pun-terest: 347 Reasons Why Maricopa's Publisher-Politician Problem Fails the Epistemic Smell Test"*).
+  - Embedded **Interactive Forensic Epistemic Workbench** with 5 real article presets, clickable verbatim grounding highlights, dynamic reform simulator sliders, and RFC 8785 Ed25519 canonical receipt downloads.
+- **Sovereign Blog Categorization & Prominent Playgrounds**:
+  - Reorganized sovereign blog into 4 distinct thematic tracks (*Investigative Case Studies & Field Forensics*, *Consensus Mathematics & Game Theory*, *Agentic Architecture & Sovereign AI*, and *Homelab Ops & Infrastructure*).
+  - Promoted *Conflict of Pun-terest* to the pinned #1 featured landing dispatch on `blog.credence.run`.
+  - Surfaced *Interactive Playgrounds* prominently across docs navigation, sidebar, topic index, and landing pages.
+
 ## [1.11.0] - 2026-08-18
 
 ### Added
@@ -292,12 +318,12 @@ All notable changes to the **Credence** network and documentation are documented
   - Added interactive top-of-article metadata badge rows for rapid jumping to related interfaces and invariants.
   - Added keyboard search shortcuts (`/` or `Ctrl+K` to focus, `Esc` to clear) and interactive sidebar filter pills (**All**, **Invariants**, **Agentic**, **FastMCP**, **Tutorials**).
 - **Dedicated "Agentic Engineering & Antigravity Workflows" Documentation Category**:
-  - **[01. Antigravity Pair-Programming](docs/agentic/01-antigravity-pair-programming-paradigm.md)**: Research phase, Planning Mode, background task orchestration, reactive messaging, and "Mk1 Eyeball" human gating.
-  - **[02. /learn & Invariant Synthesis](docs/agentic/02-continuous-learning-and-invariant-synthesis.md)**: Codifying post-mortems and edge-case discoveries into machine-verifiable rules in `AGENTS.md` and automated tests.
-  - **[03. Hermetic Testing & Zero-npm](docs/agentic/03-hermetic-testing-and-zero-npm-guardrails.md)**: In-memory SQLite fixtures, Playwright DOM/SVG geometry contracts, and Zero-npm longevity.
-  - **[04. Multi-Model Pareto & Token Governor](docs/agentic/04-multi-model-pareto-and-token-governance.md)**: Gemini 3.7 Flash 4k thinking token sweet spot ($0.075/1M), 30% offline circuit breakers, and prompt boundary defense.
-  - **[05. FastMCP & 4-Way Parity](docs/agentic/05-fastmcp-dual-transport-and-four-way-parity.md)**: Dual stdio/SSE FastMCP 2.0 transports, reverse proxy security, and 4-way synchronous interface parity.
-  - **[Blog Essay: Architecting Sovereign AI with Google Antigravity](blog/architecting-sovereign-ai-with-google-antigravity.md)**: High-assurance agentic engineering narrative.
+  - **[01. Antigravity Pair-Programming](agentic/01-antigravity-pair-programming-paradigm.md)**: Research phase, Planning Mode, background task orchestration, reactive messaging, and "Mk1 Eyeball" human gating.
+  - **[02. /learn & Invariant Synthesis](agentic/02-continuous-learning-and-invariant-synthesis.md)**: Codifying post-mortems and edge-case discoveries into machine-verifiable rules in `AGENTS.md` and automated tests.
+  - **[03. Hermetic Testing & Zero-npm](agentic/03-hermetic-testing-and-zero-npm-guardrails.md)**: In-memory SQLite fixtures, Playwright DOM/SVG geometry contracts, and Zero-npm longevity.
+  - **[04. Multi-Model Pareto & Token Governor](agentic/04-multi-model-pareto-and-token-governance.md)**: Gemini 3.7 Flash 4k thinking token sweet spot ($0.075/1M), 30% offline circuit breakers, and prompt boundary defense.
+  - **[05. FastMCP & 4-Way Parity](agentic/05-fastmcp-dual-transport-and-four-way-parity.md)**: Dual stdio/SSE FastMCP 2.0 transports, reverse proxy security, and 4-way synchronous interface parity.
+  - **[Blog Essay: Architecting Sovereign AI with Google Antigravity](../blog/architecting-sovereign-ai-with-google-antigravity.md)**: High-assurance agentic engineering narrative.
 - **Formalized Milestone Completion & Multi-Repo Git Push Lifecycle**:
   - Codified the 5-step milestone completion protocol: Present Walkthrough $\to$ Request "Mk1 Eyeball" Approval $\to$ Changelog & Version Sync $\to$ Multi-Repo Push (`just push-all`) $\to$ `/learn` Retrospective.
 
@@ -314,10 +340,10 @@ All notable changes to the **Credence** network and documentation are documented
   - Automatically persists user-selected interface modality (**CLI**, **FastMCP 2.0**, **Python SDK**, **Zero-Build Web UI**, or **Textual TUI**) to `localStorage`.
   - As users navigate across documentation and walkthrough pages, matching tab groups automatically switch to the preferred interface with smart fuzzy matching.
 - **4 New Comprehensive Feature Walkthrough Articles**:
-  - **[Feature Walkthrough 01: Webpage & Prose Epistemic Auditing](docs/walkthroughs/01-auditing-webpages-and-text.md)**: Multi-interface guide for auditing URLs and raw text against SPJ, IEP fallacies, and deceptive UI patterns.
-  - **[Feature Walkthrough 02: Zero-Trust Feed Autodiscovery & Sifting](docs/walkthroughs/02-zero-trust-feed-sifting.md)**: End-to-end guide for dynamic feed discovery, pre-flight topic entropy audits, and background sifter daemons.
-  - **[Feature Walkthrough 03: P2P Mesh Gossip & Bayesian Consensus](docs/walkthroughs/03-p2p-mesh-consensus.md)**: Complete guide to node identity generation, Watts-Strogatz peering, and Galileo Rule weighted medians.
-  - **[Feature Walkthrough 04: Daily Morning Epistemic Briefings](docs/walkthroughs/04-morning-digest-briefings.md)**: Compiling 24-hour executive intelligence briefings, Markdown newsletters, and FastMCP dynamic streams.
+  - **[Feature Walkthrough 01: Webpage & Prose Epistemic Auditing](walkthroughs/01-auditing-webpages-and-text.md)**: Multi-interface guide for auditing URLs and raw text against SPJ, IEP fallacies, and deceptive UI patterns.
+  - **[Feature Walkthrough 02: Zero-Trust Feed Autodiscovery & Sifting](walkthroughs/02-zero-trust-feed-sifting.md)**: End-to-end guide for dynamic feed discovery, pre-flight topic entropy audits, and background sifter daemons.
+  - **[Feature Walkthrough 03: P2P Mesh Gossip & Bayesian Consensus](walkthroughs/03-p2p-mesh-consensus.md)**: Complete guide to node identity generation, Watts-Strogatz peering, and Galileo Rule weighted medians.
+  - **[Feature Walkthrough 04: Daily Morning Epistemic Briefings](walkthroughs/04-morning-digest-briefings.md)**: Compiling 24-hour executive intelligence briefings, Markdown newsletters, and FastMCP dynamic streams.
 - **Documentation-Wide Visual Density & Anti-Wall-of-Text Overhaul**:
   - Added 22 new Mermaid architecture and sequence flowcharts, 18 comparison tables, and 25 styled callouts across 28 articles.
   - 100% of all 68 documentation and blog articles now satisfy the $\ge 2.0$ visuals per 500 words invariant.
@@ -357,14 +383,14 @@ All notable changes to the **Credence** network and documentation are documented
   - **FastMCP 2.0**: Added `credence_discover_feeds`, `credence_inspect_feed_health`, `credence_generate_digest` tools and `credence://digest/morning` resource.
   - **Textual TUI**: Added Morning Digest tab (`tab_digest`) and live dynamic quality ranking table columns.
   - **Zero-Build Web UI**: Added Section 8 interactive Feed Quality & Astroturfing Simulator in `docs/playground.md`.
-- **Tutorial 09 & Sovereign Blog Essay**: Published [Tutorial 09: Zero-Trust Feed Sifter & Morning Digest](docs/tutorials/09-zero-trust-feed-sifter-digest.md) and [The Pizza Hut Problem & Topic Entropy](blog/the-pizza-hut-problem.md).
+- **Tutorial 09 & Sovereign Blog Essay**: Published [Tutorial 09: Zero-Trust Feed Sifter & Morning Digest](tutorials/09-zero-trust-feed-sifter-digest.md) and [The Pizza Hut Problem & Topic Entropy](../blog/the-pizza-hut-problem.md).
 - **Cloudflare Multi-Domain Edge Hardening & Performance**:
   - Provisioned **HTTP/3 (QUIC)**, **Early Hints (103)**, and **0-RTT connection resumption** across all 4 production zones (`credence.run`, `credence.nexus`, `credence.foundation`, `credence.report`).
-  - Strict SSL/TLS enforcement, automatic HTTPS rewrites, and zero-latency P2P SRV routing via Terraform IaC ([`terraform/cloudflare.tf`](terraform/cloudflare.tf)).
+  - Strict SSL/TLS enforcement, automatic HTTPS rewrites, and zero-latency P2P SRV routing via Terraform IaC ([`terraform/cloudflare.tf`](https://github.com/artibyrd/credence/blob/main/terraform/cloudflare.tf)).
   - AI Crawler policy governance with unhindered coding assistant access (Claude Desktop, Cursor, Antigravity) and zero-build edge routing.
 - **Architectural Boundary Blueprint & Municipal Governance Catalog**:
-  - Published [Managing Customizations vs. Core Upstream](docs/operations/customizations-and-upstream-sovereignty.md) establishing strict 4-tier boundaries between Upstream Core, Gitignored Database State, Local Overlays, and Sovereign Deployments.
-  - Added universal [Local News & Municipal Governance](credence/subjects/catalogs/municipal_governance.yaml) semantic subject catalog (`journalism.news.municipal_governance`) with conflict-of-interest detection rubrics.
+  - Published [Managing Customizations vs. Core Upstream](operations/customizations-and-upstream-sovereignty.md) establishing strict 4-tier boundaries between Upstream Core, Gitignored Database State, Local Overlays, and Sovereign Deployments.
+  - Added universal [Local News & Municipal Governance](https://github.com/artibyrd/credence/blob/main/credence/subjects/catalogs/municipal_governance.yaml) semantic subject catalog (`journalism.news.municipal_governance`) with conflict-of-interest detection rubrics.
 
 ---
 

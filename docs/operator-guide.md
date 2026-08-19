@@ -10,16 +10,16 @@ A comprehensive, unabridged operations runbook for deploying, configuring, secur
 ---
 
 ## Table of Contents
-1. [Multi-Cloud Architecture & DNS Delegation Topology](#1-multi-cloud-architecture--dns-delegation-topology)
+1. [Multi-Cloud Architecture & DNS Delegation Topology](#1-multi-cloud-architecture-dns-delegation-topology)
 2. [Terraform Remote State Persistence (GCS Backend)](#2-terraform-remote-state-persistence-gcs-backend)
-3. [Air-Gapped Root Ed25519 Key Ceremony & Seed Signing](#3-air-gapped-root-ed25519-key-ceremony--seed-signing)
-4. [13-Node Watts-Strogatz Local & Distributed Mesh Operations](#4-13-node-watts-strogatz-local--distributed-mesh-operations)
+3. [Air-Gapped Root Ed25519 Key Ceremony & Seed Signing](#3-air-gapped-root-ed25519-key-ceremony-seed-signing)
+4. [13-Node Watts-Strogatz Local & Distributed Mesh Operations](#4-13-node-watts-strogatz-local-distributed-mesh-operations)
 5. [Zero-Build Web Deployments (Cloudflare Pages CDN)](#5-zero-build-web-deployments-cloudflare-pages-cdn)
 6. [GCP Cloud Run Production Deployment](#6-gcp-cloud-run-production-deployment)
-7. [Threat Model & Adversarial Defense Matrix (Invariants 1–32)](#7-threat-model--adversarial-defense-matrix-invariants-132)
-8. [Operational Runbooks & Diagnostics](#8-operational-runbooks--diagnostics)
-9. [GitHub Repository Configuration & Publishing Operations](#9-github-repository-configuration--publishing-operations)
-10. [Sovereign Decoupled Blog Architecture & Design System](#10-sovereign-decoupled-blog-architecture--design-system)
+7. [Threat Model & Adversarial Defense Matrix](protocols/adversarial-defense.md)
+8. [Raspberry Pi & Homelab 24/7 Operations](operations/raspberry-pi-homelab.md)
+9. [Database Pruning & SQLite WAL Maintenance](operations/database-pruning-wal.md)
+10. [Tailscale & WireGuard Sovereign Peering](operations/tailscale-wireguard-mesh.md)
 
 ---
 
@@ -82,7 +82,7 @@ terraform -chdir=terraform init \
 
 ## 3. Air-Gapped Root Ed25519 Key Ceremony & Seed Signing
 
-In accordance with **[Invariant 16](docs/invariants.md#invariant-16)** (*Cryptographic Identity & RFC 8785 Canonical JSON Invariant*), bootstrap seed manifests (`peers.json`) must be cryptographically signed by an air-gapped root Ed25519 keypair.
+In accordance with **[Invariant 16](invariants.md#invariant-16)** (*Cryptographic Identity & RFC 8785 Canonical JSON Invariant*), bootstrap seed manifests (`peers.json`) must be cryptographically signed by an air-gapped root Ed25519 keypair.
 
 ```bash
 # Step 1: On an air-gapped, offline secure workstation, generate root keypair

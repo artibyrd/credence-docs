@@ -31,7 +31,7 @@ flowchart TD
 ```
 
 > [!IMPORTANT]
-> **[Invariant 30: Universal Feature Parity](docs/invariants.md#invariant-30)**: Every capability in Credence must be synchronously accessible across all 4 surfaces: CLI (`credence`), FastMCP 2.0 tools and resources, Textual TUI (`credence tui`), and the Zero-Build Web UI.
+> **[Invariant 30: Universal Feature Parity](../invariants.md#invariant-30)**: Every capability in Credence must be synchronously accessible across all 4 surfaces: CLI (`credence`), FastMCP 2.0 tools and resources, Textual TUI (`credence tui`), and the Zero-Build Web UI.
 
 ---
 
@@ -62,7 +62,7 @@ To ensure seamless production routing:
        allowed_origins=["*"]
    )
    ```
-2. **[Invariant 14: Edge Routing Origin Header Translation](docs/invariants.md#invariant-14)**: Cloudflare Worker edge routers rewrite `Host` headers to native Cloud Run URLs (`<service>.run.app`) to preserve live Server-Sent Events (SSE) streaming and global CORS headers.
+2. **[Invariant 14: Edge Routing Origin Header Translation](../invariants.md#invariant-14)**: Cloudflare Worker edge routers rewrite `Host` headers to native Cloud Run URLs (`<service>.run.app`) to preserve live Server-Sent Events (SSE) streaming and global CORS headers.
 
 ---
 
@@ -72,7 +72,7 @@ JSON cannot natively represent Python `datetime` objects. To prevent serializati
 
 ```python
 # In models and digest export dictionaries
-# [Invariant 16](docs/invariants.md#invariant-16): FastMCP Nested Datetime Serialization
+# [Invariant 16](../invariants.md#invariant-16): FastMCP Nested Datetime Serialization
 def to_dict(self) -> dict:
     return {
         "content_sha256": self.content_sha256,

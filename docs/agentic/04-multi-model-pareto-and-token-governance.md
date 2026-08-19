@@ -29,7 +29,7 @@ flowchart LR
 ```
 
 > [!NOTE]
-> **[Invariant 15: Empirical Thinking Budget Sweet Spot (4k Invariant)](docs/invariants.md#invariant-15)**: `gemini-3.7-flash` with a 4,096 thinking token budget represents the optimal Pareto frontier ($0.34–$0.68/1k audits, 2.4s–5.1s latency) achieving 100% verbatim grounding and Poe's Law satire neutralization without the 30x cost overhead of flagship Pro models.
+> **[Invariant 15: Empirical Thinking Budget Sweet Spot (4k Invariant)](../invariants.md#invariant-15)**: `gemini-3.7-flash` with a 4,096 thinking token budget represents the optimal Pareto frontier ($0.34–$0.68/1k audits, 2.4s–5.1s latency) achieving 100% verbatim grounding and Poe's Law satire neutralization without the 30x cost overhead of flagship Pro models.
 
 ---
 
@@ -61,7 +61,7 @@ if remaining_quota_percentage < 0.30:
     )
 ```
 
-Whenever the offline fallback engages, **[Invariant 23: Transparent Heuristic Disclosure](docs/invariants.md#invariant-23)** mandates setting `evaluation_method: "offline_structural_heuristic"` with confidence capped at $\le 0.50$.
+Whenever the offline fallback engages, **[Invariant 23: Transparent Heuristic Disclosure](../invariants.md#invariant-23)** mandates setting `evaluation_method: "offline_structural_heuristic"` with confidence capped at $\le 0.50$.
 
 ---
 

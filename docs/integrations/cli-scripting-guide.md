@@ -88,6 +88,11 @@ jobs:
           grep -oP 'https?://[^\s\)]+' README.md | while read -r url; do
             score=$(credence audit "$url" --profile FREE --json | jq '.suspicion_score')
             echo "Audited $url: Score $score"
+          done
+```
+
+---
+
 ## 4. Automated Feed Discovery & Sifter Management
 
 Automate dynamic RSS/Atom discovery and run real-time background sifting:

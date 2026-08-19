@@ -193,6 +193,26 @@ flowchart TD
 
 ```bash
 # Deploy full stack atomically across Edge and Compute:
-just deploy-all
+just deploy all
 ```
+
+---
+
+## 7. Multi-Cloud References & Provider Documentation
+
+### 📚 Official Cloud Platform Docs
+* **AWS Serverless**: [AWS ECS Fargate Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) &bull; [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/)
+* **Microsoft Azure**: [Azure Container Apps Serverless Overview](https://learn.microsoft.com/en-us/azure/container-apps/overview) &bull; [Azure Key Vault Secrets](https://learn.microsoft.com/en-us/azure/key-vault/secrets/quick-create-portal)
+* **Hetzner Cloud**: [Hetzner Cloud ARM64 Server Instances (CAX11)](https://docs.hetzner.com/cloud/servers/overview/) &bull; [Hetzner Cloud CLI (`hcloud`)](https://github.com/hetznercloud/cli)
+* **Lightweight Kubernetes**: [k3s - The Lightweight Kubernetes Distribution](https://docs.k3s.io/) &bull; [Helm Charts](https://helm.sh/docs/)
+* **Cloudflare Edge**: [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/) &bull; [Cloudflare Pages](https://developers.cloudflare.com/pages/)
+* **Google Cloud**: [Google Cloud Run Documentation](https://cloud.google.com/run/docs)
+
+### 🔗 Related Architecture Guides in Credence
+* ☁️ [GCP Cloud Run Reference Guide & Dual-Tier Monitoring](../deployment-cloudrun.md)
+* 🔒 [Zero-Cloud Sovereign Local LLMs (Ollama & vLLM)](local-llm-airgap.md)
+* 🍓 [Raspberry Pi & Homelab Node Setup ($0.00/mo)](../operations/raspberry-pi-homelab.md)
+* 🤖 [Universal Agent Interoperability (Cursor, Windsurf, Cline)](universal-agent-interop.md)
+* 🏛️ [3-Plane Deployment Governance & System Invariants](../invariants.md)
+
 

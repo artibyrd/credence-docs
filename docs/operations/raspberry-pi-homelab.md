@@ -77,3 +77,21 @@ If hosting a public seed peer behind a residential ISP:
    ```bash
    journalctl -u credence-node -f -n 50
    ```
+
+---
+
+## 5. Linux Administration & Hardware References
+
+### 📚 Official Hardware & System Documentation
+* **Raspberry Pi**: [Raspberry Pi 5 Hardware Specs & NVMe HAT Documentation](https://www.raspberrypi.com/documentation/)
+* **Operating Systems**: [Ubuntu Server 24.04 LTS for ARM64](https://ubuntu.com/download/raspberry-pi) &bull; [Debian Bookworm on ARM](https://www.debian.org/ports/arm/)
+* **Service Management**: [systemd Service Units & Resource Control](https://systemd.io/)
+* **DNS & Dynamic IP**: [Cloudflare Dynamic DNS (DDNS) API Automation](https://developers.cloudflare.com/api/operations/dns-records-for-a-zone-patch-dns-record)
+
+### 🔗 Related Homelab Guides in Credence
+* 🗄️ [Database Pruning & SQLite WAL Maintenance](database-pruning-wal.md)
+* 🔒 [Tailscale & WireGuard Overlay Peering](tailscale-wireguard-mesh.md)
+* 🔔 [Tutorial 13: Discord Alerting & Basement Monitoring](../tutorials/13-discord-alerting-and-basement-monitoring.md)
+* 💡 [Blog: Testing 13-Node Swarms on a $35 Raspberry Pi](../../blog/testing-13-node-swarms-on-a-raspberry-pi.md)
+* 🚀 [Tutorial 11: Autonomous Node Germination & Ignition](../tutorials/11-autonomous-node-germination-and-swarm-ignition.md)
+

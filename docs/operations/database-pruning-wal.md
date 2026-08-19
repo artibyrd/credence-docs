@@ -63,3 +63,19 @@ conn.close()
 print('✅ Database Checkpoint & Vacuum Complete.')
 "
 ```
+
+---
+
+## 4. SQLite References & Operational Runbooks
+
+### 📚 Official SQLite & SQLModel Specifications
+* **SQLite Official Documentation**: [Write-Ahead Logging (WAL) Mode](https://www.sqlite.org/wal.html) &bull; [PRAGMA Statements & Concurrency Tuning](https://www.sqlite.org/pragma.html)
+* **SQLModel**: [SQLModel Async Sessions & Declarative Models](https://sqlmodel.tiangolo.com/)
+* **aiosqlite**: [aiosqlite Async SQLite Driver for Python](https://github.com/omnilib/aiosqlite)
+
+### 🔗 Related Infrastructure Guides in Credence
+* 🍓 [Raspberry Pi & Homelab 24/7 Operations](raspberry-pi-homelab.md)
+* 📋 [Bootstrap Operator Guide & SRE Maintenance](../operator-guide.md)
+* ☁️ [GCP Cloud Run Serverless Persistence](../deployment-cloudrun.md)
+* 🏛️ [System Invariants: Database Concurrency & AsyncSession Rules](../invariants.md)
+

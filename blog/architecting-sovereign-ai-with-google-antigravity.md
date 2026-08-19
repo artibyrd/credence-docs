@@ -43,7 +43,7 @@ Autonomous AI agents often fail in complex codebases when given open-ended comma
 
 1. **Research & Isolated Exploration**: Agents survey the codebase using read-only tools without making preemptive modifications.
 2. **Implementation Plan Artifacts**: All complex tasks require generating an `implementation_plan.md` artifact detailing user review items, open questions, and exact diffs.
-3. **The "Mk1 Eyeball" Invariant**: **[Invariant 6](docs/invariants.md#invariant-6)** mandates that no `git commit` or cloud infrastructure change is ever executed automatically. The human architect must review and approve live results first.
+3. **The "Mk1 Eyeball" Invariant**: **[Invariant 6](../docs/invariants.md#invariant-6)** mandates that no `git commit` or cloud infrastructure change is ever executed automatically. The human architect must review and approve live results first.
 4. **Asynchronous Background Task Orchestration**: Rather than blocking the conversation while a 20-second Playwright suite runs, Antigravity spawns background workers and resumes execution reactively upon completion.
 5. **Walkthrough & Visual Verification**: Every completed milestone produces a `walkthrough.md` artifact containing Playwright browser screenshots and test logs.
 
@@ -64,15 +64,15 @@ sequenceDiagram
     Architect->>Agent: /learn
     Agent->>Architect: Presents learning_proposal.md
     Architect->>Agent: Approves Proposal
-    Agent->>Invariants: Updates AGENTS.md with [Invariant 34](docs/invariants.md#invariant-34)
+    Agent->>Invariants: Updates AGENTS.md with [Invariant 34](../docs/invariants.md#invariant-34)
     Agent->>Invariants: Adds test_mermaid_diagram_syntax_integrity to CI
     Note over Agent,Invariants: Error mode is permanently immunized across all future turns.
 ```
 
 ### Key Invariants Crystallized Through `/learn`:
-- **[Invariant 34: Universal Mermaid Syntax Guardrail](docs/invariants.md#invariant-34)**: Standardizing on quoted graph syntax (`id["Label (Details)"]`) to prevent diagram rendering crashes across IDE viewers.
-- **[Invariant 35: Visual Density & Anti-Wall-of-Text Invariant](docs/invariants.md#invariant-35)**: Requiring $\ge 2.0$ visual elements per 500 words across all documentation to eradicate prose fatigue.
-- **[Invariant 3: Ecosystem Version Parity](docs/invariants.md#invariant-3)**: Automated test asserting that all 7 manifests and web badges match the canonical semantic version string.
+- **[Invariant 34: Universal Mermaid Syntax Guardrail](../docs/invariants.md#invariant-34)**: Standardizing on quoted graph syntax (`id["Label (Details)"]`) to prevent diagram rendering crashes across IDE viewers.
+- **[Invariant 35: Visual Density & Anti-Wall-of-Text Invariant](../docs/invariants.md#invariant-35)**: Requiring $\ge 2.0$ visual elements per 500 words across all documentation to eradicate prose fatigue.
+- **[Invariant 3: Ecosystem Version Parity](../docs/invariants.md#invariant-3)**: Automated test asserting that all 7 manifests and web badges match the canonical semantic version string.
 
 ---
 
@@ -111,7 +111,7 @@ flowchart LR
 (Zero Cloud Leaks)"]
 ```
 
-**[Invariant 15](docs/invariants.md#invariant-15)** codifies that `gemini-3.7-flash` with a 4,096 thinking token budget delivers the absolute highest precision-to-cost ratio, eliminating Poe's Law satire ambiguity and hallucinated findings without the 30x cost penalty of flagship Pro models.
+**[Invariant 15](../docs/invariants.md#invariant-15)** codifies that `gemini-3.7-flash` with a 4,096 thinking token budget delivers the absolute highest precision-to-cost ratio, eliminating Poe's Law satire ambiguity and hallucinated findings without the 30x cost penalty of flagship Pro models.
 
 ---
 

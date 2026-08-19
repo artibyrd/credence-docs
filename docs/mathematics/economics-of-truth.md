@@ -42,3 +42,20 @@ $$\text{Aggregate Compute Savings} = 1 - \frac{1}{N} = 1 - \frac{1}{13} = 92.307
 To ensure zero unexpected cost overruns:
 - **Headroom Margin**: The governor reserves a 30% token headroom before the billing cycle ceiling.
 - **Offline Circuit Breaker**: If spend exceeds the threshold, the node trips `QUOTA_PRESERVED` mode, seamlessly switching to offline structural heuristics ($S \le 50.0$, confidence $\le 0.50$) without interrupting agent workflows.
+
+---
+
+## 3. Academic Foundations & Distributed Economics
+
+### 📚 Seminal Works in P2P Work-Sharing & Incentives
+* **BitTorrent Economics**: [Bram Cohen (2003) - Incentives Build Robustness in BitTorrent (*IPTPS*)](https://bittorrent.org/bittorrentecon.pdf)
+* **Overlay Network Routing**: [Andersen, Balakrishnan, Kaashoek, & Morris (2001) - Resilient Overlay Networks (*ACM SOSP*)](https://doi.org/10.1145/502034.502048)
+* **Inference Economics**: [Google Gemini 3.7 Flash Pricing & Performance Guide](https://ai.google.dev/pricing)
+
+### 🔗 Related Economic Guides in Credence
+* ✍️ [Essay: BitTorrent for Truth & 92.3% Compute Savings](../../blog/bittorrent-for-truth.md)
+* 💡 [ADR: Why Gemini 3.7 Flash & 4k Thinking Tokens](../portability/gemini-economic-rationale.md)
+* 🛡️ [Token Safety Governor Protocol & 30% Headroom](../protocols/token-governor.md)
+* 💰 [Operational Cost Profiles (FREE, BALANCED, ULTRA)](../protocols/token-governor.md)
+* 🚀 [Tutorial 11: Autonomous Node Germination & Swarm Ignition](../tutorials/11-autonomous-node-germination-and-swarm-ignition.md)
+

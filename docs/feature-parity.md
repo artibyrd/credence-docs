@@ -5,7 +5,7 @@ description: "Synchronous capability matrix across CLI, FastMCP 2.0, Textual TUI
 
 # Universal Feature Parity Matrix
 
-In accordance with **[Invariant 24](docs/invariants.md#invariant-24) (Universal Presentation Layer Feature Parity Invariant)**, Credence maintains synchronous feature parity across all four official interfaces:
+In accordance with **[Invariant 24](invariants.md#invariant-24) (Universal Presentation Layer Feature Parity Invariant)**, Credence maintains synchronous feature parity across all four official interfaces:
 
 1. **🖥️ CLI**: Rich terminal command-line interface (`credence <cmd>`).
 2. **⚡ FastMCP 2.0 Server**: Model Context Protocol tools, dynamic resources, and prompt templates (`credence serve`).

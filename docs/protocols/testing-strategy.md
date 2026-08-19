@@ -44,7 +44,7 @@ flowchart TD
 ## 2. Tier 1: Hermetic In-Memory Unit & Math Suite
 
 ### Objective & Methodology
-Tier 1 is the foundational bedrock of Credence. In accordance with **[Invariant 4: Hermetic Testing](docs/invariants.md#invariant-4)**, Tier 1 runs 100% network-free using in-memory SQLite databases (`sqlite+aiosqlite:///:memory:`), mock HTML fixtures, and deterministic taxonomy catalogs.
+Tier 1 is the foundational bedrock of Credence. In accordance with **[Invariant 4: Hermetic Testing](../invariants.md#invariant-4)**, Tier 1 runs 100% network-free using in-memory SQLite databases (`sqlite+aiosqlite:///:memory:`), mock HTML fixtures, and deterministic taxonomy catalogs.
 
 ```mermaid
 flowchart LR
@@ -71,7 +71,7 @@ flowchart LR
 ## 3. Tier 2: Universal Interface Isolation & 4-Way Parity
 
 ### Objective & Methodology
-Credence is built on the principle of **Universal Presentation Layer Parity** (**[Invariant 26](docs/invariants.md#invariant-26)**). All capabilities must be symmetrically accessible through all four primary interfaces:
+Credence is built on the principle of **Universal Presentation Layer Parity** (**[Invariant 26](../invariants.md#invariant-26)**). All capabilities must be symmetrically accessible through all four primary interfaces:
 1. **CLI Workstation**: `credence audit`, `credence lookup`, `credence export-report`, `credence verify-file`.
 2. **FastMCP 2.0 Agent Server**: `credence_` JSON-RPC tools and `credence://` state resources over stdio/SSE.
 3. **Textual Terminal Workstation (TUI)**: Interactive keyboard-driven desktop workspace (`credence tui`).
@@ -126,7 +126,7 @@ flowchart TD
 ### Key Properties Tested
 1. **BitTorrent Work-Sharing Compute Savings**: Node 0 evaluates breaking news with Gemini 3.7 Flash; peer nodes 1..12 adopt the signed attestation in $0$ LLM tokens, achieving **92.3% compute savings** at $\$0.00$ marginal cost.
 2. **Gossip Epidemic Diffusion & Storm Suppression**: Verifies that attestations propagate across all 13 nodes in $<0.6\text{s}$ while LRU deduplicators prevent message storm loops.
-3. **Byzantine Sybil Cartel Resistance ($3f+1$)**: Injects malicious rogue nodes submitting ungrounded hallucinated smear attacks ($S=95.0, G=0.0$). The Bayesian Consensus Aggregator detects $G < 0.80$, enforces **[Invariant 23: The Galileo Rule](docs/invariants.md#invariant-23)**, and slashes the rogue node from consensus.
+3. **Byzantine Sybil Cartel Resistance ($3f+1$)**: Injects malicious rogue nodes submitting ungrounded hallucinated smear attacks ($S=95.0, G=0.0$). The Bayesian Consensus Aggregator detects $G < 0.80$, enforces **[Invariant 23: The Galileo Rule](../invariants.md#invariant-23)**, and slashes the rogue node from consensus.
 
 ---
 
@@ -170,7 +170,7 @@ flowchart LR
 ## 6. Tier 5: Zero-Build Playwright & DOM Integrity
 
 ### Objective & Methodology
-In accordance with **[Invariant 31: Universal Zero-Build Standards](docs/invariants.md#invariant-31)**, Credence uses zero npm dependencies. Tier 5 uses async Playwright and headless Chromium to verify that vanilla ES Modules and CSS Custom Properties render accurately across all viewports.
+In accordance with **[Invariant 31: Universal Zero-Build Standards](../invariants.md#invariant-31)**, Credence uses zero npm dependencies. Tier 5 uses async Playwright and headless Chromium to verify that vanilla ES Modules and CSS Custom Properties render accurately across all viewports.
 
 ```mermaid
 flowchart TD
@@ -193,7 +193,7 @@ flowchart TD
 ## 7. Tier 6: Reusable Live Rotating & Mutating E2E Gauntlet
 
 ### Objective & Methodology
-Tier 6 verifies that Credence works in real-world conditions against the live public web. Rather than relying on static fixtures, Tier 6 implements a **Stratified Master Corpus** and **Deterministic Rotation Engine** ([`tests/e2e/live_corpus.py`](file:///home/pendragon/Projects/credence-ecosystem/credence/tests/e2e/live_corpus.py)).
+Tier 6 verifies that Credence works in real-world conditions against the live public web. Rather than relying on static fixtures, Tier 6 implements a **Stratified Master Corpus** and **Deterministic Rotation Engine** ([`tests/e2e/live_corpus.py`](https://github.com/artibyrd/credence/blob/main/tests/e2e/live_corpus.py)).
 
 ```mermaid
 flowchart TD

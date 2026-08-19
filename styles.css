@@ -1336,5 +1336,137 @@ textarea:focus-visible,
   border: 1px solid rgba(56, 189, 248, 0.25);
 }
 
+/* ========================================================
+   Interactive Forensic Epistemic Workbench & Highlights
+   ======================================================== */
+
+.violation-highlight {
+  background: rgba(239, 68, 68, 0.22);
+  color: #fca5a5;
+  border-bottom: 2px dashed #ef4444;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.violation-highlight:hover,
+.violation-highlight.active {
+  background: rgba(239, 68, 68, 0.45);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+}
+
+.violation-highlight.warning {
+  background: rgba(245, 158, 11, 0.22);
+  color: #fde68a;
+  border-bottom-color: #f59e0b;
+}
+
+.violation-highlight.warning:hover,
+.violation-highlight.warning.active {
+  background: rgba(245, 158, 11, 0.45);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+}
+
+.forensics-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .forensics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.article-preview-pane {
+  background: #090d16;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 10px;
+  padding: 1.5rem;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  max-height: 560px;
+  overflow-y: auto;
+}
+
+.article-meta-header {
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.article-meta-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+}
+
+.article-meta-details {
+  font-size: 0.78rem;
+  color: var(--text-muted, #94a3b8);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.metrics-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.rule-card {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+  transition: all 0.2s ease;
+}
+
+.rule-card:hover,
+.rule-card.active {
+  border-color: var(--accent-cyan, #38bdf8);
+  background: rgba(15, 23, 42, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.rule-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.rule-id-badge {
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.rule-card-title {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #fff;
+  margin-bottom: 0.35rem;
+}
+
+.rule-card-reasoning {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
 
 
