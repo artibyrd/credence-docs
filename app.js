@@ -325,9 +325,99 @@ function getHammingDistance(hexA, hexB) {
 }
 
 export function formatMath(expr) {
-  let res = expr;
-  // Unescape LaTeX escaped symbols
-  res = res.replace(/\\([$&%#_])/g, '$1');
+  if (!expr) return '';
+  let res = expr.trim();
+
+  // Helper for balanced brace replacements like \command{...}
+  function replaceBraced(str, cmd, transform) {
+    const prefix = `\\${cmd}{`;
+    let idx = str.indexOf(prefix);
+    let guard = 0;
+    while (idx !== -1 && guard++ < 50) {
+      const start = idx + prefix.length - 1;
+      let depth = 1;
+      let end = -1;
+      for (let i = start + 1; i < str.length; i++) {
+        if (str[i] === '{') depth++;
+        else if (str[i] === '}') {
+          depth--;
+          if (depth === 0) { end = i; break; }
+        }
+      }
+      if (end === -1) break;
+      const inner = str.slice(start + 1, end);
+      str = str.slice(0, idx) + transform(inner) + str.slice(end + 1);
+      idx = str.indexOf(prefix);
+    }
+    return str;
+  }
+
+  // Helper for two-argument balanced brace replacements like \frac{num}{den}
+  function replaceTwoBraced(str, cmd, transform) {
+    const prefix = `\\${cmd}{`;
+    let idx = str.indexOf(prefix);
+    let guard = 0;
+    while (idx !== -1 && guard++ < 50) {
+      const start1 = idx + prefix.length - 1;
+      let depth = 1;
+      let end1 = -1;
+      for (let i = start1 + 1; i < str.length; i++) {
+        if (str[i] === '{') depth++;
+        else if (str[i] === '}') {
+          depth--;
+          if (depth === 0) { end1 = i; break; }
+        }
+      }
+      if (end1 === -1) break;
+
+      let start2 = end1 + 1;
+      while (start2 < str.length && /\s/.test(str[start2])) start2++;
+      if (start2 >= str.length || str[start2] !== '{') break;
+
+      depth = 1;
+      let end2 = -1;
+      for (let i = start2 + 1; i < str.length; i++) {
+        if (str[i] === '{') depth++;
+        else if (str[i] === '}') {
+          depth--;
+          if (depth === 0) { end2 = i; break; }
+        }
+      }
+      if (end2 === -1) break;
+
+      const arg1 = str.slice(start1 + 1, end1);
+      const arg2 = str.slice(start2 + 1, end2);
+      str = str.slice(0, idx) + transform(arg1, arg2) + str.slice(end2 + 1);
+      idx = str.indexOf(prefix);
+    }
+    return str;
+  }
+
+  // 1. Process two-arg fractions (handles arbitrary nested braces)
+  res = replaceTwoBraced(res, 'frac', (n, d) => `(${formatMath(n)} / ${formatMath(d)})`);
+
+  // 2. Process single-arg commands
+  res = replaceBraced(res, 'text', s => s);
+  res = replaceBraced(res, 'mathrm', s => s);
+  res = replaceBraced(res, 'mathbf', s => s);
+  res = replaceBraced(res, 'mathit', s => s);
+  res = replaceBraced(res, 'mathbb', s => {
+    if (s === 'R') return 'ℝ';
+    if (s === 'I' || s === '1') return '𝟙';
+    if (s === 'N') return 'ℕ';
+    if (s === 'Z') return 'ℤ';
+    return s;
+  });
+  res = replaceBraced(res, 'sqrt', s => `√(${formatMath(s)})`);
+  res = replaceBraced(res, 'bar', s => `${formatMath(s)}̄`);
+  res = replaceBraced(res, 'overline', s => `${formatMath(s)}̄`);
+  res = replaceBraced(res, 'hat', s => `${formatMath(s)}̂`);
+  res = replaceBraced(res, 'pmod', s => `(mod ${formatMath(s)})`);
+
+  // Escaped set braces and punctuation: \{ \} \_ \$ \% \& \#
+  res = res.replace(/\\\{/g, '{')
+    .replace(/\\\}/g, '}')
+    .replace(/\\([$&%#_])/g, '$1');
 
   // Greek letters
   res = res.replace(/\\alpha\b/g, 'α')
@@ -339,23 +429,45 @@ export function formatMath(expr) {
     .replace(/\\lambda\b/g, 'λ')
     .replace(/\\mu\b/g, 'μ')
     .replace(/\\sigma\b/g, 'σ')
+    .replace(/\\tau\b/g, 'τ')
     .replace(/\\phi\b/g, 'φ')
     .replace(/\\omega\b/g, 'ω')
     .replace(/\\Delta\b/g, 'Δ')
     .replace(/\\Sigma\b/g, 'Σ');
 
-  // Delimiters & Operators (must run before short prefix replacements like \le)
+  // Functions & Named operators
+  res = res.replace(/\\min\b/g, 'min')
+    .replace(/\\max\b/g, 'max')
+    .replace(/\\log_2/g, 'log₂')
+    .replace(/\\log\b/g, 'log')
+    .replace(/\\ln\b/g, 'ln')
+    .replace(/\\exp\b/g, 'exp')
+    .replace(/\\sum_\{([^}]+)\}\^(\w+|\{[^}]+\})/g, '∑₍$1₎^$2')
+    .replace(/\\sum\b/g, '∑')
+    .replace(/\\prod\b/g, '∏')
+    .replace(/\\int\b/g, '∫');
+
+  // Delimiters, Arrows & Operators
   res = res.replace(/\\left\(/g, '(')
     .replace(/\\right\)/g, ')')
     .replace(/\\left\[/g, '[')
     .replace(/\\right\]/g, ']')
+    .replace(/\\left\\\{/g, '{')
+    .replace(/\\right\\\}/g, '}')
     .replace(/\\left\{/g, '{')
     .replace(/\\right\}/g, '}')
-    .replace(/\\cdot\b/g, '·')
-    .replace(/\\land\b/g, '∧')
-    .replace(/\\lor\b/g, '∨')
+    .replace(/\\\\/g, '\n')
+    .replace(/\\leftarrow\b/g, '←')
+    .replace(/\\rightarrow\b/g, '→')
+    .replace(/\\leftrightarrow\b/g, '↔')
     .replace(/\\implies\b/g, '⟹')
     .replace(/\\iff\b/g, '⟺')
+    .replace(/\\to\b/g, '→')
+    .replace(/\\cdot\b/g, '·')
+    .replace(/\\times\b/g, '×')
+    .replace(/\\parallel\b/g, '∥')
+    .replace(/\\land\b/g, '∧')
+    .replace(/\\lor\b/g, '∨')
     .replace(/\\quad\b/g, '   ')
     .replace(/\\qquad\b/g, '     ')
     .replace(/\\le\b/g, '≤')
@@ -363,8 +475,6 @@ export function formatMath(expr) {
     .replace(/\\neq\b/g, '≠')
     .replace(/\\approx\b/g, '≈')
     .replace(/\\pm\b/g, '±')
-    .replace(/\\times\b/g, '×')
-    .replace(/\\to\b/g, '→')
     .replace(/\\in\b/g, '∈')
     .replace(/\\notin\b/g, '∉')
     .replace(/\\subset\b/g, '⊂')
@@ -374,24 +484,8 @@ export function formatMath(expr) {
     .replace(/\\infty\b/g, '∞')
     .replace(/\\mid\b/g, '|')
     .replace(/\\dots\b/g, '…')
-    .replace(/\\log_2/g, 'log₂')
-    .replace(/\\log\b/g, 'log')
-    .replace(/\\ln\b/g, 'ln')
-    .replace(/\\exp\b/g, 'exp')
-    .replace(/\\sum_\{([^}]+)\}\^(\\w+|\{[^}]+\})/g, '∑₍$1₎^$2')
-    .replace(/\\sum\b/g, '∑')
-    .replace(/\\prod\b/g, '∏')
-    .replace(/\\int\b/g, '∫');
-
-  // Text & Fractions & Accents
-  res = res.replace(/\\text\{([^}]+)\}/g, '$1')
-    .replace(/\\mathrm\{([^}]+)\}/g, '$1')
-    .replace(/\\mathbf\{([^}]+)\}/g, '$1')
-    .replace(/\\mathit\{([^}]+)\}/g, '$1')
-    .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '($1 / $2)')
-    .replace(/\\sqrt\{([^}]+)\}/g, '√($1)')
-    .replace(/\\bar\{([^}]+)\}/g, '$1̄')
-    .replace(/\\bar\s+([a-zA-Z])/g, '$1̄');
+    .replace(/\\ldots\b/g, '…')
+    .replace(/\\cdots\b/g, '…');
 
   // Subscripts & Superscripts
   res = res.replace(/_i\b/g, 'ᵢ')
@@ -402,6 +496,9 @@ export function formatMath(expr) {
     .replace(/\^2\b/g, '²')
     .replace(/\^3\b/g, '³')
     .replace(/\^\{([^}]+)\}/g, '^$1');
+
+  // Final cleanup of any stray backslashes before plain letters or symbols
+  res = res.replace(/\\([a-zA-Z]+)/g, '$1').replace(/\\/g, '');
 
   return res;
 }
@@ -2259,7 +2356,12 @@ export function setupInMaricopaCaseStudyWidget() {
     };
 
     if (attestationJson) {
-      attestationJson.value = JSON.stringify(canonicalEnvelope, null, 2);
+      const jsonStr = JSON.stringify(canonicalEnvelope, null, 2);
+      if (attestationJson.tagName === 'TEXTAREA' || attestationJson.tagName === 'INPUT') {
+        attestationJson.value = jsonStr;
+      } else {
+        attestationJson.textContent = jsonStr;
+      }
     }
   }
 
@@ -2280,7 +2382,8 @@ export function setupInMaricopaCaseStudyWidget() {
 
   btnCopyJson?.addEventListener('click', () => {
     if (attestationJson) {
-      navigator.clipboard?.writeText(attestationJson.value);
+      const text = attestationJson.value || attestationJson.textContent;
+      navigator.clipboard?.writeText(text);
       btnCopyJson.textContent = '✅ Copied!';
       setTimeout(() => btnCopyJson.textContent = '📋 Copy Canonical JSON', 1500);
     }
@@ -2288,8 +2391,9 @@ export function setupInMaricopaCaseStudyWidget() {
 
   btnDownloadJson?.addEventListener('click', () => {
     if (attestationJson) {
+      const text = attestationJson.value || attestationJson.textContent;
       const art = CASE_STUDY_ARTICLES[currentArticleIdx];
-      const blob = new Blob([attestationJson.value], { type: 'application/json' });
+      const blob = new Blob([text], { type: 'application/json' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
       a.download = `attestation_inmaricopa_${art.id}.json`;
@@ -2437,7 +2541,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.12.2';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.12.3';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 

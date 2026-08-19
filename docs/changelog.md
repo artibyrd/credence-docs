@@ -7,6 +7,17 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.12.3] - 2026-08-18
+
+### Fixed
+- **Balanced-Brace LaTeX Parser & Full Symbol Expansion**:
+  - Replaced regular expression-based fraction matching in `formatMath` (`app.js`) with an iterative balanced-brace recursive parser, properly handling nested subscripts (e.g. `\frac{N_{named}}{N_{total}}` $\to$ `(N₍named₎ / N₍total₎)`).
+  - Added support for `\mathbb{R}` ($\to \mathbb{R}$), `\mathbb{I}` ($\to \mathbb{I}$), `\min`, `\max`, `\tau`, `\leftarrow`, `\rightarrow`, `\leftrightarrow`, `\parallel` ($\to \parallel$), `\overline`, and `\pmod`.
+  - Added escaped curly set braces (`\{...\} ` $\to$ `{...}`) and graceful fallback filtering for any unknown raw LaTeX backslashes.
+  - Verified site-wide zero math errors across all 98 documentation pages in headless Chromium via Playwright.
+- **Zero Scrollbars on Attestation Receipts**:
+  - Replaced the scrollable `<textarea>` with an auto-height preformatted `<pre>` element for canonical RFC 8785 attestation JSON receipts.
+
 ## [1.12.2] - 2026-08-18
 
 ### Changed

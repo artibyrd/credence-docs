@@ -408,7 +408,7 @@ Test real harvested articles from `inmaricopa.com`, inspect verbatim highlighted
         <button type="button" class="widget-btn" id="btn-wb-copy-json" style="padding: 0.3rem 0.65rem; font-size: 0.75rem;">📋 Copy Canonical JSON</button>
         <button type="button" class="widget-btn" id="btn-wb-download-json" style="padding: 0.3rem 0.65rem; font-size: 0.75rem;">💾 Download Envelope</button>
       </div>
-      <textarea id="wb-attestation-json" class="widget-textarea" readonly style="height: 150px; width: 100%; box-sizing: border-box; font-family: var(--font-mono, monospace); font-size: 0.78rem;"></textarea>
+      <pre id="wb-attestation-json" style="background: #020617; border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 6px; padding: 0.85rem; color: #38bdf8; font-family: var(--font-mono, monospace); font-size: 0.78rem; line-height: 1.45; overflow-x: auto; margin: 0;"></pre>
     </div>
   </details>
 </div>
