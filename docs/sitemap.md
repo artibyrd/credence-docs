@@ -85,6 +85,8 @@ Complete canonical specifications and mathematical guarantees enforced across th
 
 Forensic investigations, economic proofs, and real-world case studies published on the sovereign blog.
 
+* 🚀 **[From 860MB to 2MB: Engineering a Sub-40s CI/CD Pipeline](#blog/from-860mb-to-2mb-sub-40s-cicd-pipeline)** (Slashing build uploads by 99.7%, multi-core Pytest, and pipefail stream safety)
+* 🏛️ **[The 3-Plane Architecture: Zero-npm Edge & Scale-to-Zero](#blog/the-three-plane-architecture)** (Decoupling Cloudflare Edge, Cloud Run Compute, and Terraform for $0.00 idle cost)
 * 📰 **[Conflict of Pun-terest: Auditing InMaricopa.com](#blog/conflict-of-pun-terest)** (Forensic audit of publisher-politician conflicts, advertorial camouflage, and policy reform)
 * 🍕 **[The Pizza Hut Problem](#blog/the-pizza-hut-problem)** (Topic entropy collapse, promotional pivots, and astroturfing defense)
 * 🔭 **[The Galileo Rule](#blog/the-galileo-rule)** (Why asymmetric grounded evidence neutralizes massive ungrounded Sybil cartels)
@@ -151,20 +153,24 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * **[Medical & Health Claims Blueprint](#docs/blueprints/health-medical-claims)**: Evaluating clinical trials, in vitro extrapolation, and unproven treatments.
 * **[Election & Civic Integrity Blueprint](#docs/blueprints/election-civic-integrity)**: Auditing voting procedure misinformation and polling methodology.
 * **[Synthetic Media & AI Provenance Blueprint](#docs/blueprints/synthetic-media-provenance)**: C2PA metadata, pink slime news rings, and AI provenance detection.
+* **[Domain Epistemic Index & Sourcing Forensics Blueprint](#docs/blueprints/domain-epistemic-index-and-sourcing-forensics)**: Sourcing ratios ($R_{\text{byline}}$, $R_{\text{single}}$, $R_{\text{COI}}$, $ASI$) and DEI trust bands.
 
 ### P2P Mesh, Protocols & Mathematics
 * **[Featherweight Swarm Simulation](#docs/mesh-engineering/featherweight-swarm-testing)**: Memory-efficient multi-node P2P mesh testing.
 * **[Watts-Strogatz Small-World Dynamics](#docs/mesh-engineering/watts-strogatz-dynamics)**: Graph theory, clustering coefficient, and 4-hop gossip diffusion.
+* **[Zero-Coordination Swarm Rendezvous Hashing](#docs/mesh-engineering/rendezvous-hashing-feed-partitioning)**: Highest Random Weight (HRW) feed partitioning without central locks.
 * **[Air-Gapped Sneakernet Protocol](#docs/mesh-engineering/airgapped-sneakernets)**: Offline verification and bundle exchange.
 * **[DNS SRV Dynamic Peer Discovery](#docs/mesh-engineering/dns-srv-discovery)**: RFC 2782 DNS SRV peer discovery without central trackers.
 * **[Token Safety Governor Specification](#docs/protocols/token-governor)**: Spending profiles, budget caps, and 30% headroom breaker.
 * **[P2P Mesh & Consensus Protocol](#docs/protocols/mesh-protocol)**: RFC 8785 canonical JSON, Ed25519 signatures, and gossip routing.
+* **[Zero-Touch Node Germination & Swarm Ignition](#docs/protocols/zero-touch-germination-and-swarm-ignition)**: Autonomous cryptographic identity minting and genesis inoculation in <5s.
 * **[Scoring & Saturation Math Specification](#docs/protocols/scoring)**: Exponential saturation curve and density index formulas.
 * **[Mathematics of Robust Consensus](#docs/mathematics/robust-consensus-proofs)**: Formal proofs for Domain Authority Weighted Medians and Galileo Rule.
 * **[SimHash-64 & Mirror Detection Math](#docs/mathematics/simhash-mirror-detection)**: 64-bit Hamming distance and deduplication math.
 * **[Economics of Decentralized Truth](#docs/mathematics/economics-of-truth)**: Mathematical proof of 92.3% compute savings via BitTorrent work-sharing.
 
 ### Operations, Self-Hosting & Deployment
+* **[Multi-Plane Pipeline & Build Optimization Handbook](#docs/operations/pipeline-and-build-optimization)**: Workstation tuning, multi-core pytest parallelization, build context exclusions, and sub-40s QA gates.
 * **[Raspberry Pi & HomeLab Node Guide](#docs/operations/raspberry-pi-homelab)**: Running a $0.00/mo self-hosted node on Raspberry Pi.
 * **[Tailscale & WireGuard Peering](#docs/operations/tailscale-wireguard-mesh)**: Secure private P2P mesh overlays across servers.
 * **[Database Pruning & WAL Care](#docs/operations/database-pruning-wal)**: SQLite WAL optimization and 30-day token record pruning.
@@ -177,3 +183,4 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * **[Master Topic Index & Cheat Sheet](#docs/topic-index)**: The "Marbles in the Oatmeal" comprehensive keyword index across all concepts.
 * **[Release Changelog](#docs/changelog)**: Complete semantic version history, milestones, and release notes.
 * **[Ecosystem Master Sitemap](#docs/sitemap)**: This document.
+

@@ -7,6 +7,22 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.14.1] - 2026-08-19
+
+### Added
+- **New Showcase Articles & Operational Handbooks**:
+  - **CI/CD Acceleration Post-Mortem (`blog/from-860mb-to-2mb-sub-40s-cicd-pipeline.md`)**: Forensic breakdown of unmocked socket timeouts, 99.7% build upload reduction, and `pytest-xdist` parallelization.
+  - **Pipeline & Build Optimization Handbook (`docs/operations/pipeline-and-build-optimization.md`)**: Comprehensive operational reference for workstation tuning, Docker BuildKit caching, and Cloud Build concurrency.
+  - **The 3-Plane Sovereign Architecture (`blog/the-three-plane-architecture.md`)**: In-depth essay on decoupling Cloudflare Edge (zero-npm), Cloud Run Compute (scale-to-zero), and Terraform Infrastructure for $0.00 idle cost.
+  - **Swarm Rendezvous Hashing (`docs/mesh-engineering/rendezvous-hashing-feed-partitioning.md`)**: Mathematical and protocol guide to Highest Random Weight (HRW) Rendezvous Hashing (`compute_feed_affinity`) and 92.3% compute savings.
+  - **Zero-Touch Node Germination (`docs/protocols/zero-touch-germination-and-swarm-ignition.md`)**: Autonomous node lifecycle, Ed25519 identity minting, genesis inoculation at $0.00 token cost, and burst auditing.
+  - **DEI & Sourcing Forensics Blueprint (`docs/blueprints/domain-epistemic-index-and-sourcing-forensics.md`)**: Mathematical formulas for composite $DEI$, 5 standardized Trust Bands, and 4 Forensic Sourcing Ratios ($R_{\text{byline}}$, $R_{\text{single}}$, $R_{\text{COI}}$, $ASI$).
+- **Search Registry & Topic Index Synchronization**:
+  - Registered all new guides in `DOCS_REGISTRY` and `BLOG_REGISTRY` in `app.js` with comprehensive keyword arrays for instant `/` search.
+  - Synchronized master `docs/topic-index.md` and `docs/sitemap.md` across the ecosystem.
+- **Knowledge Governance & System Invariants**:
+  - Added semantic version tag verification invariant, build context payload exclusion invariant (<5MB), and shell pipefail stream safety invariants to `AGENTS.md` and `.agents/skills/cloudrun-ops/SKILL.md`.
+
 ## [1.14.0] - 2026-08-19
 
 ### Optimized & Accelerated

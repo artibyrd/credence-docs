@@ -92,7 +92,8 @@ export const DOCS_REGISTRY = [
     items: [
       { id: "docs/blueprints/health-medical-claims", title: "Medical & Health Claims", path: "docs/blueprints/health-medical-claims.md", desc: "Evaluating clinical trials, in vitro extrapolation, and unproven treatments.", keywords: ["medical", "health", "clinical", "trials", "in vitro", "claims", "science"] },
       { id: "docs/blueprints/election-civic-integrity", title: "Election & Civic Integrity", path: "docs/blueprints/election-civic-integrity.md", desc: "Auditing voting procedure misinformation, polling methodology, and civic claims.", keywords: ["election", "voting", "civic", "polls", "democracy", "misinformation"] },
-      { id: "docs/blueprints/synthetic-media-provenance", title: "Synthetic AI & Media Provenance", path: "docs/blueprints/synthetic-media-provenance.md", desc: "C2PA metadata, pink slime news farm rings, and deepfake provenance detection.", keywords: ["c2pa", "deepfake", "synthetic", "pink slime", "media", "ai generated"] }
+      { id: "docs/blueprints/synthetic-media-provenance", title: "Synthetic AI & Media Provenance", path: "docs/blueprints/synthetic-media-provenance.md", desc: "C2PA metadata, pink slime news farm rings, and deepfake provenance detection.", keywords: ["c2pa", "deepfake", "synthetic", "pink slime", "media", "ai generated"] },
+      { id: "docs/blueprints/domain-epistemic-index-and-sourcing-forensics", title: "DEI & Sourcing Forensics", path: "docs/blueprints/domain-epistemic-index-and-sourcing-forensics.md", desc: "Forensic sourcing ratios (byline, single-source, COI, advertorial) and DEI trust bands.", keywords: ["dei", "epistemic index", "sourcing", "byline", "single source", "coi", "conflict of interest", "advertorial", "asi", "trust bands", "publisher", "forensics"] }
     ]
   },
   {
@@ -109,7 +110,8 @@ export const DOCS_REGISTRY = [
       { id: "docs/mesh-engineering/featherweight-swarm-testing", title: "Featherweight Swarm Simulation", path: "docs/mesh-engineering/featherweight-swarm-testing.md", desc: "Simulate dozens of P2P nodes locally in memory without heavy containers.", keywords: ["simulation", "swarm", "featherweight", "testing", "mesh", "nodes"] },
       { id: "docs/mesh-engineering/watts-strogatz-dynamics", title: "Watts-Strogatz Small-World", path: "docs/mesh-engineering/watts-strogatz-dynamics.md", desc: "Graph theory, clustering coefficient, and 4-hop gossip diffusion dynamics.", keywords: ["watts-strogatz", "graph", "small-world", "diffusion", "hops", "topology"] },
       { id: "docs/mesh-engineering/airgapped-sneakernets", title: "Air-Gapped Truth Bundles", path: "docs/mesh-engineering/airgapped-sneakernets.md", desc: "Offline sneakernet distribution and verification of signed JSON bundles.", keywords: ["sneakernet", "airgap", "offline", "bundle", "rfc8785", "ed25519"] },
-      { id: "docs/mesh-engineering/dns-srv-discovery", title: "DNS SRV Dynamic Discovery", path: "docs/mesh-engineering/dns-srv-discovery.md", desc: "RFC 2782 DNS SRV records for decentralized peer discovery without central trackers.", keywords: ["dns", "srv", "rfc2782", "discovery", "bootstrap", "peers"] }
+      { id: "docs/mesh-engineering/dns-srv-discovery", title: "DNS SRV Dynamic Discovery", path: "docs/mesh-engineering/dns-srv-discovery.md", desc: "RFC 2782 DNS SRV records for decentralized peer discovery without central trackers.", keywords: ["dns", "srv", "rfc2782", "discovery", "bootstrap", "peers"] },
+      { id: "docs/mesh-engineering/rendezvous-hashing-feed-partitioning", title: "Swarm Rendezvous Hashing", path: "docs/mesh-engineering/rendezvous-hashing-feed-partitioning.md", desc: "Highest Random Weight (HRW) Rendezvous Hashing for deterministic feed partitioning without locks.", keywords: ["rendezvous", "hrw", "hashing", "work sharing", "partitioning", "feed", "sifter", "mesh", "p2p", "affinity", "bittorrent", "zero-coordination"] }
     ]
   },
   {
@@ -118,6 +120,7 @@ export const DOCS_REGISTRY = [
       { id: "docs/protocols/token-governor", title: "Token Safety Governor", path: "docs/protocols/token-governor.md", desc: "CostProfile definitions, thinking token budgets, and 30% headroom breaker.", keywords: ["governor", "tokens", "budget", "headroom", "circuit breaker", "cost"] },
       { id: "docs/protocols/mesh-protocol", title: "P2P Mesh & Consensus", path: "docs/protocols/mesh-protocol.md", desc: "RFC 8785 canonical JSON envelopes, Ed25519 signatures, and gossip routing.", keywords: ["protocol", "rfc8785", "ed25519", "signatures", "gossip", "consensus"] },
       { id: "docs/protocols/node-germination-lifecycle", title: "Node Germination & Swarm Ignition", path: "docs/protocols/node-germination-lifecycle.md", desc: "Zero-touch node lifecycle: genesis keys, seed inoculation, and burst auditing.", keywords: ["germination", "lifecycle", "genesis", "inoculation", "seed", "ignition"] },
+      { id: "docs/protocols/zero-touch-germination-and-swarm-ignition", title: "Zero-Touch Node Germination", path: "docs/protocols/zero-touch-germination-and-swarm-ignition.md", desc: "Self-bootstrapping nodes: identity minting, genesis inoculation, and burst auditing in <5s.", keywords: ["germination", "ignition", "miracle gro", "bootstrap", "genesis", "identity", "ed25519", "lifespan", "startup", "zero-touch", "sowing"] },
       { id: "docs/protocols/fastmcp", title: "FastMCP 2.0 Integration", path: "docs/protocols/fastmcp.md", desc: "FastMCP tools, dynamic resources, prompts, and streaming HTTP/SSE.", keywords: ["fastmcp", "mcp", "tools", "resources", "prompts", "sse", "stdio"] },
       { id: "docs/protocols/scoring", title: "Scoring & Saturation Math", path: "docs/protocols/scoring.md", desc: "Calibrated exponential saturation curve, raw score, and density index.", keywords: ["scoring", "math", "saturation", "suspicion", "density", "calibration"] },
       { id: "docs/protocols/adversarial-defense", title: "Adversarial Threat Matrix", path: "docs/protocols/adversarial-defense.md", desc: "Systematic defenses against prompt injection, SSRF, DoS, and Sybil swarms.", keywords: ["threat matrix", "adversarial", "ssrf", "injection", "sybil", "defense"] },
@@ -134,6 +137,7 @@ export const DOCS_REGISTRY = [
   {
     category: "Operations & Self-Hosting",
     items: [
+      { id: "docs/operations/pipeline-and-build-optimization", title: "Pipeline & Build Optimization", path: "docs/operations/pipeline-and-build-optimization.md", desc: "Workstation tuning, pytest-xdist parallelization, build context exclusions, and sub-40s QA gates.", keywords: ["pipeline", "ci", "cd", "pytest", "xdist", "docker", "gcloudignore", "buildkit", "optimization", "performance", "check", "sub-40s", "speed"] },
       { id: "docs/operations/raspberry-pi-homelab", title: "Raspberry Pi & HomeLab Node", path: "docs/operations/raspberry-pi-homelab.md", desc: "Setting up a $0.00/mo self-hosted node on a Raspberry Pi 4/5.", keywords: ["raspberry pi", "homelab", "pi", "arm64", "self-host", "low power"] },
       { id: "docs/operations/tailscale-wireguard-mesh", title: "Tailscale & WireGuard Peering", path: "docs/operations/tailscale-wireguard-mesh.md", desc: "Forming secure private P2P mesh overlays across home and cloud servers.", keywords: ["tailscale", "wireguard", "vpn", "overlay", "peering", "private"] },
       { id: "docs/operations/database-pruning-wal", title: "Database Pruning & WAL Care", path: "docs/operations/database-pruning-wal.md", desc: "SQLite WAL optimization, checkpointing, and 30-day token record pruning.", keywords: ["sqlite", "wal", "database", "pruning", "retention", "cleanup", "sql"] },
@@ -159,14 +163,18 @@ export const DOCS_REGISTRY = [
       { id: "docs/frontend-architecture", title: "Zero-Build Web Architecture", path: "docs/frontend-architecture.md", desc: "Zero-build philosophy: vanilla HTML5, CSS Custom Properties, and Web Crypto.", keywords: ["frontend", "zero-build", "html5", "css", "webcrypto", "standards"] },
       { id: "docs/roadmap", title: "Roadmap & Backlog", path: "docs/roadmap.md", desc: "Current development roadmap, completed milestones, and upcoming features.", keywords: ["roadmap", "backlog", "future", "milestones", "features"] }
     ]
-  },
+  }
+];
+
+// Sovereign Blog Registry
+export const BLOG_REGISTRY = [
   {
     category: "Investigative Case Studies & Field Forensics",
     items: [
       { id: "blog/conflict-of-pun-terest", title: "⭐ Conflict of Pun-terest: InMaricopa Case Study", path: "blog/conflict-of-pun-terest.md", desc: "347 reasons why Maricopa's publisher-politician problem fails the epistemic smell test.", keywords: ["blog", "inmaricopa", "casestudy", "publisher", "coi", "dais", "conflict of interest", "puns", "monopoly", "civic desert", "analytics", "sr347"] },
-      { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Topic Entropy", path: "blog/the-pizza-hut-problem.md", desc: "Why single-topic promotional pivots require topic entropy defense.", keywords: ["blog", "pizza hut", "entropy", "astroturf", "sifter", "feeds"] },
-      { id: "blog/the-blue-checkmark-is-dead", title: "The Blue Checkmark is Dead", path: "blog/the-blue-checkmark-is-dead.md", desc: "Why static authority badges fail and cryptographic receipts succeed.", keywords: ["blog", "blue checkmark", "authority", "cryptographic", "receipts"] },
-      { id: "blog/the-domain-epistemic-index", title: "The Domain Epistemic Index (DEI)", path: "blog/the-domain-epistemic-index.md", desc: "Measuring long-term credibility trends across global domain names.", keywords: ["blog", "dei", "domain", "trends", "credibility", "index"] }
+      { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Topic Entropy", path: "blog/the-pizza-hut-problem.md", desc: "Why single-topic promotional pivots require topic entropy defense.", keywords: ["blog", "pizza hut", "entropy", "astroturf", "sifter", "feeds", "civic", "journalism", "promotion", "marketing", "detection"] },
+      { id: "blog/the-blue-checkmark-is-dead", title: "The Blue Checkmark is Dead", path: "blog/the-blue-checkmark-is-dead.md", desc: "Why static authority badges fail and cryptographic receipts succeed.", keywords: ["blog", "blue checkmark", "authority", "cryptographic", "receipts", "identity", "sovereignty", "verification"] },
+      { id: "blog/the-domain-epistemic-index", title: "The Domain Epistemic Index (DEI)", path: "blog/the-domain-epistemic-index.md", desc: "Measuring long-term credibility trends across global domain names.", keywords: ["blog", "dei", "domain", "trends", "credibility", "index", "reputation", "scoring"] }
     ]
   },
   {
@@ -184,6 +192,7 @@ export const DOCS_REGISTRY = [
   {
     category: "Agentic Architecture & Sovereign AI",
     items: [
+      { id: "blog/the-three-plane-architecture", title: "The 3-Plane Architecture (Zero-npm)", path: "blog/the-three-plane-architecture.md", desc: "Decoupling Cloudflare Edge, Cloud Run Compute, and Terraform for $0.00 idle costs and zero supply chain risk.", keywords: ["blog", "architecture", "3-plane", "cloudflare", "cloudrun", "terraform", "zero-npm", "scale-to-zero", "edge", "sovereignty"] },
       { id: "blog/architecting-sovereign-ai-with-google-antigravity", title: "Architecting Sovereign AI with Antigravity", path: "blog/architecting-sovereign-ai-with-google-antigravity.md", desc: "Pair programming with autonomous AI coding agents using Google Antigravity.", keywords: ["blog", "antigravity", "agentic", "sovereignty", "pair programming"] },
       { id: "blog/giving-claude-and-cursor-an-epistemic-brake", title: "Giving AI an Epistemic Brake", path: "blog/giving-claude-and-cursor-an-epistemic-brake.md", desc: "Preventing autonomous AI agents from spiraling into hallucinations.", keywords: ["blog", "claude", "cursor", "brake", "epistemic brake", "guardrails"] },
       { id: "blog/miracle-gro-for-truth-nodes", title: "Miracle-Gro for Truth Nodes", path: "blog/miracle-gro-for-truth-nodes.md", desc: "Instant node ignition and Genesis seed inoculation in under 5 seconds.", keywords: ["blog", "germination", "genesis", "miracle gro", "bootstrap", "seeds"] },
@@ -193,6 +202,7 @@ export const DOCS_REGISTRY = [
   {
     category: "Homelab Ops & Field Infrastructure",
     items: [
+      { id: "blog/from-860mb-to-2mb-sub-40s-cicd-pipeline", title: "From 860MB to 2MB: Sub-40s CI/CD", path: "blog/from-860mb-to-2mb-sub-40s-cicd-pipeline.md", desc: "How we eliminated unmocked socket timeouts, slashed build uploads by 99.7%, and parallelized 200+ tests.", keywords: ["blog", "ci/cd", "pipeline", "optimization", "docker", "gcloudignore", "pytest-xdist", "performance", "buildkit", "sub-40s"] },
       { id: "blog/basement-ops-and-discord-alerting", title: "Basement Ops & Discord Alerting", path: "blog/basement-ops-and-discord-alerting.md", desc: "Running a 24/7 homelab node with real-time push alerts to your phone.", keywords: ["blog", "basement", "discord", "alerts", "homelab", "monitoring"] },
       { id: "blog/interface-telemetry-loopback", title: "Interface Telemetry Loopback", path: "blog/interface-telemetry-loopback.md", desc: "Privacy-preserving telemetry for multi-interface synchronization.", keywords: ["blog", "telemetry", "itlp", "interfaces", "privacy", "metrics"] }
     ]
@@ -3515,7 +3525,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.14.0';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.14.1';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 

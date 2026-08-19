@@ -113,6 +113,8 @@ description: "Comprehensive concept index, cheat sheet, and fast-lookup director
 
 * **3-Node Mesh Quickstart**: Run a local 3-node P2P mesh cluster &rarr; [3-Node Mesh Tutorial](tutorials/05-mesh-quickstart.md)
 * **13-Node Chaos Lab**: Test Byzantine cartels ($f=4$) and network partition resilience &rarr; [13-Node Chaos Lab](tutorials/06-thirteen-node-chaos-lab.md)
+* **Zero-Coordination Swarm Rendezvous Hashing**: Highest Random Weight (HRW) feed partitioning without central locks &rarr; [Swarm Rendezvous Hashing](mesh-engineering/rendezvous-hashing-feed-partitioning.md)
+* **Zero-Touch Node Germination**: Autonomous cryptographic identity minting and genesis inoculation in <5s &rarr; [Zero-Touch Node Germination](protocols/zero-touch-germination-and-swarm-ignition.md)
 * **P2P Gossip Protocol**: Watts-Strogatz small-world lattice ($N=13, k=4, \beta=0.10$) &rarr; [Mesh Protocol Spec](protocols/mesh-protocol.md)
 * **Seed Node Governance**: Genesis bootstrap seeds (`seeds.credence.nexus`) and Ed25519 verification &rarr; [Bootstrap Seed Governance](bootstrap-seeds.md)
 * **Dynamic DNS SRV Discovery**: Decentralized peer autodiscovery via RFC 2782 DNS records &rarr; [DNS SRV Discovery](mesh-engineering/dns-srv-discovery.md)
@@ -128,11 +130,15 @@ description: "Comprehensive concept index, cheat sheet, and fast-lookup director
 * **SimHash-64 & Mirror Detection**: 64-bit Hamming distance calculation for duplicate articles &rarr; [SimHash Mirror Detection](mathematics/simhash-mirror-detection.md)
 * **Exponential Saturation Curves**: Suspicion score scaling math & density index &rarr; [Scoring Calibration Spec](protocols/scoring.md)
 * **Topic Diversity Entropy ($H_{\text{topic}}$)**: Shannon entropy and top-token concentration against promotional astroturfing &rarr; [Feed Sifting Walkthrough](walkthroughs/02-zero-trust-feed-sifting.md)
+* **Domain Epistemic Index ($DEI$) & Sourcing Forensics**: Longitudinal publisher scoring, byline ratios, and advertorial separation &rarr; [DEI & Sourcing Forensics](blueprints/domain-epistemic-index-and-sourcing-forensics.md)
 
 ---
 
 ## ☁️ 9. Self-Hosting & Operations
 
+* **Multi-Plane Pipeline & Build Optimization**: Sub-40s pre-commit QA gates, pytest-xdist parallelization, and build context exclusions &rarr; [Pipeline & Build Optimization Handbook](operations/pipeline-and-build-optimization.md)
+* **The 3-Plane Sovereign Architecture**: Decoupling zero-npm Cloudflare edge, scale-to-zero Cloud Run compute, and Terraform infra &rarr; [The 3-Plane Architecture](../blog/the-three-plane-architecture.md)
+* **CI/CD Acceleration Post-Mortem**: Slashing build context upload bloat from 860MB to 2MB &rarr; [From 860MB to 2MB](../blog/from-860mb-to-2mb-sub-40s-cicd-pipeline.md)
 * **Raspberry Pi Homelab Node**: Low-power $0.00/mo self-hosting guide &rarr; [Raspberry Pi Homelab Guide](operations/raspberry-pi-homelab.md)
 * **GCP Cloud Run Deployment**: Production Terraform templates with $15/mo budget cap and scale-to-zero &rarr; [GCP Cloud Run Deployment](deployment-cloudrun.md)
 * **Tailscale & WireGuard Peering**: Encrypted private overlay mesh networks &rarr; [Tailscale Peering Guide](operations/tailscale-wireguard-mesh.md)
