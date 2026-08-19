@@ -1391,8 +1391,8 @@ textarea:focus-visible,
   padding: 1.5rem;
   font-size: 0.92rem;
   line-height: 1.7;
-  max-height: 560px;
-  overflow-y: auto;
+  height: auto;
+  overflow: visible;
 }
 
 .article-meta-header {

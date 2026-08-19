@@ -11,6 +11,7 @@ export const DOCS_REGISTRY = [
       { id: "docs/intro", title: "Introduction & Overview", path: "docs/intro.md", desc: "Welcome to Credence, key concepts, and progressive on-ramp.", keywords: ["intro", "overview", "welcome", "philosophy", "grounding", "basics", "start", "truth", "ethics", "ai"] },
       { id: "docs/quickstart", title: "Quickstart & Installation", path: "docs/quickstart.md", desc: "Install Credence, set API keys, and run your first audit in 60 seconds.", keywords: ["quickstart", "install", "curl", "poetry", "docker", "gemini", "api key", "first audit", "setup", "run", "cli"] },
       { id: "docs/topic-index", title: "Topic Index & Concept Directory", path: "docs/topic-index.md", desc: "The Marbles in the Oatmeal: complete categorized cheat sheet and index.", keywords: ["index", "cheat sheet", "search", "topics", "sitemap", "directory", "marbles", "lookup", "concepts", "all", "reference", "find"] },
+      { id: "docs/social-launch-templates", title: "Community Launch & Reddit Templates", path: "docs/social-launch-templates.md", desc: "Short hooks, subreddit outreach templates, and article distribution matrix.", keywords: ["community", "reddit", "templates", "launch", "social", "outreach", "distribution", "matrix"] },
       { id: "docs/feature-parity", title: "Universal Feature Parity", path: "docs/feature-parity.md", desc: "Synchronous 4-way parity across CLI, FastMCP, TUI, and Web UI.", keywords: ["parity", "interfaces", "cli", "tui", "mcp", "web", "terminal", "browser"] },
       { id: "docs/changelog", title: "Release Changelog", path: "docs/changelog.md", desc: "Version history, updates, and release notes across releases.", keywords: ["changelog", "releases", "versions", "history", "notes"] }
     ]
@@ -350,6 +351,13 @@ export function formatMath(expr) {
     .replace(/\\right\]/g, ']')
     .replace(/\\left\{/g, '{')
     .replace(/\\right\}/g, '}')
+    .replace(/\\cdot\b/g, '·')
+    .replace(/\\land\b/g, '∧')
+    .replace(/\\lor\b/g, '∨')
+    .replace(/\\implies\b/g, '⟹')
+    .replace(/\\iff\b/g, '⟺')
+    .replace(/\\quad\b/g, '   ')
+    .replace(/\\qquad\b/g, '     ')
     .replace(/\\le\b/g, '≤')
     .replace(/\\ge\b/g, '≥')
     .replace(/\\neq\b/g, '≠')
@@ -359,6 +367,11 @@ export function formatMath(expr) {
     .replace(/\\to\b/g, '→')
     .replace(/\\in\b/g, '∈')
     .replace(/\\notin\b/g, '∉')
+    .replace(/\\subset\b/g, '⊂')
+    .replace(/\\subseteq\b/g, '⊆')
+    .replace(/\\forall\b/g, '∀')
+    .replace(/\\exists\b/g, '∃')
+    .replace(/\\infty\b/g, '∞')
     .replace(/\\mid\b/g, '|')
     .replace(/\\dots\b/g, '…')
     .replace(/\\log_2/g, 'log₂')
@@ -372,8 +385,13 @@ export function formatMath(expr) {
 
   // Text & Fractions & Accents
   res = res.replace(/\\text\{([^}]+)\}/g, '$1')
+    .replace(/\\mathrm\{([^}]+)\}/g, '$1')
+    .replace(/\\mathbf\{([^}]+)\}/g, '$1')
+    .replace(/\\mathit\{([^}]+)\}/g, '$1')
     .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '($1 / $2)')
-    .replace(/\\bar\{([^}]+)\}/g, '$1̄');
+    .replace(/\\sqrt\{([^}]+)\}/g, '√($1)')
+    .replace(/\\bar\{([^}]+)\}/g, '$1̄')
+    .replace(/\\bar\s+([a-zA-Z])/g, '$1̄');
 
   // Subscripts & Superscripts
   res = res.replace(/_i\b/g, 'ᵢ')
@@ -2419,7 +2437,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.12.1';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.12.2';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 

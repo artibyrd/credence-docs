@@ -7,6 +7,17 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.12.2] - 2026-08-18
+
+### Changed
+- **Eliminated Nested Vertical Scrollbars & Enhanced Document Layout**:
+  - Restructured `blog/conflict-of-pun-terest.md` to follow a clean, human-first progression from high-level civic context and aggregate DEI profile up front down to deep-dive forensic pillar evidence and interactive simulators.
+  - Removed cramped `max-height: 560px` and inner vertical scrolling from `.article-preview-pane` in `styles.css` so DOM article previews expand naturally.
+  - Replaced the fixed raw attestation receipt textarea with an expandable `<details>` accordion section, preventing multi-scrollbar clutter in the forensic workbench.
+- **Enhanced Zero-Build Mathematical Typography & LaTeX Parser**:
+  - Expanded `formatMath` in `app.js` with operators and formatting cleanups (`\cdot`, `\land`, `\lor`, `\implies`, `\iff`, `\quad`, `\qquad`, `\sqrt`, `\bar`, `\hat`, `\mathbf`, `\mathrm`, `\subset`, `\subseteq`, `\forall`, `\exists`, `\infty`).
+  - Simplified and standardized mathematical formulas for the Domain Epistemic Index ($DEI$) and Sourcing Ratios ($R_{\text{byline}}$, $R_{\text{COI}}$, $ASI$, $R_{\text{single}}$) with full variable definitions.
+
 ## [1.12.1] - 2026-08-18
 
 ### Added

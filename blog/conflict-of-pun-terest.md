@@ -45,180 +45,7 @@ In this case study, Credence applies **cryptographically grounded, deterministic
 
 ---
 
-## 🔬 Interactive Forensic Epistemic Workbench
-
-Use the interactive workbench below to test real harvested articles, inspect verbatim highlighted quotes ($G=1.00$), review calculated sourcing ratios, and simulate how policy reforms restore epistemic integrity:
-
-<div class="interactive-widget" id="inmaricopa-forensics-workbench">
-  <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
-    <div>
-      <h3 style="margin: 0; color: #fff; font-size: 1.25rem;">🔬 Interactive Exurban Forensic Workbench</h3>
-      <p style="margin: 0.35rem 0 0 0; color: var(--text-muted); font-size: 0.85rem;">
-        Click an audited article below to inspect verbatim grounding, calculated sourcing ratios, and live cryptographic attestation envelopes.
-      </p>
-    </div>
-    <span id="wb-verdict-badge" class="verdict-tag deceptive">DECEPTIVE (78.5)</span>
-  </div>
-
-  <!-- Scenario Preset Pills -->
-  <div class="widget-toolbar" id="wb-article-pills">
-    <button type="button" class="widget-btn primary" data-article-idx="0">🏛️ Land Sale Op-Ed (78.5)</button>
-    <button type="button" class="widget-btn" data-article-idx="1">💉 Wellness Clinic Ad (74.0)</button>
-    <button type="button" class="widget-btn" data-article-idx="2">🏡 Rental Property Ad (68.0)</button>
-    <button type="button" class="widget-btn" data-article-idx="3">🚔 Fatal Crash Blotter (42.0)</button>
-    <button type="button" class="widget-btn" data-article-idx="4">📜 Overpass History (8.0)</button>
-  </div>
-
-  <!-- Dual-Pane Inspection Grid -->
-  <div class="forensics-grid">
-    <!-- Left Pane: Grounded Source DOM Viewer -->
-    <div class="article-preview-pane">
-      <div class="article-meta-header">
-        <h4 class="article-meta-title" id="wb-preview-title">Manfredi: Land sale is not a scandal, no matter how badly some want one</h4>
-        <div class="article-meta-details">
-          <span>Byline: <strong id="wb-preview-byline" style="color: var(--accent-cyan);">Vincent Manfredi</strong></span>
-          <span>Date: <span id="wb-preview-date">2026-08-16</span></span>
-          <span>Target: <a id="wb-preview-url" href="https://inmaricopa.com/copper-sky-land-sale-is-no-scandal/" target="_blank" rel="noopener" style="color: var(--accent-cyan);">inmaricopa.com/copper-sky...</a></span>
-        </div>
-      </div>
-      <div id="wb-preview-body" style="color: #e2e8f0; font-size: 0.88rem;">
-        <!-- Injected dynamically with clickable highlight marks -->
-      </div>
-    </div>
-
-    <!-- Right Pane: Live Epistemic Scorecard & Sourcing Breakdown -->
-    <div class="metrics-pane">
-      <!-- Suspicion Score Meter -->
-      <div class="widget-result-box" style="padding: 1.25rem;">
-        <div class="widget-metric-title">Audit Suspicion Score</div>
-        <div class="widget-score-big" id="wb-suspicion-display" style="color: #ef4444;">78.5</div>
-        <div style="font-size: 0.8rem; color: var(--text-muted);" id="wb-classification-display">Classification: DECEPTIVE_OR_UNETHICAL</div>
-        
-        <div class="widget-submetrics" style="margin-top: 0.75rem; padding-top: 0.75rem;">
-          <div>Grounded Citations: <strong id="wb-citations-count" style="color: #4ade80;">100% (G=1.0)</strong></div>
-          <div>Violations Flagged: <strong id="wb-violations-count" style="color: #f87171;">3</strong></div>
-        </div>
-      </div>
-
-      <!-- Live Violations List -->
-      <div>
-        <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.05em;">
-          Flagged Rule Citations (Click to Inspect)
-        </div>
-        <div id="wb-rule-cards-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
-          <!-- Injected dynamically -->
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Interactive Reform Simulator Sub-Section -->
-  <div style="margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid rgba(56, 189, 248, 0.2);">
-    <h4 style="margin: 0 0 0.5rem 0; color: #fff; font-size: 1.05rem;">🛠️ Outlet Reform &amp; Epistemic Trajectory Simulator</h4>
-    <p style="margin: 0 0 1rem 0; color: var(--text-muted); font-size: 0.82rem;">
-      Adjust the policy controls below to simulate how adopting byline transparency, COI firewalls, and clear advertorial demarcation elevates the Domain Epistemic Index (DEI).
-    </p>
-
-    <div class="widget-row">
-      <div class="widget-col">
-        <label class="widget-label">Byline Transparency (R_byline): <span class="widget-val" id="wb-sim-byline-val">54.0%</span></label>
-        <input type="range" id="wb-sim-byline" class="widget-slider" min="0" max="100" value="54" step="1">
-
-        <label class="widget-label">Conflict of Interest Firewall (R_COI): <span class="widget-val" id="wb-sim-coi-val">20.0%</span></label>
-        <input type="range" id="wb-sim-coi" class="widget-slider" min="0" max="100" value="20" step="5">
-
-        <label class="widget-label">Advertorial Separation Index (ASI): <span class="widget-val" id="wb-sim-asi-val">84.6</span></label>
-        <input type="range" id="wb-sim-asi" class="widget-slider" min="0" max="100" value="85" step="1">
-      </div>
-
-      <div class="widget-col" style="flex: 0.9;">
-        <div class="widget-result-box">
-          <div class="widget-metric-title">Simulated Domain Epistemic Index (DEI)</div>
-          <div class="widget-score-big" id="wb-sim-dei-val" style="color: #f59e0b;">62.5</div>
-          <div style="margin-top: 0.5rem;">
-            <span id="wb-sim-band-badge" class="verdict-tag mixed">MIXED REPUTATION</span>
-          </div>
-          <div id="wb-sim-verdict-note" style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.75rem;">
-            Baseline: Historical InMaricopa.com audit state.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Live RFC 8785 JSON Receipt Viewer -->
-  <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(56, 189, 248, 0.2);">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
-      <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em;">
-        RFC 8785 Canonical Attestation Receipt (Ed25519)
-      </span>
-      <div style="display: flex; gap: 0.5rem;">
-        <button type="button" class="widget-btn" id="btn-wb-copy-json" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;">📋 Copy Canonical JSON</button>
-        <button type="button" class="widget-btn" id="btn-wb-download-json" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;">💾 Download Envelope</button>
-      </div>
-    </div>
-    <textarea id="wb-attestation-json" class="widget-textarea" readonly style="height: 160px;"></textarea>
-  </div>
-</div>
-
----
-
-## Empirical Harvest & Forensic Audit Dataset
-
-Credence ingested and evaluated a live corpus of articles published by `inmaricopa.com`. The table below reflects the real empirical audit findings generated by the Credence evaluation engine:
-
-| Date | Article Title & Live URL | Verified Author / Byline | Suspicion Score | Verdict Band | Primary Rule Violations |
-| :--- | :--- | :--- | :---: | :---: | :--- |
-| **2026-08-16** | [Manfredi: Land sale is not a scandal...](https://inmaricopa.com/copper-sky-land-sale-is-no-scandal/) | Vincent Manfredi | **78.5** | `DECEPTIVE` | `SPJ-3.1` (COI), `SPJ-3.2` (Advocacy), `IEP-AD-HOMINEM` |
-| **2026-08-14** | [A new option for pigmentation and tattoo removal...](https://inmaricopa.com/a-new-option-for-pigmentation-and-tattoo-removal-comes-to-maricopa-next-month/) | InMaricopa Staff | **74.0** | `DECEPTIVE` | `SPJ-3.3` (Camouflage), `DEC-1.4` (Dark Pattern), `AST-1.1` |
-| **2026-08-12** | [What landlords discover after managing a rental...](https://inmaricopa.com/what-landlords-discover-after-managing-a-rental-on-their-own/) | InMaricopa Staff | **68.0** | `SUSPICIOUS` | `SPJ-3.3` (Disguised Commercial Ad), `AST-1.1` |
-| **2026-08-13** | [Bicyclist dead after SR 347 crash south of city](https://inmaricopa.com/bicyclist-dead-after-sr-347-crash-south-of-city/) | InMaricopa Staff | **42.0** | `SUSPICIOUS` | `SPJ-1.1` (Single-Source DPS PR Pass-Through) |
-| **2026-08-15** | [UPDATE: 1 injured in motorcycle crash on JWP](https://inmaricopa.com/motorcycle-crash-slows-traffic-on-john-wayne-parkway/) | InMaricopa Staff | **38.0** | `SUSPICIOUS` | `SPJ-1.1` (Single-Source Police Blotter) |
-| **2026-08-10** | [HISTORY: When John Wayne Parkway overpass took shape](https://inmaricopa.com/history-when-john-wayne-parkway-overpass-took-shape/) | InMaricopa Staff | **8.0** | `CLEAN` | None (Historical Archive) |
-
----
-
-## Pillar Deep-Dives: Real Grounded Evidence
-
-### 1. Governance Conflict of Interest ($R_{\text{COI}}$)
-- **Target Article**: *"Manfredi: Land sale is not a scandal, no matter how badly some want one"* (Aug 16, 2026)
-- **Grounded Excerpt #1 (Attacking Public Records Filing)**:
-  > *"Province resident Bill Robertson recently submitted a public records request regarding the sale of City-owned land south of Copper Sky... Robertson is now digging through records, apparently hoping to manufacture the insinuation that I somehow broke the law... That is the sickness behind this behavior... your obsession with attacking me has become your entire political personality. It is pathetic."*
-- **Grounded Excerpt #2 (The Business Entanglement)**:
-  > *"The businessman is Scott Bartle, a longtime Maricopa business owner who founded InMaricopa only months after the City incorporated. He began selling InMaricopa to me in 2018... Scott has no ownership interest in InMaricopa. He works as its publisher because I intentionally remain separate from the editorial side of the company... The sale was then approved unanimously by the City Council. Let me repeat that: unanimously."*
-- **Grounded Excerpt #3 (Commingling of Public Office)**:
-  > *"For City-related questions, email me at Vincent.Manfredi@maricopa-az.gov or call the office at (520) 316-6823... Vincent Manfredi, Maricopa City Councilmember & owner of InMaricopa"*
-
-#### Forensic Epistemic Verdict:
-- **[`SPJ-3.1`](../docs/cookbooks/taxonomy-engineering.md) (Avoid Conflicts of Interest)**: Councilmember Manfredi cast an official vote disposing of public city land to his own business employee/contractor (Scott Bartle, Publisher of InMaricopa), creating a direct business entanglement under SPJ Code of Ethics.
-- **[`SPJ-3.2`](../docs/cookbooks/taxonomy-engineering.md) (Distinguish Advocacy from News)**: Using a commercial news outlet to publish official government contact information (`Vincent.Manfredi@maricopa-az.gov`) alongside political defense copy directly violates editorial independence.
-- **`IEP-AD-HOMINEM` (Ad Hominem Attack)**: Characterizing a constituent resident's statutory FOIA public records request as *"a sickness"* and *"pathetic"* rather than addressing the land valuation data.
-
----
-
-### 2. Native Advertorial Camouflage ($ASI$)
-- **Target Article**: *"A new option for pigmentation and tattoo removal comes to Maricopa next month"* (Aug 14, 2026)
-- **Grounded Excerpt**:
-  > *"That's why I'm excited to officially introduce Picofy to Maricopa Wellness Center, and I'd love for you to experience it for yourself at our exclusive launch event on Sept. 9... We'll have light bites, giveaways, raffles and one lucky attendee will win our grand prize: a free Picofy treatment... We'll be offering exclusive event pricing available only during our Picofy launch... Maricopa Wellness Center 41600 W. Smith Enke Road, Building 14, Suite 3 Maricopa, AZ 85138 520-464-6193 MaricopaWellnessCenter.com"*
-
-#### Forensic Epistemic Verdict:
-- **[`SPJ-3.3`](../docs/cookbooks/taxonomy-engineering.md) (Distinguish News from Advertising)**: The article is written in first person by a commercial business owner (`Dr. Kristina Donnay`) promoting private clinic services, but was published under a standard news headline with no prominent `[Sponsored]` banner or Schema.org `AdvertiserContentArticle` markup.
-- **[`DEC-1.4`](../docs/protocols/scoring.md) (Urgency Dark Pattern)**: Promoting *"exclusive event-only pricing available only during our launch"* within apparent civic health reporting.
-- **[`AST-1.1`](../docs/protocols/scoring.md) (Astroturfing / Commercial Insertion)**: Full contact directory and phone numbers embedded directly into news feed syndication.
-
----
-
-### 3. Single-Source Police Blotter Pass-Through ($R_{\text{single}}$)
-- **Target Article**: *"Bicyclist dead after SR 347 crash south of city"* (Aug 13, 2026)
-- **Grounded Excerpt**:
-  > *"The Arizona Department of Public Safety said a bicyclist was struck by a pickup truck... the pickup collided with them in the same lane, DPS said. The bicyclist was pronounced dead at the scene. DPS did not immediately identify the bicyclist. The driver of the pickup, who was not identified, was arrested on suspicion of driving under the influence, DPS said."*
-
-#### Forensic Epistemic Verdict:
-- **[`SPJ-1.1`](../docs/cookbooks/taxonomy-engineering.md) (Verify Sourcing Before Release)**: 100% of the factual assertions in the article rely on a single law enforcement dispatch statement without independent court document verification, reconstruction analysis, or secondary witness corroboration.
-
----
-
-## Aggregate Forensic Metrics Profile
+## 📊 Executive Summary: Aggregate Forensic Metrics Profile
 
 Aggregating all historical audits for `inmaricopa.com` yields the following calibrated forensic profile across newsroom bylines, civic coverage, and commercial promotions:
 
@@ -428,6 +255,166 @@ Aggregating all historical audits for `inmaricopa.com` yields the following cali
 
 ---
 
+## 🏛️ Forensic Pillar Deep-Dives: Real Grounded Evidence
+
+Credence evaluated a live corpus of articles published by `inmaricopa.com`. Below are the three primary empirical pillars uncovered during auditing:
+
+### 1. Governance Conflict of Interest ($R_{\text{COI}} = 100.0\%$)
+- **Target Article**: *"Manfredi: Land sale is not a scandal, no matter how badly some want one"* (Aug 16, 2026)
+- **Grounded Excerpt #1 (Attacking Public Records Filing)**:
+  > *"Province resident Bill Robertson recently submitted a public records request regarding the sale of City-owned land south of Copper Sky... Robertson is now digging through records, apparently hoping to manufacture the insinuation that I somehow broke the law... That is the sickness behind this behavior... your obsession with attacking me has become your entire political personality. It is pathetic."*
+- **Grounded Excerpt #2 (The Business Entanglement)**:
+  > *"The businessman is Scott Bartle, a longtime Maricopa business owner who founded InMaricopa only months after the City incorporated. He began selling InMaricopa to me in 2018... Scott has no ownership interest in InMaricopa. He works as its publisher because I intentionally remain separate from the editorial side of the company... The sale was then approved unanimously by the City Council. Let me repeat that: unanimously."*
+- **Grounded Excerpt #3 (Commingling of Public Office)**:
+  > *"For City-related questions, email me at Vincent.Manfredi@maricopa-az.gov or call the office at (520) 316-6823... Vincent Manfredi, Maricopa City Councilmember & owner of InMaricopa"*
+
+#### Forensic Epistemic Verdict:
+- **[`SPJ-3.1`](../docs/cookbooks/taxonomy-engineering.md) (Avoid Conflicts of Interest)**: Councilmember Manfredi cast an official vote disposing of public city land to his own business employee/contractor (Scott Bartle, Publisher of InMaricopa), creating a direct business entanglement under SPJ Code of Ethics.
+- **[`SPJ-3.2`](../docs/cookbooks/taxonomy-engineering.md) (Distinguish Advocacy from News)**: Using a commercial news outlet to publish official government contact information (`Vincent.Manfredi@maricopa-az.gov`) alongside political defense copy directly violates editorial independence.
+- **`IEP-AD-HOMINEM` (Ad Hominem Attack)**: Characterizing a constituent resident's statutory FOIA public records request as *"a sickness"* and *"pathetic"* rather than addressing the land valuation data.
+
+---
+
+### 2. Native Advertorial Camouflage ($ASI = 84.6 / 100$)
+- **Target Article**: *"A new option for pigmentation and tattoo removal comes to Maricopa next month"* (Aug 14, 2026)
+- **Grounded Excerpt**:
+  > *"That's why I'm excited to officially introduce Picofy to Maricopa Wellness Center, and I'd love for you to experience it for yourself at our exclusive launch event on Sept. 9... We'll have light bites, giveaways, raffles and one lucky attendee will win our grand prize: a free Picofy treatment... We'll be offering exclusive event pricing available only during our Picofy launch... Maricopa Wellness Center 41600 W. Smith Enke Road, Building 14, Suite 3 Maricopa, AZ 85138 520-464-6193 MaricopaWellnessCenter.com"*
+
+#### Forensic Epistemic Verdict:
+- **[`SPJ-3.3`](../docs/cookbooks/taxonomy-engineering.md) (Distinguish News from Advertising)**: The article is written in first person by a commercial business owner (`Dr. Kristina Donnay`) promoting private clinic services, but was published under a standard news headline with no prominent `[Sponsored]` banner or Schema.org `AdvertiserContentArticle` markup.
+- **[`DEC-1.4`](../docs/protocols/scoring.md) (Urgency Dark Pattern)**: Promoting *"exclusive event-only pricing available only during our launch"* within apparent civic health reporting.
+- **[`AST-1.1`](../docs/protocols/scoring.md) (Astroturfing / Commercial Insertion)**: Full contact directory and phone numbers embedded directly into news feed syndication.
+
+---
+
+### 3. Single-Source Police Blotter Pass-Through ($R_{\text{single}} = 7.7\%$)
+- **Target Article**: *"Bicyclist dead after SR 347 crash south of city"* (Aug 13, 2026)
+- **Grounded Excerpt**:
+  > *"The Arizona Department of Public Safety said a bicyclist was struck by a pickup truck... the pickup collided with them in the same lane, DPS said. The bicyclist was pronounced dead at the scene. DPS did not immediately identify the bicyclist. The driver of the pickup, who was not identified, was arrested on suspicion of driving under the influence, DPS said."*
+
+#### Forensic Epistemic Verdict:
+- **[`SPJ-1.1`](../docs/cookbooks/taxonomy-engineering.md) (Verify Sourcing Before Release)**: 100% of the factual assertions in the article rely on a single law enforcement dispatch statement without independent court document verification, reconstruction analysis, or secondary witness corroboration.
+
+---
+
+## 🔬 Interactive Forensic Epistemic Workbench
+
+Test real harvested articles from `inmaricopa.com`, inspect verbatim highlighted quotes ($G=1.00$), review calculated sourcing ratios, and simulate how policy reforms restore epistemic integrity:
+
+<div class="interactive-widget" id="inmaricopa-forensics-workbench">
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+    <div>
+      <h3 style="margin: 0; color: #fff; font-size: 1.25rem;">🔬 Interactive Exurban Forensic Workbench</h3>
+      <p style="margin: 0.35rem 0 0 0; color: var(--text-muted); font-size: 0.85rem;">
+        Click an audited article below to inspect verbatim grounding, calculated sourcing ratios, and live cryptographic attestation envelopes.
+      </p>
+    </div>
+    <span id="wb-verdict-badge" class="verdict-tag deceptive">DECEPTIVE (78.5)</span>
+  </div>
+
+  <!-- Scenario Preset Pills -->
+  <div class="widget-toolbar" id="wb-article-pills">
+    <button type="button" class="widget-btn primary" data-article-idx="0">🏛️ Land Sale Op-Ed (78.5)</button>
+    <button type="button" class="widget-btn" data-article-idx="1">💉 Wellness Clinic Ad (74.0)</button>
+    <button type="button" class="widget-btn" data-article-idx="2">🏡 Rental Property Ad (68.0)</button>
+    <button type="button" class="widget-btn" data-article-idx="3">🚔 Fatal Crash Blotter (42.0)</button>
+    <button type="button" class="widget-btn" data-article-idx="4">📜 Overpass History (8.0)</button>
+  </div>
+
+  <!-- Dual-Pane Inspection Grid (No inner vertical scrollbars) -->
+  <div class="forensics-grid">
+    <!-- Left Pane: Grounded Source DOM Viewer -->
+    <div class="article-preview-pane">
+      <div class="article-meta-header">
+        <h4 class="article-meta-title" id="wb-preview-title">Manfredi: Land sale is not a scandal, no matter how badly some want one</h4>
+        <div class="article-meta-details">
+          <span>Byline: <strong id="wb-preview-byline" style="color: var(--accent-cyan);">Vincent Manfredi</strong></span>
+          <span>Date: <span id="wb-preview-date">2026-08-16</span></span>
+          <span>Target: <a id="wb-preview-url" href="https://inmaricopa.com/copper-sky-land-sale-is-no-scandal/" target="_blank" rel="noopener" style="color: var(--accent-cyan);">inmaricopa.com/copper-sky...</a></span>
+        </div>
+      </div>
+      <div id="wb-preview-body" style="color: #e2e8f0; font-size: 0.88rem;">
+        <!-- Injected dynamically with clickable highlight marks -->
+      </div>
+    </div>
+
+    <!-- Right Pane: Live Epistemic Scorecard & Sourcing Breakdown -->
+    <div class="metrics-pane">
+      <!-- Suspicion Score Meter -->
+      <div class="widget-result-box" style="padding: 1.25rem;">
+        <div class="widget-metric-title">Audit Suspicion Score</div>
+        <div class="widget-score-big" id="wb-suspicion-display" style="color: #ef4444;">78.5</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted);" id="wb-classification-display">Classification: DECEPTIVE_OR_UNETHICAL</div>
+        
+        <div class="widget-submetrics" style="margin-top: 0.75rem; padding-top: 0.75rem;">
+          <div>Grounded Citations: <strong id="wb-citations-count" style="color: #4ade80;">100% (G=1.0)</strong></div>
+          <div>Violations Flagged: <strong id="wb-violations-count" style="color: #f87171;">3</strong></div>
+        </div>
+      </div>
+
+      <!-- Live Violations List -->
+      <div>
+        <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.05em;">
+          Flagged Rule Citations (Click to Inspect)
+        </div>
+        <div id="wb-rule-cards-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Reform Simulator Sub-Section -->
+  <div style="margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid rgba(56, 189, 248, 0.2);">
+    <h4 style="margin: 0 0 0.5rem 0; color: #fff; font-size: 1.05rem;">🛠️ Outlet Reform &amp; Epistemic Trajectory Simulator</h4>
+    <p style="margin: 0 0 1rem 0; color: var(--text-muted); font-size: 0.82rem;">
+      Adjust the policy controls below to simulate how adopting byline transparency, COI firewalls, and clear advertorial demarcation elevates the Domain Epistemic Index (DEI).
+    </p>
+
+    <div class="widget-row">
+      <div class="widget-col">
+        <label class="widget-label">Byline Transparency (R_byline): <span class="widget-val" id="wb-sim-byline-val">54.0%</span></label>
+        <input type="range" id="wb-sim-byline" class="widget-slider" min="0" max="100" value="54" step="1">
+
+        <label class="widget-label">Conflict of Interest Firewall (R_COI): <span class="widget-val" id="wb-sim-coi-val">20.0%</span></label>
+        <input type="range" id="wb-sim-coi" class="widget-slider" min="0" max="100" value="20" step="5">
+
+        <label class="widget-label">Advertorial Separation Index (ASI): <span class="widget-val" id="wb-sim-asi-val">84.6</span></label>
+        <input type="range" id="wb-sim-asi" class="widget-slider" min="0" max="100" value="85" step="1">
+      </div>
+
+      <div class="widget-col" style="flex: 0.9;">
+        <div class="widget-result-box">
+          <div class="widget-metric-title">Simulated Domain Epistemic Index (DEI)</div>
+          <div class="widget-score-big" id="wb-sim-dei-val" style="color: #f59e0b;">62.5</div>
+          <div style="margin-top: 0.5rem;">
+            <span id="wb-sim-band-badge" class="verdict-tag mixed">MIXED REPUTATION</span>
+          </div>
+          <div id="wb-sim-verdict-note" style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.75rem;">
+            Baseline: Historical InMaricopa.com audit state.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Expandable Canonical Receipt Section (No nested scrollbox) -->
+  <details style="margin-top: 1.5rem; border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 8px; padding: 0.75rem 1rem; background: rgba(15, 23, 42, 0.5);">
+    <summary style="font-size: 0.82rem; font-weight: 700; color: var(--accent-cyan); cursor: pointer;">
+      📜 Inspect RFC 8785 Canonical Attestation Receipt (Ed25519)
+    </summary>
+    <div style="margin-top: 0.75rem;">
+      <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-bottom: 0.5rem;">
+        <button type="button" class="widget-btn" id="btn-wb-copy-json" style="padding: 0.3rem 0.65rem; font-size: 0.75rem;">📋 Copy Canonical JSON</button>
+        <button type="button" class="widget-btn" id="btn-wb-download-json" style="padding: 0.3rem 0.65rem; font-size: 0.75rem;">💾 Download Envelope</button>
+      </div>
+      <textarea id="wb-attestation-json" class="widget-textarea" readonly style="height: 150px; width: 100%; box-sizing: border-box; font-family: var(--font-mono, monospace); font-size: 0.78rem;"></textarea>
+    </div>
+  </details>
+</div>
+
+---
+
 ## 🧠 How to Read & Interpret Credence Epistemic Data
 
 Credence is fundamentally different from traditional commercial fact-checking organizations. Rather than issuing subjective binary verdicts ("True" or "False") on isolated political claims, Credence evaluates **structural journalistic ethics, provenance transparency, financial conflict exposure, and source grounding**.
@@ -437,14 +424,19 @@ Here is how to interpret each dimension of a Credence audit report:
 ### 1. The Domain Epistemic Index ($DEI$)
 The **Domain Epistemic Index ($DEI$)** is a calibrated composite score on a $[0.0, 100.0]$ scale that measures an entire publication's aggregate reliability across time:
 
-$$\text{DEI} = 100.0 - \left( 0.50 \cdot \bar{S}_{\text{recency}} + 0.30 \cdot \bar{D} + 0.20 \cdot (1 - R_{\text{byline}}) \cdot 100 \right)$$
+$$\text{DEI} = 100.0 - (0.50 \cdot S_{\text{recency}} + 0.30 \cdot D + 0.20 \cdot (1 - R_{\text{byline}}) \cdot 100)$$
+
+where:
+- **$S_{\text{recency}}$**: Recency-weighted average suspicion score across domain articles
+- **$D$**: Average suspicion density (violations per 1,000 words)
+- **$R_{\text{byline}}$**: Byline transparency ratio (proportion of verified named human authors)
 
 | Trust Band | Score Range | Journalistic Characteristics |
 | :--- | :---: | :--- |
-| 🟢 **Trusted & High Integrity** | **$80.0 - 100.0$** | High byline transparency ($>85\%$), clear commercial demarcations, multi-source corroboration, proactive conflict of interest disclosures. |
-| 🔵 **Reliable Newsroom** | **$65.0 - 79.9$** | Standard professional local reporting. Minor wire or blotter reliance, but maintain editorial firewalls. |
-| 🟡 **Mixed Reputation** | **$50.0 - 64.9$** | **Current InMaricopa.com state ($62.5$)**. Legitimate community event coverage blended with unlabelled commercial advertorials and municipal governance conflicts. |
-| 🔴 **Deceptive / High Risk** | **$< 50.0$** | Astroturfing networks, pink-slime syndication rings, algorithmic clickbait farms with opaque provenance. |
+| 🟢 **Trusted & High Integrity** | **80.0 – 100.0** | High byline transparency ($>85\%$), clear commercial demarcations, multi-source corroboration, proactive conflict of interest disclosures. |
+| 🔵 **Reliable Newsroom** | **65.0 – 79.9** | Standard professional local reporting. Minor wire or blotter reliance, but maintain editorial firewalls. |
+| 🟡 **Mixed Reputation** | **50.0 – 64.9** | **Current InMaricopa.com state ($62.5$)**. Legitimate community event coverage blended with unlabelled commercial advertorials and municipal governance conflicts. |
+| 🔴 **Deceptive / High Risk** | **&lt; 50.0** | Astroturfing networks, pink-slime syndication rings, algorithmic clickbait farms with opaque provenance. |
 
 ---
 
@@ -452,19 +444,23 @@ $$\text{DEI} = 100.0 - \left( 0.50 \cdot \bar{S}_{\text{recency}} + 0.30 \cdot \
 
 Credence computes four primary mathematical ratios for every monitored outlet:
 
-1. **Byline Transparency ($R_{\text{byline}} = \frac{N_{\text{named}}}{N_{\text{total}}} = 54.0\%$)**:
+1. **Byline Transparency ($R_{\text{byline}} = 54.0\%$)**:
+   - **Formula**: $R_{\text{byline}} = \frac{N_{\text{named}}}{N_{\text{total}}}$
    - **What it measures**: The percentage of articles with named human journalist bylines versus generic "Staff" handles.
    - **Why it matters**: In healthy newsrooms, journalists sign their work. In exurban news deserts, generic staff handles are frequently used to camouflage commercial marketing copy or political defense essays as regular newsroom reporting.
 
 2. **Conflict of Interest Exposure ($R_{\text{COI}} = 100.0\%$)**:
+   - **Formula**: $R_{\text{COI}} = \frac{N_{\text{unrecused}}}{N_{\text{civic}}}$
    - **What it measures**: The fraction of civic and municipal governance articles where the author or publisher holds financial, political, or official ties to the subject matter without proactive recusal or disclosure.
    - **Why it matters**: When an elected councilmember uses their own monopolistic news outlet to defend public land votes benefiting their company's publisher, $R_{\text{COI}}$ triggers a critical governance alert.
 
 3. **Advertorial Separation Index ($ASI = 84.6 / 100$)**:
+   - **Formula**: $\text{ASI} = 100 - (20 \cdot N_{\text{advertorials}})$
    - **What it measures**: The structural separation between paid commercial advertisements and independent news reporting.
    - **Why it matters**: Advertorials published without explicit `[Sponsored]` banners, clear visual demarcation, or Schema.org `AdvertiserContentArticle` markup deceive readers into believing sales pitches are unbiased medical or consumer advice.
 
 4. **Single-Source Blotter Reliance ($R_{\text{single}} = 7.7\%$)**:
+   - **Formula**: $R_{\text{single}} = \frac{N_{\text{single-source}}}{N_{\text{blotter}}}$
    - **What it measures**: The percentage of crime, accident, and court reporting that relies exclusively on a single government or police dispatch press release.
    - **Why it matters**: Passing through law enforcement PR verbatim without independent corroboration or witness interviews can distort community crime perception.
 
@@ -473,10 +469,10 @@ Credence computes four primary mathematical ratios for every monitored outlet:
 ### 3. Suspicion Scores ($S$) and the $G=1.00$ Grounding Invariant
 
 Every article audit produces a calibrated Suspicion Score $S \in [0.0, 100.0]$:
-- **$0.0 - 25.0$ (Clean / Grounded)**: High journalistic integrity, zero deceptive patterns.
-- **$25.0 - 50.0$ (Review Recommended)**: Single-source pass-through or minor framing bias.
-- **$50.0 - 75.0$ (Suspicious)**: Camouflaged advertorials or undisclosed commercial insertion.
-- **$75.0 - 100.0$ (Deceptive / Unethical)**: Severe governance conflict of interest or deliberate dark patterns.
+- **0.0 – 25.0 (Clean / Grounded)**: High journalistic integrity, zero deceptive patterns.
+- **25.0 – 50.0 (Review Recommended)**: Single-source pass-through or minor framing bias.
+- **50.0 – 75.0 (Suspicious)**: Camouflaged advertorials or undisclosed commercial insertion.
+- **75.0 – 100.0 (Deceptive / Unethical)**: Severe governance conflict of interest or deliberate dark patterns.
 
 > [!IMPORTANT]
 > **The Zero-Hallucination Grounding Invariant ($G=1.00$)**: Credence never relies on ungrounded AI summaries. Every single violation citation **must match a verbatim substring from the harvested web page ($G=1.00$)**. If an AI model flags a violation but cannot point to the exact quoted text in the article, the citation is mathematically rejected.
