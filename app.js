@@ -56,7 +56,8 @@ export const DOCS_REGISTRY = [
       { id: "docs/tutorials/08-sybil-cartel-demolition", title: "08. Sybil Cartel Demolition", path: "docs/tutorials/08-sybil-cartel-demolition.md" },
       { id: "docs/tutorials/09-zero-trust-feed-sifter-digest", title: "09. Zero-Trust Feed Sifter & Digest", path: "docs/tutorials/09-zero-trust-feed-sifter-digest.md" },
       { id: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet", title: "10. Reusable Live E2E & Mesh Gauntlet", path: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet.md" },
-      { id: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition", title: "11. Node Germination & Swarm Ignition", path: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition.md" }
+      { id: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition", title: "11. Node Germination & Swarm Ignition", path: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition.md" },
+      { id: "docs/tutorials/12-climbing-the-epistemic-tiers", title: "12. Climbing the Epistemic Tiers", path: "docs/tutorials/12-climbing-the-epistemic-tiers.md" }
     ]
   },
   {
@@ -113,6 +114,9 @@ export const DOCS_REGISTRY = [
       { id: "docs/protocols/white-label", title: "White-Label Federation", path: "docs/protocols/white-label.md" },
       { id: "docs/protocols/benchmark-suite", title: "Golden 12 Benchmark Suite", path: "docs/protocols/benchmark-suite.md" },
       { id: "docs/protocols/cross-model-pareto-benchmark", title: "Cross-Model Pareto Benchmark", path: "docs/protocols/cross-model-pareto-benchmark.md" },
+      { id: "docs/protocols/epistemic-merit-and-leaderboards", title: "Epistemic Merit & Leaderboards", path: "docs/protocols/epistemic-merit-and-leaderboards.md" },
+      { id: "docs/protocols/web-epistemic-intelligence", title: "Global Web Intelligence & DEI", path: "docs/protocols/web-epistemic-intelligence.md" },
+      { id: "docs/protocols/closed-loop-traffic-shaping", title: "Closed-Loop Routing & Traffic", path: "docs/protocols/closed-loop-traffic-shaping.md" },
       { id: "docs/protocols/testing-strategy", title: "6-Tier Testing Strategy", path: "docs/protocols/testing-strategy.md" }
     ]
   },
@@ -154,6 +158,8 @@ export const DOCS_REGISTRY = [
   {
     category: "Editorial Dispatches & Blog",
     items: [
+      { id: "blog/gamifying-truth-without-the-casino", title: "Folding@home for Truth (No Casino)", path: "blog/gamifying-truth-without-the-casino.md" },
+      { id: "blog/the-domain-epistemic-index", title: "The Domain Epistemic Index (DEI)", path: "blog/the-domain-epistemic-index.md" },
       { id: "blog/testing-13-node-swarms-on-a-raspberry-pi", title: "Testing 13-Node Swarms on a $35 Pi", path: "blog/testing-13-node-swarms-on-a-raspberry-pi.md" },
       { id: "blog/miracle-gro-for-truth-nodes", title: "Miracle-Gro for Truth Nodes", path: "blog/miracle-gro-for-truth-nodes.md" },
       { id: "blog/architecting-sovereign-ai-with-google-antigravity", title: "Architecting Sovereign AI with Antigravity", path: "blog/architecting-sovereign-ai-with-google-antigravity.md" },
@@ -1375,7 +1381,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.8.0';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.9.0';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 

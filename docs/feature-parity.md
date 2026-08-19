@@ -49,6 +49,13 @@ graph TD
 | **Consensus Aggregation** | Consensus Engine | Tool: `credence_get_consensus` | Consolidated Verdict Panel | Consensus Badge | **Full Parity** |
 | **P2P Mesh Seeds & Ranking** | `credence seeds`, `rank` | Resource: `credence://mesh/seeds` | Peer Status Indicators | `seeds.credence.nexus/peers.json` | **Full Parity** |
 | **Hierarchical Subjects** | `credence subjects list` | Resource: `credence://subjects/registry`| Tab 3: `🧠 Domain Subjects` | Subject Explorer | **Full Parity** |
+| **Epistemic Leaderboards** | `credence leaderboard` | Tool: `credence_get_leaderboard`<br/>Resource: `credence://leaderboard/{cat}` | Tab 8: `🏆 Leaderboard` | `credence.nexus` Leaderboards | **Full Parity** |
+| **Sovereign Node Merit** | `credence merit` | Tool: `credence_get_node_merit`<br/>Resource: `credence://node/merit` | Tab 8: Split Merit Card | `credence.nexus` Merit Card | **Full Parity** |
+| **Live Vector SVG Badges** | `credence badge export` | Endpoint: `/api/badge/{id}`<br/>Resource: `credence://merit/badges` | Badge Showcase Panel | `credence.nexus` Badge Embedder | **Full Parity** |
+| **Domain Epistemic Index (DEI)** | `credence rankings` | Tool: `credence_get_domain_rankings`<br/>Resource: `credence://rankings/domains/{cat}`| DEI Honor Roll Table | `credence.report` Honor Roll / Shame | **Full Parity** |
+| **Top Violated Rules** | `credence rankings --type rules` | Tool: `credence_get_taxonomy_analytics`<br/>Resource: `credence://rankings/rules`| Rules Breakdown View | `credence.report` Rules Aggregator | **Full Parity** |
+| **Epistemic Weather Barometer** | `credence rankings --type weather` | Tool: `credence_get_epistemic_weather`<br/>Resource: `credence://weather/global` | Global Climate Widget | `credence.report` Weather Barometer | **Full Parity** |
+| **Community Bounties** | `credence bounties` | Tool: `credence_get_bounties`<br/>Resource: `credence://bounties` | Open Quests List | `credence.nexus` Bounties Board | **Full Parity** |
 | **White-Label Org Generator** | `credence init-org` | *Intentionally CLI-Only* | *Intentionally CLI-Only* | *Intentionally CLI-Only* | OS Scaffolding |
 | **P2P Relay Daemon** | `credence mesh` | *Intentionally CLI-Only* | *Intentionally CLI-Only* | *Intentionally CLI-Only* | OS Daemon |
 

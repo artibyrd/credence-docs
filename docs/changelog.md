@@ -7,6 +7,33 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.9.0] - 2026-08-18
+
+### Added
+- **Two-Phase Epistemic Leaderboard, Sovereign Mesh Merit & Closed-Loop Network Routing**:
+  - Implemented **Phase 1 (Sovereign Mesh Node Merit)**:
+    - 5-level Epistemic Tier progression (`SPROUT` $\to$ `SIFTER` $\to$ `AUDITOR` $\to$ `SPECIALIST` $\to$ `ROOT_ANCHOR`) rooted in cryptographic merit and empirical domain expertise.
+    - 8 cryptographically verifiable Epistemic Merit Badges (`sprout_node`, `sifter_pioneer`, `verified_auditor`, `domain_specialist`, `philanthropic_relay`, `root_seed_candidate`, `galileo_pioneer`, `sybil_shield`).
+    - Shields.io-compatible dynamic SVG badge generator (`generate_svg_badge`) and publisher trust badges (`generate_publisher_svg_badge`).
+    - 24-hour operator maintenance grace period with smooth half-life uptime decay ($\tau=24\text{h}$).
+    - 4-level deterministic tie-breaking (Metric Score $\to$ Tokens Seeded $\to$ First Seen $\to$ Public Key Hex).
+    - Multi-category leaderboards (`quality`, `subjects`, `philanthropy`, `galileo`, `teams`).
+    - Closed-loop network routing with 4 Traffic Shaping Classes (`FAST_LANE` = 500 msgs/s, `STANDARD` = 50 msgs/s, `CHOKED` = 1 msg/s, `QUARANTINED` = 0 msgs/s).
+    - Rate-limiting, /24 subnet clustering to prevent Sybil collusion, and zero-cost attestation caching gate (`should_adopt_attestation`).
+  - Implemented **Phase 2 (Global Web Epistemic Intelligence)**:
+    - Domain Epistemic Index ($DEI$) calculator with trust banding (`HIGH_INTEGRITY`, `RELIABLE`, `MIXED`, `LOW_INTEGRITY`, `DECEPTIVE`).
+    - Domain Rankings: Epistemic Honor Roll (most trusted domains) vs Deception Hotlist (Wall of Shame) vs Astroturf Detection Alerts.
+    - Top 10 Violated Rules Aggregator across all audited snapshot violations with representative grounded excerpts.
+    - Macro Global Epistemic Weather Barometer and Category Integrity Dials.
+    - Community Verification Bounties for breaking and unaudited wire stories.
+  - **Universal 4-Surface Integration Parity**:
+    - **CLI**: `credence leaderboard`, `credence merit`, `credence badge export`, `credence rankings`, `credence bounties`.
+    - **FastMCP 2.0**: 6 tools (`credence_get_leaderboard`, `credence_get_node_merit`, `credence_get_domain_rankings`, `credence_get_taxonomy_analytics`, `credence_get_epistemic_weather`, `credence_get_bounties`) and 7 resources (`credence://leaderboard/...`, `credence://merit/...`, `credence://rankings/...`, `credence://weather/...`, `credence://bounties`).
+    - **Textual TUI**: New `🏆 Leaderboard` tab (`tab_leaderboard`) with dual-panel mesh rankings, local merit profile, and unlocked badges.
+    - **Zero-Build Web UI**: Interactive multi-tab leaderboards and SVG badge embedder on `credence.nexus`, plus DEI Honor Roll/Wall of Shame on `credence.report`.
+    - **Justfile**: Added `just leaderboard`, `just merit`, `just rankings`, `just weather`.
+  - **Hermetic Testing**: Added 5 dedicated test suites with 100% network-free pass (`test_merit_edge_cases.py`, `test_merit_and_leaderboards.py`, `test_adversarial_gamification.py`, `test_web_analytics.py`, `test_leaderboard_interfaces.py`).
+
 ## [1.8.0] - 2026-08-18
 
 ### Added
