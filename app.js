@@ -511,7 +511,19 @@ export function formatInline(text) {
     return `__CODE_SPAN_${codeSpans.length - 1}__`;
   });
 
+  // Mask safe inline HTML tags so author-supplied HTML tags (a, span, code, mark, etc.) are preserved
+  const htmlTags = [];
+  masked = masked.replace(/<(\/?[a-zA-Z][a-zA-Z0-9]*(\s+[^>]*)?\/?)>/g, (tag) => {
+    htmlTags.push(tag);
+    return `__SAFE_HTML_TAG_${htmlTags.length - 1}__`;
+  });
+
   let res = escapeHtml(masked);
+
+  // Restore safe HTML tags
+  res = res.replace(/__SAFE_HTML_TAG_(\d+)__/g, (m, idx) => {
+    return htmlTags[parseInt(idx, 10)];
+  });
 
   // Parenthetical math \(...\)
   res = res.replace(/\\\(([\s\S]+?)\\\)/g, (match, expr) => {
@@ -2541,7 +2553,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.12.3';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.12.4';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 

@@ -496,15 +496,9 @@ You can inspect the up-to-the-minute live stream, query the REST API, or run you
     Verify current publisher metrics and test any recently published article against the sovereign Credence mesh:
   </p>
   <div style="display: flex; flex-direction: column; gap: 0.65rem;">
-    <div>
-      🔍 <a href="https://credence.report/#analytics/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Inspect Live Publisher Analytics Dashboard on Credence Report</a> — Real-time DEI trendline, rolling sourcing ratios, and latest article stream.
-    </div>
-    <div>
-      ⚡ <a href="https://credence-server-663899237633.us-central1.run.app/api/analytics/publisher/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Direct Production REST API JSON Feed</a> — Live machine-readable publisher record on Google Cloud Run.
-    </div>
-    <div>
-      📡 <a href="#docs/protocols/fastmcp" style="color: var(--accent-cyan); font-weight: 600;">Query FastMCP Dynamic Resource</a> — Connect Claude or Cursor to <code>credence://analytics/publisher/inmaricopa.com</code>.
-    </div>
+    <div>🔍 <a href="https://credence.report/#analytics/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Inspect Live Publisher Analytics Dashboard on Credence Report</a> — Real-time DEI trendline, rolling sourcing ratios, and latest article stream.</div>
+    <div>⚡ <a href="https://credence-server-663899237633.us-central1.run.app/api/analytics/publisher/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Direct Production REST API JSON Feed</a> — Live machine-readable publisher record on Google Cloud Run.</div>
+    <div>📡 <a href="#docs/protocols/fastmcp" style="color: var(--accent-cyan); font-weight: 600;">Query FastMCP Dynamic Resource</a> — Connect Claude or Cursor to <code>credence://analytics/publisher/inmaricopa.com</code>.</div>
   </div>
   <div style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid rgba(56, 189, 248, 0.2);">
     <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 600;">💻 Audit Any Current InMaricopa Article in Real Time from Your Terminal:</div>

@@ -7,6 +7,14 @@ description: "Version history, release notes, and milestone accomplishments acro
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.12.4] - 2026-08-19
+
+### Fixed
+- **Inline HTML Tag Preservation in Markdown Parser**:
+  - Enhanced `formatInline` in `app.js` to mask and preserve valid inline HTML tags (`<a>`, `<span>`, `<code>`, `<mark>`, etc.) before HTML entity escaping, preventing literal tag leaks in custom callout boxes (e.g. `<a href="...">` and `<code>` in the live verification channels card).
+  - Formatted live verification link channels in `blog/conflict-of-pun-terest.md` as clean single-line blocks.
+  - Added regression test `test_no_raw_html_tag_leaks` targeting `blog/conflict-of-pun-terest` and verifying zero leaked `&lt;a href` tags.
+
 ## [1.12.3] - 2026-08-18
 
 ### Fixed
