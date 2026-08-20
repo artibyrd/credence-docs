@@ -10,6 +10,17 @@ last_verified: '2026-08-20'
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.0.1] - 2026-08-20
+
+### Canonical Lexicon & Progressive Architecture Governance Patch
+- **Canonical Lexicon Governance**:
+  - Codified the 5 Cohesive Thematic Families (Botanical Network, Optical & Forensic Grounding, Meteorological Epistemics, Sovereign Governance, Self-Regulating Engine/FinOps) and 3 Complexity Tiers in `.agents/skills/knowledge-governance/SKILL.md`.
+  - Disambiguated metric nomenclature: Domain Credence Index (DCI) for longitudinal publisher trust vs. Subject Expertise ($E_i$) for decentralized mesh nodes.
+- **Modular Subpackage Architecture for Starlette & FastMCP Servers**:
+  - Formalized standard decoupling across `credence/server/api/`, `credence/server/mcp/`, `credence/server/middleware/`, `credence/server/lifespan.py`, and lean `credence/server/app.py` (<150 LOC) in `.agents/skills/architecture-governance/SKILL.md`.
+- **Multi-Plane Live Deployment Verification Gate**:
+  - Documented automated live probing procedures across Cloud Run dev/prod instances and Cloudflare Edge custom domains with cache-busting headers in `.agents/skills/cloudrun-ops/SKILL.md`.
+
 ## [2.0.0] - 2026-08-20
 
 ### Major Release: Complete Architecture Modularization, 500 LOC Ceiling Law & compute_* Ontology
