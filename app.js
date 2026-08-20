@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.0.1';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.0.2';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -1444,7 +1444,67 @@ export function parseMarkdown(md) {
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i];
 
-    // 0. Tabs Container Block (:::tabs ... :::)
+    // 0a. Generic Container Callout Directives (:::note, :::tip, :::info, :::warning, :::caution, :::important, :::danger ... :::)
+    const directiveMatch = !inCodeBlock && line.trim().match(/^:::(note|tip|info|warning|caution|important|danger)\b\s*(.*)$/i);
+    if (directiveMatch) {
+      if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+      if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
+      if (inAlertBox) {
+        html.push(`
+          <div class="alert-box alert-${alertType}">
+            <div class="alert-header">
+              <span class="alert-icon">${alertIcon}</span>
+              <strong>${alertTitle}</strong>
+            </div>
+            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
+          </div>
+        `);
+        inAlertBox = false;
+        alertBuffer = [];
+      }
+
+      let dType = directiveMatch[1].toLowerCase();
+      if (dType === 'danger') dType = 'caution';
+      let dTitle = directiveMatch[2].trim() || dType.toUpperCase();
+      let dIcon = '📌';
+      switch (dType) {
+        case 'note': dIcon = '📘'; break;
+        case 'tip': dIcon = '💡'; break;
+        case 'info': dIcon = 'ℹ️'; break;
+        case 'important': dIcon = '🛡️'; break;
+        case 'warning': dIcon = '⚠️'; break;
+        case 'caution': dIcon = '🛑'; break;
+      }
+
+      let directiveLines = [];
+      let j = i + 1;
+      let codeFenceCount = 0;
+      for (; j < lines.length; j++) {
+        const subLine = lines[j];
+        if (subLine.startsWith('```')) {
+          codeFenceCount++;
+        }
+        if (codeFenceCount % 2 === 0 && subLine.trim() === ':::') {
+          break;
+        }
+        directiveLines.push(subLine);
+      }
+      i = j; // Advance outer loop index
+
+      const innerRendered = parseMarkdown(directiveLines.join('\n'));
+      html.push(`
+        <div class="alert-box alert-${dType}">
+          <div class="alert-header">
+            <span class="alert-icon">${dIcon}</span>
+            <strong>${escapeHtml(dTitle)}</strong>
+          </div>
+          <div class="alert-content">${innerRendered}</div>
+        </div>
+      `);
+      continue;
+    }
+
+    // 0b. Tabs Container Block (:::tabs ... :::)
     if (!inCodeBlock && line.trim().startsWith(':::tabs')) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }

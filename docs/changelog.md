@@ -10,6 +10,19 @@ last_verified: '2026-08-20'
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.0.2] - 2026-08-20
+
+### Documentation Rendering Resilience, Engine Hardening & Shift-Left Integrity Gates
+- **Zero-Build Documentation Engine Hardening (`app.js`)**:
+  - Implemented dual-format container callout directive support for `:::(note|tip|info|warning|caution|important|danger) [Title] ... :::` in `credence-docs/app.js`, eliminating raw directive leakage across markdown parsers.
+- **Documentation Standardization & Entity Escaping**:
+  - Standardized introduction callout in `docs/intro.md` to GitHub alert callout format (`> [!NOTE]`).
+  - Escaped angle brackets in raw HTML code cards in `docs/invariants.md` (`&lt;untrusted_source_text&gt;` and `&lt;service&gt;.run.app`) to prevent DOM tag swallowing.
+- **Shift-Left Rendering Integrity Test Gates**:
+  - Added `test_no_unrendered_directives_or_malformed_alerts` to detect non-standard directive tokens, unclosed `:::tabs` containers, and invalid alert keywords during pre-commit gates.
+  - Added `test_full_docs_markdown_rendering_pipeline` to simulate the full zero-build rendering pipeline on all 80+ documents in CI.
+  - Added `test_app_js_directive_and_alert_resilience` and `test_raw_html_code_entity_escaping` to guarantee ongoing parser and document hygiene.
+
 ## [2.0.1] - 2026-08-20
 
 ### Canonical Lexicon & Progressive Architecture Governance Patch

@@ -90,7 +90,7 @@ flowchart LR
 
 <div class="invariant-card" id="invariant-9">
 <h3><a href="#docs/invariants#invariant-9">Invariant 9: Red Team Ingestion & Protocol Defense</a></h3>
-<p>XML parsers must reject <code><!DOCTYPE></code> / <code><!ENTITY></code> declarations (Billion Laughs protection). External LLM inputs must be enclosed in <code><untrusted_source_text></code> containers with prompt injection guard directives. FastMCP and P2P relay endpoints must enforce token-bucket rate limiters.</p>
+<p>XML parsers must reject <code>&lt;!DOCTYPE&gt;</code> / <code>&lt;!ENTITY&gt;</code> declarations (Billion Laughs protection). External LLM inputs must be enclosed in <code>&lt;untrusted_source_text&gt;</code> containers with prompt injection guard directives. FastMCP and P2P relay endpoints must enforce token-bucket rate limiters.</p>
 </div>
 
 <div class="invariant-card" id="invariant-10">
@@ -115,7 +115,7 @@ flowchart LR
 
 <div class="invariant-card" id="invariant-14">
 <h3><a href="#docs/invariants#invariant-14">Invariant 14: Edge Routing Origin Header Translation</a></h3>
-<p>Cloudflare Worker edge routers must rewrite <code>Host</code> headers to native Cloud Run target URLs (<code><service>.run.app</code>) to bypass Google Search Console domain verification requirements while preserving live Server-Sent Events (SSE) streaming and global CORS headers.</p>
+<p>Cloudflare Worker edge routers must rewrite <code>Host</code> headers to native Cloud Run target URLs (<code>&lt;service&gt;.run.app</code>) to bypass Google Search Console domain verification requirements while preserving live Server-Sent Events (SSE) streaming and global CORS headers.</p>
 </div>
 
 <div class="invariant-card" id="invariant-15">

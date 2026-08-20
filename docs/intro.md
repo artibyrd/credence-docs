@@ -13,9 +13,8 @@ last_verified: '2026-08-20'
 
 Instead of subjective "truthiness" scores or centralized arbiters, Credence provides **transparent, verifiable receipts** that anyone can inspect.
 
-:::note
-🎮 **Try It in Your Browser**: Experience Credence's algorithms live without installing anything! Test the **[12 Interactive Zero-Build Playgrounds](playground.md)** (13-node mesh simulator, SimHash matrix, Token Governor) and the **[InMaricopa Forensic Case Study Workbench](../blog/conflict-of-pun-terest.md)** with live clickable DOM evidence and policy reform simulation.
-:::
+> [!NOTE]
+> 🎮 **Try It in Your Browser**: Experience Credence's algorithms live without installing anything! Test the **[12 Interactive Zero-Build Playgrounds](playground.md)** (13-node mesh simulator, SimHash matrix, Token Governor) and the **[InMaricopa Forensic Case Study Workbench](../blog/conflict-of-pun-terest.md)** with live clickable DOM evidence and policy reform simulation.
 
 ---
 
