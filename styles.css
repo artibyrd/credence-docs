@@ -556,20 +556,23 @@ textarea:focus-visible,
   border-radius: 8px;
   border: 1px solid rgba(56, 189, 248, 0.2);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  -webkit-overflow-scrolling: touch;
 }
 
 .markdown-body table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
 }
 
 .markdown-body th,
 .markdown-body td {
   border-bottom: 1px solid rgba(56, 189, 248, 0.12);
   border-right: 1px solid rgba(56, 189, 248, 0.08);
-  padding: 0.75rem 1rem;
+  padding: 0.6rem 0.85rem;
   text-align: left;
+  vertical-align: top;
 }
 
 .markdown-body th:last-child,
@@ -1343,11 +1346,18 @@ textarea:focus-visible,
 
 .tab-header {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
   background: #090e17;
   border-bottom: 1px solid rgba(56, 189, 248, 0.2);
   padding: 0 0.5rem;
   gap: 0.25rem;
+}
+
+.tab-header::-webkit-scrollbar {
+  display: none;
 }
 
 .tab-btn {
@@ -1962,10 +1972,24 @@ footer.credence-footer {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
   margin-bottom: 2.5rem;
   text-align: left;
+}
+
+@media (max-width: 860px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
 }
 
 .footer-col h4 {

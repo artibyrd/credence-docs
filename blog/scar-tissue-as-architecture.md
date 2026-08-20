@@ -63,9 +63,9 @@ flowchart TD
 * **The Disaster:** During a high-velocity deployment sprint, an engineer ran `just deploy backend`. The Cloud Run container built and deployed successfully. Ten minutes later, telemetry showed errors that didn't exist in local code. It turned out the engineer had three uncommitted experimental files in their local directory that were swept into the Docker build context—creating a deployed production container that had no corresponding Git commit in human history.
 * **The Scar Tissue:** **Tier-0 Working-Tree Cleanliness Invariant**.
   `Justfile` deployment recipes strictly mandate:
-  ```bash
+```bash
   git diff --quiet && git diff --cached --quiet
-  ```
+```
   If so much as a stray whitespace modification exists in the working tree, deployment scripts abort instantly. Code must exist in a signed Git commit before it can touch the cloud.
 
 ---

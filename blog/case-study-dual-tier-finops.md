@@ -71,6 +71,6 @@ $$\text{FinOps Savings Ratio} = 1 - \frac{\text{Cost}_{\text{bicameral}}}{\text{
 1. **Thinking Tokens at the Point of Ambiguity**: Spending thinking tokens on clean, structured news is wasteful. Concentrating thinking tokens exclusively on high-entropy or deceptive claims maximizes reasoning efficiency.
 2. **Zero Quality Compromise**: Because the escalation filter captures 100% of satire, clickbait, medical claims, and deceptive patterns, zero deceptive articles slip through unverified.
 3. **Reproducibility**: Run this exact experiment locally on your own feeds with a single command:
-   ```bash
+```bash
    just experiment shadow-audit
-   ```
+```

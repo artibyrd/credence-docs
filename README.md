@@ -47,7 +47,7 @@ credence-docs/
 │   ├── protocols/                       # 📜 14 Core Protocol Specifications
 │   ├── operations/                      # ☁️ 7 Self-Hosting & Operations Guides
 │   ├── mathematics/                     # 📐 3 Mathematical Foundations Deep Dives
-│   ├── invariants.md                    # 🏛️ Master Index of 36 System Invariants
+│   ├── invariants.md                    # 🏛️ The Invariant Bible: Living Canon of System Invariants
 │   ├── architecture.md                  # 🏗️ Decentralized Multi-Tier Architecture Spec
 │   ├── frontend-architecture.md         # 🌐 Zero-Build WebCrypto Rationale
 │   ├── roadmap.md                       # 🗺️ Product Roadmap & Milestones
