@@ -3,8 +3,8 @@
  * Pure Vanilla Modern ES Module — 0 npm dependencies, 0 build tools.
  */
 
-// Canonical ecosystem version constant
-export const CURRENT_ECOSYSTEM_VERSION = 'v1.21.2';
+// Canonical ecosystem version
+export const CURRENT_ECOSYSTEM_VERSION = 'v1.21.3';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -3588,20 +3588,20 @@ export function renderGlobalFooter() {
             </ul>
           </div>
           <div class="footer-col">
-            <h4>🏛️ Knowledge & Horizons</h4>
+            <h4>📰 Editorial & Knowledge</h4>
             <ul>
-              <li><a href="#docs/sitemap">Ecosystem Master Sitemap</a></li>
+              <li><a href="https://blog.credence.run">Sovereign Blog & Essays</a></li>
               <li><a href="#docs/invariants">The Invariant Bible</a></li>
+              <li><a href="#docs/sitemap">Master Ecosystem Sitemap</a></li>
               <li><a href="#docs/roadmap">Roadmap & Horizons</a></li>
-              <li><a href="#docs/changelog">Release Changelog</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>⚖️ Governance & Source</h4>
             <ul>
-              <li><a href="https://keys.credence.foundation/root.pub">Root Public Key (root.pub)</a></li>
-              <li><a href="https://credence.foundation/v1/spj_ethics.json">Taxonomy Rule Catalogs</a></li>
               <li><a href="https://github.com/artibyrd/credence" target="_blank" rel="noopener">GitHub Repository</a></li>
+              <li><a href="#docs/changelog">Release Changelog</a></li>
+              <li><a href="https://keys.credence.foundation/root.pub">Root Public Key (root.pub)</a></li>
               <li><a href="https://github.com/artibyrd/credence/blob/main/LICENSE" target="_blank" rel="noopener">Apache-2.0 Open Source</a></li>
             </ul>
           </div>
