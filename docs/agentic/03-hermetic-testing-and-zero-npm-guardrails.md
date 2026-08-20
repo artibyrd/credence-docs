@@ -32,12 +32,9 @@ Learn the engineering principles behind Credence's 100% network-free hermetic te
 ```mermaid
 flowchart TD
     subgraph Testing["Hermetic Test Pyramid"]
-        T1["Playwright Live Rendering Tests
-(tests/test_docs_rendering.py · 18s)"]
-        T2["Static AST & DOM Contract Integrity
-(tests/test_docs_integrity.py · 0.08s)"]
-        T3["In-Memory SQLite Unit & Math Suite
-(tests/test_scoring.py, test_mesh.py · 3.2s)"]
+        T1["Playwright Live Rendering Tests<br/>(tests/test_docs_rendering.py · 18s)"]
+        T2["Static AST & DOM Contract Integrity<br/>(tests/test_docs_integrity.py · 0.08s)"]
+        T3["In-Memory SQLite Unit & Math Suite<br/>(tests/test_scoring.py, test_mesh.py · 3.2s)"]
     end
     
     Testing --> CI["Hermetic CI Pipeline (0 Cloud Secrets · 0 Network Calls)"]

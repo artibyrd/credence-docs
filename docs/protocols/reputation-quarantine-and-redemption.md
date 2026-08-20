@@ -2,7 +2,7 @@
 title: 'Epistemic Protocol Specification: Domain Reputation, Soft Quarantine & Redemption (EPEP-17)'
 description: Technical protocol specification for domain reputation tracking, exponential polling backoff, HRW adversarial swarm coordination, and the BuzzFeed News Doctrine.
 since_version: v1.21.0
-verified_version: v1.21.0
+verified_version: v1.21.1
 last_verified: '2026-08-19'
 ---
 
@@ -22,23 +22,23 @@ Autonomous nodes operate under a dual-drive epistemic ingestion engine:
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Neutral: New Domain Discovered (Reputation = 50.0)
-    Neutral --> Trusted: Consecutive Clean Audits &ge; 3 (Reputation &ge; 75.0)
-    Neutral --> Suspicious: Suspicion Score &ge; 50.0
+    [*] --> NEUTRAL: New Domain Discovered (R = 50.0)
+    NEUTRAL --> TRUSTED: k &ge; 3 Clean Audits (R &ge; 75.0)
+    NEUTRAL --> SUSPICIOUS: Suspicion &ge; 50.0 (R &lt; 50.0)
     
-    Trusted --> Suspicious: Severity 4/5 Violation Detected
-    Suspicious --> Quarantined: Consecutive Deceptions &ge; 3 OR Reputation &le; 20.0
+    TRUSTED --> SUSPICIOUS: Severity 4/5 Finding or G &lt; 1.00
+    SUSPICIOUS --> QUARANTINED: Deceptions &ge; 3 OR R &le; 20.0
     
-    state Quarantined {
-        [*] --> ExponentialBackoff: Polling Backoff 16x (Poll every 7d)
-        ExponentialBackoff --> LazarusProbe: Background Sample (1 item / 7d via HRW Rendezvous)
-        LazarusProbe --> ExponentialBackoff: Fails Audit (Backoff resets)
-        LazarusProbe --> ProbationaryRecovery: k=5 Consecutive Clean Audits (BuzzFeed Doctrine)
+    state QUARANTINED {
+        [*] --> EXPONENTIAL_BACKOFF: Polling Backoff 16x-64x
+        EXPONENTIAL_BACKOFF --> LAZARUS_PROBE: HRW Rendezvous Sample (1 item / 7d)
+        LAZARUS_PROBE --> EXPONENTIAL_BACKOFF: Fails Audit (Backoff Resets to Max)
+        LAZARUS_PROBE --> PROBATIONARY_RECOVERY: k = 5 Clean Audits across &ge; 2 Namespaces
     }
     
-    Quarantined --> ProbationaryRecovery: k=5 Clean Audits across &ge;2 Subjects
-    ProbationaryRecovery --> Neutral: Consistent Clean Audits (Reputation &ge; 50.0, Backoff 1x)
-    ProbationaryRecovery --> Quarantined: Any Severity &ge; 3 Violation (Immediate Relapse)
+    QUARANTINED --> PROBATIONARY_RECOVERY: BuzzFeed Doctrine Invariant 40
+    PROBATIONARY_RECOVERY --> NEUTRAL: Stable Audits (R &ge; 50.0, Polling 1x)
+    PROBATIONARY_RECOVERY --> QUARANTINED: Any Severity &ge; 3 Violation (Immediate Relapse)
 ```
 
 ### 2.1 Asymmetric Bayesian Scoring Update Rule

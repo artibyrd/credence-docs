@@ -15,10 +15,10 @@ Learn how Credence nodes establish cryptographic identity, exchange attestations
 
 ```mermaid
 flowchart TD
-    Node1["Local Node Identity\n(Ed25519 Keypair)"] --> Seeds["Fetch Signed Seeds\n(seeds.credence.nexus)"]
-    Seeds --> Lattice["Connect to Watts-Strogatz Lattice\n(k=4, p=0.15 WebSocket Relays)"]
-    Lattice --> Gossip["Epidemic Gossip Protocol\n(RFC 8785 Canonical Attestations)"]
-    Gossip --> Consensus["Domain Authority Weighted Median\n+ Galileo Rule Protection"]
+    Node1["Local Node Identity<br/>(Ed25519 Keypair)"] --> Seeds["Fetch Signed Seeds<br/>(seeds.credence.nexus)"]
+    Seeds --> Lattice["Connect to Watts-Strogatz Lattice<br/>(k=4, p=0.15 WebSocket Relays)"]
+    Lattice --> Gossip["Epidemic Gossip Protocol<br/>(RFC 8785 Canonical Attestations)"]
+    Gossip --> Consensus["Domain Authority Weighted Median<br/>+ Galileo Rule Protection"]
 ```
 
 > [!NOTE]

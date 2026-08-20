@@ -31,15 +31,11 @@ Discover how Credence achieves institutional-grade epistemic accuracy at $0.0003
 
 ```mermaid
 flowchart LR
-    Input["Untrusted Web Text"] --> Guard["Prompt Injection Guard
-(<untrusted_source_text>)"]
-    Guard --> Gov["Token Safety Governor
-(30% Headroom Circuit Breaker)"]
+    Input["Untrusted Web Text"] --> Guard["Prompt Injection Guard<br/>(<untrusted_source_text>)"]
+    Guard --> Gov["Token Safety Governor<br/>(30% Headroom Circuit Breaker)"]
     
-    Gov -->|Budget Healthy| Gemini["Gemini 3.7 Flash
-(4k Thinking · $0.075/1M)"]
-    Gov -->|Quota Exceeded| Offline["Offline Structural Heuristic
-(Invariant 23 · $0.00 cost)"]
+    Gov -->|Budget Healthy| Gemini["Gemini 3.7 Flash<br/>(4k Thinking · $0.075/1M)"]
+    Gov -->|Quota Exceeded| Offline["Offline Structural Heuristic<br/>(Invariant 23 · $0.00 cost)"]
     
     Gemini --> Grounding["G=1.00 Verbatim Grounding Gate"]
     Offline --> Grounding

@@ -34,13 +34,10 @@ Explore the communication architecture powering Credence's **FastMCP 2.0 server*
 
 ```mermaid
 flowchart TD
-    Client["AI Agents & Developers
-(Claude, Cursor, Antigravity, Shell, Web)"] --> Gateway{"FastMCP 2.0 Gateway"}
+    Client["AI Agents & Developers<br/>(Claude, Cursor, Antigravity, Shell, Web)"] --> Gateway{"FastMCP 2.0 Gateway"}
     
-    Gateway -->|Local Process IPC| Stdio["stdio Transport
-(High-speed pipe)"]
-    Gateway -->|Remote Mesh HTTP| SSE["SSE Transport
-(mcp.credence.run/sse)"]
+    Gateway -->|Local Process IPC| Stdio["stdio Transport<br/>(High-speed pipe)"]
+    Gateway -->|Remote Mesh HTTP| SSE["SSE Transport<br/>(mcp.credence.run/sse)"]
     
     Stdio & SSE --> Core["Credence Epistemic Core Engine"]
     

@@ -15,7 +15,7 @@ Learn how to audit digital media, news articles, and raw prose against formal jo
 
 ```mermaid
 flowchart LR
-    Source["Input Content\n(Live URL / Raw Prose / HTML DOM)"] --> Engine["Credence Epistemic Engine"]
+    Source["Input Content<br/>(Live URL / Raw Prose / HTML DOM)"] --> Engine["Credence Epistemic Engine"]
     Engine --> Specialist1["1. SPJ Ethics Specialist"]
     Engine --> Specialist2["2. Fallacy Specialist"]
     Engine --> Specialist3["3. Deceptive UI Specialist"]

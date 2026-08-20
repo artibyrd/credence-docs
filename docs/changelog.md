@@ -3,13 +3,27 @@ title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across
   the Credence network.
 since_version: v1.0.0
-verified_version: v1.21.0
+verified_version: v1.21.1
 last_verified: '2026-08-19'
 ---
 
 # Release Changelog
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
+
+## [1.21.1] - 2026-08-19
+
+### Mermaid Diagram Modernization, MCP Integration & CI Guardrails
+- **Mermaid MCP Server Integration**:
+  - Integrated `mcp-mermaid` (`generate_mermaid_diagram`) for dynamic AST parsing, SVG verification, and rendering.
+- **Ecosystem-Wide Diagram Modernization**:
+  - Audited and elevated 114+ Mermaid diagrams across all blog essays, technical blueprints, protocols, and operator walkthroughs.
+  - Standardized modern semantic shapes (`[(Database)]`, `([Endpoint])`, `{"Decision"}`), subgraphs, activation lifelines, and `stateDiagram-v2` transitions.
+  - Eliminated parser anti-patterns including unquoted comparison operators (`<`, `>`), invalid embedded markdown links, and literal `\n` linebreaks.
+- **Shift-Left CI Integrity Guardrails (`tests/test_docs_integrity.py`)**:
+  - Expanded `test_mermaid_diagram_syntax_integrity` with strict balanced delimiter validation (`[]`, `()`, `{}`, `""`), subgraph closure checks, linebreak hygiene, and dark slate WCAG 2.1 AA contrast assertions.
+- **7-Manifest Parity Sync**:
+  - Synchronized canonical semantic version `v1.21.1` across all 7 ecosystem manifests.
 
 ## [1.21.0] - 2026-08-19
 

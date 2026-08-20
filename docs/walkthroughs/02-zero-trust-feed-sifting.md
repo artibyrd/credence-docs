@@ -15,11 +15,11 @@ Learn how to dynamically discover syndicated feed endpoints, execute pre-flight 
 
 ```mermaid
 flowchart TD
-    Target["Target Web Domain"] --> Discover["Dynamic Autodiscovery\n(link tags & well-known paths)"]
+    Target["Target Web Domain"] --> Discover["Dynamic Autodiscovery<br/>(link tags & well-known paths)"]
     Discover --> PreFlight["Pre-Flight Forensic Audit"]
-    PreFlight --> DynamicScore["Dynamic Quality Score (F_j)\n0.35 S + 0.25 G + 0.20 H + 0.20 T"]
-    DynamicScore --> SifterDaemon["Continuous Sifter Daemon\n(Rendezvous Hash Partitioning)"]
-    SifterDaemon --> MeshGossip["Gossip RFC 8785 Attestations\n(92.3% Compute Savings)"]
+    PreFlight --> DynamicScore["Dynamic Quality Score (F_j)<br/>0.35 S + 0.25 G + 0.20 H + 0.20 T"]
+    DynamicScore --> SifterDaemon["Continuous Sifter Daemon<br/>(Rendezvous Hash Partitioning)"]
+    SifterDaemon --> MeshGossip["Gossip RFC 8785 Attestations<br/>(92.3% Compute Savings)"]
 ```
 
 > [!NOTE]

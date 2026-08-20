@@ -30,12 +30,9 @@ Discover how Credence uses the `/learn` slash command to transform transient cor
 
 ```mermaid
 flowchart LR
-    Correction["Human Correction or Edge Case Discovery
-(e.g., Mermaid parser crash on unquoted comparison)"] --> Learn["/learn Proposal
-(learning_proposal.md)"]
+    Correction["Human Correction or Edge Case Discovery<br/>(e.g., Mermaid parser crash on unquoted comparison)"] --> Learn["/learn Proposal<br/>(learning_proposal.md)"]
     Learn --> Review["Human 'Mk1 Eyeball' Approval Gate"]
-    Review --> Persist["Codified in AGENTS.md
-+ Automated pytest guardrail"]
+    Review --> Persist["Codified in AGENTS.md<br/>+ Automated pytest guardrail"]
     Persist --> NeverAgain["Permanent Guardrail Active Across All Future Turns"]
 ```
 

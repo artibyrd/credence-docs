@@ -31,18 +31,12 @@ Explore the operational methodology developed during the creation of Credence us
 
 ```mermaid
 flowchart TD
-    User["Human Operator Request"] --> Research["1. Research Phase
-(Read-only tools & static analysis)"]
-    Research --> Plan["2. Planning Mode
-(implementation_plan.md artifact)"]
-    Plan --> Gate["3. 'Mk1 Eyeball' Human Review Gate
-(Explicit approval required)"]
-    Gate -->|Approved| Exec["4. Autonomous Parallel Execution
-(Subagents & background tasks)"]
-    Exec --> Verify["5. Hermetic Verification
-(Playwright, pytest, static audits)"]
-    Verify --> Walkthrough["6. Walkthrough Artifact
-(walkthrough.md + visual screenshots)"]
+    User["Human Operator Request"] --> Research["1. Research Phase<br/>(Read-only tools & static analysis)"]
+    Research --> Plan["2. Planning Mode<br/>(implementation_plan.md artifact)"]
+    Plan --> Gate["3. 'Mk1 Eyeball' Human Review Gate<br/>(Explicit approval required)"]
+    Gate -->|Approved| Exec["4. Autonomous Parallel Execution<br/>(Subagents & background tasks)"]
+    Exec --> Verify["5. Hermetic Verification<br/>(Playwright, pytest, static audits)"]
+    Verify --> Walkthrough["6. Walkthrough Artifact<br/>(walkthrough.md + visual screenshots)"]
 ```
 
 > [!IMPORTANT]

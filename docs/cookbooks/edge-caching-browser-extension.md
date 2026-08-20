@@ -28,7 +28,6 @@ sequenceDiagram
         Edge->>Origin: Forward Request to Origin
         Origin-->>Edge: 200 OK (Cache-Control: immutable)
         Edge-->>Browser: 200 OK
-    end
 ```
 
 ---

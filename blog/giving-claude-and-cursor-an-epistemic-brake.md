@@ -31,7 +31,6 @@ sequenceDiagram
     critical Epistemic Brake Gate
         Agent->>Brake: tools/call: credence_check_url(url)
         Brake-->>Agent: Score: 85.0 (Fabricated Benchmark Cues)
-    end
     Agent->>Agent: Discards Poisoned Recommendation
     Agent-->>Developer: Recommends Grounded, Verified Package
 ```
