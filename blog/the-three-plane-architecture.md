@@ -122,3 +122,12 @@ just tf plan
 | **Protocol Extensibility** | Tied to browser runtime | **Clean FastMCP 2.0 / CLI / REST separation** |
 
 By strictly decoupling the Edge, Compute, and Infrastructure planes, Credence delivers lightning-fast global performance with rock-solid security and minimal operational overhead.
+---
+
+## 4. The Push-and-Delegate Doctrine & CI/CD Verification Loop
+
+One of the greatest operational hazards in modern cloud deployment is **dual deployment**. When an engineer or autonomous AI agent completes local verification and pushes to `origin/main`, running manual deployment commands locally (`just deploy`, `wrangler deploy`, `gcloud run deploy`) introduces state race conditions, wiggles through fragile local OAuth tokens, and duplicates work.
+
+Under Credence's **Push-and-Delegate Doctrine**:
+1. **Authoritative CI/CD Hand-off**: All multi-plane deployments are delegated strictly to GitHub Actions using keyless Workload Identity Federation (WIF).
+2. **The Verification Gate**: The agent does not declare victory upon `git-sync push`. Instead, it actively monitors remote workflow telemetry (`gh run watch` / `just pipeline watch`) until the deployment run completes with conclusion `success`.

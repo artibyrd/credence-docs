@@ -10,7 +10,19 @@ last_verified: 2026-08-20
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.1.5] - 2026-08-20
+
+### CI/CD Verification Gate & Documentation Consolidation
+- **CI/CD Verification Gate Codification**:
+  - Enforced mandatory verification step: after pushing release commits and tags (`just git-sync push`), agents must actively monitor and verify that GitHub Actions CI/CD workflows complete with success (`gh run watch` / `just pipeline watch`) before announcing release completion.
+- **Documentation Consolidation over Proliferation**:
+  - Codified the invariant to prioritize enriching and deepening existing canonical documentation and blueprints over creating shallow standalone micro-articles.
+  - Consolidated the Push-and-Delegate Doctrine and CI/CD verification loop directly into `blog/the-three-plane-architecture.md`, pruning redundant standalone micro-articles.
+
+---
+
 ## [2.1.4] - 2026-08-20
+
 
 ### Critical Fix: Parser Frontmatter Guard & Web Component Hardening
 - **Frontmatter Object Guard in `parseMarkdown()`**:
