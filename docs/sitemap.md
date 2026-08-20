@@ -177,6 +177,13 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * **[Economics of Decentralized Truth](#docs/mathematics/economics-of-truth)**: Mathematical proof of 92.3% compute savings via BitTorrent work-sharing.
 
 ### Operations, Self-Hosting & Deployment
+* **[Master Deployment Prerequisites & Setup Guide](#docs/operations/deployment-prerequisites)**: Complete prerequisite checklists, credential matrices, CLI commands, and decision trees across all topologies.
+* **[Single-Project vs Dual-Project GCP Topologies](#docs/operations/single-vs-dual-project-gcp)**: Comparison and CLI provisioning runbooks for single partitioned vs hard dual-project isolation.
+* **[Multi-Environment Boundaries and Deployments](#docs/operations/multi-environment-boundaries-and-deployments)**: Boundary isolation, CI/CD secret matrices, and sequential launch parity deployment sequence.
+* **[Vendor-Agnostic Self-Hosting and Docker](#docs/operations/vendor-agnostic-self-hosting-and-docker)**: Bare-metal Linux, Hetzner/OVH VPS, systemd services, Caddy reverse proxy, and backup procedures.
+* **[Docker Compose 5-Minute Quickstart](#docs/operations/docker-compose-quickstart)**: Quickstart guide for launching Basic ($0 SQLite) and Planetary (PostgreSQL + MinIO + Valkey) clusters.
+* **[Kubernetes and Container Orchestration](#docs/operations/kubernetes-and-helm-deployment)**: Production manifests, PVC storage classes, ConfigMaps, Secrets, Ingress, and HPA autoscaling.
+* **[Content-Addressable Blob Storage with Cloudflare R2](#docs/operations/blob-storage-r2)**: S3-compatible zero-egress Cloudflare R2 storage configuration for HTML and visual snapshots.
 * **[Multi-Plane Pipeline & Build Optimization Handbook](#docs/operations/pipeline-and-build-optimization)**: Workstation tuning, multi-core pytest parallelization, build context exclusions, and sub-40s QA gates.
 * **[Raspberry Pi & HomeLab Node Guide](#docs/operations/raspberry-pi-homelab)**: Running a $0.00/mo self-hosted node on Raspberry Pi.
 * **[Tailscale & WireGuard Peering](#docs/operations/tailscale-wireguard-mesh)**: Secure private P2P mesh overlays across servers.

@@ -1,14 +1,15 @@
 ---
 title: 'Operational Guide: Multi-Environment Boundaries and Deployments'
-description: Comprehensive operational runbook detailing project, account, domain, and data boundary isolation between Basic Dev and Advanced Prod deployments.
+description: Comprehensive operational runbook detailing project, account, domain,
+  CI/CD secrets, and data boundary isolation between Basic Dev and Advanced Prod deployments.
 since_version: v1.18.0
-verified_version: v1.18.0
+verified_version: v1.18.2
 last_verified: '2026-08-19'
 ---
 
 # Operational Guide: Multi-Environment Boundaries and Deployments
 
-This guide details the operational boundaries, governance rules, and deployment procedures for maintaining separate **Basic Dev** and **Advanced Prod** environments with 100% launch parity.
+This guide details the operational boundaries, governance rules, and automated deployment procedures for maintaining separate **Basic Dev** and **Advanced Prod** environments with 100% launch parity.
 
 ---
 
@@ -28,31 +29,62 @@ This guide details the operational boundaries, governance rules, and deployment 
 
 ---
 
-## 2. Developer Runbooks
+## 2. GitHub Actions Secrets Configuration Matrix
 
-### Deploying to Dev Environment
+To enable automated multi-environment CI/CD deployment pipelines, configure the following secrets in GitHub ([`artibyrd/credence` $\rightarrow$ Settings $\rightarrow$ Secrets and variables $\rightarrow$ Actions](https://github.com/artibyrd/credence/settings/secrets/actions)):
+
+| Secret Name | Required For | Example / Description |
+| :--- | :--- | :--- |
+| **`CLOUDFLARE_API_TOKEN`** | Edge Router & Pages Deployments | API Token created via "Edit Cloudflare Workers" template with `All zones` access |
+| **`CLOUDFLARE_ACCOUNT_ID`**| Edge Router & Pages Deployments | Cloudflare Account ID string (e.g. `f1e95c67a1e06db65efa5aaf7a92b38e`) |
+| **`GCP_WORKLOAD_IDENTITY_PROVIDER`** | Cloud Run Backend Deployments | `projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/github-pool/providers/github-provider` |
+| **`GCP_SERVICE_ACCOUNT`** | Cloud Run Backend Deployments | `credence-cloud-run-sa@PROJECT_ID.iam.gserviceaccount.com` |
+| **`GCP_SA_KEY`** | Cloud Run (Fallback if not using WIF) | Base64-encoded GCP Service Account JSON key |
+| **`DISCORD_WEBHOOK_URL`** | SRE & Budget Alerting | Discord channel webhook URL for instant alert notifications |
+
+---
+
+## 3. Multi-Environment CI/CD Workflows
+
+The ecosystem provides two dedicated deployment workflows:
+
+### 1. Development Deployment (`.github/workflows/deploy-dev.yml`)
+- Triggered on push to `develop` or manual `workflow_dispatch`.
+- Builds container tag `gcr.io/<DEV_PROJECT>/credence-dev:latest`.
+- Deploys `credence-dev` in Economy profile (`512Mi` RAM, `min_instances=0`, `max_instances=1`).
+- Runs live probe gate: `curl -sSL -f https://<DEV_SERVICE_URL>/health`.
+
+### 2. Production Release Deployment (`.github/workflows/deploy-backend.yml`)
+- Triggered on push of version release tags (e.g. `v1.18.2`) or manual `workflow_dispatch`.
+- Builds container tag `gcr.io/<PROD_PROJECT>/credence-server:latest`.
+- Deploys `credence-server` in Balanced profile (`1024Mi` RAM, `min_instances=0`, `max_instances=2`).
+- Runs live probe gate: `curl -sSL -f https://<PROD_SERVICE_URL>/health`.
+
+---
+
+## 4. Sequential Launch Parity Deployment Runbook
+
+When releasing a new ecosystem version, execute the sequential parity release progression:
+
 ```bash
-# 1. Build and deploy container in Basic mode
-just deploy dev
-
-# 2. Probe live Dev health
-just gcp probe credence-dev
-
-# 3. Check Dev telemetry
-credence cost status
-```
-
-### Deploying to Production Environment
-```bash
-# 1. Execute pre-commit quality gauntlet
+# === Phase 1: Local Pre-Commit QA Gate ===
 just check
 
-# 2. Deploy Production container and verify health
-just deploy prod
+# === Phase 2: Mk1 Eyeball Review & Commit (Commit-Before-Deploy) ===
+git add -A
+git commit -m "feat(release): ecosystem version vX.Y.Z"
 
-# 3. Deploy Cloudflare Edge Router
+# === Phase 3: Dev Deployment & Telemetry Gate ===
+just deploy dev
+just gcp probe credence-dev
+
+# === Phase 4: Production Deployment & Telemetry Gate ===
+just deploy prod
+just gcp probe credence-server
+
+# === Phase 5: Edge Router Deployment ===
 just deploy edge
 
-# 4. Run multi-plane diagnostics
+# === Phase 6: Multi-Plane Doctor Diagnostics ===
 just doctor prod
 ```
