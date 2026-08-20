@@ -3,8 +3,8 @@ title: Bootstrap Seed Governance & Node Quality
 description: 5-factor node quality equation (Q_i), signed seed directory distribution,
   and 4-tier discovery fallback.
 since_version: v1.0.0
-verified_version: v1.21.7
-last_verified: '2026-08-20'
+verified_version: v2.1.0
+last_verified: 2026-08-20
 ---
 
 # Bootstrap Seed Governance & Node Quality

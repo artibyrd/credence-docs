@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Universal 4-Way Parity and Environment Governance'
 description: Architectural blueprint specifying how CLI, FastMCP 2.0, Textual TUI, and Web UI maintain simultaneous feature parity across Dev and Prod.
 since_version: v1.18.0
-verified_version: v1.21.7
-last_verified: '2026-08-20'
+verified_version: v2.1.0
+last_verified: 2026-08-20
 ---
 
 # Technical Blueprint: Universal 4-Way Parity and Environment Governance

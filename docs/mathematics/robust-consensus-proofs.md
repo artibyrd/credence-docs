@@ -3,8 +3,8 @@ title: The Mathematics of Robust Consensus
 description: Mathematical proofs of the Domain Authority Weighted Median, Byzantine
   3f+1 tolerance, and the Galileo Rule.
 since_version: v1.0.0
-verified_version: v1.21.7
-last_verified: '2026-08-20'
+verified_version: v2.1.0
+last_verified: 2026-08-20
 ---
 
 # The Mathematics of Robust Consensus

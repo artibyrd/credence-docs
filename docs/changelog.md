@@ -2,13 +2,45 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.0.0
-last_verified: '2026-08-20'
+verified_version: v2.1.0
+last_verified: 2026-08-20
 ---
 
 # Release Changelog
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
+
+## [2.1.0] - 2026-08-20
+
+### Epistemic Self-Auditing, Embeddable Badges, Temporal Trajectories & The Information Pyramid
+
+- **Embeddable Attestation Badge & In-Browser WebCrypto Gate (`<credence-badge>`)**:
+  - Zero-npm, zero-dependency custom Web Component (`credence-widget.js`) rendering live verification pills on any webpage.
+  - In-browser live DOM hashing via WebCrypto `crypto.subtle.digest("SHA-256")` checking rendered host page text against signed receipts, immediately detecting post-audit modifications or bait-and-switch tampering.
+  - Interactive 3-Tier Lensing popover with score breakdown, sparkline trajectory, and Ed25519 cryptographic custody proofs.
+- **Documentation Self-Auditing Engine ("Practice What We Preach")**:
+  - Added `credence audit-docs` CLI command and `just audit-docs` task to audit and sign all 168+ documentation pages.
+  - Generated cryptographically signed `assets/attestations.json` manifest with Ed25519 receipts for every docs page.
+  - Differential CI/CD workflow triggering automated re-audits exclusively on modified markdown documentation files.
+- **DOM Extraction Scrubber & Rescore Immunity Invariant**:
+  - Implemented `strip_ignored_elements()` in `credence/ingestion/extractor.py` stripping `<credence-badge>`, `[data-credence-ignore]`, and `.credence-badge-container` to guarantee embedding or modifying badges does not alter `content_sha256`.
+  - Added `SEC-1.1 Camouflage Guard` triggering autonomous suspicion penalties when non-badge ignored containers exceed 150 characters.
+- **Temporal Content History & Revision Trajectory Tracking**:
+  - Database schema evolution in `Snapshot` (`parent_snapshot_id`, `revision_index`, `content_diff`, `token_drift`, `is_editorial_update`) and `Audit` (`score_delta`, `violations_added_count`, `violations_resolved_count`).
+  - Added `credence/storage/revisions.py` for computing discrete velocity vectors ($ec{\Delta S}$) and querying full revision lineage.
+  - Added FastMCP query tool `credence_get_revision_history` and dynamic resource `credence://history/{identifier}`.
+  - Created Content History & Diff Dashboard at `credence.report/history.html` with revision slider, side-by-side semantic diffs, and Impact Decomposition Matrix.
+- **The Information Pyramid & Epistemic Lensing Invariant (Invariants 39 & 40)**:
+  - Codified 3-tier cognitive hierarchy across Web, CLI, TUI, and FastMCP: Surface Lens (Glance), Focus Lens (Explore), and Deep Spectrum Lens (Forensic).
+  - Added Order-of-Operations Invariant enforcing strict dependency ordering prior to human review ("Mk1 Eyeball").
+- **Sovereign Essays, Walkthroughs & Interactive Labs**:
+  - Published Sovereign Essays: *What Credence Sees When an Article Changes* and *Red-Teaming the Truth Badge: 7 Attack Vectors*.
+  - Added Feature Walkthrough: *06. Embeddable Badges & Documentation Self-Auditing*.
+  - Added Blueprints: *The Information Pyramid & Epistemic Lensing* and *Embeddable Attestation Badges & Anti-Tamper Isolation*.
+  - Added Interactive Playgrounds: *Playground 13: Content Evolution Lab* and *Playground 14: Adversarial Badge Security Lab ("Break the Badge")*.
+  - Coined 10 new terms in the living *Terminology & Ontology Lexicon*.
+
+---
 
 ## [2.0.2] - 2026-08-20
 

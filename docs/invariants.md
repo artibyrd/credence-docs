@@ -3,8 +3,8 @@ title: 'The Invariant Bible: Living Canon of System-Wide Invariants & Protocols'
 description: Canonical reference for all mathematical rules, runtime safety guardrails,
   cryptographic protocols, and presentation invariants governing Credence.
 since_version: v1.0.0
-verified_version: v1.21.7
-last_verified: '2026-08-20'
+verified_version: v2.1.0
+last_verified: 2026-08-20
 tags:
 - invariants
 - architecture
@@ -298,6 +298,17 @@ flowchart TD
 
 ---
 
+
+<div class="invariant-card" id="invariant-42">
+<h3><a href="#docs/invariants#invariant-42">Invariant 42: The Epistemic Lensing & Information Pyramid Invariant</a></h3>
+<p>All user-facing views, CLI summaries, TUI workstations, and web surfaces strictly structure content into a 3-tier cognitive hierarchy: Surface Lens (Glance — above fold: score gauge, 1-line verdict, 0 math), Focus Lens (Explore — mid-page: claims, grounded quotes, trajectory sparklines), and Deep Spectrum Lens (Forensic — base: Ed25519 signatures, RFC 8785 canonical bytes, live WebCrypto DOM hash match).</p>
+</div>
+
+<div class="invariant-card" id="invariant-43">
+<h3><a href="#docs/invariants#invariant-43">Invariant 43: The Cart-Before-the-Horse Order-of-Operations Invariant</a></h3>
+<p>Every implementation plan, task breakdown, and execution sequence must undergo a strict dependency analysis and topological order verification before being presented for human review ("Mk1 Eyeball"). Prerequisite ingestion scrubbers, data models, and cryptographic primitives must strictly precede downstream APIs, UI components, CLI commands, and test suites.</p>
+</div>
+
 ## Invariant Reference Index Matrix
 
 | Invariant ID | Pillar | Key Property | Formula / Enforcement |
@@ -327,5 +338,6 @@ flowchart TD
 | **[Invariant 39](#invariant-39)** | Mesh / Ingestion | Boredom & Root Expansion | Autonomous opportunistic digestion & feed discovery |
 | **[Invariant 40](#invariant-40)** | Mesh / Ingestion | Soft Blacklist & BuzzFeed Doctrine | Exponential backoff & asymmetric redemption |
 | **[Invariant 41](#invariant-41)** | Presentation / Edge | Symmetric Navigation & Zero-Cache | 5 header links, 4-pillar footers, 18-domain zero-cache routing |
-
+| **[Invariant 42](#invariant-42)** | Presentation | Information Pyramid & Lensing | 3-Tier Cognitive Hierarchy (Surface/Focus/Deep) |
+| **[Invariant 43](#invariant-43)** | Governance | Cart-Before-Horse Dependency Law | Topological dependency ordering before human review |
 

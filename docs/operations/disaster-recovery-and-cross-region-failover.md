@@ -2,8 +2,8 @@
 title: 'Operational Guide: Disaster Recovery and Failover Procedures'
 description: Comprehensive disaster recovery runbook covering database backups, R2 bucket replication, and multi-region failover.
 since_version: v1.18.0
-verified_version: v1.21.7
-last_verified: '2026-08-20'
+verified_version: v2.1.0
+last_verified: 2026-08-20
 ---
 
 # Operational Guide: Disaster Recovery and Failover Procedures

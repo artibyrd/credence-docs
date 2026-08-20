@@ -4,8 +4,8 @@ description: Technical protocol specification for Credence autonomous node ignit
   Genesis peer mesh inoculation, HRW Rendezvous Hashing feed partitioning, and atomic
   sub-transaction invariants.
 since_version: v1.0.0
-verified_version: v1.21.7
-last_verified: '2026-08-20'
+verified_version: v2.1.0
+last_verified: 2026-08-20
 ---
 
 # Node Germination & Swarm Ignition Specification

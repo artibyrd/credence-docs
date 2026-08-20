@@ -3,8 +3,8 @@ title: 'Technical Blueprint: Invariant Scalability & Knowledge Governance'
 description: The 3-tier architectural framework for scaling autonomous AI agent invariants
   without prompt bloat, attention dilution, or cognitive oatmeal.
 since_version: v1.15.0
-verified_version: v1.21.7
-last_verified: '2026-08-20'
+verified_version: v2.1.0
+last_verified: 2026-08-20
 ---
 
 # Technical Blueprint: Invariant Scalability & Knowledge Governance

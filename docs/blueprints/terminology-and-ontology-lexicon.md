@@ -2,7 +2,8 @@
 title: "Credence Ecosystem Terminology & Ontology Lexicon"
 description: "Canonical living dictionary of terminology, mathematical definitions, architectural metaphors, and ontology governance across Credence v2.0.0, organized across 5 cohesive thematic families and proportional complexity tiers."
 since_version: v2.0.0
-verified_version: v2.0.0
+verified_version: v2.1.0
+last_verified: 2026-08-20
 ---
 
 # Credence Ecosystem Terminology & Ontology Lexicon
@@ -170,7 +171,28 @@ pie title Credence Vocabulary Complexity Distribution
 2. **Replaced SEO-Confusing "Domain Authority" with "Expertise-Weighted Consensus"**:
    - Eliminates ambiguity with commercial Moz/Ahrefs SEO metrics in favor of pure node-level subject authority ($E_i$).
 3. **Harmonized Coined Jargon with Clear Plain-Language Aliases**:
-   - *Adversarial Boredom* $ightarrow$ Accessible alias: **Autonomous Curiosity Loop**.
-   - *Poe's Law Satire Cloak* $ightarrow$ Accessible alias: **Humor Shield & Malice Override**.
-   - *The BuzzFeed News Doctrine* $ightarrow$ Subtitle: **The Newsroom Partition Principle**.
-   - *Epistemic Verbatim Grounding* $ightarrow$ Accessible alias: **Exact Quote Grounding**.
+   - *Adversarial Boredom* $
+ightarrow$ Accessible alias: **Autonomous Curiosity Loop**.
+   - *Poe's Law Satire Cloak* $
+ightarrow$ Accessible alias: **Humor Shield & Malice Override**.
+   - *The BuzzFeed News Doctrine* $
+ightarrow$ Subtitle: **The Newsroom Partition Principle**.
+   - *Epistemic Verbatim Grounding* $
+ightarrow$ Accessible alias: **Exact Quote Grounding**.
+
+---
+
+## 6. New Terms Coined in v2.1.0 (10 Terms)
+
+| Concept | 🟢 Level 1 (Plain / Everyday) | 🟡 Level 2 (Engineering / Protocol) | 🔴 Level 3 (Formal / Mathematical) | Thematic Family | Subsystem |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **The Information Pyramid** | 3-Tier Information Pyramid | Progressive Epistemic Hierarchy | Cognitive Load Inverse Density Invariant | 🏛️ Sovereign Governance | `credence.web`, `credence.cli` |
+| **Epistemic Lensing ("Enhance!")** | Zoom & Enhance Control | Epistemic Lensing Engine | Tri-Focal Dynamic Resolution Function | 🔭 Optical Grounding | `credence.web.lensing`, `credence.tui` |
+| **DOM Extraction Scrubber** | Badge Filter & Rescore Bypass | DOM Extraction Scrubber (`[data-credence-ignore]`) | Invariant Ingestion Sanitizer | ⚡ Self-Regulating Engine | `credence.ingestion.extractor` |
+| **Temporal Score Trajectory** | Score History Timeline | Temporal Score Trajectory ($\Delta S_t$) | Discrete Epistemic Score Velocity Vector ($ec{\Delta S}$) | 🔭 Optical Grounding | `credence.storage.revisions` |
+| **Content Evolution Forensics** | Stealth Edit & Correction Detector | Content Evolution Forensic Engine | Differential SimHash Mutation Classifier | 🌤️ Meteorological Epistemics | `credence.pipeline.evaluator` |
+| **Dogfood Attestation** | Docs Self-Audit / Practice What We Preach | Self-Audited Provenance (`audit-docs`) | Reflexive Cryptographic Attestation Invariant | 🏛️ Sovereign Governance | `credence.cli.commands.docs_audit` |
+| **Differential Dogfooding** | Smart Docs Re-check | Differential CI/CD Dogfood Engine | Git Tree Delta-Driven Attestation Loop | ⚡ Self-Regulating Engine | `.github/workflows` |
+| **Order-of-Operations Invariant** | Dependency Order Check / Cart Before Horse | Order-of-Operations Dependency Law | Directed Acyclic Execution Dependency Law | 🏛️ Sovereign Governance | `AGENTS.md`, `tests.governance` |
+| **Live DOM Hash Attestation** | Real-Time Badge Verification | Client-Side In-Browser DOM Attestation | Browser WebCrypto Live NFKC Hash Gate | 🔭 Optical Grounding | `credence.web.assets` |
+| **Badge Abuse Neutralization** | Anti-Tamper Badge Defenses | Adversarial Badge Evasion Defense | Cryptographic Origin & Live Hash Binding | 🔭 Optical Grounding | `credence.web.assets` |

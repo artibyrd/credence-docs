@@ -3,8 +3,8 @@ title: The Domain Credence Index (DCI) & Sourcing Forensics
 description: Forensic methodology, mathematical ratios, and longitudinal metrics for
   evaluating public publisher integrity and detecting disguised advertorials.
 since_version: v1.14.1
-verified_version: v1.21.7
-last_verified: '2026-08-20'
+verified_version: v2.1.0
+last_verified: 2026-08-20
 ---
 
 # The Domain Credence Index (DCI) & Sourcing Forensics

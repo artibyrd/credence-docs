@@ -2,8 +2,8 @@
 title: 'Cookbook: Browser Extension MV3 Zero-Hop Edge Verification'
 description: Recipe for integrating Chrome Extension Manifest V3 with Cloudflare Anycast Edge for sub-20ms instant trust badges.
 since_version: v1.17.0
-verified_version: v1.21.7
-last_verified: '2026-08-20'
+verified_version: v2.1.0
+last_verified: 2026-08-20
 ---
 
 # Cookbook: Browser Extension MV3 Zero-Hop Edge Verification

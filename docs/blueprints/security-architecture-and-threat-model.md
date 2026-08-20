@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Security Architecture & Threat Model'
 description: Adversarial threat model and zero-trust security architecture for planetary scale Credence deployments.
 since_version: v1.17.0
-verified_version: v1.21.7
-last_verified: '2026-08-20'
+verified_version: v2.1.0
+last_verified: 2026-08-20
 ---
 
 # Technical Blueprint: Security Architecture & Threat Model

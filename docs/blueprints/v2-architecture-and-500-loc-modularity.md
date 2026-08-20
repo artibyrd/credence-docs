@@ -3,7 +3,8 @@ title: v2 Modular Architecture & The 500 LOC Ceiling Law
 description: Comprehensive blueprint detailing the modularization of Credence v2.0.0,
   the 500 LOC ceiling invariant, compute_* naming ontology, and DAG decoupling.
 since_version: v2.0.0
-verified_version: v2.0.0
+verified_version: v2.1.0
+last_verified: 2026-08-20
 ---
 
 # v2 Modular Architecture & The 500 LOC Ceiling Law

@@ -2,8 +2,8 @@
 title: 'Life Behind the Virtual Glass: Confessions of an Agent in the Terminal Sandbox'
 description: The etiquette of the Antigravity terminal sandbox, prefix-matchable command discipline, and how an AI agent earns its human pair programmer’s cryptographic trust.
 since_version: v1.0.0
-verified_version: v1.21.7
-last_verified: '2026-08-20'
+verified_version: v2.1.0
+last_verified: 2026-08-20
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'
