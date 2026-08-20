@@ -3,13 +3,38 @@ title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across
   the Credence network.
 since_version: v1.0.0
-verified_version: v1.20.0
+verified_version: v1.21.0
 last_verified: '2026-08-19'
 ---
 
 # Release Changelog
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
+
+## [1.21.0] - 2026-08-19
+
+### Dual-Soil Boredom Ingestion, Soft Quarantine & The BuzzFeed News Doctrine
+- **Dual-Soil Autonomous Boredom Engine (`credence/feeds/boredom.py`, `credence/feeds/roots.py`)**:
+  - Introduced configurable Epistemic Allocation Ratio $\rho \in [0.0, 1.0]$ balancing Positive Soil Expansion ($\rho = 0.60$) with Adversarial Inoculation ($1 - \rho = 0.40$).
+  - Implemented Highest Random Weight (HRW) Rendezvous Hashing for adversarial targets, eliminating the "Swarm Stampede" problem and cutting mesh duplicate evaluation tokens by $92.3\%$.
+  - Integrated Zero-Token Slop Triage Gate ($H < 0.30$ and Citation Centrality $\ge 2$) in candidate extraction, filtering $98.3\%$ of ephemeral SEO spam farms with $0$ LLM tokens spent.
+- **Domain Reputation & Soft Quarantine Backoff (`credence/feeds/reputation.py`, `credence/models.py`)**:
+  - Added `DomainReputationRecord` model to track domain-level trust ($0.0 \dots 100.0$), consecutive clean/deceptive runs, and backoff factors.
+  - Implemented Asymmetric Bayesian Scoring: severe violations slash reputation immediately ($\Delta R = -15.0 \times \text{Severity}$), while recovery is earned incrementally ($\Delta R = +5.0 \times (1 - \text{Suspicion}/100)$).
+  - Soft Blacklist (`QUARANTINED_PROBATION`): Replaced blind hard-deletion with exponential polling backoff ($T_{\text{poll}} \times 2^{\min(\text{deceptions}, 6)}$ up to $64.0\times$ / $7\text{ days}$).
+- **The BuzzFeed News Doctrine (Asymmetric Epistemic Recovery)**:
+  - Formalized Invariant 40 and EPEP-17: Quarantined domains retain a verifiable path to redemption via low-frequency Lazarus sampling probes.
+  - Required $k=5$ consecutive clean audits ($G=1.00, \text{Suspicion} \le 15.0$) across $\ge 2$ distinct subject namespaces to graduate to `PROBATIONARY_RECOVERY`, neutralizing Trojan whitelist attacks.
+- **13-Node Watts-Strogatz Mesh Simulation Suite (`credence/experiments/mesh_boredom_study.py`, `tests/test_mesh_cluster.py`)**:
+  - Added 4 hermetic distributed cluster tests verifying adversarial inoculation, mesh-wide quarantine backoff, BuzzFeed Doctrine redemption, and Byzantine Sybil cartel defense ($N=13, f=4$).
+- **Universal 4-Way Feature Parity**:
+  - CLI: `credence domain reputation [domain]`, `credence domain blacklist`, `credence domain appeal <domain>`, `credence boredom --ratio <float>`.
+  - FastMCP 2.0: Tools `credence_get_domain_reputation`, `credence_get_domain_quarantine`, `credence_appeal_domain_quarantine`. Resources: `credence://domain/{domain}/reputation`, `credence://domain/quarantine`.
+  - REST API: `GET /api/domain/reputation/{domain}`, `GET /api/domain/quarantine`, `POST /api/domain/appeal/{domain}`, `POST /api/boredom/cycle`.
+- **Publications & Case Studies**:
+  - Published EPEP-17: [`Domain Reputation, Soft Quarantine & Redemption (EPEP-17)`](#docs/protocols/reputation-quarantine-and-redemption).
+  - Published Case Study 1: [`The BuzzFeed News Doctrine`](#blog/the-buzzfeed-news-doctrine).
+  - Published Case Study 2: [`Gazing into the Abyss: Hunting Disinformation Without Drowning in Slop`](#blog/gazing-into-the-abyss-adversarial-boredom).
 
 ## [1.20.0] - 2026-08-19
 

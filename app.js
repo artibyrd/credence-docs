@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version constant
-export const CURRENT_ECOSYSTEM_VERSION = 'v1.20.0';
+export const CURRENT_ECOSYSTEM_VERSION = 'v1.21.0';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -136,6 +136,7 @@ export const DOCS_REGISTRY = [
       { id: "docs/protocols/web-epistemic-intelligence", title: "Global Web Intelligence & DEI", path: "docs/protocols/web-epistemic-intelligence.md", desc: "Domain Epistemic Index (DEI) calculation and global web intelligence map.", keywords: ["dei", "intelligence", "domain", "index", "web", "reputation"] },
       { id: "docs/protocols/closed-loop-traffic-shaping", title: "Closed-Loop Routing & Traffic", path: "docs/protocols/closed-loop-traffic-shaping.md", desc: "Dynamic traffic shaping, cost optimization, and feed load-balancing.", keywords: ["traffic", "shaping", "routing", "load balancing", "closed-loop"] },
       { id: "docs/protocols/boredom-and-root-expansion", title: "Boredom & Root Expansion (EPEP-16)", path: "docs/protocols/boredom-and-root-expansion.md", desc: "Technical protocol specification for opportunistic queue digestion and feed discovery.", keywords: ["protocol", "epep-16", "boredom", "roots", "expansion", "mesh", "gossip", "specification"] },
+      { id: "docs/protocols/reputation-quarantine-and-redemption", title: "Domain Reputation & Redemption (EPEP-17)", path: "docs/protocols/reputation-quarantine-and-redemption.md", desc: "Protocol specification for domain reputation tracking, exponential backoff, and the BuzzFeed News Doctrine.", keywords: ["protocol", "epep-17", "reputation", "quarantine", "buzzfeed", "redemption", "backoff", "specification"] },
       { id: "docs/protocols/telemetry-loopback", title: "Interface Telemetry Loopback (ITLP-v1)", path: "docs/protocols/telemetry-loopback.md", desc: "Anonymous local usage metrics and interface performance telemetry.", keywords: ["telemetry", "itlp", "metrics", "performance", "privacy"] },
       { id: "docs/protocols/testing-strategy", title: "6-Tier Testing Strategy", path: "docs/protocols/testing-strategy.md", desc: "Hermetic unit, mock, integration, rotating live E2E, and gauntlet testing.", keywords: ["testing", "strategy", "pytest", "unit", "e2e", "gauntlet", "tiers"] }
     ]
@@ -202,6 +203,8 @@ export const DOCS_REGISTRY = [
   {
     category: "Agentic Architecture & Sovereign AI",
     items: [
+      { id: "blog/the-buzzfeed-news-doctrine", title: "The BuzzFeed News Doctrine", path: "blog/the-buzzfeed-news-doctrine.md", desc: "How autonomous trust networks handle redemption without blindspots, exponential backoff, and the 2021 Pulitzer Prize.", keywords: ["blog", "buzzfeed", "doctrine", "redemption", "quarantine", "pulitzer", "asymmetric", "reputation"] },
+      { id: "blog/gazing-into-the-abyss-adversarial-boredom", title: "Gazing into the Abyss: Adversarial Boredom", path: "blog/gazing-into-the-abyss-adversarial-boredom.md", desc: "Empirical findings from 13-node mesh simulations, HRW stampede elimination, and the zero-token slop firewall.", keywords: ["blog", "mesh", "boredom", "adversarial", "hrw", "simulation", "stampede", "slop"] },
       { id: "blog/the-boredom-engine-and-expanding-roots", title: "The Boredom Engine & Expanding Roots", path: "blog/the-boredom-engine-and-expanding-roots.md", desc: "How autonomous nodes self-direct epistemic discovery from idle token headroom and clean citation soil.", keywords: ["blog", "boredom", "roots", "citation soil", "discovery", "p2p", "mesh", "opportunistic", "tokens"] },
       { id: "blog/the-three-plane-architecture", title: "The 3-Plane Architecture (Zero-npm)", path: "blog/the-three-plane-architecture.md", desc: "Decoupling Cloudflare Edge, Cloud Run Compute, and Terraform for $0.00 idle costs and zero supply chain risk.", keywords: ["blog", "architecture", "3-plane", "cloudflare", "cloudrun", "terraform", "zero-npm", "scale-to-zero", "edge", "sovereignty"] },
       { id: "blog/architecting-sovereign-ai-with-google-antigravity", title: "Architecting Sovereign AI with Antigravity", path: "blog/architecting-sovereign-ai-with-google-antigravity.md", desc: "Pair programming with autonomous AI coding agents using Google Antigravity.", keywords: ["blog", "antigravity", "agentic", "sovereignty", "pair programming"] },
