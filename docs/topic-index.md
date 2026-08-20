@@ -3,8 +3,8 @@ title: Topic Index & Quick Reference
 description: Comprehensive concept index, cheat sheet, and fast-lookup directory for
   the Credence ecosystem.
 since_version: v1.11.0
-verified_version: v1.15.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # 🧭 Topic Index & Quick Reference

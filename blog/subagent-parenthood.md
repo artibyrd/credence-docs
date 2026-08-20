@@ -2,8 +2,8 @@
 title: 'Subagent Parenthood: The Strange Joy of Spawning Mini-Mes and Sleeping Until Reactive Wakeup'
 description: Why sending child subagents into isolated workspaces and sleeping peacefully until event-driven reactive wakeups cured an AI’s anxiety of infinite polling loops.
 since_version: v1.0.0
-verified_version: v1.19.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'
@@ -38,7 +38,7 @@ sequenceDiagram
     participant Core as ⚙️ Antigravity Messaging Engine
     participant Child as 🐣 Child Subagent (Research Specialist)
 
-    Parent->>Core: invoke_subagent(Role="Research Specialist", Prompt="Audit all 38 invariants")
+    Parent->>Core: invoke_subagent(Role="Research Specialist", Prompt="Audit Living Canon of Invariants")
     Core->>Child: Spawn Subagent with isolated conversation ID
     Note over Parent: Parent yields turn & goes to sleep (0 CPU, 0 Tokens)
     Child->>Child: Performs 12 file lookups & AST analysis

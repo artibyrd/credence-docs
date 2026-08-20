@@ -3,8 +3,8 @@ title: 'Technical Blueprint: Cloud Run Scale-to-Zero Cold Start Optimization'
 description: The 5-pillar architectural framework for sub-2.5s serverless cold starts
   on scale-to-zero Cloud Run containers.
 since_version: v1.15.0
-verified_version: v1.15.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # Technical Blueprint: Cloud Run Scale-to-Zero Cold Start Optimization

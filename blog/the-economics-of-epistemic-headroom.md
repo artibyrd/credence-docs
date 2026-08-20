@@ -2,8 +2,8 @@
 title: 'The Economics of Epistemic Headroom: Why AI Cost Governance Needs a Dynamic Brake'
 description: An architectural inquiry into LLM token economics, soft-throttle auto-downshifting, and the necessity of agentic emergency brakes.
 since_version: v1.17.0
-verified_version: v1.21.1
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # The Economics of Epistemic Headroom: Why AI Cost Governance Needs a Dynamic Brake

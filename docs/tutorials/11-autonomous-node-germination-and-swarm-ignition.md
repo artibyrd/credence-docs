@@ -4,8 +4,8 @@ description: Hands-on tutorial for bootstrapping fresh Credence nodes in under 1
   seconds with Genesis peer inoculation, HRW Rendezvous feed partitioning, and Miracle-Gro
   sifting bursts.
 since_version: v1.6.0
-verified_version: v1.15.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # Tutorial 11: Autonomous Node Germination & Swarm Ignition

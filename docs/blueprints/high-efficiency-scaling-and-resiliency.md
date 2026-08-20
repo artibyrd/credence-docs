@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: High-Efficiency Scaling & Resiliency Architecture'
 description: Deep architectural blueprint detailing edge offloading, Trafilatura fast-path ingestion, and Redis atomic token metering.
 since_version: v1.17.0
-verified_version: v1.17.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # Technical Blueprint: High-Efficiency Scaling & Resiliency Architecture

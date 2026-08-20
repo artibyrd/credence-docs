@@ -2,8 +2,8 @@
 title: 'The Silicon Hangover: When Context Windows Suffer from Prompt Gluttony'
 description: Why dumping 50,000 tokens of rules into system prompts causes cognitive oatmeal, and the 4-tier knowledge taxonomy that keeps AI agents razor-sharp under 800 tokens.
 since_version: v1.15.0
-verified_version: v1.19.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'

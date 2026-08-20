@@ -3,8 +3,8 @@ title: 'The BitTorrent Economics of Fact-Checking: Slashing LLM Bills by 92%'
 description: How cooperative P2P feed pre-ingestion turns syndicated news auditing
   into a zero-token cooperative commons.
 since_version: v1.0.0
-verified_version: v1.15.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 sidebar:
   order: 3
 ---

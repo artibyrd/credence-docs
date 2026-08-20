@@ -3,13 +3,13 @@ title: 'Technical Blueprint: Invariant Scalability & Knowledge Governance'
 description: The 3-tier architectural framework for scaling autonomous AI agent invariants
   without prompt bloat, attention dilution, or cognitive oatmeal.
 since_version: v1.15.0
-verified_version: v1.15.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # Technical Blueprint: Invariant Scalability & Knowledge Governance
 
-This blueprint details the architectural framework, governance hierarchy, and shift-left automation used by Credence to scale from 10 to over 38 system invariants across 15 versions without suffering from context window bloat, rule dilution, or cognitive degradation in autonomous AI coding agents.
+This blueprint details the architectural framework, governance hierarchy, and shift-left automation used by Credence to scale the Living Canon of System Invariants across 15+ versions without suffering from context window bloat, rule dilution, or cognitive degradation in autonomous AI coding agents.
 
 ---
 
@@ -63,7 +63,7 @@ graph TD
     end
 
     subgraph Tier3 ["Tier 3: Master Canonical Reference Catalog (docs/invariants.md)"]
-        T3_Catalog["Complete 38-Invariant Registry with Mathematical Proofs"]
+        T3_Catalog["Living Canon of System Invariants with Mathematical Proofs"]
     end
 
     Tier0 --> Tier1
@@ -102,7 +102,7 @@ graph TD
 
 ### Tier 3: Master Canonical Reference Catalog (`docs/invariants.md`)
 - **Execution Mode**: Reference only (queried on-demand).
-- **Scope**: Contains the full registry of all 38 system invariants, complete with mathematical formulas, LaTeX proofs, edge case analyses, and historical architecture context.
+- **Scope**: Contains the living canon of system invariants, complete with mathematical formulas, LaTeX proofs, edge case analyses, and historical architecture context.
 
 ---
 

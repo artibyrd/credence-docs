@@ -3,8 +3,8 @@ title: The Agentic Epistemic Brake Cookbook
 description: Integration patterns for LangGraph, CrewAI, Antigravity SDK, and Cursor
   to halt or flag unreliable web citations.
 since_version: v1.0.0
-verified_version: v1.15.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # The Agentic Epistemic Brake Cookbook

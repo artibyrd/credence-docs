@@ -3,8 +3,8 @@ title: Bootstrap Operator Guide
 description: Comprehensive 10-section operational runbook for multi-cloud deployment,
   P2P mesh operations, and seed governance.
 since_version: v1.0.0
-verified_version: v1.15.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # Bootstrap Operator Guide & Runbook
@@ -32,32 +32,39 @@ A comprehensive, unabridged operations runbook for deploying, configuring, secur
 Credence is engineered to run as a multi-domain, hybrid-cloud federation spanning **Google Cloud Platform (GCP)** (for serverless compute, Secret Manager, and token governor monitoring) and **Cloudflare** (for global edge CDN, DDoS protection, zero-egress R2 distribution, and DNS delegation).
 
 ```mermaid
-graph TD
-    User([User / AI Agent / Peer Node]) --> CF{Cloudflare Edge Network}
+flowchart TD
+    User([User / AI Agent / Peer Node]) --> Worker["Cloudflare Edge Worker (_worker.js)"]
     
-    CF -->|credence.run| Pages1[Cloudflare Pages: Static Landing & Install Script]
-    CF -->|docs.credence.run| Pages2[Cloudflare Pages: Zero-Build Documentation Engine]
-    CF -->|blog.credence.run| Pages3[Cloudflare Pages: Sovereign Decoupled Blog Repo]
-    CF -->|credence.report| Pages4[Cloudflare Pages: Zero-Build Cryptographic Viewer]
-    CF -->|seeds.credence.nexus| R2[Cloudflare R2: Signed Bootstrap Seed Manifest]
-    CF -->|taxonomies.credence.foundation| GCS[GCS Bucket: Static Taxonomy Catalogs & Root Keys]
-    CF -->|mcp.credence.run| CR[GCP Cloud Run: FastMCP 2.0 SSE Engine]
+    Worker -->|credence.run| Static1["Static Assets: Landing & Install Script (public, max-age=0)"]
+    Worker -->|docs.credence.run| Pages1["Dynamic Proxy: Docs Portal (no-cache, no-store)"]
+    Worker -->|blog.credence.run| Pages2["Dynamic Proxy: Sovereign Blog (no-cache, no-store)"]
+    Worker -->|credence.report| Static2["Static Assets: Cryptographic Report Viewer"]
+    Worker -->|credence.nexus| Static3["Static Assets: Mesh Directory & Explorer"]
+    Worker -->|seeds.credence.nexus| Seeds["Root Peer Manifest (peers.json)"]
+    Worker -->|credence.foundation| Static4["Static Assets: Governance & Keys Portal"]
+    Worker -->|keys.credence.foundation| Keys["Root Signing Key (root.pub)"]
+    Worker -->|mcp.credence.run| CR["GCP Cloud Run: FastMCP 2.0 SSE Engine (/sse)"]
+
+    classDef darkSlate fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff;
+    class Worker,Static1,Pages1,Pages2,Static2,Static3,Seeds,Static4,Keys,CR darkSlate;
 ```
 
 > [!NOTE]
-> **Zero-Build Invariant**: All web properties (`credence.run`, `docs.credence.run`, `blog.credence.run`, and `credence.report`) run purely on vanilla HTML5, native CSS Custom Properties, and ES modules with **0 npm dependencies and 0 build steps**.
+> **Zero-Build Invariant**: All web properties (`credence.run`, `docs.credence.run`, `blog.credence.run`, `credence.nexus`, `credence.foundation`, and `credence.report`) run purely on vanilla HTML5, native CSS Custom Properties, and ES modules with **0 npm dependencies and 0 build steps**. All 18 production and development subdomains are bound in `wrangler.toml` and served with zero-cache headers.
 
 ### Canonical Domain Routing Matrix
 
-| Domain | Infrastructure Provider | Purpose | Canonical Endpoint |
-| :--- | :--- | :--- | :--- |
-| **`credence.run`** | Cloudflare Pages / GCS | Landing Page & POSIX Install Script CDN | `https://credence.run/install.sh` |
-| **`docs.credence.run`** | Cloudflare Pages | Git-Driven Documentation Engine | `https://docs.credence.run` |
-| **`blog.credence.run`** | Cloudflare Pages | Sovereign Decoupled Blog Repository | `https://blog.credence.run` |
-| **`mcp.credence.run`** | GCP Cloud Run | FastMCP 2.0 Server (SSE Transport) | `https://mcp.credence.run/sse` |
-| **`seeds.credence.nexus`** | Cloudflare R2 / GCS | Signed P2P Bootstrap Peer Directory | `https://seeds.credence.nexus/peers.json` |
-| **`taxonomies.credence.foundation`** | Google Cloud Storage | Taxonomy Governance & Root Signing Keys | `https://taxonomies.credence.foundation/keys/root.pub` |
-| **`credence.report`** | Cloudflare Pages / GCS | Zero-Build Cryptographic Audit Viewer | `https://credence.report/viewer.html` |
+| Domain | Infrastructure / Router | Purpose | Canonical Endpoint | Cache-Control Header |
+| :--- | :--- | :--- | :--- | :--- |
+| **`credence.run`** | Edge Worker -> Static Assets | Landing Portal & POSIX Install Script CDN | `https://credence.run/install.sh` | `public, max-age=0, must-revalidate` |
+| **`docs.credence.run`** | Edge Worker -> Pages Proxy | Zero-Build Documentation Portal | `https://docs.credence.run` | `no-cache, no-store, must-revalidate` |
+| **`blog.credence.run`** | Edge Worker -> Pages Proxy | Sovereign Editorial Blog & Essays | `https://blog.credence.run` | `no-cache, no-store, must-revalidate` |
+| **`mcp.credence.run`** | Edge Worker -> Cloud Run | FastMCP 2.0 Server (SSE Transport) | `https://mcp.credence.run/sse` | Streaming SSE |
+| **`credence.nexus`** | Edge Worker -> Static Assets | P2P Mesh Directory & Dashboard | `https://credence.nexus` | `public, max-age=0, must-revalidate` |
+| **`seeds.credence.nexus`** | Edge Worker -> Static Assets | Signed P2P Bootstrap Peer Directory | `https://seeds.credence.nexus/peers.json` | `public, max-age=0, must-revalidate` |
+| **`credence.foundation`**| Edge Worker -> Static Assets | Root Custody & Governance Portal | `https://credence.foundation` | `public, max-age=0, must-revalidate` |
+| **`keys.credence.foundation`**| Edge Worker -> Static Assets | Root Ed25519 Public Key | `https://keys.credence.foundation/root.pub` | `public, max-age=0, must-revalidate` |
+| **`credence.report`** | Edge Worker -> Static Assets | Zero-Build Cryptographic Audit Viewer | `https://credence.report/viewer.html` | `public, max-age=0, must-revalidate` |
 
 ---
 

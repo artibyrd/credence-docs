@@ -2,8 +2,8 @@
 title: 'Cookbook: Multi-Tenant Org Subdomain Federation'
 description: Recipe for configuring independent sovereign organization nodes with white-labeled dev and prod subdomains.
 since_version: v1.18.0
-verified_version: v1.18.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # Cookbook: Multi-Tenant Org Subdomain Federation

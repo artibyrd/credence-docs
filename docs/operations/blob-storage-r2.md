@@ -3,8 +3,8 @@ title: 'Operational Guide: Content-Addressable Blob Storage with Cloudflare R2'
 description: Operational guide for configuring S3-compatible zero-egress Cloudflare
   R2 storage for HTML DOM captures and visual screenshots.
 since_version: v1.17.0
-verified_version: v1.18.2
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # Operational Guide: Content-Addressable Blob Storage with Cloudflare R2

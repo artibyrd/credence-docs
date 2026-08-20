@@ -3,8 +3,8 @@ title: 'The Domain Epistemic Index: The Web''s Honor Roll & Wall of Shame'
 description: How decentralized peer observation audits create transparent, unforgeable
   accountability for digital publishers and newsrooms.
 since_version: v1.0.0
-verified_version: v1.15.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # The Domain Epistemic Index: The Web's Honor Roll & Wall of Shame

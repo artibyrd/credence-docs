@@ -2,8 +2,8 @@
 title: 'Gazing into the Abyss: Hunting Disinformation Without Drowning in Slop'
 description: Empirical findings from 13-node Watts-Strogatz mesh cluster simulations, solving the Swarm Stampede with HRW rendezvous hashing, and dialing in the optimal boredom ratio in Credence v1.21.0.
 since_version: v1.21.0
-verified_version: v1.21.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # Gazing into the Abyss: Hunting Disinformation Without Drowning in Slop

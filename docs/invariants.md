@@ -3,8 +3,8 @@ title: 'The Invariant Bible: Living Canon of System-Wide Invariants & Protocols'
 description: Canonical reference for all mathematical rules, runtime safety guardrails,
   cryptographic protocols, and presentation invariants governing Credence.
 since_version: v1.0.0
-verified_version: v1.16.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 tags:
 - invariants
 - architecture
@@ -291,6 +291,11 @@ flowchart TD
 <p>Consistently deceptive sources ($\ge 3$ consecutive deceptions or trust score $\le 20.0$) MUST NOT be hard-deleted, but transitioned to <code>QUARANTINED_PROBATION</code> with exponential polling backoff ($T_{\text{poll}} \times 2^{\min(\text{deceptions}, 6)}$). Under the <strong>BuzzFeed News Doctrine</strong>, quarantined domains retain a verifiable path to redemption through low-frequency Lazarus sampling probes; completing $k=5$ consecutive clean audits ($G=1.00, \text{Suspicion} \le 15.0$) spanning $\ge 2$ distinct subject namespaces graduates the domain to probationary recovery, while any high-severity violation (Severity $\ge 3$) immediately triggers full quarantine relapse.</p>
 </div>
 
+<div class="invariant-card" id="invariant-41">
+<h3><a href="#docs/invariants#invariant-41">Invariant 41: Symmetric 4-Pillar Navigation & Zero-Cache Multi-Domain Edge Routing Invariant</a></h3>
+<p>Global header navigation is strictly 5 invariant links (<code>Home</code>, <code>Docs</code>, <code>Reports</code>, <code>Nexus</code>, <code>Foundation</code>) across all pages. Footer architecture strictly uses 4 balanced pillars (4 links each); docs reading panes use centered 2x2 card modules (<code>max-width: 760px; margin: 0 auto;</code>) with centered copyright and zero redundant secondary bottom links (<code>.footer-bottom-links</code>). All 18 apex and subdomain routes must be explicitly bound in <code>wrangler.toml</code> with zero-cache headers (<code>Cache-Control: public, max-age=0, must-revalidate</code> for static assets, <code>no-cache, no-store, must-revalidate</code> for docs/blog).</p>
+</div>
+
 ---
 
 ## Invariant Reference Index Matrix
@@ -321,4 +326,6 @@ flowchart TD
 | **[Invariant 38](#invariant-38)** | Presentation | Anti-Scrollbox Flow | Natural auto-height & details accordion |
 | **[Invariant 39](#invariant-39)** | Mesh / Ingestion | Boredom & Root Expansion | Autonomous opportunistic digestion & feed discovery |
 | **[Invariant 40](#invariant-40)** | Mesh / Ingestion | Soft Blacklist & BuzzFeed Doctrine | Exponential backoff & asymmetric redemption |
+| **[Invariant 41](#invariant-41)** | Presentation / Edge | Symmetric Navigation & Zero-Cache | 5 header links, 4-pillar footers, 18-domain zero-cache routing |
+
 

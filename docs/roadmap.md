@@ -2,8 +2,8 @@
 title: Ecosystem Roadmap & Architecture Horizons
 description: Sovereign in-tree tracker for verified foundation milestones, operational edge cases, and future architecture horizons across the Credence ecosystem.
 since_version: v1.0.0
-verified_version: v1.19.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 tags:
 - roadmap
 - backlog
@@ -31,13 +31,15 @@ This document serves as the **sovereign, in-repository source of truth** for ver
 
 ```mermaid
 flowchart TD
-    subgraph Foundation["Verified Stable Foundation (v1.19.0)"]
+    subgraph Foundation["Verified Stable Foundation (v1.21.6)"]
         F1["Dual-Tier Bicameral Engine & Pre-Flight Gate"]
         F2["Autonomous Boredom Engine & Epistemic Roots"]
         F3["White-Label Sovereign Org Scaffolding (credence init-org)"]
         F4["Dual-Project Cloud Run Scale-to-Zero & Anycast Edge"]
         F5["Universal 4-Way Interface Parity (CLI, MCP, TUI, Web)"]
-        F6["RFC 8785 Canonical JSON & Ed25519 Custody"]
+        F6["Symmetric 4-Pillar Navigation & Card Containment (v1.21.5)"]
+        F7["18-Route Multi-Domain Edge Router & Zero-Cache Policy (v1.21.6)"]
+        F8["Automated Cloudflare Zone Cache Invalidation in CI/CD"]
     end
 
     subgraph Horizons["Future Architecture Horizons (v2.0.0 Road)"]
@@ -56,10 +58,12 @@ flowchart TD
 
 ---
 
-## 1. Verified Stable Foundation (`v1.19.0`)
+## 1. Verified Stable Foundation (`v1.21.6`)
 
 The following major subsystems are fully implemented, hermetically tested, and running in production:
 
+* 🟢 **Multi-Domain Edge Router & Universal Zero-Cache Policy (`v1.21.6`)**: Complete 18-route domain matrix across 4 zones, dynamic zero-cache proxying for `blog.credence.run` and `docs.credence.run`, dedicated root routing for seeds and keys, and automated Cloudflare zone cache purging.
+* 🟢 **Symmetric 4-Pillar Footer Architecture & 2x2 Docs Containment (`v1.21.5`)**: 4 balanced pillars with exactly 4 purposeful links per column across all 5 sovereign web surfaces, centered 2x2 docs card modules, and elimination of duplicate bottom links.
 * 🟢 **Bicameral Shadow Auditing & Controlled Pre-Flight Gate (`v1.19.0`)**: Automated dual-environment verification (`just config-verify`), differential auditing (`just experiment shadow-audit`), and empirical proof of **83.3% FinOps inference savings**.
 * 🟢 **Dual-GCP Hard Isolation & Multi-Domain Edge Router (`v1.18.0 - v1.18.2`)**: Dual-project Terraform infrastructure (`credence-dev` vs `credence-prod`), Cloudflare Anycast edge subdomain routing (`dev.credence.run`), and sub-2.5s scale-to-zero cold start optimization.
 * 🟢 **Autonomous Boredom Engine & Epistemic Root Expansion (`v1.16.0`)**: Opportunistic work-sharing, Token Safety Governor gating ($\ge 30\%$ headroom), citation soil harvesting, and automatic feed germination.
@@ -111,7 +115,7 @@ Our live dev/prod deployments, Golden 12 cross-profile benchmarks, and bicameral
 
 ### Horizon 3: Agentic Scale & Socratic Protocol
 - **Adversarial Socratic Interrogation Tool (`credence_grill_plan` in FastMCP 2.0)**:
-  - Native FastMCP tool allowing external IDEs, agents, and CI pipelines to submit architectural proposals for automated cross-examination against Credence's 38 system invariants (*When the Human Types /grill-me*).
+  - Native FastMCP tool allowing external IDEs, agents, and CI pipelines to submit architectural proposals for automated cross-examination against Credence's Living Canon of System Invariants (*When the Human Types /grill-me*).
 - **Live Boredom & Compute Philanthropy Odometer**:
   - Real-time telemetry widgets in the Web UI and Textual TUI tracking background queue digestion bursts, citation soil discoveries, and BitTorrent effort avoidance ($0.00 token adoptions).
 - **Asynchronous FastMCP 2.0 Batch Streaming (`credence://jobs/...`)**:

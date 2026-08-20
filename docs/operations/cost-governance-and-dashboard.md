@@ -2,8 +2,8 @@
 title: 'Operational Guide: Cost Governance, Dashboard & AI Optimizer'
 description: Comprehensive operational guide for managing operational cost profiles, live budget overrides, Emergency Brake controls, and the Autonomous AI Cost Optimizer.
 since_version: v1.17.0
-verified_version: v1.17.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # Operational Guide: Cost Governance, Dashboard & AI Optimizer

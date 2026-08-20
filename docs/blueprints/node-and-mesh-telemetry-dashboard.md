@@ -2,8 +2,8 @@
 title: "Node & P2P Mesh Telemetry Dashboard Architecture"
 description: "Technical specification for real-time node operator observability, BitTorrent compute savings tracking, and 4-way parity telemetry interfaces."
 since_version: "v1.15.0"
-verified_version: "v1.15.0"
-last_verified: "2026-08-19"
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # Node & P2P Mesh Telemetry Dashboard Architecture

@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v1.21.6';
+export const CURRENT_ECOSYSTEM_VERSION = 'v1.21.7';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [

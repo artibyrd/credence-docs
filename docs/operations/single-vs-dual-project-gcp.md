@@ -4,8 +4,8 @@ description: Comprehensive architectural comparison, prerequisite runbooks, and
   CLI commands for running Credence in a single partitioned GCP project vs hard dual-project
   isolation.
 since_version: v1.18.0
-verified_version: v1.18.2
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # Operational Guide: Single-Project vs Dual-Project GCP Topologies

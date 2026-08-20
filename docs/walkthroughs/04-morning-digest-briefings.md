@@ -3,8 +3,8 @@ title: 'Feature Walkthrough: Daily Morning Epistemic Briefings'
 description: Multi-interface walkthrough for compiling executive intelligence briefings,
   newsletter exports, and FastMCP morning digest streams.
 since_version: v1.0.0
-verified_version: v1.15.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 sidebar:
   order: 4
 ---

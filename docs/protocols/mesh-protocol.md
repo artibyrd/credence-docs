@@ -3,8 +3,8 @@ title: Mesh Protocol & P2P Consensus
 description: Watts-Strogatz small-world lattice, Ed25519 gossip envelopes, TTL bounds,
   and Bayesian consensus.
 since_version: v1.0.0
-verified_version: v1.15.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 sidebar:
   order: 2
 ---

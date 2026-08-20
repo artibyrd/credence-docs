@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Sovereign Data Gravity and CAS Portability'
 description: Architectural blueprint on Content-Addressable Storage (CAS) portability, database migrations, and zero-loss state synchronization.
 since_version: v1.18.0
-verified_version: v1.18.0
-last_verified: '2026-08-19'
+verified_version: v1.21.7
+last_verified: '2026-08-20'
 ---
 
 # Technical Blueprint: Sovereign Data Gravity and CAS Portability
