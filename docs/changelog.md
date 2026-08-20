@@ -2,7 +2,7 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v1.22.1
+verified_version: v1.23.0
 last_verified: '2026-08-20'
 ---
 
@@ -10,7 +10,21 @@ last_verified: '2026-08-20'
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.23.0] - 2026-08-20
+
+### Dual-Environment Least-Privileged Workload Identity Federation (WIF) & CI/CD Automation
+- **Multi-Environment Continuous Deployment**:
+  - Configured keyless Workload Identity Federation across both **Dev** (`credence-dev-495173`) and **Prod** (`credence-prod-505902`) Google Cloud projects with strict GitHub repository OIDC conditions (`assertion.repository == 'artibyrd/credence'`).
+  - Updated `.github/workflows/deploy-dev.yml` and `.github/workflows/deploy-backend.yml` to automatically authenticate via WIF and deploy to Cloud Run on develop/main pushes and version tags.
+- **Strict Least-Privilege IAM Governance**:
+  - Eliminated broad administrative roles (`roles/run.admin` and `roles/cloudbuild.builds.editor`), enforcing strictly scoped `roles/run.developer` and `roles/cloudbuild.builds.builder`.
+  - Enforced resource-scoped `roles/iam.serviceAccountUser` bindings bound directly to `credence-cloud-run-sa` rather than project-wide.
+- **Automated CI/CD Test Suite & Documentation**:
+  - Added dedicated shift-left contract test suite `tests/test_ci_cd_workflows.py` verifying workflow AST validity, timeouts, concurrency groups, secret fallback hierarchies, and project ID matrices.
+  - Updated `deployment-cloudrun.md` and `.agents/skills/cloudrun-ops/SKILL.md` with complete prerequisites, copy-pasteable dual-environment runbooks, and secret matrices.
+
 ## [1.22.1] - 2026-08-20
+
 
 ### Dynamic Live Swarm Telemetry & Playground Chaos Simulator Separation
 - **Dynamic Live Node Reality ($N \ge 1$)**:

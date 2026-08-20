@@ -118,33 +118,114 @@ just deploy backend
 
 ## 4. Workload Identity Federation (WIF) for GitHub Actions CI/CD
 
-To automate deployments without managing long-lived service account keys:
+## 4. Workload Identity Federation & Least-Privileged CI/CD Setup
 
-### 1. Create Workload Identity Pool and Provider
+To automate continuous deployment to Cloud Run without managing long-lived service account JSON keys, configure **Workload Identity Federation (WIF)** using Google's **Principle of Least Privilege (PoLP)**.
+
+### Least-Privileged IAM Role Architecture
+Rather than granting excessive administrative roles (`roles/run.admin` or `roles/cloudbuild.builds.editor`), the CI/CD deployment service account (`credence-cloud-run-sa`) receives strictly scoped least-privileged roles:
+
+| Role | Purpose | Least-Privilege Constraint |
+| :--- | :--- | :--- |
+| `roles/run.developer` | Create/update Cloud Run revisions | **Cannot** alter service IAM policies (`setIamPolicy`) or view project secrets |
+| `roles/cloudbuild.builds.builder` | Submit and execute container builds | **Cannot** modify build triggers, workers, or worker pools |
+| `roles/iam.serviceAccountUser` | Act as Cloud Run runtime identity | **Resource-scoped** directly on `credence-cloud-run-sa` (no project-wide impersonation) |
+| `roles/iam.workloadIdentityUser` | Exchange GitHub OIDC tokens for short-lived GCP tokens | **Repository-scoped** strictly to `attribute.repository/artibyrd/credence` |
+
+### Step-by-Step Dual-Environment Setup Runbook
+
+#### A. Dev Environment (`credence-dev-495173`)
 ```bash
-# 1. Create Pool
+# 1. Create Workload Identity Pool
 gcloud iam workload-identity-pools create "github-pool" \
-    --project="YOUR_PROJECT_ID" \
+    --project="credence-dev-495173" \
     --location="global" \
     --display-name="GitHub Actions Pool"
 
-# 2. Create Provider
+# 2. Create OIDC Provider with Repository Condition
 gcloud iam workload-identity-pools providers create-oidc "github-provider" \
-    --project="YOUR_PROJECT_ID" \
+    --project="credence-dev-495173" \
     --location="global" \
     --workload-identity-pool="github-pool" \
     --display-name="GitHub Actions Provider" \
     --attribute-mapping="google.subject=assertion.sub,attribute.actor=assertion.actor,attribute.repository=assertion.repository" \
+    --attribute-condition="assertion.repository=='artibyrd/credence'" \
     --issuer-uri="https://token.actions.githubusercontent.com"
+
+# 3. Grant Resource-Scoped WIF Access to Service Account
+gcloud iam service-accounts add-iam-policy-binding "credence-cloud-run-sa@credence-dev-495173.iam.gserviceaccount.com" \
+    --project="credence-dev-495173" \
+    --role="roles/iam.workloadIdentityUser" \
+    --member="principalSet://iam.googleapis.com/projects/865363499314/locations/global/workloadIdentityPools/github-pool/attribute.repository/artibyrd/credence"
+
+# 4. Grant Resource-Scoped ServiceAccountUser Binding
+gcloud iam service-accounts add-iam-policy-binding "credence-cloud-run-sa@credence-dev-495173.iam.gserviceaccount.com" \
+    --project="credence-dev-495173" \
+    --role="roles/iam.serviceAccountUser" \
+    --member="serviceAccount:credence-cloud-run-sa@credence-dev-495173.iam.gserviceaccount.com"
+
+# 5. Grant Project-Level Least-Privilege Roles
+gcloud projects add-iam-policy-binding "credence-dev-495173" \
+    --member="serviceAccount:credence-cloud-run-sa@credence-dev-495173.iam.gserviceaccount.com" \
+    --role="roles/run.developer"
+
+gcloud projects add-iam-policy-binding "credence-dev-495173" \
+    --member="serviceAccount:credence-cloud-run-sa@credence-dev-495173.iam.gserviceaccount.com" \
+    --role="roles/cloudbuild.builds.builder"
 ```
 
-### 2. Bind IAM Service Account to Repository
+#### B. Production Environment (`credence-prod-505902`)
 ```bash
-gcloud iam service-accounts add-iam-policy-binding "credence-cloud-run-sa@YOUR_PROJECT_ID.iam.gserviceaccount.com" \
-    --project="YOUR_PROJECT_ID" \
+# 1. Create Workload Identity Pool
+gcloud iam workload-identity-pools create "github-pool" \
+    --project="credence-prod-505902" \
+    --location="global" \
+    --display-name="GitHub Actions Pool"
+
+# 2. Create OIDC Provider with Repository Condition
+gcloud iam workload-identity-pools providers create-oidc "github-provider" \
+    --project="credence-prod-505902" \
+    --location="global" \
+    --workload-identity-pool="github-pool" \
+    --display-name="GitHub Actions Provider" \
+    --attribute-mapping="google.subject=assertion.sub,attribute.actor=assertion.actor,attribute.repository=assertion.repository" \
+    --attribute-condition="assertion.repository=='artibyrd/credence'" \
+    --issuer-uri="https://token.actions.githubusercontent.com"
+
+# 3. Grant Resource-Scoped WIF Access to Service Account
+gcloud iam service-accounts add-iam-policy-binding "credence-cloud-run-sa@credence-prod-505902.iam.gserviceaccount.com" \
+    --project="credence-prod-505902" \
     --role="roles/iam.workloadIdentityUser" \
-    --member="principalSet://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/github-pool/attribute.repository/YOUR_GITHUB_REPO"
+    --member="principalSet://iam.googleapis.com/projects/663899237633/locations/global/workloadIdentityPools/github-pool/attribute.repository/artibyrd/credence"
+
+# 4. Grant Resource-Scoped ServiceAccountUser Binding
+gcloud iam service-accounts add-iam-policy-binding "credence-cloud-run-sa@credence-prod-505902.iam.gserviceaccount.com" \
+    --project="credence-prod-505902" \
+    --role="roles/iam.serviceAccountUser" \
+    --member="serviceAccount:credence-cloud-run-sa@credence-prod-505902.iam.gserviceaccount.com"
+
+# 5. Grant Project-Level Least-Privilege Roles
+gcloud projects add-iam-policy-binding "credence-prod-505902" \
+    --member="serviceAccount:credence-cloud-run-sa@credence-prod-505902.iam.gserviceaccount.com" \
+    --role="roles/run.developer"
+
+gcloud projects add-iam-policy-binding "credence-prod-505902" \
+    --member="serviceAccount:credence-cloud-run-sa@credence-prod-505902.iam.gserviceaccount.com" \
+    --role="roles/cloudbuild.builds.builder"
 ```
+
+### GitHub Repository Secrets Matrix
+
+Configure the following secrets in GitHub via `gh secret set -R artibyrd/credence`:
+
+| Secret Name | Environment | Value Description |
+| :--- | :--- | :--- |
+| `GCP_WORKLOAD_IDENTITY_PROVIDER` | Prod | `projects/663899237633/locations/global/workloadIdentityPools/github-pool/providers/github-provider` |
+| `GCP_SERVICE_ACCOUNT` | Prod | `credence-cloud-run-sa@credence-prod-505902.iam.gserviceaccount.com` |
+| `GCP_PROJECT_ID` | Prod | `credence-prod-505902` |
+| `GCP_DEV_WORKLOAD_IDENTITY_PROVIDER` | Dev | `projects/865363499314/locations/global/workloadIdentityPools/github-pool/providers/github-provider` |
+| `GCP_DEV_SERVICE_ACCOUNT` | Dev | `credence-cloud-run-sa@credence-dev-495173.iam.gserviceaccount.com` |
+| `GCP_DEV_PROJECT_ID` | Dev | `credence-dev-495173` |
 
 ---
 
