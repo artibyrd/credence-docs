@@ -10,7 +10,20 @@ last_verified: 2026-08-20
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.1.2] - 2026-08-20
+
+### Live Embeddable Badge Header Wiring & Attestation Binding
+- **Document Metadata Header Injection**:
+  - Mounted `<credence-badge id="doc-hero-badge">` as the lead interactive element in `.doc-metadata-bar` directly beneath `<h1>` titles for all 176 documentation pages and sovereign blog essays.
+- **Dynamic Attestation Receipt Binding**:
+  - Integrated asynchronous fetching and in-memory caching of `assets/attestations.json` within `loadDocument()`, automatically attaching live Ed25519-signed receipts to rendered badges.
+- **Attribute Synchronization & Version Parity**:
+  - Added `score` and `version` to `observedAttributes` in `credence-widget.js` to trigger instant reactive re-renders when receipts and scores update.
+
+---
+
 ## [2.1.1] - 2026-08-20
+
 
 ### Learning Retrospective, Empirical Testing Invariant & Query Typing Governance
 - **Invariant 40 Expansion (Tests Before Tales)**:

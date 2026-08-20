@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.1.1';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.1.2';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -1849,11 +1849,14 @@ export function parseMarkdown(md) {
 
   let resultHtml = html.join('\n');
 
-  if (frontmatter && (frontmatter.difficulty || frontmatter.read_time || frontmatter.interfaces || frontmatter.invariants || frontmatter.since_version || frontmatter.verified_version)) {
+  {
     const metaBadges = [];
 
+    // Live Embeddable Epistemic Badge (<credence-badge>)
+    metaBadges.push(`<credence-badge id="doc-hero-badge" url="https://docs.credence.run#${escapeHtml(frontmatter && frontmatter.title ? frontmatter.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') : '')}" score="100.0" version="${escapeHtml(frontmatter && frontmatter.verified_version ? frontmatter.verified_version : CURRENT_ECOSYSTEM_VERSION)}"></credence-badge>`);
+
     // Version Verification and Provenance Badges
-    if (frontmatter.verified_version) {
+    if (frontmatter && frontmatter.verified_version) {
       const isLatest = frontmatter.verified_version === CURRENT_ECOSYSTEM_VERSION || frontmatter.verified_version === CURRENT_ECOSYSTEM_VERSION.replace(/^v/, '');
       const dateTooltip = frontmatter.last_verified ? ` (Audited ${escapeHtml(frontmatter.last_verified)})` : '';
       if (isLatest) {
@@ -3852,6 +3855,28 @@ export async function loadDocument(docId, anchorId = '') {
     const md = await res.text();
     contentArea.innerHTML = parseMarkdown(md) + renderGlobalFooter();
     renderTableOfContents();
+
+    // Automatically bind cryptographic attestation receipt to the page's <credence-badge>
+    try {
+      if (!window._credenceAttestations) {
+        const attRes = await fetch('assets/attestations.json');
+        if (attRes.ok) {
+          window._credenceAttestations = await attRes.json();
+        }
+      }
+      if (window._credenceAttestations) {
+        const receipt = window._credenceAttestations[target.path] || window._credenceAttestations[target.id + '.md'];
+        const badgeEl = contentArea.querySelector('credence-badge#doc-hero-badge');
+        if (badgeEl && receipt) {
+          badgeEl.setAttribute('receipt', JSON.stringify(receipt));
+          badgeEl.setAttribute('score', String(Math.round((100.0 - (receipt.suspicion_score || 0)) * 10) / 10));
+          badgeEl.setAttribute('version', receipt.verified_version || CURRENT_ECOSYSTEM_VERSION);
+          badgeEl.setAttribute('url', receipt.origin_url || window.location.href);
+        }
+      }
+    } catch (e) {
+      console.warn('[Credence] Attestation binding note:', e);
+    }
 
     // Render Mermaid diagrams
     await renderMermaidDiagrams();
