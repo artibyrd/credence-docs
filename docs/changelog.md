@@ -3,13 +3,24 @@ title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across
   the Credence network.
 since_version: v1.0.0
-verified_version: v1.18.1
+verified_version: v1.18.2
 last_verified: '2026-08-19'
 ---
 
 # Release Changelog
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
+
+## [1.18.2] - 2026-08-19
+
+### Multi-Domain Dev & Edge Router Subdomain Bindings
+- **Cloudflare Edge Router Multi-Domain Subdomain Bindings (`web/wrangler.toml`)**:
+  - Bound explicit Cloudflare zone `routes` across all 4 zones for both apex and dev subdomains (`credence.run/*`, `mcp.credence.run/*`, `dev.credence.run/*`, `mcp.dev.credence.run/*`, `*.credence.nexus/*`, `*.credence.foundation/*`, `*.credence.report/*`).
+  - Eliminates Cloudflare HTTP 522 connection timeout errors when accessing `dev.credence.run` by ensuring the Edge Worker intercepts subdomains before origin resolution.
+- **Dynamic Backend Target Resolution (`web/_worker.js`, `web/wrangler.toml`)**:
+  - Synchronized dev and prod Cloud Run backend fallback URLs (`DEV_BACKEND_URL` and `PROD_BACKEND_URL`), routing all `dev.*` API traffic directly to `credence-dev` in project `credence-dev-495173`.
+- **Commit-Before-Deploy Pipeline Enforcement (`AGENTS.md`, `Justfile`)**:
+  - Integrated automated preflight check in `Justfile` deploy recipes preventing accidental cloud builds or deployments with uncommitted working-tree modifications.
 
 ## [1.18.1] - 2026-08-19
 
