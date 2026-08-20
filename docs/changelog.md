@@ -10,7 +10,20 @@ last_verified: 2026-08-20
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.1.3] - 2026-08-20
+
+### Learning Retrospective: Push-and-Delegate CI/CD Governance
+- **Commit-Before-Deploy & Push-and-Delegate Invariant Codification**:
+  - Codified the strict rule that in automated release lifecycles, once clean commits and version tags are pushed to GitHub (`just git-sync push`), agents must never execute redundant local deploy commands (`just deploy`, `wrangler deploy`, `gcloud run deploy`), delegating authoritative planetary continuous deployment to GitHub Actions.
+- **`Justfile` Release Recipe Clean-Up**:
+  - Removed redundant `@just deploy all` from the `release` recipe so it finishes cleanly upon pushing to GitHub.
+- **Sovereign Essay Publication**:
+  - Published *The Push-and-Delegate Doctrine: Why Autonomous AI Agents Must Trust Keyless CI/CD Over Local Deploys* (`blog/the-push-and-delegate-doctrine.md`).
+
+---
+
 ## [2.1.2] - 2026-08-20
+
 
 ### Live Embeddable Badge Header Wiring & Attestation Binding
 - **Document Metadata Header Injection**:
