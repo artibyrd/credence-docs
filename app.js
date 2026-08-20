@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v1.21.4';
+export const CURRENT_ECOSYSTEM_VERSION = 'v1.21.5';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -3570,29 +3570,29 @@ export function renderGlobalFooter() {
       <div class="footer-container">
         <div class="footer-grid">
           <div class="footer-col">
-            <h4>🌐 Sovereign Domains</h4>
+            <h4>🌐 Sovereign Network</h4>
             <ul>
-              <li><a href="https://credence.run">credence.run (Core Engine)</a></li>
-              <li><a href="https://docs.credence.run">docs.credence.run (Docs Portal)</a></li>
-              <li><a href="https://credence.nexus">credence.nexus (Mesh Directory)</a></li>
-              <li><a href="https://credence.foundation">credence.foundation (Root Custody)</a></li>
+              <li><a href="https://credence.run">Platform Home</a></li>
+              <li><a href="https://credence.report">Audit Explorer</a></li>
+              <li><a href="https://credence.nexus">Mesh Directory</a></li>
+              <li><a href="https://credence.foundation">Root Key Custody</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>🎮 Interactive & Tools</h4>
             <ul>
-              <li><a href="#docs/playground">12 Zero-Build Playgrounds</a></li>
+              <li><a href="#docs/playground">Zero-Build Playgrounds</a></li>
               <li><a href="https://credence.report/viewer.html">Multi-Mode Report Viewer</a></li>
-              <li><a href="#docs/tutorials/03-claude-cursor-fastmcp">Claude & Cursor FastMCP</a></li>
-              <li><a href="https://seeds.credence.nexus/peers.json">P2P Seed Manifest (peers.json)</a></li>
+              <li><a href="#docs/tutorials/03-claude-cursor-fastmcp">FastMCP Server Integration</a></li>
+              <li><a href="https://seeds.credence.nexus/peers.json">P2P Seed Manifest</a></li>
             </ul>
           </div>
           <div class="footer-col">
-            <h4>📰 Editorial & Knowledge</h4>
+            <h4>📘 Knowledge & Canon</h4>
             <ul>
-              <li><a href="https://blog.credence.run">Sovereign Blog & Essays</a></li>
               <li><a href="#docs/invariants">The Invariant Bible</a></li>
-              <li><a href="#docs/sitemap">Master Ecosystem Sitemap</a></li>
+              <li><a href="https://blog.credence.run">Sovereign Blog & Essays</a></li>
+              <li><a href="#docs/topic-index">Topic Index & Directory</a></li>
               <li><a href="#docs/roadmap">Roadmap & Horizons</a></li>
             </ul>
           </div>
@@ -3602,7 +3602,7 @@ export function renderGlobalFooter() {
               <li><a href="https://github.com/artibyrd/credence" target="_blank" rel="noopener">GitHub Repository</a></li>
               <li><a href="#docs/changelog">Release Changelog</a></li>
               <li><a href="https://keys.credence.foundation/root.pub">Root Public Key (root.pub)</a></li>
-              <li><a href="https://github.com/artibyrd/credence/blob/main/LICENSE" target="_blank" rel="noopener">Apache-2.0 Open Source</a></li>
+              <li><a href="https://github.com/artibyrd/credence/blob/main/LICENSE" target="_blank" rel="noopener">Apache-2.0 License</a></li>
             </ul>
           </div>
         </div>
