@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v1.21.3';
+export const CURRENT_ECOSYSTEM_VERSION = 'v1.21.4';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -3608,12 +3608,6 @@ export function renderGlobalFooter() {
         </div>
         <div class="footer-bottom">
           <div>&copy; 2026 Credence Network &bull; Zero npm dependencies &bull; 100% Zero-Build Sovereign Web</div>
-          <div class="footer-bottom-links">
-            <a href="#docs/sitemap">Sitemap</a>
-            <a href="#docs/topic-index">Topic Index</a>
-            <a href="#docs/invariants">Invariants</a>
-            <a href="https://github.com/artibyrd/credence">Source</a>
-          </div>
         </div>
       </div>
     </footer>
