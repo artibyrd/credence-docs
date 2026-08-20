@@ -3,8 +3,8 @@ title: 'Architectural Blueprint: The Information Pyramid & Epistemic Lensing'
 description: System architecture and mathematical design of the 3-Tier Cognitive Pyramid
   and dynamic Lensing zoom engine across all Credence interfaces.
 category: Architectural Blueprints
-verified_version: v2.1.0
-last_verified: '2026-08-20'
+verified_version: v2.1.1
+last_verified: 2026-08-20
 since_version: v2.1.0
 ---
 

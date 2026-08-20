@@ -3,7 +3,7 @@ title: Universal Feature Parity Matrix
 description: Synchronous capability matrix across CLI, FastMCP 2.0, Textual TUI, and
   Zero-Build Web portals.
 since_version: v1.0.0
-verified_version: v2.1.0
+verified_version: v2.1.1
 last_verified: 2026-08-20
 ---
 

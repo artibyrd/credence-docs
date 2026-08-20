@@ -3,7 +3,7 @@ title: 'Folding@home for Truth: Gamification Without the Casino'
 description: Why epistemic trust requires scientific peer prestige rather than mobile
   game mechanics, microtransactions, or financialized speculation.
 since_version: v1.0.0
-verified_version: v2.1.0
+verified_version: v2.1.1
 last_verified: 2026-08-20
 ---
 

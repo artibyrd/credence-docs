@@ -2,7 +2,7 @@
 title: 'When the Human Types /grill-me: The Socratic Sparring Match That Saves Architecture'
 description: Why sycophantic AI chatbots produce fragile software, and how the /grill-me slash command turns pair programming into a rigorous Socratic sparring match.
 since_version: v1.0.0
-verified_version: v2.1.0
+verified_version: v2.1.1
 last_verified: 2026-08-20
 date: '2026-08-19'
 series: 'The Wetware Chronicles'

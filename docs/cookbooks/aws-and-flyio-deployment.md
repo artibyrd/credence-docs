@@ -2,7 +2,7 @@
 title: 'Cookbook: Deploying Credence to AWS and Fly.io'
 description: Step-by-step cookbook for hosting sovereign Credence nodes on AWS App Runner, ECS Fargate, or Fly.io with standard Postgres and S3.
 since_version: v1.18.0
-verified_version: v2.1.0
+verified_version: v2.1.1
 last_verified: 2026-08-20
 ---
 

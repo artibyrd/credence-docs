@@ -3,7 +3,7 @@ title: Election & Civic Information Integrity Blueprint
 description: Auditing polling methodology disclosures, voter registration deadlines,
   and candidate quote contexts for democratic institutions.
 since_version: v1.11.0
-verified_version: v2.1.0
+verified_version: v2.1.1
 last_verified: 2026-08-20
 ---
 

@@ -4,7 +4,7 @@ description: When 1,000 autonomous AI agents browse the web, they waste 99.9% of
   compute re-auditing identical news. We empirically proved how Credence achieves
   92.3% compute savings at $0.00 token cost.
 since_version: v1.0.0
-verified_version: v2.1.0
+verified_version: v2.1.1
 last_verified: 2026-08-20
 slug: bittorrent-for-truth
 date: '2026-08-18'

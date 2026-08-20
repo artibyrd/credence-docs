@@ -3,7 +3,7 @@ title: Scoring Calibration & Mathematical Rubrics
 description: Formal mathematical specifications, exponential saturation curves, and
   density indices used by Credence.
 since_version: v1.9.0
-verified_version: v2.1.0
+verified_version: v2.1.1
 last_verified: 2026-08-20
 sidebar:
   order: 4
