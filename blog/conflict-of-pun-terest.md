@@ -36,7 +36,7 @@ flowchart TD
         SPJ31["SPJ-3.1 Undisclosed COI"]
         SPJ33["SPJ-3.3 Advertorial Camouflage"]
         SPJ11["SPJ-1.1 Single-Source Sourcing"]
-        DEI["Domain Epistemic Index (DEI: 62.5 / MIXED)"]
+        DCI["Domain Credence Index (DCI: 62.5 / MIXED)"]
     end
 
     Coverage -.->|"Empirical Audit Ingestion"| CredenceAudit
@@ -73,11 +73,11 @@ Aggregating all historical audits for `inmaricopa.com` yields the following cali
 
   <!-- Panel 1: Visual Dashboard View -->
   <div id="pub-panel-visual">
-    <!-- Top Hero Section: DEI Score & Spectrum Meter -->
+    <!-- Top Hero Section: DCI Score & Spectrum Meter -->
     <div class="pub-hero-grid">
       <div class="pub-score-box">
         <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted);">
-          Domain Epistemic Index (DEI)
+          Domain Credence Index (DCI)
         </div>
         <div class="pub-score-number">62.5</div>
         <span class="verdict-tag mixed" style="font-size: 0.8rem; padding: 0.25rem 0.75rem;">TRUST BAND: MIXED</span>
@@ -88,7 +88,7 @@ Aggregating all historical audits for `inmaricopa.com` yields the following cali
 
       <div class="pub-spectrum-box">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <span style="font-size: 0.82rem; font-weight: 700; color: #fff;">DEI Reputation Tier Spectrum</span>
+          <span style="font-size: 0.82rem; font-weight: 700; color: #fff;">DCI Reputation Tier Spectrum</span>
           <span style="font-size: 0.78rem; font-family: var(--font-mono, monospace); color: #f59e0b; font-weight: 700;">Score: 62.5 / 100.0</span>
         </div>
         <div class="pub-spectrum-track">
@@ -238,7 +238,7 @@ Aggregating all historical audits for `inmaricopa.com` yields the following cali
     </div>
     <pre id="pub-ascii-content" style="background: #020617; border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 8px; padding: 1rem; color: #38bdf8; font-family: var(--font-mono, monospace); font-size: 0.78rem; line-height: 1.45; overflow-x: auto; margin: 0;">
 ╭─────────────────────────────────────────────────────────────────────────────╮
-│                        Domain Epistemic Index (DEI)                         │
+│                        Domain Credence Index (DCI)                         │
 │                                62.5 / 100.0                                 │
 │                            Trust Band: [ MIXED ]                            │
 ╰─────────────────────────────────────────────────────────────────────────────╯
@@ -373,7 +373,7 @@ Test real harvested articles from `inmaricopa.com`, inspect verbatim highlighted
   <div style="margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid rgba(56, 189, 248, 0.2);">
     <h4 style="margin: 0 0 0.5rem 0; color: #fff; font-size: 1.05rem;">🛠️ Outlet Reform &amp; Epistemic Trajectory Simulator</h4>
     <p style="margin: 0 0 1rem 0; color: var(--text-muted); font-size: 0.82rem;">
-      Adjust the policy controls below to simulate how adopting byline transparency, COI firewalls, and clear advertorial demarcation elevates the Domain Epistemic Index (DEI).
+      Adjust the policy controls below to simulate how adopting byline transparency, COI firewalls, and clear advertorial demarcation elevates the Domain Credence Index (DCI).
     </p>
 
     <div class="widget-row">
@@ -390,7 +390,7 @@ Test real harvested articles from `inmaricopa.com`, inspect verbatim highlighted
 
       <div class="widget-col" style="flex: 0.9;">
         <div class="widget-result-box">
-          <div class="widget-metric-title">Simulated Domain Epistemic Index (DEI)</div>
+          <div class="widget-metric-title">Simulated Domain Credence Index (DCI)</div>
           <div class="widget-score-big" id="wb-sim-dei-val" style="color: #f59e0b;">62.5</div>
           <div style="margin-top: 0.5rem;">
             <span id="wb-sim-band-badge" class="verdict-tag mixed">MIXED REPUTATION</span>
@@ -426,10 +426,10 @@ Credence is fundamentally different from traditional commercial fact-checking or
 
 Here is how to interpret each dimension of a Credence audit report:
 
-### 1. The Domain Epistemic Index ($DEI$)
-The **Domain Epistemic Index ($DEI$)** is a calibrated composite score on a $[0.0, 100.0]$ scale that measures an entire publication's aggregate reliability across time:
+### 1. The Domain Credence Index ($DCI$)
+The **Domain Credence Index ($DCI$)** is a calibrated composite score on a $[0.0, 100.0]$ scale that measures an entire publication's aggregate reliability across time:
 
-$$\text{DEI} = 100.0 - (0.50 \cdot S_{\text{recency}} + 0.30 \cdot D + 0.20 \cdot (1 - R_{\text{byline}}) \cdot 100)$$
+$$\text{DCI} = 100.0 - (0.50 \cdot S_{\text{recency}} + 0.30 \cdot D + 0.20 \cdot (1 - R_{\text{byline}}) \cdot 100)$$
 
 where:
 - **$S_{\text{recency}}$**: Recency-weighted average suspicion score across domain articles
@@ -501,7 +501,7 @@ You can inspect the up-to-the-minute live stream, query the REST API, or run you
     Verify current publisher metrics and test any recently published article against the sovereign Credence mesh:
   </p>
   <div style="display: flex; flex-direction: column; gap: 0.65rem;">
-    <div>🔍 <a href="https://credence.report/#analytics/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Inspect Live Publisher Analytics Dashboard on Credence Report</a> — Real-time DEI trendline, rolling sourcing ratios, and latest article stream.</div>
+    <div>🔍 <a href="https://credence.report/#analytics/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Inspect Live Publisher Analytics Dashboard on Credence Report</a> — Real-time DCI trendline, rolling sourcing ratios, and latest article stream.</div>
     <div>⚡ <a href="https://credence-server-663899237633.us-central1.run.app/api/analytics/publisher/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Direct Production REST API JSON Feed</a> — Live machine-readable publisher record on Google Cloud Run.</div>
     <div>📡 <a href="#docs/protocols/fastmcp" style="color: var(--accent-cyan); font-weight: 600;">Query FastMCP Dynamic Resource</a> — Connect Claude or Cursor to <code>credence://analytics/publisher/inmaricopa.com</code>.</div>
   </div>
@@ -607,7 +607,7 @@ By placing empirical auditing tools into the hands of local citizens, Credence e
 Explore the underlying algorithms, mathematical proofs, and taxonomy specifications that power Credence forensic investigations:
 
 1. 📐 **[Robust Mathematical Consensus Proofs](../docs/mathematics/robust-consensus-proofs.md)**: Complete mathematical derivations for Byzantine Sybil cartel resistance, Weighted Medians, and the Galileo Asymmetric Grounding theorem.
-2. 📈 **[The Domain Epistemic Index ($DEI$) Deep Dive](the-domain-epistemic-index.md)**: The exact weighting equations, exponential saturation curves, and reputation tier calibration.
+2. 📈 **[The Domain Credence Index ($DCI$) Deep Dive](the-domain-epistemic-index.md)**: The exact weighting equations, exponential saturation curves, and reputation tier calibration.
 3. 🍕 **[The Topic Entropy Astroturfing Defense (The Pizza Hut Problem)](the-pizza-hut-problem.md)**: Shannon entropy calculations $H(X)$, Top-Token Concentration penalties ($C_{\text{top3}}$), and semantic quarantine mechanics.
 4. ⚖️ **[Taxonomy Engineering & SPJ Ethics Catalogs](../docs/cookbooks/taxonomy-engineering.md)**: Canonical definition of `SPJ-3.1` (Conflicts of Interest), `SPJ-3.3` (Advertorial Separation), and `SPJ-1.1` (Primary Sourcing).
 5. 📊 **[Scoring Calibration & Saturation Math](../docs/protocols/scoring.md)**: Mathematical derivation of exponential suspicion saturation, density metrics, and deceptive pattern scoring.

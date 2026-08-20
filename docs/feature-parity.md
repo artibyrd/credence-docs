@@ -75,7 +75,7 @@ graph TD
 | **Epistemic Leaderboards** | `credence leaderboard`<br/>Tool: `credence_get_leaderboard` | Tab 8: `🏆 Leaderboard`<br/>`credence.nexus` Leaderboards | **Full Parity** |
 | **Sovereign Node Merit** | `credence merit`<br/>Tool: `credence_get_node_merit` | Tab 8: Split Merit Card<br/>`credence.nexus` Merit Card | **Full Parity** |
 | **Live Vector SVG Badges** | `credence badge export`<br/>Resource: `credence://merit/badges` | Badge Showcase Panel<br/>`credence.nexus` Badge Embedder | **Full Parity** |
-| **Domain Epistemic Index (DEI)** | `credence rankings`<br/>Tool: `credence_get_domain_rankings` | DEI Honor Roll Table<br/>`credence.report` Honor Roll / Shame | **Full Parity** |
+| **Domain Credence Index (DCI)** | `credence rankings`<br/>Tool: `credence_get_domain_rankings` | DCI Honor Roll Table<br/>`credence.report` Honor Roll / Shame | **Full Parity** |
 | **Top Violated Rules** | `credence rankings --type rules`<br/>Tool: `credence_get_taxonomy_analytics` | Rules Breakdown View<br/>`credence.report` Rules Aggregator | **Full Parity** |
 | **Epistemic Weather Barometer** | `credence rankings --type weather`<br/>Tool: `credence_get_epistemic_weather` | Global Climate Widget<br/>`credence.report` Weather Barometer | **Full Parity** |
 | **Community Bounties** | `credence bounties`<br/>Tool: `credence_get_bounties` | Open Quests List<br/>`credence.nexus` Bounties Board | **Full Parity** |

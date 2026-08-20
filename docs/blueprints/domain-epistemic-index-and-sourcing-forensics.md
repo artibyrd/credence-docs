@@ -1,5 +1,5 @@
 ---
-title: The Domain Epistemic Index & Sourcing Forensics
+title: The Domain Credence Index (DCI) & Sourcing Forensics
 description: Forensic methodology, mathematical ratios, and longitudinal metrics for
   evaluating public publisher integrity and detecting disguised advertorials.
 since_version: v1.14.1
@@ -7,20 +7,20 @@ verified_version: v1.21.7
 last_verified: '2026-08-20'
 ---
 
-# The Domain Epistemic Index & Sourcing Forensics
+# The Domain Credence Index (DCI) & Sourcing Forensics
 
 Evaluating individual articles provides episodic truth verification, but bad actors often exploit cumulative editorial patterns: omitting author bylines, disguising sponsored commercial copy as breaking civic news, or failing to disclose financial conflicts of interest across dozens of articles.
 
-Credence aggregates article-level audit records into the **Domain Epistemic Index ($DEI$)** and a suite of **Forensic Sourcing Ratios**. This enables researchers, investigative journalists, and readers to track longitudinal publisher integrity over time.
+Credence aggregates article-level audit records into the **Domain Credence Index ($DCI$)** and a suite of **Forensic Sourcing Ratios**. This enables researchers, investigative journalists, and readers to track longitudinal publisher integrity over time.
 
 ---
 
-## 1. The Domain Epistemic Index ($DEI$)
+## 1. The Domain Credence Index ($DCI$)
 
-The $DEI$ is a calibrated composite metric on a scale from $0.00$ (completely deceptive or advertorial farm) to $100.00$ (gold-standard journalistic rigor):
+The $DCI$ is a calibrated composite metric on a scale from $0.00$ (completely deceptive or advertorial farm) to $100.00$ (gold-standard journalistic rigor):
 
 \[
-DEI = \max\Big(0.00, \; 100.00 - \bar{S}_{\text{suspicion}} - 5 \cdot \bar{V}_{\text{density}} - \Pi_{\text{penalties}}\Big)
+DCI = \max\Big(0.00, \; 100.00 - \bar{S}_{\text{suspicion}} - 5 \cdot \bar{V}_{\text{density}} - \Pi_{\text{penalties}}\Big)
 \]
 
 Where:

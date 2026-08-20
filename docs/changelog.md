@@ -2,13 +2,35 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v1.23.1
+verified_version: v2.0.0
 last_verified: '2026-08-20'
 ---
 
 # Release Changelog
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
+
+## [2.0.0] - 2026-08-20
+
+### Major Release: Complete Architecture Modularization, 500 LOC Ceiling Law & compute_* Ontology
+- **The 500 LOC Ceiling Law**:
+  - Modularized all monolithic files across `credence/cli/`, `credence/server/`, `credence/tui/`, `credence/mesh/`, and `credence/subjects/` so no Python file exceeds 500 lines of code.
+  - Relocated shadow auditing and chaos simulation research tools to `tools/simulations/`.
+  - Shift-left AST integrity test gate `test_500_loc_ceiling_invariant` enforces zero LOC regressions in <0.05s.
+- **Canonical `compute_*` Calculation Ontology**:
+  - Standardized all mathematical routines and formula transformations onto pure `compute_*` naming (`compute_topic_entropy`, `compute_subject_expertise`, `compute_longevity_days`, `compute_half_life_uptime`, `compute_consensus`, `compute_mesh_stats`).
+  - Shift-left AST integrity test gate `test_compute_naming_ontology_invariant` bans legacy `calculate_*` and `calc_*` prefixes across codebase and test suites.
+- **Strict Directed Acyclic Graph (DAG) Import Model**:
+  - Extracted subpackage data models into `credence/mesh/models.py` and `credence/subjects/models.py`, eliminating circular imports and guaranteeing <10ms module initialization.
+- **Declarative Antigravity Skills Sync & Documentation**:
+  - Created Tier 1 progressive skill `architecture-governance` in `.agents/skills/architecture-governance/SKILL.md` and synchronized all 4 `AGENTS.md` guidelines.
+  - Published blueprint `docs/blueprints/v2-architecture-and-500-loc-modularity.md` and migration walkthrough `docs/walkthroughs/05-migrating-from-v1-to-v2.md`.
+  - Authored sovereign essays `blog/the-500-loc-ceiling-law.md` and `blog/the-compute-ontology-revolution.md`.
+- **Hermetic Test Gauntlet & Parity Gate**:
+  - Reorganized all tests into hermetic `tests/unit/`, `tests/integration/`, `tests/e2e/`, and `tests/governance/` suites.
+  - 100% Mypy type-check compliance across 211 Python source files with 0 type errors.
+  - 121/121 hermetic unit tests passing in <17s without browser overhead.
+  - Full `just check` QA pre-commit gate passing across preflight, ruff, mypy, unit tests, docs tests, terraform validation, and agent checks.
 
 ## [1.23.1] - 2026-08-20
 

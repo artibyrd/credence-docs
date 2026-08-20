@@ -134,7 +134,7 @@ last_verified: '2026-08-20'
 * **SimHash-64 & Mirror Detection**: 64-bit Hamming distance calculation for duplicate articles &rarr; [SimHash Mirror Detection](mathematics/simhash-mirror-detection.md)
 * **Exponential Saturation Curves**: Suspicion score scaling math & density index &rarr; [Scoring Calibration Spec](protocols/scoring.md)
 * **Topic Diversity Entropy ($H_{\text{topic}}$)**: Shannon entropy and top-token concentration against promotional astroturfing &rarr; [Feed Sifting Walkthrough](walkthroughs/02-zero-trust-feed-sifting.md)
-* **Domain Epistemic Index ($DEI$) & Sourcing Forensics**: Longitudinal publisher scoring, byline ratios, and advertorial separation &rarr; [DEI & Sourcing Forensics](blueprints/domain-epistemic-index-and-sourcing-forensics.md)
+* **Domain Credence Index ($DCI$) & Sourcing Forensics**: Longitudinal publisher scoring, byline ratios, and advertorial separation &rarr; [DCI & Sourcing Forensics](blueprints/domain-epistemic-index-and-sourcing-forensics.md)
 
 ---
 

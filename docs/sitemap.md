@@ -100,7 +100,7 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * 🔭 **[The Galileo Rule](#blog/the-galileo-rule)** (Why asymmetric grounded evidence neutralizes massive ungrounded Sybil cartels)
 * 🎓 **[The Anti-Diploma Invariant](#blog/the-anti-diploma-invariant)** (Why credentialism fails in decentralized evaluation and performance is earned)
 * ⚡ **[BitTorrent for Truth](#blog/bittorrent-for-truth)** (How P2P work-sharing delivers 92.3% compute savings at $0.00 token cost)
-* 🌐 **[The Domain Epistemic Index (DEI)](#blog/the-domain-epistemic-index)** (Measuring long-term journalistic integrity across global web domains)
+* 🌐 **[The Domain Credence Index (DCI)](#blog/the-domain-epistemic-index)** (Measuring long-term journalistic integrity across global web domains)
 * 🪙 **[Gamifying Truth Without the Casino](#blog/gamifying-truth-without-the-casino)** (Merit badges, philanthropy odometers, and non-financialized reputation)
 * 🛑 **[Giving Claude and Cursor an Epistemic Brake](#blog/giving-claude-and-cursor-an-epistemic-brake)** (FastMCP 2.0 integration and autonomous agent halting)
 * 🍓 **[Testing 13-Node Swarms on a Raspberry Pi](#blog/testing-13-node-swarms-on-a-raspberry-pi)** (Featherweight in-memory simulation of Watts-Strogatz small worlds)
@@ -179,7 +179,7 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * **[Medical & Health Claims Blueprint](#docs/blueprints/health-medical-claims)**: Evaluating clinical trials, in vitro extrapolation, and unproven treatments.
 * **[Election & Civic Integrity Blueprint](#docs/blueprints/election-civic-integrity)**: Auditing voting procedure misinformation and polling methodology.
 * **[Synthetic Media & AI Provenance Blueprint](#docs/blueprints/synthetic-media-provenance)**: C2PA metadata, pink slime news rings, and AI provenance detection.
-* **[Domain Epistemic Index & Sourcing Forensics Blueprint](#docs/blueprints/domain-epistemic-index-and-sourcing-forensics)**: Sourcing ratios ($R_{\text{byline}}$, $R_{\text{single}}$, $R_{\text{COI}}$, $ASI$) and DEI trust bands.
+* **[Domain Credence Index & Sourcing Forensics Blueprint](#docs/blueprints/domain-epistemic-index-and-sourcing-forensics)**: Sourcing ratios ($R_{\text{byline}}$, $R_{\text{single}}$, $R_{\text{COI}}$, $ASI$) and DCI trust bands.
 
 ### P2P Mesh, Protocols & Mathematics
 * **[Featherweight Swarm Simulation](#docs/mesh-engineering/featherweight-swarm-testing)**: Memory-efficient multi-node P2P mesh testing.

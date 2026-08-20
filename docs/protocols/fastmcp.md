@@ -83,7 +83,7 @@ Runs pre-flight forensic audit on a candidate feed to calculate Topic Entropy (\
 - **Output**: Detailed pre-flight audit report with status (`ACTIVE`, `PROBATION`, `QUARANTINE`).
 
 ### `credence_get_publisher_analytics`
-Returns aggregate epistemic performance metrics, Domain Epistemic Index ($DEI$), trust band, and sourcing ratios for a publisher domain.
+Returns aggregate epistemic performance metrics, Domain Credence Index ($DCI$), trust band, and sourcing ratios for a publisher domain.
 - **Parameters**: `domain: str` (e.g. `inmaricopa.com`)
 - **Output**: JSON object with $DEI$, Trust Band, $R_{\text{byline}}$, $R_{\text{single}}$, $R_{\text{COI}}$, $ASI$, and longitudinal monthly trend buckets.
 

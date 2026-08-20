@@ -1,23 +1,23 @@
 ---
-title: Global Web Intelligence, DEI & Epistemic Weather
-description: Technical specification for Domain Epistemic Index (DEI), Top 10 Violated
+title: Global Web Intelligence, DCI & Epistemic Weather
+description: Technical specification for Domain Credence Index (DCI), Top 10 Violated
   Rules Aggregator, Macro Epistemic Weather, and Community Bounties.
 since_version: v1.0.0
 verified_version: v1.21.7
 last_verified: '2026-08-20'
 ---
 
-# Global Web Intelligence, DEI & Epistemic Weather
+# Global Web Intelligence, DCI & Epistemic Weather
 
 The Credence Web Epistemic Analytics engine aggregates thousands of signed webpage snapshot evaluations to produce macro-level epistemic intelligence across digital publishers and the open web.
 
 ---
 
-## 1. Domain Epistemic Index ($DEI$) Specification
+## 1. Domain Credence Index ($DCI$) Specification
 
-The **Domain Epistemic Index ($DEI$)** evaluates publisher reliability across all audited URLs for an origin domain:
+The **Domain Credence Index ($DCI$)** evaluates publisher reliability across all audited URLs for an origin domain:
 
-$$\text{DEI} = 100 - \left( 0.50 \cdot \overline{S} + 0.30 \cdot \min(50, \overline{D}) + 0.20 \cdot (1 - R_{\text{byline}}) \cdot 100 \right)$$
+$$\text{DCI} = 100 - \left( 0.50 \cdot \overline{S} + 0.30 \cdot \min(50, \overline{D}) + 0.20 \cdot (1 - R_{\text{byline}}) \cdot 100 \right)$$
 
 ### Metric Definitions
 
@@ -29,9 +29,9 @@ flowchart TD
         B["Byline Transparency Ratio R_byline<br/>Weight: 20%"]
     end
 
-    Inputs --> DEI["Domain Epistemic Index (DEI)<br/>0.0% to 100.0%"]
+    Inputs --> DCI["Domain Credence Index (DCI)<br/>0.0% to 100.0%"]
 
-    DEI --> Bands{"Trust Band Classifier"}
+    DCI --> Bands{"Trust Band Classifier"}
     Bands -->|&ge; 85%| TB1["HIGH_INTEGRITY (Clean Record)"]
     Bands -->|65 - 84.9%| TB2["RELIABLE"]
     Bands -->|45 - 64.9%| TB3["MIXED"]

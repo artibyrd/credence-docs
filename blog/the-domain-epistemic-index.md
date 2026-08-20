@@ -1,5 +1,5 @@
 ---
-title: 'The Domain Epistemic Index: The Web''s Honor Roll & Wall of Shame'
+title: 'The Domain Credence Index (DCI): The Web''s Honor Roll & Wall of Shame'
 description: How decentralized peer observation audits create transparent, unforgeable
   accountability for digital publishers and newsrooms.
 since_version: v1.0.0
@@ -7,13 +7,13 @@ verified_version: v1.21.7
 last_verified: '2026-08-20'
 ---
 
-# The Domain Epistemic Index: The Web's Honor Roll & Wall of Shame
+# The Domain Credence Index (DCI): The Web's Honor Roll & Wall of Shame
 
 The modern open web suffers from an asymmetrical incentive structure.
 
 Creating sensationalized clickbait, partisan outrage bait, and unverified allegations takes seconds and yields millions of algorithmic impressions. Conversely, rigorous journalistic fact-checking, primary source citation, and byline attribution require immense editorial discipline with virtually zero distribution advantage.
 
-To restore epistemic balance, the Credence network introduces the **Domain Epistemic Index ($DEI$)**: a decentralized, unforgeable reputation metric computed through mutual peer observation across thousands of independent verification audits.
+To restore epistemic balance, the Credence network introduces the **Domain Credence Index ($DCI$)**: a decentralized, unforgeable reputation metric computed through mutual peer observation across thousands of independent verification audits.
 
 ```mermaid
 flowchart LR
@@ -31,8 +31,8 @@ flowchart LR
     end
 
     subgraph Output["Epistemic Intelligence"]
-        O1["🛡️ Honor Roll (DEI &ge; 85%)"]
-        O2["🛑 Wall of Shame (DEI &lt; 40%)"]
+        O1["🛡️ Honor Roll (DCI &ge; 85%)"]
+        O2["🛑 Wall of Shame (DCI &lt; 40%)"]
         O3["📢 Astroturf Alerts (H &lt; 0.30)"]
     end
 
@@ -41,13 +41,13 @@ flowchart LR
 
 ---
 
-## What is the Domain Epistemic Index ($DEI$)?
+## What is the Domain Credence Index ($DCI$)?
 
-The **Domain Epistemic Index ($DEI$)** is a 0.0 to 100.0% composite score reflecting a publisher's historical fidelity to verifiable fact, transparent attribution, and logical consistency.
+The **Domain Credence Index ($DCI$)** is a 0.0 to 100.0% composite score reflecting a publisher's historical fidelity to verifiable fact, transparent attribution, and logical consistency.
 
-Unlike proprietary ratings provided by opaque centralized rating agencies, the $DEI$ is calculated deterministically from publicly verifiable, signed audit records:
+Unlike proprietary ratings provided by opaque centralized rating agencies, the $DCI$ is calculated deterministically from publicly verifiable, signed audit records:
 
-$$\text{DEI} = 100 - \left( 0.50 \cdot \overline{S} + 0.30 \cdot \min(50, \overline{D}) + 0.20 \cdot (1 - R_{\text{byline}}) \cdot 100 \right)$$
+$$\text{DCI} = 100 - \left( 0.50 \cdot \overline{S} + 0.30 \cdot \min(50, \overline{D}) + 0.20 \cdot (1 - R_{\text{byline}}) \cdot 100 \right)$$
 
 Where:
 - $\overline{S} \in [0, 100]$: Mean calibrated **Suspicion Score** across all audited snapshots for the domain.
@@ -58,9 +58,9 @@ Where:
 
 ## The 5 Trust Bands
 
-A domain's $DEI$ maps directly into five standardized **Trust Bands**:
+A domain's $DCI$ maps directly into five standardized **Trust Bands**:
 
-| Trust Band | $DEI$ Range | Characteristic Behavior | Public Verification Badge |
+| Trust Band | $DCI$ Range | Characteristic Behavior | Public Verification Badge |
 | :--- | :---: | :--- | :---: |
 | **High Integrity** | $85.0 - 100.0\%$ | Verbatim sourcing, low suspicion, named bylines, clean corrections | `🛡️ 98% HIGH_INTEGRITY` |
 | **Reliable** | $65.0 - 84.9\%$ | Minor formal fallacies or unlinked quotes; general journalistic rigor | `✅ 74% RELIABLE` |
@@ -82,7 +82,7 @@ $ credence rankings --type domains --category best
 
                  🛡️ Epistemic Honor Roll (Most Trusted Domains)                  
 ╭─┬───────────────────────┬──────┬───────────┬─────────┬───────┬───────────────────╮
-│ │ Domain FQDN           │  DEI │ Trust     │ Avg     │ Total │                   │
+│ │ Domain FQDN           │  DCI │ Trust     │ Avg     │ Total │                   │
 │ │                       │ Score│ Band      │ Suspic. │ Audits│ Earned Badges     │
 ├─┼───────────────────────┼──────┼───────────┼─────────┼───────┼───────────────────┤
 │1│ reuters.com           │ 98.5%│ HIGH_INT. │     3.2 │   142 │ ✍️ Byline, 🛡️ Clean │
@@ -101,7 +101,7 @@ $ credence rankings --type domains --category worst
 
                  🛑 Deception Hotlist (Wall of Shame)                            
 ╭─┬───────────────────────┬──────┬───────────┬─────────┬───────┬───────────────────╮
-│ │ Domain FQDN           │  DEI │ Trust     │ Avg     │ Total │ Primary Flag      │
+│ │ Domain FQDN           │  DCI │ Trust     │ Avg     │ Total │ Primary Flag      │
 │ │                       │ Score│ Band      │ Suspic. │ Audits│                   │
 ├─┼───────────────────────┼──────┼───────────┼─────────┼───────┼───────────────────┤
 │1│ miracle-cure-daily.biz│ 14.2%│ DECEPTIVE │    88.5 │    28 │ SPJ-1.1 Defamation│
@@ -120,7 +120,7 @@ Credence neutralizes this attack vector using **Topic Diversity Entropy ($H$) an
 
 $$H(X) = - \sum_{i=1}^{k} P(w_i) \log_2 P(w_i)$$
 
-When a publisher publishes 50 articles that all obsessively repeat the same commercial brand or political candidate ($C_{\text{top3}} > 0.40$), its entropy collapses ($H < 0.30$). Credence flags the domain with an immediate **📢 Astroturf Alert badge**, capping its maximum $DEI$ score regardless of its surface-level grammar.
+When a publisher publishes 50 articles that all obsessively repeat the same commercial brand or political candidate ($C_{\text{top3}} > 0.40$), its entropy collapses ($H < 0.30$). Credence flags the domain with an immediate **📢 Astroturf Alert badge**, capping its maximum $DCI$ score regardless of its surface-level grammar.
 
 ---
 
@@ -147,7 +147,7 @@ $ credence rankings --type rules
 
 ## Conclusion: Restoring Epistemic Hygiene
 
-The Domain Epistemic Index turns truth verification from an invisible internal process into a public, measurable asset. 
+The Domain Credence Index turns truth verification from an invisible internal process into a public, measurable asset. 
 
 Publishers that maintain high journalistic integrity gain verifiable prestige that protects their reputation against malicious smears. Conversely, bad actors and clickbait mills can no longer hide behind anonymous bylines and recycled domains.
 
