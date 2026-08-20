@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.1.5';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.1.6';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -1852,19 +1852,8 @@ export function parseMarkdown(md) {
   if (frontmatter && typeof frontmatter === 'object' && Object.keys(frontmatter).length > 0) {
     const metaBadges = [];
 
-    // Live Embeddable Epistemic Badge (<credence-badge>)
+    // Live Embeddable Epistemic Badge (<credence-badge>) with 3-Tier Lensing
     metaBadges.push(`<credence-badge id="doc-hero-badge" url="https://docs.credence.run#${escapeHtml(frontmatter.title ? frontmatter.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') : '')}" score="100.0" version="${escapeHtml(frontmatter.verified_version || CURRENT_ECOSYSTEM_VERSION)}"></credence-badge>`);
-
-    // Version Verification and Provenance Badges
-    if (frontmatter.verified_version) {
-      const isLatest = frontmatter.verified_version === CURRENT_ECOSYSTEM_VERSION || frontmatter.verified_version === CURRENT_ECOSYSTEM_VERSION.replace(/^v/, '');
-      const dateTooltip = frontmatter.last_verified ? ` (Audited ${escapeHtml(frontmatter.last_verified)})` : '';
-      if (isLatest) {
-        metaBadges.push(`<span class="meta-badge verified-latest" title="Audited and verified against latest ${CURRENT_ECOSYSTEM_VERSION} codebase${dateTooltip}">✅ Verified in ${escapeHtml(frontmatter.verified_version)}</span>`);
-      } else {
-        metaBadges.push(`<span class="meta-badge verified-older" title="Verified in ${escapeHtml(frontmatter.verified_version)}; latest is ${CURRENT_ECOSYSTEM_VERSION}${dateTooltip}">🟡 Verified in ${escapeHtml(frontmatter.verified_version)}</span>`);
-      }
-    }
 
     if (frontmatter.since_version) {
       metaBadges.push(`<span class="meta-badge since-version" title="Originally introduced in ${escapeHtml(frontmatter.since_version)}">📦 Added in ${escapeHtml(frontmatter.since_version)}</span>`);

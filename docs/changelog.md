@@ -10,7 +10,20 @@ last_verified: 2026-08-20
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.1.6] - 2026-08-20
+
+### Critical Fix: Eliminate Maximum Call Stack Infinite Recursion in Web Component
+- **Eliminated Custom Element `cloneNode` Recursion**:
+  - Replaced DOM tree cloning in `extractHostText()` with lightweight direct element text inspection, completely eliminating the infinite `cloneNode` element instantiation recursion that caused `Maximum call stack size exceeded` in browsers.
+- **Decoupled Attribute Changes from Async Hashing**:
+  - Removed async hashing loops from `attributeChangedCallback()`, making state updates purely synchronous and deterministic.
+- **Consolidated Unified Hero Badge**:
+  - Removed duplicate static verified pill in `.doc-metadata-bar` so `<credence-badge>` acts as the sole interactive hero badge with 3-tier lensing.
+
+---
+
 ## [2.1.5] - 2026-08-20
+
 
 ### CI/CD Verification Gate & Documentation Consolidation
 - **CI/CD Verification Gate Codification**:
