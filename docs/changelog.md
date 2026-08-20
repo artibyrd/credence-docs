@@ -10,7 +10,18 @@ last_verified: 2026-08-20
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.1.7] - 2026-08-20
+
+### Sovereign Essay: Scoring the Lens, Not the Window
+- **Published Sovereign Investigative Essay**:
+  - Published [`blog/scoring-the-lens-not-the-window.md`](blog/scoring-the-lens-not-the-window.md) detailing why exposés of unethical journalism score **100.0 Pristine** on Credence through containerized discourse boundaries (`SPJ-1.6`), verbatim grounding ($G=1.00$), and high Shannon entropy ($H \ge 0.30$).
+- **InMaricopa Case Study Sidenote**:
+  - Added an explanatory callout to [`blog/conflict-of-pun-terest.md`](blog/conflict-of-pun-terest.md) explaining how the article's epistemic integrity earns full safe-harbor credit despite reporting on bad journalism.
+
+---
+
 ## [2.1.6] - 2026-08-20
+
 
 ### Critical Fix: Eliminate Maximum Call Stack Infinite Recursion in Web Component
 - **Eliminated Custom Element `cloneNode` Recursion**:

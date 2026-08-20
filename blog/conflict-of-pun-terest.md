@@ -49,6 +49,20 @@ When the publisher sits on the dais voting on municipal ordinances, property rez
 In this case study, Credence applies **cryptographically grounded, deterministic epistemic audits** to real harvested articles from `inmaricopa.com`, quantifying conflicts of interest, advertorial camouflage, and single-source police blotter reliance with 100% exact quotes and zero hallucinations.
 
 ---
+:::note
+### 🔍 Sidenote: Why Does This Investigative Article Score 100.0 Pristine?
+Readers often ask: *If this article analyzes conflicts of interest, advertorial camouflage, and deceptive local journalism, why does Credence award this document a 100.0 Pristine Attestation?*
+
+**Credence scores the integrity of the lens, not the dirt on the window.**  
+This investigative exposé exemplifies the highest epistemic hygiene:
+1. **Containerized Discourse Boundaries (`SPJ-1.6`)**: Quoting unethical journalism within an attribution framework qualifies for investigative safe-harbor credit.
+2. **Verbatim Primary Grounding ($G=1.00$)**: Every finding is grounded in public records, city council meeting transcripts, and verified primary quotations.
+3. **High Semantic Entropy ($H \gg 0.70$)**: The analysis displays rich vocabulary variance with zero commercial astroturfing.
+
+📖 **Read the deep-dive companion essay**: [Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0 on Credence](#blog/scoring-the-lens-not-the-window)
+:::
+
+---
 
 ## 📊 Executive Summary: Aggregate Forensic Metrics Profile
 

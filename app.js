@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.1.6';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.1.7';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -191,6 +191,7 @@ export const DOCS_REGISTRY = [
     items: [
       { id: "blog/the-500-loc-ceiling-law", title: "The 500 LOC Ceiling Law", path: "blog/the-500-loc-ceiling-law.md", desc: "How we modularized the monolith without slowing down velocity.", keywords: ["500 loc", "modular", "architecture", "refactoring", "monolith", "shift-left", "blog"] },
       { id: "blog/the-compute-ontology-revolution", title: "The compute_* Ontology Revolution", path: "blog/the-compute-ontology-revolution.md", desc: "Why precision in naming eliminates epistemic ambiguity across formulas.", keywords: ["compute", "ontology", "naming", "formulas", "math", "epistemic", "blog"] },
+            { id: "blog/scoring-the-lens-not-the-window", title: "Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0", path: "blog/scoring-the-lens-not-the-window.md", desc: "How Credence separates perpetrating disinformation from investigating it via discourse boundary isolation and verbatim grounding.", keywords: ["lens", "window", "safe harbor", "spj", "grounding", "investigation", "inmaricopa", "entropy"] },
       { id: "blog/conflict-of-pun-terest", title: "⭐ Conflict of Pun-terest: InMaricopa Case Study", path: "blog/conflict-of-pun-terest.md", desc: "347 reasons why Maricopa's publisher-politician problem fails the epistemic smell test.", keywords: ["blog", "inmaricopa", "casestudy", "publisher", "coi", "dais", "conflict of interest", "puns", "monopoly", "civic desert", "analytics", "sr347"] },
       { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Topic Entropy", path: "blog/the-pizza-hut-problem.md", desc: "Why single-topic promotional pivots require topic entropy defense.", keywords: ["blog", "pizza hut", "entropy", "astroturf", "sifter", "feeds", "civic", "journalism", "promotion", "marketing", "detection"] },
       { id: "blog/the-blue-checkmark-is-dead", title: "The Blue Checkmark is Dead", path: "blog/the-blue-checkmark-is-dead.md", desc: "Why static authority badges fail and cryptographic receipts succeed.", keywords: ["blog", "blue checkmark", "authority", "cryptographic", "receipts", "identity", "sovereignty", "verification"] },
