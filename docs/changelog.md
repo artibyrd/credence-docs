@@ -3,13 +3,55 @@ title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across
   the Credence network.
 since_version: v1.0.0
-verified_version: v1.16.0
+verified_version: v1.18.1
 last_verified: '2026-08-19'
 ---
 
 # Release Changelog
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
+
+## [1.18.1] - 2026-08-19
+
+### Dual-GCP Operational Invariants & Container Robustness
+- **Cloud Run Startup Probe Optimization (`terraform/cloud_run.tf`)**:
+  - Configured `failure_threshold = 30`, `period_seconds = 2`, `timeout_seconds = 2`, and `initial_delay_seconds = 0`, providing a 60s grace window for initial background node germination (sowing 26 preset feed subscriptions across 4 tiers) while detecting HTTP readiness within ~1.5–2.0s once Uvicorn starts listening.
+- **Universal Multi-Cloud Dockerfile (`Dockerfile`)**:
+  - Replaced BuildKit-specific cache mounts with standard Poetry multi-stage installation (`RUN poetry install --without dev --no-root` followed by `RUN poetry install --without dev` and `compileall`), guaranteeing 100% build compatibility across Cloud Build default builders, local Docker, and GitHub Actions.
+- **Cloud Monitoring Filter & Log-Based Alert Invariants (`terraform/monitoring.tf`)**:
+  - Added required `AND resource.type="uptime_url"` constraint to global HTTP uptime check alert filter.
+  - Implemented custom log-based metric `google_logging_metric.scheduler_job_failures` (`resource.type="cloud_scheduler_job" AND (severity>=ERROR OR jsonPayload.status!="SUCCESS")`) for Cloud Scheduler alerting, avoiding unpopulated GCP system metric descriptor 404 validation errors.
+- **Progressive Subsystem Skills Expansion (`.agents/skills/`)**:
+  - Updated `cloudrun-ops` with container startup probe sizing, Dockerfile compatibility, and monitoring filter invariants.
+  - Updated `white-label-ops` with dual-project state isolation, secret import patterns, and sequential launch parity deployment workflows.
+
+## [1.18.0] - 2026-08-19
+
+### Sovereign Multi-Environment & Vendor-Agnostic Planetary Deployment
+- **Dual-Project GCP Hard Isolation & Single-Project Partitioning (`terraform/`)**:
+  - Engineered polymorphic Terraform infrastructure supporting **Dual-Project Hard Isolation** (`credence-dev-XXXXX` and `credence-prod-505902`), **Single-Project Service Partitioning**, and **Standalone Single-Environment** deployments with zero code changes.
+  - Basic Dev environment scales to zero on 512MiB RAM / 1 vCPU with a $5.00/mo cap, while Production operates on 1024–2048MiB RAM with full SRE telemetry and a $15.00/mo cap.
+  - Cloudflare Anycast DNS automation provisioning `dev.` subdomains (`dev.credence.run`, `dev.credence.nexus`, `dev.credence.foundation`, `dev.credence.report`) when `enable_dev_subdomains = true`.
+- **Turn-Key Platform & Vendor-Agnostic Self-Hosting**:
+  - **1-Command Docker Compose (`docker-compose.yml`)**: Basic Sovereign Node with embedded SQLite WAL and local CAS filesystem on `http://localhost:8000`.
+  - **Planetary Sovereign Cluster (`docker-compose.prod.yml`)**: Full self-hosted cluster with Credence + PostgreSQL 16 + MinIO S3 CAS + Valkey Redis state store.
+  - **Kubernetes Orchestration (`k8s/deployment.yaml`)**: Generic declarative Deployment and Service manifest for Kubernetes (AWS EKS, GKE, Bare Metal k3s).
+- **High-Efficiency Storage & State Abstraction (`credence/`)**:
+  - **Multi-Dialect SQL (`credence/db.py`)**: `AsyncAdaptedQueuePool` for PostgreSQL (`pool_size=20, max_overflow=30, pool_pre_ping=True`), `NullPool` for SQLite WAL.
+  - **Content-Addressable Storage (CAS) (`credence/storage/`)**: Local POSIX disk and Cloudflare R2 / S3 drivers enforcing strict write-once SHA-256 keys (`cas/sha256/<hash>.<ext>`).
+  - **Distributed State Store (`credence/cache/distributed.py`)**: Redis and in-memory state store with atomic Lua token metering, RSS deduplication locks, and live runtime budget overrides.
+- **5 Cost Profiles & Autonomous Cost Optimizer (`credence/config.py`, `credence/pipeline/cost_optimizer.py`)**:
+  - Added 5 operational profiles: `OFFLINE` ($0.00), `FREE` ($0.00), `ECONOMY` ($0.15/d default), `BALANCED` ($0.50/d), `ULTRA` ($5.00/d).
+  - Autonomous Cost Optimizer analyzing rolling 72-hour usage metrics to recommend transparent profile upgrades/downgrades.
+  - Integrated Emergency Brake (`pull_emergency_brake` / `release_emergency_brake`) forcing immediate offline evaluation ($0 cost).
+- **Zero-Build Multi-Domain Edge Routing (`web/_worker.js`)**:
+  - Cloudflare Anycast worker routing `dev.*` subdomains to Dev Cloud Run backend and canonical domains to Prod Cloud Run backend.
+  - Tiered caching: short-lived private caching (`max-age=60`) on dev audit reports vs 30-day immutable public caching on production.
+- **Synchronized Dual-Target Release CI/CD Pipeline (`.github/workflows/`)**:
+  - Added `.github/workflows/deploy-dev.yml` and updated `.github/workflows/deploy-backend.yml` for sequential Dev $\rightarrow$ Health Gate $\rightarrow$ Prod launch parity.
+- **Multi-Tier Automated Test Suites & Documentation Expansion**:
+  - Added 7 new test suites (`test_multi_env_routing.py`, `test_env_subdomain_dispatch.py`, `test_terraform_var_matrix.py`, `test_docker_compose_config.py`, `test_fastmcp_multi_env_telemetry.py`, `test_ssrf_multi_env_guards.py`, `test_dev_to_prod_state_isolation.py`).
+  - Published 19 comprehensive documentation assets across Operations Guides, Technical Blueprints, Cookbooks, and Sovereign Essays.
 
 ## [1.16.0] - 2026-08-19
 

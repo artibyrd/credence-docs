@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version constant
-export const CURRENT_ECOSYSTEM_VERSION = 'v1.16.0';
+export const CURRENT_ECOSYSTEM_VERSION = 'v1.18.1';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -3625,7 +3625,7 @@ export async function loadDocument(docId, anchorId = '') {
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
-    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.16.0';
+    brandBadge.textContent = isBlog ? 'Editorial' : 'v1.18.0';
   }
   document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
 
