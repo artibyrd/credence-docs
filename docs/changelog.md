@@ -2,7 +2,7 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v1.23.0
+verified_version: v1.23.1
 last_verified: '2026-08-20'
 ---
 
@@ -10,7 +10,16 @@ last_verified: '2026-08-20'
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.23.1] - 2026-08-20
+
+### 4-Phase Delivery & Continuous Learning Lifecycle Invariant & Documentation Governance
+- **4-Phase Release & Learning Lifecycle Invariant**:
+  - Formally codified the sequential delivery progression: 1. Code & Local QA Gate $\rightarrow$ 2. User Mk1 Eyeball Review $\rightarrow$ 3. Feature Version Release $\rightarrow$ 4. `/learn` Retrospective $\rightarrow$ 5. Apply Lessons as Immediate Patch Release across `AGENTS.md`, `.agents/skills/knowledge-governance/SKILL.md`, `02-continuous-learning-and-invariant-synthesis.md`, and `invariant-scalability-and-knowledge-governance.md`.
+- **Dual-Environment Least-Privilege CI/CD Invariant**:
+  - Embedded Tier 0 universal invariant mandating keyless WIF with `permissions: { id-token: write }`, `assertion.repository == 'artibyrd/credence'`, `roles/run.developer`, and `roles/cloudbuild.builds.builder`.
+
 ## [1.23.0] - 2026-08-20
+
 
 ### Dual-Environment Least-Privileged Workload Identity Federation (WIF) & CI/CD Automation
 - **Multi-Environment Continuous Deployment**:

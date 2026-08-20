@@ -106,7 +106,25 @@ graph TD
 
 ---
 
-## 4. Governance Decision Matrix
+## 4. The 4-Phase Delivery & Continuous Learning Lifecycle
+
+Knowledge synthesis and invariant crystallization strictly follow the 4-phase delivery lifecycle:
+
+```mermaid
+flowchart LR
+    Phase1["1. Mk1 Eyeball Review<br/><i>(Code, Local QA, Target Version)</i>"] --> Phase2["2. Feature Release<br/><i>(Commit, Tag, Deploy vX.Y.0)</i>"]
+    Phase2 --> Phase3["3. /learn Retrospective<br/><i>(Synthesize Feedback & Invariants)</i>"]
+    Phase3 --> Phase4["4. Learning Patch Release<br/><i>(Apply Invariants, Tag vX.Y.1)</i>"]
+```
+
+1. **Phase 1 (Mk1 Eyeball Review)**: Implement feature, execute local QA gauntlet (`just check`), present working-tree diff and explicit target version for human review.
+2. **Phase 2 (Feature Release)**: Upon approval, commit with clean working tree, synchronize manifests, tag, push to origin, and verify live cloud deployment (e.g. `v1.23.0`).
+3. **Phase 3 (`/learn` Retrospective)**: Review session discoveries, user feedback, and security constraints to synthesize high-density invariants and progressive skills.
+4. **Phase 4 (Apply Lessons as Patch Release)**: Persist verified learnings into `AGENTS.md`, `.agents/skills/`, and shift-left contract tests, bump to the next patch version (e.g. `v1.23.1`), run `just check`, and release the patch.
+
+---
+
+## 5. Governance Decision Matrix
 
 When a new requirement, discovery, or post-mortem action item arises, apply this routing matrix:
 
@@ -119,7 +137,7 @@ When a new requirement, discovery, or post-mortem action item arises, apply this
 
 ---
 
-## 5. Architectural Benefits
+## 6. Architectural Benefits
 
 1. **Token Efficiency**: Reduces base system prompt consumption by **>60%**, preserving token budgets for reasoning and thinking steps.
 2. **Deterministic Reliability**: Shifts formatting and version verification from fuzzy LLM compliance to 100% deterministic unit tests.

@@ -30,24 +30,24 @@ Discover how Credence uses the `/learn` slash command to transform transient cor
 
 ```mermaid
 flowchart LR
-    Correction["Human Correction or Edge Case Discovery<br/>(e.g., Mermaid parser crash on unquoted comparison)"] --> Learn["/learn Proposal<br/>(learning_proposal.md)"]
-    Learn --> Review["Human 'Mk1 Eyeball' Approval Gate"]
-    Review --> Persist["Codified in AGENTS.md<br/>+ Automated pytest guardrail"]
-    Persist --> NeverAgain["Permanent Guardrail Active Across All Future Turns"]
+    Phase1["1. Mk1 Eyeball Review<br/><i>(Code, Local QA, Target Version)</i>"] --> Phase2["2. Feature Release<br/><i>(Commit, Tag, Deploy vX.Y.0)</i>"]
+    Phase2 --> Phase3["3. /learn Retrospective<br/><i>(Capture Feedback & Invariants)</i>"]
+    Phase3 --> Phase4["4. Learning Patch Release<br/><i>(Apply Invariants, Tag vX.Y.1)</i>"]
 ```
 
 > [!NOTE]
-> **[Invariant 18: Context Governance & Progressive Disclosure](../invariants.md#invariant-18)**: Keep `AGENTS.md` lean (<1,000 tokens) in thematic categories. Place multi-step runbooks in `.agents/skills/` and complete specifications in `docs/`.
+> **[Invariant 18: Context Governance & Progressive Disclosure](../invariants.md#invariant-18)**: Keep `AGENTS.md` lean (<800 tokens) in thematic categories. Place multi-step runbooks in `.agents/skills/` and complete specifications in `docs/`.
 
 ---
 
-## 1. The Lifecycle of a Machine Invariant
+## 1. The 4-Phase Delivery & Machine Learning Lifecycle
 
-When an unexpected edge case occurs during pair-programming, Credence follows a 3-step crystallization process:
+When delivering features and capturing edge cases during pair-programming, Credence follows a disciplined 4-phase progression:
 
-1. **Root Cause Analysis**: Identify why the issue occurred (e.g., Markdown parsers failing on unescaped `<` inside Mermaid node strings).
-2. **Drafting the Learning Proposal**: Create `learning_proposal.md` proposing the exact textual additions to `AGENTS.md` with rationale.
-3. **Automated Test Guardrail**: Add a matching test in `tests/test_docs_integrity.py` or `tests/test_docs_rendering.py` so CI enforces the rule permanently.
+1. **Phase 1: Code, Local QA & Mk1 Eyeball Review**: Implement capabilities, verify via `just check` (<0.3s integrity tests and in-memory unit tests), and present the working-tree diff and explicit target version for human inspection ("Mk1 Eyeball").
+2. **Phase 2: Feature Version Release**: Commit with a clean working tree (`git diff --quiet`), synchronize manifests, tag, push to origin, and verify live cloud deployments (e.g. `v1.23.0`).
+3. **Phase 3: `/learn` Retrospective**: Analyze session discoveries, user feedback, and security constraints to draft `learning_proposal.md`.
+4. **Phase 4: Apply Lessons as Patch Release**: Apply the codified rules to `AGENTS.md` and `.agents/skills/`, add shift-left contract tests in `tests/`, bump to the next patch version (e.g. `v1.23.1`), and execute the learning patch release.
 
 ---
 
