@@ -31,7 +31,7 @@ This document serves as the **sovereign, in-repository source of truth** for ver
 
 ```mermaid
 flowchart TD
-    subgraph Foundation["Verified Stable Foundation (v1.21.6)"]
+    subgraph Foundation["Verified Stable Foundation (v1.22.0)"]
         F1["Dual-Tier Bicameral Engine & Pre-Flight Gate"]
         F2["Autonomous Boredom Engine & Epistemic Roots"]
         F3["White-Label Sovereign Org Scaffolding (credence init-org)"]
@@ -39,7 +39,7 @@ flowchart TD
         F5["Universal 4-Way Interface Parity (CLI, MCP, TUI, Web)"]
         F6["Symmetric 4-Pillar Navigation & Card Containment (v1.21.5)"]
         F7["18-Route Multi-Domain Edge Router & Zero-Cache Policy (v1.21.6)"]
-        F8["Automated Cloudflare Zone Cache Invalidation in CI/CD"]
+        F8["Whole-Mesh Network Health & Watts-Strogatz Visualizer (v1.22.0)"]
     end
 
     subgraph Horizons["Future Architecture Horizons (v2.0.0 Road)"]

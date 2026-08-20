@@ -9,22 +9,20 @@ last_verified: '2026-08-20'
 # Node & P2P Mesh Telemetry Dashboard Architecture
 
 > **Specification Identifier**: `BLUEPRINT-019`  
-> **Status**: Verified in `v1.15.0`  
-> **Target Surfaces**: Zero-Build Web UI (`credence.nexus/dashboard.html`), Rich CLI (`credence stats`), Textual TUI (`[H] Health`), FastMCP 2.0 (`credence://mesh/stats`)
+> **Status**: Verified in `v1.21.7`  
+> **Target Surfaces**: Zero-Build Web UI (`credence.nexus/dashboard.html`, `credence.nexus/mesh.html`), Rich CLI (`credence stats [--mesh]`), Textual TUI (`[H] Health`, `[M] Mesh Network`), FastMCP 2.0 (`credence://mesh/stats`, `credence://mesh/network-health`)
 
 ---
 
 ## 1. Executive Summary & Design Principles
 
-Credence operates as a decentralized, federated network of independent validator and sifter nodes. As a node operator, visibility into **local execution**, **mesh dynamics**, and **economic efficiency** is essential for maintaining epistemic integrity and optimizing compute resources.
+Credence operates as a decentralized, federated network of independent validator and sifter nodes. As a node operator and ecosystem participant, visibility into **local execution**, **whole-mesh network dynamics**, and **economic efficiency** is essential for maintaining epistemic integrity and optimizing compute resources.
 
 The **Credence Node & Mesh Telemetry Dashboard** adheres to three core architectural principles:
 
-1. **First-Person Operator Primacy ("My Node at a Glance")**: Before diving into macro-network topology, the operator must immediately understand local state:
-   - *What is my server doing right now?* (Uptime, memory RSS vs. 850 MB ceiling, cost profile, token headroom).
-   - *How many articles have I evaluated?* (Lifetime & today, average suspicion score $\overline{S}$, verbatim grounding quotient $G = 1.00$).
-   - *What mesh connections do I maintain?* (Active peers, bootstrap seeds, Byzantine fault tolerance margin $3f+1$).
-   - *What compute savings has my node realized?* (Tokens and USD avoided through zero-token attestation adoption).
+1. **Dual-Perspective Observability ("My Node" & "Whole Mesh")**:
+   - **First-Person Operator Primacy (`dashboard.html`)**: Local server uptime, memory RSS vs. 850 MB ceiling, cost profile, token headroom, scored pages breakdown, and local SRE percentiles.
+   - **Macro Whole-Mesh Network Health (`mesh.html`)**: Interactive 13-node Watts-Strogatz small-world lattice ($N=13, d=4, \beta=0.20$), Byzantine resilience ($N \ge 3f+1, f=4$), multi-region latency matrix, and live gossip attestation stream.
 2. **Universal 4-Way Feature Parity**: Operators can access identical telemetry structures across Web, CLI, TUI, and FastMCP agent protocols.
 3. **Zero-Build & Zero-npm Strict Invariant**: Web dashboards must run hermetically using vanilla HTML5, CSS Custom Properties, and native ES Modules with zero build steps and zero `npm` packages.
 
@@ -47,23 +45,29 @@ flowchart TD
         TG["TokenGovernor<br/>(Headroom & Circuit Breakers)"]
     end
 
-    subgraph Aggregator ["calculate_mesh_stats Engine"]
+    subgraph Aggregator ["Telemetry Calculation Engines"]
         AGG["credence.mesh.stats.calculate_mesh_stats()"]
+        MAGG["credence.mesh.stats.calculate_network_mesh_health()"]
     end
 
     subgraph Protocols ["Export & Gateway Interfaces"]
-        REST["REST API<br/>GET /api/v1/mesh/stats"]
-        FMCP["FastMCP 2.0<br/>credence://mesh/stats"]
-        CLI["CLI Workstation<br/>credence stats [--watch] [--breakdown]"]
-        WEB["Zero-Build Web<br/>dashboard.html"]
+        REST["REST API<br/>GET /api/v1/mesh/stats<br/>GET /api/v1/mesh/network-health"]
+        FMCP["FastMCP 2.0<br/>credence://mesh/stats<br/>credence://mesh/network-health"]
+        CLI["CLI Workstation<br/>credence stats [--mesh] [--breakdown]"]
+        WEB["Zero-Build Web<br/>dashboard.html & mesh.html"]
     end
 
     Storage --> AGG
+    Storage --> MAGG
     Runtime --> AGG
+    Runtime --> MAGG
     AGG --> REST
+    MAGG --> REST
     AGG --> FMCP
+    MAGG --> FMCP
     REST --> WEB
     AGG --> CLI
+    MAGG --> CLI
 ```
 
 ---
@@ -100,13 +104,13 @@ T_{\text{saved}} = \sum_{k=1}^{M_{\text{adopted}}} T_{\text{tokens}}(k) \approx 
 
 ## 4. REST API & FastMCP Schema Specification
 
-`GET /api/v1/mesh/stats` and `credence://mesh/stats` yield the following structured RFC 8785 canonical JSON payload:
+### 4.1 Node-Centric Telemetry (`GET /api/v1/mesh/stats` & `credence://mesh/stats`)
 
 ```json
 {
   "service": "credence",
-  "version": "1.15.0",
-  "timestamp": "2026-08-19T19:30:00Z",
+  "version": "1.21.7",
+  "timestamp": "2026-08-20T02:50:00Z",
   "my_node": {
     "node_id": "node_9580dc91",
     "node_pubkey": "ed25519:9580dc91...",
@@ -157,24 +161,94 @@ T_{\text{saved}} = \sum_{k=1}^{M_{\text{adopted}}} T_{\text{tokens}}(k) \approx 
 }
 ```
 
+### 4.2 Whole-Mesh Network Health (`GET /api/v1/mesh/network-health` & `credence://mesh/network-health`)
+
+```json
+{
+  "service": "credence",
+  "version": "1.21.7",
+  "timestamp": "2026-08-20T02:50:00Z",
+  "cluster_topology": {
+    "name": "Watts-Strogatz Small-World Lattice",
+    "model_parameters": {
+      "nodes_count": 13,
+      "degree_k": 4,
+      "rewiring_beta": 0.20,
+      "diameter": 3,
+      "average_path_length": 1.78
+    },
+    "byzantine_resilience": {
+      "formula": "N >= 3f + 1",
+      "total_nodes": 13,
+      "max_byzantine_faults": 4,
+      "quorum_threshold_pct": 67.0,
+      "quorum_health": "OPTIMAL",
+      "active_honest_nodes": 13,
+      "quarantined_nodes": 0
+    },
+    "epistemic_consensus": {
+      "grounding_quotient": 1.00,
+      "score_delta_stdev": 2.8,
+      "galileo_convergence_pct": 99.4,
+      "sybil_cartels_isolated": 0
+    },
+    "global_compute_savings": {
+      "total_queries_resolved": 8420,
+      "total_local_evaluations": 650,
+      "adopted_from_mesh_count": 7770,
+      "work_sharing_efficiency_pct": 92.3,
+      "tokens_saved_estimate": 32634000,
+      "usd_saved_estimate": 22.84
+    }
+  },
+  "nodes": [
+    {
+      "node_id": "node_1",
+      "alias": "anchor-us-central1",
+      "role": "ROOT_GENESIS_ANCHOR",
+      "profile": "ULTRA",
+      "region": "us-central1",
+      "quality_score": 0.995,
+      "uptime_pct": 99.98,
+      "grounding_quotient": 1.00,
+      "status": "HEALTHY"
+    }
+  ],
+  "edges": [
+    {
+      "source": "node_1",
+      "target": "node_5",
+      "latency_ms": 78,
+      "type": "CHORD_SHORTCUT",
+      "status": "ACTIVE"
+    }
+  ]
+}
+```
+
 ---
 
 ## 5. CLI & TUI Interface Usage
 
-### 5.1 CLI Command (`credence stats`)
+### 5.1 CLI Commands (`credence stats`)
 
 ```bash
-# Standard interactive operator view
+# Standard interactive operator view ("My Node at a Glance")
 credence stats
 
-# Detailed publisher domains and category breakdown
+# Whole-Mesh Network Health and 13-node Watts-Strogatz topology view
+credence stats --mesh
+
+# Detailed publisher domains, categories, or mesh edges breakdown
 credence stats --breakdown
+credence stats --mesh --breakdown
 
 # Continuous real-time terminal watch
 credence stats --watch
 
-# Raw machine-readable JSON export
+# Raw machine-readable JSON exports
 credence stats --json
+credence stats --mesh --json
 ```
 
 ### 5.2 Textual TUI Workstation
@@ -183,4 +257,5 @@ Launch the interactive terminal workstation:
 ```bash
 credence tui
 ```
-Navigate to `[🚨 Ops & Alerts]` or `[🏆 Leaderboard]` to inspect real-time rolling latencies, active alert conditions, and merit badges.
+Navigate to `[🚨 Ops & Alerts]` or `[🏆 Leaderboard]` to inspect real-time rolling latencies, active alert conditions, merit badges, and mesh cluster status.
+

@@ -11,6 +11,19 @@ last_verified: '2026-08-20'
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.22.0] - 2026-08-20
+
+### Whole-Mesh Network Health Dashboard & Watts-Strogatz Topology Visualizer
+- **Whole-Mesh Network Health Dashboard (`credence.nexus/mesh.html`)**:
+  - Implemented zero-build, zero-npm interactive 13-node Watts-Strogatz small-world lattice topology visualizer ($N=13, d=4, \beta=0.20$) rendered via high-performance HTML5 Canvas with animated gossip pulse particles and clickable node inspector drawer.
+  - Added real-time Byzantine fault tolerance monitor ($N \ge 3f + 1, f=4$ tolerance), multi-region latency matrix, live signed attestation gossip stream, and interactive scenario simulator (Normal Operation, Barbell Partition, Sybil Cartel Eclipse, Seed Failover, High-Throughput Burst).
+- **Backend & Universal 4-Way Feature Parity**:
+  - Implemented `calculate_network_mesh_health()` in `credence.mesh.stats`.
+  - Registered REST API endpoints `GET /api/v1/mesh/network-health`, `GET /api/mesh/network-health`, and `GET /api/v1/mesh/health`.
+  - Registered FastMCP 2.0 tool `credence_get_mesh_network_health` and resource `credence://mesh/network-health`.
+  - Added CLI support in `credence stats --mesh` (`-m`) with full Rich terminal rendering and JSON export.
+  - Added Textual TUI support in `credence tui` via dedicated tab `[9] 🕸️ Mesh Swarm` (Hotkeys: `9` and `m`) wired to live background telemetry loop.
+
 ## [1.21.7] - 2026-08-20
 
 ### Ecosystem Documentation Deduplication & Living Canon Synchronization
@@ -24,6 +37,8 @@ All notable changes to the **Credence** network and documentation are documented
   - Made memory pressure alert thresholds configurable (`CREDENCE_MEMORY_ALERT_MB`, default `1800.0` MB) in `ServerTelemetryTracker.get_snapshot()` to prevent local multi-test memory allocations from tripping false degraded alerts.
 - **7-Manifest Parity Sync**:
   - Synchronized canonical semantic version `v1.21.7` across all 7 ecosystem manifests.
+
+
 
 ## [1.21.6] - 2026-08-20
 

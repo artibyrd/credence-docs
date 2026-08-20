@@ -57,8 +57,8 @@ graph TD
 
 ### C. Mesh Topology, Governance & Identity
 
-| Feature Area | 🖥️ CLI & ⚡ FastMCP 2.0 | 📟 Textual TUI & 🌐 Web UI | Status |
-| :--- | :--- | :--- | :--- |
+| **Node & Mesh Health Dashboard** | `credence stats`<br/>Tool: `credence_get_mesh_stats` | SRE Vitals Panel<br/>`credence.nexus/dashboard.html` | **Full Parity** |
+| **Whole-Mesh Network Topology** | `credence stats --mesh`<br/>Tool: `credence_get_mesh_network_health`<br/>Resource: `credence://mesh/network-health` | Tab 8: 🕸️ Swarm Graph<br/>`credence.nexus/mesh.html` (13-Node Canvas) | **Full Parity** |
 | **Token Headroom Governor** | `credence quota`<br/>Tool: `credence_get_quota_status` | Tab 5: `⚡ Quota`<br/>Status Badge at `credence.run` | **Full Parity** |
 | **Cost Profiles** | `credence profile list`<br/>Resource: `credence://profiles` | Profile Badge `[FREE/BALANCED]`<br/>Cost Tier Grid | **Full Parity** |
 | **Taxonomy Governance** | `credence taxonomy list`<br/>Resource: `credence://taxonomies` | Tab 2: `📚 Taxonomies`<br/>`taxonomies.credence.foundation` | **Full Parity** |
