@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.1.3';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.1.4';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -1849,14 +1849,14 @@ export function parseMarkdown(md) {
 
   let resultHtml = html.join('\n');
 
-  {
+  if (frontmatter && typeof frontmatter === 'object' && Object.keys(frontmatter).length > 0) {
     const metaBadges = [];
 
     // Live Embeddable Epistemic Badge (<credence-badge>)
-    metaBadges.push(`<credence-badge id="doc-hero-badge" url="https://docs.credence.run#${escapeHtml(frontmatter && frontmatter.title ? frontmatter.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') : '')}" score="100.0" version="${escapeHtml(frontmatter && frontmatter.verified_version ? frontmatter.verified_version : CURRENT_ECOSYSTEM_VERSION)}"></credence-badge>`);
+    metaBadges.push(`<credence-badge id="doc-hero-badge" url="https://docs.credence.run#${escapeHtml(frontmatter.title ? frontmatter.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') : '')}" score="100.0" version="${escapeHtml(frontmatter.verified_version || CURRENT_ECOSYSTEM_VERSION)}"></credence-badge>`);
 
     // Version Verification and Provenance Badges
-    if (frontmatter && frontmatter.verified_version) {
+    if (frontmatter.verified_version) {
       const isLatest = frontmatter.verified_version === CURRENT_ECOSYSTEM_VERSION || frontmatter.verified_version === CURRENT_ECOSYSTEM_VERSION.replace(/^v/, '');
       const dateTooltip = frontmatter.last_verified ? ` (Audited ${escapeHtml(frontmatter.last_verified)})` : '';
       if (isLatest) {

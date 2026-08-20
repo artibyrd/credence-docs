@@ -10,7 +10,20 @@ last_verified: 2026-08-20
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.1.4] - 2026-08-20
+
+### Critical Fix: Parser Frontmatter Guard & Web Component Hardening
+- **Frontmatter Object Guard in `parseMarkdown()`**:
+  - Added strict `frontmatter && typeof frontmatter === 'object' && Object.keys(frontmatter).length > 0` validation to eliminate fatal `TypeError` crashes when parsing inner directive blocks (e.g. `:::note`, tabs, code samples).
+- **Web Component Container Resolution**:
+  - Updated `extractHostText()` in `credence-widget.js` to target `.markdown-body` / `article` containers and strip `.doc-metadata-bar` and `.footer-container` before computing live hashes.
+- **Defensive Event Binding**:
+  - Added null-checks on shadow DOM elements in `render()` to guarantee popover event bindings never throw uncaught exceptions.
+
+---
+
 ## [2.1.3] - 2026-08-20
+
 
 ### Learning Retrospective: Push-and-Delegate CI/CD Governance
 - **Commit-Before-Deploy & Push-and-Delegate Invariant Codification**:
