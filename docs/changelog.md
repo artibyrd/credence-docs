@@ -10,7 +10,21 @@ last_verified: 2026-08-20
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.1.1] - 2026-08-20
+
+### Learning Retrospective, Empirical Testing Invariant & Query Typing Governance
+- **Invariant 40 Expansion (Tests Before Tales)**:
+  - Codified the strict epistemic invariant that empirical tests, red team exercises, and benchmarks must strictly be executed and verified before drafting corresponding case studies, lab documentation, or walkthroughs.
+- **Progressive Skills Synthesis**:
+  - Updated `architecture-governance` skill with SQLModel `AsyncSession` `session.exec()` and `col().desc()` query conventions and Trafilatura minimal snippet fallbacks.
+  - Updated `invariant-audit` skill with topological dependency checks.
+- **Sovereign Essay Publication**:
+  - Published *The Cart-Before-the-Horse Invariant: Why AI Agents Must Respect Topological Dependency & Empirical Verification* (`blog/the-cart-before-the-horse-invariant.md`).
+
+---
+
 ## [2.1.0] - 2026-08-20
+
 
 ### Epistemic Self-Auditing, Embeddable Badges, Temporal Trajectories & The Information Pyramid
 

@@ -306,7 +306,7 @@ flowchart TD
 
 <div class="invariant-card" id="invariant-43">
 <h3><a href="#docs/invariants#invariant-43">Invariant 43: The Cart-Before-the-Horse Order-of-Operations Invariant</a></h3>
-<p>Every implementation plan, task breakdown, and execution sequence must undergo a strict dependency analysis and topological order verification before being presented for human review ("Mk1 Eyeball"). Prerequisite ingestion scrubbers, data models, and cryptographic primitives must strictly precede downstream APIs, UI components, CLI commands, and test suites.</p>
+<p>Every implementation plan, task breakdown, and execution sequence must undergo a strict dependency analysis and topological order verification before being presented for human review ("Mk1 Eyeball"). Prerequisite ingestion scrubbers, data models, and cryptographic primitives must strictly precede downstream APIs, UI components, CLI commands, and test suites. Furthermore, empirical tests, red team exercises, and benchmark gauntlets must strictly be executed and verified before drafting corresponding case studies, lab documentation, or walkthroughs.</p>
 </div>
 
 ## Invariant Reference Index Matrix
