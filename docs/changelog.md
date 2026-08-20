@@ -1,9 +1,8 @@
 ---
 title: Release Changelog
-description: Version history, release notes, and milestone accomplishments across
-  the Credence network.
+description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v1.21.7
+verified_version: v1.22.1
 last_verified: '2026-08-20'
 ---
 
@@ -11,7 +10,21 @@ last_verified: '2026-08-20'
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [1.22.1] - 2026-08-20
+
+### Dynamic Live Swarm Telemetry & Playground Chaos Simulator Separation
+- **Dynamic Live Node Reality ($N \ge 1$)**:
+  - Refactored live mesh telemetry (`credence.nexus/mesh.html`, CLI `credence stats --mesh`, TUI `[9] 🕸️ Mesh Swarm`, FastMCP `credence://mesh/network-health`) to query genuine local node identity and SQLite `PeerMetricRecord` rows.
+  - Eliminated mock 13-node generators and attack buttons from production dashboards; standalone single-server nodes honestly report `STANDALONE` mode ($N=1$, 0 remote peers, local primary root, $f=0$).
+  - Dynamically calculates Byzantine quorum capacity as $f = \lfloor (N - 1) / 3 \rfloor$ ($N=1$ Standalone, $1 < N < 4$ Peered, $N \ge 4$ Federated Byzantine Quorum).
+  - Built standalone radar sweep view for $N=1$ and dynamic radial latency topology graph for $N > 1$.
+- **Upgraded Interactive Chaos Playground (`docs.credence.run#docs/playground`)**:
+  - Integrated the complete 5-scenario 13-node Watts-Strogatz chaos simulation engine (Normal, Barbell Split, 3f+1 Sybil Eclipse, Genesis Seed Failover, Epidemic Burst) into **Interactive Widget 1** with particle diffusion physics, node inspector, and event diffusion logs.
+- **Living Canon & Knowledge Governance**:
+  - Codified the **Production Telemetry vs. Simulation Boundary** invariant across `AGENTS.md` and updated `.agents/skills/mesh-cluster/SKILL.md`.
+
 ## [1.22.0] - 2026-08-20
+
 
 ### Whole-Mesh Network Health Dashboard & Watts-Strogatz Topology Visualizer
 - **Whole-Mesh Network Health Dashboard (`credence.nexus/mesh.html`)**:

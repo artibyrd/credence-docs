@@ -2,7 +2,7 @@
 title: Ecosystem Roadmap & Architecture Horizons
 description: Sovereign in-tree tracker for verified foundation milestones, operational edge cases, and future architecture horizons across the Credence ecosystem.
 since_version: v1.0.0
-verified_version: v1.21.7
+verified_version: v1.22.1
 last_verified: '2026-08-20'
 tags:
 - roadmap
@@ -31,7 +31,7 @@ This document serves as the **sovereign, in-repository source of truth** for ver
 
 ```mermaid
 flowchart TD
-    subgraph Foundation["Verified Stable Foundation (v1.22.0)"]
+    subgraph Foundation["Verified Stable Foundation (v1.22.1)"]
         F1["Dual-Tier Bicameral Engine & Pre-Flight Gate"]
         F2["Autonomous Boredom Engine & Epistemic Roots"]
         F3["White-Label Sovereign Org Scaffolding (credence init-org)"]
@@ -40,7 +40,9 @@ flowchart TD
         F6["Symmetric 4-Pillar Navigation & Card Containment (v1.21.5)"]
         F7["18-Route Multi-Domain Edge Router & Zero-Cache Policy (v1.21.6)"]
         F8["Whole-Mesh Network Health & Watts-Strogatz Visualizer (v1.22.0)"]
+        F9["Dynamic Live Swarm Telemetry & Playground Separation (v1.22.1)"]
     end
+
 
     subgraph Horizons["Future Architecture Horizons (v2.0.0 Road)"]
         H1["<b>Horizon 1: Edge Traffic Shaping</b><br/><i>Autonomous Cascaded Gateway & ASTRO-GUARD</i>"]

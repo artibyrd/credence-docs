@@ -45,30 +45,38 @@ Experience Credence's core mathematical models, cryptographic verification, epis
 
 ## 1. 13-Node Watts-Strogatz Mesh Gossip Simulator
 
-Interact with a live Watts-Strogatz small-world network ($N=13, k=4, p=0.20$). Click any node to inspect its simulated identity and reputation score ($Q_i$), simulate multi-hop epidemic gossip diffusion, and test network split tolerance:
+Interact with a canonical Watts-Strogatz small-world benchmark network ($N=13, d=4, \beta=0.20$). Test real-time Byzantine fault tolerance ($N \ge 3f + 1, f=4$), simulate transatlantic Barbell network splits, quarantine Sybil cartels, and trigger high-throughput epidemic gossip bursts:
 
 <div class="interactive-widget" id="mesh-simulator-widget">
-  <div class="widget-toolbar">
-    <button type="button" id="btn-broadcast-gossip" class="widget-btn primary">Broadcast Attestation from Node 1</button>
-    <button type="button" id="btn-simulate-split" class="widget-btn">Simulate Barbell Network Split</button>
-    <button type="button" id="btn-reset-mesh" class="widget-btn">Reset 13-Node Cluster</button>
+  <div class="filter-chip-group" style="margin-bottom: 1rem; flex-wrap: wrap;">
+    <button type="button" id="btn-scen-normal" class="filter-chip active">🟢 1. Normal Watts-Strogatz</button>
+    <button type="button" id="btn-scen-partition" class="filter-chip">✂️ 2. Barbell Network Split</button>
+    <button type="button" id="btn-scen-sybil" class="filter-chip">👾 3. 3f+1 Sybil Cartel Eclipse</button>
+    <button type="button" id="btn-scen-failover" class="filter-chip">🔄 4. Genesis Seed Failover</button>
+    <button type="button" id="btn-scen-burst" class="filter-chip">⚡ 5. Epidemic Gossip Burst</button>
   </div>
 
-  <div class="mesh-visualizer-container">
-    <svg id="mesh-svg" viewBox="0 0 600 400" class="mesh-svg-canvas" style="width: 100%; height: 320px;">
+  <div class="widget-toolbar">
+    <button type="button" id="btn-broadcast-gossip" class="widget-btn primary">Broadcast Attestation from Node 1</button>
+    <button type="button" id="btn-reset-mesh" class="widget-btn">Reset Cluster</button>
+  </div>
+
+  <div class="mesh-visualizer-container" style="background: #0b0f19; border: 1px solid #1e293b; border-radius: 8px; padding: 0.5rem; margin-top: 0.75rem;">
+    <svg id="mesh-svg" viewBox="0 0 600 360" class="mesh-svg-canvas" style="width: 100%; height: 320px;">
       <!-- Injected dynamically by app.js -->
     </svg>
   </div>
 
-  <div id="mesh-node-inspector" class="node-inspector-card" style="display: none;">
-    <div><strong>Selected: <span id="inspector-node-id" style="color: #38bdf8;">Node 1</span></strong> | Status: <span id="inspector-node-status" style="color: #4ade80;">Healthy Peer</span></div>
-    <div>Node Quality (\(Q_i\)): <strong id="inspector-node-qi" style="color: #38bdf8;">0.92</strong> | Peer Links: <strong id="inspector-node-links">4 edges</strong></div>
+  <div id="mesh-node-inspector" class="node-inspector-card" style="display: none; margin-top: 0.75rem; background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 0.75rem;">
+    <div><strong>Selected: <span id="inspector-node-id" style="color: #38bdf8;">Node 1</span></strong> | Status: <span id="inspector-node-status" style="color: #4ade80;">Healthy Peer</span> | Role: <span id="inspector-node-role" style="color: #c084fc;">ROOT_ANCHOR</span></div>
+    <div style="margin-top: 0.25rem; font-size: 0.85rem;">Quality (\(Q_i\)): <strong id="inspector-node-qi" style="color: #38bdf8;">0.995</strong> | Region: <strong id="inspector-node-region">us-central1</strong> | Connected Peers: <strong id="inspector-node-links">3 edges</strong></div>
   </div>
 
-  <div id="mesh-event-log" class="widget-status idle">
-    <span>Ready. Click "Broadcast Attestation from Node 1" or click any node circle to inspect.</span>
+  <div id="mesh-event-log" class="widget-status idle" style="margin-top: 0.75rem;">
+    <span>Ready. Select a chaos scenario or click "Broadcast Attestation from Node 1" to observe diffusion.</span>
   </div>
 </div>
+
 
 ---
 

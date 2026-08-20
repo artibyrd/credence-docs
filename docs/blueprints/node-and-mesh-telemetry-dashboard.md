@@ -20,11 +20,13 @@ Credence operates as a decentralized, federated network of independent validator
 
 The **Credence Node & Mesh Telemetry Dashboard** adheres to three core architectural principles:
 
-1. **Dual-Perspective Observability ("My Node" & "Whole Mesh")**:
+1. **Dual-Perspective Live Observability ("My Node" & "Whole Mesh")**:
    - **First-Person Operator Primacy (`dashboard.html`)**: Local server uptime, memory RSS vs. 850 MB ceiling, cost profile, token headroom, scored pages breakdown, and local SRE percentiles.
-   - **Macro Whole-Mesh Network Health (`mesh.html`)**: Interactive 13-node Watts-Strogatz small-world lattice ($N=13, d=4, \beta=0.20$), Byzantine resilience ($N \ge 3f+1, f=4$), multi-region latency matrix, and live gossip attestation stream.
+   - **Macro Live Swarm & Peering Health (`mesh.html`)**: Dynamic live $N \ge 1$ topology from active `PeerMetricRecord` rows, dynamic Byzantine quorum capacity ($f = \lfloor (N-1)/3 \rfloor$), and automatic Standalone radar mode when $N=1$.
+   - **Hermetic Chaos Playground (`playground.md` / `playground.html`)**: Dedicated 5-scenario 13-node Watts-Strogatz chaos simulator (Normal, Barbell Partition, Sybil Cartel Eclipse, Seed Failover, Epidemic Burst) for interactive exploration and training without conflating with live production infrastructure.
 2. **Universal 4-Way Feature Parity**: Operators can access identical telemetry structures across Web, CLI, TUI, and FastMCP agent protocols.
 3. **Zero-Build & Zero-npm Strict Invariant**: Web dashboards must run hermetically using vanilla HTML5, CSS Custom Properties, and native ES Modules with zero build steps and zero `npm` packages.
+
 
 ---
 
