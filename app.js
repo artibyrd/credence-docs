@@ -74,12 +74,18 @@ export const DOCS_REGISTRY = [
       { id: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet", title: "10. Reusable Live E2E & Mesh Gauntlet", path: "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet.md", desc: "Run live rotating test suites across multi-category news corpora.", keywords: ["e2e", "gauntlet", "live", "testing", "rotating", "corpus"] },
       { id: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition", title: "11. Node Germination & Swarm Ignition", path: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition.md", desc: "5-second node germination: keys, genesis inoculation, and burst auditing.", keywords: ["germination", "genesis", "miracle-gro", "ignition", "bootstrap", "seeds"] },
       { id: "docs/tutorials/12-climbing-the-epistemic-tiers", title: "12. Climbing the Epistemic Tiers", path: "docs/tutorials/12-climbing-the-epistemic-tiers.md", desc: "Earn empirical expertise, build domain authority, and climb P2P leaderboards.", keywords: ["tiers", "reputation", "leaderboard", "expertise", "quality", "rank"] },
-      { id: "docs/tutorials/13-discord-alerting-and-basement-monitoring", title: "13. Discord Alerts & Basement Ops", path: "docs/tutorials/13-discord-alerting-and-basement-monitoring.md", desc: "Setup real-time Discord webhook notifications for breaking high-suspicion stories.", keywords: ["discord", "webhook", "alerts", "monitoring", "basement", "notifications"] }
+      { id: "docs/tutorials/13-discord-alerting-and-basement-monitoring", title: "13. Discord Alerts & Basement Ops", path: "docs/tutorials/13-discord-alerting-and-basement-monitoring.md", desc: "Setup real-time Discord webhook notifications for breaking high-suspicion stories.", keywords: ["discord", "webhook", "alerts", "monitoring", "basement", "notifications"] },
+      { id: "docs/tutorials/14-operator-security-and-admin-workstation", title: "14. Operator Security & Admin Workstation", path: "docs/tutorials/14-operator-security-and-admin-workstation.md", desc: "Bootstrapping operator authentication, managing AI cost budgets, and operating the Web Admin Command Deck.", keywords: ["operator", "security", "admin", "workstation", "oauth", "oidc", "token", "budget", "emergency stop", "tutorial"] }
     ]
   },
   {
     category: "Developer Cookbooks",
     items: [
+            { id: "docs/cookbooks/hetzner-vps-and-systemd-setup", title: "Hetzner VPS & systemd Daemon Setup", path: "docs/cookbooks/hetzner-vps-and-systemd-setup.md", desc: "Deploying autonomous 24/7 background daemons on low-cost VPS.", keywords: ["hetzner", "systemd", "vps", "daemons", "cookbook"] },
+      { id: "docs/cookbooks/local-dev-to-cloud-run-workflow", title: "Local Dev to Cloud Run Workflow", path: "docs/cookbooks/local-dev-to-cloud-run-workflow.md", desc: "Fast iteration loops from local poetry test to production Cloud Run.", keywords: ["cloudrun", "workflow", "local dev", "deploy", "cookbook"] },
+      { id: "docs/cookbooks/aws-and-flyio-deployment", title: "AWS & Fly.io Deployment Recipes", path: "docs/cookbooks/aws-and-flyio-deployment.md", desc: "Container deployment recipes for alternate multi-cloud providers.", keywords: ["aws", "flyio", "cloud", "deployment", "cookbook"] },
+      { id: "docs/cookbooks/edge-caching-browser-extension", title: "Edge Caching & Browser Extension", path: "docs/cookbooks/edge-caching-browser-extension.md", desc: "Configuring cache-control headers and extension background sync.", keywords: ["cache", "extension", "edge", "cookbook"] },
+      { id: "docs/cookbooks/multi-tenant-org-subdomain-federation", title: "Multi-Tenant Org Subdomain Federation", path: "docs/cookbooks/multi-tenant-org-subdomain-federation.md", desc: "Configuring white-label custom domain federation routing.", keywords: ["federation", "subdomains", "orgs", "cookbook"] },
       { id: "docs/cookbooks/agentic-epistemic-brake", title: "Agentic Epistemic Brake", path: "docs/cookbooks/agentic-epistemic-brake.md", desc: "Halting LLM agent action loops when grounded confidence falls below threshold.", keywords: ["brake", "langgraph", "crewai", "agent", "guardrail", "action"] },
       { id: "docs/cookbooks/taxonomy-engineering", title: "Taxonomy Rule Engineering 101", path: "docs/cookbooks/taxonomy-engineering.md", desc: "How to author custom namespaced YAML taxonomy catalogs with test suites.", keywords: ["yaml", "taxonomy", "rules", "authoring", "ethics", "fallacies"] },
       { id: "docs/cookbooks/morning-feed-sifter", title: "Automated Morning Feed Sifter", path: "docs/cookbooks/morning-feed-sifter.md", desc: "Cron recipe for scheduled morning news sifting and markdown briefings.", keywords: ["cron", "sifter", "morning", "automation", "briefing", "schedule"] },
@@ -97,6 +103,12 @@ export const DOCS_REGISTRY = [
   {
     category: "Specialized Industry Blueprints",
     items: [
+            { id: "docs/blueprints/security-architecture-and-threat-model", title: "Security Architecture & Threat Model", path: "docs/blueprints/security-architecture-and-threat-model.md", desc: "Dual-crypto conformance, RFC 8785 canonical bytes, key custody, and threat mitigation.", keywords: ["security", "threat model", "ed25519", "rfc8785", "crypto", "blueprint"] },
+      { id: "docs/blueprints/dual-environment-project-and-domain-isolation", title: "Dual-Environment Project & Domain Isolation", path: "docs/blueprints/dual-environment-project-and-domain-isolation.md", desc: "Least-privilege WIF authentication and dev/prod environment boundaries.", keywords: ["environments", "dev", "prod", "isolation", "wif", "gcp"] },
+      { id: "docs/blueprints/high-efficiency-scaling-and-resiliency", title: "High-Efficiency Scaling & Resiliency", path: "docs/blueprints/high-efficiency-scaling-and-resiliency.md", desc: "Scale-to-zero container optimization and sub-850ms germination.", keywords: ["scaling", "resiliency", "cold start", "scale to zero", "performance"] },
+      { id: "docs/blueprints/sovereign-data-gravity-and-cas-portability", title: "Sovereign Data Gravity & CAS Portability", path: "docs/blueprints/sovereign-data-gravity-and-cas-portability.md", desc: "Content-addressed storage and decentralized blob synchronization.", keywords: ["cas", "storage", "data gravity", "sqlite", "sync"] },
+      { id: "docs/blueprints/universal-4-way-parity-and-environment-governance", title: "Universal 4-Way Parity & Environment Governance", path: "docs/blueprints/universal-4-way-parity-and-environment-governance.md", desc: "Feature parity across CLI, FastMCP, TUI, and Web interfaces.", keywords: ["parity", "governance", "4-way", "cli", "tui", "mcp", "web"] },
+      { id: "docs/blueprints/zero-build-edge-routing-and-subdomain-dispatch", title: "Zero-Build Edge Routing & Subdomain Dispatch", path: "docs/blueprints/zero-build-edge-routing-and-subdomain-dispatch.md", desc: "Multi-domain Cloudflare edge dispatch with zero build dependencies.", keywords: ["edge", "routing", "cloudflare", "subdomains", "zero-build"] },
       { id: "docs/blueprints/health-medical-claims", title: "Medical & Health Claims", path: "docs/blueprints/health-medical-claims.md", desc: "Evaluating clinical trials, in vitro extrapolation, and unproven treatments.", keywords: ["medical", "health", "clinical", "trials", "in vitro", "claims", "science"] },
       { id: "docs/blueprints/election-civic-integrity", title: "Election & Civic Integrity", path: "docs/blueprints/election-civic-integrity.md", desc: "Auditing voting procedure misinformation, polling methodology, and civic claims.", keywords: ["election", "voting", "civic", "polls", "democracy", "misinformation"] },
       { id: "docs/blueprints/synthetic-media-provenance", title: "Synthetic AI & Media Provenance", path: "docs/blueprints/synthetic-media-provenance.md", desc: "C2PA metadata, pink slime news farm rings, and deepfake provenance detection.", keywords: ["c2pa", "deepfake", "synthetic", "pink slime", "media", "ai generated"] },
@@ -213,6 +225,16 @@ export const DOCS_REGISTRY = [
   {
     category: "Agentic Architecture & Sovereign AI",
     items: [
+            { id: "blog/blast-radius-containment-in-decentralized-networks", title: "Blast Radius Containment in Mesh Networks", path: "blog/blast-radius-containment-in-decentralized-networks.md", desc: "Decentralized containment of compromised nodes without cascading failures.", keywords: ["blog", "blast radius", "containment", "security", "mesh"] },
+      { id: "blog/the-beauty-of-hermetic-environments", title: "The Beauty of Hermetic Environments", path: "blog/the-beauty-of-hermetic-environments.md", desc: "Why bit-for-bit reproducible execution guarantees zero runtime surprises.", keywords: ["blog", "hermetic", "determinism", "reproducible", "environment"] },
+      { id: "blog/the-blue-checkmark-is-dead", title: "The Blue Checkmark is Dead", path: "blog/the-blue-checkmark-is-dead.md", desc: "Why cryptographic receipts replace centralized platform trust badges.", keywords: ["blog", "blue checkmark", "attestation", "identity", "receipts"] },
+      { id: "blog/the-domain-epistemic-index", title: "The Domain Epistemic Index", path: "blog/the-domain-epistemic-index.md", desc: "Why longitudinal publisher track records matter more than single audits.", keywords: ["blog", "dci", "epistemic index", "reputation", "publishers"] },
+      { id: "blog/the-economics-of-epistemic-headroom", title: "The Economics of Epistemic Headroom", path: "blog/the-economics-of-epistemic-headroom.md", desc: "Mathematical models for token preservation under adversarial burst traffic.", keywords: ["blog", "headroom", "tokens", "economics", "finops"] },
+      { id: "blog/case-study-astroturfing-entropy", title: "Case Study: Astroturfing Entropy", path: "blog/case-study-astroturfing-entropy.md", desc: "Detecting coordinated deceptive funnels across affiliate syndication networks.", keywords: ["blog", "astroturfing", "entropy", "case study", "detection"] },
+      { id: "blog/conflict-of-pun-terest", title: "Conflict of Pun-terest", path: "blog/conflict-of-pun-terest.md", desc: "The InMaricopa case study: local journalism ethics and satire boundaries.", keywords: ["blog", "inmaricopa", "satire", "ethics", "local news"] },
+      { id: "blog/red-teaming-the-truth-badge", title: "Red-Teaming the Truth Badge", path: "blog/red-teaming-the-truth-badge.md", desc: "Simulating adversarial attacks against vector Web Component trust badges.", keywords: ["blog", "red team", "badges", "security", "attacks"] },
+      { id: "blog/the-art-of-not-over-engineering-ai-trust", title: "The Art of Not Over-Engineering AI Trust", path: "blog/the-art-of-not-over-engineering-ai-trust.md", desc: "Why simple, verifiable heuristics outperform complex black-box architectures.", keywords: ["blog", "simplicity", "heuristics", "trust", "engineering"] },
+      { id: "blog/the-cart-before-the-horse-invariant", title: "The Cart-Before-the-Horse Invariant", path: "blog/the-cart-before-the-horse-invariant.md", desc: "Why test gauntlets must strictly precede narrative claims.", keywords: ["blog", "order of operations", "invariants", "testing", "methodology"] },
       { id: "blog/the-buzzfeed-news-doctrine", title: "The BuzzFeed News Doctrine", path: "blog/the-buzzfeed-news-doctrine.md", desc: "How autonomous trust networks handle redemption without blindspots, exponential backoff, and the 2021 Pulitzer Prize.", keywords: ["blog", "buzzfeed", "doctrine", "redemption", "quarantine", "pulitzer", "asymmetric", "reputation"] },
       { id: "blog/gazing-into-the-abyss-adversarial-boredom", title: "Gazing into the Abyss: Adversarial Boredom", path: "blog/gazing-into-the-abyss-adversarial-boredom.md", desc: "Empirical findings from 13-node mesh simulations, HRW stampede elimination, and the zero-token slop firewall.", keywords: ["blog", "mesh", "boredom", "adversarial", "hrw", "simulation", "stampede", "slop"] },
       { id: "blog/the-boredom-engine-and-expanding-roots", title: "The Boredom Engine & Expanding Roots", path: "blog/the-boredom-engine-and-expanding-roots.md", desc: "How autonomous nodes self-direct epistemic discovery from idle token headroom and clean citation soil.", keywords: ["blog", "boredom", "roots", "citation soil", "discovery", "p2p", "mesh", "opportunistic", "tokens"] },
@@ -3793,9 +3815,26 @@ export function renderGlobalFooter() {
 
 export async function loadDocument(docId, anchorId = '') {
   let target = null;
+  const cleanId = (docId || '').trim();
+  const cleanSlug = cleanId.replace(/^blog\//, '').replace(/^docs\//, '').replace(/\.md$/, '');
+
   for (const group of DOCS_REGISTRY) {
     for (const item of group.items) {
-      if (item.id === docId) {
+      const itemId = item.id;
+      const itemSlug = itemId.replace(/^blog\//, '').replace(/^docs\//, '').replace(/\.md$/, '');
+      const itemPath = (item.path || '').replace(/\.md$/, '');
+      
+      if (
+        itemId === cleanId ||
+        itemId === `blog/${cleanId}` ||
+        itemId === `docs/${cleanId}` ||
+        itemSlug === cleanSlug ||
+        itemPath === cleanId ||
+        itemPath === `docs/${cleanId}` ||
+        itemPath === `blog/${cleanId}` ||
+        itemId.endsWith(`/${cleanId}`) ||
+        itemId.endsWith(`/${cleanSlug}`)
+      ) {
         target = item;
         break;
       }

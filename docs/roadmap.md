@@ -108,6 +108,7 @@ Our live dev/prod deployments, Golden 12 cross-profile benchmarks, and bicameral
   - Optional `--session-cookie`, `--browser-profile`, or custom headers for auditing content behind subscriber paywalls.
 
 ### Horizon 2: Protocol & Interactive Tooling
+
 - **"DRADIS-is-Blind" Visual Verification Mode (`credence audit --visual-confirm` & `credence tui --eyeball`)**:
   - Dedicated visual verification mode in the CLI and Textual TUI displaying high-contrast side-by-side claim vs source DOM diffs for human-in-the-loop review (*The Mk1 Eyeball Invariant*).
 - **W3C Decentralized Identifier (`did:key` & `did:web`) Support**:

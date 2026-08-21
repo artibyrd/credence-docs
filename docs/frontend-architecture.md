@@ -40,7 +40,30 @@ When an auditor or reader inspects a report at `https://credence.report/viewer.h
 
 ---
 
-## 4. W3C Standards & External Documentation
+## 4. SPA Workstations & Command Rail Deck Architecture
+
+Across **`credence.report`**, **`credence.nexus`**, and **`credence.foundation`**, the web architecture operates as high-performance **Zero-Build Single Page Workstations (SPAs)** that emulate the speed and tactile ergonomics of the **Textual TUI Workstation** (`credence tui`):
+
+- **Command Rail Deck Architecture (`.deck-shell` & `.deck-rail`)**:
+  - Eliminates horizontal tab wrapping across variable viewports by structuring views into a vertical, non-wrapping **Left Command Rail** (`.deck-rail`) on desktop, collapsing smoothly to an off-canvas swipeable drawer on mobile.
+  - **3-Tier Tactile Hierarchy**:
+    1. **Top Elevated Global Hub (`.deck-rail-global`)**: High-contrast, dark-slate station box that switches between ecosystem domains (`Home`, `Reports`, `Nexus`, `Foundation`, `Docs`).
+    2. **Middle Local Workspaces (`.deck-rail-local`)**: Dedicated numbered view selectors (`[1]–[5]`) and domain presets that switch internal stage panels without reloading.
+    3. **Bottom Pinned Admin Cockpit (`.deck-rail-admin-footer`)**: Direct access to the **Operator Admin Deck** (`credence.nexus#admin`) pinned at the base of every workstation rail.
+- **Unified Framed Card Paradigm ("The Sovereign Console Lane")**:
+  - Resolves visual inconsistency by housing all workstation components within a structured, framed bounding box (`.deck-card`, `.metric-card`, `.ws-table-container`) with consistent padding, dark-slate backgrounds, and subtle header bars.
+  - Eliminates unbordered, floating orphaned text blocks for a unified cockpit aesthetic.
+- **Shared Workstation Controller (`assets/credence-workstation.js`)**:
+  - Global hotkeys (`1-5` workspace rail switching, `/` search focus, `v` epistemic lensing cycle, `r` random discovery, `?` shortcuts cheat sheet, `Esc` dismiss).
+  - TUI Monospace HUD Mode (`t` toggle) providing high-contrast green phosphor terminal aesthetics with zero build overhead.
+  - Transparent Operator Session Interceptor (`fetchWithAuth`) that attaches Bearer tokens and handles 401 challenges seamlessly.
+- **Public Transparency vs. Admin Gating**:
+  - All telemetry, topology graphs, leaderboards, and audit views remain 100% unrestricted and publicly readable.
+  - Mutating operations (budget controls, emergency stops, sifter cycles, and germination bursts) are securely gated behind the **Operator Command Deck** (`credence.nexus#admin`).
+
+---
+
+## 5. W3C Standards & External Documentation
 
 ### 📚 Official Web Standards Specifications
 * **W3C Standards**: [W3C Web Cryptography API Specification](https://www.w3.org/TR/WebCryptoAPI/) &bull; [MDN Web Crypto API Guide](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)

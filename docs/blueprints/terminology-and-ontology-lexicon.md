@@ -171,14 +171,10 @@ pie title Credence Vocabulary Complexity Distribution
 2. **Replaced SEO-Confusing "Domain Authority" with "Expertise-Weighted Consensus"**:
    - Eliminates ambiguity with commercial Moz/Ahrefs SEO metrics in favor of pure node-level subject authority ($E_i$).
 3. **Harmonized Coined Jargon with Clear Plain-Language Aliases**:
-   - *Adversarial Boredom* $
-ightarrow$ Accessible alias: **Autonomous Curiosity Loop**.
-   - *Poe's Law Satire Cloak* $
-ightarrow$ Accessible alias: **Humor Shield & Malice Override**.
-   - *The BuzzFeed News Doctrine* $
-ightarrow$ Subtitle: **The Newsroom Partition Principle**.
-   - *Epistemic Verbatim Grounding* $
-ightarrow$ Accessible alias: **Exact Quote Grounding**.
+   - *Adversarial Boredom* $\rightarrow$ Accessible alias: **Autonomous Curiosity Loop**.
+   - *Poe's Law Satire Cloak* $\rightarrow$ Accessible alias: **Humor Shield & Malice Override**.
+   - *The BuzzFeed News Doctrine* $\rightarrow$ Subtitle: **The Newsroom Partition Principle**.
+   - *Epistemic Verbatim Grounding* $\rightarrow$ Accessible alias: **Exact Quote Grounding**.
 
 ---
 
@@ -189,10 +185,21 @@ ightarrow$ Accessible alias: **Exact Quote Grounding**.
 | **The Information Pyramid** | 3-Tier Information Pyramid | Progressive Epistemic Hierarchy | Cognitive Load Inverse Density Invariant | 🏛️ Sovereign Governance | `credence.web`, `credence.cli` |
 | **Epistemic Lensing ("Enhance!")** | Zoom & Enhance Control | Epistemic Lensing Engine | Tri-Focal Dynamic Resolution Function | 🔭 Optical Grounding | `credence.web.lensing`, `credence.tui` |
 | **DOM Extraction Scrubber** | Badge Filter & Rescore Bypass | DOM Extraction Scrubber (`[data-credence-ignore]`) | Invariant Ingestion Sanitizer | ⚡ Self-Regulating Engine | `credence.ingestion.extractor` |
-| **Temporal Score Trajectory** | Score History Timeline | Temporal Score Trajectory ($\Delta S_t$) | Discrete Epistemic Score Velocity Vector ($ec{\Delta S}$) | 🔭 Optical Grounding | `credence.storage.revisions` |
+| **Temporal Score Trajectory** | Score History Timeline | Temporal Score Trajectory ($\Delta S_t$) | Discrete Epistemic Score Velocity Vector ($\vec{\Delta S}$) | 🔭 Optical Grounding | `credence.storage.revisions` |
 | **Content Evolution Forensics** | Stealth Edit & Correction Detector | Content Evolution Forensic Engine | Differential SimHash Mutation Classifier | 🌤️ Meteorological Epistemics | `credence.pipeline.evaluator` |
 | **Dogfood Attestation** | Docs Self-Audit / Practice What We Preach | Self-Audited Provenance (`audit-docs`) | Reflexive Cryptographic Attestation Invariant | 🏛️ Sovereign Governance | `credence.cli.commands.docs_audit` |
 | **Differential Dogfooding** | Smart Docs Re-check | Differential CI/CD Dogfood Engine | Git Tree Delta-Driven Attestation Loop | ⚡ Self-Regulating Engine | `.github/workflows` |
 | **Order-of-Operations Invariant** | Dependency Order Check / Cart Before Horse | Order-of-Operations Dependency Law | Directed Acyclic Execution Dependency Law | 🏛️ Sovereign Governance | `AGENTS.md`, `tests.governance` |
 | **Live DOM Hash Attestation** | Real-Time Badge Verification | Client-Side In-Browser DOM Attestation | Browser WebCrypto Live NFKC Hash Gate | 🔭 Optical Grounding | `credence.web.assets` |
 | **Badge Abuse Neutralization** | Anti-Tamper Badge Defenses | Adversarial Badge Evasion Defense | Cryptographic Origin & Live Hash Binding | 🔭 Optical Grounding | `credence.web.assets` |
+
+---
+
+## 7. New Terms Coined in v2.2.0: Operator Security & SPA Workstation Architecture (4 Terms)
+
+| Concept | 🟢 Level 1 (Plain / Everyday) | 🟡 Level 2 (Engineering / Protocol) | 🔴 Level 3 (Formal / Mathematical) | Thematic Family | Subsystem |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Public Transparency vs. Admin Gating** | Public Reading / Zero Login Wall | Public Read Transparency Invariant | Dual-Plane Access Control & Authorization Membrane | 🏛️ Sovereign Governance | `credence.server.middleware.security` |
+| **Admin Command Deck** | Operator Cockpit / Admin Dashboard | Web Admin Command Deck (`credence.nexus#admin`) | Gated Node Telemetry & Mutative Operational Control Cockpit | ⚡ Self-Regulating Engine | `credence.nexus`, `credence.server` |
+| **Pluggable Operator Auth** | Operator Login (Keys & Google/GitHub) | Pluggable 3-Mode Operator Authentication | Multi-Provider Cryptographic Identity & OIDC Federation Gate | 🏛️ Sovereign Governance | `credence.server.api.system` |
+| **Zero-Build SPA Workstations** | Full-Screen Browser Workstation / TUI Mode | Zero-Build SPA Workstation Architecture | Vanilla ES Module & Custom Property Terminal State Engine | 🔭 Optical Grounding | `credence.web.assets` |

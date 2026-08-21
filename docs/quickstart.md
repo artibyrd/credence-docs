@@ -63,8 +63,10 @@ docker run -d -p 8000:8000 ghcr.io/artibyrd/credence:latest
 
 ---
 
-## 2. API Key Configuration (Optional)
+<a id="2-api-key-configuration-optional"></a>
+## 2. API Key Configuration & Operator Security (Optional)
 
+### Multi-Agent LLM Reasoning (Gemini 3.7 Flash)
 Credence uses **Gemini 3.7 Flash** by default for deep multi-agent evaluation. Set your API key in your shell environment:
 
 ```bash
@@ -72,6 +74,17 @@ export CREDENCE_GEMINI_API_KEY="your-gemini-api-key"
 ```
 
 > 💡 **Zero-Cost / Offline Heuristics**: If no API key is provided, Credence automatically runs in **100% offline heuristic mode** ($0.00 spend) using structural rules.
+
+### Operator Admin Key & Browser Command Deck
+To administer your local or cloud node via the browser **Admin Command Deck** (`https://credence.nexus#admin`) or pass mutating REST API calls:
+
+```bash
+# 1-Command bootstrap: generates secure token in .env
+just auth-bootstrap local
+
+# Print active operator token for browser unlock
+just auth-token
+```
 
 ---
 

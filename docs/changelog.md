@@ -14,9 +14,9 @@ All notable changes to the **Credence** network and documentation are documented
 
 ### Sovereign Essay: Scoring the Lens, Not the Window
 - **Published Sovereign Investigative Essay**:
-  - Published [`blog/scoring-the-lens-not-the-window.md`](blog/scoring-the-lens-not-the-window.md) detailing why exposés of unethical journalism score **100.0 Pristine** on Credence through containerized discourse boundaries (`SPJ-1.6`), verbatim grounding ($G=1.00$), and high Shannon entropy ($H \ge 0.30$).
+  - Published [`blog/scoring-the-lens-not-the-window.md`](../blog/scoring-the-lens-not-the-window.md) detailing why exposés of unethical journalism score **100.0 Pristine** on Credence through containerized discourse boundaries (`SPJ-1.6`), verbatim grounding ($G=1.00$), and high Shannon entropy ($H \ge 0.30$).
 - **InMaricopa Case Study Sidenote**:
-  - Added an explanatory callout to [`blog/conflict-of-pun-terest.md`](blog/conflict-of-pun-terest.md) explaining how the article's epistemic integrity earns full safe-harbor credit despite reporting on bad journalism.
+  - Added an explanatory callout to [`blog/conflict-of-pun-terest.md`](../blog/conflict-of-pun-terest.md) explaining how the article's epistemic integrity earns full safe-harbor credit despite reporting on bad journalism.
 
 ---
 
