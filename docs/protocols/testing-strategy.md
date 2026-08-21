@@ -19,14 +19,13 @@ interfaces:
 - Textual TUI
 - Zero-Build Web UI
 invariants:
-- 4
-- 5
-- 23
-- 26
-- 31
-- 35
-- 36
-difficulty: Intermediate
+- inv-hermetic-testing
+- inv-scoped-verification
+- inv-heuristic-disclosure
+- inv-empirical-expertise
+- inv-zero-build-standards
+- inv-visual-density
+- inv-playwright-rendering-testsdifficulty: Intermediate
 read_time: 12 min
 ---
 

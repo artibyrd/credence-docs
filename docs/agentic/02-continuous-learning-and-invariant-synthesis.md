@@ -3,8 +3,8 @@ title: 'Continuous Learning with /learn: Codifying Edge Cases into Machine Invar
 description: How post-mortems and edge-case discoveries during Credence development
   are codified via /learn into permanent, machine-verifiable rules in AGENTS.md.
 since_version: v1.0.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.3.0
+last_verified: 2026-08-21
 tags:
 - antigravity
 - learn
@@ -15,12 +15,11 @@ interfaces:
 - CLI
 - Python SDK
 invariants:
-- 3
-- 18
-- 34
-- 35
-- 36
-difficulty: Intermediate
+- inv-version-governance
+- inv-progressive-disclosure
+- inv-mermaid-syntax-safety
+- inv-visual-density
+- inv-playwright-rendering-testsdifficulty: Intermediate
 read_time: 6 min
 ---
 
@@ -45,9 +44,9 @@ flowchart LR
 When delivering features and capturing edge cases during pair-programming, Credence follows a disciplined 4-phase progression:
 
 1. **Phase 1: Code, Local QA & Mk1 Eyeball Review**: Implement capabilities, verify via `just check` (<0.3s integrity tests and in-memory unit tests), and present the working-tree diff and explicit target version for human inspection ("Mk1 Eyeball").
-2. **Phase 2: Feature Version Release**: Commit with a clean working tree (`git diff --quiet`), synchronize manifests, tag, push to origin, and verify live cloud deployments (e.g. `v1.23.0`).
+2. **Phase 2: Feature Version Release**: Commit with a clean working tree (`git diff --quiet`), synchronize manifests, tag, push to origin, and verify live cloud deployments (e.g. `v2.3.0`).
 3. **Phase 3: `/learn` Retrospective**: Analyze session discoveries, user feedback, and security constraints to draft `learning_proposal.md`.
-4. **Phase 4: Apply Lessons as Patch Release**: Apply the codified rules to `AGENTS.md` and `.agents/skills/`, add shift-left contract tests in `tests/`, bump to the next patch version (e.g. `v1.23.1`), and execute the learning patch release.
+4. **Phase 4: Apply Lessons as Patch Release**: Apply the codified rules to `AGENTS.md` and `.agents/skills/`, add shift-left contract tests in `tests/`, bump to the next patch version (e.g. `v2.3.1`), and execute the learning patch release.
 
 ---
 
@@ -78,5 +77,12 @@ Make sure diagrams look nice and documentation is easy to read.
 ```
 :::
 
+---
+
+## 4. Invariant Mutability & The Demotion Highway
+
+Newly synthesized invariants enter the **Invariant Lifecycle** and are categorized into the **Class α / β / γ Cognitive Taxonomy**. Once deterministic test tooling is authored to enforce a rule automatically, the rule is graduated via the [Demotion Highway](06-the-demotion-highway-and-invariant-lifecycle.md) out of prompt context into automated unit test gates.
+
 > [!TIP]
 > Never let an agent repeat a mistake twice. Whenever a correction is made, trigger `/learn` to cement the behavior permanently.
+

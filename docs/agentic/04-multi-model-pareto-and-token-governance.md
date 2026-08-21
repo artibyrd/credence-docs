@@ -16,12 +16,11 @@ interfaces:
 - FastMCP 2.0
 - Python SDK
 invariants:
-- 7
-- 8
-- 9
-- 15
-- 23
-difficulty: Advanced
+- inv-multi-model-sovereignty
+- inv-ssrf-defense
+- inv-ingestion-defense
+- inv-4k-thinking-budget
+- inv-heuristic-disclosuredifficulty: Advanced
 read_time: 9 min
 ---
 

@@ -20,11 +20,10 @@ interfaces:
 - Zero-Build Web UI
 - Textual TUI
 invariants:
-- 12
-- 14
-- 16
-- 30
-difficulty: Advanced
+- inv-fastmcp-transport-security
+- inv-edge-origin-header
+- inv-fastmcp-datetime-serialization
+- inv-4way-feature-paritydifficulty: Advanced
 read_time: 8 min
 ---
 

@@ -4,8 +4,8 @@ description: How human-agent pair programming with Google Antigravity accelerate
   complex software engineering through planning mode, asynchronous background tasks,
   and human gating.
 since_version: v1.0.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.3.0
+last_verified: 2026-08-21
 tags:
 - antigravity
 - pair-programming
@@ -17,11 +17,10 @@ interfaces:
 - FastMCP 2.0
 - Python SDK
 invariants:
-- 1
-- 4
-- 6
-- 18
-difficulty: Intermediate
+- inv-workspace-isolation
+- inv-hermetic-testing
+- inv-mk1-eyeball
+- inv-progressive-disclosuredifficulty: Intermediate
 read_time: 7 min
 ---
 
@@ -96,15 +95,58 @@ sequenceDiagram
 
 ---
 
-## 3. Subagent Delegation: Research vs Coding
+## 3. Declarative Subagent Delegation & Role Specialization
 
-For broad surveys of large codebases, Antigravity delegates exploration to specialized subagents:
+For multi-agent workflows, Credence declares specialized subagents configured with targeted system prompts and scoped permission sets (`credence-agent/templates/subagents/`):
 
-| Agent Type | Capabilities | Typical Use Cases |
+| Subagent Role | Mode | Focus & Key Directives |
 | :--- | :--- | :--- |
-| **`research`** | Read-only tools, web search, file view | Deep taxonomy searches, dependency audits |
-| **`self`** | Inherited tools, edit, write, run | Multi-repo sync, release coordination |
-| **`cortex`** | Core planner, artifact authoring | Implementation plans, walkthroughs, review |
+| **`epistemic-auditor`** | `inherit` (Read-only) | Validates $G=1.00$ verbatim grounding, Ed25519 canonical JSON signatures, and SPJ scoring. |
+| **`refactor-sentinel`** | `branch` (Worktree) | Enforces the 500 LOC Ceiling Law, function splitting, and `compute_*` naming standards. |
+| **`docs-sync-agent`** | `inherit` (Read/Write) | Synchronizes `DOCS_REGISTRY` (`app.js`), `sitemap.md`, and changelogs. |
+
+---
+
+## 4. Turnkey Developer Preflight Loop
+
+To ensure instantaneous developer feedback, all agentic rules and skill schemas are verified with a sub-second check:
+
+```bash
+just agent-check
+```
+
+---
+
+## 5. Incremental Atomic Commits & Branch-PR Staging Lifecycle
+
+To prevent high-risk monolithic commits and ensure verifiable step-by-step progress, Credence pair programming follows an **Incremental Commit & Branch-PR Staging Architecture**:
+
+```mermaid
+flowchart LR
+    subgraph FeatureWork ["1. Feature Branch"]
+        B["just branch feat/..."] --> C1["Milestone 1 Commit"]
+        C1 --> C2["Milestone 2 Commit"]
+    end
+
+    subgraph StagingPR ["2. Pull Request & Dev Cloud"]
+        C2 --> PR["just pr create<br/>(PR opened / pushed)"]
+        PR --> Dev["Auto-Deploy to Cloud Run DEV<br/>(credence-dev-495173)"]
+    end
+
+    subgraph Production ["3. PR Merge & Prod Cloud"]
+        PR --> Merge["just pr merge<br/>(Merge to main)"]
+        Merge --> Prod["Auto-Deploy to Cloud Run PROD<br/>(credence-prod-505902)"]
+        Merge --> Edge["Auto-Deploy Cloudflare Edge Router<br/>(credence.run)"]
+    end
+```
+
+### Core Release Rules:
+1. **Commit-as-You-Go**: Changes are committed as discrete, tested units (`just commit "<message>"`) throughout the session after each test gate passes, rather than batched into one massive release commit.
+2. **Feature Branch Isolation**: Active development occurs on dedicated feature branches (`just branch <name>`) across all ecosystem repositories.
+3. **Automated Dev Cloud Staging**: Opening a Pull Request or pushing new commits automatically triggers `deploy-dev.yml` to deploy live previews to `credence-dev-495173`.
+4. **Automated Production Release on Merge**: Merging the PR into `main` automatically triggers `deploy-backend.yml` and `deploy-edge.yml` to deploy to `credence-prod-505902` and Cloudflare Pages.
 
 > [!TIP]
-> Use read-only `research` subagents when auditing large codebases to prevent polluting the main agent's working context memory.
+> Use read-only `epistemic-auditor` subagents when auditing large codebases to prevent polluting the main agent's working context memory.
+
+

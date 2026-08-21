@@ -267,6 +267,11 @@ The repository provides a single canonical parameterized operator command family
 | `just gcp rollback <revision>` | Safe Revert | Rolls back 100% traffic allocation to a previous healthy revision. |
 | `just deploy backend` | Safe Deploy | Submits container build via Cloud Build, deploys to Cloud Run, and executes health probe. |
 
+> [!WARNING]
+> **Local Production Deployment Safety Gate**:
+> Running local production deployments (`just deploy prod`, `just deploy backend prod`, `just deploy all`, or `just edge deploy`) triggers a safety confirmation prompt requiring the operator to explicitly type `DEPLOY-PROD`. Production releases should standardly be executed via GitHub Actions PR merges to `main`. For non-interactive troubleshooting scripts, pass `FORCE_PROD_DEPLOY=true`.
+
+
 ---
 
 ## 7. Scale-to-Zero Cold Start Optimization & SRE Tuning

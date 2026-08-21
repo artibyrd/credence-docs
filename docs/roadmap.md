@@ -2,8 +2,8 @@
 title: Ecosystem Roadmap & Architecture Horizons
 description: Sovereign in-tree tracker for verified foundation milestones, operational edge cases, and future architecture horizons across the Credence ecosystem.
 since_version: v1.0.0
-verified_version: v2.2.2
-last_verified: 2026-08-20
+verified_version: v2.3.0
+last_verified: 2026-08-21
 tags:
 - roadmap
 - backlog
@@ -16,12 +16,11 @@ interfaces:
 - Textual TUI
 - Zero-Build Web UI
 invariants:
-- 1
-- 4
-- 11
-- 26
-- 31
-difficulty: Intermediate
+- inv-workspace-isolation
+- inv-hermetic-testing
+- inv-ground-truth-config
+- inv-empirical-expertise
+- inv-zero-build-standardsdifficulty: Intermediate
 read_time: 7 min
 ---
 
@@ -31,7 +30,7 @@ This document serves as the **sovereign, in-repository source of truth** for ver
 
 ```mermaid
 flowchart TD
-    subgraph Foundation["Verified Stable Foundation (v2.2.0)"]
+    subgraph Foundation["Verified Stable Foundation (v2.3.0)"]
         F1["Dual-Tier Bicameral Engine & Pre-Flight Gate"]
         F2["Autonomous Boredom Engine & Epistemic Roots"]
         F3["White-Label Sovereign Org Scaffolding (credence init-org)"]
@@ -43,6 +42,7 @@ flowchart TD
         F9["Dynamic Live Swarm Telemetry & Playground Separation (v1.22.1)"]
         F10["Dual-Environment Least-Privilege WIF CI/CD (v1.23.0)"]
         F11["4-Phase Release & Learning Lifecycle Invariant (v1.23.1)"]
+        F12["Cognitive Hierarchy, Invariant Challenger & Staging PRs (v2.3.0)"]
     end
 
 
