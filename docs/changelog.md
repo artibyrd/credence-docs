@@ -10,6 +10,13 @@ last_verified: 2026-08-21
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.4.1] - 2026-08-21
+### Added & Enhanced
+- **Commit-as-Progress-Saves Workflow (`inv-incremental-commits-staging`)**: Codified immediate phase-by-phase commit cadence upon local QA gate passage, eliminating retrospective session-end commit batching.
+- **Proactive Modularization Invariant (`architecture-governance`)**: Added Day-1 subpackage structure guideline for complex subsystems (>300 LOC) to strictly uphold the 500 LOC Ceiling Law.
+- **Nested Dataclass/Pydantic Serialization**: Added recursive `.model_dump()` serialization rules for REST and FastMCP endpoints returning nested data models.
+- **7-Manifest Parity**: Synchronized all ecosystem manifests and web surfaces to `v2.4.1`.
+
 ## [2.4.0] - 2026-08-21
 
 ### 💾 Sovereign Backup Engine, Germination 2.0 & Epistemic Boredom Concurrency
