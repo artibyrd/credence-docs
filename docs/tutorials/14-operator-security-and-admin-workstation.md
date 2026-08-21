@@ -8,7 +8,7 @@ last_verified: 2026-08-20
 
 # Tutorial 14: Operator Security, Admin Bootstrapping & Workstation Operations 🛡️
 
-In this tutorial, you will configure **Operator Security & Authentication**, bootstrap admin keys across local, dev, and prod environments, and operate the **Web Admin Command Deck** (`https://credence.nexus#admin`) to govern AI cost budgets, trigger germination bursts, and manage background sifting daemons.
+In this tutorial, you will configure **Operator Security & Authentication**, bootstrap admin keys across local, dev, and prod environments, and operate the **Web Admin Command Cockpit** (`https://admin.credence.run`) to govern AI cost budgets, trigger germination bursts, and manage background sifting daemons.
 
 ---
 
@@ -72,28 +72,28 @@ CREDENCE_OAUTH_GOOGLE_CLIENT_ID="1234567890-xyz.apps.googleusercontent.com"
 
 ---
 
-## 3. Unlocking the Web Admin Command Deck
+## 3. Unlocking the Web Admin Command Cockpit
 
-1. Navigate to **`https://credence.nexus`** in your browser.
-2. Notice the top telemetry ribbon: `🔒 OPERATOR LOGIN`.
-3. Click the **Admin Command Deck** tab (`4. 🛠️ Admin`) or click the lock pill in the ribbon.
+1. Navigate to **`https://admin.credence.run`** in your browser (or `/admin.credence.run/` locally).
+2. The initial view displays the gated authentication card: `🔒 Operator Authentication Gated`.
+3. Click **`🔑 Authenticate with Operator Key`** to open the authentication modal.
 4. Paste your operator key (`cred_adm_...`) or sign in via Google Workspace.
-5. Once authenticated, the ribbon illuminates: `🔓 OPERATOR: ACTIVE`, unlocking all runtime controls.
+5. Once authenticated, the HUD illuminates: `🔓 OPERATOR MODE: ACTIVE`, unlocking all runtime controls and live telemetry feeds.
 
 ---
 
-## 4. Operating the Command Deck
+## 4. Operating the Command Cockpit
 
-Inside the unlocked **Admin Command Deck** (`credence.nexus#admin`), you have instant sovereign control:
+Inside the unlocked **Admin Command Cockpit** (`admin.credence.run`), you have instant sovereign control:
 
 ### ⚡ AI Token & Cost Governance
-- **Daily Budget Ceiling ($USD)**: Adjust daily spend limit (e.g. `$0.15`).
-- **Max Tokens / Hour**: Cap throughput to prevent unexpected traffic spikes.
-- **Cost Profile Switcher**: Switch on-the-fly between `OFFLINE`, `FREE`, `ECONOMY`, `BALANCED`, and `ULTRA`.
+- **Daily Budget Ceiling ($USD)**: Adjust daily spend limit via interactive range sliders (e.g. `$5.00`).
+- **Max Tokens / Hour**: Cap throughput to prevent unexpected traffic spikes (e.g. `100,000`).
+- **Cost Profile Switcher**: Switch on-the-fly between `Economy`, `Balanced`, and `Ultra`.
 - **Emergency Stop**: Instantly halt all model inference with 1 click.
 
 ### 🌱 Miracle-Gro Node Germination
-- Trigger rapid burst audits to seed the local SQLite database and verify WAL pipeline health.
+- Trigger rapid burst audits (1–25 batches) to seed the local SQLite database and verify WAL pipeline health.
 
 ### 📡 Feed Sifter & Boredom Daemons
 - Force an immediate sifter cycle across subscribed feeds.
@@ -108,11 +108,11 @@ When interacting with Credence programmatically or via CLI, pass your key via he
 
 ```bash
 # Authenticate REST API with Bearer token
-curl -X POST https://credence.nexus/api/cost/emergency-stop \
+curl -X POST https://admin.credence.run/api/cost/emergency-stop \
   -H "Authorization: Bearer $(just auth-token)"
 
 # Authenticate via custom header
-curl -X POST https://credence.nexus/api/germinate?burst=3 \
+curl -X POST https://admin.credence.run/api/germinate?burst=3 \
   -H "X-Credence-Admin-Key: $(just auth-token)"
 ```
 
@@ -125,4 +125,4 @@ curl -X POST https://credence.nexus/api/germinate?burst=3 \
 | **Local Token Generation** | `.env` updated | `just auth-bootstrap local` | ✅ Verified |
 | **Gated API Protection** | Returns 401 unauth | `curl -X POST http://localhost:8000/api/cost/budget` | ✅ Verified (401) |
 | **Authorized API Execution** | Returns 200 auth | `curl -X POST http://localhost:8000/api/auth/verify -H "Authorization: Bearer <key>"` | ✅ Verified (200) |
-| **Workstation Unlock** | Active session | Unlock `credence.nexus#admin` | ✅ Verified |
+| **Workstation Unlock** | Active session | Unlock `admin.credence.run` | ✅ Verified |
