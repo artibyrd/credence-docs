@@ -2,7 +2,7 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.2.1
+verified_version: v2.2.2
 last_verified: 2026-08-20
 ---
 
@@ -10,7 +10,21 @@ last_verified: 2026-08-20
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.2.2] - 2026-08-20
+
+### 🌿 Package Seeds & Authentic Case Study Restoration
+- **In-Package Genesis Seed Bundling (`credence/seeds/`)**:
+  - Bundled `genesis_attestations.json` directly into the Python package (`credence/seeds/genesis_attestations.json`) so Docker container builds (which exclude `web/`) reliably auto-germinate and inoculate fresh Cloud Run instances on cold boot with zero token spend.
+- **Conflict of Pun-terest Empirical Case Study Restoration**:
+  - Restored the complete 5-audit `inmaricopa.com` forensic dossier ($DCI = 48.5$, Tier C Watchlist / Regional Case Study) across `PUBLISHER_DATABASE`, `SAMPLE_DATABASE`, and `genesis_attestations.json`.
+  - Wired all 5 authentic case study articles (`copper-sky-land-sale-is-no-scandal`, `a-new-option-for-pigmentation-and-tattoo-removal`, `what-landlords-discover`, `bicyclist-dead-after-sr-347-crash`, `history-when-john-wayne-parkway-overpass-took-shape`) with exact grounded quotes and rule violations (`SPJ-3.1`, `SPJ-3.2`, `DEC-1.4`, `SPJ-3.3`, `SPJ-1.1`).
+- **Reports Static Catalog Regeneration**:
+  - Exported 346 audit reports to `web/credence.report/reports.json` synchronized with the SQLite database.
+
+---
+
 ## [2.2.1] - 2026-08-20
+
 
 ### 🛡️ Learning Retrospective: Viewport Bounds & Edge Invariant Synthesis
 - **Dense Workstation Viewport Bounds (Invariant 45)**:
