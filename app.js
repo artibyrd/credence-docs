@@ -3787,18 +3787,18 @@ export function renderGlobalFooter() {
             <h4>Operations</h4>
             <ul class="footer-links">
               <li><a href="https://admin.credence.run">Operator Admin</a></li>
-              <li><a href="#docs/playground">Interactive Playground</a></li>
               <li><a href="#docs/quickstart">Developer Quickstart</a></li>
               <li><a href="#docs/tutorials/05-fastmcp-tools-and-resources">FastMCP 2.0 Server</a></li>
+              <li><a href="#docs/tutorials/07-cloudrun-production-ops">Cloud Run &amp; WIF Ops</a></li>
             </ul>
           </div>
           <div class="footer-col">
-            <h4>Connect</h4>
+            <h4>Community &amp; Tools</h4>
             <ul class="footer-links">
+              <li><a href="#docs/playground">Interactive Playground</a></li>
+              <li><a href="#docs/topic-index">Topic Index Directory</a></li>
               <li><a href="https://github.com/artibyrd/credence" target="_blank" rel="noopener">GitHub Source</a></li>
               <li><a href="https://pypi.org/project/credence/" target="_blank" rel="noopener">PyPI Package</a></li>
-              <li><a href="#docs/roadmap">Ecosystem Roadmap</a></li>
-              <li><a href="#docs/changelog">Release Changelog</a></li>
             </ul>
           </div>
         </div>
