@@ -15,12 +15,11 @@ interfaces:
 - CLI
 - Python SDK
 invariants:
-- 3
-- 18
-- 34
-- 35
-- 36
-difficulty: Intermediate
+- inv-version-governance
+- inv-progressive-disclosure
+- inv-mermaid-syntax-safety
+- inv-visual-density
+- inv-playwright-rendering-testsdifficulty: Intermediate
 read_time: 6 min
 ---
 

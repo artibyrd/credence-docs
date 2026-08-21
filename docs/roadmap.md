@@ -16,12 +16,11 @@ interfaces:
 - Textual TUI
 - Zero-Build Web UI
 invariants:
-- 1
-- 4
-- 11
-- 26
-- 31
-difficulty: Intermediate
+- inv-workspace-isolation
+- inv-hermetic-testing
+- inv-ground-truth-config
+- inv-empirical-expertise
+- inv-zero-build-standardsdifficulty: Intermediate
 read_time: 7 min
 ---
 

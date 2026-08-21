@@ -16,12 +16,11 @@ interfaces:
 - Zero-Build Web UI
 - Python SDK
 invariants:
-- 4
-- 5
-- 13
-- 31
-- 36
-difficulty: Advanced
+- inv-hermetic-testing
+- inv-scoped-verification
+- inv-cloudflare-assets
+- inv-zero-build-standards
+- inv-playwright-rendering-testsdifficulty: Advanced
 read_time: 8 min
 ---
 

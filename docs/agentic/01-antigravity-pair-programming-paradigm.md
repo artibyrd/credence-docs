@@ -17,11 +17,10 @@ interfaces:
 - FastMCP 2.0
 - Python SDK
 invariants:
-- 1
-- 4
-- 6
-- 18
-difficulty: Intermediate
+- inv-workspace-isolation
+- inv-hermetic-testing
+- inv-mk1-eyeball
+- inv-progressive-disclosuredifficulty: Intermediate
 read_time: 7 min
 ---
 
