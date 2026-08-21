@@ -3798,7 +3798,7 @@ export function renderGlobalFooter() {
               <li><a href="#docs/playground">Interactive Playground</a></li>
               <li><a href="#docs/topic-index">Topic Index Directory</a></li>
               <li><a href="https://github.com/artibyrd/credence" target="_blank" rel="noopener">GitHub Source</a></li>
-              <li><a href="https://pypi.org/project/credence/" target="_blank" rel="noopener">PyPI Package</a></li>
+              <li><a href="#docs/changelog">Release Changelog</a></li>
             </ul>
           </div>
         </div>
