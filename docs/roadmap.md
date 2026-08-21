@@ -2,7 +2,7 @@
 title: Ecosystem Roadmap & Architecture Horizons
 description: Sovereign in-tree tracker for verified foundation milestones, operational edge cases, and future architecture horizons across the Credence ecosystem.
 since_version: v1.0.0
-verified_version: v2.1.1
+verified_version: v2.2.0
 last_verified: 2026-08-20
 tags:
 - roadmap
@@ -31,7 +31,7 @@ This document serves as the **sovereign, in-repository source of truth** for ver
 
 ```mermaid
 flowchart TD
-    subgraph Foundation["Verified Stable Foundation (v1.23.1)"]
+    subgraph Foundation["Verified Stable Foundation (v2.2.0)"]
         F1["Dual-Tier Bicameral Engine & Pre-Flight Gate"]
         F2["Autonomous Boredom Engine & Epistemic Roots"]
         F3["White-Label Sovereign Org Scaffolding (credence init-org)"]
@@ -62,17 +62,21 @@ flowchart TD
 
 ---
 
-## 1. Verified Stable Foundation (`v1.21.6`)
+## 1. Verified Stable Foundation (`v2.2.0`)
 
-The following major subsystems are fully implemented, hermetically tested, and running in production:
+The following major subsystems are fully implemented, hermetically tested, and running across the ecosystem:
 
-* 🟢 **Multi-Domain Edge Router & Universal Zero-Cache Policy (`v1.21.6`)**: Complete 18-route domain matrix across 4 zones, dynamic zero-cache proxying for `blog.credence.run` and `docs.credence.run`, dedicated root routing for seeds and keys, and automated Cloudflare zone cache purging.
-* 🟢 **Symmetric 4-Pillar Footer Architecture & 2x2 Docs Containment (`v1.21.5`)**: 4 balanced pillars with exactly 4 purposeful links per column across all 5 sovereign web surfaces, centered 2x2 docs card modules, and elimination of duplicate bottom links.
-* 🟢 **Bicameral Shadow Auditing & Controlled Pre-Flight Gate (`v1.19.0`)**: Automated dual-environment verification (`just config-verify`), differential auditing (`just experiment shadow-audit`), and empirical proof of **83.3% FinOps inference savings**.
-* 🟢 **Dual-GCP Hard Isolation & Multi-Domain Edge Router (`v1.18.0 - v1.18.2`)**: Dual-project Terraform infrastructure (`credence-dev` vs `credence-prod`), Cloudflare Anycast edge subdomain routing (`dev.credence.run`), and sub-2.5s scale-to-zero cold start optimization.
-* 🟢 **Autonomous Boredom Engine & Epistemic Root Expansion (`v1.16.0`)**: Opportunistic work-sharing, Token Safety Governor gating ($\ge 30\%$ headroom), citation soil harvesting, and automatic feed germination.
-* 🟢 **Sovereign White-Label Mesh Federation (`v1.15.0`)**: 1-command organization scaffolding (`credence init-org`), multi-cloud Terraform templates, and $3f+1$ Byzantine Sybil fault tolerance.
-* 🟢 **Universal 4-Way Feature Parity & Zero-npm Web Standard**: Synchronized parity across CLI, FastMCP 2.0 (`credence_` tools & `credence://` resources), Textual TUI, and zero-build web dashboards.
+* 🟢 **Sovereign Admin Domain & Operator Cockpit (`v2.2.0`)**: Standalone cyber-cockpit on `admin.credence.run`, timing-safe auth middleware, keyless Secret Manager integration, AI token spend ceilings, Miracle-Gro cold-start cache warming, and telemetry console feeds.
+* 🟢 **Reports Forensic Lab & 3-Tier Epistemic Lensing (`v2.2.0`)**: 3-tier epistemic lensing (Surface Glance, Focus Evidence, Deep Spectrum Crypto Proof), temporal SimHash-64 diffing, unified publisher dossiers catalog with Bayesian credibility vitals, and bidirectional state synchronization.
+* 🟢 **Restored 36 Canonical Epistemic Rules (`v2.2.0`)**: Strict mathematical immutability across exactly 13 SPJ Ethics, 15 IEP Fallacies, and 8 Deceptive Patterns with interactive filter triggers and zero artificial taxonomies.
+* 🟢 **Textual TUI Workstation Redesign (`v2.2.0`)**: Deep Slate styling (`#0b1120`), 3-tier lensing switcher (<kbd>v</kbd>), publisher dossiers tab, in-terminal Invariant Bible modal (<kbd>?</kbd> / <kbd>i</kbd>), and "Surprise Me" (<kbd>r</kbd>).
+* 🟢 **Dual-Plane Local Developer Stack (`v2.2.0`)**: `just dev`, `just preview`, `just preview-docs`, `just auth-bootstrap`, and automated developer onboarding.
+* 🟢 **Master Knowledge Modal Registry & Shift-Left Parity (`v2.2.0`)**: 28-topic knowledge catalog in `docs/topic-index.md` with automated test contracts verifying zero 404 links across the ecosystem.
+* 🟢 **Symmetric 4-Pillar Footer Architecture & 2x2 Containment (`v2.2.0`)**: Exactly 4 balanced pillars x 4 links across all 9 web surfaces, centered 2x2 docs cards, and elimination of unreleased placeholders.
+* 🟢 **Multi-Domain Edge Router & Universal Zero-Cache Policy (`v2.1.6`)**: Complete 18-route domain matrix across 4 zones, dynamic zero-cache proxying, and automated Cloudflare cache purging.
+* 🟢 **Bicameral Shadow Auditing & FinOps Inference Headroom (`v2.0.0`)**: Dual-environment shadow auditing proving **83.3% FinOps savings** and circuit breaker preservation.
+* 🟢 **P2P Watts-Strogatz Mesh Topology & Barbell Partition Testing (`v2.0.0`)**: 13-node Watts-Strogatz simulation, HRW feed rendezvous hashing, and $3f+1$ Byzantine Sybil fault tolerance.
+* 🟢 **Dual-Environment Least-Privilege WIF CI/CD & Push-and-Delegate Governance (`v2.1.3`)**: Keyless Workload Identity Federation across Dev and Prod with CI/CD deployment verification gates.
 
 ---
 

@@ -2,7 +2,7 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.1.1
+verified_version: v2.2.0
 last_verified: 2026-08-20
 ---
 
@@ -248,7 +248,7 @@ All notable changes to the **Credence** network and documentation are documented
 - **Documentation Deduplication & Single Source of Truth**:
   - Completely removed the redundant 114-file legacy mirror in `credence/docs/`, establishing **`credence-docs/` as the single canonical source of truth** across the entire ecosystem.
 - **Ecosystem-Wide Documentation Audit**:
-  - Verified and synchronized all 162 markdown files across `credence-docs/docs/` and `credence-docs/blog/` to `verified_version: v1.21.7`.
+  - Verified and synchronized all 162 markdown files across `credence-docs/docs/` and `credence-docs/blog/` to `verified_version: v2.2.0`.
   - Codified **Invariant 41** (Symmetric 4-Pillar Navigation & Zero-Cache Multi-Domain Edge Routing) in the Living Canon of System Invariants.
   - Updated operator guides, topology diagrams, and roadmap foundations with the 18-domain Cloudflare Edge Router matrix and zero-cache CDN policies.
 - **Server Telemetry Baseline Optimization**:
