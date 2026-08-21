@@ -119,7 +119,38 @@ The scanner (`scripts/audit_demotions.py`):
 
 ---
 
-## 5. Automated Skill Schema & Token Economy Linter
+## 5. The Invariant Challenger Protocol (`just challenge-invariant`)
+
+Invariants are not immutable dogma. During Phase 4 (`/learn`) retrospectives and milestone release boundaries, the team runs the **Invariant Challenger** to evaluate whether an existing rule remains necessary, requires amendment, has been demoted, or has been superseded.
+
+```mermaid
+flowchart TD
+    Trigger["Challenge Trigger: /learn retrospective, friction report, or test saturation"] --> Challenger["Invariant Challenger: just challenge-invariant <slug>"]
+    
+    Challenger --> Analyze["Analyze: Test Coverage + Prompt Token Cost + Sovereign Safety"]
+    Analyze --> Verdict{"Challenger Verdict"}
+    
+    Verdict -->|Still Essential & Empirical| Keep["Re-affirm Active (Class α/β/γ)"]
+    Verdict -->|Threshold / Mechanism Changed| Amend["Amend Invariant (Update Scope/Math)"]
+    Verdict -->|100% Deterministic Test Coverage| Demote["Demote to Tier 2 (Save Prompt Tokens)"]
+    Verdict -->|Obsolete or Superseded| Retire["Retire / Nullify (Archive to Invariant Bible)"]
+```
+
+### The 4 Scrutiny Criteria:
+1. **Sovereign Safety (Class $\alpha$)**: Does this rule prevent epistemic hallucinations ($G < 1.00$), unauthorized git commits, or SSRF? $\to$ **Class $\alpha$ rules are never demoted.**
+2. **Deterministic Test Saturation**: Is the rule 100% verified by a unit or governance test gate? $\to$ **Demote to Tier 2 Test Gate.**
+3. **Context Economy**: Does the rule justify its prompt token load (~50–100 tokens per turn)?
+4. **Architectural Supersession**: Has a newer, more robust primitive superseded this invariant?
+
+```bash
+# Challenge a specific invariant by semantic slug
+just challenge-invariant inv-version-governance
+just challenge-invariant inv-verbatim-grounding
+```
+
+---
+
+## 6. Automated Skill Schema & Token Economy Linter
 
 To ensure Tier 1 progressive disclosure skills do not inadvertently bloat the discovery prompt, custom Antigravity skills are audited with `lint_skills.py`:
 
