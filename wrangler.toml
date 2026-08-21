@@ -1,4 +1,8 @@
 name = "credence-docs"
 compatibility_date = "2026-08-17"
-pages_build_output_dir = "."
+main = "_worker.js"
+
+[assets]
+directory = "."
+binding = "ASSETS"
 
