@@ -10,6 +10,21 @@ last_verified: 2026-08-20
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.2.0] - 2026-08-20
+
+### 🚀 Major Highlights & Sovereign Architecture
+- **Sovereign Admin Domain (`admin.credence.run`)**: Standalone cyber-cockpit workstation, Keyless Secret Manager integration, timing-safe auth middleware, and dedicated edge routing, key bootstrapping, and operator tutorial.
+- **Dual-Plane Local Developer Stack**: New `just dev`, `just preview`, `just preview-docs`, and `just auth-bootstrap` workflows.
+- **Nexus NOC Multi-Station Re-Architecture**: 5 dedicated operational stations across Mesh Topology, Token Economics, Topic Consensus, SRE Daemons, and Admin Key Management.
+- **Reports Forensic Lab Complete Overhaul**: 3-tier epistemic lensing switcher (<kbd>v</kbd>), live URL/text evaluations, temporal SimHash-64 diffing, unified curated directory and publisher dossiers with Bayesian stability vitals, direct in-place pinning, and bidirectional state synchronization.
+- **Restored 36 Canonical Epistemic Rules**: Exactly 13 SPJ Ethics, 15 IEP Fallacies, and 8 Deceptive Patterns with untruncated prose and instant filter triggers.
+- **Textual TUI Workstation Redesign**: Deep Slate terminal styling (`#0b1120`), 3-tier lensing switcher (<kbd>v</kbd>), publisher dossiers tab, in-terminal Invariant Bible modal (<kbd>?</kbd> / <kbd>i</kbd>), and "Surprise Me" (<kbd>r</kbd>).
+- **Master Knowledge Modal Registry**: 28-topic cataloging in `docs/topic-index.md` and shift-left automated parity gate in `test_docs_integrity.py`.
+- **Symmetric 4-Pillar Global Footer**: Standardized 4 pillars x 4 links across all 9 web surfaces and docs engine, cleanly separating Operator Admin from Interactive Playground.
+- **Authoritative Docs Engine & Slug-Tolerant Routing**: 30 registered blueprints and essays, slug-tolerant hash router, and localhost HTTPS link isolation.
+
+---
+
 ## [2.1.7] - 2026-08-20
 
 ### Sovereign Essay: Scoring the Lens, Not the Window
