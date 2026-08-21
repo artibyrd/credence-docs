@@ -188,3 +188,50 @@ When a new requirement, discovery, or post-mortem action item arises, apply this
 3. **Demotion Highway**: Continuously cleans prompt context as automated test capabilities expand.
 4. **Infinite Extensibility**: Allows onboarding new complex subsystems (e.g. mobile viewers, hardware cryptographic enclaves) without inflating universal core prompt size.
 
+---
+
+## 9. The Invariant Challenger & Constitutional Audit Engine
+
+To prevent system invariants from stagnating into obsolete dogmas or unnecessarily consuming prompt context when test coverage is mature, the ecosystem implements **The Invariant Challenger** (`scripts/challenge_invariant.py` / `just challenge-invariant <slug>`).
+
+```mermaid
+flowchart TD
+    Run["just challenge-invariant <slug>"] --> Evaluate{"Challenger Evaluation"}
+    Evaluate -->|"Cognitive Reasoning / Human Authority Required"| P["1. PRESERVE (Tier 0 Active)"]
+    Evaluate -->|"100% Test Saturated (Mechanical Verification)"| D["2. DEMOTE (Graduate to Tier 2 Test Gate)"]
+    Evaluate -->|"Ecosystem Shift / Refinement Needed"| A["3. AMEND (Sharpen Invariant Scope)"]
+    Evaluate -->|"Technology Obsoleted / Constraint Invalidated"| N["4. NULLIFY / RETIRE (Archive in Invariant Bible)"]
+```
+
+### Epistemic Scrutiny Dimensions:
+- **Merit & Necessity**: Is the invariant still actively preventing critical failures?
+- **Test Saturation**: Has automated shift-left testing reached 100% mechanical coverage (qualifying for Tier 2 Demotion)?
+- **Evolutionary Drift**: Have underlying APIs, runtimes, or models evolved to require rule amendments?
+
+---
+
+## 10. Authorized Code Owner PR Review & Self-Review Governance
+
+The ecosystem enforces declarative code ownership via `.github/CODEOWNERS` combined with GitHub branch protection on `main` (`require_code_owner_reviews: true`).
+
+### The PR Author Self-Review Constraint:
+Because GitHub strictly prohibits PR authors from submitting self-approval reviews on their own pull requests (`reviewDecision` remains `REVIEW_REQUIRED`), the governance engine (`manage_pr.py`) implements a dual-scenario execution model:
+1. **External Contributor PRs**: Strictly gated by required approving reviews from designated Code Owners (`@artibyrd`).
+2. **Sovereign Code Owner Self-Authored PRs**: Evaluated against automated CI/CD check runs, and upon human Mk1 Eyeball authorization, merged with repository administrator privileges (`gh pr merge --admin`).
+
+---
+
+## 11. The Lean Governance Model: Feature Milestones vs. Learning Patches
+
+To balance strict production safety with continuous learning agility, the ecosystem formalizes the **Lean Governance Model**, drawing a crisp boundary between multi-surface feature development and agile post-retrospective learning patches:
+
+| Dimension | **Feature Milestone (`vX.Y.0`)** | **Learning Patch Cycle (`vX.Y.1`)** |
+| :--- | :--- | :--- |
+| **Branching Topology** | Feature/Milestone Branch (`release/vX.Y.0`, `feat/...`) | Direct on `main` |
+| **Staging Environment** | Automated Cloud Run Dev via PR (`credence-dev-495173`) | Hermetic Local QA Gate (`just check` in <25s) |
+| **Human Authority Gate** | Code Owner Review on PR + Mk1 Eyeball | `learning_proposal.md` Approval + Mk1 Eyeball |
+| **Delivery Vehicle** | `just pr merge` $\rightarrow$ CI/CD Prod Deploy | `just release vX.Y.1` $\rightarrow$ CI/CD Prod Deploy |
+| **Ceremony Overhead** | High rigor (staged feature changes) | Zero friction (fast crystallization of session wisdom) |
+
+
+

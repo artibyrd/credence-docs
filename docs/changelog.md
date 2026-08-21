@@ -2,13 +2,33 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.3.0
+verified_version: v2.3.1
 last_verified: 2026-08-21
 ---
 
 # Release Changelog
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
+
+## [2.3.1] - 2026-08-21
+
+### 🏛️ Learning Patch Release: Governance Synthesis & Code Owner PR Workflow Maturity
+- **Authorized Code Owner Review Gating (`.github/CODEOWNERS`)**:
+  - Established declarative sovereign code ownership (`* @artibyrd`) across all 3 ecosystem repositories.
+  - Enforced `require_code_owner_reviews: true` via GitHub branch protection on `main` across `credence`, `credence-docs`, and `credence-agent`.
+  - Built shift-left contract test `test_codeowners_and_authorized_approvers_gating` to prevent regression.
+- **GitHub PR Author Self-Review Constraint Handling**:
+  - Formalized dual-scenario governance handling in `manage_pr.py`: external contributor PRs strictly require formal approving reviews from Code Owners, while Code Owner self-authored PRs merge with administrator privileges (`--admin`) upon human Mk1 Eyeball approval.
+- **Universal Semantic Slug Standardization (`inv-...`)**:
+  - Unified invariant citations across `.github/CODEOWNERS`, all 4 `AGENTS.md` files, and documentation frontmatters (`invariants:` lists) to use permanent semantic slugs.
+- **Cloudflare Workers & Pages Dual-Build Compatibility**:
+  - Added zero-build `_worker.js` static asset delegation and `[assets]` binding in `credence-docs` to ensure both Cloudflare Pages and Workers build runners complete with zero errors.
+- **The Lean Governance Model for Continuous Learning**:
+  - Formalized the decoupled release topology: Feature Milestones (`vX.Y.0`) require milestone branch PRs and Code Owner gating with Dev staging, while Learning Patch Releases (`vX.Y.1`) apply synthesized knowledge directly on `main` following human `learning_proposal.md` review and local `just check` QA, eliminating redundant PR ceremony.
+- **Continuous Learning & Progressive Skills Enrichment**:
+  - Enriched `knowledge-governance`, `cloudrun-ops`, `invariant-audit`, and `white-label-ops` skills with the Invariant Challenger playbook, Docker Buildx `--clear-secrets` container standard, and multi-domain edge routing rules.
+
+---
 
 ## [2.3.0] - 2026-08-21
 
