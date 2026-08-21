@@ -28,7 +28,8 @@ last_verified: 2026-08-20
 | [📐 Mathematical Proofs & Theory](#8-mathematical-foundations-proofs) | Weighted medians, Galileo Rule proof, SimHash-64, BitTorrent model |
 | [☁️ Self-Hosting & Operations](#9-self-hosting-operations) | Raspberry Pi, GCP Cloud Run, Tailscale, SQLite WAL maintenance |
 | [🏛️ The Invariant Bible](#the-invariant-bible) | Complete living canon of architectural, epistemic, and security rules |
-| [🌐 External Standards & Specifications](#11-external-standards-authoritative-specifications) | IETF RFCs, W3C WebCrypto, Model Context Protocol, SPJ Ethics |
+| [🗂️ Knowledge Modal Registry](#modal-registry) | Complete index of all 28 workstation and dashboard info modals |
+| [🌐 External Standards & Specifications](#12-external-standards-authoritative-specifications) | IETF RFCs, W3C WebCrypto, Model Context Protocol, SPJ Ethics |
 
 ---
 
@@ -174,7 +175,48 @@ For complete engineering invariants, safety constraints, and mathematical guaran
 
 ---
 
-## 🌐 11. External Standards & Authoritative Specifications
+---
+
+<a id="modal-registry"></a>
+## 🗂️ 11. Workstation & Dashboard Knowledge Modal Registry
+
+Every metric card, interactive table, and telemetry widget across the zero-build web workstations (`credence.report`, `credence.nexus`, `credence.foundation`, and `admin.credence.run`) contains an **Information Lensing Modal (`ℹ`)**. This registry indexes all 28 modal knowledge topics, their bound system invariants, CLI command equivalents, and direct links into authoritative documentation.
+
+| Topic Key | Topic Name & Domain | Classification | Bound Invariants | CLI Tool | Authoritative Blueprint / Essay |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `search` | 🔍 Epistemic Query & Search | `FORENSICS` | Inv 1, Inv 14 | `credence audit <url>` | [CLI Scripting Guide](integrations/cli-scripting-guide.md) |
+| `browse` | 📚 Curated Audit Directory | `GROUND TRUTH` | Inv 2, Inv 33 | `credence benchmark` | [Golden 12 Benchmark Gauntlet](tutorials/10-reusable-live-e2e-and-mesh-gauntlet.md) |
+| `lensing` | 🔬 3-Tier Cognitive Lensing | `COGNITIVE ARCH` | Inv 31, Inv 1 | `credence audit --lens focus` | [Information Pyramid Blueprint](blueprints/information-pyramid-and-epistemic-lensing.md) |
+| `score` | 📊 Suspicion Score (0.0–100.0) | `SCORING METRIC` | Inv 11, Inv 12 | `credence score <url>` | [Auditing Webpages & Text](walkthroughs/01-auditing-webpages-and-text.md) |
+| `grounding` | 🎯 Verbatim Grounding ($G=1.0$) | `INTEGRITY` | Inv 1, Inv 2 | `credence audit --verify` | [The Invariant Bible](invariants.md) |
+| `temporal_diff` | ⏱️ Temporal SimHash Forensics | `LINEAGE` | Inv 28, Inv 3 | `credence diff <url>` | [Content Evolution & Stealth Edits](lab-content-evolution.md) |
+| `webcrypto` | 🧪 W3C WebCrypto Verification | `CRYPTOGRAPHY` | Inv 2, Inv 9 | `credence verify-envelope` | [Security Architecture Blueprint](blueprints/security-architecture-and-threat-model.md) |
+| `dossier` | 🏛️ Publisher Epistemic Dossier | `REPUTATION` | Inv 13, Inv 3 | `credence dossier <domain>` | [Domain Epistemic Index Blueprint](blueprints/domain-epistemic-index-and-sourcing-forensics.md) |
+| `dci` | 🏆 Domain Credence Index (DCI) | `RANKINGS` | Inv 13, Inv 18 | `credence dci top` | [Terminology & Ontology Lexicon](blueprints/terminology-and-ontology-lexicon.md) |
+| `sifter` | 📡 Sifter Syndication Stream | `STREAMING` | Inv 8, Inv 15 | `credence sifter stream` | [Morning Feed Sifter Cookbook](cookbooks/morning-feed-sifter.md) |
+| `taxonomies` | 📜 Canonical Rule Catalogs | `GOVERNANCE` | Inv 1, Inv 12, Inv 20 | `credence taxonomy list` | [Taxonomy Engineering Cookbook](cookbooks/taxonomy-engineering.md) |
+| `spj_ethics` | 📰 SPJ Code of Ethics | `JOURNALISM` | Inv 1, Inv 28 | `credence taxonomy SPJ` | [The BuzzFeed News Doctrine](../blog/the-buzzfeed-news-doctrine.md) |
+| `iep_fallacies` | 🧠 IEP Logical Fallacies | `LOGICAL RIGOR` | Inv 1, Inv 11 | `credence taxonomy IEP` | [Cartel Demolition Tutorial](tutorials/08-sybil-cartel-demolition.md) |
+| `deceptive_patterns` | 🛑 Deceptive UI Patterns | `CONSUMER DEFENSE` | Inv 20, Inv 32 | `credence taxonomy DEC` | [Security Threat Model](blueprints/security-architecture-and-threat-model.md) |
+| `custody` | 🔐 Root Key Custody (Ed25519) | `KEY CUSTODY` | Inv 2, Inv 10 | `credence keygen` | [Key Custody & Proofs](blueprints/security-architecture-and-threat-model.md) |
+| `canonical_json` | 📦 RFC 8785 Canonical JSON | `DATA INTEGRITY` | Inv 2, Inv 9 | `credence canonicalize` | [Security Threat Model](blueprints/security-architecture-and-threat-model.md) |
+| `governance` | ⚖️ Invariant Canon Governance | `CONSTITUTION` | Inv 0, Inv 30 | `credence invariants audit`| [Invariant Scalability Blueprint](blueprints/invariant-scalability-and-knowledge-governance.md) |
+| `topology` | 🕸️ P2P Mesh Topology | `P2P MESH` | Inv 18, Inv 33, Inv 17| `credence mesh status` | [P2P Mesh Consensus Blueprint](walkthroughs/03-p2p-mesh-consensus.md) |
+| `byzantine` | 🛡️ Byzantine Quorum $3f+1$ | `CONSENSUS MATH` | Inv 17, Inv 18 | `credence mesh quorum` | [Blast Radius Containment](../blog/blast-radius-containment-in-decentralized-networks.md) |
+| `gossip` | 📡 Live P2P Attestation Gossip | `GOSSIP` | Inv 2, Inv 18 | `credence mesh gossip` | [P2P Mesh Consensus Blueprint](walkthroughs/03-p2p-mesh-consensus.md) |
+| `qi_scoring` | 🏆 5-Factor Quality Score ($Q_i$) | `NODE QUALITY` | Inv 16, Inv 1 | `credence mesh score` | [Sybil Cartel Demolition Tutorial](tutorials/08-sybil-cartel-demolition.md) |
+| `vitals` | 👤 Scale-to-Zero Node Vitals | `COMPUTE PLANE` | Inv 10, Inv 24 | `credence doctor` | [Cloud Run Scale-to-Zero Blueprint](blueprints/cloudrun-scale-to-zero-cold-start-optimization.md) |
+| `telemetry` | 🩺 Telemetry Loopback Protocol | `TELEMETRY` | Inv 10, Inv 33 | `credence telemetry` | [Node & Mesh Telemetry Blueprint](blueprints/node-and-mesh-telemetry-dashboard.md) |
+| `badges` | 🛡️ Anti-Tamper Dynamic Badges | `ATTESTATIONS` | Inv 22, Inv 21 | `credence badge generate` | [Embeddable Badges Blueprint](blueprints/embeddable-attestation-badges-and-anti-tamper.md) |
+| `seeds` | 🌱 P2P Bootstrap Discovery | `DISCOVERY` | Inv 18, Inv 2 | `credence mesh seeds` | [Mesh Quickstart Tutorial](tutorials/05-mesh-quickstart.md) |
+| `operator_admin` | 🛠️ Operator Spend Governor | `OPERATIONS` | Inv 15, Inv 10 | `credence admin status` | [Operator Security Tutorial](tutorials/14-operator-security-and-admin-workstation.md) |
+| `miracle_gro` | 🌱 Miracle-Gro Seed Engine | `CACHE WARMING` | Inv 24, Inv 15 | `credence seed --burst` | [Developer Quickstart Guide](quickstart.md) |
+| `daemons` | 🔄 Background Crawler Daemons | `DAEMONS` | Inv 8, Inv 15 | `credence daemon start` | [Morning Feed Sifter Cookbook](cookbooks/morning-feed-sifter.md) |
+
+
+---
+
+## 🌐 12. External Standards & Authoritative Specifications
 
 | Standard / Protocol | Authority | Scope in Credence | Official Specification |
 | :--- | :--- | :--- | :--- |
