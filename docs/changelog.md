@@ -2,13 +2,35 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.2.2
-last_verified: 2026-08-20
+verified_version: v2.3.0
+last_verified: 2026-08-21
 ---
 
 # Release Changelog
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
+
+## [2.3.0] - 2026-08-21
+
+### 🏛️ Cognitive Hierarchy, Invariant Challenger & Pair-Programming Workflow Maturity
+- **Prioritized 3-Class Cognitive Hierarchy (Class α, β, γ)**:
+  - Ranked universal Tier 0 invariants by failure severity: Class $\alpha$ (P0 Sovereign Safety, $G=1.00$ Grounding, Human Authority), Class $\beta$ (P1 Release Topology, 4-Phase Lifecycle, CI/CD Gates), and Class $\gamma$ (P2 Ergonomics, Lensing Pyramid, Dynamic Living Canon).
+- **The Invariant Demotion Highway & Challenger Protocol**:
+  - Implemented `challenge_invariant.py` (`just challenge-invariant <slug>`) and `audit_demotions.py` (`just audit-demotions`), providing automated forensic scrutiny of prompt token load against shift-left test saturation.
+  - Successfully challenged and demoted test-saturated manifest rules from Tier 0 prompt memory to Tier 2 test gates, saving ~54–62 prompt tokens per agent turn.
+- **Permanent Semantic Invariant Slugs & Central Resolver**:
+  - Migrated all 45 invariant cards in `docs/invariants.md` to permanent semantic slugs (`inv-verbatim-grounding`, `inv-mk1-eyeball`, `inv-canonical-json-ed25519`, etc.) while retaining dual-anchor compatibility (`#invariant-N`).
+  - Added `INVARIANTS_REGISTRY` and dynamic Class $\alpha/\beta/\gamma$ pill badges across all 28 workstation info modals in `credence-workstation.js` and synchronized Section 11 of `docs/topic-index.md`.
+- **Incremental Commits & Branch-PR Staging Architecture**:
+  - Established the `release/vX.Y.Z` milestone branching paradigm with discrete, verified atomic commits.
+  - Automated Cloud Run Dev staging on PR open/synchronize (`credence-dev-495173`) and Cloud Run Prod deployment on PR merge (`credence-prod-505902`).
+- **Gated Local Production Deployments**:
+  - Gated local production deploys (`just deploy prod`, `just deploy backend prod`, `just deploy all`, `just edge deploy`) behind high-visibility warning banners and typed `DEPLOY-PROD` confirmation (with `FORCE_PROD_DEPLOY=true` bypass).
+- **Multi-Tier Functional Scopes & Naming Guardrails**:
+  - Established 6 high-signal functional capability scopes: `governance`, `forensics`, `mesh`, `crypto`, `ui`, `ops`.
+  - Added native GitHub Actions PR validator (`validate-pr-conventions`), shift-left pytest guardrail (`test_ecosystem_naming_conventions_and_guardrails`), and turnkey commit-msg hook installer (`just install-hooks`).
+
+---
 
 ## [2.2.2] - 2026-08-20
 
