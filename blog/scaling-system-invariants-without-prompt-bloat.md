@@ -4,8 +4,8 @@ title: 'Scaling System Invariants: How We Prevented Context Bloat and Attention 
 description: Why flat AGENTS.md rulebooks fail at scale, and how a 3-tier governance
   architecture with shift-left automated tests preserves LLM reasoning precision.
 since_version: v1.15.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.3.0
+last_verified: 2026-08-21
 ---
 
 # Scaling System Invariants: How We Prevented Context Bloat and Attention Dilution in Autonomous AI Coding
@@ -94,35 +94,55 @@ graph TD
 
 ### Tier 0: Universal Non-Negotiables (`AGENTS.md` &mdash; Strict Core)
 - **Token Budget**: **< 800 tokens** (strictly enforced).
-- **Scope**: Universal across all turns, repositories, and files.
-- **Criteria**: Reserved exclusively for rules where a single violation causes fatal security breaches, cryptographic invalidation, or ungrounded hallucinations (e.g. $G=1.00$ verbatim grounding, SSRF defense, Ed25519 canonical hashing, "Mk1 Eyeball" human review).
+- **Prioritized Cognitive Hierarchy**:
+  - **Class α (Alpha)**: Sovereign Safety & Custody (P0: Mk1 eyeball, $G=1.00$ grounding, Ed25519 canonical JSON, SSRF defense).
+  - **Class β (Beta)**: Execution Topology & Release Lifecycle (P1: 4-phase lifecycle, cart-before-horse, CI/CD gates, hermetic tests).
+  - **Class γ (Gamma)**: Interface Symmetry & Governance (P2: 4-way parity, epistemic lensing pyramid, multi-model sovereignty).
 
 ### Tier 1: Progressive Subsystem Skills (`.agents/skills/`)
 - **Scope**: On-demand procedural playbooks and specialized domain knowledge.
-- **Mechanism**: Only skill titles and 1-line descriptions live in the agent's root prompt. When the agent works on Cloud Run compute, the [`cloudrun-ops`](../docs/deployment-cloudrun.md) skill dynamically loads. When testing P2P consensus, the `mesh-cluster` skill activates.
-- **Impact**: Removes hundreds of lines of vendor-specific commands from the universal prompt.
+- **Mechanism**: Only skill titles and brief descriptions ($\le 280$ chars / $\le 40$ words) live in the agent's root prompt. When the agent works on Cloud Run compute, the `cloudrun-ops` skill dynamically loads. When testing P2P consensus, `mesh-cluster` activates.
+- **Enforcement**: Validated by automated linter (`scripts/lint_skills.py`).
 
-### Tier 2: Shift-Left Automated Test Gates (`test_docs_integrity.py`)
+### Tier 2: Shift-Left Automated Test Gates (`test_docs_integrity.py` & `Justfile`)
 - **Philosophy**: *If a machine can assert it deterministically, never waste LLM attention tokens prompting for it.*
-- **Implementation**: We moved formatting, sitemap routing, and manifest version verification into a lightning-fast Pytest suite (`test_docs_integrity.py` running in $<0.25\text{s}$).
-- **Result**: If an agent creates a Markdown file missing frontmatter, `just check` immediately flags the exact file and line before any commit can occur.
+- **Implementation**: Formatting, sitemap routing, and manifest version verification run in a lightning-fast Pytest suite (`test_docs_integrity.py` running in $<1.5\text{s}$).
+- **The Demotion Highway**: Automated static scanner (`just audit-demotions`) identifies rules that have reached 100% test coverage and graduates them out of Tier 0 prompt memory.
 
 ---
 
-## 4. The Results: 62% Token Reduction & Zero Cognitive Degradation
+## 4. Invariant Mutability: The 6-State Lifecycle
 
-| Metric | Flat Rulebook (v1.14.1) | 3-Tier Scalable Architecture (v1.15.0) | Improvement |
+Invariants are not permanent dogma; they reflect the strongest empirical findings at project epoch $t$. Credence manages invariants through a 6-state lifecycle:
+
+```mermaid
+stateDiagram-v2
+    [*] --> Proposed: Post-Mortem Discovery
+    Proposed --> Active: Formally Minted
+    Active --> UnderReview: Milestone Audit
+    UnderReview --> Active: Re-affirmed
+    UnderReview --> Amended: Scope Refined
+    UnderReview --> Demoted: Graduated to Automated Test (Tier 2)
+    UnderReview --> Retired: Obsolete
+```
+
+---
+
+## 5. The Results: 62% Token Reduction & Zero Cognitive Degradation
+
+| Metric | Flat Rulebook (v1.14.1) | 3-Tier Governance Engine (v2.3.0) | Improvement |
 | :--- | :--- | :--- | :--- |
 | **Universal Prompt Token Overhead** | ~1,850 tokens | ~710 tokens | **-61.6% Token Savings** |
-| **P0 Safety / Grounding Visibility** | Buried in 30+ bullet points | Top 10 High-Priority Invariants | **100% Focused Attention** |
-| **Formatting Failure Detection** | Probabilistic (Prompt-based) | Deterministic (0.2s Pytest Assertion) | **100% Deterministic** |
-| **Subsystem Extensibility** | Requires editing root `AGENTS.md` | Add `.agents/skills/<name>/SKILL.md` | **Zero Root Prompt Bloat** |
+| **Cognitive Hierarchy** | Unordered Flat List | Ranked Class $\alpha / \beta / \gamma$ | **100% Focused Attention** |
+| **Formatting Failure Detection** | Probabilistic (Prompt-based) | Deterministic ($<0.3\text{s}$ Pytest) | **100% Deterministic** |
+| **Lifecycle Pruning** | Manual Accumulation | Automated Demotion Scanner | **Zero Rule Bloat** |
 
 ---
 
-## 5. Takeaways for AI-Native Engineering Teams
+## 6. Takeaways for AI-Native Engineering Teams
 
-1. **Prune aggressively**: Keep your universal `AGENTS.md` strictly under 800 tokens. If a rule doesn't apply to every single turn, move it out.
-2. **Embrace Progressive Skills**: Load domain-specific runbooks (GCP, Terraform, P2P mesh) on-demand using declarative skill routers.
-3. **Shift Left into Deterministic Tests**: Don't waste prompt tokens telling an LLM to format YAML frontmatter or synchronize version strings—write a 10-line Python test to verify it automatically.
-4. **Prioritize P0 Fatalities over P2 Conventions**: Give your AI agents crystal-clear hierarchy so critical security and cryptographic boundaries are never lost in the oatmeal.
+1. **Rank by Cognitive Severity**: Structure your root prompt into Class $\alpha$ (fatal safety), Class $\beta$ (process topology), and Class $\gamma$ (ergonomics).
+2. **Build a Demotion Highway**: Continuously graduate mechanical constraints from prompt text into unit tests.
+3. **Budget Skill Descriptions**: Keep skill metadata compact ($\le 280$ chars) so agent discovery remains lean.
+4. **Treat Invariants as Mutable Truths**: Re-evaluate invariants at every major milestone rather than treating them as unchangeable scripture.
+
