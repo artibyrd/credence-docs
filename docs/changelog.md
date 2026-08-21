@@ -2,13 +2,44 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.3.1
+verified_version: v2.4.0
 last_verified: 2026-08-21
 ---
 
 # Release Changelog
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
+
+## [2.4.0] - 2026-08-21
+
+### 💾 Sovereign Backup Engine, Germination 2.0 & Epistemic Boredom Concurrency
+- **Universal Sovereign Backup & Cold-Boot Recovery Engine (`credence/storage/backup.py`)**:
+  - Implemented zero-table-lock atomic SQLite snapshots via `sqlite3.Connection.backup` with automated WAL truncation.
+  - Added Gzip level-9 stream compression, canonical SHA-256 manifest calculation, and RFC 8785 Ed25519 node signature verification.
+  - Multi-cloud storage transport support for Local POSIX, Google Cloud Storage (`gs://`), and AWS S3/MinIO (`s3://`).
+  - Implemented scale-to-zero cold-boot lifespan hook (`restore_latest_cloud_backup`) restoring databases in `<200ms` during server container wakeups.
+  - Implemented graceful shutdown backup flush ensuring zero loss of evaluations on scale-to-zero deprovisioning.
+- **Germination 2.0 & Incremental Lifespan Synchronization (`credence/germinate.py`)**:
+  - Implemented Incremental Mode auto-detection on populated or restored databases, completing cold restarts in `<200ms` (`status="incremental_ready"`) without duplicate LLM spending.
+  - Implemented bounded parallel RSS discovery using `asyncio.Semaphore(5)` to prevent network rate-limiting.
+  - Added dual catalog export: structured `reports.json` and signed `genesis_attestations.json` for air-gapped node bootstrapping.
+- **Epistemic Boredom Autonomous Ingestion & Concurrency (`credence/server/lifespan.py`, `credence/server/api/system.py`)**:
+  - Integrated Epistemic Boredom background curiosity daemon running dual-soil sampling (60% trusted / 40% adversarial probe) during idle periods.
+  - Added token headroom circuit breakers ensuring boredom passes pause when daily spend exceeds 70% of ceiling.
+  - Registered REST endpoints (`POST /api/boredom/cycle`, `POST /api/sifter/cycle`) and FastMCP tool (`credence_admin_trigger_boredom`).
+- **Comprehensive Operator Administrative Tooling**:
+  - CLI: `credence db backup`, `credence db restore`, `credence db export-pack`, `credence db import-pack`, `credence db status`.
+  - REST: `POST /api/db/backup`, `POST /api/db/restore`, `GET /api/db/status`, `POST /api/db/import-pack`, `GET /api/db/export-pack`.
+  - FastMCP 2.0: `credence_admin_backup_db`, `credence_admin_restore_db`, `credence_admin_export_attestations`, `credence_admin_import_attestations`, `credence_admin_backup_status`.
+- **Deployment Presets & Descriptor Parity**:
+  - Synchronized `docker-compose.yml`, `docker-compose.prod.yml`, `k8s/deployment.yaml`, `.env.example`, and `Justfile` with runtime environment flags (`CREDENCE_BACKUP_ENABLED`, `CREDENCE_BOREDOM_ENABLED`, `CREDENCE_SIFTER_ENABLED`).
+  - Fixed dynamic project ID resolution in `Justfile` (`project_id="auto"`) preventing accidental prod deployments from dev commands.
+- **Zero-Build Web UI Workstation Expansion**:
+  - Expanded `credence.nexus` with Sovereign Database & Storage Gravity card, Retained Snapshots gauge, and one-click Backup/Restore/Export buttons.
+  - Added Station 5 (Sovereign Backup & Recovery) and Station 6 to `admin.credence.run`.
+  - Registered `backup` and `boredom` knowledge lensing modal topics in `credence-workstation.js` and `docs/topic-index.md`.
+
+---
 
 ## [2.3.1] - 2026-08-21
 

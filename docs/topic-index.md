@@ -215,6 +215,8 @@ Every metric card, interactive table, and telemetry widget across the zero-build
 | `operator_admin` | 🛠️ Operator Spend Governor | `OPERATIONS` | [`inv-multi-model-sovereignty`](invariants.md#inv-multi-model-sovereignty), [`inv-4k-thinking-budget`](invariants.md#inv-4k-thinking-budget) | `credence admin status` | [Operator Security Tutorial](tutorials/14-operator-security-and-admin-workstation.md) |
 | `miracle_gro` | 🌱 Miracle-Gro Seed Engine | `CACHE WARMING` | [`inv-4k-thinking-budget`](invariants.md#inv-4k-thinking-budget), [`inv-multi-model-sovereignty`](invariants.md#inv-multi-model-sovereignty) | `credence seed --burst` | [Developer Quickstart Guide](quickstart.md) |
 | `daemons` | 🔄 Background Crawler Daemons | `DAEMONS` | [`inv-ssrf-defense`](invariants.md#inv-ssrf-defense), [`inv-boredom-root-expansion`](invariants.md#inv-boredom-root-expansion) | `credence daemon start` | [Morning Feed Sifter Cookbook](cookbooks/morning-feed-sifter.md) |
+| `backup` | 💾 Sovereign Database & Backups | `STORAGE GRAVITY` | [`inv-canonical-json-ed25519`](invariants.md#inv-canonical-json-ed25519), [`inv-4way-feature-parity`](invariants.md#inv-4way-feature-parity) | `credence db backup` | [Sovereign Data Gravity Blueprint](blueprints/sovereign-data-gravity-and-cas-portability.md) |
+| `boredom` | 🌀 Epistemic Boredom Engine | `AUTONOMOUS INGESTION` | [`inv-multi-model-sovereignty`](invariants.md#inv-multi-model-sovereignty), [`inv-ssrf-defense`](invariants.md#inv-ssrf-defense) | `credence boredom` | [Feed Sifter & Boredom Tutorial](tutorials/09-zero-trust-feed-sifter-digest.md) |
 
 
 ---
