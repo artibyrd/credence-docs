@@ -340,9 +340,19 @@ flowchart TD
 | **[Invariant 41](#invariant-41)** | Presentation / Edge | Symmetric Navigation & Zero-Cache | 5 header links, 4-pillar footers, 18-domain zero-cache routing |
 | **[Invariant 42](#invariant-42)** | Presentation | Information Pyramid & Lensing | 3-Tier Cognitive Hierarchy (Surface/Focus/Deep) |
 | **[Invariant 43](#invariant-43)** | Governance | Cart-Before-Horse Dependency Law | Topological dependency ordering before human review |
+| **[Invariant 44](#invariant-44)** | Presentation | Web Component Zero-Clone | Zero recursive constructor cascades & synchronous attributes |
+| **[Invariant 45](#invariant-45)** | Presentation / Edge | Dense Viewport Bounds & Zero-Masking | Bounded `.ws-scroll-pane` viewports ($\le 580\text{px}$) & direct index asset resolution |
 ---
 
 ### Invariant 44: Web Component Isolation & Zero-Clone Safety
 - **Core Rule**: Custom elements and embeddable Web Components (`HTMLElement` subclasses) must never invoke `cloneNode(true)` on host DOM trees containing custom element instances to prevent recursive constructor cascades (`Maximum call stack size exceeded`).
 - **Synchronous Attribute State**: Attribute observers (`attributeChangedCallback`) must be purely synchronous state transitions with zero asynchronous execution loops.
 - **Defensive Parsing**: All clientside parsers must guard against null/empty frontmatters and nested container directives (`:::note`, `:::tabs`).
+
+---
+
+### Invariant 45: The Dense Workstation Viewport & Zero-Masking Invariant
+- **Dense Grid Viewport Bounds**: High-density workstation card grids (Curated Articles, Publisher Catalog, Search Results) must be enclosed within a `.ws-scroll-pane` container with a maximum vertical bound (`max-height: 580px; overflow-y: auto;`) and sleek 6px dark scrollbars to prevent full datasets (16+ items) from expanding the page 2,000px+ vertically.
+- **Sticky Table Headers**: All dense data tables (`.ws-table-container`) must enforce `max-height: 520px; overflow-y: auto;` with sticky header positioning (`thead th { position: sticky; top: 0; background: #111b2e; z-index: 2; }`) so column headers remain visible during deep scrolling.
+- **Multi-Domain Root Asset Isolation**: Never place a fallback `index.html` at the root of `web/` in multi-domain edge deployments, as Cloudflare Workers Static Assets default fallback can mask domain subfolder index files. Edge worker asset lookups via `env.ASSETS.fetch()` must target explicit `.html` files (e.g. `/${prefix}/index.html`) using the incoming `request.url` origin to prevent internal 307 redirect cascades.
+

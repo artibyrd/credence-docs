@@ -2,7 +2,7 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.2.0
+verified_version: v2.2.1
 last_verified: 2026-08-20
 ---
 
@@ -10,7 +10,23 @@ last_verified: 2026-08-20
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.2.1] - 2026-08-20
+
+### 🛡️ Learning Retrospective: Viewport Bounds & Edge Invariant Synthesis
+- **Dense Workstation Viewport Bounds (Invariant 45)**:
+  - Enclosed high-density card grids (Curated Articles, Publisher Catalog) in `.ws-scroll-pane` containers (`max-height: 580px; overflow-y: auto;`) with 6px sleek custom dark scrollbars.
+  - Constrained dense data tables (`.ws-table-container`) to `max-height: 520px; overflow-y: auto;` with sticky header positioning (`thead th { position: sticky; top: 0; background: #111b2e; z-index: 2; }`).
+  - Added shift-left automated integrity contract `test_workstation_viewport_vertical_bounds_invariant` in `test_architecture_governance.py`.
+- **Cloudflare Multi-Domain Edge Router Hermetic Asset Resolution**:
+  - Eliminated root `web/index.html` fallback to prevent masking of domain subfolder indices (`web/credence.run/index.html`, `web/credence.report/index.html`, etc.).
+  - Bound all 18 multi-domain routes cleanly in Terraform (`terraform/cloudflare.tf`) with automatic `request.url` asset lookup resolution.
+- **Living Canon Invariant 45 Codification**:
+  - Published Invariant 45 in `docs/invariants.md` and updated architecture governance skills.
+
+---
+
 ## [2.2.0] - 2026-08-20
+
 
 ### 🚀 Major Highlights & Sovereign Architecture
 - **Sovereign Admin Domain (`admin.credence.run`)**: Standalone cyber-cockpit workstation, Keyless Secret Manager integration, timing-safe auth middleware, and dedicated edge routing, key bootstrapping, and operator tutorial.
