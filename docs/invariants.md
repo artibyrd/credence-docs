@@ -48,93 +48,111 @@ flowchart LR
     Model --> Defense["4. Protocol & SSRF Defense<br/>(Invariant 8 & 9 · Billion Laughs & Container)"]
 ```
 
-<div class="invariant-card" id="invariant-1">
-<h3><a href="#docs/invariants#invariant-1">Invariant 1: Project & Workspace Isolation</a></h3>
+<div class="invariant-card" id="inv-workspace-isolation">
+<a id="invariant-1"></a>
+<h3><a href="#docs/invariants#inv-workspace-isolation">Invariant 1: Project & Workspace Isolation</a></h3>
 <p>Credence is completely decoupled from any external or sibling repositories. All tools, databases, configurations, and test runners must execute hermetically within the workspace boundary without depending on external host environment states.</p>
 </div>
 
-<div class="invariant-card" id="invariant-2">
-<h3><a href="#docs/invariants#invariant-2">Invariant 2: Python & SQLModel Async Architecture</a></h3>
+<div class="invariant-card" id="inv-async-sqlmodel">
+<a id="invariant-2"></a>
+<h3><a href="#docs/invariants#inv-async-sqlmodel">Invariant 2: Python & SQLModel Async Architecture</a></h3>
 <p>The codebase requires Python <code>>=3.12,<3.13</code>. All database operations strictly use <code>sqlmodel.ext.asyncio.session.AsyncSession</code> and <code>async_sessionmaker</code>. To prevent SQLModel type metadata stripping, never import <code>from __future__ import annotations</code> in <code>models.py</code>.</p>
 </div>
 
-<div class="invariant-card" id="invariant-3">
-<h3><a href="#docs/invariants#invariant-3">Invariant 3: Continuous Changelog & Semantic Version Governance</a></h3>
+<div class="invariant-card" id="inv-version-governance">
+<a id="invariant-3"></a>
+<h3><a href="#docs/invariants#inv-version-governance">Invariant 3: Continuous Changelog & Semantic Version Governance</a></h3>
 <p>Diligently maintain <code>docs/changelog.md</code> and manage Semantic Version bumps across the ecosystem whenever notable features, architectural blueprints, or bug fixes are completed. All 7 ecosystem manifests (<code>pyproject.toml</code>, <code>__init__.py</code>, <code>index.html</code>, <code>app.js</code>, <code>plugin.json</code>, and <code>credence.run</code>) must maintain 100% version parity.</p>
 </div>
 
-<div class="invariant-card" id="invariant-4">
-<h3><a href="#docs/invariants#invariant-4">Invariant 4: Hermetic Testing & Docs Integrity</a></h3>
+<div class="invariant-card" id="inv-hermetic-testing">
+<a id="invariant-4"></a>
+<h3><a href="#docs/invariants#inv-hermetic-testing">Invariant 4: Hermetic Testing & Docs Integrity</a></h3>
 <p>The default unit test suite (<code>tests/</code>) must be 100% network-free using <code>sqlite+aiosqlite:///:memory:</code>, offline HTML DOM fixtures, and automated validation of documentation frontmatter, widget DOM contracts, and tutorial YAML blocks (<code>test_docs_integrity.py</code>).</p>
 </div>
 
-<div class="invariant-card" id="invariant-5">
-<h3><a href="#docs/invariants#invariant-5">Invariant 5: Scoped Verification for Docs-Only Changes</a></h3>
+<div class="invariant-card" id="inv-scoped-verification">
+<a id="invariant-5"></a>
+<h3><a href="#docs/invariants#inv-scoped-verification">Invariant 5: Scoped Verification for Docs-Only Changes</a></h3>
 <p>When modifying purely Markdown documentation, tutorials, blog essays, or static zero-build assets (<code>docs/</code>, <code>blog/</code>, <code>credence-docs</code>), bypass the full Python regression test suite (<code>just test</code>). Verify using local static inspection or web preview (<code>just serve-web</code>). Reserve full test runs for changes to Python source code (<code>credence/</code>), test suites (<code>tests/</code>), or data models.</p>
 </div>
 
-<div class="invariant-card" id="invariant-6">
-<h3><a href="#docs/invariants#invariant-6">Invariant 6: Human Review Before Commits ("Mk1 Eyeball")</a></h3>
+<div class="invariant-card" id="inv-mk1-eyeball">
+<a id="invariant-6"></a>
+<h3><a href="#docs/invariants#inv-mk1-eyeball">Invariant 6: Human Review Before Commits ("Mk1 Eyeball")</a></h3>
 <p>Never execute <code>git commit</code> automatically. Always present changes and live verification results for human approval first.</p>
 </div>
 
-<div class="invariant-card" id="invariant-7">
-<h3><a href="#docs/invariants#invariant-7">Invariant 7: Multi-Model Sovereignty & Token Budget</a></h3>
+<div class="invariant-card" id="inv-multi-model-sovereignty">
+<a id="invariant-7"></a>
+<h3><a href="#docs/invariants#inv-multi-model-sovereignty">Invariant 7: Multi-Model Sovereignty & Token Budget</a></h3>
 <p>While Google Gemini 3.7 Flash is the default reference engine for cost efficiency ($0.075/1M) and 16k thinking token density, the pipeline strictly abstracts inference via decoupled adapters supporting Anthropic (Claude 3.7 Sonnet), OpenAI (GPT-4o), DeepSeek (R1), and 100% offline local models (Ollama/vLLM with Llama 3.3 70B) with automatic offline circuit breakers (<code>QUOTA_PRESERVED</code>) at 30% headroom.</p>
 </div>
 
-<div class="invariant-card" id="invariant-8">
-<h3><a href="#docs/invariants#invariant-8">Invariant 8: Network Ingestion SSRF Guard</a></h3>
+<div class="invariant-card" id="inv-ssrf-defense">
+<a id="invariant-8"></a>
+<h3><a href="#docs/invariants#inv-ssrf-defense">Invariant 8: Network Ingestion SSRF Guard</a></h3>
 <p>Reject cloud metadata (<code>169.254.169.254</code>, <code>metadata.google.internal</code>), loopback (<code>127.0.0.1</code>, <code>localhost</code>), and RFC 1918 private subnets unless running hermetic local fixtures (<code>allow_local=True</code>).</p>
 </div>
 
-<div class="invariant-card" id="invariant-9">
-<h3><a href="#docs/invariants#invariant-9">Invariant 9: Red Team Ingestion & Protocol Defense</a></h3>
+<div class="invariant-card" id="inv-ingestion-defense">
+<a id="invariant-9"></a>
+<h3><a href="#docs/invariants#inv-ingestion-defense">Invariant 9: Red Team Ingestion & Protocol Defense</a></h3>
 <p>XML parsers must reject <code>&lt;!DOCTYPE&gt;</code> / <code>&lt;!ENTITY&gt;</code> declarations (Billion Laughs protection). External LLM inputs must be enclosed in <code>&lt;untrusted_source_text&gt;</code> containers with prompt injection guard directives. FastMCP and P2P relay endpoints must enforce token-bucket rate limiters.</p>
 </div>
 
-<div class="invariant-card" id="invariant-10">
-<h3><a href="#docs/invariants#invariant-10">Invariant 10: XML ElementTree Traversal Safety</a></h3>
+<div class="invariant-card" id="inv-xml-safety">
+<a id="invariant-10"></a>
+<h3><a href="#docs/invariants#inv-xml-safety">Invariant 10: XML ElementTree Traversal Safety</a></h3>
 <p>Never use boolean <code>or</code> expressions on ElementTree elements (e.g. <code>find(a) or find(b)</code>); always check <code>elem is not None</code> or use <code>_find_first_elem()</code> to prevent dropping leaf text elements.</p>
 </div>
 
-<div class="invariant-card" id="invariant-11">
-<h3><a href="#docs/invariants#invariant-11">Invariant 11: Model Default Truth & Verification Guardrail</a></h3>
+<div class="invariant-card" id="inv-ground-truth-config">
+<a id="invariant-11"></a>
+<h3><a href="#docs/invariants#inv-ground-truth-config">Invariant 11: Model Default Truth & Verification Guardrail</a></h3>
 <p>Never assume or hallucinate model version defaults or pricing tiers. Always treat <code>credence/config.py</code> as canonical ground truth (<code>gemini-3.7-flash</code> default reference engine).</p>
 </div>
 
-<div class="invariant-card" id="invariant-12">
-<h3><a href="#docs/invariants#invariant-12">Invariant 12: FastMCP 2.0 Reverse Proxy Transport Security</a></h3>
+<div class="invariant-card" id="inv-fastmcp-transport-security">
+<a id="invariant-12"></a>
+<h3><a href="#docs/invariants#inv-fastmcp-transport-security">Invariant 12: FastMCP 2.0 Reverse Proxy Transport Security</a></h3>
 <p>FastMCP servers running over SSE must configure <code>TransportSecuritySettings(enable_dns_rebinding_protection=False, allowed_hosts=["*"], allowed_origins=["*"])</code> to allow seamless proxying via Cloudflare and custom domain host headers without <code>Invalid Host</code> rejections.</p>
 </div>
 
-<div class="invariant-card" id="invariant-13">
-<h3><a href="#docs/invariants#invariant-13">Invariant 13: Cloudflare Workers Zero-Build Static Assets Invariant</a></h3>
+<div class="invariant-card" id="inv-cloudflare-assets">
+<a id="invariant-13"></a>
+<h3><a href="#docs/invariants#inv-cloudflare-assets">Invariant 13: Cloudflare Workers Zero-Build Static Assets Invariant</a></h3>
 <p>All Cloudflare Worker deployments utilizing custom <code>_worker.js</code> routing with static assets must define <code>binding = "ASSETS"</code> in <code>wrangler.toml</code> and maintain a <code>.assetsignore</code> file excluding <code>_worker.js</code> and <code>wrangler.toml</code> to prevent asset leakage and build failures.</p>
 </div>
 
-<div class="invariant-card" id="invariant-14">
-<h3><a href="#docs/invariants#invariant-14">Invariant 14: Edge Routing Origin Header Translation</a></h3>
+<div class="invariant-card" id="inv-edge-origin-header">
+<a id="invariant-14"></a>
+<h3><a href="#docs/invariants#inv-edge-origin-header">Invariant 14: Edge Routing Origin Header Translation</a></h3>
 <p>Cloudflare Worker edge routers must rewrite <code>Host</code> headers to native Cloud Run target URLs (<code>&lt;service&gt;.run.app</code>) to bypass Google Search Console domain verification requirements while preserving live Server-Sent Events (SSE) streaming and global CORS headers.</p>
 </div>
 
-<div class="invariant-card" id="invariant-15">
-<h3><a href="#docs/invariants#invariant-15">Invariant 15: Empirical Thinking Budget Sweet Spot (4k Invariant)</a></h3>
+<div class="invariant-card" id="inv-4k-thinking-budget">
+<a id="invariant-15"></a>
+<h3><a href="#docs/invariants#inv-4k-thinking-budget">Invariant 15: Empirical Thinking Budget Sweet Spot (4k Invariant)</a></h3>
 <p>In accordance with Golden 12 cross-model benchmarks, <code>gemini-3.7-flash</code> with a 4,096 thinking token budget represents the optimal Pareto frontier ($0.34–$0.68/1k audits, 2.4s–5.1s latency) achieving 100% verbatim grounding and Poe's Law satire neutralization without the 30x cost overhead and over-analysis penalties of flagship Pro models.</p>
 </div>
 
-<div class="invariant-card" id="invariant-16">
-<h3><a href="#docs/invariants#invariant-16">Invariant 16: FastMCP Nested Datetime Serialization</a></h3>
+<div class="invariant-card" id="inv-fastmcp-datetime-serialization">
+<a id="invariant-16"></a>
+<h3><a href="#docs/invariants#inv-fastmcp-datetime-serialization">Invariant 16: FastMCP Nested Datetime Serialization</a></h3>
 <p>All data models and digest payloads exposed via FastMCP tools or resources must serialize nested <code>datetime</code> instances to ISO-8601 strings (<code>.isoformat()</code>) within <code>.to_dict()</code> prior to JSON encoding.</p>
 </div>
 
-<div class="invariant-card" id="invariant-17">
-<h3><a href="#docs/invariants#invariant-17">Invariant 17: Content Decoupling & Hermetic CI</a></h3>
+<div class="invariant-card" id="inv-content-decoupling">
+<a id="invariant-17"></a>
+<h3><a href="#docs/invariants#inv-content-decoupling">Invariant 17: Content Decoupling & Hermetic CI</a></h3>
 <p>Keep application repos lean by separating marketing HTML from core code. Maintain technical tutorials in <code>docs/tutorials/</code> in clean Markdown. CI workflows (<code>ci.yml</code>) must run 100% hermetically without cloud secrets.</p>
 </div>
 
-<div class="invariant-card" id="invariant-18">
-<h3><a href="#docs/invariants#invariant-18">Invariant 18: Context Governance & Progressive Disclosure</a></h3>
+<div class="invariant-card" id="inv-progressive-disclosure">
+<a id="invariant-18"></a>
+<h3><a href="#docs/invariants#inv-progressive-disclosure">Invariant 18: Context Governance & Progressive Disclosure</a></h3>
 <p>Keep <code>AGENTS.md</code> lean (<1,000 tokens) in thematic categories. Place multi-step runbooks in <code>.agents/skills/</code> and complete specifications in <code>docs/</code>.</p>
 </div>
 
@@ -144,36 +162,41 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    RawDoc["Raw Web Text / Document"] --> AST["1. Whitespace-Collapsed DOM Parser<br/>(Invariant 22 · G=1.0 Grounding)"]
-    AST --> Entropy["2. Shannon Topic Entropy & Concentration<br/>(Invariant 19 · Pizza Hut Astroturfing Defense)"]
-    Entropy --> Satire["3. Poe's Law Classifier & SPJ-1.6<br/>(Invariant 20 · Satire Cloaking Override)"]
-    Satire --> Namespaces["4. Fixed Taxonomy Catalog<br/>(Invariant 21 · SHA-256 Pinned URIs)"]
+    RawDoc["Raw Web Text / Document"] --> AST["1. Whitespace-Collapsed DOM Parser<br/>(inv-verbatim-grounding · G=1.0 Grounding)"]
+    AST --> Entropy["2. Shannon Topic Entropy & Concentration<br/>(inv-topic-entropy-defense · Pizza Hut Astroturfing Defense)"]
+    Entropy --> Satire["3. Poe's Law Classifier & SPJ-1.6<br/>(inv-poes-law-satire · Satire Cloaking Override)"]
+    Satire --> Namespaces["4. Fixed Taxonomy Catalog<br/>(inv-fixed-taxonomies · SHA-256 Pinned URIs)"]
     Namespaces --> Score["5. Weighted Mathematical Aggregate"]
 ```
 
-<div class="invariant-card" id="invariant-19">
-<h3><a href="#docs/invariants#invariant-19">Invariant 19: Topic Entropy Astroturfing Defense (The Pizza Hut Problem)</a></h3>
+<div class="invariant-card" id="inv-topic-entropy-defense">
+<a id="invariant-19"></a>
+<h3><a href="#docs/invariants#inv-topic-entropy-defense">Invariant 19: Topic Entropy Astroturfing Defense (The Pizza Hut Problem)</a></h3>
 <p>Topic diversity calculators must incorporate Top-Token Concentration penalties ($C_{\text{top3}}$) alongside Shannon entropy ($H$) to ensure single-topic promotional pivots trigger autonomous quarantine ($H < 0.30$).</p>
 $$H_{\text{penalized}} = H \times (1.0 - C_{\text{top3}})$$
 </div>
 
-<div class="invariant-card" id="invariant-20">
-<h3><a href="#docs/invariants#invariant-20">Invariant 20: Poe's Law & Satire Safeguards</a></h3>
+<div class="invariant-card" id="inv-poes-law-satire">
+<a id="invariant-20"></a>
+<h3><a href="#docs/invariants#inv-poes-law-satire">Invariant 20: Poe's Law & Satire Safeguards</a></h3>
 <p>Treat structural Schema.org and masthead badges as candidate cues. Neutralize legitimate satire ($0.00$), but invoke <code>SPJ-1.6</code> cloaking overrides (disabling satire protection) on factual defamatory/health allegations.</p>
 </div>
 
-<div class="invariant-card" id="invariant-21">
-<h3><a href="#docs/invariants#invariant-21">Invariant 21: Namespaced Fixed Taxonomies</a></h3>
+<div class="invariant-card" id="inv-fixed-taxonomies">
+<a id="invariant-21"></a>
+<h3><a href="#docs/invariants#inv-fixed-taxonomies">Invariant 21: Namespaced Fixed Taxonomies</a></h3>
 <p>Never hardcode rule names in scoring math; use namespaced URIs (<code>domain:cluster/rule_id@version</code>) pinned by catalog SHA-256 hashes.</p>
 </div>
 
-<div class="invariant-card" id="invariant-22">
-<h3><a href="#docs/invariants#invariant-22">Invariant 22: Whitespace-Insensitive Grounding</a></h3>
+<div class="invariant-card" id="inv-verbatim-grounding">
+<a id="invariant-22"></a>
+<h3><a href="#docs/invariants#inv-verbatim-grounding">Invariant 22: Whitespace-Insensitive Grounding</a></h3>
 <p>Quote validators must collapse whitespace sequences (<code>\s+</code> &rarr; <code> </code>) in both citations and source DOM text before substring matching ($G=1.0$).</p>
 </div>
 
-<div class="invariant-card" id="invariant-23">
-<h3><a href="#docs/invariants#invariant-23">Invariant 23: Transparent Heuristic Disclosure</a></h3>
+<div class="invariant-card" id="inv-heuristic-disclosure">
+<a id="invariant-23"></a>
+<h3><a href="#docs/invariants#inv-heuristic-disclosure">Invariant 23: Transparent Heuristic Disclosure</a></h3>
 <p>When the offline governor activates, explicitly populate <code>evaluation_method: "offline_structural_heuristic"</code> with confidence capped at $\le 0.50$.</p>
 </div>
 
@@ -183,40 +206,46 @@ $$H_{\text{penalized}} = H \times (1.0 - C_{\text{top3}})$$
 
 ```mermaid
 flowchart LR
-    Node["Peer Node Attestation"] --> Sig["1. RFC 8785 Ed25519 Custody<br/>(Invariant 24)"]
-    Sig --> Qual["2. 5-Factor Node Quality Q_i<br/>(Invariant 25)"]
-    Qual --> Exp["3. Empirical Expertise E_i<br/>(Invariant 26 · Anti-Diploma)"]
-    Exp --> Consensus["4. Bayesian Weighted Consensus<br/>(Invariant 27 · Galileo Rule Override)"]
-    Consensus --> Mesh["5. BitTorrent Work-Sharing<br/>(Invariant 28 & 29 · 3f+1 Cartel Defense)"]
+    Node["Peer Node Attestation"] --> Sig["1. RFC 8785 Ed25519 Custody<br/>(inv-canonical-json-ed25519)"]
+    Sig --> Qual["2. 5-Factor Node Quality Q_i<br/>(inv-5factor-node-quality)"]
+    Qual --> Exp["3. Empirical Expertise E_i<br/>(inv-empirical-expertise · Anti-Diploma)"]
+    Exp --> Consensus["4. Bayesian Weighted Consensus<br/>(inv-galileo-rule · Galileo Rule Override)"]
+    Consensus --> Mesh["5. BitTorrent Work-Sharing<br/>(inv-bittorrent-worksharing & inv-byzantine-cartel-resistance)"]
 ```
 
-<div class="invariant-card" id="invariant-24">
-<h3><a href="#docs/invariants#invariant-24">Invariant 24: RFC 8785 Canonical JSON & Ed25519 Custody</a></h3>
+<div class="invariant-card" id="inv-canonical-json-ed25519">
+<a id="invariant-24"></a>
+<h3><a href="#docs/invariants#inv-canonical-json-ed25519">Invariant 24: RFC 8785 Canonical JSON & Ed25519 Custody</a></h3>
 <p>Signatures must use RFC 8785 canonical bytes with UTC timestamps. Intermediate relay nodes must never re-sign valid envelopes.</p>
 </div>
 
-<div class="invariant-card" id="invariant-25">
-<h3><a href="#docs/invariants#invariant-25">Invariant 25: 5-Factor Node Quality ($Q_i$)</a></h3>
+<div class="invariant-card" id="inv-5factor-node-quality">
+<a id="invariant-25"></a>
+<h3><a href="#docs/invariants#inv-5factor-node-quality">Invariant 25: 5-Factor Node Quality ($Q_i$)</a></h3>
 <p>Reputation evaluates 5 composite factors: $Q_i = 0.25 U_i + 0.30 C_i + 0.25 G_i + 0.10 T_i + 0.10 K_i$. Bootstrap seeds (<code>peers.json</code>) require root Ed25519 signature verification.</p>
 </div>
 
-<div class="invariant-card" id="invariant-26">
-<h3><a href="#docs/invariants#invariant-26">Invariant 26: Empirical Expertise ($E_i$) & Anti-Diploma Invariant</a></h3>
+<div class="invariant-card" id="inv-empirical-expertise">
+<a id="invariant-26"></a>
+<h3><a href="#docs/invariants#inv-empirical-expertise">Invariant 26: Empirical Expertise ($E_i$) & Anti-Diploma Invariant</a></h3>
 <p>Authority is earned via performance ($E_i = 0.40 C + 0.35 G + 0.15 V + 0.10 L$) and combined with node quality ($W_i = 0.20 Q_i + 0.80 E_i$). Requires domain entropy across $\ge 5$ distinct FQDNs. Hallucinated findings incur a 50% score slash.</p>
 </div>
 
-<div class="invariant-card" id="invariant-27">
-<h3><a href="#docs/invariants#invariant-27">Invariant 27: The Galileo Rule (Asymmetric Grounded Evidence)</a></h3>
+<div class="invariant-card" id="inv-galileo-rule">
+<a id="invariant-27"></a>
+<h3><a href="#docs/invariants#inv-galileo-rule">Invariant 27: The Galileo Rule (Asymmetric Grounded Evidence)</a></h3>
 <p>Absence of evidence is not evidence of absence. Verified domain authorities submitting 100% grounded citations cannot be outlier-dismissed (<code>is_outlier = False</code>) by swarms reporting zero violations. Consensus uses Domain Authority Weighted Medians.</p>
 </div>
 
-<div class="invariant-card" id="invariant-28">
-<h3><a href="#docs/invariants#invariant-28">Invariant 28: BitTorrent Work-Sharing & Generous Defaults</a></h3>
+<div class="invariant-card" id="inv-bittorrent-worksharing">
+<a id="invariant-28"></a>
+<h3><a href="#docs/invariants#inv-bittorrent-worksharing">Invariant 28: BitTorrent Work-Sharing & Generous Defaults</a></h3>
 <p>Nodes seed attestations freely and divide syndicated feeds across peers to achieve 92.3% compute savings at $0.00 token cost.</p>
 </div>
 
-<div class="invariant-card" id="invariant-29">
-<h3><a href="#docs/invariants#invariant-29">Invariant 29: Byzantine Cartel Resistance ($3f+1$)</a></h3>
+<div class="invariant-card" id="inv-byzantine-cartel-resistance">
+<a id="invariant-29"></a>
+<h3><a href="#docs/invariants#inv-byzantine-cartel-resistance">Invariant 29: Byzantine Cartel Resistance ($3f+1$)</a></h3>
 <p>The mesh requires $\ge 3f + 1$ nodes to tolerate up to $f$ adversarial Sybil cartel nodes without state compromise, reinforced by mandatory domain entropy requirements.</p>
 </div>
 
@@ -226,133 +255,159 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    Core["Unified Business Core Logic<br/>(Invariant 30)"] --> CLI["1. Terminal CLI (credence)"]
+    Core["Unified Business Core Logic<br/>(inv-4way-feature-parity)"] --> CLI["1. Terminal CLI (credence)"]
     Core --> FastMCP["2. FastMCP 2.0 (stdio / SSE)"]
     Core --> TUI["3. Textual TUI (credence tui)"]
-    Core --> Web["4. Zero-Build Web (0 npm · Invariant 31)"]
+    Core --> Web["4. Zero-Build Web (0 npm · inv-zero-build-standards)"]
     
-    Web --> Router["Edge Router & Subdirectory Canonical<br/>(Invariant 33)"]
-    Web --> Math["Unicode Math Parser<br/>(Invariant 32)"]
-    Web --> Density["Visual Density & Playwright Verification<br/>(Invariant 34, 35, 36)"]
+    Web --> Router["Edge Router & Subdirectory Canonical<br/>(inv-edge-canonicalization)"]
+    Web --> Math["Unicode Math Parser<br/>(inv-zero-build-math)"]
+    Web --> Density["Visual Density & Playwright Verification<br/>(inv-mermaid-syntax-safety, inv-visual-density, inv-playwright-rendering-tests)"]
 ```
 
-<div class="invariant-card" id="invariant-30">
-<h3><a href="#docs/invariants#invariant-30">Invariant 30: Universal Feature Parity</a></h3>
+<div class="invariant-card" id="inv-4way-feature-parity">
+<a id="invariant-30"></a>
+<h3><a href="#docs/invariants#inv-4way-feature-parity">Invariant 30: Universal Feature Parity</a></h3>
 <p>Maintain synchronous feature parity across all 4 interfaces: <b>CLI</b> (<code>credence</code>), <b>FastMCP 2.0</b> (<code>credence_</code> tools & <code>credence://</code> resources), <b>Textual TUI</b> (<code>credence tui</code>), and <b>Zero-Build Web UI</b> (<code>web/</code>).</p>
 </div>
 
-<div class="invariant-card" id="invariant-31">
-<h3><a href="#docs/invariants#invariant-31">Invariant 31: Universal Zero-Build Standards (Zero-npm Invariant)</a></h3>
+<div class="invariant-card" id="inv-zero-build-standards">
+<a id="invariant-31"></a>
+<h3><a href="#docs/invariants#inv-zero-build-standards">Invariant 31: Universal Zero-Build Standards (Zero-npm Invariant)</a></h3>
 <p>All public web surfaces, documentation portals (<code>credence-docs</code>), and sovereign blogs strictly use vanilla HTML5, CSS Custom Properties (<code>credence-ui.css</code>), and native ES Modules with <b>zero npm dependencies, zero package.json, and zero build toolchains</b>. Never introduce Node.js frameworks (Astro, Next.js, Vite) for any web property.</p>
 </div>
 
-<div class="invariant-card" id="invariant-32">
-<h3><a href="#docs/invariants#invariant-32">Invariant 32: Zero-Build Math & Currency Invariant</a></h3>
+<div class="invariant-card" id="inv-zero-build-math">
+<a id="invariant-32"></a>
+<h3><a href="#docs/invariants#inv-zero-build-math">Invariant 32: Zero-Build Math & Currency Invariant</a></h3>
 <p>All zero-build Markdown parsers must render mathematical expressions using native Unicode entities and styled containers (<code>.math-block</code>, <code>.math-inline</code>) while preserving currency strings (<code>$0.00</code>, <code>$15.00</code>) without escaping artifacts.</p>
 </div>
 
-<div class="invariant-card" id="invariant-33">
-<h3><a href="#docs/invariants#invariant-33">Invariant 33: Edge Subdirectory Canonicalization</a></h3>
+<div class="invariant-card" id="inv-edge-canonicalization">
+<a id="invariant-33"></a>
+<h3><a href="#docs/invariants#inv-edge-canonicalization">Invariant 33: Edge Subdirectory Canonicalization</a></h3>
 <p>Multi-domain edge routers (<code>_worker.js</code>) must intercept internal <code>env.ASSETS</code> folder redirects and enforce 301 canonical redirects to prevent folder names (e.g. <code>/credence.run/</code>) from appearing in public browser address bars.</p>
 </div>
 
-<div class="invariant-card" id="invariant-34">
-<h3><a href="#docs/invariants#invariant-34">Invariant 34: Universal Mermaid & Visual Syntax Guardrail</a></h3>
+<div class="invariant-card" id="inv-mermaid-syntax-safety">
+<a id="invariant-34"></a>
+<h3><a href="#docs/invariants#inv-mermaid-syntax-safety">Invariant 34: Universal Mermaid & Visual Syntax Guardrail</a></h3>
 <p>All Mermaid diagrams across markdown documentation and planning artifacts must strictly use standard flow/graph/sequence syntax (<code>graph TD</code>, <code>flowchart TD</code>, <code>sequenceDiagram</code>) with all special characters (<code>>=</code>, <code><=</code>, <code>()</code>, <code>/</code>, <code>&</code>) enclosed in double quotes (e.g. <code>id["Label (Details)"]</code>), avoiding unquoted <code>< ></code> brackets or unsupported diagram types to prevent rendering failures across IDE viewers and static engines.</p>
 </div>
 
-<div class="invariant-card" id="invariant-35">
-<h3><a href="#docs/invariants#invariant-35">Invariant 35: Visual Density & Anti-Wall-of-Text Invariant</a></h3>
+<div class="invariant-card" id="inv-visual-density">
+<a id="invariant-35"></a>
+<h3><a href="#docs/invariants#inv-visual-density">Invariant 35: Visual Density & Anti-Wall-of-Text Invariant</a></h3>
 <p>All documentation guides, tutorials, and editorial blog posts must maintain a visual density of $\ge 2.0$ visual elements per 500 words (using Mermaid architecture diagrams, comparison matrices, and styled alert callout boxes) to eliminate unformatted prose fatigue.</p>
 </div>
 
-<div class="invariant-card" id="invariant-36">
-<h3><a href="#docs/invariants#invariant-36">Invariant 36: Automated Live Rendering Regression Verification</a></h3>
+<div class="invariant-card" id="inv-playwright-rendering-tests">
+<a id="invariant-36"></a>
+<h3><a href="#docs/invariants#inv-playwright-rendering-tests">Invariant 36: Automated Live Rendering Regression Verification</a></h3>
 <p>All UI and documentation rendering updates must be verified via automated Playwright live rendering test suites (<code>tests/test_docs_rendering.py</code>) ensuring non-zero SVG diagram dimensions, zero raw HTML tag leaks in rendered prose, and interactive widget state contracts.</p>
 </div>
 
-<div class="invariant-card" id="invariant-37">
-<h3><a href="#docs/invariants#invariant-37">Invariant 37: Zero-Build Inline HTML Tag & Nested Math Integrity</a></h3>
+<div class="invariant-card" id="inv-inline-html-math-integrity">
+<a id="invariant-37"></a>
+<h3><a href="#docs/invariants#inv-inline-html-math-integrity">Invariant 37: Zero-Build Inline HTML Tag & Nested Math Integrity</a></h3>
 <p>Zero-build Markdown parsers must mask and preserve safe author-supplied inline HTML tags (<code>&lt;a&gt;</code>, <code>&lt;code&gt;</code>, <code>&lt;span&gt;</code>) before entity escaping and use balanced-brace recursive parsing for nested LaTeX mathematical structures (e.g. <code>\frac{...}{...}</code>) to guarantee zero raw tag string leaks or unparsed backslashes across all surfaces.</p>
 </div>
 
-<div class="invariant-card" id="invariant-38">
-<h3><a href="#docs/invariants#invariant-38">Invariant 38: Anti-Scrollbox & Natural Flow Presentation</a></h3>
+<div class="invariant-card" id="inv-anti-scrollbox">
+<a id="invariant-38"></a>
+<h3><a href="#docs/invariants#inv-anti-scrollbox">Invariant 38: Anti-Scrollbox & Natural Flow Presentation</a></h3>
 <p>Document reading surfaces and forensic inspectors must never constrain content with fixed nested vertical scrollbars; article previews must expand naturally (<code>height: auto; overflow: visible;</code>) and dense technical payloads must be encapsulated in native <code>&lt;details&gt;</code> accordions with auto-height <code>&lt;pre&gt;</code> blocks.</p>
 </div>
 
-<div class="invariant-card" id="invariant-39">
-<h3><a href="#docs/invariants#invariant-39">Invariant 39: Opportunistic Boredom Ingestion & Epistemic Root Expansion</a></h3>
+<div class="invariant-card" id="inv-boredom-root-expansion">
+<a id="invariant-39"></a>
+<h3><a href="#docs/invariants#inv-boredom-root-expansion">Invariant 39: Opportunistic Boredom Ingestion & Epistemic Root Expansion</a></h3>
 <p>When nodes detect idle compute with rolling daily token headroom $\ge 30\%$ and clear circuit breakers, they must autonomously execute prioritized FIFO queue digestion, extract cited outbound domains from verified clean articles ($G=1.00, \text{Score} \le 25.0$), probe and auto-subscribe to candidate RSS/Atom feeds, and gossip signed Ed25519 attestations across the P2P mesh to enable zero-token peer adoption.</p>
 </div>
 
-<div class="invariant-card" id="invariant-40">
-<h3><a href="#docs/invariants#invariant-40">Invariant 40: Soft Blacklisting & The BuzzFeed News Doctrine (Asymmetric Redemption)</a></h3>
+<div class="invariant-card" id="inv-soft-blacklist-buzzfeed">
+<a id="invariant-40"></a>
+<h3><a href="#docs/invariants#inv-soft-blacklist-buzzfeed">Invariant 40: Soft Blacklisting & The BuzzFeed News Doctrine (Asymmetric Redemption)</a></h3>
 <p>Consistently deceptive sources ($\ge 3$ consecutive deceptions or trust score $\le 20.0$) MUST NOT be hard-deleted, but transitioned to <code>QUARANTINED_PROBATION</code> with exponential polling backoff ($T_{\text{poll}} \times 2^{\min(\text{deceptions}, 6)}$). Under the <strong>BuzzFeed News Doctrine</strong>, quarantined domains retain a verifiable path to redemption through low-frequency Lazarus sampling probes; completing $k=5$ consecutive clean audits ($G=1.00, \text{Suspicion} \le 15.0$) spanning $\ge 2$ distinct subject namespaces graduates the domain to probationary recovery, while any high-severity violation (Severity $\ge 3$) immediately triggers full quarantine relapse.</p>
 </div>
 
-<div class="invariant-card" id="invariant-41">
-<h3><a href="#docs/invariants#invariant-41">Invariant 41: Symmetric 4-Pillar Navigation & Zero-Cache Multi-Domain Edge Routing Invariant</a></h3>
+<div class="invariant-card" id="inv-symmetric-navigation-zero-cache">
+<a id="invariant-41"></a>
+<h3><a href="#docs/invariants#inv-symmetric-navigation-zero-cache">Invariant 41: Symmetric 4-Pillar Navigation & Zero-Cache Multi-Domain Edge Routing Invariant</a></h3>
 <p>Global header navigation is strictly 5 invariant links (<code>Home</code>, <code>Docs</code>, <code>Reports</code>, <code>Nexus</code>, <code>Foundation</code>) across all pages. Footer architecture strictly uses 4 balanced pillars (4 links each); docs reading panes use centered 2x2 card modules (<code>max-width: 760px; margin: 0 auto;</code>) with centered copyright and zero redundant secondary bottom links (<code>.footer-bottom-links</code>). All 18 apex and subdomain routes must be explicitly bound in <code>wrangler.toml</code> with zero-cache headers (<code>Cache-Control: public, max-age=0, must-revalidate</code> for static assets, <code>no-cache, no-store, must-revalidate</code> for docs/blog).</p>
 </div>
 
----
-
-
-<div class="invariant-card" id="invariant-42">
-<h3><a href="#docs/invariants#invariant-42">Invariant 42: The Epistemic Lensing & Information Pyramid Invariant</a></h3>
+<div class="invariant-card" id="inv-information-pyramid-lensing">
+<a id="invariant-42"></a>
+<h3><a href="#docs/invariants#inv-information-pyramid-lensing">Invariant 42: The Epistemic Lensing & Information Pyramid Invariant</a></h3>
 <p>All user-facing views, CLI summaries, TUI workstations, and web surfaces strictly structure content into a 3-tier cognitive hierarchy: Surface Lens (Glance — above fold: score gauge, 1-line verdict, 0 math), Focus Lens (Explore — mid-page: claims, grounded quotes, trajectory sparklines), and Deep Spectrum Lens (Forensic — base: Ed25519 signatures, RFC 8785 canonical bytes, live WebCrypto DOM hash match).</p>
 </div>
 
-<div class="invariant-card" id="invariant-43">
-<h3><a href="#docs/invariants#invariant-43">Invariant 43: The Cart-Before-the-Horse Order-of-Operations Invariant</a></h3>
+<div class="invariant-card" id="inv-order-of-operations">
+<a id="invariant-43"></a>
+<h3><a href="#docs/invariants#inv-order-of-operations">Invariant 43: The Cart-Before-the-Horse Order-of-Operations Invariant</a></h3>
 <p>Every implementation plan, task breakdown, and execution sequence must undergo a strict dependency analysis and topological order verification before being presented for human review ("Mk1 Eyeball"). Prerequisite ingestion scrubbers, data models, and cryptographic primitives must strictly precede downstream APIs, UI components, CLI commands, and test suites. Furthermore, empirical tests, red team exercises, and benchmark gauntlets must strictly be executed and verified before drafting corresponding case studies, lab documentation, or walkthroughs.</p>
+</div>
+
+<div class="invariant-card" id="inv-web-component-zero-clone">
+<a id="invariant-44"></a>
+<h3><a href="#docs/invariants#inv-web-component-zero-clone">Invariant 44: Web Component Isolation & Zero-Clone Safety</a></h3>
+<p>Custom elements and embeddable Web Components (<code>HTMLElement</code> subclasses) must never invoke <code>cloneNode(true)</code> on host DOM trees containing custom element instances to prevent recursive constructor cascades (<code>Maximum call stack size exceeded</code>). Attribute observers (<code>attributeChangedCallback</code>) must be purely synchronous state transitions with zero asynchronous execution loops. All clientside parsers must guard against null/empty frontmatters and nested container directives.</p>
+</div>
+
+<div class="invariant-card" id="inv-dense-workstation-viewport">
+<a id="invariant-45"></a>
+<h3><a href="#docs/invariants#inv-dense-workstation-viewport">Invariant 45: The Dense Workstation Viewport & Zero-Masking Invariant</a></h3>
+<p>High-density workstation card grids must be enclosed within a <code>.ws-scroll-pane</code> container with a maximum vertical bound (<code>max-height: 580px; overflow-y: auto;</code>) to prevent massive vertical sprawl. Dense data tables must enforce sticky headers during deep scrolling. In multi-domain edge deployments, edge asset lookups via <code>env.ASSETS.fetch()</code> must target explicit <code>.html</code> files using the incoming origin to prevent root fallback masking and 307 redirect cascades.</p>
 </div>
 
 ## Invariant Reference Index Matrix
 
-| Invariant ID | Pillar | Key Property | Formula / Enforcement |
-| :--- | :--- | :--- | :--- |
-| **[Invariant 1](#invariant-1)** | Safety | Workspace Isolation | Decoupled execution |
-| **[Invariant 2](#invariant-2)** | Safety | Python & SQLModel Async | Python 3.12 async sessions |
-| **[Invariant 3](#invariant-3)** | Safety | Version Parity | Universal manifest sync |
-| **[Invariant 4](#invariant-4)** | Safety | Hermetic Testing | In-memory SQLite & offline fixtures |
-| **[Invariant 6](#invariant-6)** | Safety | Human Approval | Mk1 Eyeball before commits |
-| **[Invariant 7](#invariant-7)** | Safety | Multi-Model Sovereignty | 30% quota circuit breakers |
-| **[Invariant 15](#invariant-15)** | Safety | 4k Thinking Sweet Spot | Gemini 3.7 Flash Pareto optimal |
-| **[Invariant 19](#invariant-19)** | Ingestion | Pizza Hut Astroturfing | $H_{\text{penalized}} = H \times (1 - C_{\text{top3}})$ |
-| **[Invariant 20](#invariant-20)** | Ingestion | Poe's Law & Satire | Structural cues & SPJ-1.6 override |
-| **[Invariant 22](#invariant-22)** | Ingestion | Verbatim Grounding | $G=1.00$ whitespace-collapsed |
-| **[Invariant 24](#invariant-24)** | Mesh | Canonical Signatures | RFC 8785 Ed25519 custody |
-| **[Invariant 25](#invariant-25)** | Mesh | 5-Factor Node Quality | $Q_i = 0.25U + 0.30C + 0.25G + 0.10T + 0.10K$ |
-| **[Invariant 26](#invariant-26)** | Mesh | Anti-Diploma Authority | $E_i = 0.40C + 0.35G + 0.15V + 0.10L$ |
-| **[Invariant 27](#invariant-27)** | Mesh | The Galileo Rule | Asymmetric grounded evidence preservation |
-| **[Invariant 28](#invariant-28)** | Mesh | BitTorrent Work-Sharing | HRW hashing & 92.3% token savings |
-| **[Invariant 30](#invariant-30)** | Presentation | 4-Way Parity | Synchronous CLI, FastMCP, TUI, Web |
-| **[Invariant 31](#invariant-31)** | Presentation | Zero-npm / Zero-Build | Vanilla ES Modules & 0 node_modules |
-| **[Invariant 34](#invariant-34)** | Presentation | Mermaid Syntax Safety | Standard quoted graph syntax |
-| **[Invariant 35](#invariant-35)** | Presentation | Visual Density | $\ge 2.0$ visuals per 500 words |
-| **[Invariant 36](#invariant-36)** | Presentation | Live Playwright Tests | SVG geometry & 0 HTML leaks |
-| **[Invariant 37](#invariant-37)** | Presentation | Inline HTML & Math | Balanced-brace LaTeX & safe tag masking |
-| **[Invariant 38](#invariant-38)** | Presentation | Anti-Scrollbox Flow | Natural auto-height & details accordion |
-| **[Invariant 39](#invariant-39)** | Mesh / Ingestion | Boredom & Root Expansion | Autonomous opportunistic digestion & feed discovery |
-| **[Invariant 40](#invariant-40)** | Mesh / Ingestion | Soft Blacklist & BuzzFeed Doctrine | Exponential backoff & asymmetric redemption |
-| **[Invariant 41](#invariant-41)** | Presentation / Edge | Symmetric Navigation & Zero-Cache | 5 header links, 4-pillar footers, 18-domain zero-cache routing |
-| **[Invariant 42](#invariant-42)** | Presentation | Information Pyramid & Lensing | 3-Tier Cognitive Hierarchy (Surface/Focus/Deep) |
-| **[Invariant 43](#invariant-43)** | Governance | Cart-Before-Horse Dependency Law | Topological dependency ordering before human review |
-| **[Invariant 44](#invariant-44)** | Presentation | Web Component Zero-Clone | Zero recursive constructor cascades & synchronous attributes |
-| **[Invariant 45](#invariant-45)** | Presentation / Edge | Dense Viewport Bounds & Zero-Masking | Bounded `.ws-scroll-pane` viewports ($\le 580\text{px}$) & direct index asset resolution |
----
-
-### Invariant 44: Web Component Isolation & Zero-Clone Safety
-- **Core Rule**: Custom elements and embeddable Web Components (`HTMLElement` subclasses) must never invoke `cloneNode(true)` on host DOM trees containing custom element instances to prevent recursive constructor cascades (`Maximum call stack size exceeded`).
-- **Synchronous Attribute State**: Attribute observers (`attributeChangedCallback`) must be purely synchronous state transitions with zero asynchronous execution loops.
-- **Defensive Parsing**: All clientside parsers must guard against null/empty frontmatters and nested container directives (`:::note`, `:::tabs`).
-
----
-
-### Invariant 45: The Dense Workstation Viewport & Zero-Masking Invariant
-- **Dense Grid Viewport Bounds**: High-density workstation card grids (Curated Articles, Publisher Catalog, Search Results) must be enclosed within a `.ws-scroll-pane` container with a maximum vertical bound (`max-height: 580px; overflow-y: auto;`) and sleek 6px dark scrollbars to prevent full datasets (16+ items) from expanding the page 2,000px+ vertically.
-- **Sticky Table Headers**: All dense data tables (`.ws-table-container`) must enforce `max-height: 520px; overflow-y: auto;` with sticky header positioning (`thead th { position: sticky; top: 0; background: #111b2e; z-index: 2; }`) so column headers remain visible during deep scrolling.
-- **Multi-Domain Root Asset Isolation**: Never place a fallback `index.html` at the root of `web/` in multi-domain edge deployments, as Cloudflare Workers Static Assets default fallback can mask domain subfolder index files. Edge worker asset lookups via `env.ASSETS.fetch()` must target explicit `.html` files (e.g. `/${prefix}/index.html`) using the incoming `request.url` origin to prevent internal 307 redirect cascades.
+| Invariant Slug | Legacy ID | Pillar | Key Property | Formula / Enforcement |
+| :--- | :--- | :--- | :--- | :--- |
+| **[`inv-workspace-isolation`](#inv-workspace-isolation)** | Inv 1 | Safety | Workspace Isolation | Decoupled execution |
+| **[`inv-async-sqlmodel`](#inv-async-sqlmodel)** | Inv 2 | Safety | Python & SQLModel Async | Python 3.12 async sessions |
+| **[`inv-version-governance`](#inv-version-governance)** | Inv 3 | Governance | Version Parity | Universal manifest sync |
+| **[`inv-hermetic-testing`](#inv-hermetic-testing)** | Inv 4 | Safety | Hermetic Testing | In-memory SQLite & offline fixtures |
+| **[`inv-scoped-verification`](#inv-scoped-verification)** | Inv 5 | Safety | Scoped Verification | Scoped inspection for docs-only edits |
+| **[`inv-mk1-eyeball`](#inv-mk1-eyeball)** | Inv 6 | Class α | Human Approval | Mk1 Eyeball before commits |
+| **[`inv-multi-model-sovereignty`](#inv-multi-model-sovereignty)** | Inv 7 | Class γ | Multi-Model Sovereignty | 30% quota circuit breakers |
+| **[`inv-ssrf-defense`](#inv-ssrf-defense)** | Inv 8 | Class α | Ingestion SSRF Guard | Cloud metadata & RFC 1918 rejection |
+| **[`inv-ingestion-defense`](#inv-ingestion-defense)** | Inv 9 | Class α | Ingestion Protocol Defense | Billion Laughs & sandbox tags |
+| **[`inv-xml-safety`](#inv-xml-safety)** | Inv 10 | Safety | XML Traversal Safety | elem is not None checks |
+| **[`inv-ground-truth-config`](#inv-ground-truth-config)** | Inv 11 | Safety | Ground Truth Config | credence/config.py as ground truth |
+| **[`inv-fastmcp-transport-security`](#inv-fastmcp-transport-security)** | Inv 12 | Safety | FastMCP Reverse Proxy | TransportSecuritySettings config |
+| **[`inv-cloudflare-assets`](#inv-cloudflare-assets)** | Inv 13 | Presentation | Zero-Build Static Assets | binding = ASSETS in wrangler.toml |
+| **[`inv-edge-origin-header`](#inv-edge-origin-header)** | Inv 14 | Presentation | Origin Header Translation | Host header rewrite to run.app |
+| **[`inv-4k-thinking-budget`](#inv-4k-thinking-budget)** | Inv 15 | Safety | 4k Thinking Sweet Spot | Gemini 3.7 Flash Pareto optimal |
+| **[`inv-fastmcp-datetime-serialization`](#inv-fastmcp-datetime-serialization)** | Inv 16 | Safety | Datetime Serialization | .isoformat() strings in .to_dict() |
+| **[`inv-content-decoupling`](#inv-content-decoupling)** | Inv 17 | Safety | Content Decoupling | Clean markdown & offline CI |
+| **[`inv-progressive-disclosure`](#inv-progressive-disclosure)** | Inv 18 | Governance | Progressive Disclosure | AGENTS.md < 800 token budget |
+| **[`inv-topic-entropy-defense`](#inv-topic-entropy-defense)** | Inv 19 | Class γ | Pizza Hut Astroturfing | $H_{\text{penalized}} = H \times (1 - C_{\text{top3}})$ |
+| **[`inv-poes-law-satire`](#inv-poes-law-satire)** | Inv 20 | Class γ | Poe's Law & Satire | Structural cues & SPJ-1.6 override |
+| **[`inv-fixed-taxonomies`](#inv-fixed-taxonomies)** | Inv 21 | Ingestion | Namespaced Taxonomies | domain:cluster/rule_id@version |
+| **[`inv-verbatim-grounding`](#inv-verbatim-grounding)** | Inv 22 | Class α | Verbatim Grounding | $G=1.00$ whitespace-collapsed |
+| **[`inv-heuristic-disclosure`](#inv-heuristic-disclosure)** | Inv 23 | Ingestion | Heuristic Disclosure | evaluation_method explicit tagging |
+| **[`inv-canonical-json-ed25519`](#inv-canonical-json-ed25519)** | Inv 24 | Class α | Canonical Signatures | RFC 8785 Ed25519 custody |
+| **[`inv-5factor-node-quality`](#inv-5factor-node-quality)** | Inv 25 | Mesh | 5-Factor Node Quality | $Q_i = 0.25U + 0.30C + 0.25G + 0.10T + 0.10K$ |
+| **[`inv-empirical-expertise`](#inv-empirical-expertise)** | Inv 26 | Mesh | Anti-Diploma Authority | $E_i = 0.40C + 0.35G + 0.15V + 0.10L$ |
+| **[`inv-galileo-rule`](#inv-galileo-rule)** | Inv 27 | Mesh | The Galileo Rule | Asymmetric grounded evidence preservation |
+| **[`inv-bittorrent-worksharing`](#inv-bittorrent-worksharing)** | Inv 28 | Mesh | BitTorrent Work-Sharing | HRW hashing & 92.3% token savings |
+| **[`inv-byzantine-cartel-resistance`](#inv-byzantine-cartel-resistance)** | Inv 29 | Mesh | Byzantine Cartel Defense | $\ge 3f + 1$ nodes & domain entropy |
+| **[`inv-4way-feature-parity`](#inv-4way-feature-parity)** | Inv 30 | Class γ | 4-Way Parity | Synchronous CLI, FastMCP, TUI, Web |
+| **[`inv-zero-build-standards`](#inv-zero-build-standards)** | Inv 31 | Class γ | Zero-npm / Zero-Build | Vanilla ES Modules & 0 node_modules |
+| **[`inv-zero-build-math`](#inv-zero-build-math)** | Inv 32 | Presentation | Zero-Build Math | Native Unicode & currency preservation |
+| **[`inv-edge-canonicalization`](#inv-edge-canonicalization)** | Inv 33 | Presentation | Edge Subdirectory Canonical | 301 redirects preventing folder leaks |
+| **[`inv-mermaid-syntax-safety`](#inv-mermaid-syntax-safety)** | Inv 34 | Presentation | Mermaid Syntax Safety | Standard quoted graph syntax |
+| **[`inv-visual-density`](#inv-visual-density)** | Inv 35 | Presentation | Visual Density | $\ge 2.0$ visuals per 500 words |
+| **[`inv-playwright-rendering-tests`](#inv-playwright-rendering-tests)** | Inv 36 | Presentation | Live Playwright Tests | SVG geometry & 0 HTML leaks |
+| **[`inv-inline-html-math-integrity`](#inv-inline-html-math-integrity)** | Inv 37 | Presentation | Inline HTML & Math | Balanced-brace LaTeX & safe tag masking |
+| **[`inv-anti-scrollbox`](#inv-anti-scrollbox)** | Inv 38 | Presentation | Anti-Scrollbox Flow | Natural auto-height & details accordion |
+| **[`inv-boredom-root-expansion`](#inv-boredom-root-expansion)** | Inv 39 | Mesh | Boredom & Root Expansion | Autonomous opportunistic digestion |
+| **[`inv-soft-blacklist-buzzfeed`](#inv-soft-blacklist-buzzfeed)** | Inv 40 | Mesh | Soft Blacklist & BuzzFeed | Exponential backoff & asymmetric redemption |
+| **[`inv-symmetric-navigation-zero-cache`](#inv-symmetric-navigation-zero-cache)** | Inv 41 | Class γ | Symmetric Navigation | 5 header links, 4 footers, zero-cache |
+| **[`inv-information-pyramid-lensing`](#inv-information-pyramid-lensing)** | Inv 42 | Class γ | Information Pyramid | 3-Tier Cognitive Hierarchy (Surface/Focus/Deep) |
+| **[`inv-order-of-operations`](#inv-order-of-operations)** | Inv 43 | Class β | Order-of-Operations | Topological dependency ordering before review |
+| **[`inv-web-component-zero-clone`](#inv-web-component-zero-clone)** | Inv 44 | Class γ | Web Component Zero-Clone | Zero recursive cascades & synchronous attrs |
+| **[`inv-dense-workstation-viewport`](#inv-dense-workstation-viewport)** | Inv 45 | Presentation | Dense Viewport Bounds | Bounded .ws-scroll-pane & direct asset fetch |
 

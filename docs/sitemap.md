@@ -155,6 +155,7 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * **[03. Hermetic Testing & Zero-npm Guardrails](#docs/agentic/03-hermetic-testing-and-zero-npm-guardrails)**: Enforcing 100% offline unit suites and zero-npm web assets.
 * **[04. Multi-Model Pareto & Token Governance](#docs/agentic/04-multi-model-pareto-and-token-governance)**: Managing LLM inference costs and circuit breakers.
 * **[05. FastMCP Dual Transport & 4-Way Parity](#docs/agentic/05-fastmcp-dual-transport-and-four-way-parity)**: stdio and SSE transport mechanisms with synchronous UI parity.
+* **[06. The Demotion Highway & Invariant Lifecycle](#docs/agentic/06-the-demotion-highway-and-invariant-lifecycle)**: Invariant lifecycle state machine, Class Alpha/Beta/Gamma cognitive taxonomy, and automated demotion scanner.
 
 ### Hands-On Tutorials
 * **[01. Clickbait Teardown](#docs/tutorials/01-clickbait-teardown)**: Step-by-step forensic analysis of sensationalist headlines and unnamed sources.
