@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.5.1';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.6.0';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -1912,18 +1912,85 @@ export function parseMarkdown(md) {
 }
 
 let mermaidRenderId = 0;
+let mermaidLoadingPromise = null;
+
+export async function ensureMermaidLoaded() {
+  if (typeof window === 'undefined') return null;
+  if (window.mermaid) return window.mermaid;
+  if (mermaidLoadingPromise) return mermaidLoadingPromise;
+
+  mermaidLoadingPromise = new Promise((resolve) => {
+    const script = document.createElement('script');
+    script.src = 'assets/mermaid.min.js';
+    script.async = true;
+    script.onload = () => {
+      if (window.mermaid) {
+        try {
+          window.mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+            securityLevel: 'loose',
+            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            themeVariables: {
+              darkMode: true,
+              background: '#0d121f',
+              primaryColor: '#1e293b',
+              primaryBorderColor: '#38bdf8',
+              primaryTextColor: '#f8fafc',
+              lineColor: '#60a5fa',
+              secondaryColor: '#1e293b',
+              tertiaryColor: '#0a0f1d',
+              mainBkg: '#111827',
+              nodeBorder: '#38bdf8',
+              clusterBkg: '#0f172a',
+              clusterBorder: '#334155',
+              defaultLinkColor: '#60a5fa',
+              titleColor: '#f8fafc',
+              edgeLabelBackground: '#0d121f',
+              actorBkg: '#1e293b',
+              actorBorder: '#38bdf8',
+              actorTextColor: '#f8fafc',
+              signalColor: '#60a5fa',
+              signalTextColor: '#f8fafc',
+              labelBoxBkgColor: '#1e293b',
+              labelBoxBorderColor: '#38bdf8',
+              labelTextColor: '#f8fafc',
+              loopTextColor: '#f8fafc',
+              noteBorderColor: '#38bdf8',
+              noteBkgColor: '#111827',
+              noteTextColor: '#f8fafc',
+            },
+          });
+        } catch (e) {
+          console.warn("Failed to initialize mermaid:", e);
+        }
+        resolve(window.mermaid);
+      } else {
+        resolve(null);
+      }
+    };
+    script.onerror = (err) => {
+      console.warn("Failed to lazy load mermaid.min.js:", err);
+      resolve(null);
+    };
+    document.head.appendChild(script);
+  });
+  return mermaidLoadingPromise;
+}
+
 export async function renderMermaidDiagrams() {
-  if (typeof window === 'undefined' || !window.mermaid) return;
   const elements = document.querySelectorAll('.mermaid-code');
   if (elements.length === 0) return;
+
+  const mermaid = await ensureMermaidLoaded();
+  if (!mermaid) return;
 
   for (const el of elements) {
     const code = el.getAttribute('data-mermaid');
     if (!code) continue;
-    const container = el.parentElement;
     const diagramId = `mermaid-chart-${++mermaidRenderId}`;
     try {
-      const { svg } = await window.mermaid.render(diagramId, code.trim());
+      const { svg } = await mermaid.render(diagramId, code.trim());
       el.outerHTML = `<div class="mermaid-rendered" role="img" aria-label="Rendered Architecture Diagram">${svg}</div>`;
     } catch (err) {
       console.warn("Mermaid render fallback for diagram:", err);

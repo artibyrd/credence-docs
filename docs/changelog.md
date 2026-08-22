@@ -8,6 +8,22 @@ last_verified: 2026-08-21
 
 # Release Changelog
 
+## [2.6.0] - 2026-08-22
+
+### Added
+- **Dynamic Peer Governor (`compute_max_mesh_peers`)**: Intelligently scales `MAX_MESH_PEERS` based on system file descriptors, memory headroom, profile limits, and Watts-Strogatz graph capacity ($k \ge \max(2, \lceil 2 \ln N \rceil)$).
+- **Profile-Driven Peer Hunger**: Added `peer_hunger` (`lean`, `active`, `voracious`) to cost profiles, allowing operator control over mesh connectivity.
+- **Admin Command Deck Peering Controls**: Interactive segmented controls for Peer Hunger in Admin Deck and REST endpoint `/api/v1/config/profile`.
+- **Node Dashboard Peer Hunger HUD**: Real-time status pill, connected peers count, target degree, and dynamic capacity display on Node Dashboard (`mesh.html`).
+- **On-Demand Lazy Mermaid Loader**: Dynamic script injection in `app.js` eliminating 3.2MB render-blocking payload on docs landing.
+
+### Changed
+- **Async & Concurrency Hardening**: Asynchronous database backups during shutdown via `asyncio.to_thread` and WebSocket `CancelledError` propagation.
+- **SQL Aggregation & Indexing**: Added indexes on timestamp and ordering columns; replaced in-memory scans in `stats.py` and `analytics.py` with SQL aggregate queries.
+- **Pydantic Schema Forward-Compatibility**: Enforced `model_config = ConfigDict(extra="ignore")` across P2P gossip message envelopes.
+
+---
+
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
 ## [2.5.1] - 2026-08-21
