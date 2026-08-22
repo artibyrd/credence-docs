@@ -8,6 +8,17 @@ last_verified: 2026-08-21
 
 # Release Changelog
 
+## [2.7.0] - 2026-08-22
+
+### Added
+- **Cryptographic Epistemic Merit Badges & Anti-Spoofing Verification**: Enforced non-linear, multi-axis progression mechanics across 11 distinct milestone tiers (`sprout_node`, `first_attestation`, `sifter_pioneer`, `cadence_keeper`, `verified_auditor`, `philanthropic_relay`, `domain_specialist`, `galileo_pioneer`, `root_seed_candidate`, `sybil_shield`, `century_anchor`).
+- **Live Backend Merit Verification Endpoint (`/api/badge/{id}`)**: Dynamic SVG generation querying `get_local_node_merit()` to stamp `VERIFIED` on earned badges and `UNEARNED` in muted slate on unearned badges.
+- **Interactive Web Component Overhaul (`credence-widget.js`)**: Real in-browser WebCrypto DOM text hashing (`crypto.subtle.digest('SHA-256')`) for live bait-and-switch tamper defense, eliminating all mock dummy keys and static placeholders.
+- **3-Tier Modality Lensing Architecture**: Modality-specific telemetry pipelines (`renderNodeLens`, `renderPublisherLens`, `renderAttestationLens`) across Surface, Focus, and Deep Spectrum lenses.
+- **Universal Badge Studio 3-Modality Architecture**: Redesigned Nexus Badge Studio with spacious 3-card modality selector grid and balanced 50/50 responsive layout.
+
+---
+
 ## [2.6.4] - 2026-08-22
 
 ### Added
