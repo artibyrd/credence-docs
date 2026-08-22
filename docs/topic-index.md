@@ -28,7 +28,7 @@ last_verified: 2026-08-20
 | [📐 Mathematical Proofs & Theory](#8-mathematical-foundations-proofs) | Weighted medians, Galileo Rule proof, SimHash-64, BitTorrent model |
 | [☁️ Self-Hosting & Operations](#9-self-hosting-operations) | Raspberry Pi, GCP Cloud Run, Tailscale, SQLite WAL maintenance |
 | [🏛️ The Invariant Bible](#the-invariant-bible) | Complete living canon of architectural, epistemic, and security rules |
-| [🗂️ Knowledge Modal Registry](#modal-registry) | Complete index of all 28 workstation and dashboard info modals |
+| [🗂️ Knowledge Modal Registry](#modal-registry) | Complete index of all 30 workstation and dashboard info modals |
 | [🌐 External Standards & Specifications](#12-external-standards-authoritative-specifications) | IETF RFCs, W3C WebCrypto, Model Context Protocol, SPJ Ethics |
 
 ---
@@ -183,7 +183,7 @@ For complete engineering invariants, safety constraints, and mathematical guaran
 <a id="modal-registry"></a>
 ## 🗂️ 11. Workstation & Dashboard Knowledge Modal Registry
 
-Every metric card, interactive table, and telemetry widget across the zero-build web workstations (`credence.report`, `credence.nexus`, `credence.foundation`, and `admin.credence.run`) contains an **Information Lensing Modal (`ℹ`)**. This registry indexes all 28 modal knowledge topics, their bound system invariants, CLI command equivalents, and direct links into authoritative documentation.
+Every metric card, interactive table, and telemetry widget across the zero-build web workstations (`credence.report`, `credence.nexus`, `credence.foundation`, and `admin.credence.run`) contains an **Information Lensing Modal (`ℹ`)**. This registry indexes all 30 modal knowledge topics, their bound system invariants, CLI command equivalents, and direct links into authoritative documentation.
 
 | Topic Key | Topic Name & Domain | Classification | Bound Invariant Slugs | CLI Tool | Authoritative Blueprint / Essay |
 | :--- | :--- | :--- | :--- | :--- | :--- |
