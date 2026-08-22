@@ -8,6 +8,14 @@ last_verified: 2026-08-21
 
 # Release Changelog
 
+## [2.7.2] - 2026-08-22
+
+### Added
+- **Permanent Zero-Mock Telemetry Boundary & Automated Shift-Left Scanner**: Added `test_zero_mock_production_boundary` in `tests/governance/test_web.py` to assert zero synthetic fallback datasets, mock arrays, or dummy keys in `web/` bundles.
+- **Fail-Closed Empty States & Workstation Isolation**: Formally codified mandatory high-contrast `.ws-empty-card` empty states for uninitialized or offline telemetry, preventing synthetic data leakage onto live operator surfaces.
+
+---
+
 ## [2.7.1] - 2026-08-22
 
 ### Added
