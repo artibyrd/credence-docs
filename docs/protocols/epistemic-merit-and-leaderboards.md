@@ -44,31 +44,35 @@ def determine_node_tier(
     """Determine a node's Epistemic Tier based on mathematical milestones."""
     if quality_score >= 0.85 and longevity_days >= 30.0 and grounding_ratio >= 0.80:
         return EpistemicTier.ROOT_ANCHOR
-    if max_domain_expertise >= 0.80 and evaluations_count >= 50:
+    if max_domain_expertise >= 0.80 and quality_score >= 0.75 and evaluations_count >= 50:
         return EpistemicTier.SPECIALIST
-    if evaluations_count >= 50 and quality_score >= 0.75 and grounding_ratio >= 0.85:
+    if quality_score >= 0.70 and evaluations_count >= 50 and grounding_ratio >= 0.85:
         return EpistemicTier.AUDITOR
-    if evaluations_count >= 10 and quality_score >= 0.60:
+    if evaluations_count >= 10 and quality_score >= 0.60 and grounding_ratio >= 0.70:
         return EpistemicTier.SIFTER
     return EpistemicTier.SPROUT
 ```
 
 ---
 
-## 2. The 8 Verifiable Epistemic Merit Badges
+## 2. The 11 Verifiable Epistemic Merit Badges
 
 Badges are awarded automatically when observable metric records satisfy strict cryptographic or computational conditions:
 
 | Badge ID | Icon | Name | Tier | Requirement | Network Impact |
 | :--- | :---: | :--- | :---: | :--- | :--- |
-| `sprout_node` | 🌱 | Sprout Node | `SPROUT` | Identity initialized; signed genesis payload | Inoculated into peer routing |
-| `sifter_pioneer` | 📡 | Sifter Pioneer | `SIFTER` | $\ge 100$ feed items partitioned/sifted via HRW | Relays feed bundles to peers |
-| `verified_auditor` | 🛡️ | Verified Auditor | `AUDITOR` | $Q_i \ge 0.70$, $\ge 100$ citations, $G_i \ge 0.95$ | Attestation seeding adopted by peers |
-| `domain_specialist` | 🏛️ | Domain Specialist | `SPECIALIST` | $E_i \ge 0.80$ across $\ge 5$ distinct FQDNs | Galileo median consensus weight |
-| `philanthropic_relay` | ⚡ | Philanthropic Relay | `SPECIALIST` | $\ge 1,000,000$ LLM tokens saved for swarm | $0.00 compute relay champion |
-| `root_seed_candidate` | 💎 | Root Seed Candidate | `ROOT_ANCHOR` | $Q_i \ge 0.85, U_i \ge 0.80, G_i \ge 0.80, >30$d | Qualified for inclusion in `peers.json` |
-| `galileo_pioneer` | 🌌 | Galileo Pioneer | `SPECIALIST` | $\ge 1$ consensus-shifting grounded discovery | Override erroneous swarm consensus |
-| `sybil_shield` | 🦅 | Sybil Shield | `ROOT_ANCHOR` | $\ge 5,000$ audits with 0 collusion & 0 slashing | Root anchor candidate badge |
+| `sprout_node` | 🌱 | Sprout Genesis | `SPROUT` | Identity initialized; signed genesis payload | Inoculated into peer routing |
+| `first_attestation` | 🌾 | First Attestation | `SPROUT` | $\ge 5$ verified grounded audits with 0 errors | Initial consensus participation |
+| `sifter_pioneer` | 🔍 | Sifter Century | `SIFTER` | $\ge 100$ feed items partitioned/sifted via HRW | Relays feed bundles to peers |
+| `cadence_keeper` | ⏱️ | Cadence Keeper | `SIFTER` | $\ge 7\text{d}$ longevity with $\ge 98.0\%$ operational uptime | Steady backbone heartbeat |
+| `verified_auditor` | ⚖️ | Verified Auditor | `AUDITOR` | $Q_i \ge 0.70$, $\ge 100$ citations, $G_i \ge 0.95$ | Attestation seeding adopted by peers |
+| `philanthropic_relay` | 🎁 | Philanthropic Relay | `AUDITOR` | $\ge 1,000,000$ LLM tokens saved for swarm | $0.00 compute relay champion |
+| `domain_specialist` | 🎯 | Domain Specialist | `SPECIALIST` | $E_i \ge 0.80$ across $\ge 5$ distinct FQDNs | Galileo median consensus weight |
+| `galileo_pioneer` | 🔭 | Galileo Pioneer | `SPECIALIST` | $\ge 1$ consensus-shifting grounded discovery | Override erroneous swarm consensus |
+| `root_seed_candidate` | 🌳 | Root Seed Candidate | `ROOT_ANCHOR` | $Q_i \ge 0.85, U_i \ge 0.80, G_i \ge 0.80, >30$d | Qualified for inclusion in `peers.json` |
+| `sybil_shield` | 🛡️ | Sybil Sentinel | `ROOT_ANCHOR` | $\ge 5,000$ audits with 0 collusion & 0 slashing | Root anchor candidate badge |
+| `century_anchor` | 🏛️ | Century Anchor | `ROOT_ANCHOR` | $\ge 100\text{d}$ longevity, $Q_i \ge 0.90, G_i \ge 0.98$ | Sovereign network pillar mark |
+
 
 ---
 

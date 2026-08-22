@@ -20,8 +20,8 @@ Whether displayed on static **GitHub READMEs**, dynamically rendered in **newsro
 graph TD
     subgraph M1["1. Node Epistemic Merit Badges"]
         direction TB
-        N1["8 P2P Mesh Milestones<br/>(Sprout, Sifter, Auditor, Specialist, Relay, Root Seed, Galileo, Sybil Shield)"]
-        N2["5 Epistemic Tiers<br/>(SPROUT &rarr; ROOT_ANCHOR)"]
+        N1["11 P2P Mesh Milestones across 5 Tiers<br/>(Sprout Genesis, First Attestation, Sifter Century, Cadence Keeper, Verified Auditor, Philanthropic Relay, Domain Specialist, Galileo Pioneer, Root Seed Candidate, Sybil Sentinel, Century Anchor)"]
+        N2["5 Epistemic Tiers<br/>(SPROUT &rarr; SIFTER &rarr; AUDITOR &rarr; SPECIALIST &rarr; ROOT_ANCHOR)"]
         N3["Surfaces: Node Operator Dashboards, GitHub Profiles, Server Health"]
     end
 
@@ -46,9 +46,10 @@ graph TD
 
 | Modality | Target Entity | Core Metric | Primary Embed Format | Endpoint / Interface |
 | :--- | :--- | :--- | :--- | :--- |
-| **Node Epistemic Merit** | P2P Validator Nodes | 8 Milestones & 5 Tiers ($Q_i, U_i, L_i$) | Dynamic Vector SVG (`.svg`) | `/api/badge/{badge_id}` / `credence badge export` |
+| **Node Epistemic Merit** | P2P Validator Nodes | 11 Milestones & 5 Tiers ($Q_i, U_i, L_i, G_i$) | Dynamic Vector SVG (`.svg`) | `/api/badge/{badge_id}` / `credence badge export` |
 | **Publisher Trust** | Newsrooms & Outlets | Domain Credence Index (DCI %) | Dynamic Vector SVG (`.svg`) | `/api/badge/publisher/{domain}` |
 | **Article Attestation** | Individual Articles | Verbatim DOM Grounding ($G$) | Web Component (`<credence-badge>`) | `<credence-badge url="..." receipt="...">` |
+
 
 ---
 
