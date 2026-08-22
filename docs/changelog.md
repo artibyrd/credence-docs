@@ -8,6 +8,13 @@ last_verified: 2026-08-21
 
 # Release Changelog
 
+## [2.6.1] - 2026-08-22
+
+### Changed
+- **Review Workflow Governance**: Refined `inv-mk1-eyeball` and `inv-4phase-release-learning` in `AGENTS.md` and progressive skills (`knowledge-governance`, `cloudrun-ops`) to require staged PR creation, automated Cloud Run Dev deployment monitoring (`deploy-dev.yml`), and interactive live Dev environment verification links in walkthroughs prior to human review presentation.
+
+---
+
 ## [2.6.0] - 2026-08-22
 
 ### Added
