@@ -43,6 +43,7 @@ Enable the following service APIs on your target project(s):
 ```bash
 gcloud services enable \
     run.googleapis.com \
+    storage.googleapis.com \
     cloudscheduler.googleapis.com \
     cloudbuild.googleapis.com \
     artifactregistry.googleapis.com \
@@ -53,16 +54,40 @@ gcloud services enable \
     --project="<YOUR_GCP_PROJECT_ID>"
 ```
 
-### 2.3 Required IAM Roles
-The deployment identity (Service Account or CI/CD runner) requires the following roles:
-- `roles/run.admin` (Cloud Run Admin)
-- `roles/artifactregistry.admin` (Container Registry Admin)
-- `roles/cloudbuild.builds.editor` (Cloud Build Editor)
-- `roles/secretmanager.secretAccessor` (Read API keys at runtime)
-- `roles/storage.admin` (Optional, if using Google Cloud Storage for snapshot blobs)
+### 2.3 Least-Privilege IAM Role Matrix
 
+Credence enforces strict separation of concerns across runtime compute, cold-boot state persistence, and automated CI/CD deployment pipelines:
 
-### 2.3.1 Cloud Scheduler Invoker Role (Scale-to-Zero Autonomous Heartbeat)
+| Identity / Service Account | Least-Privilege IAM Roles | Resource Scope | Operational Purpose |
+| :--- | :--- | :--- | :--- |
+| **Runtime Service Account**<br/>`credence-cloud-run-sa` | `roles/secretmanager.secretAccessor`<br/>`roles/storage.objectAdmin` | Secret Manager keys (`credence-gemini-api-key`)<br/>Storage Bucket (`<PROJECT_ID>-seeds-nexus`) | Decrypt API keys at startup;<br/>Cold-boot database restore, periodic snapshots, and scale-to-zero shutdown sync. |
+| **CI/CD Deployment Runner**<br/>(WIF / GitHub Actions SA) | `roles/run.admin`<br/>`roles/artifactregistry.writer`<br/>`roles/iam.serviceAccountUser` | Project-wide or Cloud Run service;<br/>Container Registry (`gcr.io` / Artifact Registry);<br/>Target runtime SA (`credence-cloud-run-sa`) | Build/push container images, deploy Cloud Run revisions, and bind the runtime execution service account. |
+| **Cloud Scheduler Heartbeat SA**<br/>`credence-boredom-cron-sa` | `roles/run.invoker` | Cloud Run Service (`credence-server`) | Authenticate and trigger autonomous Epistemic Boredom cycles (`/cron/boredom`). |
+
+### 2.3.1 Provisioning Least-Privilege IAM Policy Bindings
+
+Execute the following commands to configure least-privilege IAM bindings:
+
+```bash
+# 1. Grant Runtime SA access to Secret Manager
+gcloud secrets add-iam-policy-binding credence-gemini-api-key \
+    --member="serviceAccount:credence-cloud-run-sa@<YOUR_GCP_PROJECT_ID>.iam.gserviceaccount.com" \
+    --role="roles/secretmanager.secretAccessor" \
+    --project="<YOUR_GCP_PROJECT_ID>"
+
+# 2. Grant Runtime SA objectAdmin on the Seeds & Backups GCS Bucket
+gcloud storage buckets add-iam-policy-binding gs://<YOUR_GCP_PROJECT_ID>-seeds-nexus \
+    --member="serviceAccount:credence-cloud-run-sa@<YOUR_GCP_PROJECT_ID>.iam.gserviceaccount.com" \
+    --role="roles/storage.objectAdmin"
+
+# 3. Grant CI/CD Runner serviceAccountUser on the Runtime SA
+gcloud iam service-accounts add-iam-policy-binding credence-cloud-run-sa@<YOUR_GCP_PROJECT_ID>.iam.gserviceaccount.com \
+    --member="serviceAccount:<YOUR_GITHUB_ACTIONS_SA>@<YOUR_GCP_PROJECT_ID>.iam.gserviceaccount.com" \
+    --role="roles/iam.serviceAccountUser" \
+    --project="<YOUR_GCP_PROJECT_ID>"
+```
+
+### 2.3.2 Cloud Scheduler Invoker Role (Scale-to-Zero Autonomous Heartbeat)
 When provisioning automated Epistemic Boredom heartbeats (`/cron/boredom`), the dedicated Cloud Scheduler service account requires the least-privileged `roles/run.invoker` binding:
 ```bash
 gcloud run services add-iam-policy-binding credence-server \

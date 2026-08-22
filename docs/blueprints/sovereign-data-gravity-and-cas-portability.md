@@ -30,7 +30,7 @@ flowchart TD
         Boot["Container Cold-Boot / Startup"] --> CheckLocal{"Local DB Exists & Non-Empty?"}
         CheckLocal -- "Yes (>0 bytes)" --> Skip["Keep Active Database"]
         CheckLocal -- "No (0 bytes / Fresh)" --> CheckCloud{"Cloud Backup Configured?<br/>(GCS / S3 / Local Archive)"}
-        CheckCloud -- "Yes" --> Pull["Pull Latest Archive<br/>(GET / Download)"]
+        CheckCloud -- "Yes" --> Pull["Pull Latest Archive<br/>(credence_latest.db.gz / Fallback Scan)"]
         Pull --> Verify["Verify SHA-256 Digest &<br/>Ed25519 Signature"]
         Verify --> Decompress["Decompress Gzip &<br/>Atomic SQLite Hydration"]
         Decompress --> Ready["DB Ready (&lt;200ms)"]
@@ -48,7 +48,7 @@ flowchart TD
         Flush --> Snap["Atomic SQLite Online Backup<br/>(WAL Truncate)"]
         Snap --> Gz["Gzip Compression (L9)"]
         Gz --> Sign["RFC 8785 Canonical JSON Manifest<br/>+ Ed25519 Node Signature"]
-        Sign --> Upload["Push to GCS / S3 / Local Store"]
+        Sign --> Upload["Dual Push: Timestamped + Latest Pointer<br/>(GCS / S3 / Local Store)"]
     end
 ```
 
