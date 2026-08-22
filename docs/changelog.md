@@ -8,6 +8,17 @@ last_verified: 2026-08-21
 
 # Release Changelog
 
+## [2.6.2] - 2026-08-22
+
+### Fixed
+- **Storage Persistence on Cloud Run Scale-to-Zero**: Bulletproofed Google Cloud Storage backup and cold-boot recovery by adding `google-cloud-storage` to runtime dependencies, generating dual pointer uploads (`credence_latest.db.gz` and timestamped archives), adding fallback GCS scanning on pre-boot restoration, and implementing async SQLite WAL checkpointing and awaitable cloud uploads (`create_database_backup_async`).
+- **Terraform & Infrastructure IAM**: Added `roles/storage.objectAdmin` on seeds and backup GCS bucket to `cloud_run_sa` and injected `CREDENCE_BACKUP_BUCKET` and `STORAGE_BACKEND=gcs` container environment variables.
+
+### Documentation
+- **Prerequisites & Least-Privilege IAM**: Updated `deployment-prerequisites.md`, `deployment-cloudrun.md`, `sovereign-data-gravity-and-cas-portability.md`, and `cloudrun-ops/SKILL.md` with complete 3-identity IAM matrices and cold-boot recovery runbooks.
+
+---
+
 ## [2.6.1] - 2026-08-22
 
 ### Changed
