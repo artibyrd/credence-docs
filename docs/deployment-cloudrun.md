@@ -66,6 +66,7 @@ gcloud config set project YOUR_PROJECT_ID
 
 gcloud services enable \
     run.googleapis.com \
+    storage.googleapis.com \
     cloudscheduler.googleapis.com \
     cloudbuild.googleapis.com \
     artifactregistry.googleapis.com \
@@ -248,6 +249,18 @@ Add the remote endpoint to your `mcp_config.json`:
   }
 }
 ```
+
+---
+
+## 5.1 Cold-Boot Database Persistence & Scale-to-Zero Storage Gravity
+
+In serverless scale-to-zero compute topologies (`min_instance_count = 0`), container instances start with an ephemeral local disk. Credence automatically preserves historical audits, snapshots, and node identity via zero-touch Google Cloud Storage synchronization:
+
+1. **Pre-Boot Restore Hook**: Before `init_db()` runs on container startup, the server checks if the local SQLite database exists. If empty or fresh, it downloads `gs://<PROJECT_ID>-seeds-nexus/backups/credence_latest.db.gz` (with fallback to the newest timestamped archive), validates SQLite PRAGMA integrity, and hydrates the database in `<200ms`.
+2. **Dual-Pointer Cloud Uploads**: Backups simultaneously push the immutable timestamped snapshot (`credence_YYYYMMDD_HHMMSS.db.gz`) and the latest pointer (`credence_latest.db.gz`) along with their Ed25519-signed RFC 8785 manifests.
+3. **Heartbeat & Event-Driven Sync**: Autonomous Epistemic Boredom cycles (`/cron/boredom`), feed sifter passes, and manual audits automatically create and upload asynchronous snapshots.
+4. **Graceful Scale-to-Zero Shutdown**: During container scale-down (SIGTERM), the server flushes the SQLite WAL and awaits cloud snapshot completion before process termination.
+5. **Least-Privilege Storage IAM**: The runtime service account (`credence-cloud-run-sa`) requires `roles/storage.objectAdmin` on the seeds/backups bucket (`<PROJECT_ID>-seeds-nexus`), while maintaining read-only isolation across other cloud infrastructure.
 
 ---
 
