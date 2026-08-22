@@ -8,6 +8,16 @@ last_verified: 2026-08-21
 
 # Release Changelog
 
+## [2.6.4] - 2026-08-22
+
+### Added
+- **Local-First Headless Browser Verification Protocol**: Codified automated pre-commit Playwright browser verification across viewports and query matrices, eliminating unverified homework deployments.
+- **The Anti-Truncation & Unabridged Display Invariant**: Enforced zero text truncation (`0` ellipses) across all taxonomy catalogs and evidence cards to preserve epistemic verbatim grounding ($G=1.00$).
+- **Serverless Cold-Boot Node Vitals & Uptime Guard**: Grounded throughput velocity in profile-rated pipeline capacity ($\frac{60,000\text{ms}}{\text{profile eval ms}}$), requiring sustained container runtime ($\ge 10\text{m}$) before calculating historical rolling averages.
+- **The Atomic 3-Repo PR Triad & Surgical Diff Protocol**: Codified synchronized PR creation across `credence`, `credence-agent`, and `credence-docs` with strict diff isolation.
+
+---
+
 ## [2.6.3] - 2026-08-22
 
 ### Added
