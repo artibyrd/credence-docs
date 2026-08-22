@@ -181,6 +181,7 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * **[Election & Civic Integrity Blueprint](#docs/blueprints/election-civic-integrity)**: Auditing voting procedure misinformation and polling methodology.
 * **[Synthetic Media & AI Provenance Blueprint](#docs/blueprints/synthetic-media-provenance)**: C2PA metadata, pink slime news rings, and AI provenance detection.
 * **[Domain Credence Index & Sourcing Forensics Blueprint](#docs/blueprints/domain-epistemic-index-and-sourcing-forensics)**: Sourcing ratios ($R_{\text{byline}}$, $R_{\text{single}}$, $R_{\text{COI}}$, $ASI$) and DCI trust bands.
+* **[Unified Merit & Attestation Badge System Blueprint](#docs/blueprints/unified-merit-and-attestation-badge-system)**: Complete 3-modality architecture, vector geometry formulas, and embed recipes across CLI, Web, and FastMCP.
 
 ### P2P Mesh, Protocols & Mathematics
 * **[Featherweight Swarm Simulation](#docs/mesh-engineering/featherweight-swarm-testing)**: Memory-efficient multi-node P2P mesh testing.

@@ -27,8 +27,16 @@ The `<credence-badge>` is a zero-build, zero-npm custom element that renders a c
 ```
 
 ### Visual Appearance:
-- **Default Glance (Pill)**: `[ 🛡️ 98.5 Clean · Verified v2.1.0 🔍 ]`
+- **Default Glance (Pill)**: `[ 🛡️ 98.5 Clean · Verified v2.6.4 🔍 ]`
 - **Interactive Lensing Popover**: Clicking or hovering opens the 3-Tier Lensing popover with Surface verdict, Focus score trajectory sparklines, and Deep Spectrum Ed25519 public key fingerprints.
+
+### Choosing Between Web Component & Vector SVG
+
+| Deployment Target | Recommended Format | Key Reason |
+| :--- | :--- | :--- |
+| **Active HTML Websites & Blogs** | `<credence-badge>` Web Component | Enables live client-side WebCrypto SHA-256 DOM hashing and 3-tier interactive lensing popovers. |
+| **GitHub READMEs & Git Forges** | Dynamic Vector SVG (`.svg`) | Standard markdown renderers block custom JavaScript execution; vector SVGs provide crisp badges linking back to verification receipts. |
+| **Newsroom Mastheads** | Either (SVG or Web Component) | Use vector SVGs for server-rendered static templates, or `<credence-badge type="publisher">` for live client-side interactivity. |
 
 ---
 

@@ -123,21 +123,29 @@ To prevent division-by-zero crashes or spurious $0.0$ scores, mathematical routi
 
 ---
 
-## 6. Shields.io Compatible SVG Badge Generation
+## 6. Vector SVG Badge Generation & Embed Mechanics
 
-Sovereign nodes and federation organizations can export and embed live dynamic vector badges:
+Sovereign nodes, newsroom mastheads, and federation organizations can export and embed live dynamic vector badges in the **Credence Cyber Dark** aesthetic:
 
 ```bash
-# Export static badge file via CLI
-$ credence badge export root_seed_candidate --node anchor-us-central1 --output badge.svg
+# Export static badge file via CLI (supports --style pill|shield and --theme dark|midnight|light)
+$ credence badge export verified_auditor --node anchor-us-central1 --style pill --output badge.svg
+
+# Export publisher trust badge via CLI
+$ credence badge export reuters.com --style shield --output reuters_badge.svg
 
 # Request dynamic SVG from server API
-GET /api/badge/root_seed_candidate?node=anchor-us-central1&theme=dark
+GET /api/badge/verified_auditor?node=anchor-us-central1&style=pill&theme=dark
+GET /api/badge/publisher/reuters.com?style=shield&theme=dark
 ```
 
-### SVG Color Schemes & WCAG Contrast
-- **Emerald Green (`#059669`)**: Root Anchors & Seed Candidates
-- **Royal Purple (`#7c3aed`)**: Galileo Pioneers & Domain Specialists
-- **Amber Gold (`#d97706`)**: Philanthropic Relays
-- **Cyan Blue (`#0284c7`)**: Verified Auditors & Sifters
-- **High-Contrast Slate (`#0f172a` / `#1e293b`)**: Base container
+### Visual Style Variants & Color Schemes
+- **Cyber Glass Pill (`style="pill"`)**: Sleek rounded badge (`rx="14"`) matching the `<credence-badge>` Web Component geometry with glowing metric sub-pill.
+- **Modern Shield (`style="shield"`)**: Crisp 2-segment badge with 6px rounded corners (`rx="6"`) and clean dividing border.
+- **Emerald Glow (`#34d399` &rarr; `#059669`)**: Root Seed Candidates, Sybil Shields, and Pristine Publications ($\ge 85\%$).
+- **Cyber Cyan (`#38bdf8` &rarr; `#0284c7`)**: Verified Auditors, Sifter Pioneers, and Clean Publications ($\ge 70\%$).
+- **Violet Beam (`#c084fc` &rarr; `#7c3aed`)**: Galileo Pioneers and Domain Specialists.
+- **Amber Alert (`#fbbf24` &rarr; `#d97706`)**: Philanthropic Relays and Moderate Publications ($\ge 50\%$).
+- **Base Containers (`#0d121f` &rarr; `#07090e`)**: Frosted slate gradient background with 1px glowing perimeter.
+
+*For complete vector geometry specifications and threat isolation proofs, see the [Unified Merit & Attestation Badge System Blueprint](../blueprints/unified-merit-and-attestation-badge-system.md).*
