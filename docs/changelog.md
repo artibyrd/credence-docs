@@ -8,6 +8,22 @@ last_verified: 2026-08-21
 
 # Release Changelog
 
+## [2.6.3] - 2026-08-22
+
+### Added
+- **Interactive Multi-Node Vitals Inspection**: Enhanced Nexus NOC (`credence.nexus`) with canvas node and leaderboard row click-through, direct "👤 Vitals ↗" navigation, and an Inspected Node Selector dropdown in Tab 3 ("Node Vitals") with dynamic local daemon vs. remote peer telemetry rendering.
+- **Authoritative Server Naming & Multi-Environment Deployments**: Added `Settings.effective_node_alias` configuring default node identities for production (`credence-prod-us-central1`), development (`credence-dev-us-central1`), and local instances (`credence-local-anchor`), with CLI `--name` / `--alias` support.
+- **Direct Standalone Viewer & History Deep Links**: Added "🔗 Viewer ↗" (`viewer.html?q=...`) and "📜 History ↗" (`history.html?url=...`) action links across search results, forensic inspector header, curated browse cards, and publisher dossiers.
+- **Dynamic Sifter Stream**: Integrated live background RSS feed ingestion streaming from `/api/feeds/stream` and `/api/sifter/status` with real-time refresh controls.
+
+### Fixed
+- **Foundation Taxonomy Header Layout & Default State**: Standardized `.tree-node-header` into a flexbox layout with clean wrapping, collapsed catalogs by default, and bounded vertical height with `.ws-scroll-pane` (`max-height: 620px; overflow-y: auto;`).
+- **Sidebar Badges Streamlining**: Removed distracting extra badges from command rail buttons across Foundation, Nexus, and Reports.
+- **Accurate Telemetry Throughput**: Grounded `eval_duration_ms` and `evaluations_per_minute` in genuine pipeline evaluation execution rather than sub-millisecond HTTP REST latency inversions.
+- **Deterministic Viewer & History Loading**: Eliminated random default report loading on empty query initialization in `viewer.html` and `history.html`, adding comfortable top padding below sticky navigation.
+
+---
+
 ## [2.6.2] - 2026-08-22
 
 ### Fixed
