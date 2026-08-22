@@ -149,3 +149,58 @@ While further micro-optimizations exist (e.g. native C-extension compilation via
 - Compiling Python code via Cython/MypyC creates brittle builds and debugging complexity for a marginal gain of ~40–80ms.
 - Moving Playwright to a sidecar introduces inter-process RPC latency and multi-container cold start synchronization overhead.
 - The 5-pillar framework captures **>85% of all theoretically achievable latency gains** while preserving 100% developer ergonomics and standard Python semantics.
+
+
+---
+
+## 5. The Scale-to-Zero vs. Autonomous Epistemic Action Dilemma
+
+### 5.1 The Serverless Inversion
+A foundational requirement of an intelligent epistemic trust node is **Epistemic Boredom**—the ability to proactively crawl syndicated feeds, verify unvetted breaking claims, and expand citation roots **precisely when the node is idle and has zero incoming user traffic**.
+
+However, under a strict **scale-to-zero** serverless policy (`min_instance_count = 0`, `cpu_idle = true`), Cloud Run throttles container vCPU allocation to 0% the millisecond an HTTP response concludes. Consequently:
+1. Standard in-process timers (`asyncio.sleep(120)` in `BoredomDaemon` or `asyncio.sleep(300)` in `SifterDaemon`) freeze in memory while the container is paused.
+2. The node cannot tick or discover new claims during hours of zero user traffic.
+3. Attempting to "piggyback" background tasks onto user requests creates an architectural anti-pattern: curiosity only triggers when the node is already busy, defeating the philosophical purpose of boredom.
+
+```mermaid
+flowchart LR
+    subgraph AntiPattern ["❌ Anti-Pattern: Request Piggybacking"]
+        R[Incoming User Request] --> Busy[Node Busy Serving]
+        Busy --> Piggy[Spawns Heavy Background Tasks]
+        Piggy --> Degraded[Increases Latency for Humans]
+    end
+
+    subgraph DecoupledHeartbeat ["✅ Decoupled Epistemic Heartbeat"]
+        Cron[⏰ Cloud Scheduler (Every 10m)] --> Trigger[POST /cron/boredom]
+        Trigger --> ColdBoot[Boots with CPU Boost <1.2s]
+        ColdBoot --> VariableAudit[Excitement-Weighted Audit Burst]
+        VariableAudit --> ScaleZero[Scales Back to 0 Instances ($0.00 Idle Cost)]
+    end
+```
+
+---
+
+### 5.2 The Adaptive Epistemic Excitement Index ($E$)
+
+To eliminate the need for costly 24/7 always-allocated compute while ensuring the node actively populates and maintains its knowledge base, Credence implements the **Adaptive Epistemic Excitement Index ($E$)**:
+
+$$	ext{Excitement Index } E = \left(rac{	ext{Headroom}_{	ext{daily}}\%}{100}ight) 	imes \left(1 - \min\left(0.80, rac{N_{	ext{audits}}}{250}ight)ight)$$
+
+| Operational State | Database Condition | Token Headroom | Heartbeat Behavior | Perceived Compute Cost |
+| :--- | :--- | :--- | :--- | :--- |
+| **`🔥 HYPER_EXCITED`** | Cold / Young ($N_{	ext{audits}} < 50$) | $\ge 70\%$ Daily Headroom | Runs **5-audit burst** + 3 root expansions on every 10m tick | ~$0.05 / day |
+| **`⚡ ACTIVE_BURST`** | Maturing ($50 \le N_{	ext{audits}} < 200$) | $\ge 50\%$ Daily Headroom | Runs **3-audit burst** + 1 root expansion | ~$0.03 / day |
+| **`🌱 STEADY_MAINTENANCE`** | Established ($N_{	ext{audits}} \ge 200$) | $\ge 30\%$ Daily Headroom | Runs **1–2 audit burst** only if $\ge 30	ext{m}$ elapsed | ~$0.01 / day |
+| **`💤 ADAPTIVE_BACKOFF`** | Established ($N_{	ext{audits}} \ge 200$) | $< 30	ext{m}$ elapsed | Instant 30ms no-op (`204 No Content`), immediate scale-to-zero | **$0.00** |
+| **`🛑 QUOTA_PRESERVED`** | Any Volume | $< 30\%$ Daily Floor | Circuit breaker trips; halts all curiosity spend | **$0.00** |
+
+---
+
+### 5.3 Comparative FinOps Economics
+
+| Compute Architecture | Minimum Instances | Idle Monthly Cost | Autonomous Boredom Execution | Cold Start Latency |
+| :--- | :--- | :--- | :--- | :--- |
+| **Always-On Compute Plane** | `min_instances = 1` | ~$35.00–$60.00 / mo | Continuous in-process `asyncio` loop | **0 ms** (Always Warm) |
+| **Scale-to-Zero (Naïve Serverless)** | `min_instances = 0` | **$0.00 / mo** | ❌ Timers freeze when idle; 0 audits | ~2.1 s |
+| **Credence Excitement Heartbeat (v2.5.1)** | `min_instances = 0` | **$0.00 / mo** | ✅ Variable 10m Cloud Scheduler burst | ~1.9 s (Startup CPU Boost) |

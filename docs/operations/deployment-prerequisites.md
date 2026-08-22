@@ -43,6 +43,7 @@ Enable the following service APIs on your target project(s):
 ```bash
 gcloud services enable \
     run.googleapis.com \
+    cloudscheduler.googleapis.com \
     cloudbuild.googleapis.com \
     artifactregistry.googleapis.com \
     secretmanager.googleapis.com \
@@ -59,6 +60,17 @@ The deployment identity (Service Account or CI/CD runner) requires the following
 - `roles/cloudbuild.builds.editor` (Cloud Build Editor)
 - `roles/secretmanager.secretAccessor` (Read API keys at runtime)
 - `roles/storage.admin` (Optional, if using Google Cloud Storage for snapshot blobs)
+
+
+### 2.3.1 Cloud Scheduler Invoker Role (Scale-to-Zero Autonomous Heartbeat)
+When provisioning automated Epistemic Boredom heartbeats (`/cron/boredom`), the dedicated Cloud Scheduler service account requires the least-privileged `roles/run.invoker` binding:
+```bash
+gcloud run services add-iam-policy-binding credence-server \
+    --member="serviceAccount:credence-boredom-cron-sa@<YOUR_GCP_PROJECT_ID>.iam.gserviceaccount.com" \
+    --role="roles/run.invoker" \
+    --region="us-central1" \
+    --project="<YOUR_GCP_PROJECT_ID>"
+```
 
 ### 2.4 Secret Manager Keys
 Create the required Gemini API Key secret in Secret Manager:

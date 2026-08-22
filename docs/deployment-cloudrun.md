@@ -66,6 +66,7 @@ gcloud config set project YOUR_PROJECT_ID
 
 gcloud services enable \
     run.googleapis.com \
+    cloudscheduler.googleapis.com \
     cloudbuild.googleapis.com \
     artifactregistry.googleapis.com \
     secretmanager.googleapis.com \

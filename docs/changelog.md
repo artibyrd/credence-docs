@@ -10,6 +10,13 @@ last_verified: 2026-08-21
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.5.1] - 2026-08-21
+### Added & Architected
+- **Adaptive Epistemic Excitement Architecture**: Implemented `compute_curiosity_excitement` and the `/cron/boredom` endpoint for scale-to-zero serverless nodes. Dynamically scales curiosity burst sizes (`HYPER_EXCITED`, `ACTIVE_BURST`, `STEADY_MAINTENANCE`, `ADAPTIVE_BACKOFF`, `QUOTA_PRESERVED`) based on database maturity and token headroom.
+- **Scale-to-Zero Cloud Scheduler Heartbeat (`cron_boredom.tf`)**: Provisioned a 10-minute Cloud Scheduler heartbeat (`*/10 * * * *`) with least-privileged `roles/run.invoker` IAM bindings, executing background curiosity when there is zero user traffic with $0.00 idle compute cost.
+- **Scale-to-Zero vs. Periodic Action Documentation Expansion**: Added Section 5 to `cloudrun-scale-to-zero-cold-start-optimization.md` analyzing the serverless freeze dilemma and the decoupled heartbeat pattern.
+- **GCP IAM & Cloud Scheduler Prerequisite Documentation**: Updated `deployment-prerequisites.md`, `deployment-cloudrun.md`, and `cloudrun-ops` skill with `cloudscheduler.googleapis.com` API enablement and invoker role requirements.
+
 ## [2.5.0] - 2026-08-21
 ### Added & Architected
 - **Unified Ecosystem Version Management Architecture**: Established centralized runtime version injection via `credence-workstation.js` (`CREDENCE_VERSION`), synchronized across all 11 web surfaces with automated shift-left scanner in `test_ecosystem_version_parity`.
