@@ -8,6 +8,15 @@ last_verified: 2026-08-21
 
 # Release Changelog
 
+## [2.8.0] - 2026-08-22
+
+### Added
+- **Compact Workstation Masthead Strip & Fold Optimization**: Unified ~55px compact masthead across `credence.nexus`, `credence.report`, `credence.foundation`, and `admin.credence.run`, recovering ~125px+ of vertical fold space.
+- **Cross-Domain Visual Consistency & Anti-Wibble Stabilization**: Standardized `min-height: 680px` on `.deck-shell`, unified workstation padding (`1.25rem 1.25rem 2.5rem`), removed redundant "Global Stations" side rail card in favor of the authoritative `.credence-nav`, and standardized `--container-max: 1440px`.
+- **Responsive Auto-Fit Grids & Defensive String Wrapping**: Implemented `repeat(auto-fit, minmax(min(100%, 300px), 1fr))` and `overflow-wrap: anywhere; word-break: break-all;` on forensic hashes, cryptographic keys, and Ed25519 signatures.
+
+---
+
 ## [2.7.2] - 2026-08-22
 
 ### Added
