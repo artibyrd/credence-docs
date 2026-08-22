@@ -10,6 +10,13 @@ last_verified: 2026-08-21
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.4.2] - 2026-08-21
+### Fixed & Enhanced
+- **Nexus Telemetry & Admin Boundary Hardening**: Stripped all unauthenticated mutating buttons and operator notices from the public Nexus NOC (`web/credence.nexus/index.html`), maintaining clean, read-only public telemetry.
+- **Deepened Node Telemetry & Processing Statistics**: Added aggregate `/api/node/stats` endpoint with live article processing volumes, evaluations per minute throughput, database disk footprint (MB), RSS memory allocation, P50/P95 latencies, boredom curiosity metrics, and work-sharing compute savings.
+- **Dedicated Operator Admin Cockpit**: Enforced that all mutating operator controls (creating backups, restoring databases, exporting attestation packs, triggering boredom cycles) reside exclusively behind authenticated operator sessions on `admin.credence.run`.
+- **7-Manifest Parity**: Synchronized all ecosystem manifests and web surfaces to `v2.4.2`.
+
 ## [2.4.1] - 2026-08-21
 ### Added & Enhanced
 - **Commit-as-Progress-Saves Workflow (`inv-incremental-commits-staging`)**: Codified immediate phase-by-phase commit cadence upon local QA gate passage, eliminating retrospective session-end commit batching.
