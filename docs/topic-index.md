@@ -65,6 +65,7 @@ last_verified: 2026-08-20
 | `credence export-analytics <domain>` | Export machine-readable publisher analytics JSON/CSV | [Conflict of Pun-terest](../blog/conflict-of-pun-terest.md) |
 | `credence benchmark` | Run the Golden 12 cross-profile evaluation suite | [Golden 12 Benchmark Suite](protocols/benchmark-suite.md) |
 | `credence germinate` | Autonomous node ignition and genesis inoculation | [Tutorial 11: Swarm Ignition](tutorials/11-autonomous-node-germination-and-swarm-ignition.md) |
+| `credence badge export <id>` | Export high-DPI vector SVG merit or trust badge | [Unified Merit & Attestation Badges](blueprints/unified-merit-and-attestation-badge-system.md) |
 
 ---
 

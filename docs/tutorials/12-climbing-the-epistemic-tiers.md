@@ -142,16 +142,21 @@ $ credence seeds generate --output my_seeds.json --valid-hours 48
 Display your earned prestige on GitHub repositories, documentation portals, or operator dashboards:
 
 ```bash
-# Generate standalone SVG badge
-$ credence badge export root_seed_candidate --node my-sovereign-node --output badge.svg
+# Generate standalone Cyber Glass Pill badge
+$ credence badge export verified_auditor --node my-sovereign-node --style pill --output badge.svg
+
+# Generate Modern Shield badge
+$ credence badge export root_seed_candidate --node my-sovereign-node --style shield --output shield.svg
 ```
 
 ```html
 <!-- Live HTML / Markdown Embed -->
 <p align="center">
-  <img src="https://credence.run/api/badge/root_seed_candidate?node=anchor-node-01" alt="Credence Root Anchor" />
+  <img src="https://credence.nexus/api/badge/verified_auditor?node=anchor-node-01&style=pill" alt="Credence Verified Auditor" height="28" />
 </p>
 ```
+
+You can also customize, preview, and generate 1-click embed code directly in the **[Nexus Merit & Badge Studio](https://credence.nexus)**.
 
 ---
 

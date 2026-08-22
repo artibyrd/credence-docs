@@ -39,4 +39,12 @@ When `<credence-badge>` mounts on a client page, it executes:
 2. Applies Unicode NFKC normalization and whitespace collapsing.
 3. Computes `crypto.subtle.digest("SHA-256", textBytes)`.
 4. Compares the resulting digest against `receipt.content_sha256`.
-5. If mismatch detected: transitions badge state to **MODIFIED**.\n
+5. If mismatch detected: transitions badge state to **MODIFIED**.
+
+---
+
+## 3. Unified Vector Badge Parity
+
+For static markdown pages, GitHub READMEs, and newsroom mastheads where client-side JavaScript execution is blocked, the server-side vector SVG engine provides high-DPI badges with matching Cyber Dark styling.
+
+*See the comprehensive architectural specification: [Unified Epistemic Merit & Attestation Badge System](unified-merit-and-attestation-badge-system.md).*
