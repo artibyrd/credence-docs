@@ -8,6 +8,16 @@ last_verified: 2026-08-21
 
 # Release Changelog
 
+## [2.7.1] - 2026-08-22
+
+### Added
+- **Modular Justfile Architecture & 500 LOC Ceiling Law**: Decomposed the monolithic 951-line `Justfile` into 5 cohesive subfiles (`just/preflight.just`, `just/quality.just`, `just/engine.just`, `just/deploy.just`, `just/release.just`) under a 15-line root orchestrator, bringing 100% of toolchains under the 500 LOC ceiling.
+- **Shift-Left Intelligent Guidance Highway & Workflow Chaining**: Embedded colorized directional banners across toolchain commands to guide agents and developers through strict sequential protocols without consuming prompt tokens.
+- **Epistemic Anti-Spoofing & Fail-Closed Embed Governance (`architecture-governance`)**: Formally codified prohibition of synthetic dummy data, fail-closed unearned milestones (`UNEARNED` in slate), and real in-browser WebCrypto DOM hashing.
+- **Active Guidance Highway Adherence (`knowledge-governance`)**: Formally codified dynamic agent priming and sequential execution assurance from Justfile output banners.
+
+---
+
 ## [2.7.0] - 2026-08-22
 
 ### Added
