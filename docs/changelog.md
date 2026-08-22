@@ -10,6 +10,14 @@ last_verified: 2026-08-21
 
 All notable changes to the **Credence** network and documentation are documented here following [Semantic Versioning](https://semver.org/).
 
+## [2.5.0] - 2026-08-21
+### Added & Architected
+- **Unified Ecosystem Version Management Architecture**: Established centralized runtime version injection via `credence-workstation.js` (`CREDENCE_VERSION`), synchronized across all 11 web surfaces with automated shift-left scanner in `test_ecosystem_version_parity`.
+- **Autonomous Background Daemons on Server Boot**: Activated `SifterDaemon` (feed polling every 300s) and `BoredomDaemon` (curiosity evaluation loops every 60s) by default during server lifespan initialization, keeping node databases dynamic within 30% token headroom safety floors.
+- **Streamlined NOC Telemetry Deck**: Removed oversized raw JSON envelopes from Tab 3 in favor of compact, scannable SRE latency and memory profiles; replaced static $G=1.00$ constants with dynamic throughput rates (`ms/audit`, `audits/min`).
+- **Complete 30-Topic Knowledge Modal Registry**: Expanded the docs topic index to index all 30 workstation modals (`backup`, `boredom`, `daemons`, `seeds`, `dci`, `dossier`, `temporal_diff`).
+- **NOC Navigation Discoverability**: Added direct left command rail links to `dashboard.html` (Detailed SRE Dashboard) and `mesh.html` (Standalone Mesh Canvas).
+
 ## [2.4.2] - 2026-08-21
 ### Fixed & Enhanced
 - **Nexus Telemetry & Admin Boundary Hardening**: Stripped all unauthenticated mutating buttons and operator notices from the public Nexus NOC (`web/credence.nexus/index.html`), maintaining clean, read-only public telemetry.
