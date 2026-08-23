@@ -2,11 +2,20 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.11.1
+verified_version: v2.12.0
 last_verified: 2026-08-23
 ---
 
 # Release Changelog
+
+## [2.12.0] - 2026-08-23
+
+### Added
+- **Ecosystem-Wide Diagram Modernization**: Audited all 83 documentation files and 49 blog posts, replacing 185 fragile/low-density Mermaid diagrams with 163+ responsive, high-contrast UTF-8 technical box schematics, RFC-style wire sequences, and mathematical spectrum bounds.
+- **Interactive Playground Math Engine Upgrade**: Upgraded `credence-docs/app.js` math parser to evaluate inline and display LaTeX expressions (`$...$`, `\(...\)`, `$$...$$`, `\[...\]`) across standard markdown and direct HTML widget elements, eliminating double parentheses, broken escapes, and raw LaTeX macro leaks.
+- **Automated Schematic & Math Integrity Test Gates**: Added `test_schematic_box_diagram_integrity` and `test_playground_and_docs_math_rendering_integrity` to `tests/governance/test_docs_integrity.py`, and added `test_schematic_and_diagram_rendering` and `test_playground_math_rendering_integrity` to `tests/governance/test_docs_rendering.py`.
+
+---
 
 ## [2.11.1] - 2026-08-23
 
