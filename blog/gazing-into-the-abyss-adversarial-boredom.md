@@ -16,32 +16,7 @@ In **Credence v1.21.0**, we evolved the Boredom Engine into a **Dual-Soil Ingest
 
 Here are the empirical findings from our **13-node Watts-Strogatz local mesh cluster simulation suite** (`credence/experiments/mesh_boredom_study.py`).
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         13-NODE MESH COORDINATION & HRW WORK-SHARING ARCHITECTURE                │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Viral Deceptive Inbound URL ──▶ Zero-Token Slop Triage ($H < 0.30 \land \text{Citations} \ge 2$)   │
-│                                                   │                                              │
-│       ┌───────────────────────────────────────────┴──────────────────────────────────────────┐   │
-│       ▼ 98.3% Rejection (SEO Spam Link Farm)                      ▼ Pass (High-Impact Viral Lead)│
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ⚡ DISCARD @ $0.00 (0 Tokens Expended)   │   │ 🎯 HRW RENDEZVOUS HASHING ASSIGNMENT     │      │
-│ │ • Pre-screen regex drops zero-value spam │   │ • $N^* = \arg\max H(k_i \parallel \text{URL})$│  │
-│ └──────────────────────────────────────────┘   └─────────────────────┬────────────────────┘      │
-│                                                                      │                           │
-│       ┌──────────────────────────────────────────────────────────────┴────────┐                  │
-│       ▼ Assigned Node $N^*$ (Single Worker)                                   ▼ Standby Nodes    │
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ 🧠 LIVE LLM AUDIT & SIGN (1,850 Tokens)  │   │ ⏱️ Nodes 2-13 Idle: Standby for Gossip  │      │
-│ │ • Mint signed Ed25519 attestation receipt│   │ • No redundant token burns               │      │
-│ └─────────────────────┬────────────────────┘   └──────────────────────────────────────────┘      │
-│                       │                                              ▲                           │
-│                       └────── P2P Gossip Broadcast (<350ms) ─────────┘                           │
-│                              • 12 Peer Nodes Adopt @ $0.00 (22,200 Tokens Saved)                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Swarm Invariant: Exactly 1 node evaluates; all peers adopt via cryptographic gossip at $0.00  │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Gazing into the Abyss: Hunting Disinformation Without Drowning in Slop](assets/illustrations/gazing-into-the-abyss-adversarial-boredom.svg)
 
 ---
 

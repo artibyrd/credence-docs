@@ -20,33 +20,7 @@ Autonomous nodes operate under a dual-mode evaluation loop:
 
 ## 2. Mathematical Formalization & State Machine
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         BOREDOM ENGINE & ROOT EXPANSION STATE MACHINE                            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                  ┌────────────────────────┐                                      │
-│                                  │        1. IDLE         │◀────────────────────────────────┐    │
-│                                  └───────────┬────────────┘                                 │    │
-│                                              │ Timer Fired & Headroom >= 30%                │    │
-│                                              ▼                                              │    │
-│                                  ┌────────────────────────┐                                 │    │
-│                                  │   2. QUEUE & CACHE     │                                 │    │
-│                                  └─────┬────────────┬─────┘                                 │    │
-│                     Queue Empty        │            │ Pending Item                          │    │
-│               ┌────────────────────────┘            └─────────────────────────┐             │    │
-│               ▼                                                               ▼             │    │
-│ ┌───────────────────────────┐                                   ┌─────────────────────────┐ │    │
-│ │   4. ROOT SOIL EXPANSION  │                                   │ 3. DEDUPLICATION & AUDIT│ │    │
-│ │   Extract Clean Citations │◀──────────────────────────────────│ Adopt Mesh / LLM Audit  │ │    │
-│ └─────────────┬─────────────┘                                   └─────────────────────────┘ │    │
-│               │ SSRF Guard Passed & Feed Found                                              │    │
-│               ▼                                                                             │    │
-│ ┌───────────────────────────┐                                                               │    │
-│ │  5. AUTO-SUBSCRIBE FEED   │ ──────────────────────────────────────────────────────────────┘    │
-│ │  Add to Active Discovery  │                     Cycle Complete                                 │
-│ └───────────────────────────┘                                                                    │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Epistemic Protocol Specification: Boredom Engine & Root Expansion (EPEP-16)](assets/illustrations/boredom-and-root-expansion.svg)
 
 | Current State | Trigger / Event | Guard Condition | Next State | System Action & Invariant |
 | :--- | :--- | :--- | :--- | :--- |

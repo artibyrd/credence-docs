@@ -9,29 +9,7 @@ last_verified: 2026-08-20
 
 The **`credence` CLI** is built with rich formatting for human terminals and structured JSON streams for shell automation, CI/CD pipelines, and data processing.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         CLI AUTOMATION & CI/CD SCRIPTING PIPELINE                                │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Input Stream (Raw URLs, Syndicated RSS, Untrusted DOM Prose)                                     │
-│                                │                                                                 │
-│                                ▼ `credence audit <target> --json`                                │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Deterministic Exit Code Evaluation:                                                        │   │
-│ ├──────────────────────────────┬───────────────┬─────────────────────────────────────────────┤   │
-│ │ Suspicion Score              │ Exit Code     │ Pipeline Action                             │   │
-│ ├──────────────────────────────┼───────────────┼─────────────────────────────────────────────┤   │
-│ │ $S < 25.0$ (Reliable)        │ Exit `0`      │ ✅ Pass CI PR Gate / Deploy                 │   │
-│ │ $S \ge 50.0$ (Deceptive)     │ Exit `1`      │ 🚫 Block PR / Trigger Slack Webhook Alert   │   │
-│ │ Offline Structural Fallback  │ Exit `2`      │ ⚠️ Quota Preserved / Log Warning            │   │
-│ │ Ingestion Timeout / SSRF     │ Exit `3`      │ ❌ Fail Fast Ingestion Trap                 │   │
-│ └──────────────────────────────┴───────────────┴─────────────────────────────────────────────┘   │
-│                                │                                                                 │
-│                                ▼ High-Throughput Shell Ingestion (`jq` & `xargs -P 4`)           │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ ⚡ Downstream Consumers: Automated PR Review Comments, SQLite Store, Webhook Dispatch      │   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Get the calibrated suspicion score](assets/illustrations/cli-scripting-guide.svg)
 
 ### CLI Exit Codes & CI Behavior
 

@@ -24,35 +24,7 @@ read_time: 12 min
 
 This blueprint details how Credence enforces cryptographic content immutability, universal multi-cloud backup, and cold-boot recovery across local workstations, containerized serverless runtimes (Cloud Run), and distributed Kubernetes clusters.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         SOVEREIGN DATA GRAVITY & COLD-BOOT RECOVERY PIPELINE                     │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ COLD-BOOT INGESTION & LIFESPAN HOOK (<200ms)                                               │   │
-│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ Local Database Active? ──▶ [YES] Keep active database                                      │   │
-│ │                        ──▶ [NO] Pull latest archive from GCS/S3 (`credence_latest.db.gz`)  │   │
-│ │                                 Verify SHA-256 digest + Ed25519 node signature             │   │
-│ │                                 Decompress Gzip L9 & hydrate SQLite WAL (<200ms)           │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ GERMINATION 2.0 & INCREMENTAL SYNC                                                         │   │
-│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ • Populated DB: Incremental Sync (<100ms) skipping existing snapshots ($0.00 compute)      │   │
-│ │ • Empty DB: Bounded RSS harvest with `asyncio.Semaphore(5)` & seed hydration               │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ AUTONOMOUS SHUTDOWN HOOK & ATOMIC BACKUP ENGINE                                            │   │
-│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ • SQLite Online Backup (`sqlite3.Connection.backup`) with WAL truncate (Zero lock)         │   │
-│ │ • Stream Gzip L9 compression + RFC 8785 Canonical JSON Manifest + Ed25519 Signature       │   │
-│ │ • Atomic Dual-Push: Timestamped Archive + `credence_latest.db.gz` to cloud bucket          │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Technical Blueprint: Sovereign Data Gravity and CAS Portability](assets/illustrations/sovereign-data-gravity-and-cas-portability.svg)
 
 ---
 

@@ -26,32 +26,7 @@ Centralized truth or fact-checking APIs have fundamental flaws:
 
 ## 2. P2P Gossip Protocol Specification
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         P2P GOSSIP & ZERO-TOKEN EPIDEMIC REPLICATION                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Node Alpha (ws://8761)                 Node Beta (ws://8762)                 Node Gamma (ws://8763)│
-│       │                                      │                                      │    │
-│  [1]  ├───── PEER_HELLO(Ed25519_Pub, Catalog_SHA256, v2.1.1) ───────────────────────▶│    │
-│       │◀──── PEER_HELLO(Ed25519_Pub, Catalog_SHA256, v2.1.1) ────────────────────────┤    │
-│       │                                      │                                      │    │
-│  [2]  │── 1. Ingress URL Audit ($0.0003) ──┐ │                                      │    │
-│       │   2. G=1.00 Grounding Validation   │ │                                      │    │
-│       │   3. RFC 8785 Ed25519 Signing      │ │                                      │    │
-│       │◀───────────────────────────────────┘ │                                      │    │
-│       │                                      │                                      │    │
-│  [3]  ├───── ANNOUNCE_ATTESTATION (Signed Envelope, TTL=3, Hop=1) ──────────────────▶│    │
-│       │                                      │                                      │    │
-│  [4]  │                                      ├── 1. Verify Ed25519 in <1ms ($0.00)─┐│    │
-│       │                                      │   2. Insert to SQLite WAL           ││    │
-│       │                                      │◀────────────────────────────────────┘│    │
-│       │                                      │                                      │    │
-│  [5]  │                                      ├──── Epidemic Rebroadcast (TTL=2) ───▶│    │
-│       │                                      │                                      │    │
-│       │                                      │                   (Bloom Filter Hit: │    │
-│       │                                      │                    Drop Duplicate)───┤    │
-└───────┴──────────────────────────────────────┴──────────────────────────────────────┴────┘
-```
+![Mesh Protocol & P2P Consensus](assets/illustrations/mesh-protocol.svg)
 
 ---
 

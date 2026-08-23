@@ -19,35 +19,7 @@ Candidate seed nodes are ranked by a composite quality metric ($Q_i \in [0.0, 1.
 
 $$Q_i = 0.25 U_i + 0.30 C_i + 0.25 G_i + 0.10 T_i + 0.10 K_i$$
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         5-FACTOR NODE QUALITY ($Q_i$) EVALUATION ARCHITECTURE                    │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ $Q_i = 0.25 U_i + 0.30 C_i + 0.25 G_i + 0.10 T_i + 0.10 K_i$                               │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌───────────────────────────┬───────┬───────────────────────────────┬──────────────────────────┐ │
-│ │ Factor                    │ Weight│ Evaluation Method             │ Slashing / Guard         │ │
-│ ├───────────────────────────┼───────┼───────────────────────────────┼──────────────────────────┤ │
-│ │ $U_i$: Uptime & Latency   │  25%  │ Heartbeat success rate (<300ms│ Drop if down > 1h        │ │
-│ │ $C_i$: Consensus Concord  │  30%  │ Proximity to Bayesian median  │ Slashing if Byzantine    │ │
-│ │ $G_i$: Quote Grounding    │  25%  │ Verifiable DOM character-match│ Auto-zero if hallucinated│ │
-│ │ $T_i$: Taxonomy Currency  │  10%  │ Pinned SHA-256 catalog hashes │ Reject if stale catalog  │ │
-│ │ $K_i$: Key Longevity      │  10%  │ Ed25519 identity age & entropy│ Sybil rate-limiting      │ │
-│ └───────────────────────────┴───────┴───────────────┬───────────────┴──────────────────────────┘ │
-│                                                     │                                            │
-│                       ┌─────────────────────────────┴────────────────────────────┐               │
-│                       │ Promotion Gate: $Q_i \ge 0.85$ & Rank $\le 20$ in Cluster│               │
-│                       └───────────────┬──────────────────────────┬───────────────┘               │
-│                                  Pass │                     Fail │                               │
-│                                       ▼                          ▼                               │
-│                ┌───────────────────────────────┐   ┌──────────────────────────┐                  │
-│                │ 🛡️ Signed Seed Directory      │   │ 🟢 Standard Mesh Peer    │                  │
-│                │ (`seeds.credence.nexus/peers`)│   │ (Normal Gossip Exchange) │                  │
-│                └───────────────────────────────┘   └──────────────────────────┘                  │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Bootstrap Seed Governance & Node Quality](assets/illustrations/bootstrap-seeds.svg)
 
 ---
 

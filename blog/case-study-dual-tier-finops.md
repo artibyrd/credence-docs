@@ -24,26 +24,7 @@ When designing automated fact-checking and deception detection pipelines, newsro
 
 At **$1.25 per 1M input tokens** and **$5.00 per 1M output tokens**, a monolithic flagship pipeline costs **~$18.29 per 1,000 audits**. Auditing a standard newsroom ingest of 100,000 articles per month quickly balloons to **$1,829.00/month**—a prohibitive barrier for independent publishers and autonomous agent swarms.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         MONOLITHIC INFERENCE VS BICAMERAL PIPELINE ECONOMICS                     │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Ingress Stream: 100,000 Untrusted Articles / Month                                               │
-│                                │                                                                 │
-│       ┌────────────────────────┴────────────────────────┐                                        │
-│       ▼                                                 ▼                                        │
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ MONOLITHIC FLAGSHIP PIPELINE          │   │ 🛡️ CREDENCE BICAMERAL ARCHITECTURE       │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • 100% routed directly to flagship LLMs  │   │ • Stage 1 (Dev): 70% filtered at $0.00   │      │
-│ │ • Heavy input/output token pricing       │   │ • Stage 2 (Prod): 30% audited with 4k    │      │
-│ │ • Monthly Cost: $1,829.00 / month        │   │ • Monthly Cost: $16.68 / month (-99.1%)  │      │
-│ │ • 💥 Prohibitive for independent agents  │   │ • ✨ Micro-penny institutional accuracy  │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 FinOps Invariant: Offline heuristic triage before cloud inference cuts spend by up to 99%    │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Case Study: Slashing LLM Fact-Checking Costs by 83% with Bicameral Architecture](assets/illustrations/case-study-dual-tier-finops.svg)
 
 ---
 

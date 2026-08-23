@@ -28,30 +28,7 @@ read_time: 7 min
 
 This document serves as the **sovereign, in-repository source of truth** for verified architectural milestones, empirical test findings, and future development horizons across the Credence ecosystem.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         CREDENCE ROADMAP & ARCHITECTURE HORIZONS                                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ VERIFIED STABLE FOUNDATION                                                                     │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ • Dual-Tier Bicameral Engine & Pre-Flight Gate      • White-Label Sovereign Org Scaffolding│   │
-│ │ • Autonomous Boredom Engine & Epistemic Discovery   • Scale-to-Zero Container Cold Starts  │   │
-│ │ • Universal 4-Way Interface Parity (CLI/MCP/TUI/Web)• 18-Route Multi-Domain Edge Router    │   │
-│ │ • Dynamic Live Swarm Telemetry & Mesh Visualizer    • Dual-Environment WIF CI/CD & Deploy  │   │
-│ │ • Cognitive Hierarchy & 4-Phase Release Lifecycle   • Living Invariant Canon Verification  │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │                                                 │
-│                                                ▼                                                 │
-│ 🚀 UPCOMING ARCHITECTURE HORIZONS                                                                │
-│ ┌──────────────────────────┬───────────────────────────────┬─────────────────────────────────┐   │
-│ │ Horizon 1: Edge Shaping  │ Horizon 2: Protocol Identity  │ Horizon 3: Agentic Scale        │   │
-│ ├──────────────────────────┼───────────────────────────────┼─────────────────────────────────┤   │
-│ │ • Cascaded P2P Gateway   │ • W3C `did:key` / `did:web`   │ • FastMCP 2.0 Async Batch SSE   │   │
-│ │ • ASTRO-GUARD Defense    │ • ActivityPub / Fediverse Rel │ • WebAssembly Client-Side Audit │   │
-│ │ • Dynamic Rate Damping   │ • Key Rotation State Machine  │ • Sub-Agent Swarm Orchestration │   │
-│ └──────────────────────────┴───────────────────────────────┴─────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Ecosystem Roadmap & Architecture Horizons 🧭](assets/illustrations/roadmap.svg)
 
 ---
 

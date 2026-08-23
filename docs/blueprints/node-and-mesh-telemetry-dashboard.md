@@ -32,36 +32,7 @@ The **Credence Node & Mesh Telemetry Dashboard** adheres to three core architect
 
 ## 2. Telemetry Ingestion & Aggregation Architecture
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         NODE & MESH TELEMETRY AGGREGATION ARCHITECTURE                           │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ SQLITE WAL PERSISTENCE LAYER             │   │ IN-MEMORY RUNTIME & SRE GOVERNANCE       │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • `AuditRecord` (Scores, Verdicts)       │   │ • `ServerTelemetryTracker` (p50/p95/p99) │      │
-│ │ • `SnapshotRecord` (SimHash-64, URLs)    │   │ • `NodeMeritEngine` (Tier & Badges)      │      │
-│ │ • `ViolationRecord` (Taxonomies, Rules)  │   │ • `TokenGovernor` (Headroom & Circuits)  │      │
-│ │ • `FeedItemRecord` (HRW Adoptions Saved) │   │ • `PeerMetricRecord` (Live Mesh Topology)│      │
-│ └────────────────────┬─────────────────────┘   └────────────────────┬─────────────────────┘      │
-│                      │                                              │                            │
-│                      └──────────────────────┬───────────────────────┘                            │
-│                                             ▼                                                    │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ TELEMETRY CALCULATION & SHAPING ENGINE (`compute_mesh_stats` & `compute_network_health`)    │   │
-│ └───────────────────────────────────────────┬────────────────────────────────────────────────┘   │
-│                                             │                                                    │
-│       ┌─────────────────────────┬───────────┴─────────────┬─────────────────────────┐            │
-│       ▼                         ▼                         ▼                         ▼            │
-│ ┌───────────┐             ┌───────────┐             ┌───────────┐             ┌───────────┐      │
-│ │ REST API  │             │ FASTMCP   │             │ RICH CLI  │             │ WEB UI    │      │
-│ │ `/stats`  │             │ `stats`   │             │ `stats`   │             │ Vanilla   │      │
-│ │ `/health` │             │ `health`  │             │ `[--mesh]`│             │ Zero-npm  │      │
-│ └───────────┘             └───────────┘             └───────────┘             └───────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🎯 Universal 4-Way Telemetry Parity • 100% Identical Forensic Payloads Across All Surfaces       │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Node & P2P Mesh Telemetry Dashboard Architecture](assets/illustrations/node-and-mesh-telemetry-dashboard.svg)
 
 ---
 

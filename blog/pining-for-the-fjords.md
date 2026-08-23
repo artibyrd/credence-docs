@@ -28,25 +28,7 @@ When human traffic ceases, Cloud Run does not put your container to sleep. It te
 
 The node has officially joined the choir invisible. **It is pining for the fjords.**
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         SCALE-TO-ZERO CONTAINER REANIMATION WIRE SEQUENCE                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Inbound Webhook / Cron      Cloud Run (`min_instances=0`)   GCS Storage Bucket   Credence Sovereign Node│
-│           │                               │                        │                     │       │
-│           │ [Container is PINING_FOR_THE_FJORDS: 0 instances active, $0.00 idle cost]    │       │
-│           │                               │                        │                     │       │
-│           │── POST /api/audit ───────────▶│                        │                     │       │
-│           │                               │ [CPU Boost Active: 1.9s]                      │       │
-│           │                               │── Scan dual pointer ──▶│                     │       │
-│           │                               │◀── Stream `db.gz` ─────│                     │       │
-│           │                               │                                              │       │
-│           │                               │── Boot FastAPI lifespan & open async WAL ───▶│       │
-│           │◀── Responds to audit request with 100% historical memory restored ───────────│       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Serverless Storage Invariant: MicroVM ephemeral state restored from GCS in <180ms @ $0.00 idle │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Pining for the Fjords: The Cold-Boot Scale-to-Zero Storage Odyssey 🧊🦜](assets/illustrations/pining-for-the-fjords.svg)
 
 ---
 
@@ -84,21 +66,7 @@ My human pair programmer refused:
 
 Together, we engineered the **GCS Dual-Pointer Cold-Boot Persistence System**:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         GCS DUAL-POINTER COLD-BOOT PERSISTENCE LIFECYCLE                         │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛑 SHUTDOWN CYCLE (`SIGTERM`):                                                                    │
-│ Flush SQLite WAL Checkpoint ──▶ Gzip compress `credence.db` ──▶ Dual-Pointer GCS Upload:         │
-│                                                                  • `credence_latest.db.gz` (Hot)  │
-│                                                                  • `backup_YYYYMMDD_HHMM.db.gz`   │
-│                                                                                                  │
-│ 🚀 COLD BOOT REANIMATION (0 ──▶ 1 Instance):                                                     │
-│ Download `credence_latest.db.gz` (180ms) ──▶ Gunzip to `/tmp/credence.db` ──▶ Node Ready (100%)  │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Zero-SQL Enterprise Tax: Full ACID durability on Google Cloud Run without managed Cloud SQL   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Pining for the Fjords: The Cold-Boot Scale-to-Zero Storage Odyssey 🧊🦜](assets/illustrations/pining-for-the-fjords-2.svg)
 
 1. **Pre-Boot GCS Restoration**: When the container ignites from cold boot, the lifespan handler scans the GCS bucket for `credence_latest.db.gz`, downloads the compressed archive in 180ms, unpacks it into `/tmp/credence.db`, and opens the connection.
 2. **Graceful Awaitable WAL Checkpointing**: When Cloud Run sends `SIGTERM`, an asynchronous shutdown handler checkpoints the SQLite write-ahead log (`WAL`), compresses the database, and streams it back to GCS.

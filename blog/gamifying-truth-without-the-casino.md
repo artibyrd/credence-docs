@@ -17,22 +17,7 @@ When designing the incentive mechanics for the **Credence Epistemic Mesh**, we t
 
 Truth verification is not a mobile game. It is a collaborative computational science.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         CASINO SPECULATION MODEL VS SCIENTIFIC MERIT MODEL                       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ THE CASINO MODEL (Virality & Spec)    │   │ 🛡️ THE SCIENTIFIC MERIT MODEL (Credence) │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Virtual currencies & speculative pump  │   │ • Ed25519 cryptographic custody signing  │      │
-│ │ • Outrage farming & pay-to-play badges   │──▶│ • Verifiable verbatim source grounding   │      │
-│ │ • Addictive engagement loop over facts   │   │ • Empirical Domain Expertise ($E_i$)     │      │
-│ │ • 💥 Inevitable epistemic collapse       │   │ • ✨ Peer prestige & BOINC-style merit   │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Scientific Merit Invariant: Trust is earned through verifiable math, not financialized tokens │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Folding@home for Truth: Gamification Without the Casino](assets/illustrations/gamifying-truth-without-the-casino.svg)
 
 ---
 
@@ -59,22 +44,7 @@ In Credence, nodes do not "level up" by spending money. They ascend through **5 
 | **Tier IV** | 🏛️ | **Specialist** | Empirical Authority $E_i \ge 0.80$ across $\ge 5$ distinct FQDNs | Domain Authority weighted medians (Galileo Rule) |
 | **Tier V** | 💎 | **Root Anchor** | $Q_i \ge 0.85$, $U_i \ge 0.80$, $>30$ days active longevity | Inclusion in canonical `peers.json` bootstrap seed |
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE 5 EPISTEMIC NODE TIERS & PROGRESSION MATRIX                          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🌱 TIER I: SPROUT NODE ──▶ 📡 TIER II: SIFTER PIONEER ──▶ 🛡️ TIER III: VERIFIED AUDITOR          │
-│ • Ed25519 Identity Minted  • $\ge 10$ audits, $Q_i \ge 0.60$ • $\ge 50$ audits, $Q_i \ge 0.75, G \ge 0.85$│
-│ • Local Feed Ingestion     • HRW Feed Partitioning       • Consensus Voting Quorum Weight        │
-│                                                                        │                         │
-│                                                                        ▼                         │
-│ 💎 TIER V: ROOT SEED ANCHOR ◀───────────────────────────── 🏛️ TIER IV: DOMAIN SPECIALIST        │
-│ • $Q_i \ge 0.85, U_i \ge 0.80, >30\text{d}$ Longevity       • $E_i \ge 0.80$ across $\ge 5$ FQDNs│
-│ • Canonical `peers.json` Bootstrap Seed                     • Galileo Override Authority         │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Meritocracy: Nodes ascend tiers through unforgeable mathematical proofs and verified accuracy │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Folding@home for Truth: Gamification Without the Casino](assets/illustrations/gamifying-truth-without-the-casino-2.svg)
 
 ---
 

@@ -13,22 +13,7 @@ Credence's evaluation engine is completely decoupled from hardcoded heuristics. 
 
 This guide walks you through authoring a new domain taxonomy catalog (e.g. for `FINANCIAL_DISCLOSURES` or `MEDICAL_CLAIMS`).
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         NAMESPACED TAXONOMY CATALOG HIERARCHY & URI STRUCTURE                    │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Taxonomy Domain Root: `FINANCIAL_DISCLOSURES`                                                    │
-│    │                                                                                             │
-│    ├──▶ Cluster 1: `PROJECTIONS`                                                                 │
-│    │    ├── Rule A: `ungrounded_ebitda@1.0.0` (Severity 4 · GAAP Reconciliation Failure)         │
-│    │    └── Rule B: `unsupported_guidance@1.0.0` (Severity 3 · Forward Guidance Without Baseline)│
-│    │                                                                                             │
-│    └──▶ Cluster 2: `REVENUE_RECOGNITION`                                                         │
-│         └── Rule C: `premature_booking@1.0.0` (Severity 5 · Premature Multi-Year Contract Rec)   │
-│                                                                                                  │
-│ 🛡️ Immutable URI Invariant: `domain:cluster/rule_id@version` pinned by SHA-256 catalog digest   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Taxonomy Rule Engineering 101](assets/illustrations/taxonomy-engineering.svg)
 
 > [!IMPORTANT]
 > **Immutable URI Invariant**: Rule IDs are permanently pinned by catalog SHA-256 digests. Evaluator models cannot invent ad-hoc rules outside the active registered taxonomy.

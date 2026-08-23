@@ -10,34 +10,7 @@ last_verified: 2026-08-20
 
 Deploying both a **simple Dev instance** and an **advanced Prod instance** creates a **Bicameral Epistemic Engine**. This architecture enables safe shadow evaluation, zero-downtime canary testing, cross-organization cryptographic federation, and verifiable FinOps cost optimization.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         BICAMERAL EPISTEMIC SHADOW & EXPERIMENTATION PIPELINE                    │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Ingress Feeds & Untrusted DOMs (RSS Feeds, Inbound Webhooks, User Submissions)                   │
-│                                              │                                                   │
-│                                              ▼                                                   │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ DEV INSTANCE: FAST HEURISTIC TRIAGE PLANE (`credence-dev` / Economy Profile)               │   │
-│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ • Zero marginal cost triage ($0.00) • Rapid topic entropy check ($H < 0.30$)               │   │
-│ │ • Fast-Lite & offline structural rules • Filters 70% obvious clean/satirical prose         │   │
-│ └────────────────────────────────────────────┬───────────────────────────────────────────────┘   │
-│                                              │ Ambiguous / Suspicious Claim ($\Delta S > 25.0$)  │
-│                                              ▼                                                   │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ PROD INSTANCE: CRYPTOGRAPHIC SOVEREIGN CORE (`credence-server` / Balanced Profile)          │   │
-│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ • Gemini 3.7 Flash + 4k thinking • 100% Verbatim Grounding ($G=1.00$)                      │   │
-│ │ • RFC 8785 Canonical JSON + Ed25519 Envelope • P2P Gossip Broadcast & Leaderboards         │   │
-│ └────────────────────────────────────────────┬───────────────────────────────────────────────┘   │
-│                                              │                                                   │
-│                                              ▼                                                   │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🌐 FEDERATED EPISTEMIC MESH & PERSISTENT ATTESTATION STORE                                 │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Bicameral Testing & Autonomous Experimentation Handbook](assets/illustrations/bicameral-testing-and-experiments.svg)
 
 ---
 

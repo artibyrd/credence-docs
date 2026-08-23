@@ -58,26 +58,7 @@ Every evaluation produces an Ed25519-signed `.credence.json` envelope. Anyone ca
 
 ## 🏛️ How Credence Works
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                CREDENCE EPISTEMIC AUDIT PIPELINE                                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 1. INGESTION & CAPTURE        2. GROUNDING GATE            3. MULTI-TAXONOMY AUDIT               │
-│ ┌────────────────────────┐    ┌────────────────────────┐   ┌───────────────────────────────────┐ │
-│ │ Target Webpage / Text  │───▶│ Verbatim Quote Guard   │──▶│ • SPJ Journalistic Ethics         │ │
-│ │ • HTML DOM Extraction  │    │ • Zero Hallucination   │   │ • IEP Logical Fallacies           │ │
-│ │ • Trafilatura Prose    │    │ • Character Match G=1.0│   │ • Deceptive UI / Dark Patterns    │ │
-│ └────────────────────────┘    └────────────────────────┘   └─────────────────┬─────────────────┘ │
-│                                                                              │                   │
-│ 5. 4-WAY SYMMETRIC INTERFACES                              4. ATTESTATION    ▼                   │
-│ ┌────────────────────────────────────────────────────────┐ ┌───────────────────────────────────┐ │
-│ │ 🖥️ CLI: `credence audit <url>` (jq/JSON pipes)          │ │ RFC 8785 Ed25519 Signed Envelope  │ │
-│ │ ⚡ FastMCP 2.0: stdio / SSE tools for Claude & Cursor   │◀│ • Canonical JSON payload          │ │
-│ │ 📟 Textual TUI: `credence tui` keyboard workstation    │ │ • Tamper-proof `.credence.json`   │ │
-│ │ 🌐 Zero-Build Web: WebCrypto in-browser report viewer  │ └───────────────────────────────────┘ │
-│ └────────────────────────────────────────────────────────┘                                       │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Welcome to Credence 🛡️](assets/illustrations/intro.svg)
 
 ---
 

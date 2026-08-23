@@ -14,29 +14,7 @@ When technology ethicists debate digital misinformation, they reflexively point 
 
 Yet the most acute epistemic vulnerability in democratic society today does not occur in national media headlines or generative video models. It happens 30 miles outside metropolitan centers in **exurban news deserts**, where a single private digital publisher holds an absolute monopoly over local civic information.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         PUBLISHER-POLITICIAN CONFLICT OF INTEREST TOPOLOGY                       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ 🏛️ MUNICIPAL GOVERNANCE (City Council)   │   │ 📰 MONOPOLISTIC LOCAL NEWS OUTLET        │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • City Council Dais Voting Authority     │   │ • Owner & Commercial Advertising Director│      │
-│ │ • Zoning, Police Budgets & City Contracts│◀─▶│ • Sole Civic News & Election Coverage    │      │
-│ │ • Elected Councilmember / Vice Mayor     │   │ • Advertorials & Local Business Placement│      │
-│ └─────────────────────┬────────────────────┘   └─────────────────────┬────────────────────┘      │
-│                       │                                              │                           │
-│                       └──────────────────────┬───────────────────────┘                           │
-│                                              ▼ Dual-Hat Identity Collision                       │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🛡️ CREDENCE AUDIT MESH: Quantitative SPJ Rule Ingestion                                     │   │
-│ │ • `SPJ-3.1`: Undisclosed Conflict of Interest • `SPJ-3.3`: Advertorial Camouflage          │   │
-│ │ • `SPJ-1.1`: Single-Source Police Blotter     • Domain Credence Index: 62.5 / MIXED        │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Epistemic Hygiene: Score the integrity of the lens; expose undisclosed civic-commercial bias  │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Conflict of Pun-terest: 347 Reasons Why Maricopa's Publisher-Politician Problem Fails the Epistemic Smell Test](assets/illustrations/conflict-of-pun-terest.svg)
 
 In Maricopa, Arizona—a high-growth desert suburb south of Phoenix—this structural tension came to life. For years, the city’s preeminent digital news outlet, `inmaricopa.com`, was co-owned and directed by Vincent Manfredi, an elected City Councilmember and former Vice Mayor.
 

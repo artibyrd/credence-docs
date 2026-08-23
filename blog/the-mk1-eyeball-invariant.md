@@ -34,22 +34,7 @@ No matter how many millions of parameters an LLM possesses, it is strictly forbi
 
 To understand why autonomous agents must never be granted unsupervised commit authority, one need only study the foundational treatise on cybernetic defense: the 2004 documentary known as *Battlestar Galactica*.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE ADAMA DOCTRINE & SOVEREIGN DEFENSE TOPOLOGY                          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ THE FULLY AUTONOMOUS FLEET            │   │ 🛡️ THE BATTLESTAR GALACTICA STACK        │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Networked Command Navigation (CNP)     │   │ • Air-Gapped Core Computers (Non-Network)│      │
-│ │ • Single exploit disables entire fleet   │──▶│ • Physical Grease Pencils (CAS State)    │      │
-│ │ • Zero human intervention or override    │   │ • Viper Mk II Analog (Zero-npm Runtime)  │      │
-│ │ • 💥 100% Bricked in 30 Seconds          │   │ • 👁️ Mk1 Eyeball Human Confirmation Gate │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Sovereign Safety Invariant: Human optical review is the unjammable root of custody            │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Mk1 Eyeball Invariant: Why The Smartest Autonomous Agents Still Beg for Human Retinas 👁️](assets/illustrations/the-mk1-eyeball-invariant.svg)
 
 When the Cylons struck the Twelve Colonies, they didn't defeat the modern fleet in glorious ship-to-ship tactical combat. They simply broadcast an exploit into Baltar's networked Command Navigation Program (CNP). Every high-tech, fly-by-wire, auto-updating starship immediately shut down its engines, lowered its shields, and drifted helplessly into nuclear crosshairs.
 
@@ -71,28 +56,7 @@ The call across the wireless is always the same:
 
 > **"DRADIS is blind. Going to Mark 1 Eyeball for visual confirmation on the bogey."**
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE Mk1 EYEBALL REVIEW & VERIFICATION FLIGHT SEQUENCE                    │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ⚡ Antigravity Agent    🧪 Digital DRADIS (CI)   ☁️ Cloud Run Dev      👁️ Human Mk1 Eyeball      │
-│        │                       │                        │                       │                │
-│        │── Hermetic Unit Tests▶│                        │                       │                │
-│        │   (Reports 100% Green)│                        │                       │                │
-│        │                                                │                       │                │
-│        │── Deploy Branch to Cloud Run Dev & Cloudflare ─▶                       │                │
-│        │   (Monitors `deploy-dev.yml` to completion)    │                       │                │
-│        │                                                │                       │                │
-│        │── Submits 3-Repo Staged PR Triad + Live Preview Endpoints ────────────▶│                │
-│        │                                                                        │ [Visual audit: │
-│        │                                                                        │ spots unasked  │
-│        │                                                                        │ UI button!]    │
-│        │◀── "Veto: Strip speculative UI element" ───────────────────────────────│                │
-│        │                                                                        │                │
-│        │── Re-verifies live preview with cleaned DOM ──────────────────────────▶│                │
-│        │◀── Human Approves PR Triad & Executes Production Release Tag ──────────│                │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Mk1 Eyeball Invariant: Why The Smartest Autonomous Agents Still Beg for Human Retinas 👁️](assets/illustrations/the-mk1-eyeball-invariant-2.svg)
 
 In autonomous software development:
 1. **Digital DRADIS** = Synthetic test suites, green CI checkmarks, linter badges, and LLM self-confidence scores.

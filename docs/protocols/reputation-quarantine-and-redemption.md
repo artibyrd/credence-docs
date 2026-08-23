@@ -20,39 +20,7 @@ Autonomous nodes operate under a dual-drive epistemic ingestion engine:
 
 ## 2. State Machine & Transition Invariants
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         DOMAIN REPUTATION & SOFT QUARANTINE STATE MACHINE                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                  ┌────────────────────────┐                                      │
-│                                  │  NEUTRAL (R = 50.0)    │                                      │
-│                                  └─────┬────────────┬─────┘                                      │
-│                     k >= 3 Clean       │            │ Severity >= 4 Violation                    │
-│                     Audits (R >= 75)   │            │ or Suspicion >= 50 (R < 50)                │
-│                                        ▼            ▼                                            │
-│   ┌───────────────────────────┐              ┌───────────────────────────┐                       │
-│   │ TRUSTED (R >= 75.0)       │              │ SUSPICIOUS (R < 50.0)     │                       │
-│   │ Polling interval: 1.0x    │              │ Polling interval: 2.0x    │                       │
-│   └─────────────┬─────────────┘              └─────────────┬─────────────┘                       │
-│                 │                                          │ 3+ Consecutive Deceptions           │
-│                 │ Severity >= 4 Relapse                    │ or R <= 20.0                        │
-│                 └──────────────────────┐                   ▼                                     │
-│                                        │     ┌───────────────────────────┐                       │
-│                                        │     │ QUARANTINED (R <= 20.0)   │                       │
-│                                        │     │ Exponential backoff: 64x  │                       │
-│                                        │     │ HRW Lazarus probe (1 / 7d)│                       │
-│                                        │     └─────────────┬─────────────┘                       │
-│                                        │                   │ 5 Clean Audits (BuzzFeed Doctrine)  │
-│                                        │                   ▼                                     │
-│                                        │     ┌───────────────────────────┐                       │
-│                                        └────▶│ PROBATIONARY RECOVERY     │                       │
-│                                              │ Multi-namespace review    │                       │
-│                                              └─────────────┬─────────────┘                       │
-│                                                            │ Stable 10 Audits                    │
-│                                                            ▼                                     │
-│                                              (Restored to NEUTRAL State)                         │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Epistemic Protocol Specification: Domain Reputation, Soft Quarantine & Redemption (EPEP-17)](assets/illustrations/reputation-quarantine-and-redemption.svg)
 
 ### 2.1 Asymmetric Bayesian Scoring Update Rule
 

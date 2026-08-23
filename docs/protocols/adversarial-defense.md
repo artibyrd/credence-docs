@@ -13,36 +13,7 @@ sidebar:
 
 A preemptive guide to frequently challenged design decisions, adversarial attack vectors, and mathematical threat models in the Credence protocol.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                             3-PLANE ADVERSARIAL DEFENSE ARCHITECTURE                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ PLANE 1: NETWORK & INGESTION DEFENSE                                                             │
-│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
-│ │ Untrusted Ingress URL  │ ───▶ │ 1. Host IP & SSRF Guard │ ───▶ │ 2. XML / DTD Sanitizer    │   │
-│ │ (Webpage / RSS Feed)   │      │ Reject metadata & loopbk│      │ Block `<!ENTITY` (Billion)│   │
-│ └────────────────────────┘      └─────────────────────────┘      └─────────────┬─────────────┘   │
-│                                                                                │                 │
-│                                 ┌─────────────────────────┐                    ▼                 │
-│                                 │ 3. Prompt Isolation     │ ◀──────────────────┘                 │
-│                                 │ `<untrusted_source_text>`│                                     │
-│                                 └────────────┬────────────┘                                      │
-├──────────────────────────────────────────────┼───────────────────────────────────────────────────┤
-│ PLANE 2: EPISTEMIC EVALUATION DEFENSE        ▼                                                   │
-│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
-│ │ 4. Specialist Audits   │ ───▶ │ 5. Verbatim Grounding   │──Pass▶│ 6. RFC 8785 Ed25519 Sign  │   │
-│ │ • SPJ, IEP, Deceptive  │      │ • G=1.00 Substring Gate │      │ Canonical JSON Attestation│   │
-│ │ • Poe's Law & SPJ-1.6  │      │ • G<0.75 -> 50% Slash   │      │ Signed Receipt Envelope   │   │
-│ └────────────────────────┘      └─────────────────────────┘      └─────────────┬─────────────┘   │
-├────────────────────────────────────────────────────────────────────────────────┼─────────────────┤
-│ PLANE 3: P2P MESH CONSENSUS DEFENSE                                            ▼                 │
-│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
-│ │ 7. Watts-Strogatz Mesh │ ───▶ │ 8. The Galileo Rule     │ ───▶ │ 9. Immutable WAL Record   │   │
-│ │ 13-Node Gossip Lattice │      │ Asymmetric Grounding    │      │ Domain-Entropy Weighted   │   │
-│ │ Sybil Cartel Isolation │      │ 3f+1 Byzantine Defense  │      │ Median Consensus Verified │   │
-│ └────────────────────────┘      └─────────────────────────┘      └───────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Adversarial Defense & Threat Matrix](assets/illustrations/adversarial-defense.svg)
 
 ### Protocol Threat Matrix
 

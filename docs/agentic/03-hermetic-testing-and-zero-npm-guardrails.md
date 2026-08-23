@@ -28,24 +28,7 @@ read_time: 8 min
 
 Learn the engineering principles behind Credence's 100% network-free hermetic testing architecture and **Zero-npm Invariant**, designed to ensure applications run reliably for decades without build toolchain rot.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         HERMETIC TEST PYRAMID & ZERO-NPM GUARDRAILS                              │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 1. PLAYWRIGHT LIVE DOM RENDERING & WCAG CONTRAST                                           │   │
-│ │ Headless Chromium live DOM geometry, zero console errors, dynamic theme checks (~18s)       │   │
-│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ 2. SHIFT-LEFT AST, STATIC FRONTMATTER & CONTRACT INTEGRITY                                 │   │
-│ │ `tests/test_docs_integrity.py` validates frontmatters, link anchors, and Zero-npm (<0.1s) │   │
-│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ 3. IN-MEMORY HERMETIC UNIT SUITE & MATHEMATICAL PROOFS                                     │   │
-│ │ `@pytest.mark.unit` tests scoring formulas, Watts-Strogatz mesh, and CAS storage (<3.2s)   │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ 100% Network-Free CI: Zero Cloud Secrets • Zero Flakiness • Zero npm Package Dependencies    │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Hermetic Testing & Zero-npm Guardrails: Engineering High-Longevity AI Systems](assets/illustrations/03-hermetic-testing-and-zero-npm-guardrails.svg)
 
 > [!IMPORTANT]
 > **[Invariant 31: Universal Zero-Build Standards (Zero-npm Invariant)](../invariants.md#invariant-31)**: All public web surfaces, documentation portals (`credence-docs`), and blogs strictly use vanilla HTML5, CSS Custom Properties, and native ES Modules with **zero npm dependencies, zero package.json, and zero build toolchains**.

@@ -17,28 +17,7 @@ This blueprint outlines deploying Credence for **medical and public health audit
 
 ## 1. The Medical Evaluation Threat Model
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         MEDICAL & HEALTH CLAIM AUDITING ARCHITECTURE                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Untrusted Health Article / Wellness Landing Page / Clinical Preprint Ingestion                   │
-│                                              │                                                   │
-│                                              ▼                                                   │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 3-Specialist Medical Audit Pipeline:                                                       │   │
-│ ├────────────────────────────┬───────────────────────────────┬───────────────────────────────┤   │
-│ │ 🧬 BIOMEDICAL SPECIALIST   │ 🔍 CAUSAL FALLACY SPECIALIST  │ ⚠️ DECEPTIVE UI SPECIALIST    │   │
-│ ├────────────────────────────┼───────────────────────────────┼───────────────────────────────┤   │
-│ │ • Cross-checks with PubMed │ • Detects Post-Hoc fallacies  │ • Identifies fake scarcity ctr│   │
-│ │ • Flags in-vitro extrapolat│ • Anecdotal testimonial traps │ • Hidden recurring auto-bills │   │
-│ └────────────────────────────┴───────────────┬───────────────┴───────────────────────────────┘   │
-│                                              │                                                   │
-│                                              ▼                                                   │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 100% Verbatim Grounding ($G=1.00$) Gate ──▶ Calibrated Medical Suspicion Score ($S \in 0..100$)│   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Medical & Health Claim Auditing Blueprint](assets/illustrations/health-medical-claims.svg)
 
 ---
 

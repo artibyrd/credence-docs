@@ -17,24 +17,7 @@ In decentralized and autonomous systems, static credentials are a severe vulnera
 
 In Credence, we codified this principle into **[Invariant 17](../docs/invariants.md#invariant-17): The Anti-Diploma Invariant**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         EMPIRICAL AUTHORITY WEIGHT & ANTI-CARTEL DEFENSE GATES                   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ⚖️ AUTHORITY WEIGHT ($W_i=0.2Q_i+0.8E_i$) │   │ 🛡️ ANTI-CARTEL DEFENSE GATES             │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Node Quality ($Q_i \in [0,1]$):        │   │ • 1. Domain Entropy Gate ($D_i$):        │      │
-│ │   Uptime + Conformance + Grounding + Keys│   │   Must audit $\ge 5$ distinct FQDNs      │      │
-│ │ • Domain Expertise ($E_i \in [0,1]$):    │──▶│ • 2. Epistemic Grounding Gate ($G_i$):   │      │
-│ │   Concordance + Grounding + Longevity    │   │   100% Verbatim Substrings ($G=1.00$)    │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-│                                       │                                                          │
-│                                       ▼                                                          │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ ✨ ELIGIBLE FOR GALILEO OVERRIDE: Verified domain truth cannot be silenced by majorities   │   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Anti-Diploma Invariant: Why Credentials Don't Equal Authority](assets/illustrations/the-anti-diploma-invariant.svg)
 
 ### Authority Factor Breakdown
 

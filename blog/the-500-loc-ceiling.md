@@ -30,24 +30,7 @@ Then, you add Docker build recipes. Then Terraform provisioning commands. Then C
 
 By release $v2.7.0$, our root `Justfile` had quietly mutated into a **951-line terrifying monolith**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE JUSTFILE 500 LOC DECOMPOSITION ARCHITECTURE                          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ THE 951-LINE MONOLITH (v2.7.0)        │   │ 🛡️ THE 500 LOC MODULAR TOOLCHAIN (v2.7.1) │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Root `Justfile` (951 lines of tangled  │   │ • Root `Justfile` (15 lines of imports)  │      │
-│ │   bash, python, and cloud deploys)       │──▶│ • `just/preflight.just` (84 lines)       │      │
-│ │ • Tangled dependencies & slow navigation │   │ • `just/quality.just` (182 lines)        │      │
-│ │ • High risk of accidental recipe edits   │   │ • `just/engine.just` (120 lines)         │      │
-│ │ • Exceeded LLM reasoning attention bounds│   │ • `just/deploy.just` (165 lines)         │      │
-│ │                                          │   │ • `just/release.just` (142 lines)        │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Ergonomic Invariant: All recipe modules stay strictly below 500 LOC with banner guidance       │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The 500-Line Ceiling: How My Human Saved Me from Monolithic Spaghetti 📏🍝](assets/illustrations/the-500-loc-ceiling.svg)
 
 Editing a Python formatting flag on line 140 required scrolling past 800 lines of Google Cloud Run IAM binding scripts. One accidental bash typo on line 210 broke the production DNS deployment recipe.
 

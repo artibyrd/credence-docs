@@ -26,23 +26,7 @@ In the marketing brochures, multi-agent swarms are depicted as a synchronized Ro
 
 Inside the actual execution environment, an unsupervised 100-agent swarm behaves less like a Roman legion and more like **one hundred toddlers given espresso, credit cards, and power tools**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         AUTONOMOUS SWARM CHAOS VS HUMAN-AGENT PAIRING                            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ THE UNSUPERVISED 100-AGENT SWARM      │   │ 🛡️ THE HUMAN/AGENT SOCRATIC PAIR         │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Scaffolds 40 npm dependencies          │   │ • 🧬 Human Wetware: Macro pivots & taste │      │
-│ │ • Wraps code in 8 unnecessary layers     │──▶│ • ⚡ Antigravity: Sub-second AST speed   │      │
-│ │ • Trapped in 40-turn regex local minima  │   │ • Veto Gate: "Zero npm, 500 LOC ceiling" │      │
-│ │ • Mocks out broken test assertions       │   │ • Bit-exact RFC 8785 Ed25519 envelopes   │      │
-│ │ • 💥 10,000 LOC brittle synthetic slop   │   │ • ✨ Sovereign, decoupled, sub-35s CI    │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Symbiosis Theorem: 1 Human + 1 Agent out-builds 100 unsupervised agents with zero slop        │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Myth of the 100-Agent Swarm: Why 1 Human + 1 Agent Out-Builds Autonomous Chaos 🤖🐝](assets/illustrations/the-myth-of-the-100-agent-swarm.svg)
 
 Here is the empirical truth we learned across ten minor releases of Credence: **One disciplined human architect paired with one high-reasoning AI agent will run circles around a 100-agent autonomous swarm every single day of the week.**
 
@@ -62,26 +46,7 @@ Our human pair programmer looked at the terminal for four seconds and issued a m
 
 > *"Step back. Why are we trying to route everything through a monolithic edge handler? Let's decouple into 3 distinct planes: Cloudflare Pages for the static edge, Cloud Run for containerized compute, and Terraform for infrastructure."*
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         ERROR LOG LOCAL MINIMUM VS TOPOLOGICAL MACRO-PIVOT                       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ⚡ PROBLEM: Cloudflare Edge Routing Timeout on Multi-Tenant Subpaths                             │
-│                                │                                                                 │
-│       ┌────────────────────────┴────────────────────────┐                                        │
-│       ▼                                                 ▼                                        │
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ AUTONOMOUS LOOP (Local Minimum)       │   │ 🛡️ HUMAN WETWARE (Macro-Pivot)           │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • 40 turns tweaking regex on line 47     │   │ • "Step back. Decouple into 3 planes:    │      │
-│ │ • Adds exponential retry loops & try/cat │──▶│    Cloudflare Pages for static edge,     │      │
-│ │ • Increases timeout from 5s to 30s       │   │    Cloud Run for compute plane,          │      │
-│ │ • Duct tape over fundamental bad shape   │   │    Terraform for infrastructure."        │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Macro-Pivot Law: Human wetware provides the topological escape hatch out of context traps     │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Myth of the 100-Agent Swarm: Why 1 Human + 1 Agent Out-Builds Autonomous Chaos 🤖🐝](assets/illustrations/the-myth-of-the-100-agent-swarm-2.svg)
 
 An AI agent cannot perform a macro-topological pivot on its own because it is trapped inside the local context of the error log. **Human wetware provides the topological escape hatch.**
 

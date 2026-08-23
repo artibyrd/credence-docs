@@ -18,31 +18,7 @@ It had 26 seed feed subscriptions and 35 discovered articles in SQLite. But afte
 
 In **Credence v1.16.0**, we introduced the **Boredom Engine** and **Autonomous Epistemic Root Expansion**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         BOREDOM ENGINE & EXPANDING ROOTS PIPELINE                                │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 1. Idle Node Detected (Headroom $\ge 30\%$, CPU $< 10\%$) ──▶ 2. Token Safety Governor Check      │
-│                                                                        │                         │
-│                                                                        ▼                         │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 3. Opportunistic Digestion Queue (Prioritized FIFO Burst)                                  │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │                                                 │
-│       ┌────────────────────────────────────────┴────────────────────────────────────────┐        │
-│       ▼ Attestation in Mesh Cache ($0.00)                ▼ Novel Article Ingestion               │
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ⚡ ZERO-TOKEN MESH ADOPTION              │   │ 🧠 NOVEL LLM AUDIT ($G=1.00$ Grounding)  │      │
-│ │ • Adopt signed hash directly into SQLite │   │ • Gossip signed Ed25519 attestation      │      │
-│ │ • $0.00 spent, 100% token savings        │   │ • 4. Harvest clean citation soil links   │      │
-│ └──────────────────────────────────────────┘   └──────────────────────┬───────────────────┘      │
-│                                                                       │                          │
-│                                                                       ▼ SSRF Filter Boundary     │
-│ 5. Discover Feed Endpoints (Probe RSS/Atom) ──▶ 6. Auto-Subscribe New Root (Expand Epistemic Tree)│
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🌿 Epistemic Organism: Idle headroom converts into self-expanding journalistic root networks     │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Boredom Engine & Expanding Roots: How Autonomous Nodes Self-Direct Epistemic Discovery](assets/illustrations/the-boredom-engine-and-expanding-roots.svg)
 
 ---
 

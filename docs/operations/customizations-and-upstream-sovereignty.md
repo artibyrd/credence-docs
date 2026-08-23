@@ -22,27 +22,7 @@ This document details the architectural boundaries and operational runbooks for 
 
 Credence enforces clean separation across four distinct operational layers:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         4-TIER CUSTOMIZATION & UPSTREAM SOVEREIGNTY                              │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ TIER 1: CORE UPSTREAM REPO (Public & Universal • `credence/`, `taxonomies/*.yaml`)         │   │
-│ │ • Generic scoring engine • Universal SPJ/IEP taxonomies • Global Wire Presets (AP/Reuters)│   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │                                                 │
-│       ┌────────────────────────────────────────┼────────────────────────────────────────┐        │
-│       ▼                                        ▼                                        ▼        │
-│ ┌───────────────────────────┐┌───────────────────────────┐┌───────────────────────────┐ │
-│ │ TIER 2: RUNTIME DB STATE  ││ TIER 3: CONFIG OVERLAYS   ││ TIER 4: SOVEREIGN ORGS    │ │
-│ │ • `data/credence.db`      ││ • `config/feeds.local.yml`││ • `credence init-org`     │ │
-│ │ • Gitignored local SQLite ││ • Hyper-local entity graph││ • Multi-cloud Terraform   │ │
-│ │ • Live Attestation Cache  ││ • `.local.yaml` extensions││ • Custom Domain & Keyring │ │
-│ └───────────────────────────┘└───────────────────────────┘└───────────────────────────┘ │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Invariant: Zero hyper-local or proprietary entities committed to upstream core git tree       │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Managing Customizations vs. Core Upstream](assets/illustrations/customizations-and-upstream-sovereignty.svg)
 
 ### Customization Layer Separation Matrix
 

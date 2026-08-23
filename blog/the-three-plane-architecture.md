@@ -22,34 +22,7 @@ When designing **Credence**, we took a radically different architectural path dr
 
 To fulfill these requirements without sacrificing latency, cryptographic verifiability, or multi-cloud portability, we organized the entire ecosystem into **The 3-Plane Architecture**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE CREDENCE 3-PLANE DECOUPLED ARCHITECTURE                              │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🌐 PLANE 1: EDGE PLANE (Cloudflare Workers & Zero-Build Assets)                            │   │
-│ │ • 5 Sovereign Domains (`credence.run`, `docs.*`, `blog.*`, `credence.report`, `*.nexus`)   │   │
-│ │ • Vanilla ES Modules & CSS Custom Properties • Sub-50ms Global Edge Routing                │   │
-│ │ • Zero npm Dependencies (0 Bytes `node_modules` · Zero build step)                         │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │ Proxies `/api` & `/sse`                         │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ ⚙️ PLANE 2: COMPUTE PLANE (Google Cloud Run v2 Serverless Container)                        │   │
-│ │ • FastMCP 2.0 (Dual Transport: `stdio` & `sse`) • Starlette REST API & WebSocket Relays    │   │
-│ │ • 4-Specialist Epistemic Scoring & $G=1.00$ Verbatim Grounding Engine                      │   │
-│ │ • Scale-to-Zero (`min_instances = 0`, $0.00 Idle Cost per Hour)                            │   │
-│ └──────────────────────────────────────────────▲─────────────────────────────────────────────┘   │
-│                                                │ Provisions & Binds                              │
-│ ┌──────────────────────────────────────────────┴─────────────────────────────────────────────┐   │
-│ │ 🏛️ PLANE 3: INFRASTRUCTURE PLANE (Declarative Multi-Cloud Terraform)                       │   │
-│ │ • GCP Cloud Run, WIF IAM Roles & GCS Buckets • Cloudflare DNS Records & Worker Edge Rules  │   │
-│ │ • Zero-Drift Declarative State (`just tf-plan` / `just tf-apply`)                          │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Strict Separation of Concerns: Global edge velocity + serverless compute + declarative IaC   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The 3-Plane Architecture: Zero-npm Edge, Scale-to-Zero Compute, and Sovereign Infra](assets/illustrations/the-three-plane-architecture.svg)
 
 ---
 

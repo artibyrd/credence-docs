@@ -29,31 +29,7 @@ Welcome to the complete structural directory of the **Credence Epistemic Network
 
 ## 1. 🛡️ Sovereign Domains & Web Surfaces
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                             SOVEREIGN DOMAINS & WEB SURFACES MAP                                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                  `credence.run` (Core Hub)                                       │
-│                                              │                                                   │
-│                 ┌────────────────────────────┼────────────────────────────┐                      │
-│                 ▼                            ▼                            ▼                      │
-│   ┌───────────────────────────┐┌───────────────────────────┐┌───────────────────────────┐       │
-│   │ `docs.credence.run`       ││ `blog.credence.run`       ││ `credence.report`         │       │
-│   │ Zero-Build Documentation  ││ Sovereign Editorial &     ││ Public Audit Viewer &     │       │
-│   │ & 12 In-Browser Labs      ││ Forensic Deep Dives       ││ Global DEI Rankings       │       │
-│   └───────────────────────────┘└───────────────────────────┘└───────────────────────────┘       │
-│                 ▲                            ▲                            ▲                      │
-│                 └────────────────────────────┼────────────────────────────┘                      │
-│                                              │                                                   │
-│                 ┌────────────────────────────┴────────────────────────────┐                      │
-│                 ▼                                                         ▼                      │
-│   ┌───────────────────────────┐                             ┌───────────────────────────┐        │
-│   │ `credence.nexus`          │                             │ `credence.foundation`     │        │
-│   │ P2P Swarm Seeds & Live    │                             │ Root Ed25519 Custody &    │        │
-│   │ Mesh Telemetry Directory  │                             │ Fixed Taxonomy Registries │        │
-│   └───────────────────────────┘                             └───────────────────────────┘        │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Ecosystem Master Sitemap 🗺️](assets/illustrations/sitemap.svg)
 
 - **[https://credence.run](https://credence.run)**: Core landing page, single-command installation (`curl -fsSL https://credence.run/install.sh | bash`), terminal quickstart, and feature overview.
 - **[https://credence.report](https://credence.report)**: Public report search by content SHA-256 or URL, live DEI rankings, and curated scenario benchmarks.

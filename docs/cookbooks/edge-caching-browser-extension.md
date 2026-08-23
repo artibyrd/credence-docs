@@ -14,23 +14,7 @@ This cookbook demonstrates how Chrome Extension Manifest V3 queries cached epist
 
 ## 1. The Zero-Hop Query Flow
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         MV3 EXTENSION ZERO-HOP EDGE VERIFICATION FLOW                            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Chrome Browser (MV3)            Cloudflare Anycast Edge (300+ PoPs)     Cloud Run Compute Plane  │
-│        │                                        │                                   │            │
-│        │──── GET /api/reports/{sha256} ────────▶│                                   │            │
-│        │                                        │                                   │            │
-│        │◀─── 200 OK (Signed Ed25519 <20ms) ─────│ [Cache Hit: 95%+ of queries]     │            │
-│        │                                        │                                   │            │
-│        │   [Cache Miss: Novel Scrape 5%]        │──── Forward Scrape Request ──────▶│            │
-│        │                                        │◀─── 200 OK (Immutable Cache-Ctl)─│            │
-│        │◀─── 200 OK (Audited Attestation) ──────│                                   │            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ⚡ Sub-20ms instant client rendering with zero compute token spend on 95%+ of audited URLs        │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Cookbook: Browser Extension MV3 Zero-Hop Edge Verification](assets/illustrations/edge-caching-browser-extension.svg)
 
 ---
 

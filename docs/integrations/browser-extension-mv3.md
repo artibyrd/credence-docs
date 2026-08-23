@@ -17,18 +17,7 @@ This guide shows how to build a **100% Zero-Build browser extension (Manifest V3
 
 ## 1. Extension Directory Structure
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         EXTENSION DIRECTORY STRUCTURE                                            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ credence-extension/                                                                              │
-│ ├── manifest.json       # Manifest V3 configuration                                              │
-│ ├── popup.html          # Clean popup UI                                                         │
-│ ├── popup.js            # Vanilla ES Module logic                                                │
-│ ├── styles.css          # Dark glassmorphism styles                                              │
-│ └── icon.svg            # Vector shield icon                                                     │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Building a Zero-Build Browser Extension (Manifest V3)](assets/illustrations/browser-extension-mv3.svg)
 
 ---
 

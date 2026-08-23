@@ -31,38 +31,7 @@ A comprehensive, unabridged operations runbook for deploying, configuring, secur
 
 Credence is engineered to run as a multi-domain, hybrid-cloud federation spanning **Google Cloud Platform (GCP)** (for serverless compute, Secret Manager, and token governor monitoring) and **Cloudflare** (for global edge CDN, DDoS protection, zero-egress R2 distribution, and DNS delegation).
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                      CREDENCE MULTI-CLOUD EDGE & COMPUTE ROUTING TOPOLOGY                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                  USER / AI AGENT / PEER NODE                                     │
-│                                               │                                                  │
-│                                               ▼                                                  │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ CLOUDFLARE EDGE PLANE (`_worker.js` / Global Anycast CDN)                                  │   │
-│ ├────────────────────────────┬───────────────────────────────┬───────────────────────────────┤   │
-│ │ DOMAIN / HOST              │ ROUTING TARGET                │ CACHE / HEADER POLICY         │   │
-│ ├────────────────────────────┼───────────────────────────────┼───────────────────────────────┤   │
-│ │ `credence.run`             │ Static Landing & Install Shell│ public, max-age=0             │   │
-│ │ `docs.credence.run`        │ Dynamic Proxy: Docs Portal    │ no-cache, no-store            │   │
-│ │ `blog.credence.run`        │ Dynamic Proxy: Sovereign Blog │ no-cache, no-store            │   │
-│ │ `credence.report`          │ Web Report Viewer             │ public, max-age=3600          │   │
-│ │ `credence.nexus`           │ Live Swarm Mesh Directory     │ no-cache, must-revalidate     │   │
-│ │ `seeds.credence.nexus`     │ Genesis Peer Manifest         │ RFC 8785 Canonical JSON       │   │
-│ │ `credence.foundation`      │ Governance & Keys Portal      │ public, max-age=86400         │   │
-│ │ `keys.credence.foundation` │ Genesis Ed25519 Root Public Key│ immutable, text/plain        │   │
-│ └────────────────────────────┴───────────────┬───────────────┴───────────────────────────────┘   │
-│                                              │ `mcp.credence.run` (Host Rewriting)               │
-│                                              ▼                                                   │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ GCP COMPUTE PLANE (Cloud Run `credence-server` / `us-central1`)                            │   │
-│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ • FastMCP 2.0 Streaming SSE Engine (`/sse`, `/messages/`)                                  │   │
-│ │ • Gemini 3.7 Flash Reference Engine + 30% Headroom Token Governor Circuit Breaker          │   │
-│ │ • In-Memory / Cloud Storage WAL Attestation Sync • WIF Least-Privilege IAM Roles           │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Bootstrap Operator Guide & Runbook](assets/illustrations/operator-guide.svg)
 
 > [!NOTE]
 > **Zero-Build Invariant**: All web properties (`credence.run`, `docs.credence.run`, `blog.credence.run`, `credence.nexus`, `credence.foundation`, and `credence.report`) run purely on vanilla HTML5, native CSS Custom Properties, and ES modules with **0 npm dependencies and 0 build steps**. All 18 production and development subdomains are bound in `wrangler.toml` and served with zero-cache headers.

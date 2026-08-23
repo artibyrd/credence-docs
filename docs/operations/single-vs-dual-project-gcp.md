@@ -16,32 +16,7 @@ Credence multi-cloud infrastructure natively supports both **Single-Project Serv
 
 ## 1. Architectural Comparison
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         GCP DEPLOYMENT TOPOLOGIES: DUAL-PROJECT VS SINGLE-PROJECT                │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ TOPOLOGY A: DUAL-PROJECT HARD ISOLATION (Enterprise Standard)                                    │
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ GCP DEV PROJECT (`credence-dev-495173`)  │   │ GCP PROD PROJECT (`credence-prod-505902`) │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Cloud Run: `credence-dev` (512Mi / Eco)│   │ • Cloud Run: `credence-server` (1024Mi)  │      │
-│ │ • Secret Manager: `credence-gemini-api`  │   │ • Secret Manager: `credence-gemini-api`  │      │
-│ │ • Hard Billing Cap: $5.00/month          │   │ • Hard Billing Cap: $15.00/month         │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-│                                                                                                  │
-│ TOPOLOGY B: SINGLE-PROJECT SERVICE PARTITIONING (Lean Standard)                                  │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ GCP UNIFIED PROJECT (`credence-prod-505902`)                                               │   │
-│ ├──────────────────────────────────────────┬─────────────────────────────────────────────────┤   │
-│ │ DEV WORKLOADS (Namespaced)               │ PROD WORKLOADS (Primary)                        │   │
-│ ├──────────────────────────────────────────┼─────────────────────────────────────────────────┤   │
-│ │ • Cloud Run: `credence-dev` (512Mi)      │ • Cloud Run: `credence-server` (1024Mi)         │   │
-│ │ • Secret: `credence-gemini-api-key-dev`  │ • Secret: `credence-gemini-api-key`             │   │
-│ ├──────────────────────────────────────────┴─────────────────────────────────────────────────┤   │
-│ │ • Combined Billing Cap: $15.00/month • Scoped IAM Service Accounts                         │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Operational Guide: Single-Project vs Dual-Project GCP Topologies](assets/illustrations/single-vs-dual-project-gcp.svg)
 
 ---
 

@@ -14,22 +14,7 @@ The article is a forensic takedown of unethical municipal journalism. It documen
 
 How can an article that discusses deceptive journalism receive a flawless epistemic trust score?
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         SCORING THE LENS VS SCORING THE WINDOW                                   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┐   ┌───────────────────────────┐   ┌───────────────────────────┐    │
-│ │ 🪟 THE WINDOW (Subject)   │   │ 🔍 THE LENS (The Article) │   │ 🛡️ CREDENCE AUTONOMOUS    │    │
-│ ├───────────────────────────┤   ├───────────────────────────┤   ├───────────────────────────┤    │
-│ │ • Unbacked Clickbait      │   │ • Verbatim Citations      │   │ • Epistemic Score: 100.0  │    │
-│ │ • Undisclosed COI Bias    │──▶│   ($G = 1.00$ Grounding)  │──▶│ • Ed25519 Signed Custody  │    │
-│ │ • Promotional Astroturf   │   │ • `SPJ-1.6` Safe Harbor   │   │ • Zero False Positives    │    │
-│ │ • Deceptive Local Reports │   │ • High Entropy ($H \ge 0.7$)│ • Discourse Containerized   │    │
-│ └───────────────────────────┘   └───────────────────────────┘   └───────────────────────────┘    │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Epistemic Principle: Score the integrity of the lens, not the dirt on the window it exposes   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0 on Credence](assets/illustrations/scoring-the-lens-not-the-window.svg)
 
 ---
 

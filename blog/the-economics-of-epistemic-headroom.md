@@ -18,31 +18,7 @@ If a breaking global news event occurs and hundreds of articles flood into your 
 
 Credence solves this with a multi-tiered **Dynamic Headroom Governor**:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         3-ZONE DYNAMIC HEADROOM GOVERNOR & SAFETY CURVE                          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 📥 Ingress Feed / Web Article ──▶ Attestation Cache Hit? ──▶ Instant Cached Attestation ($0.00)  │
-│                                           │ (Miss)                                               │
-│                                           ▼                                                      │
-│                         Dynamic Headroom Interrogation: $H_i = 1.0 - (\text{Spend}/\text{Budget})$│
-│       ┌───────────────────────────────────┼───────────────────────────────────┐                  │
-│       ▼ $H_i \ge 30\%$ (Optimal)          ▼ $10\% \le H_i < 30\%$ (Warning)   ▼ $H_i < 10\%$     │
-│ ┌───────────────────────────┐   ┌───────────────────────────┐   ┌───────────────────────────┐    │
-│ │ 🟢 ZONE 1: UNRESTRICTED   │   │ 🟡 ZONE 2: SOFT THROTTLE  │   │ 🔴 ZONE 3: CIRCUIT BRAKE  │    │
-│ ├───────────────────────────┤   ├───────────────────────────┤   ├───────────────────────────┤    │
-│ │ • Gemini 3.7 Flash Engine │   │ • Flash-Lite / Free Tier  │   │ • Offline Regex Heuristics│    │
-│ │ • 4,096 Thinking Tokens   │   │ • Zero Thinking Spend     │   │ • Zero Cloud Egress       │    │
-│ │ • $G=1.00$ Verbatim Ground│   │ • 10x Runway Extension    │   │ • $0.00 / 0 Tokens Total  │    │
-│ └─────────────┬─────────────┘   └─────────────┬─────────────┘   └─────────────┬─────────────┘    │
-│               │                               │                               │                  │
-│               └───────────────────────────────┼───────────────────────────────┘                  │
-│                                               ▼                                                  │
-│ 🏛️ RFC 8785 Ed25519 Canonical Signed Attestation ──▶ Persistent SQLite WAL Store                │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Invariant 38: Headroom governor prevents token exhaustion while preserving audit continuity   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Economics of Epistemic Headroom: Why AI Cost Governance Needs a Dynamic Brake](assets/illustrations/the-economics-of-epistemic-headroom.svg)
 
 1. **Zone 1: Unrestricted Epistemic Reasoning ($>30\%$ Headroom)**: Full Gemini 3.7 Flash inference with calibrated thinking tokens (512–4096 tokens).
 2. **Zone 2: Soft-Throttle Auto-Downshift ($<20\%$ Headroom or $>80\%$ Spend)**: Automatically downshifts background triage and subagents to zero-marginal-cost models (`gemini-2.0-flash-lite`), stretching remaining budget by 10x without stopping audits.

@@ -22,29 +22,7 @@ In **Credence**, we close this feedback loop with a paradigm called **Interface 
 
 Instead of treating telemetry as a one-way egress stream, Credence nodes maintain a lightweight, rolling in-memory telemetry engine. Production health signals, HTTP status code distributions, memory saturation meters, and active alert conditions are continuously reflected back into **all four user and agent presentation surfaces**:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         INTERFACE TELEMETRY LOOPBACK (ITLP-v1) ARCHITECTURE                      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ ⚙️ COMPUTE & SRE ENGINE: Rolling In-Memory Telemetry Tracker (`ServerTelemetryTracker`)      │   │
-│ │ • Sub-5ms Health Ingress • 5-Minute Sliding Error Window • GCP Uptime Probes & Saturation  │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │                                                 │
-│                                                ▼ Closed-Loop Telemetry Distribution              │
-│       ┌────────────────────────────────────────┴────────────────────────────────────────┐        │
-│       ▼ REST Telemetry (`/health`, `/api/health`)        ▼ FastMCP Resource (`credence://node`)  │
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ 🖥️ HUMAN INTERFACES                      │   │ 🤖 AUTONOMOUS AGENTS & EXTENSIONS        │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Textual TUI (Live ⚠️ 5xx Spike Badge)  │   │ • FastMCP 2.0 Agent Stream (Claude/AGY)  │      │
-│ │ • CLI Workstation (`credence health`)    │   │ • Subagent Telemetry Introspection       │      │
-│ │ • Zero-Build Web UI (Live Health Pill)   │   │ • Instant Circuit-Breaker Backoff        │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Loopback Invariant: Real-time telemetry reflects into terminal, web, and agent surfaces       │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Interface Telemetry Loopback: Closing the Circuit Between Cloud SRE, Local TUIs, and AI Agents](assets/illustrations/interface-telemetry-loopback.svg)
 
 ---
 

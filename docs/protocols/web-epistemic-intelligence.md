@@ -21,33 +21,7 @@ $$\text{DCI} = 100 - \left( 0.50 \cdot \overline{S} + 0.30 \cdot \min(50, \overl
 
 ### Metric Definitions
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         DOMAIN CREDENCE INDEX ($DCI$) ARCHITECTURE                               │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ $\text{DCI} = 100 - \left( 0.50 \cdot \overline{S} + 0.30 \cdot \min(50, \overline{D}) + 0.20 \cdot (1 - R_{\text{byline}}) \cdot 100 \right)$ │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌──────────────────┬──────────────┬──────────────┬─────────────────────────────────────────┐     │
-│ │ Metric           │ Range        │ Weight       │ Meaning / Impact                        │     │
-│ ├──────────────────┼──────────────┼──────────────┼─────────────────────────────────────────┤     │
-│ │ $\overline{S}$   │ $[0, 100]$   │ 50%          │ Mean Suspicion Score across audits      │     │
-│ │ $\overline{D}$   │ $[0, 50]$    │ 30%          │ Suspicion Density (Violations / 1k wds) │     │
-│ │ $R_{\text{byline}}$│ $[0.0, 1.0]$│ 20%          │ Byline Transparency Ratio               │     │
-│ └──────────────────┴──────────────┴──────┬───────┴─────────────────────────────────────────┘     │
-│                                          │                                                       │
-│                                          ▼                                                       │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 5 Epistemic Trust Bands:                                                                   │   │
-│ │ • $\ge 85.0\%$: 🛡️ `HIGH_INTEGRITY` (Verified clean track record, grounded reporting)      │   │
-│ │ • $65.0..84.9\%$: 🟢 `RELIABLE` (Occasional low-severity rhetorical bias)                  │   │
-│ │ • $45.0..64.9\%$: 🟡 `MIXED` (Moderate sensationalism or unsourced claims)                 │   │
-│ │ • $25.0..44.9\%$: 🟠 `LOW_INTEGRITY` (Systematic fallacies, missing bylines)               │   │
-│ │ • $< 25.0\%$: 🔴 `DECEPTIVE` (Severe journalistic violations, active quarantine)           │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Global Web Intelligence, DCI & Epistemic Weather](assets/illustrations/web-epistemic-intelligence.svg)
 
 ---
 

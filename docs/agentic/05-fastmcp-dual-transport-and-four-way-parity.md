@@ -31,35 +31,7 @@ read_time: 8 min
 
 Explore the communication architecture powering Credence's **FastMCP 2.0 server**, providing unified tool and resource access to Claude Desktop, Cursor, and Antigravity while maintaining 4-way synchronous feature parity.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         FASTMCP 2.0 DUAL TRANSPORT & 4-WAY PARITY TOPOLOGY                       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ AI Agents & Developers (Claude Desktop, Cursor, Antigravity, Shell Scripts, Web Browser)        │
-│                                │                                                                 │
-│                                ▼ FastMCP 2.0 Dual Transport Gateway                              │
-│ ┌──────────────────────────────────────────┬─────────────────────────────────────────────────┐   │
-│ │ 1. Local `stdio` Pipe IPC                │ 2. Remote Server-Sent Events (SSE) Stream       │   │
-│ │ • Sub-millisecond direct process pipe    │ • `https://mcp.credence.run/sse` bi-directional │   │
-│ │ • Zero network overhead for local IDEs   │ • Cloudflare Edge Proxy with session IDs        │   │
-│ └──────────────────────────┬───────────────┴─────────────────┬───────────────────────────────┘   │
-│                            │                                 │                                   │
-│                            └────────────────┬────────────────┘                                   │
-│                                             ▼                                                    │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ CREDENCE EPISTEMIC KERNEL                                                                  │   │
-│ └───────────────────────────────────────────┬────────────────────────────────────────────────┘   │
-│                                             │                                                    │
-│       ┌─────────────────────────┬───────────┴───────────┬─────────────────────────┐              │
-│       ▼                         ▼                       ▼                         ▼              │
-│ ┌───────────────────┐ ┌───────────────────┐   ┌───────────────────┐   ┌────────────────────┐     │
-│ │ 1. CLI ENGINE     │ │ 2. FASTMCP TOOLS  │   │ 3. TEXTUAL TUI    │   │ 4. ZERO-BUILD WEB  │     │
-│ │ `credence audit`  │ │ `credence_*` tools│   │ `credence tui`    │   │ `credence.report`  │     │
-│ └───────────────────┘ └───────────────────┘   └───────────────────┘   └────────────────────┘     │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Universal Invariant: 100% Simultaneous Feature Parity across all 4 interaction surfaces      │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![FastMCP 2.0 Substrate: Dual Transports & 4-Way Synchronous Parity](assets/illustrations/05-fastmcp-dual-transport-and-four-way-parity.svg)
 
 > [!IMPORTANT]
 > **[Invariant 30: Universal Feature Parity](../invariants.md#invariant-30)**: Every capability in Credence must be synchronously accessible across all 4 surfaces: CLI (`credence`), FastMCP 2.0 tools and resources, Textual TUI (`credence tui`), and the Zero-Build Web UI.

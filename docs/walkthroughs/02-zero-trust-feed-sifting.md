@@ -13,28 +13,7 @@ sidebar:
 
 Learn how to dynamically discover syndicated feed endpoints, execute pre-flight forensic audits against covert astroturfing (The Pizza Hut Problem), and run real-time sifting workers across all interfaces.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         ZERO-TRUST FEED AUTODISCOVERY & SIFTING ENGINE                           │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Target Web Domain ──▶ Dynamic Autodiscovery (`<link>` tags, MIME headers, `.well-known`)        │
-│                              │                                                                   │
-│                              ▼ Pre-Flight Forensic Audit ($H_{\text{topic}}$ & Grounding Gate)   │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Composite Quality Score ($F_j = 0.35S + 0.25G + 0.20H + 0.20T$):                           │   │
-│ ├──────────────────────────────────────────┬─────────────────────────────────────────────────┤   │
-│ │ Score Tier Range                         │ Continuous Sifter Action                        │   │
-│ ├──────────────────────────────────────────┼─────────────────────────────────────────────────┤   │
-│ │ 🟢 $F_j \ge 0.70$ (Healthy Active)       │ Continuous Sifter Daemon Ingestion              │   │
-│ │ 🟡 $0.40 \le F_j < 0.70$ (Under Review)  │ Throttled Ingestion with Warning                │   │
-│ │ 🔴 $F_j < 0.40$ (Compromised)            │ Autonomous Eviction & Quarantine                │   │
-│ └──────────────────────────────────────────┴─────────────────────────────────────────────────┘   │
-│                              │                                                                   │
-│                              ▼ Continuous Sifter Daemon (HRW Workload Partitioning)              │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🌐 Watts-Strogatz Mesh Gossip Diffusion ──▶ 92.3% Compute Token Savings Across Swarm       │   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Feature Walkthrough: Zero-Trust Feed Autodiscovery & Sifting](assets/illustrations/02-zero-trust-feed-sifting.svg)
 
 > [!NOTE]
 > **Persistent Interface Preference**: Switch between **CLI**, **FastMCP 2.0**, **Python SDK**, or **TUI** below. Your choice is automatically remembered across all documentation pages.

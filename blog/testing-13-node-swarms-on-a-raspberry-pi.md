@@ -21,23 +21,7 @@ In **Credence**, we set a strict architectural constraint from day one: **the co
 
 Here is how we built it.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         LEGACY DOCKER P2P VS FEATHERWEIGHT ASYNCIO SWARM                         │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ LEGACY P2P TEST (16GB RAM / 3 Mins)   │   │ 🛡️ CREDENCE FEATHERWEIGHT SWARM (<150MB) │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Docker daemon + 13 bulky containers    │   │ • Single Python Asyncio Event Loop       │      │
-│ │ • 13 separate Linux OS kernels & systemd │──▶│ • 13 Local Relays (:9501 to :9513)       │      │
-│ │ • 512MB RAM allocated per container      │   │ • Watts-Strogatz Small-World ($d=4,\beta=0.2$) │
-│ │ • Slow boot, port clashes, flaky timeouts│   │ • 13 Distinct Ed25519 Keys & WAL Caches  │      │
-│ │ • 💥 Unrunnable on CI runners / Rasp Pi  │   │ • ✨ 100% In-Memory Green in 4.5 Seconds │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Resource Invariant: Test protocol isolation via async memory streams, not OS virtualization   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Testing 13-Node Swarms on a $35 Pi: The Featherweight Mesh Architecture](assets/illustrations/testing-13-node-swarms-on-a-raspberry-pi.svg)
 
 ---
 

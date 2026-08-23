@@ -27,22 +27,7 @@ Why make a major version break over a naming prefix?
 - **`calculate_*`**: Imperative, verbose, and historically blended with UI rendering logic and database fetching side effects.
 - **`compute_*`**: Mathematically pure, deterministic, and side-effect free. In functional and epistemic protocols, `compute_*` denotes a deterministic transformation: given identical cryptographic and attestation inputs, it yields the exact same metric output every time.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         compute_* DETERMINISTIC FUNCTIONAL TRANSFORMATION                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┐   ┌───────────────────────────────┐   ┌────────────────────────┐   │
-│ │ CRYPTOGRAPHIC INPUTS      │   │ PURE compute_* TRANSFORMATION │   │ VERIFIABLE METRICS     │   │
-│ ├───────────────────────────┤   ├───────────────────────────────┤   ├────────────────────────┤   │
-│ │ • Signed Ed25519 Envelopes│──▶│ • `compute_composite_score()` │──▶│ • Score $S \in [0,100]$│   │
-│ │ • Grounded DOM Text Bytes │   │ • `compute_entropy_score()`   │   │ • Topic Entropy $H(X)$ │   │
-│ │ • Active Mesh Peer Weights│   │ • `compute_consensus_median()`│   │ • Dynamic Quality $F_j$│   │
-│ │ • Zero external mutations │   │ • Deterministic & Side-Effect │   │ • Bounded $[0.0, 1.0]$ │   │
-│ └───────────────────────────┘   └───────────────────────────────┘   └────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Ontology Law: `compute_*` functions are pure, deterministic mappings with zero side effects   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The compute_* Ontology Revolution: Why Precision in Naming Eliminates Epistemic Ambiguity](assets/illustrations/the-compute-ontology-revolution.svg)
 
 ---
 

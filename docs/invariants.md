@@ -40,23 +40,7 @@ Mandatory invariants, mathematical formulas, and runtime guardrails governing hu
 
 ## Pillar 1: Core Engineering & Runtime Safety
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         PILLAR 1: CORE ENGINEERING & RUNTIME SAFETY                              │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
-│ │ 1. Human Gate (Mk1)    │ ───▶ │ 2. Hermetic Isolation   │ ───▶ │ 3. Multi-Model Sovereign  │   │
-│ │ • inv-mk1-eyeball      │      │ • inv-hermetic-testing  │      │ • inv-multi-model-sovereign│  │
-│ │ • Zero unverified auto │      │ • In-memory SQLite WAL  │      │ • Gemini 3.7 4k Pareto    │   │
-│ └────────────────────────┘      └─────────────────────────┘      └─────────────┬─────────────┘   │
-│                                                                                │                 │
-│ ┌────────────────────────┐      ┌─────────────────────────┐                    ▼                 │
-│ │ 5. Edge Cloud Security │ ◀─── │ 4. Untrusted Ingestion  │ ◀──────────────────┘                 │
-│ │ • inv-edge-origin-hdr  │      │ • inv-ssrf-defense      │                                      │
-│ │ • Keyless WIF + CORS   │      │ • Billion Laughs Block  │                                      │
-│ └────────────────────────┘      └─────────────────────────┘                                      │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Invariant Bible: Living Canon of System-Wide Invariants & Protocols](assets/illustrations/invariants.svg)
 
 <div class="invariant-card" id="inv-workspace-isolation">
 <a id="invariant-1"></a>
@@ -169,23 +153,7 @@ Mandatory invariants, mathematical formulas, and runtime guardrails governing hu
 
 ## Pillar 2: Epistemic Ingestion & Scoring Engine
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                      PILLAR 2: EPISTEMIC INGESTION & SCORING ENGINE                              │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
-│ │ 1. DOM Ingestion       │ ───▶ │ 2. Verbatim Grounding   │ ───▶ │ 3. Entropy & Astroturf    │   │
-│ │ • Trafilatura Prose    │      │ • inv-verbatim-grounding│      │ • inv-topic-entropy-def   │   │
-│ │ • Whitespace Normalized│      │ • G=1.00 Character Match│      │ • H_penalized < 0.30 cut  │   │
-│ └────────────────────────┘      └─────────────────────────┘      └─────────────┬─────────────┘   │
-│                                                                                │                 │
-│ ┌────────────────────────┐      ┌─────────────────────────┐                    ▼                 │
-│ │ 5. Calibrated Score    │ ◀─── │ 4. Fixed Taxonomies     │ ◀──────────────────┘                 │
-│ │ • S_calibrated curve   │      │ • inv-fixed-taxonomies  │                                      │
-│ │ • Poe's Law & SPJ-1.6  │      │ • SPJ / IEP / Deceptive │                                      │
-│ └────────────────────────┘      └─────────────────────────┘                                      │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Invariant Bible: Living Canon of System-Wide Invariants & Protocols](assets/illustrations/invariants-2.svg)
 
 <div class="invariant-card" id="inv-topic-entropy-defense">
 <a id="invariant-19"></a>
@@ -222,23 +190,7 @@ $$H_{\text{penalized}} = H \times (1.0 - C_{\text{top3}})$$
 
 ## Pillar 3: Cryptographic Mesh & Empirical Authority
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                   PILLAR 3: CRYPTOGRAPHIC MESH & EMPIRICAL AUTHORITY                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
-│ │ 1. RFC 8785 Ed25519    │ ───▶ │ 2. 5-Factor Quality Q_i │ ───▶ │ 3. Empirical Expertise    │   │
-│ │ • inv-canonical-json   │      │ • inv-5factor-quality   │      │ • inv-empirical-expertise │   │
-│ │ • Deterministic Bytes  │      │ • Q_i = 0.25U+0.30C+... │      │ • Anti-Diploma Invariant  │   │
-│ └────────────────────────┘      └─────────────────────────┘      └─────────────┬─────────────┘   │
-│                                                                                │                 │
-│ ┌────────────────────────┐      ┌─────────────────────────┐                    ▼                 │
-│ │ 5. Work-Sharing Mesh   │ ◀─── │ 4. The Galileo Rule     │ ◀──────────────────┘                 │
-│ │ • inv-bittorrent-mesh  │      │ • inv-galileo-rule      │                                      │
-│ │ • 92.3% Token Savings  │      │ • Asymmetric Grounding  │                                      │
-│ └────────────────────────┘      └─────────────────────────┘                                      │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Invariant Bible: Living Canon of System-Wide Invariants & Protocols](assets/illustrations/invariants-3.svg)
 
 <div class="invariant-card" id="inv-canonical-json-ed25519">
 <a id="invariant-24"></a>
@@ -280,27 +232,7 @@ $$H_{\text{penalized}} = H \times (1.0 - C_{\text{top3}})$$
 
 ## Pillar 4: Universal Presentation Layer & Zero-Build Web
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│               PILLAR 4: UNIVERSAL PRESENTATION LAYER & ZERO-BUILD WEB                            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Unified Epistemic Core Engine (`credence.pipeline` & `credence.scoring`)                    │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 4-WAY SYMMETRIC PRESENTATION PARITY (Invariant 30)                                         │   │
-│ │ ┌──────────────────────┐ ┌──────────────────────┐ ┌───────────────────┐ ┌────────────────┐ │   │
-│ │ │ 🖥️ Terminal CLI       │ │ ⚡ FastMCP 2.0 Server│ │ 📟 Textual TUI    │ │ 🌐 Zero-Build Web│ │   │
-│ │ │ `credence audit`     │ │ stdio / SSE JSON-RPC │ │ `credence tui`    │ │ Zero-npm / HTML5 │ │   │
-│ │ └──────────────────────┘ └──────────────────────┘ └───────────────────┘ └────────────────┘ │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Edge Routing (`_worker.js`) • Monospace Typography • Dynamic WebCrypto Attestation Receipt │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Invariant Bible: Living Canon of System-Wide Invariants & Protocols](assets/illustrations/invariants-4.svg)
 
 <div class="invariant-card" id="inv-4way-feature-parity">
 <a id="invariant-30"></a>

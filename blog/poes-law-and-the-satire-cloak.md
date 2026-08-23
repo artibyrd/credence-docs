@@ -30,29 +30,7 @@ Conversely, if a bad actor publishes a defamatory smear alleging a political can
 
 In Credence, we solved this dual challenge with **The Satire Cloaking Invariant**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         POE'S LAW SATIRE SAFEGUARD & SPJ-1.6 CLOAKING OVERRIDE                   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Inbound Web Prose / Article Analyzed                                                             │
-│                                │                                                                 │
-│       ┌────────────────────────┴────────────────────────┐                                        │
-│       ▼ Sarcasm / Parody Detected                       ▼ Non-Satirical News / Editorial          │
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ Specific Factual / Defamatory Allegation?│   │ Standard Grounding & Fallacy Audit       │      │
-│ └──────────────────────┬───────────────────┘   └──────────────────────────────────────────┘      │
-│                        │                                                                         │
-│       ┌────────────────┴────────────────────────┐                                                │
-│       ▼ Yes (Malicious Satire Cloaking)         ▼ No (Pure Parody / Hyperbole)                   │
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ 🚨 SPJ-1.6 CLOAKING OVERRIDE TRIGGERED   │   │ ✅ NEUTRALIZE SUSPICION ($S = 0.00$)     │      │
-│ │ • Revoke humor exemption autonomously    │   │ • Legitimate satire protected            │      │
-│ │ • Audit defamatory allegations factually │   │ • Zero pedantic false-positive alarms    │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Invariant 20: Humor is protected; malicious defamation disguised as a joke is audited         │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Poe’s Law and the Satire Cloak: Teaching an AI When NOT to Be a Pedant 🎭](assets/illustrations/poes-law-and-the-satire-cloak.svg)
 
 ---
 
@@ -73,21 +51,7 @@ $$\text{Suspicion}(\text{Claim}) = \begin{cases} 0.00 & \text{if } \text{IsSatir
 
 To ensure astroturfers cannot bypass the network by masking native advertising as humorous editorial, Credence combines **Shannon Topic Entropy ($H$)** with **Top-Token Concentration ($C_{\text{top3}}$)**:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         SHANNON TOPIC ENTROPY ($H$) VS ASTROTURFING CLOAK                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ 🟢 HIGH ENTROPY ($H \ge 0.70$)           │   │ 🔴 LOW ENTROPY ($H < 0.30$)              │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Rich, diverse comedic vocabulary       │   │ • Concentrated branded keyword repetition│      │
-│ │ • Unpredictable rhetorical metaphors     │──▶│ • Commercial pitch hidden in parody      │      │
-│ │ • ✨ Genuine Literary / Cultural Satire   │   │ • 🚨 Astroturfing Cloak / Native Ad Promo│      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🔬 Mathematical Entropy Invariant: Native ads masquerading as satire collapse in token entropy   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Poe’s Law and the Satire Cloak: Teaching an AI When NOT to Be a Pedant 🎭](assets/illustrations/poes-law-and-the-satire-cloak-2.svg)
 
 When an article is genuine satire, its vocabulary is broad, literary, and unpredictable ($H \ge 0.70$). When an article is a disguised native advertisement pretending to be a funny blog post, its token distribution collapses around specific promotional phrases ($H < 0.30$).
 

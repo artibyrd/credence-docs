@@ -16,24 +16,7 @@ The **Information Pyramid** governs the cognitive density of information present
 
 ## 1. The 3-Tier Cognitive Hierarchy
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE 3-TIER COGNITIVE INFORMATION PYRAMID                                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│         ▲                                                                                        │
-│        / \        🔍 TIER 1: SURFACE LENS (Glance — Above the Fold)                              │
-│       /   \       • 1-line verdict, score gauge, 3 key signal tags, zero raw math notation       │
-│      /─────\                                                                                     │
-│     /       \      🔬 TIER 2: FOCUS LENS (Explore — Mid-Page)                                    │
-│    /         \     • Claim quotes ($G=1.00$), category scorecards, trajectory sparklines        │
-│   /───────────\                                                                                  │
-│  /             \    🌌 TIER 3: DEEP SPECTRUM LENS (Forensic — Base of Page)                      │
-│ /               \   • Ed25519 receipts, RFC 8785 canonical bytes, live DOM hash gates           │
-│ ─────────────────                                                                                │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Epistemic Lensing: Progressive disclosure from high-level glance to cryptographic custody     │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Architectural Blueprint: The Information Pyramid & Epistemic Lensing](assets/illustrations/information-pyramid-and-epistemic-lensing.svg)
 
 ### Cognitive Invariants:
 1. **Tier 1 (Surface)**: Strictly zero mathematical notation ($Q_i, W_i, H$), zero raw JSON, zero byte hashes, zero complex configuration knobs.

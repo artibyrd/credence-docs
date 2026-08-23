@@ -26,24 +26,7 @@ The 500 LOC ceiling is not an arbitrary aesthetic constraint. It is an operation
 2. **Single Responsibility Discipline**: When a file approaches 450 lines, developers and AI pair programmers are forced to identify the natural seam of decomposition before technical debt hardens into monoliths.
 3. **Deterministic Testability**: Modular subpackages allow pinpoint unit test isolation, guaranteeing that test suites execute hermetically in memory in under 20 seconds.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         500 LOC CEILING LAW & SUBPACKAGE DECOMPOSITION DAG                       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Module Growth (>450 LOC) ──▶ Static LOC Gate (`test_architecture_governance.py` in 0.04s)        │
-│                                │                                                                 │
-│                                ▼ Structural Seam Decomposition                                   │
-│ ┌──────────────────────────────┬───────────────────────────────┬─────────────────────────────┐   │
-│ │ `commands/` Subpackage       │ `formatting/` Subpackage      │ `models.py` Data Definitions│   │
-│ ├──────────────────────────────┼───────────────────────────────┼─────────────────────────────┤   │
-│ │ • `check.py` (<250 LOC)      │ • `human.py` (<180 LOC)       │ • Pydantic / dataclasses    │   │
-│ │ • `evaluate.py` (<200 LOC)   │ • `badges.py` (<150 LOC)      │ • Envelopes & types         │   │
-│ │ • `sifter.py` (<280 LOC)     │ • `terminal.py` (<120 LOC)    │ • Zero business logic       │   │
-│ └──────────────────────────────┴───────────────────────────────┴─────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Ergonomic Invariant: Sub-500 LOC modules preserve LLM attention and in-memory unit speed      │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The 500 LOC Ceiling Law: How We Modularized the Monolith Without Slowing Down](assets/illustrations/the-500-loc-ceiling-law.svg)
 
 ---
 

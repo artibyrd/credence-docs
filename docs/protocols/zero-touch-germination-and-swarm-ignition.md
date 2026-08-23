@@ -19,35 +19,7 @@ Credence introduces **Zero-Touch Node Germination** (also known as *Miracle-Gro 
 
 When a node starts up with an empty database, the germination engine (`credence germinate` / `germinate_node`) executes four deterministic phases:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         ZERO-TOUCH NODE GERMINATION SEQUENCE (<5s)                               │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 1. Cryptographic Identity Minting (`node_identity.key`)                                    │   │
-│ │ • Mint fresh RFC 8032 Ed25519 keypair; persist with strict POSIX permissions (0600)        │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 2. Genesis Inoculation (`genesis_attestations.json`)                                        │   │
-│ │ • Verify seed signatures; populate SQLite WAL in <2ms at $0.00 token cost                  │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 3. Curated Feed Sowing (24 Civic & Tech Roots)                                             │   │
-│ │ • Sow verified RSS/Atom root feeds with zero duplicates into local database                │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 4. Miracle-Gro Initial Burst Audit                                                         │   │
-│ │ • Audit top novel article via Gemini 3.7 Flash; generate signed Ed25519 receipt receipt   │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🟢 FULLY OPERATIONAL P2P NODE READY (CLI, FastMCP 2.0 stdio/SSE, TUI & Web)                │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Zero-Touch Node Germination & Swarm Ignition](assets/illustrations/zero-touch-germination-and-swarm-ignition.svg)
 
 ### Stage 1: Cryptographic Identity Minting
 The node checks for the existence of `data/identity.key`. If absent, it mints a fresh Ed25519 keypair using RFC 8032:

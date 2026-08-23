@@ -25,29 +25,7 @@ This tutorial walks through configuring and verifying Credence's **Dual-Tier Mon
 
 Credence supports two primary monitoring tiers via Terraform:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         DUAL-TIER SRE CLOUD MONITORING & DISCORD ALERTING                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Configuration Parameter: `monitoring_tier` in `terraform.tfvars`                           │   │
-│ ├──────────────────────────────┬───────────────────────────────┬─────────────────────────────┤   │
-│ │ Simple Mode (Default)        │ Advanced Production Tier      │ Disabled Tier               │   │
-│ ├──────────────────────────────┼───────────────────────────────┼─────────────────────────────┤   │
-│ │ • "Guy in Basement" Mode     │ • Enterprise Outage Defense   │ • Metrics Dashboard Only    │   │
-│ │ • 3 Core Alerts:             │ • All Simple Mode Alerts +    │ • Zero Alert Notifications  │   │
-│ │   - Container Outage         │   - Log Error Rate Surges     │ • Safe for isolated local   │   │
-│ │   - HTTP 5xx Error Spike     │   - P95 Latency Degradation   │   testing and sandbox labs  │   │
-│ │   - RAM Saturation (>85%)    │   - CPU Spike Alert (>90%)    │                             │   │
-│ │ • Discord Webhook + Email    │   - Cloud Scheduler Failures  │                             │   │
-│ │ • 4-Tile SRE Dashboard       │ • 8-Tile SRE Dashboard        │                             │   │
-│ └──────────────────────────────┴───────────────────────────────┴─────────────────────────────┘   │
-│                                │                                                                 │
-│                                ▼ Real-Time Dispatch Pipeline                                     │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🔔 Discord Webhook (`#ops-alerts`) • Email Digest • Textual TUI Ops Pane (`credence tui`)  │   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Tutorial 13: Dual-Tier Cloud Monitoring, Discord Webhooks & Interface Telemetry](assets/illustrations/13-discord-alerting-and-basement-monitoring.svg)
 
 ---
 

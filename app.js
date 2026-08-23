@@ -1359,7 +1359,11 @@ export function formatInline(text) {
   // Markdown images ![alt](url)
   res = res.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, altText, url) => {
     let clean = url.trim();
-    return `<img src="${clean}" alt="${altText}" class="doc-image" />`;
+    if (clean.includes('illustrations/') || clean.endsWith('.svg')) {
+      const captionHtml = altText ? `<figcaption>${altText}</figcaption>` : '';
+      return `<figure class="doc-illustration"><img src="${clean}" alt="${altText}" loading="lazy" decoding="async" />${captionHtml}</figure>`;
+    }
+    return `<img src="${clean}" alt="${altText}" class="doc-image" loading="lazy" decoding="async" />`;
   });
 
   // Markdown links [text](url) with sub-anchor and relative path resolution
@@ -1446,7 +1450,7 @@ export function parseMarkdown(md) {
   let inTable = false;
   let tableHeaderParsed = false;
 
-  const HTML_TAG_START_REGEX = /^<\/?(div|section|article|aside|nav|header|footer|main|svg|g|defs|filter|linearGradient|rect|circle|text|path|line|span|button|textarea|input|label|table|thead|tbody|tr|th|td|form|select|option|code|pre|p|h[1-6]|ul|ol|li|details|summary|hr|style|script|blockquote|!--)/i;
+  const HTML_TAG_START_REGEX = /^<\/?(div|section|article|aside|nav|header|footer|main|figure|figcaption|img|svg|g|defs|filter|linearGradient|rect|circle|text|path|line|span|button|textarea|input|label|table|thead|tbody|tr|th|td|form|select|option|code|pre|p|h[1-6]|ul|ol|li|details|summary|hr|style|script|blockquote|!--)/i;
 
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i];

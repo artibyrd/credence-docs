@@ -13,26 +13,7 @@ sidebar:
 
 Learn how to aggregate 24-hour syndicated coverage into high-contrast executive briefings, filter verified journalism from rhetorical fallacies, and measure BitTorrent mesh compute savings across all interfaces.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         MORNING EPISTEMIC BRIEFING & CLASSIFICATION PIPELINE                     │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Continuous Sifter Daemon Ingestion (60+ Multi-Source Articles Evaluated)                         │
-│                                │                                                                 │
-│                                ▼ 4-Way Epistemic Sifter Categorization                           │
-│ ┌──────────────────────────┬─────────────────────────────┬───────────────────────────────────┐   │
-│ │ 1. Verified Journalism   │ 2. Rhetorical Fallacies     │ 3. Deceptive Flags & Astroturf    │   │
-│ │ • Suspicion Score < 20.0 │ • Suspicion Score 20 - 50   │ • Suspicion Score >= 50.0         │   │
-│ │ • 100% Grounded Sources  │ • Flagged logic fallacies   │ • Coordinated spam / deception    │   │
-│ ├──────────────────────────┴─────────────────────────────┴───────────────────────────────────┤   │
-│ │ 4. Validated Satire & Poe's Law Parody (Suspicion Score = 0.00)                             │   │
-│ └────────────────────────────────────────────┬───────────────────────────────────────────────┘   │
-│                                              │                                                   │
-│                                              ▼ Multi-Interface Exporter                          │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 📰 Formats: High-Contrast Terminal • Markdown • FastMCP 2.0 Streaming • JSON Web API       │   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Feature Walkthrough: Daily Morning Epistemic Briefings](assets/illustrations/04-morning-digest-briefings.svg)
 
 > [!NOTE]
 > **Persistent Interface Preference**: Switching tabs updates your active preference across all documentation pages in the portal.

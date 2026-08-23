@@ -17,28 +17,7 @@ This guide demonstrates how to peer Credence nodes across **Tailscale** or **Wir
 
 ## 1. Network Topology
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                   SOVEREIGN P2P OVERLAY TOPOLOGY (TAILSCALE / WIREGUARD)                         │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                                  │
-│                 ┌──────────────────────────────────────────────┐                                 │
-│                 │ 🏛️ Newsroom Alpha (London)                   │                                 │
-│                 │ Node Alpha (`100.64.0.10:8765`)              │                                 │
-│                 └──────────────┬───────────────────────────────┘                                 │
-│                                │                                                                 │
-│                 Encrypted P2P  │  Encrypted P2P                                                  │
-│                 Tunnel         │  Tunnel                                                         │
-│                                │                                                                 │
-│       ┌────────────────────────┴───────┐       ┌────────────────────────────────┐                │
-│       │ 🔬 Research Lab Beta (Berlin)  │       │ 🛡️ Field Team Gamma (Geneva)   │                │
-│       │ Node Beta (`100.64.0.20:8765`) │◀─────▶│ Node Gamma (`100.64.0.30:8765`)│                │
-│       └────────────────────────────────┘       └────────────────────────────────┘                │
-│                                Encrypted Tunnel                                                  │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ • Zero Public IPv4 Open Ports • End-to-End ChaCha20-Poly1305 WireGuard Encryption               │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Tailscale & WireGuard Sovereign Peering](assets/illustrations/tailscale-wireguard-mesh.svg)
 
 ---
 

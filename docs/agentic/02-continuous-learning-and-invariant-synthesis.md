@@ -27,27 +27,7 @@ read_time: 6 min
 
 Discover how Credence uses the `/learn` slash command to transform transient corrections and post-mortem findings into permanent, machine-verifiable invariants in `AGENTS.md`.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         4-PHASE RELEASE & LEAN LEARNING LIFECYCLE                                │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ PHASE 1: CODE & MK1 REVIEW│ PHASE 2: FEATURE RELEASE      │ PHASE 3: `/learn` RETROSPECTIVE│   │
-│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
-│ │ • Implement capabilities  │ • Clean working tree verification• Analyze edge-case discoveries│  │
-│ │ • Fast local QA (`just check`)• Sync version manifests   │ • Synthesize candidate rules   │   │
-│ │ • Mk1 Eyeball Human Sign-Off• Tag & Deploy `vX.Y.0`       │ • Draft `learning_proposal.md` │   │
-│ └─────────────┬─────────────┴───────────────┬───────────────┴────────────────┬───────────────┘   │
-│               │                             │                                │                   │
-│               └─────────────────────────────┼────────────────────────────────┘                   │
-│                                             ▼                                                    │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ PHASE 4: LEAN PATCH RELEASE (`vX.Y.1`)                                                     │   │
-│ │ • Codify invariant to `AGENTS.md` (<800 tokens) or Tier 1 Progressive Subsystem Skill      │   │
-│ │ • Add automated shift-left contract test in `tests/test_docs_integrity.py`                 │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Continuous Learning with /learn: Codifying Edge Cases into Machine Invariants](assets/illustrations/02-continuous-learning-and-invariant-synthesis.svg)
 
 > [!NOTE]
 > **[Invariant 18: Context Governance & Progressive Disclosure](../invariants.md#invariant-18)**: Keep `AGENTS.md` lean (<800 tokens) in thematic categories. Place multi-step runbooks in `.agents/skills/` and complete specifications in `docs/`.

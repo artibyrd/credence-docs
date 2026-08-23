@@ -11,26 +11,7 @@ last_verified: 2026-08-20
 
 While our reference Terraform infrastructure targets **Google Cloud Platform (Cloud Run v2)**, Credence is packaged as a lightweight, standard OCI container that can run seamlessly on any cloud provider or bare-metal VPS.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         DECENTRALIZED MULTI-CLOUD MESH FEDERATION                                │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Cloudflare Anycast Multi-Domain Edge Router & Subdomain Dispatch                           │   │
-│ └───────┬──────────────┬───────────────┬────────────────┬────────────────┬───────────────────┘   │
-│         │              │               │                │                │                       │
-│         ▼              ▼               ▼                ▼                ▼                       │
-│ ┌──────────────┐ ┌───────────┐ ┌───────────────┐ ┌────────────┐ ┌────────────────────────────┐   │
-│ │ 1. GCP       │ │ 2. AWS    │ │ 3. AZURE      │ │ 4. HETZNER │ │ 5. K8S / BARE-METAL        │   │
-│ │ Cloud Run v2 │ │ ECS Fargat│ │ Container App │ │ CAX11 VPS  │ │ Sovereign k3s Newsroom     │   │
-│ └───────┬──────┘ └─────┬─────┘ └───────┬───────┘ └─────┬──────┘ └──────────────┬─────────────┘   │
-│         │              │               │               │                       │                 │
-│         └──────────────┴───────────────┴───────────────┴───────────────────────┘                 │
-│                                        ▼                                                         │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🌐 Sovereign P2P WebSocket Gossip Mesh (Port 8765 · RFC 8785 Canonical Attestations)       │   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Multi-Cloud Deployment: AWS, Azure, Hetzner & K8s](assets/illustrations/multi-cloud-deployment.svg)
 
 ### Multi-Cloud Provider Matrix
 

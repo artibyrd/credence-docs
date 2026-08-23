@@ -11,28 +11,7 @@ sidebar:
 
 Traditional RSS aggregators and news monitoring tools rely on static whitelists. But static whitelists suffer from an insurmountable vulnerability: **The "Pizza Hut Problem"** — what happens when a trusted publication is quietly acquired, compromised, or shifts editorial policy to covert native advertising?
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         ZERO-TRUST FEED SIFTER & MORNING BRIEFING LIFECYCLE                      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Target Domain / Webpage ──▶ Autodiscover Endpoints (`<link>` tags & well-known paths)           │
-│                                │                                                                 │
-│                                ▼ Pre-Flight Forensic Audit ($H_{\text{topic}}$ & SPJ Ethics)     │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Topic Entropy Gate ($H_{\text{topic}}$):                                                   │   │
-│ ├──────────────────────────────┬───────────────────────────────┬─────────────────────────────┤   │
-│ │ Entropy Condition            │ Classification                │ Lifecycle Action            │   │
-│ ├──────────────────────────────┼───────────────────────────────┼─────────────────────────────┤   │
-│ │ $H_{\text{topic}} \ge 0.70$  │ Diverse Journalistic Coverage │ ✅ Admit to Active Queue    │   │
-│ │ $H_{\text{topic}} < 0.30$   │ Commercial SEO Astroturfing   │ 🚫 Evict & Quarantine Feed  │   │
-│ └──────────────────────────────┴───────────────────────────────┴─────────────────────────────┘   │
-│                                │                                                                 │
-│                                ▼ HRW Swarm Partitioning ──▶ Pareto LLM Evaluation ($G=1.00$)     │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 📰 P2P Gossip Attestation Diffusion (92.3% Savings) ──▶ Morning Epistemic Executive Digest │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Autodiscover feeds from tech, news, or scientific outlets](assets/illustrations/09-zero-trust-feed-sifter-digest.svg)
 
 > [!IMPORTANT]
 > **The Anti-Diploma Invariant**: In Credence, no domain name, masthead badge, or historic reputation grants permanent trust. Every feed is continuously evaluated on empirical evidence, semantic entropy, and verbatim grounding.

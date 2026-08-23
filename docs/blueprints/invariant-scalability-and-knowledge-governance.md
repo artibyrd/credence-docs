@@ -23,19 +23,7 @@ As complex software ecosystems evolve, engineering invariants, security boundari
 
 When all rules are dumped into a single flat file (`AGENTS.md` / system prompt), autonomous agents suffer from three distinct cognitive failure modes:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         FLAT INVARIANT PROMPT FAILURE MODES                                      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Flat Invariant List (30+ Unordered Rules Dumped in Root Prompt)                                  │
-│    │                                                                                             │
-│    ├──▶ 1. Attention Dilution (LLMs overlook critical safety rules amidst formatting trivia)     │
-│    ├──▶ 2. Cognitive Oatmeal (Whitespace rules given equal cognitive weight to SSRF security)   │
-│    └──▶ 3. Token Waste & Friction (Re-parsing static rules on every single agent turn)           │
-│                                                                                                  │
-│ ❌ Result: Frequent security lapses, rule drift, and depleted reasoning token budgets            │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Technical Blueprint: Invariant Scalability & Knowledge Governance](assets/illustrations/invariant-scalability-and-knowledge-governance.svg)
 
 ---
 
@@ -43,29 +31,7 @@ When all rules are dumped into a single flat file (`AGENTS.md` / system prompt),
 
 To maintain extreme precision while keeping universal system prompt context under **800 tokens**, Credence stratifies invariants into a 4-layer taxonomy based on **enforcement criticality, execution scope, and automation feasibility**:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         4-TIER INVARIANT SCALABILITY & KNOWLEDGE FRAMEWORK                       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ TIER 0: UNIVERSAL CORE INVARIANTS (`AGENTS.md` · ALWAYS ON · <800 TOKENS)                  │   │
-│ │ • Class α: Mk1 Eyeball, Verbatim Grounding ($G=1.0$), RFC 8785 Ed25519, Ingestion SSRF Guard│   │
-│ │ • Class β: 4-Phase Lifecycle, Cart-Before-Horse, Commit-Before-Deploy, Hermetic Unit Tests  │   │
-│ │ • Class γ: 4-Way Feature Parity, Zero-npm Web, Epistemic Lensing, Dynamic Canon Naming     │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │                                                 │
-│       ┌────────────────────────────────────────┼────────────────────────────────────────┐        │
-│       ▼                                        ▼                                        ▼        │
-│ ┌───────────────────────────┐┌───────────────────────────┐┌───────────────────────────┐ │
-│ │ TIER 1: PROGRESSIVE SKILLS││ TIER 2: AUTOMATED GATES   ││ TIER 3: LIVING CANON      │ │
-│ │ `.agents/skills/`         ││ `test_docs_integrity.py`  ││ `docs/invariants.md`      │ │
-│ │ • `cloudrun-ops`          ││ • Frontmatter validation  ││ • Complete Living Canon   │ │
-│ │ • `mesh-cluster`          ││ • Zero-npm verification   ││ • Mathematical proofs     │ │
-│ │ • `white-label-ops`       ││ • 7-manifest parity check ││ • Historical architecture │ │
-│ │ • `epistemic-benchmark`   ││ • Sitemap link coverage   ││ • Full LaTeX derivations  │ │
-│ └───────────────────────────┘└───────────────────────────┘└───────────────────────────┘ │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Technical Blueprint: Invariant Scalability & Knowledge Governance](assets/illustrations/invariant-scalability-and-knowledge-governance-2.svg)
 
 ---
 
@@ -109,22 +75,7 @@ To maintain extreme precision while keeping universal system prompt context unde
 
 Invariants are not immutable dogmas; they represent the **strongest empirical truth validated at project epoch $t$**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE INVARIANT LIFECYCLE STATE MACHINE                                    │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                                  │
-│       [Proposed] ──▶ Minted (vX.Y.0) ──▶ [Active] ──▶ Milestone Audit ──▶ [Under Review]         │
-│                                            ▲                                  │                  │
-│                                            │ Re-affirmed                      │                  │
-│                                            └──────────────────────────────────┤                  │
-│                                                                               │                  │
-│                                ┌──────────────────────────────────────────────┼────────────────┐ │
-│                                ▼ Scope Refined                                ▼ Test Saturated ▼ │
-│                            [Amended]                           [Demoted to Tier 2]   [Retired]   │
-│                                                                                                  │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Technical Blueprint: Invariant Scalability & Knowledge Governance](assets/illustrations/invariant-scalability-and-knowledge-governance-3.svg)
 
 ### The Invariant Lifecycle State Machine
 1. **`Proposed`**: Synthesized during `/learn` retrospectives or post-mortems.
@@ -152,18 +103,7 @@ To streamline complex multi-agent pair programming, specialized subagents are de
 
 Knowledge synthesis and invariant crystallization strictly follow the 4-phase delivery lifecycle:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         4-PHASE RELEASE & CONTINUOUS LEARNING LIFECYCLE                          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────┐   ┌────────────────────┐   ┌────────────────────┐   ┌───────────────────┐ │
-│ │ 1. MK1 EYEBALL     │──▶│ 2. FEATURE RELEASE │──▶│ 3. /LEARN RETRO    │──▶│ 4. PATCH RELEASE  │ │
-│ │ • Local QA gauntlet│   │ • Synchronize sync │   │ • Synthesize review│   │ • Mint invariants │ │
-│ │ • Inspect full diff│   │ • Tag vX.Y.0       │   │ • Extract new rules│   │ • Tag vX.Y.1      │ │
-│ │ • Verify version   │   │ • Push & CI deploy │   │ • Author test gates│   │ • Lean patch push │ │
-│ └────────────────────┘   └────────────────────┘   └────────────────────┘   └───────────────────┘ │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Technical Blueprint: Invariant Scalability & Knowledge Governance](assets/illustrations/invariant-scalability-and-knowledge-governance-4.svg)
 
 1. **Phase 1 (Mk1 Eyeball Review)**: Implement feature, execute local QA gauntlet (`just check`), present working-tree diff and explicit target version for human inspection ("Mk1 Eyeball").
 2. **Phase 2 (Feature Release)**: Upon approval, commit with clean working tree, synchronize manifests, tag, push to origin, and verify live cloud deployment (e.g. `v2.3.0`).
@@ -198,23 +138,7 @@ When a new requirement, discovery, or post-mortem action item arises, apply this
 
 To prevent system invariants from stagnating into obsolete dogmas or unnecessarily consuming prompt context when test coverage is mature, the ecosystem implements **The Invariant Challenger** (`scripts/challenge_invariant.py` / `just challenge-invariant <slug>`).
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE INVARIANT CHALLENGER DECISION ENGINE                                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Invariant Audit Trigger: `just challenge-invariant <slug>`                                       │
-│                                              │                                                   │
-│                                              ▼ Epistemic Scrutiny & Test Saturation Check        │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Challenger Verdict Outcomes:                                                               │   │
-│ ├──────────────────────────────────────────┬─────────────────────────────────────────────────┤   │
-│ │ 1. PRESERVE (Tier 0 Active Invariant)    │ Reasoning & human authority strictly required   │   │
-│ │ 2. DEMOTE (Graduate to Tier 2 Gate)      │ 100% test-saturated mechanical verification     │   │
-│ │ 3. AMEND (Sharpen & Scope Invariant)     │ Ecosystem evolution requires updated rules      │   │
-│ │ 4. RETIRE / NULLIFY (Archive in Canon)   │ Technology or constraint completely obsoleted   │   │
-│ └──────────────────────────────────────────┴─────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Technical Blueprint: Invariant Scalability & Knowledge Governance](assets/illustrations/invariant-scalability-and-knowledge-governance-5.svg)
 
 ### Epistemic Scrutiny Dimensions:
 - **Merit & Necessity**: Is the invariant still actively preventing critical failures?

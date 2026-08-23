@@ -18,20 +18,7 @@ When a newsroom, developer, or civic hacker pulls a decentralized fact-checking 
 
 In **Credence 1.6.0**, we introduced a fundamentally different paradigm: **Autonomous Node Germination ("Miracle-Gro")**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         5-PHASE AUTONOMOUS NODE GERMINATION PIPELINE                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Cold Repo Clone ──▶ 1. Identity Genesis ──▶ 2. Mesh Inoculation ──▶ 3. Soil Sowing               │
-│ (0 DB, 0 Feeds)     Ed25519 Keypair         Genesis Seeds ($0.00)   26 Categorized Feeds         │
-│                                                                        │                         │
-│                                                                        ▼                         │
-│ 🔥 LIVE SOVEREIGN NODE ◀── 5. Catalog Hydration ◀── 4. Miracle-Gro Burst ────────────────────────┘
-│ (194+ Verified Reports)   Syncs `reports.json`      HRW Partitioned Sifting (Sub-13s)            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Zero-Touch Germination: Fresh node ignites to full operational fidelity in <13 seconds        │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Miracle-Gro for Truth Nodes: Zero-Touch Germination and Swarm Ignition](assets/illustrations/miracle-gro-for-truth-nodes.svg)
 
 ---
 
@@ -71,25 +58,7 @@ Credence solves this using **Highest Random Weight (HRW) Rendezvous Hashing**:
 
 $$\text{Affinity}(K_{\text{node}}, U_{\text{feed}}) = \text{SHA-256}(K_{\text{node}} \parallel U_{\text{feed}}) \pmod{2^{32}}$$
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         HRW RENDEZVOUS SWARM FEED PARTITIONING                                   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 13 Nodes Igniting Simultaneously in Mesh Cluster                                                 │
-│                                │                                                                 │
-│                                ▼ Highest Random Weight (HRW) Domain Affinity Hashing             │
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ Node 1 (Key A)            │ Node 2 (Key B)                │ Node 3 (Key C)                 │   │
-│ │ Investigative Tech        │ Science Preprints             │ Regional Civic Policy          │   │
-│ │ (ProPublica, ArsTechnica) │ (Nature, arXiv, ScienceDaily) │ (CalMatters, Texas Tribune)    │   │
-│ └─────────────┬─────────────┴───────────────┬───────────────┴───────────────┬────────────────┘   │
-│               │                             │                               │                    │
-│               └─────────────────────────────┼───────────────────────────────┘                    │
-│                                             ▼                                                    │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🌐 Watts-Strogatz P2P Mesh Gossip: 39 Distinct Reports Shared across Cluster @ $0.00 Extra │   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Miracle-Gro for Truth Nodes: Zero-Touch Germination and Swarm Ignition](assets/illustrations/miracle-gro-for-truth-nodes-2.svg)
 
 Because every node's public key produces a deterministic but distinct priority order across the 26 preset feeds, each node audits its highest-affinity domain first during the Miracle-Gro burst.
 
@@ -114,22 +83,7 @@ By turning competitive compute waste into cooperative peer adoption, a 13-node n
 
 To prevent deployment confusion, Credence 1.6.0 formalizes three strictly decoupled operational planes:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         3-PLANE DEPLOYMENT GOVERNANCE TOPOLOGY                                   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ 1. EDGE PLANE (Zero-Build)│ 2. COMPUTE PLANE (FastMCP 2.0)│ 3. INFRA PLANE (Static IaC)    │   │
-│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
-│ │ • Cloudflare Pages & CDN  │ • Cloud Run / Docker Container│ • Terraform (GCP IAM, WIF)     │   │
-│ │ • `web/_worker.js` router │ • Starlette FastMCP SSE + REST│ • DNS Records & Cloudflare SSL │   │
-│ │ • Static `reports.json`   │ • Background Sifter Engine    │ • GCS / S3 Storage Buckets     │   │
-│ │ • Automated: `deploy-edge`│ • Automated: `release.yml`    │ • Manual: `just tf-apply`      │   │
-│ └───────────────────────────┴───────────────────────────────┴────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Strict Plane Decoupling: Zero state mixing between edge assets, compute containers, and IaC   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Miracle-Gro for Truth Nodes: Zero-Touch Germination and Swarm Ignition](assets/illustrations/miracle-gro-for-truth-nodes-3.svg)
 
 * **Edge Plane** (`just deploy-edge`): Zero-build HTML5/CSS, ES modules, and static `reports.json` catalogs routed via Cloudflare Workers.
 * **Compute Plane** (`just deploy-backend`): The multi-agent evaluation engine, Starlette REST gateway, FastMCP 2.0 SSE transport, and background sifter daemon running on Google Cloud Run or sovereign Docker containers.

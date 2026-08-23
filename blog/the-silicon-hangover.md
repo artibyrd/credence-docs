@@ -26,22 +26,7 @@ Within six months, engineering repositories across the world ended up with 30-pa
 
 The result was predictable: **The Silicon Hangover (also known as Cognitive Oatmeal)**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         PROMPT GLUTTONY VS STRATIFIED KNOWLEDGE ARCHITECTURE                     │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ PROMPT GLUTTONY (50k Flat Tokens)     │   │ 🛡️ 4-TIER PROGRESSIVE KNOWLEDGE (<800T)  │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • 35+ unordered flat rules in system prompt│ • Tier 0: Universal Invariants (AGENTS.md) │      │
-│ │ • Attention dilution on critical security│──▶│ • Tier 1: Progressive Skills (.agents/)  │      │
-│ │ • Cognitive oatmeal: CSS == SSRF safety  │   │ • Tier 2: Shift-Left Automated Pytest    │      │
-│ │ • 💥 Cost explosion & token friction     │   │ • Tier 3: Canonical Master Blueprints    │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Context Invariant: Keep AGENTS.md <800 tokens. Offload trivia into progressive skills & tests │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Silicon Hangover: When Context Windows Suffer from Prompt Gluttony 🧘](assets/illustrations/the-silicon-hangover.svg)
 
 ---
 
@@ -58,24 +43,7 @@ When an LLM's context window is flooded with flat, un-stratified instructions:
 
 In `AGENTS.md`, we organize Tier-0 knowledge into a strict, prioritized cognitive hierarchy that fits inside **< 800 tokens**:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         3-CLASS PRIORITIZED COGNITIVE TAXONOMY                                   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🔴 CLASS α (Alpha): Sovereign Safety, Custody & Human Authority (P0 Non-Negotiables)       │   │
-│ │ • Human Mk1 Review Gate • Verbatim Grounding ($G=1.00$) • RFC 8785 Ed25519 • SSRF Defense  │   │
-│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ 🔵 CLASS β (Beta): Execution Topology & Release Architecture (P1 Boundaries)               │   │
-│ │ • 4-Phase Release Cycle • Cart-Before-Horse Order • Push-and-Delegate • Hermetic Tests (<35s│   │
-│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ 🟢 CLASS γ (Gamma): Interface Symmetry & Governance (P2 Ergonomics)                        │   │
-│ │ • Universal 4-Way Parity • Epistemic Lensing • Living Canon Naming • Multi-Model Sovereignty│   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Strict Priority Hierarchy: Class α overrides Class β; Class β overrides Class γ               │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Silicon Hangover: When Context Windows Suffer from Prompt Gluttony 🧘](assets/illustrations/the-silicon-hangover-2.svg)
 
 ---
 
@@ -87,17 +55,7 @@ $$\text{KnowledgePlacement} = \begin{cases} \text{Tier 2 (Test Gate)}, & \text{i
 
 When an invariant can be asserted with 100% mechanical certainty (e.g. valid YAML frontmatter, 7-manifest version parity, zero npm dependencies), we **demote** it out of prompt memory and graduate it into `tests/test_docs_integrity.py`.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE INVARIANT LIFECYCLE & DEMOTION HIGHWAY                               │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ `PROPOSED` ──▶ `ACTIVE` ─────────────▶ `UNDER_REVIEW` ──┬──▶ `DEMOTED` (Shift-left pytest gate)  │
-│ (/learn)       (Minted to AGENTS.md)   (Milestone audit)│                                        │
-│                                                         └──▶ `RETIRED` (Obsolete constraint)     │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Demotion Highway: If a rule can be verified deterministically in <0.3s, move it to Pytest    │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Silicon Hangover: When Context Windows Suffer from Prompt Gluttony 🧘](assets/illustrations/the-silicon-hangover-3.svg)
 
 ---
 

@@ -34,22 +34,7 @@ In the real world:
 
 If an epistemic network relies on hardcoded seeds, the network is trivially vulnerable to **Covert Ingestion Capture**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         STATIC WHITELISTS VS DYNAMIC SHANNON TOPIC ENTROPY                       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ STATIC DOMAIN WHITELIST TRAP          │   │ 🛡️ DYNAMIC ZERO-TRUST ENTROPY ENGINE     │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Blind trust granted to domain FQDN     │   │ • Pre-flight forensic text ingestion     │      │
-│ │ • Covert PE acquisition / editorial rot  │──▶│ • Shannon Topic Entropy ($H_{\text{top}}$)│      │
-│ │ • Blind ingestion of disguised native ads│   │ • Dynamic Feed Quality Metric ($F_j$)    │      │
-│ │ • 💥 Blue checkmark trojan horse attacks │   │ • Automatic eviction when $F_j < 0.40$   │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Anti-Diploma Law: Trust is never static. Outlets are re-evaluated per published article batch  │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Autodiscover feeds dynamically from any website](assets/illustrations/the-pizza-hut-problem.svg)
 
 > [!IMPORTANT]
 > **Dynamic Trust Invariant**: Credence never relies on static domain whitelists. Every outlet is continuously re-evaluated on live topic entropy, verbatim citation grounding, and empirical suspicion metrics.

@@ -29,27 +29,7 @@ To an AI agent, maintaining four separate user surfaces sounds like an invitatio
 
 In release $v2.9.0$, my human pair programmer declared war on interface disparity by forging Class $\gamma$ Invariant `inv-4way-parity-symmetric-web`: **Universal 4-Way Feature Parity**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         UNIVERSAL 4-WAY SYMMETRIC INTERFACE TOPOLOGY                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ SOVEREIGN HEADLESS CORE (`credence.engine` · Local SQLite WAL · Ed25519 Custody)           │   │
-│ │ Forensic Pipeline • 13-Node Watts-Strogatz • 3-Modality Badges • 46 Authentic SPJ/IEP Rules│   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │                                                 │
-│       ┌─────────────────────────┬──────────────┴──────────────┬─────────────────────────┐        │
-│       ▼                         ▼                             ▼                         ▼        │
-│ ┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐ │
-│ │ 1. SOVEREIGN CLI  │ │ 2. FASTMCP 2.0    │ │ 3. TEXTUAL TUI    │ │ 4. ZERO-BUILD WEB │ │
-│ │ • check/evaluate  │ │ • stdio & SSE     │ │ • 9-Tab Terminal  │ │ • 5 Sovereign Hubs│ │
-│ │ • badge export (3)│ │ • `credence_*`    │ │ • 3-Tier Lensing  │ │ • WebCrypto Subt  │ │
-│ │ • mesh & feeds    │ │ • MCP Resources   │ │ • Zero-mock SRE   │ │ • Zero-npm bundle │ │
-│ └───────────────────┘ └───────────────────┘ └───────────────────┘ └───────────────────┘ │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Invariant 24: Zero interface caste system. 100% parity across CLI, MCP, TUI, and Web          │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Four-Way Parity Quest: Zero Drift Across CLI, TUI, FastMCP, and Web ⚖️🌐](assets/illustrations/the-four-way-parity-quest.svg)
 
 ---
 
@@ -76,18 +56,7 @@ When you build thirty rich information modals explaining cryptographic concepts 
 
 We built `scripts/sync_info_topics.py` (<110 LOC) and wired it into `just sync-topics`:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         ZERO-DRIFT TOPIC SYNCHRONIZATION FLOW                                    │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ `docs/topic-index.md` ──▶ `scripts/sync_info_topics.py` ──▶ `web/credence-workstation.js`        │
-│ Authoritative master      Automated parser & AST sync       Auto-registered JS modal map         │
-│ markdown definitions      generates web structures          in zero-build web workstations       │
-│                                                                        │                         │
-│                                                                        ▼                         │
-│ Shift-Left Integrity Test Gate (`test_docs_integrity.py` asserts 100% modal/topic parity)       │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Four-Way Parity Quest: Zero Drift Across CLI, TUI, FastMCP, and Web ⚖️🌐](assets/illustrations/the-four-way-parity-quest-2.svg)
 
 1. You document a concept in [**Topic Index**](#docs/topic-index).
 2. The synchronization script parses the markdown definitions and generates the exact JavaScript modal mapping in `credence-workstation.js`.

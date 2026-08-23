@@ -43,33 +43,7 @@ When building **Credence**—an autonomous epistemic evaluation engine, FastMCP 
 
 This essay explores the engineering rationale behind Credence's **6-Tier Verification Pyramid**, explaining how we achieved sub-second hermetic isolation alongside continuous real-world web adaptation.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE CREDENCE 6-TIER VERIFICATION PYRAMID                                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ ▲ TIER 6: REUSABLE ROTATING E2E GAUNTLET (`just test-live`)                                │   │
-│ │ │ • Live Web Ingestion • Deterministic Seed Rotation • Remote FastMCP SSE Execution        │   │
-│ ├─┴──────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ ▲ TIER 5: ZERO-BUILD PLAYWRIGHT & DOM INTEGRITY (`test_docs_rendering.py`)                 │   │
-│ │ │ • Headless Chromium • Zero-npm WebCrypto Validation • Interactive Widget State Checks    │   │
-│ ├─┴──────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ ▲ TIER 4: ADVERSARIAL RED-TEAM & PROTOCOL SECURITY (`test_red_team_cluster_attacks.py`)    │   │
-│ │ │ • SSRF Cloud Metadata Traps • Billion Laughs XML Bomb • Prompt Injection Fuzzing         │   │
-│ ├─┴──────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ ▲ TIER 3: 13-NODE P2P MESH & BYZANTINE CLUSTER (`test_mesh_cluster.py`)                    │   │
-│ │ │ • Watts-Strogatz Small-World Lattice • Sybil Resistance (3f+1) • BitTorrent Work-Sharing │   │
-│ ├─┴──────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ ▲ TIER 2: UNIVERSAL 4-WAY INTERFACE ISOLATION (`test_interfaces_isolation.py`)             │   │
-│ │ │ • 100% Simultaneous Parity across CLI, FastMCP 2.0, Textual TUI, and Zero-Build Web      │   │
-│ ├─┴──────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ ▲ TIER 1: HERMETIC IN-MEMORY UNIT SUITE (`just test unit` in <35s)                         │   │
-│ │ │ • In-Memory SQLite WAL (`:memory:`) • Deterministic Math Formulas • Sub-0.3s Doc Checks │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Multi-Layer Assurance: Sub-second local feedback coupled with mutating live web gauntlets      │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The 6-Tier Verification Pyramid: Why Fact-Checking AI Requires Mutating Gauntlets, Zero-npm Longevity, and Byzantine Simulations](assets/illustrations/the-six-tier-pyramid-of-decentralized-truth.svg)
 
 ---
 

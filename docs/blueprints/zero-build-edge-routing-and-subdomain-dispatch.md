@@ -14,26 +14,7 @@ This blueprint details the edge routing algorithms and cache tiering implemented
 
 ## 1. Request Resolution Pipeline
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         CLOUDFLARE ANYCAST EDGE ROUTING & SUBDOMAIN DISPATCH                     │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Incoming HTTP / SSE Request at Cloudflare Edge (`_worker.js`)                                    │
-│                                │                                                                 │
-│                                ▼ Hostname & Route Evaluation                                     │
-│ ┌──────────────────────────────┬─────────────────────────────────────────────────────────────┐   │
-│ │ Host / Path Pattern          │ Edge Dispatch Target & Cache Policy                         │   │
-│ ├──────────────────────────────┼─────────────────────────────────────────────────────────────┤   │
-│ │ `dev.credence.run`           │ 🛠️ Dev Compute Plane (`credence-dev-495173`)                 │   │
-│ │ `credence.run`               │ 🏛️ Prod Compute Plane (`credence-prod-505902`)               │   │
-│ │ `mcp.credence.run`           │ ⚡ FastMCP 2.0 Real-Time SSE Streaming Proxy (Long-Lived)   │   │
-│ │ `credence.report/api/*`      │ 🗄️ Prod Immutable Edge Cache (`Cache-Control: 30d, max-age`)│   │
-│ │ `dev.credence.report/api/*`  │ 🧪 Dev Ephemeral Preview Cache (`Cache-Control: 60s`)       │   │
-│ └──────────────────────────────┴─────────────────────────────────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ⚡ Zero-Build Invariant: 100% Native HTML5/ESM served directly with zero node/npm compilation     │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Technical Blueprint: Zero-Build Edge Routing and Subdomain Dispatch](assets/illustrations/zero-build-edge-routing-and-subdomain-dispatch.svg)
 
 ---
 

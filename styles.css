@@ -349,6 +349,43 @@ details.sidebar-group[open] > summary .sidebar-chevron {
   font-weight: 600;
 }
 
+/* High-Fidelity Vector Illustrations (Zero-Scroll Responsive Standard) */
+.doc-illustration {
+  margin: 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.doc-illustration img,
+.markdown-body p > img[src*="illustrations/"] {
+  display: block;
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  background: radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.6) 0%, rgba(9, 13, 22, 0.95) 100%);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(56, 189, 248, 0.08);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.doc-illustration img:hover,
+.markdown-body p > img[src*="illustrations/"]:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55), 0 0 24px rgba(56, 189, 248, 0.16);
+}
+
+.doc-illustration figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.82rem;
+  font-family: var(--font-mono, monospace);
+  color: #94a3b8;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
 /* Accessible Focus-Visible Rings Across All Interactive Controls */
 a:focus-visible,
 button:focus-visible,

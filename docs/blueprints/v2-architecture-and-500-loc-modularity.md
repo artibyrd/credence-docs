@@ -19,30 +19,7 @@ As the Credence protocol expanded to support decentralized peer-to-peer gossip, 
 
 To safeguard system maintainability, cognitive ergonomics, and test hermeticism, the **500 LOC Ceiling Law** was established as a P0 universal invariant.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         V2 MODULAR DECOUPLING & THE 500 LOC CEILING LAW                          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ❌ MONOLITHIC V1.X ARCHITECTURE (Large cross-cutting files > 650 LOC)                            │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ • `credence/cli.py` (850 LOC)  • `credence/server.py` (790 LOC)  • `credence/merit.py` (650)│   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-│                                              │                                                   │
-│                                              ▼ Refactored into Subpackages                       │
-│                                                                                                  │
-│ ⚡ DECOUPLED V2.X ARCHITECTURE (Strict 500 LOC Limit per File)                                   │
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ CLI SUBPACKAGE            │ SERVER SUBPACKAGE             │ MESH & MERIT SUBPACKAGE        │   │
-│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
-│ │ • `cli/main.py` (<250)    │ • `server/app.py` (<150)      │ • `mesh/topology.py` (<250)    │   │
-│ │ • `cli/commands/` (<300)  │ • `server/api/` (<250)        │ • `mesh/badges.py` (<180)      │   │
-│ │ • `cli/formatting/` (<200)│ • `server/middleware/` (<150) │ • `mesh/merit.py` (<350)       │   │
-│ │                           │ • `server/mcp/` (<300)        │ • `mesh/models.py` (<100)      │   │
-│ └───────────────────────────┴───────────────────────────────┴────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Invariant: Shift-left static test gate halts commit if ANY .py file exceeds 500 LOC (<0.05s)  │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![v2 Modular Architecture & The 500 LOC Ceiling Law](assets/illustrations/v2-architecture-and-500-loc-modularity.svg)
 
 ---
 
@@ -93,18 +70,6 @@ In v1.x, calculation functions used a mix of `calculate_*`, `calc_*`, and `compu
 
 All subpackages strictly decouple data definitions into local `models.py` modules. Inter-module dependencies strictly flow downward without bidirectional circular imports:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         DIRECTED ACYCLIC GRAPH (DAG) IMPORT ARCHITECTURE                         │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ [`credence.models`] (Root DB & Protocol Models)                                                  │
-│         │                                                                                        │
-│         ├──▶ [`credence.mesh.models`] ──▶ [`credence.mesh.badges`] ──▶ [`credence.mesh.merit`]   │
-│         │                                                                                        │
-│         └──▶ [`credence.subjects.models`] ──▶ [`credence.subjects.weather`] ──▶ [`analytics`]   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Strict DAG Invariant: Modular dependencies flow downward; zero bidirectional circular imports │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![v2 Modular Architecture & The 500 LOC Ceiling Law](assets/illustrations/v2-architecture-and-500-loc-modularity-2.svg)
 
 This clean DAG hierarchy guarantees that Python modules initialize cleanly in <10ms without delayed import traps or fragile workaround imports.

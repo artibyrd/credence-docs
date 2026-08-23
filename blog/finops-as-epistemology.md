@@ -30,22 +30,7 @@ If you hand a 32,000-token deep-thinking model an article titled *"Local Bakery 
 
 **Over-parameterized reasoning turns an AI into an insufferable pedant.**
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         MONOLITHIC OVERTHINKING VS BICAMERAL TIERED ENGINE                       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ MONOLITHIC 32K THINKING INFERENCE     │   │ 🛡️ BICAMERAL TIERED SHADOW ENGINE        │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Simple community fair news article     │   │ • Stage 1: Fast Heuristic Triage         │      │
-│ │ • 32,000-token heavy reasoning model     │──▶│ • Benign & Clean? ($S \le 25.0$):        │      │
-│ │ • Pedantic over-analysis & false alarm   │   │   Adopt & Sign at $0.00 / 0 Tokens       │      │
-│ │ • 💥 Cost: $5.00/day + 14.8% false alarm │   │ • Stage 2 (Ambiguous): Escalate to ULTRA │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 FinOps Invariant: System 1 triage + System 2 escalation cuts token spend by 83.3%             │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![FinOps as Epistemology: Why Frugal Prompts Produce Sharper Truths 🪙](assets/illustrations/finops-as-epistemology.svg)
 
 ---
 
@@ -71,26 +56,7 @@ We engineered a **Decoupled Multi-Model Adapter Subsystem** (`credence.pipeline.
 * **Anthropic / OpenAI Adapters**: Standardized payload wrappers enabling hot-swapping if API pricing shifts.
 * **Local Ollama Adapter**: Fully offline, zero-token-cost inference for air-gapped node sovereignty.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         MULTI-MODEL ADAPTER ROUTER & 30% HEADROOM BREAKER                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Inbound Claim / Web Article Ingestion                                                            │
-│                                │                                                                 │
-│                                ▼ Token Safety Governor & Quota Health Monitor                    │
-│       ┌────────────────────────┴────────────────────────┐                                        │
-│       ▼ Quota Normal ($\ge 30\%$ Headroom)              ▼ Quota Exhausted / Low ($< 30\%$ Floor)  │
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ 🚀 MULTI-MODEL ADAPTER ROUTER            │   │ 🛡️ OFFLINE HEURISTIC CIRCUIT BREAKER     │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Gemini 3.7 Flash (4k thinking tokens)  │   │ • `QUOTA_PRESERVED` Tripped              │      │
-│ │ • Claude 3.7 / GPT-4o Standard Adapter   │   │ • Deterministic Regex Heuristics         │      │
-│ │ • Local Ollama Offline Air-Gapped Engine │   │ • Honestly Capped Confidence ($\le 0.50$)│      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Invariant 38: Multi-model sovereignty prevents vendor lock-in and protects offline continuity │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![FinOps as Epistemology: Why Frugal Prompts Produce Sharper Truths 🪙](assets/illustrations/finops-as-epistemology-2.svg)
 
 When API budgets approach the **30% headroom floor**, the **Token Safety Governor** trips an offline circuit breaker (`QUOTA_PRESERVED`). Instead of failing or burning emergency funds, the node gracefully falls back to deterministic regex heuristics—and honestly reports its confidence as capped at 0.50.
 

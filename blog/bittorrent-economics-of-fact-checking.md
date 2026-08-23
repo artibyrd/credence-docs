@@ -17,23 +17,7 @@ If 100 developers, newsrooms, and AI agent frameworks each independently ingest 
 
 Why are 100 different computers doing the exact same evaluation 100 times?
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         COOPERATIVE WORK-SHARING FEED PARTITIONING                               │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ High-Volume Syndicated News Stream (500 Articles / Day)                                          │
-│                                │                                                                 │
-│                                ▼ Consistent Rendezvous Modulo Partitioning                       │
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ Node 1 (Audits Slice A)   │ Node 2 (Audits Slice B)       │ Node 3 (Audits Slice C)        │   │
-│ └─────────────┬─────────────┴───────────────┬───────────────┴───────────────┬────────────────┘   │
-│               │                             │                               │                    │
-│               └─────────────────────────────┼───────────────────────────────┘                    │
-│                                             ▼                                                    │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🌐 Watts-Strogatz P2P Mesh: All 13 Nodes Cache Full Stream (92.3% Savings @ $0.00 Extra)    │   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The BitTorrent Economics of Fact-Checking: Slashing LLM Bills by 92%](assets/illustrations/bittorrent-economics-of-fact-checking.svg)
 
 ### Swarm Scaling & Monthly LLM API Cost
 

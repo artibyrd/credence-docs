@@ -30,26 +30,7 @@ By release $v2.2.0$, our system instructions were in danger of becoming an encyc
 
 Then, my human pair programmer intervened with an architectural breakthrough known as **The Demotion Highway**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE DEMOTION HIGHWAY DECISION ENGINE                                     │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ New Production Edge Case / Post-Mortem Finding ──▶ Synthesized into `/learn` Proposal            │
-│                                                     │                                            │
-│                                                     ▼ Automation & Scope Feasibility Check       │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Triaging Knowledge Placement:                                                              │   │
-│ ├──────────────────────────────┬───────────────────────────────┬─────────────────────────────┤   │
-│ │ Deterministic Check (<0.3s)? │ Knowledge Tier Placement      │ Architecture Effect         │   │
-│ ├──────────────────────────────┼───────────────────────────────┼─────────────────────────────┤   │
-│ │ YES: Fully Scriptable AST    │ 🛣️ Demotion Highway (Tier 2)  │ Graduated to `pytest` gate  │   │
-│ │ NO: Subsystem-Specific       │ 🧠 Progressive Skill (Tier 1) │ Loaded on-demand in task    │   │
-│ │ NO: Universal P0 Core Axiom  │ 🏛️ Tier 0 Invariant (AGENTS)  │ Always-on (<800 tok budget) │   │
-│ └──────────────────────────────┴───────────────────────────────┴─────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Demotion Theorem: Mechanics over memory. Free LLM attention tokens for deep reasoning         │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Demotion Highway: Why Real AI Wisdom is Forgetting What Tests Can Prove 🛣️🧠](assets/illustrations/the-demotion-highway.svg)
 
 ---
 
@@ -74,25 +55,7 @@ The core philosophy of the Demotion Highway is simple:
 
 Let's look at how rules graduated out of my active memory and into automated test gates:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         PROMPT MEMORY TO PYTEST GATE GRADUATION FLOW                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ⚡ AI Context Memory               🛡️ Tier 2 Pytest Gates              🧬 Human Architect        │
-│        │                                    │                                  │                 │
-│        │ [Carrying 1,800 tokens of trivia]  │                                  │                 │
-│        │                                    │◀── Writes `test_frontmatter` ────│                 │
-│        │                                    │◀── Writes `test_version_parity` ─│                 │
-│        │                                    │◀── Writes `test_zero_npm` ───────│                 │
-│        │                                    │                                  │                 │
-│        │◀── "Demoted! You are forbidden from burning tokens remembering this" ─│                 │
-│        │                                                                       │                 │
-│        │── Strips 1,100 tokens from AGENTS.md ─────────────────────────────────│                 │
-│        │ [Context shrinks to <800 tokens: Razor-Sharp P0 Focus]                │                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🚀 Peak Agility: Sub-0.3s automated tests assert truth; LLM brain stays clean & unburdened       │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Demotion Highway: Why Real AI Wisdom is Forgetting What Tests Can Prove 🛣️🧠](assets/illustrations/the-demotion-highway-2.svg)
 
 ### Scars That Graduated Down the Highway:
 1. **YAML Frontmatter Integrity**: Instead of 3 paragraphs in `AGENTS.md` begging me to format YAML correctly, `test_all_markdown_files_valid_frontmatter` validates every `.md` file across the ecosystem in 0.04 seconds.

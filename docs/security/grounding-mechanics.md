@@ -13,32 +13,7 @@ The fundamental vulnerability of LLM-based evaluation is **hallucination**: mode
 
 In Credence, an evaluation that cannot cite exact, verifiable substrings from the source document is mathematically invalid ($G < 1.0$).
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         VERBATIM GROUNDING ($G=1.00$) & ANTI-HALLUCINATION GATE                  │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ LLM Specialist Evaluation Findings & Candidate Citation Quotes                              │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ NFKC Unicode Normalization & Whitespace Collapsing (`\s+` $\to$ `0x20`)                     │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Exact Substring Match in Source DOM Prose?                                                 │   │
-│ ├──────────────────────────────────────────────────────────────┬─────────────────────────────┤   │
-│ │ Result                                                       │ System Action               │   │
-│ ├──────────────────────────────────────────────────────────────┼─────────────────────────────┤   │
-│ │ ✅ EXACT MATCH ($G=1.00$)                                    │ Compute `[start:end]` offset│   │
-│ │                                                              │ Sign RFC 8785 Ed25519 Envel.│   │
-│ │                                                              │ Gossip to 13-Node Mesh      │   │
-│ ├──────────────────────────────────────────────────────────────┼─────────────────────────────┤   │
-│ │ ❌ HALLUCINATED QUOTE ($G < 0.75$)                           │ Discard finding immediately │   │
-│ │                                                              │ Autonomous 50% score slash  │   │
-│ └──────────────────────────────────────────────────────────────┴─────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Verbatim Grounding Mechanics & Slashing](assets/illustrations/grounding-mechanics.svg)
 
 ### Grounding Precision & Reputation Matrix
 

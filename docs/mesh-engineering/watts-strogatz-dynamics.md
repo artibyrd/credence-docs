@@ -23,29 +23,7 @@ Credence models its 13-node cluster and global overlay network on the **Watts-St
 - **Initial Regular Ring Degree ($k$)**: $4$ (each node initially connects to its $2$ nearest neighbors on each side).
 - **Rewiring Probability ($p$)**: $0.20$ ($20\%$ of edges are randomly rewired to create global shortcuts).
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                   WATTS-STROGATZ 13-NODE SMALL-WORLD LATTICE (N=13, k=4, p=0.20)                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                  (Node 1)                                                        │
-│                           .─────'   │   '─────.                                                  │
-│                     (Node 13)       │         (Node 2)                                           │
-│                   .'        '───────┼───────.        '.                                          │
-│              (Node 12)  [Shortcut: 1-7]     (Node 3)───. [Shortcut: 3-10]                       │
-│             /        \                       /       \  │                                        │
-│         (Node 11)     \                     /     (Node 4)                                       │
-│             \          \                   /         /                                           │
-│              (Node 10)◀─┴─────────────────'     (Node 5)                                         │
-│                   '.                         .'      │ [Shortcut: 5-12]                          │
-│                     (Node 9)             (Node 6)◀───┘                                           │
-│                           '─────.   .─────'                                                      │
-│                                  (Node 7)                                                        │
-│                                  (Node 8)                                                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ • Local Clustering $C(p) \approx 0.486$ (Dense peer verification & fault tolerance)              │
-│ • Characteristic Path Length $L \le 2.30$ hops (Sub-second epidemic diffusion across 13 nodes)   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Watts-Strogatz Small-World Dynamics](assets/illustrations/watts-strogatz-dynamics.svg)
 
 ---
 

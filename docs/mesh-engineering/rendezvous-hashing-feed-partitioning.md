@@ -32,36 +32,7 @@ The node with the highest weight for feed $f$ is deterministically assigned prim
 N^*(f) = \arg\max_{N_i \in \mathcal{N}} W(f, N_i)
 \]
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                   HRW RENDEZVOUS HASHING & ZERO-COORDINATION FEED PARTITIONING                   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Syndicated Feed URL ($f$) ──▶ Weight Hash: $W(f, N_i) = \text{SHA-256}(\text{canonical}(f) \Vert N_i)$│
-│                                              │                                                   │
-│                                              ▼                                                   │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Active Peer Nodes & Deterministic Weight Matrix:                                           │   │
-│ │ • Node 1 (Pubkey A): $W(f, N_1) = \text{0x4a1b}\dots$                                      │   │
-│ │ • Node 2 (Pubkey B): $W(f, N_2) = \text{0xf9e3}\dots$ 🏆 [MAX WEIGHT $\to$ PRIMARY AUDITOR] │   │
-│ │ • Node 3 (Pubkey C): $W(f, N_3) = \text{0x12c8}\dots$                                      │   │
-│ └────────────────────────────────────────────┬───────────────────────────────────────────────┘   │
-│                                              │                                                   │
-│                                              ▼                                                   │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Node 2 Conducts Full LLM Evaluation ($0.0003 spend) ──▶ Signs RFC 8785 Ed25519 Envelope   │   │
-│ └────────────────────────────────────────────┬───────────────────────────────────────────────┘   │
-│                                              │                                                   │
-│                         ┌────────────────────┴────────────────────┐                              │
-│                         ▼ Epidemic Gossip Diffusion               ▼ Epidemic Gossip Diffusion    │
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ Node 1 (`ws://8761`)                     │   │ Node 3 (`ws://8763`)                     │      │
-│ │ • In-memory signature verify (<1ms)      │   │ • In-memory signature verify (<1ms)      │      │
-│ │ • Adopt into local SQLite DB ($0.00 cost)│   │ • Adopt into local SQLite DB ($0.00 cost)│      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🎯 Swarm Result: 92.3% Compute Savings across 13 nodes with 0 locks and 0 central coordinators   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Zero-Coordination Swarm Partitioning with Rendezvous Hashing](assets/illustrations/rendezvous-hashing-feed-partitioning.svg)
 
 ---
 

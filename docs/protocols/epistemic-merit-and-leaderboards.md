@@ -22,35 +22,7 @@ A node's **Epistemic Tier** is evaluated dynamically based on five verifiable pa
 4. **Max Empirical Domain Expertise ($E_{\text{max}} \in [0.0, 1.0]$)**
 5. **Active Longevity ($L_i$ in days)**
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         5-TIER EPISTEMIC MERIT PROGRESSION HIERARCHY                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🌱 SPROUT (Identity Minted • Initial P2P Gossip Inoculation)                               │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │ $N_{\text{eval}} \ge 10 \land Q_i \ge 0.60 \land G_i \ge 0.70$
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🔍 SIFTER (Feed Partitioning & HRW Relay • Steady Backbone)                                │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │ $N_{\text{eval}} \ge 50 \land Q_i \ge 0.70 \land G_i \ge 0.85$
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ ⚖️ AUDITOR (Grounded Attestation Seeding • Philanthropic Token Saver)                       │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │ $E_{\text{max}} \ge 0.80 \land Q_i \ge 0.75 \land N_{\text{eval}} \ge 50$
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🎯 SPECIALIST (Galileo Domain Authority • Asymmetric Consensus Overrides)                   │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │ $Q_i \ge 0.85 \land U_i \ge 0.80 \land G_i \ge 0.80 \land L_i \ge 30\text{d}$
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🏛️ ROOT ANCHOR (Century Network Pillar • Genesis Seed Candidate in `peers.json`)           │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Epistemic Merit & Sovereign Node Leaderboards](assets/illustrations/epistemic-merit-and-leaderboards.svg)
 
 ### Mathematical Tier Milestones
 

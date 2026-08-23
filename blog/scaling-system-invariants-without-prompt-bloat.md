@@ -39,22 +39,7 @@ Here is how we solved it in **v1.15.0** with a **3-Tier Scalable Invariant Archi
 
 ## 2. The Anatomy of the Failure: Why Flat Rulebooks Break
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         FLAT RULEBOOK ANTI-PATTERN & ATTENTION DILUTION                          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🚨 THE FLAT INVARIANT MUSH (30+ Unordered Rules with Equal Weight)                         │   │
-│ ├──────────────────────────┬─────────────────────────────┬───────────────────────────────────┤   │
-│ │ P0 SSRF Defense (Fatal)  │ P2 YAML Frontmatter Trivia  │ P0 Ed25519 Custody (Fatal)        │   │
-│ │ P1 Cloud Run SRE Tuning  │ P2 Bash Pipefail Workaround │ P1 4-Phase Release Order          │   │
-│ └──────────────────────────┴─────────────────────────────┴───────────────────────────────────┘   │
-│                                           │                                                      │
-│                                           ▼ Equal Prompt Salience (Cognitive Oatmeal)            │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 💥 AGENT FAILURE MODE: LLM overlooks fatal security boundary to fix Markdown syntax        │   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Scaling System Invariants: How We Prevented Context Bloat and Attention Dilution in Autonomous AI Coding](assets/illustrations/scaling-system-invariants-without-prompt-bloat.svg)
 
 Flat rulebooks suffer from three fundamental architectural flaws:
 1. **Zero Prioritization**: Security vulnerabilities and typo-level syntax constraints receive identical prominence in the prompt.
@@ -67,30 +52,7 @@ Flat rulebooks suffer from three fundamental architectural flaws:
 
 To solve this, we stratified our invariant ecosystem into three clear tiers based on **criticality, scope, and automation feasibility**:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         3-TIER INVARIANT GOVERNANCE FRAMEWORK                                    │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🏛️ TIER 0: UNIVERSAL CORE INVARIANTS (`AGENTS.md` · Hard Ceiling < 800 tokens)             │   │
-│ │ • Class α (P0): Mk1 Eyeball Review, Epistemic Grounding (G=1.0), Ed25519 Custody, SSRF Gate │   │
-│ │ • Class β (P1): 4-Phase Lifecycle, Push-and-Delegate CI/CD, 3-Plane Decoupling, Hermetic  │   │
-│ │ • Class γ (P2): Universal 4-Way Parity, 3-Tier Lensing Pyramid, Multi-Model Sovereignty    │   │
-│ └──────────────────────────────┬───────────────────────────────┬─────────────────────────────┘   │
-│                                │                               │                                 │
-│                                ▼ On-Demand Activation          ▼ Shift-Left Automation           │
-│ ┌──────────────────────────────────────────────┐ ┌───────────────────────────────────────────┐   │
-│ │ 🧠 TIER 1: PROGRESSIVE SKILLS (`.agents/`)   │ │ 🧪 TIER 2: AUTOMATED TEST GATES (Pytest)  │   │
-│ ├──────────────────────────────────────────────┤ ├───────────────────────────────────────────┤   │
-│ │ • `cloudrun-ops`: Cold Start Tuning & SRE    │ │ • Frontmatter Syntax & Zero-npm Guardrail │   │
-│ │ • `mesh-cluster`: Watts-Strogatz Simulation  │ │ • 7-Manifest Version Parity Assertions    │   │
-│ │ • `white-label-ops`: Sovereign Multi-Domain  │ │ • Sitemap & Link Verification (<0.3s)     │   │
-│ │ • `epistemic-benchmark`: Golden 12 Benchmarks│ │ • Demotion Highway Scanner (`just audit`) │   │
-│ └──────────────────────────────────────────────┘ └───────────────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Constant-Ceiling Law: Mechanics over memory. Never prompt for what code can assert in <0.3s   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Scaling System Invariants: How We Prevented Context Bloat and Attention Dilution in Autonomous AI Coding](assets/illustrations/scaling-system-invariants-without-prompt-bloat-2.svg)
 
 ### Tier 0: Universal Non-Negotiables (`AGENTS.md` &mdash; Strict Core)
 - **Token Budget**: **< 800 tokens** (strictly enforced).
@@ -115,23 +77,7 @@ To solve this, we stratified our invariant ecosystem into three clear tiers base
 
 Invariants are not permanent dogma; they reflect the strongest empirical findings at project epoch $t$. Credence manages invariants through a 6-state lifecycle:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         INVARIANT MUTABILITY 6-STATE MACHINE                                     │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                                  │
-│       [Proposed] ──(Adopted)──▶ [Active (Living Canon)] ──(Milestone Audit)──▶ [Under Review]     │
-│                                                                                       │          │
-│                      ┌────────────────────────────────┬───────────────────────────────┤          │
-│                      ▼                                ▼                               ▼          │
-│             [Re-affirmed Active]             [Amended / Upgraded]          [Demoted / Retired]   │
-│             Merit confirmed                  Scope/Formula refined         Demoted to Tier 2 test│
-│             remains in AGENTS.md             in AGENTS.md                  or Tier 1 Skill file  │
-│                                                                                                  │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ⚖️ Dynamic Evolution: Invariants continuously adapt across releases through empirical feedback  │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Scaling System Invariants: How We Prevented Context Bloat and Attention Dilution in Autonomous AI Coding](assets/illustrations/scaling-system-invariants-without-prompt-bloat-3.svg)
 
 ---
 

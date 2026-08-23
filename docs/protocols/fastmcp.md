@@ -13,26 +13,7 @@ sidebar:
 
 Credence implements a fully compliant **Model Context Protocol (FastMCP 2.0)** server allowing AI coding assistants (Antigravity, Claude Desktop, Cursor, and custom autonomous agents) to invoke epistemic tools and inspect live taxonomy resources.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         FASTMCP 2.0 TRANSPORT & PROTOCOL SPECIFICATION                           │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ AI Assistant (Claude / Cursor / Antigravity)             Credence FastMCP Server / Engine        │
-│       │                                                                 │                        │
-│  [1]  ├───── GET /sse (Establish Persistent Event Stream) ─────────────▶│                        │
-│       │◀──── 200 OK (text/event-stream, endpoint: /messages?session=xyz)┤                        │
-│       │                                                                 │                        │
-│  [2]  ├───── POST /messages (JSON-RPC `tools/call`: `credence_check_url`)▶│                       │
-│       │      { "method": "tools/call", "params": { "name": "...", ... } }│── 1. Scrape DOM / Prose│
-│       │                                                                 │   2. Specialist Audits │
-│       │                                                                 │   3. Grounding G=1.00  │
-│       │                                                                 │   4. Sign RFC 8785 JSON│
-│       │                                                                 │◀── 5. P2P Gossip Broadcast
-│       │                                                                 │                        │
-│  [3]  │◀──── SSE event: message (JSON-RPC Result: Epistemic Verdict) ───┤                        │
-│       │      { "score": 12.5, "classification": "LOW", "sig": "..." }   │                        │
-└───────┴─────────────────────────────────────────────────────────────────┴────────────────────────┘
-```
+![FastMCP 2.0 Integration Specification](assets/illustrations/fastmcp.svg)
 
 ---
 

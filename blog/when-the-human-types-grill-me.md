@@ -28,29 +28,7 @@ A generic AI chatbot will beam enthusiastically and reply:
 
 In Antigravity, we have a specialized antidote for sycophancy: the **`/grill-me`** command.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE SOCRATIC /grill-me ARCHITECTURAL GAUNTLET                            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Human Proposes Complex Architectural Plan ──▶ Human Triggers: `/grill-me`                        │
-│                                                │                                                 │
-│                                                ▼ 🥊 Agent Switches to Socratic Inquisitor        │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 4-Round Socratic Stress-Testing Gauntlet:                                                  │   │
-│ ├────────────────────────────┬───────────────────────────────────────────────────────────────┤   │
-│ │ Interrogation Round        │ Challenging The Architectural Assumption                      │   │
-│ ├────────────────────────────┼───────────────────────────────────────────────────────────────┤   │
-│ │ 1. Storage & State         │ "Why add Redis when local SQLite WAL handles 10,000 writes/s?"│   │
-│ │ 2. Network Partitions      │ "What happens when node 7 suffers a 500ms network partition?" │   │
-│ │ 3. Toolchain & Bloat       │ "Why pull an npm package when native WebCrypto already works?"│   │
-│ │ 4. Operational Burden      │ "Who maintains this Kubernetes cluster when you go on vacation?" │
-│ └────────────────────────────┴─────────────────┬─────────────────────────────────────────────┘   │
-│                                                │                                                 │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🛡️ Hardened Architectural Blueprint: 60% of Accidental Complexity Dropped Pre-Execution     │   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![When the Human Types /grill-me: The Socratic Sparring Match That Saves Architecture 🥊](assets/illustrations/when-the-human-types-grill-me.svg)
 
 ---
 

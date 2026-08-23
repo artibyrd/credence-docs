@@ -19,21 +19,7 @@ In modern sovereign decentralized networks and edge applications, operating comp
 
 However, scale-to-zero introduces container cold start latency:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         SCALE-TO-ZERO COLD START TIMELINE (~1.95s TOTAL)                         │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Incoming HTTP / SSE Request                                                                      │
-│    │                                                                                             │
-│    ├──▶ 1. MicroVM Allocation & Layer Pull (~1.00s) [Cloud Run Gen 2 Execution Env]              │
-│    ├──▶ 2. Direct Virtualenv Entrypoint Execution (~0.05s) [Bypasses Poetry wrapper]             │
-│    ├──▶ 3. CPython Bytecode & Import Evaluation (~0.60s) [Startup CPU Boost + Precompiled .pyc]  │
-│    ├──▶ 4. Fast Non-Blocking Lifespan Initialization (~0.10s) [Async background task ignition]   │
-│    └──▶ 5. Tuned HTTP Readiness Probe (~0.20s) [2s HTTP GET `/health` with 1s initial delay]    │
-│                                                                                                  │
-│ 🟢 READY TO SERVE TRAFFIC (<2.1s Cold Start • $0.00 Idle Infrastructure Cost)                    │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Technical Blueprint: Cloud Run Scale-to-Zero Cold Start Optimization](assets/illustrations/cloudrun-scale-to-zero-cold-start-optimization.svg)
 
 ---
 
@@ -41,28 +27,7 @@ However, scale-to-zero introduces container cold start latency:
 
 To reduce cold starts from **~11.5s** down to **~1.9s**, Credence applies five complementary engineering interventions across container packaging, runtime execution, and cloud infrastructure:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE 5-PILLAR COLD START OPTIMIZATION FRAMEWORK                           │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ PILLAR 1: INFRASTRUCTURE  │ PILLAR 2: PROCESS INVOCATION  │ PILLAR 3: BYTECODE COMPILATION │   │
-│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
-│ │ • Startup CPU Boost (2-4x)│ • Direct venv binary execution│ • Build-time `compileall`      │   │
-│ │ • Gen 2 Linux Kernel Env  │ • Eliminates Poetry wrapper   │ • Precompiles `.py` to `.pyc`  │   │
-│ │ • Image Layer Streaming   │ • Saves ~950ms on boot        │ • Eliminates runtime tokenizing│   │
-│ └─────────────┬─────────────┴───────────────┬───────────────┴────────────────┬───────────────┘   │
-│               │                             │                                │                   │
-│               └─────────────────────────────┼────────────────────────────────┘                   │
-│                                             ▼                                                    │
-│ ┌───────────────────────────────────────────┴────────────────────────────────────────────────┐   │
-│ │ PILLAR 4: LAZY IMPORT GRAPH DEFERRAL      │ PILLAR 5: AGGRESSIVE READINESS PROBING         │   │
-│ ├───────────────────────────────────────────┼────────────────────────────────────────────────┤   │
-│ │ • Defers Trafilatura, Dateparser, Playwrgt│ • 2s HTTP GET `/health` (1s initial delay)     │   │
-│ │ • Drops ASGI boot time from 2.8s to 1.4s  │ • Eliminates 10s default TCP probe idle lag    │   │
-│ └───────────────────────────────────────────┴────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Technical Blueprint: Cloud Run Scale-to-Zero Cold Start Optimization](assets/illustrations/cloudrun-scale-to-zero-cold-start-optimization-2.svg)
 
 ### Pillar 1: Google Cloud Run v2 Startup CPU Boost & Gen 2
 - **Startup CPU Boost (`startup_cpu_boost = true` / `--cpu-boost`)**: Temporarily multiplies instance CPU allocation by 2–4x during container boot until the first request completes. Because CPython import parsing is single-threaded and CPU-bound, this halves raw import latency at zero idle expense.
@@ -194,7 +159,10 @@ However, under a strict **scale-to-zero** serverless policy (`min_instance_count
 
 To eliminate the need for costly 24/7 always-allocated compute while ensuring the node actively populates and maintains its knowledge base, Credence implements the **Adaptive Epistemic Excitement Index ($E$)**:
 
-$$	ext{Excitement Index } E = \left(rac{	ext{Headroom}_{	ext{daily}}\%}{100}ight) 	imes \left(1 - \min\left(0.80, rac{N_{	ext{audits}}}{250}ight)ight)$$
+$$	ext{Excitement Index } E = \left(rac{	ext{Headroom}_{	ext{daily}}\%}{100}
+ight) 	imes \left(1 - \min\left(0.80, rac{N_{	ext{audits}}}{250}
+ight)
+ight)$$
 
 | Operational State | Database Condition | Token Headroom | Heartbeat Behavior | Perceived Compute Cost |
 | :--- | :--- | :--- | :--- | :--- |

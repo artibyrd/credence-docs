@@ -15,22 +15,7 @@ Creating sensationalized clickbait, partisan outrage bait, and unverified allega
 
 To restore epistemic balance, the Credence network introduces the **Domain Credence Index ($DCI$)**: a decentralized, unforgeable reputation metric computed through mutual peer observation across thousands of independent verification audits.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         DOMAIN CREDENCE INDEX (DCI) ANALYTICS PIPELINE                           │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┐   ┌───────────────────────────┐   ┌───────────────────────────┐    │
-│ │ 🌐 1. THE OPEN WEB        │   │ ⚙️ 2. ANALYTICS ENGINE    │   │ 📊 3. EPISTEMIC OUTPUT    │    │
-│ ├───────────────────────────┤   ├───────────────────────────┤   ├───────────────────────────┤    │
-│ │ • Investigative Wires     │   │ • Verbatim Quoted Evidence│   │ • 🛡️ Honor Roll ($DCI\ge 85$)│
-│ │ • Content Mills & Click   │──▶│ • SimHash Deduplication   │──▶│ • 🛑 Wall of Shame ($DCI<40$)│
-│ │ • Astroturf PR Campaigns  │   │ • Topic Entropy $H(X)$    │   │ • 📢 Astroturf Alerts ($H<0.3$)│
-│ │ • Syndicated RSS Feeds    │   │ • Byline Transparency $R$ │   │ • FastMCP 2.0 API Queries │    │
-│ └───────────────────────────┘   └───────────────────────────┘   └───────────────────────────┘    │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 DCI Formula: $DCI = 100 - (0.50\bar{S} + 0.30\min(50, \bar{D}) + 0.20(1 - R_{\text{byline}})\cdot 100)$│
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Domain Credence Index (DCI): The Web's Honor Roll & Wall of Shame](assets/illustrations/the-domain-epistemic-index.svg)
 
 ---
 

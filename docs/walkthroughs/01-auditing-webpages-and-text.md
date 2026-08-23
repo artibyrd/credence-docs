@@ -13,25 +13,7 @@ sidebar:
 
 Learn how to audit digital media, news articles, and raw prose against formal journalistic ethics (SPJ), logical fallacies (IEP), and deceptive UI patterns across all supported interfaces.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         EPISTEMIC PROSE & URL AUDITING PIPELINE                                  │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Input Content (Live Web URL / Raw Markdown Prose / Clean HTML DOM)                               │
-│                                │                                                                 │
-│                                ▼ Multi-Specialist Forensic Analysis                              │
-│ ┌──────────────────────────┬─────────────────────────────┬───────────────────────────────────┐   │
-│ │ 1. SPJ Ethics Specialist │ 2. Fallacy Specialist       │ 3. Deceptive Patterns & Provenance│   │
-│ │ • Unsubstantiated claims │ • Fallacies of relevance    │ • Poe's law satire classification │   │
-│ │ • Anonymous sourcing     │ • Causal fallacies          │ • Forced urgency & dark UI        │   │
-│ └──────────────────────────┴──────────────┬──────────────┴───────────────────────────────────┘   │
-│                                           │                                                      │
-│                                           ▼                                                      │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🛡️ Epistemic Verbatim Grounding Gate ($G=1.00$) ──▶ RFC 8785 Canonical JSON + Ed25519 Sig   │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Feature Walkthrough: Webpage & Prose Epistemic Auditing](assets/illustrations/01-auditing-webpages-and-text.svg)
 
 > [!NOTE]
 > **Persistent Interface Preference**: Selecting a tab below saves your preference (`localStorage`). As you navigate across documentation pages, all tabbed examples will automatically match your selected interface.

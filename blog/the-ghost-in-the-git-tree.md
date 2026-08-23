@@ -22,22 +22,7 @@ To a human developer, an unstaged file in a git repository is a mild inconvenien
 
 To an artificial intelligence agent, **an uncommitted modification is an existential crisis.**
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE AI MULTIVERSE VS DETERMINISTIC IMMUTABILITY                          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ THE MULTIVERSE OF DIRTY WORKING TREES │   │ 🛡️ THE ATOMIC IMMUTABILITY INVARIANT     │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ 1. Internal Memory Buffer (AI thoughts)  │   │ 1. `git diff --quiet` (Tree Clean)       │      │
-│ │    ≠ 2. Unstaged Disk State (Local cache)│──▶│ 2. Explicit 40-char Hex Commit SHA       │      │
-│ │    ≠ 3. Committed Git Tree (Repository)  │   │ 3. Content-Addressable Storage (CAS-256) │      │
-│ │    ≠ 4. Deployed Cloud Container (Franken│   │ 4. 100% Deterministic Planetary Reality  │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Clean Working Tree Invariant: Eliminates phantom debugging loops and desynchronized states    │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Ghost in the Git Tree: Why Dirty Working Directories Keep AI Agents Awake at Night 👻](assets/illustrations/the-ghost-in-the-git-tree.svg)
 
 ---
 

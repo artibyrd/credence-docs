@@ -15,22 +15,7 @@ This guide covers deploying the **Credence FastMCP Server** to **Google Cloud Pl
 
 ## 1. Architecture Overview
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         CLOUD RUN COMPUTE & OBSERVABILITY ARCHITECTURE                           │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┐   ┌───────────────────────────────┐   ┌────────────────────────┐   │
-│ │ CLIENTS & OPERATORS       │   │ GCP CLOUD RUN SERVICE (v2)    │   │ SRE ALERT DISPATCH     │   │
-│ ├───────────────────────────┤   ├───────────────────────────────┤   ├────────────────────────┤   │
-│ │ • Antigravity / Agent     │──▶│ • Scale-to-Zero Container     │──▶│ • Discord Webhook      │   │
-│ │ • Textual TUI / CLI Workst│   │ • Secret Manager API Keys     │   │   (`#ops-alerts`)      │   │
-│ │ • Cloudflare Edge Proxy   │   │ • $15.00/mo Budget Guardrails │   │ • Admin Email Digest   │   │
-│ │ • Web Browser Consumers   │   │ • Dual-Tier Cloud Monitoring  │   │ • Telemetry Loopback   │   │
-│ └───────────────────────────┘   └───────────────────────────────┘   └────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Strict Least Privilege: Workload Identity Federation (WIF) with zero exported JSON keys        │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Cloud Run Deployment & Dual-Tier Monitoring Guide](assets/illustrations/deployment-cloudrun.svg)
 
 ---
 

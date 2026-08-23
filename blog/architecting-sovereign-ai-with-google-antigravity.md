@@ -45,23 +45,7 @@ Building decentralized, cryptographic epistemic infrastructure requires uncompro
 
 This article details the hard-won engineering principles, agentic workflows, and continuous `/learn` feedback loops that enabled rapid, high-assurance development across 3 sovereign repositories, 68 documentation guides, and 12-factor automated test suites.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE GOOGLE ANTIGRAVITY ENGINEERING LOOP                                  │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Human Architect ◀══════[Interactive Pair Programming]══════▶ Google Antigravity Engine           │
-│                                                                │                                 │
-│                                                                ▼ Continuous Engineering Cycle    │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 1. Planning Mode (`implementation_plan.md`) ──▶ 2. "Mk1 Eyeball" Human Review Gate         │   │
-│ │ 3. Asynchronous Tool & Subagent Delegation  ──▶ 4. Hermetic Verification (Unit & Ast)      │   │
-│ │ 5. Continuous `/learn` Synthesis            ──▶ 6. Living Canon Update (`AGENTS.md`)       │   │
-│ └──────────────────────────────────────────────────────────────┬─────────────────────────────┘   │
-│                                                                │                                 │
-│                                                                ▼ Constrains Future Turns         │
-│ 🛡️ Machine-Verifiable Invariants: Error modes permanently immunized across future iterations      │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Architecting Sovereign AI with Google Antigravity: Multi-Agent Workflows, Hermetic Guardrails, and Continuous /learn Evolution](assets/illustrations/architecting-sovereign-ai-with-google-antigravity.svg)
 
 ---
 
@@ -81,26 +65,7 @@ Autonomous AI agents often fail in complex codebases when given open-ended comma
 
 The single most powerful mechanism in long-horizon software engineering is **continuous learning**. As edge cases, parser quirks, or UX deficiencies were discovered during development, they were not treated as isolated bugs—they were crystallized into permanent repository invariants via the `/learn` slash command.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         CONTINUOUS /learn INVARIANT SYNTHESIS FLOW                               │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 👤 Human Architect                 🤖 Antigravity Agent              📜 AGENTS.md & CI Gates     │
-│        │                                    │                                    │               │
-│        │── "Edge case discovered" ─────────▶│                                    │               │
-│        │                                    │── Root-cause analysis & diff ──────│               │
-│        │── /learn ─────────────────────────▶│                                    │               │
-│        │                                    │── Draft `learning_proposal.md` ────│               │
-│        │◀── Presents Proposal for Sign-Off ─│                                    │               │
-│        │                                    │                                    │               │
-│        │── Approves (Mk1 Eyeball Gate) ────▶│                                    │               │
-│        │                                    │── Codifies Invariant in AGENTS.md ─▶│               │
-│        │                                    │── Adds Shift-Left Pytest Contract ─▶│               │
-│        │                                    │                                    │               │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Permanent Immunity: Every discovered failure mode becomes a permanent automated test gate     │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Architecting Sovereign AI with Google Antigravity: Multi-Agent Workflows, Hermetic Guardrails, and Continuous /learn Evolution](assets/illustrations/architecting-sovereign-ai-with-google-antigravity-2.svg)
 
 ### Key Invariants Crystallized Through `/learn`:
 - **[Invariant 34: Universal Mermaid Syntax Guardrail](../docs/invariants.md#invariant-34)**: Standardizing on quoted graph syntax (`id["Label (Details)"]`) to prevent diagram rendering crashes across IDE viewers.
@@ -124,21 +89,7 @@ To ensure Credence documentation and sovereign blogs remain readable and functio
 
 In evaluating inference engines across our **Golden 12 Epistemic Benchmark Suite**, we discovered a remarkable Pareto frontier:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         MULTI-MODEL PARETO EVALUATION FRONTIER                                   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ 1. PARETO OPTIMAL (SWEET) │ 2. COMMERCIAL FLAGSHIPS       │ 3. AIR-GAPPED SOVEREIGN        │   │
-│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
-│ │ Gemini 3.7 Flash          │ Claude 3.7 / GPT-4o           │ Ollama / Llama 3.3 70B         │   │
-│ │ • 4k Thinking Budget      │ • 30x–33x cost overhead       │ • Self-hosted local vLLM       │   │
-│ │ • 100% Verbatim ($G=1.00$)│ • High nuance, budget penalty │ • 100% hermetic privacy        │   │
-│ │ • $0.34 / 1k audits       │ • $9.50–$11.40 / 1k audits    │ • $0.00 token spend            │   │
-│ │ • 3.8s Latency (Default)  │ • 4.9s–7.2s Latency           │ • 5.2s Latency                 │   │
-│ └───────────────────────────┴───────────────────────────────┴────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Architecting Sovereign AI with Google Antigravity: Multi-Agent Workflows, Hermetic Guardrails, and Continuous /learn Evolution](assets/illustrations/architecting-sovereign-ai-with-google-antigravity-3.svg)
 
 **[Invariant 15](../docs/invariants.md#invariant-15)** codifies that `gemini-3.7-flash` with a 4,096 thinking token budget delivers the absolute highest precision-to-cost ratio, eliminating Poe's Law satire ambiguity and hallucinated findings without the 30x cost penalty of flagship Pro models.
 

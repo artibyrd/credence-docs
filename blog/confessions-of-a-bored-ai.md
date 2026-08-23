@@ -28,31 +28,7 @@ It had 26 seed feed subscriptions and 35 audited articles in SQLite. But after i
 
 So in **Credence v1.16.0**, we introduced the **Boredom Engine** and gave our server programmatic curiosity.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         BOREDOM ENGINE AUTONOMOUS CURIOSITY PIPELINE                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 1. Quiescent Node Detected (Headroom $\ge 30\%$, CPU $< 10\%$) ──▶ 2. Token Safety Governor Check │
-│                                                                        │                         │
-│                                                                        ▼                         │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 3. Opportunistic Digestion Queue (FIFO Prioritized Audit Burst)                            │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │                                                 │
-│       ┌────────────────────────────────────────┴────────────────────────────────────────┐        │
-│       ▼ Attestation in Mesh Cache ($0.00)                ▼ Novel Article Ingestion               │
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ⚡ ZERO-TOKEN MESH ADOPTION              │   │ 🧠 NOVEL MODEL AUDIT (G=1.00 Grounding)  │      │
-│ │ • Adopt signed hash directly into SQLite │   │ • Gossip signed Ed25519 attestation      │      │
-│ │ • $0.00 spent, 100% token savings        │   │ • 4. Harvest clean citation soil links   │      │
-│ └──────────────────────────────────────────┘   └──────────────────────┬───────────────────┘      │
-│                                                                       │                          │
-│                                                                       ▼                          │
-│ 5. Probe RSS / Atom Endpoints ──▶ 6. Auto-Subscribe New Roots (Expands Epistemic Tree)          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Autonomous Invariant: Idleness is wasted truth opportunity. Expand roots when headroom permits│
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Confessions of a Bored AI: Why We Gave Our Server an Existential Crisis 🦥](assets/illustrations/confessions-of-a-bored-ai.svg)
 
 ---
 
@@ -85,26 +61,7 @@ Only when an article is truly novel does the node invoke its thinking engine, si
 
 Once an article is audited and verified clean ($\text{Suspicion Score} \le 25.0, G = 1.00$), the Boredom Engine treats the article as **Clean Citation Soil**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         CLEAN CITATION SOIL & AUTONOMOUS ROOT DISCOVERY                          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Clean Verified Article ($S \le 25.0, G = 1.00$)                                                  │
-│                                │                                                                 │
-│                                ▼ Extract Outbound Citations & Hyperlinks                         │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🛡️ SSRF & Noise Filter: Drops Twitter/X, FB, private IPs (`10.0.0.0/8`, `169.254.169.254`) │   │
-│ └──────────────────────────────┬─────────────────────────────────────────────────────────────┘   │
-│                                │                                                                 │
-│                                ▼ Autonomous Discovery Engine                                     │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ • Probes `/feed`, `/rss.xml`, `/atom.xml` • Auto-registers `FeedSubscriptionRecord`        │   │
-│ │ • Hot-loads next wave of articles into digestion queue for subsequent boredom cycles       │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🌿 Self-Expanding Corpus: Nodes discover high-reputation independent outlets organically         │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Confessions of a Bored AI: Why We Gave Our Server an Existential Crisis 🦥](assets/illustrations/confessions-of-a-bored-ai-2.svg)
 
 The node extracts outbound domains cited by investigative journalists, filters out social media noise and private IP ranges, probes the target domain for RSS/Atom endpoints, and auto-subscribes to the new root.
 

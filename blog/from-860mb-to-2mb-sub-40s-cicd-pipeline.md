@@ -33,22 +33,7 @@ Here is the technical forensic teardown of how we identified three hidden bottle
 
 When we profiled our pipeline runtime, we discovered that drag was accumulating across three decoupled planes:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         PIPELINE BOTTLENECK ANALYSIS & ARCHITECTURAL FIXES                       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ IDENTIFIED PIPELINE BOTTLENECKS       │   │ 🛡️ TARGETED ARCHITECTURAL FIXES          │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Sequential pytest execution (81.1s)    │   │ • Parallel `pytest-xdist -n auto`        │      │
-│ │ • Unmocked network socket (10.7s timeout)│──▶│ • AsyncMock feed parser injection (0.23s)│      │
-│ │ • Missing ignore manifests (861MB upload)│   │ • `.dockerignore` / `.gcloudignore` (2MB)│      │
-│ │ • Shell pipefail SIGPIPEs (Exit code 141)│   │ • Stream-draining `sed -n '1p'` (Exit 0) │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🚀 Net Result: Full QA gate slashed 88s ──▶ 35s (-60%) | Build upload slashed 861MB ──▶ 2.1MB    │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![From 860MB to 2MB: Engineering a Sub-40-Second Multi-Plane CI/CD Pipeline](assets/illustrations/from-860mb-to-2mb-sub-40s-cicd-pipeline.svg)
 
 ---
 

@@ -13,32 +13,7 @@ In decentralized networks, reputation metrics are frequently toothless—serving
 
 Credence establishes a **Closed-Loop Feedback Architecture**, where reputation scores directly control the physics of the P2P WebSocket transport plane.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         CLOSED-LOOP ROUTING & 4-BAND TRAFFIC SHAPING                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Incoming Peer WebSocket Messages (Handshake, Attestations, Feeds)                                │
-│                                   │                                                              │
-│                                   ▼                                                              │
-│  [Calculate Epistemic Quality Score: $Q_i = 0.35 G_i + 0.25 C_i + 0.20 U_i + 0.20 T_i$]          │
-│                                   │                                                              │
-│ ┌─────────────────────────────────┴────────────────────────────────────────────────────────────┐ │
-│ │ Epistemic Traffic Class Router                                                               │ │
-│ ├────────────────────┬─────────────┬──────────────────┬──────────────────────────────────────┤ │
-│ │ Traffic Band       │ Quality $Q$ │ Token Bucket     │ Network Physics & Action             │ │
-│ ├────────────────────┼─────────────┼──────────────────┼──────────────────────────────────────┤ │
-│ │ ⚡ `FAST_LANE`     │ $Q \ge 0.85$│ 500 msgs / sec   │ Unbuffered fast-path relay, zero-lat │ │
-│ │ 🔄 `STANDARD`      │ $0.50..0.85$│  50 msgs / sec   │ Standard epidemic gossip propagation │ │
-│ │ 🐢 `CHOKED`        │ $0.25..0.50$│   1 msg / sec    │ Throttled queue; deviation penalty   │ │
-│ │ 🚫 `QUARANTINED`   │ $Q < 0.25$  │   0 msgs / sec   │ Link severed; WebSocket terminated   │ │
-│ └────────────────────┴─────────────┴────────┬─────────┴──────────────────────────────────────┘ │
-│                                             │                                                    │
-│                                             ▼                                                    │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🌐 13-Node Watts-Strogatz Lattice & HRW Rendezvous Hashing Feed Partitioning               │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Closed-Loop Routing & P2P Traffic Shaping](assets/illustrations/closed-loop-traffic-shaping.svg)
 
 ---
 

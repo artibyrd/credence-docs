@@ -17,25 +17,7 @@ This cookbook provides copy-paste integration recipes to give your agents an **e
 
 ## 1. The Epistemic Gate Pattern
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         AUTONOMOUS AGENT EPISTEMIC BRAKE GATEWAY                                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Autonomous AI Agent (LangGraph / CrewAI / Antigravity / Cursor) ──▶ Discovers Target URL         │
-│                                              │                                                   │
-│                                              ▼ Intercept with `credence_check_url(url)`          │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ FastMCP 2.0 Evaluation & Verbatim Grounding Gate ($G=1.00$):                               │   │
-│ ├──────────────────────────────────────────┬─────────────────────────────────────────────────┤   │
-│ │ Suspicion Score Range                    │ Autonomous Agentic Action                       │   │
-│ ├──────────────────────────────────────────┼─────────────────────────────────────────────────┤   │
-│ │ 🟢 $S < 25.0$ & $G = 1.00$ (Reliable)   │ Ingest into `<untrusted_source_text>` container │   │
-│ │ 🟡 $25.0 \le S < 50.0$ (Neutral)         │ Ingest with epistemic caution advisory context  │   │
-│ │ 🔴 $S \ge 50.0$ or $G < 0.75$ (Deceptive)│ 🛑 TRIP EPISTEMIC BRAKE: Discard & Query Alt Source │
-│ │ 🎭 Satire Confirmed (`is_satire: true`)  │ Tag `SATIRE`: Disallow factual inference        │   │
-│ └──────────────────────────────────────────┴─────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Agentic Epistemic Brake Cookbook](assets/illustrations/agentic-epistemic-brake.svg)
 
 ### Agentic Verification Decision Policy
 

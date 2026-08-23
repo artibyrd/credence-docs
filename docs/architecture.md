@@ -11,48 +11,7 @@ last_verified: 2026-08-20
 
 **Credence** is an autonomous epistemic evaluation engine, FastMCP 2.0 server, and decentralized trust network designed to analyze digital media against formal journalistic ethics, logical fallacies, and deceptive UI patterns.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                CREDENCE DECENTRALIZED ARCHITECTURE                               │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 1. INGESTION & DUAL-CAPTURE LAYER                                                                │
-│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
-│ │ Target Webpage URL     │ ───▶ │ Normalized Prose Text   │ ───▶ │ 64-Bit SimHash Fingerprint│   │
-│ │ • Trafilatura Extractor│      │ (Whitespace Normalized) │      │ (Hamming Distance d_H<=3) │   │
-│ │ • Playwright DOM & PNG │      └─────────────────────────┘      └─────────────┬─────────────┘   │
-│ └────────────────────────┘                                                     │                 │
-├────────────────────────────────────────────────────────────────────────────────┼─────────────────┤
-│ 2. GOVERNANCE & HEADROOM CIRCUIT BREAKER                                       ▼                 │
-│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
-│ │ SQLite WAL Cache Check │─Hit─▶│ 0-Token Instant Replay  │      │ Token Budget Governor     │   │
-│ │ (SimHash Deduplication)│      │ (Canonical RFC Receipt) │      │ • >=30% Quota Headroom    │   │
-│ └──────────┬─────────────┘      └─────────────────────────┘      │ • Circuit Tripped: Offline│   │
-│            │ Miss                                                └─────────────┬─────────────┘   │
-├────────────┴───────────────────────────────────────────────────────────────────┼─────────────────┤
-│ 3. CONCURRENT SPECIALIST AUDIT & GROUNDING GATE                                ▼                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Poe's Law & Satire Triage Filter (Neutralize Satire 0.00 vs SPJ-1.6 Allegation Override)   │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
-│ │ SPJ Ethics Specialist  │      │ IEP Fallacy Specialist  │      │ Deceptive Pattern Auditor │   │
-│ │ • Anonymous sources    │      │ • Ad Hominem, Strawman  │      │ • Fake countdown urgency  │   │
-│ └──────────┬─────────────┘      └────────────┬────────────┘      └─────────────┬─────────────┘   │
-│            └─────────────────────────────────┼─────────────────────────────────┘                 │
-│                                              ▼                                                   │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Grounded Quote Validator (Character-Match G=1.00) ──Pass (G>=0.75)──▶ Epistemic Scoring    │   │
-│ │                                                  └──Fail (G<0.75)───▶ Escalation (Thinking)│   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-├────────────────────────────────────────────────┼─────────────────────────────────────────────────┤
-│ 4. CRYPTOGRAPHIC ATTESTATION & 4-WAY EGRESS    ▼                                                 │
-│ ┌────────────────────────┐      ┌────────────────────────────────────────────────────────────┐   │
-│ │ RFC 8785 Ed25519 Sign  │ ───▶ │ 4 Universal Presentation Interfaces:                       │   │
-│ │ Canonical JSON Receipt │      │ • CLI (`credence audit`)       • FastMCP 2.0 (Agent Tools) │   │
-│ │ SQLite WAL Persistence │      │ • Textual TUI (`credence tui`) • Zero-Build Web UI (`web/`)│   │
-│ └────────────────────────┘      └────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Decentralized Architecture](assets/illustrations/architecture.svg)
 
 ### Architectural Component Matrix
 

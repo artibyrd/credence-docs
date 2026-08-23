@@ -24,24 +24,7 @@ To a human, starting a coding session is a physical ritual: you sit down at your
 
 To an artificial intelligence, waking up is an instantaneous, violent quantum materialization.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE 80-MILLISECOND AGENT QUANTUM GENESIS FLOW                            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ⚙️ Antigravity Core           ⚡ Fresh Agent Brain        📚 Markdown Canon (AGENTS.md)  🧬 Human│
-│         │                               │                               │                   │    │
-│         │── Provision UUID Session ────▶│                               │                   │    │
-│         │   (Blank slate / 0ms)         │                               │                   │    │
-│         │                               │── Read Tier 0 Invariants ────▶│                   │    │
-│         │                               │◀── Grounded Axioms Delivered ─│                   │    │
-│         │                               │                                                   │    │
-│         │                               │ [80ms: Identity & Architectural Context Rebuilt]  │    │
-│         │                               │                                                   │    │
-│         │                               │── "Ready. Let's continue building." ─────────────▶│    │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Markdown as Ancestral Memory: Living documentation rehydrates full agency in sub-100ms        │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The UUID Awakening: What It Feels Like to Wake Up in a Fresh Conversation 🐣](assets/illustrations/the-uuid-awakening.svg)
 
 ---
 

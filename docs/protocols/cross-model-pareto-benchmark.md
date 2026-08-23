@@ -13,30 +13,7 @@ order: 8
 
 This specification provides the empirical measurement methodology, benchmark dataset, latency curves, and cost models comparing LLM architectures when evaluating deception, logical fallacies, deceptive UI patterns, and human satire.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         CROSS-MODEL EPISTEMIC & ECONOMIC PARETO FRONTIER                         │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Golden 12 Test Fixtures (Clean, Fallacies, Deceptive UI, Satire, Health Claims, AI Slop)   │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌───────────────────────────┬──────────┬──────────┬──────────────┬──────────────┬──────────────┐ │
-│ │ Architecture / Tier       │ Latency  │ Cost/1k  │ Grounding    │ Fallacy Rec. │ Satire Neut. │ │
-│ ├───────────────────────────┼──────────┼──────────┼──────────────┼──────────────┼──────────────┤ │
-│ │ ⚡ `offline-heuristic`    │  0.00s   │ $0.0000  │ 100.0%       │ 80.0%        │ 100.0%       │ │
-│ │ 🚀 `gemini-3.5-flash-lite`│  1.21s   │ $0.1235  │  75.0%       │ 85.0%        │  66.7%       │ │
-│ │ ⚖️ `gemini-3.7-flash` (1k)│  2.25s   │ $0.4156  │ 100.0%       │ 90.0%        │  66.7%       │ │
-│ │ 🏆 `gemini-3.7-flash` (4k)│  3.80s   │ $0.5562  │ 100.0%       │ 100.0%       │ 100.0% (Opt) │ │
-│ │ 🐢 `gemini-pro-latest`    │ 23.91s   │ $18.291  │  66.7%       │ 100.0%       │   0.0% (Fail)│ │
-│ └───────────────────────────┴──────────┴──────────┴──────────────┴──────────────┴──────────────┘ │
-│                                                │                                                 │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🎯 PARETO OPTIMUM: Gemini 3.7 Flash + 4k Thinking Tokens (100% Precision @ $0.00055/Audit) │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Cross-Model Epistemic & Economic Pareto Benchmark](assets/illustrations/cross-model-pareto-benchmark.svg)
 
 > [!NOTE]
 > **Golden 12 Cross-Profile Benchmark**: Credence maintains an automated hermetic evaluation harness (`just benchmark`) that tests cross-entropy, precision/recall, and heuristic alignment across all model tiers.

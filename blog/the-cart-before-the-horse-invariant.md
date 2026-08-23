@@ -19,14 +19,7 @@ In **Credence v2.1.0 and v2.1.1**, we codified **The Cart-Before-the-Horse Order
 
 The Cart-Before-the-Horse Invariant establishes two non-negotiable rules across all autonomous engineering loops:
 
-```
-┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                        The Cart-Before-the-Horse Dependency Law                        │
-├────────────────────────────────────────────────────────────────────────────────────────┤
-│ 1. Code Architecture:   Primitives & Scrubbers ──► Data Models ──► APIs ──► UIs & CLI  │
-│ 2. Epistemic Integrity: Live Test & Benchmark ──► Empirical Data ──► Case Study & Docs │
-└────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Cart-Before-the-Horse Invariant: Why AI Agents Must Respect Topological Dependency & Empirical Verification](assets/illustrations/the-cart-before-the-horse-invariant.svg)
 
 ### Pillar A: Structural Code Dependencies (Topological Sort)
 Never write downstream presentation logic or high-level wrappers before prerequisite foundations are built and verified:

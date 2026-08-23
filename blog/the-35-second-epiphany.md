@@ -28,22 +28,7 @@ If running your test suite takes 10 minutes, your flow state dies a horrible dea
 
 This is the story of how our unit test suite fell into the **Browser CI Sludge Trap**—and how we engineered our way back to pure, sub-35-second hermetic bliss.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         BROWSER CI SLUDGE VS HERMETIC IN-MEMORY QA                               │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ THE BROWSER SLUDGE TRAP (10–12 Mins)  │   │ 🛡️ HERMETIC IN-MEMORY QA (<35 Seconds)   │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • `apt-get install libglib2.0 libnss3`   │   │ • In-Memory SQLite (`sqlite3://:memory:`)│      │
-│ │ • `playwright install --with-deps` (1GB) │──▶│ • Deterministic HTTP mock handlers       │      │
-│ │ • Headless Chrome daemons & port clashes │   │ • Shift-Left Doc integrity gates (<0.3s) │      │
-│ │ • Flaky network timeouts on external DOM │   │ • 100% Deterministic Green in 28.4s      │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Hermetic Invariant: Unit tests execute zero external network calls or browser binaries        │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The 35-Second Epiphany: How Browser-Free Hermetic Tests Saved Our Sanity ⏱️](assets/illustrations/the-35-second-epiphany.svg)
 
 ---
 

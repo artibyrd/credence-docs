@@ -31,22 +31,7 @@ read_time: 10 min
 
 In this hands-on tutorial, you will learn how to operate, configure, and extend Credence's **Reusable Live Rotating E2E Test Suite**. You will execute live audits against real-world targets, test remote FastMCP 2.0 Server-Sent Events (SSE) streaming, and simulate Byzantine ungrounded smear attacks in a 13-node P2P mesh cluster.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         REUSABLE LIVE ROTATING E2E GAUNTLET ARCHITECTURE                         │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ LIVE ROTATOR SAMPLING ENGINE             │   │ 4 VERIFICATION MILESTONES                │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Deterministic Daily Seed (`YYYY-MM-DD`)│──▶│ 1. CLI Live Audits & Ed25519 Anti-Tamper │      │
-│ │ • Stratified 5-Category Corpus Sampler   │   │ 2. Dynamic Feed Sifter ($F_j$) & Live RSS│      │
-│ │ • Live RSS Stream Article Extraction     │   │ 3. Remote FastMCP 2.0 SSE Session Streaming│    │
-│ │ • Automatic sampling frequency balance   │   │ 4. 13-Node Watts-Strogatz Mesh Gauntlet  │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🎯 Shift-Left Integrity: Tests real-world targets daily with deterministic reproduction seeds    │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Tutorial 10: Running the Reusable Live Rotating E2E & Byzantine Mesh Gauntlet](assets/illustrations/10-reusable-live-e2e-and-mesh-gauntlet.svg)
 
 ---
 

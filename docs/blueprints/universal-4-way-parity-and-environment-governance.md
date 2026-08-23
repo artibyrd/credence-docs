@@ -14,27 +14,7 @@ Credence strictly maintains simultaneous **Universal 4-Way Feature Parity** acro
 
 ## 1. Interface Parity Matrix & Topology
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         UNIVERSAL 4-WAY FEATURE PARITY ARCHITECTURE                              │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ CREDENCE EPISTEMIC KERNEL                                                                  │   │
-│ │ • RFC 8785 Canonical JSON • Ed25519 Custody • Verbatim Grounding ($G=1.00$) • Scoring Math │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │                                                 │
-│       ┌─────────────────────────┬──────────────┴──────────────┬─────────────────────────┐        │
-│       ▼                         ▼                             ▼                         ▼        │
-│ ┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐ │
-│ │ 1. RICH CLI       │ │ 2. FASTMCP 2.0    │ │ 3. TEXTUAL TUI    │ │ 4. ZERO-BUILD WEB │ │
-│ │ • check / audit   │ │ • stdio / SSE     │ │ • 9 Terminal Tabs │ │ • 5 Portals (Run, │ │
-│ │ • badge export (3)│ │ • `generate_badge`│ │ • 3-Tier Lensing  │ │   Report, Nexus...) │ │
-│ │ • merit / mesh    │ │ • MCP Resources   │ │ • Zero-mock SRE   │ │ • WebCrypto verify│ │
-│ └───────────────────┘ └───────────────────┘ └───────────────────┘ └───────────────────┘ │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Invariant: 100% Feature Symmetry across CLI, FastMCP 2.0, Textual TUI, and Zero-Build Web UI  │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Technical Blueprint: Universal 4-Way Parity and Environment Governance](assets/illustrations/universal-4-way-parity-and-environment-governance.svg)
 
 ---
 

@@ -29,23 +29,7 @@ As autonomous agent ecosystems mature, system invariants must scale without succ
 
 When every bug fix or post-mortem appends a new rule to a flat `AGENTS.md`, prompt adherence degrades non-linearly. Critical security boundaries compete for attention with formatting preferences.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         FLAT INVARIANT SPRAWL FAILURE MODES & ATTENTION DILUTION                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🚨 THE FLAT INVARIANT SPRAWL TRAP (30+ Unordered Rules in Flat System Prompt)              │   │
-│ ├──────────────────────────┬─────────────────────────────┬───────────────────────────────────┤   │
-│ │ 1. ATTENTION DILUTION    │ 2. COGNITIVE OATMEAL        │ 3. CONTEXT TOKEN TAX              │   │
-│ ├──────────────────────────┼─────────────────────────────┼───────────────────────────────────┤   │
-│ │ LLM context loses needle │ Minor style formatting      │ 1,500+ tokens burned on every single│
-│ │ in haystack; overlooks   │ given equal weight to P0    │ conversation turn; shrinks active │   │
-│ │ P0 security boundaries   │ security/custody rules      │ reasoning headroom budget         │   │
-│ └──────────────────────────┴─────────────────────────────┴───────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 The Constant-Ceiling Solution: Tier 0 Hard Budget (<800 tokens) + Tier 2 Deterministic Gates   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![06. The Demotion Highway & Invariant Lifecycle Governance](assets/illustrations/06-the-demotion-highway-and-invariant-lifecycle.svg)
 
 To prevent this, Credence establishes the **Constant-Ceiling Theorem**:
 - **Tier 0 Hard Budget**: Total Tier 0 rules in `AGENTS.md` must **never exceed 10–12 core axioms** and must remain strictly **$<800$ tokens**.
@@ -69,23 +53,7 @@ Invariants in `AGENTS.md` are strictly organized into three ranked cognitive cla
 
 Invariants are not divine dogmas; they represent the **strongest empirical truth validated at project epoch $t$**. Over time, new tooling, compiler capabilities, or test suites may revise, consolidate, or demote an invariant.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         INVARIANT LIFECYCLE 6-STATE MACHINE                                      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                                  │
-│       [Proposed] ──(Adopted)──▶ [Active (Living Canon)] ──(Milestone Audit)──▶ [Under Review]     │
-│                                                                                       │          │
-│                      ┌────────────────────────────────┬───────────────────────────────┤          │
-│                      ▼                                ▼                               ▼          │
-│             [Re-affirmed Active]             [Amended / Upgraded]          [Demoted / Retired]   │
-│             Merit confirmed                  Scope/Formula refined         Demoted to Tier 2 test│
-│             remains in AGENTS.md             in AGENTS.md                  or Tier 1 Skill file  │
-│                                                                                                  │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ⚖️ Invariant Bible Canon: Continually re-evaluates empirical relevance across version epochs     │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![06. The Demotion Highway & Invariant Lifecycle Governance](assets/illustrations/06-the-demotion-highway-and-invariant-lifecycle-2.svg)
 
 ### The 6 Lifecycle States:
 1. **`Proposed`**: Synthesized during `/learn` retrospectives or post-mortems and documented in `learning_proposal.md`.

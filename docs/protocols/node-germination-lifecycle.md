@@ -12,42 +12,7 @@ last_verified: 2026-08-20
 
 This specification defines the protocol, data structures, mathematical formulas, and concurrency invariants governing **Autonomous Node Germination** and **Swarm Ignition** across the Credence ecosystem.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         5-PHASE NODE GERMINATION & SWARM IGNITION                                │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ PHASE 1: EPISTEMIC GENESIS                                                                 │   │
-│ │ • Load or generate sovereign Ed25519 identity keypair (`node_identity.json`)               │   │
-│ │ • Derive 64-char hexadecimal public key $K_{\text{node}}$                                   │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ PHASE 2: GENESIS PEER MESH INOCULATION                                                     │   │
-│ │ • Ingest canonical signed Genesis seed attestations (`genesis_attestations.json`)          │   │
-│ │ • Verify Ed25519 signatures and populate SQLite WAL in <2ms ($0.00 token cost)             │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ PHASE 3: TAXONOMY & SUBSCRIPTION SEEDING                                                   │   │
-│ │ • Register 26 verified RSS/Atom root feeds across news, technology, satire, and science    │   │
-│ │ • Invariant: 0 duplicate subscriptions per node database                                   │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ PHASE 4: HRW RENDEZVOUS HASHING & MIRACLE-GRO BURST AUDIT                                  │   │
-│ │ • Partition syndicated feeds via HRW $h(K_{\text{node}}, \text{URL})$                      │   │
-│ │ • Evaluate Top-$N$ novel articles using Gemini 3.7 Flash ($G=1.00$ grounding gate)         │   │
-│ │ • Broadcast newly signed RFC 8785 Ed25519 attestations across P2P gossip mesh              │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ PHASE 5: STATIC WEB & PUBLIC REPORT CATALOG EXPORT                                         │   │
-│ │ • Export `reports.json` static catalog for client-side zero-build viewers                  │   │
-│ │ • Ready for interactive CLI, FastMCP 2.0 stdio/SSE server, and background Boredom Engine   │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Node Germination & Swarm Ignition Specification](assets/illustrations/node-germination-lifecycle.svg)
 
 ---
 

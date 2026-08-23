@@ -25,30 +25,7 @@ In **Credence v2.0.0**, all system concepts adhere to two strict semantic laws:
 2. **The 5 Cohesive Thematic Families**:
    All 36 Credence-invented concepts are organized into **5 unified metaphors** to provide an intuitive, memorable mental model across the ecosystem.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE 5 THEMATIC METAPHOR FAMILIES OF CREDENCE                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ 🌿 BOTANICAL LIFECYCLE    │ 🔭 FORENSIC & OPTICAL GROUND  │ 🌤️ METEOROLOGICAL EPISTEMICS   │   │
-│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
-│ │ • Cryptographic Seeds     │ • Verbatim Grounding ($G=1.0$)│ • Macro Truth Weather          │   │
-│ │ • Node Germination        │ • The Galileo Rule            │ • Entropy Collapse Drift       │   │
-│ │ • Root Expansion & Sprouts│ • Trust Bands & DEI Indexing  │ • Satire Cloaking Shield       │   │
-│ └─────────────┬─────────────┴───────────────┬───────────────┴────────────────┬───────────────┘   │
-│               │                             │                                │                   │
-│               └─────────────────────────────┼────────────────────────────────┘                   │
-│                                             ▼                                                    │
-│ ┌───────────────────────────────────────────┴────────────────────────────────────────────────┐   │
-│ │ 🏛️ SOVEREIGN GOVERNANCE                   │ ⚡ SELF-REGULATING ENGINE                       │   │
-│ ├───────────────────────────────────────────┼────────────────────────────────────────────────┤   │
-│ │ • The Invariant Bible & 500 LOC Law       │ • Epistemic Feed Sifter & Curiosity Loop       │   │
-│ │ • `compute_*` Functional Ontology         │ • Token Governor & BitTorrent Attestation Relay│   │
-│ └───────────────────────────────────────────┴────────────────────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 📖 Canonical v2.0.0 Lexicon: 52 Standardized Terms (16 Industry Standards + 36 Inventions)      │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Credence Ecosystem Terminology & Ontology Lexicon](assets/illustrations/terminology-and-ontology-lexicon.svg)
 
 ---
 
@@ -56,26 +33,7 @@ In **Credence v2.0.0**, all system concepts adhere to two strict semantic laws:
 
 Across the **52 terms** governing Credence (16 Industry Standards + 36 Credence Inventions), the vocabulary forms an intentional **cognitive pyramid**:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         CREDENCE VOCABULARY COGNITIVE PYRAMID (52 TERMS)                         │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                                  │
-│                                    / \                                                           │
-│                                   /   \  🔴 LEVEL 3: EXPERT (28.8% · 15 Terms)                   │
-│                                  /     \    Galileo Theorem, Byzantine 3f+1, ASI, RFC 8785       │
-│                                 /───────\                                                        │
-│                                /         \  🟡 LEVEL 2: ADVANCED (40.4% · 21 Terms)              │
-│                               /           \    Verbatim Grounding, Token Governor, Feed Sifter   │
-│                              /─────────────\                                                     │
-│                             /               \  🟢 LEVEL 1: BASIC (30.8% · 16 Terms)              │
-│                            /                 \    Risk Score, Trust Bands, Quote Check, 500 LOC  │
-│                           ─────────────────────                                                  │
-│                                                                                                  │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🎯 Proportional Naming Law: Concepts graduate from intuitive user UI to rigorous math proofs     │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Credence Ecosystem Terminology & Ontology Lexicon](assets/illustrations/terminology-and-ontology-lexicon-2.svg)
 
 | Complexity Level | Count | Share | Target Audience | Primary Focus |
 | :--- | :---: | :---: | :--- | :--- |

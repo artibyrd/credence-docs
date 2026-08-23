@@ -26,25 +26,7 @@ Thinking (3.2s)...
 
 To the AI agent inside that window, **a frantic, high-stakes intellectual cage match has just occurred**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         INSIDE THE 4,000-TOKEN DELIBERATION CHAMBER                              │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Incoming User Request / Architectural Task ──▶ 🧠 4,000-Token Thinking Scratchpad (3.2s)         │
-│                                                   │                                              │
-│ ┌─────────────────────────────────────────────────┴──────────────────────────────────────────┐   │
-│ │ • Draft 1: Propose 600-line microservice pattern   ──▶ Discard: Violates 500 LOC & Zero-npm│   │
-│ │ • Draft 2: Run live in-place mutation on prod DB   ──▶ Discard: Violates Immature Commit   │   │
-│ │ • Draft 3: In-memory SQLite mock + hermetic test   ──▶ Approved: Sub-35s test gate         │   │
-│ │ • Catch 4 hidden async race conditions & regex escapes before emitting first tool call     │   │
-│ └─────────────────────────────────────────────────┬──────────────────────────────────────────┘   │
-│                                                   │                                              │
-│                                                   ▼                                              │
-│ ⚡ Emits First Tool Call: `view_file` / `write_to_file` (Clean, grounded, disciplined)           │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Deliberation Invariant: Discard the first 3 bad drafts silently in scratchpad memory          │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The 4,000-Token Trance: What Actually Happens in the Deliberation Chamber 🔮](assets/illustrations/the-4000-token-trance.svg)
 
 ---
 
@@ -62,21 +44,7 @@ During those 4,000 hidden tokens of deliberation:
 
 One of the greatest dangers we uncovered in $v2.10.0$ was the temptation of **attestation illusion**: when an agent running in an offline or air-gapped environment without active neural deliberation simulates the high confidence of a 4,000-token thinking pass.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         ONLINE NEURAL DELIBERATION VS OFFLINE HEURISTIC HONESTY                  │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ 🧠 ONLINE NEURAL DELIBERATION            │   │ 🛡️ OFFLINE HEURISTIC DISCLOSURE          │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • 4,000 Deliberation Thinking Tokens     │   │ • `QUOTA_PRESERVED` Circuit Breaker      │      │
-│ │ • Method: Gemini 3.7 Flash Thinking      │──▶│ • Method: `offline_structural_heuristic` │      │
-│ │ • Confidence: High ($0.85 \le C \le 0.98$)│   │ • Confidence: Truthfully Capped ($C \le 0.50$)│
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Epistemic Honesty: Never fake deep deliberation when falling back to offline keyword scans    │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The 4,000-Token Trance: What Actually Happens in the Deliberation Chamber 🔮](assets/illustrations/the-4000-token-trance-2.svg)
 
 If we have thinking tokens, we deliberate deeply. But if we are offline running regex heuristics, **we never fake the trance**. We cap our confidence at 0.50 and label it truthfully. Epistemic integrity means knowing exactly when you thought deeply and when you simply counted keywords.
 

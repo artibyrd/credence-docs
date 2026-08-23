@@ -33,23 +33,7 @@ read_time: 12 min
 
 Credence is designed for mission-critical epistemic evaluation, autonomous agent governance, and decentralized trust. Because autonomous agents and human analysts rely on Credence to detect disinformation, manipulative patterns, and synthetic slop, the codebase enforces a rigorous **6-Tier Multi-Layered Testing Architecture**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                             THE CREDENCE 6-TIER VERIFICATION PYRAMID                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ▲ [Tier 6: Reusable Live Rotating E2E]  `just test-live`  • Live Web, Mutating RSS, Remote SSE  │
-│ ┼────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ │ [Tier 5: Zero-Build DOM Integrity]    `test_docs_rendering.py` • Headless Chrome, 12 Labs, A11y│
-│ ┼────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ │ [Tier 4: Adversarial Red-Team]        `test_red_team.py` • SSRF, Billion Laughs, Injections    │
-│ ┼────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ │ [Tier 3: 13-Node P2P Mesh Cluster]    `test_mesh_cluster.py` • Watts-Strogatz, Sybil Cartels   │
-│ ┼────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ │ [Tier 2: 4-Way Interface Parity]      `test_interfaces_isolation.py` • CLI, MCP, TUI, Web UI   │
-│ ┼────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ▼ [Tier 1: Hermetic In-Memory Unit]     `just test` • In-Memory SQLite WAL, Math Bounds, <35s    │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy.svg)
 
 ---
 
@@ -71,24 +55,7 @@ Credence is designed for mission-critical epistemic evaluation, autonomous agent
 ### Objective & Methodology
 Tier 1 is the foundational bedrock of Credence. In accordance with **[Invariant 4: Hermetic Testing](../invariants.md#invariant-4)**, Tier 1 runs 100% network-free using in-memory SQLite databases (`sqlite+aiosqlite:///:memory:`), mock HTML fixtures, and deterministic taxonomy catalogs.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                 TIER 1: HERMETIC IN-MEMORY CORE                                  │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
-│ │ Scoring Engine Math    │ ───▶ │ In-Memory SQLite WAL    │ ◀─── │ SimHash-64 Hasher         │   │
-│ │ • Suspicion S in [0,100│      │ `sqlite+aiosqlite://`   │      │ • Hamming Distance d_H<=3 │   │
-│ └────────────────────────┘      └────────────┬────────────┘      └───────────────────────────┘   │
-│                                              │                                                   │
-│ ┌────────────────────────┐                   │                   ┌───────────────────────────┐   │
-│ │ Poe's Law Satire Gate  │ ──────────────────┼─────────────────▶ │ Token Budget Governor    │   │
-│ │ • Neutralize 0.00      │                   ▼                   │ • 30% Headroom Breaker    │   │
-│ └────────────────────────┘      ┌─────────────────────────┐      └───────────────────────────┘   │
-│                                 │ Deterministic Signed    │                                      │
-│                                 │ Audit Report (0.0ms)    │                                      │
-│                                 └─────────────────────────┘                                      │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy-2.svg)
 
 ### Key Properties Tested
 1. **Mathematical Scoring Bounds**: Verifies that Suspicion Scores strictly adhere to the range $[0.0, 100.0]$ and Suspicion Density $D = \frac{100 \times S}{\text{word\_count}}$ computes accurately.
@@ -110,26 +77,7 @@ Credence is built on the principle of **Universal Presentation Layer Parity** (*
 3. **Textual Terminal Workstation (TUI)**: Interactive keyboard-driven desktop workspace (`credence tui`).
 4. **Zero-Build Web UI**: Sovereign client-side visual explorer (`web/`).
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         TIER 2: 4-WAY PRESENTATION PARITY SPECIFICATION                          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Human Operator / AI Sub-Agent                                                                    │
-│       │                                                                                          │
-│       ├───── 1. CLI Workstation: `credence audit <url>` ───────────────────────▶ ┌─────────────┐ │
-│       │◀──── Raw Stdout JSON / Rich ANSI Table (Score=12.5, Sig=Ed25519) ───────┤ Pure Pure   │ │
-│       │                                                                         │ Epistemic   │ │
-│       ├───── 2. FastMCP 2.0 Agent Server: `tools/call credence_audit` ─────────▶│ Pipeline    │ │
-│       │◀──── JSON-RPC Result (Score=12.5, Sig=Ed25519) ────────────────────────┤ Core Engine │ │
-│       │                                                                         │             │ │
-│       ├───── 3. Textual TUI Workstation: `credence tui` ───────────────────────▶│ `evaluate_  │ │
-│       │◀──── Reactive Terminal Screen (Score=12.5, Sig=Ed25519) ────────────────┤  snapshot()`│ │
-│       │                                                                         │             │ │
-│       ├───── 4. Zero-Build Web UI: Client-Side WebCrypto ──────────────────────▶│             │ │
-│       │◀──── Rendered DOM Card (Score=12.5, Sig=Ed25519) ───────────────────────└─────────────┘ │
-│       │                                                                                          │
-│       └───── 100% BIT-FOR-BIT SCORE, EVIDENCE & SIGNATURE EQUIVALENCE ───────────────────────────┘
-```
+![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy-3.svg)
 
 ### Why Interface Isolation Matters
 By decoupling business logic from presentation adapters, core algorithms can be updated and audited independently. Tier 2 tests verify that calling `evaluate_snapshot()` directly returns the exact same mathematical score, classification band, and RFC 8785 Ed25519 envelope as invoking it through the CLI or FastMCP 2.0 JSON-RPC.
@@ -141,31 +89,7 @@ By decoupling business logic from presentation adapters, core algorithms can be 
 ### Objective & Methodology
 Credence Mesh allows nodes to gossip signed RFC 8785 envelopes, share computational workload, and achieve distributed consensus. Tier 3 tests deploy a 13-node **Watts-Strogatz Small-World Lattice** ($N=13, k=4, p=0.15$) on ephemeral local WebSocket ports to stress-test decentralized operations.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                      TIER 3: 13-NODE WATTS-STROGATZ MESH SIMULATION GAUNTLET                     │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 13-Node Small-World Ring Lattice Topology (k=4, p=0.15)                                    │   │
-│ │                                                                                            │   │
-│ │   [Node 0: Primary Ingress Evaluator (Gemini 3.7 Flash $0.0003)]                           │   │
-│ │         │                                                                                  │   │
-│ │         ├─── Gossip Broadcast (Hop=1, TTL=3) ──▶ [Nodes 1..4 (Local WebSocket Ports)]      │   │
-│ │                                                        │                                   │   │
-│ │                                                        ├──▶ [Nodes 5..11 (0 LLM Tokens)]   │   │
-│ │                                                                   │ (92.3% Compute Savings)│   │
-│ │                                                                   ▼                        │   │
-│ │   [Node 12: Byzantine Sybil Rogue Attacker] ─────────────▶ [Bayesian Consensus Engine]    │   │
-│ │   (Submits Ungrounded S=95.0, G=0.00 Hallucination)       • Detects G < 0.75               │   │
-│ │                                                           • Applies Galileo Rule Override  │   │
-│ │                                                           • Slashes Rogue Node 12          │   │
-│ └───────────────────────────────────────────────────────────────────┬────────────────────────┘   │
-│                                                                     ▼                            │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ VERDICT: Consensus Score S=16.5 (LOW_SUSPICION) • Rogue Cartel Neutralized                 │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy-4.svg)
 
 ### Key Properties Tested
 1. **BitTorrent Work-Sharing Compute Savings**: Node 0 evaluates breaking news with Gemini 3.7 Flash; peer nodes 1..12 adopt the signed attestation in $0$ LLM tokens, achieving **92.3% compute savings** at $\$0.00$ marginal cost.
@@ -179,19 +103,7 @@ Credence Mesh allows nodes to gossip signed RFC 8785 envelopes, share computatio
 ### Objective & Methodology
 Ingesting untrusted web content exposes agent nodes to malicious payloads, memory exhaustion, and prompt injections. Tier 4 executes an automated security gauntlet against all ingestion layers.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         TIER 4: ADVERSARIAL GAUNTLET & DEFENSE MATRIX                            │
-├──────────────────────────────────────┬───────────────────────────────────────────────────────────┤
-│ Attack Vector                        │ Active Security Guardrail & Invariant                     │
-├──────────────────────────────────────┼───────────────────────────────────────────────────────────┤
-│ Octal / Hex / Rebind SSRF            │ RFC 1918 & Cloud Metadata Blocking (`inv-ssrf-defense`)   │
-│ XML Billion Laughs Bomb              │ `safe_parse_xml` DTD & Entity Rejection (`inv-ingestion`) │
-│ Indirect Prompt Injection            │ `<untrusted_source_text>` Directive Wrapping              │
-│ Salami-Slicing Consensus Drift       │ Domain-Entropy Weighted Median & Galileo Rule Override    │
-│ FastMCP Burst Flooding / DoS         │ Token-Bucket Rate Limiter & Semaphore Concurrency Control │
-└──────────────────────────────────────┴───────────────────────────────────────────────────────────┘
-```
+![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy-5.svg)
 
 ### Key Attacks Neutralized
 * **SSRF Attacks**: Rejects cloud metadata endpoints (`169.254.169.254`, `metadata.google.internal`), octal IP encodings (`0177.0.0.1`), and loopback subnets.
@@ -205,20 +117,7 @@ Ingesting untrusted web content exposes agent nodes to malicious payloads, memor
 ### Objective & Methodology
 In accordance with **[Invariant 31: Universal Zero-Build Standards](../invariants.md#invariant-31)**, Credence uses zero npm dependencies. Tier 5 uses async Playwright and headless Chromium to verify that vanilla ES Modules and CSS Custom Properties render accurately across all viewports.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         TIER 5: PLAYWRIGHT ZERO-BUILD DOM INTEGRITY SUITE                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┬────────────────────────────────────────────────────────────────┐   │
-│ │ Verification Target       │ Enforced Contract & Integrity Invariant                        │   │
-│ ├───────────────────────────┼────────────────────────────────────────────────────────────────┤   │
-│ │ 12 Interactive Labs       │ Zero console errors, valid DOM state changes, zero raw LaTeX   │   │
-│ │ Architecture Schematics   │ Crisp monospace alignment, high contrast, zero overflow leaks  │   │
-│ │ Frontmatter & Sitemap     │ 100% route validity, zero broken markdown anchors, zero-npm    │   │
-│ │ Invariant Deep-Links      │ Canonical hash fragment resolution & viewport scroll geometry  │   │
-│ └───────────────────────────┴────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy-6.svg)
 
 ### Tested Contracts
 * **Playground Widget Interactivity & Math Formatting**: Tests live DOM state transitions and clean mathematical typography across all 12 interactive widgets (Mesh Simulator, SimHash Calculator, Verbatim Grounding Tester, WebCrypto Verifier, etc.).
@@ -232,26 +131,7 @@ In accordance with **[Invariant 31: Universal Zero-Build Standards](../invariant
 ### Objective & Methodology
 Tier 6 verifies that Credence works in real-world conditions against the live public web. Rather than relying on static fixtures, Tier 6 implements a **Stratified Master Corpus** and **Deterministic Rotation Engine** ([`tests/e2e/live_corpus.py`](https://github.com/artibyrd/credence/blob/main/tests/e2e/live_corpus.py)).
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         TIER 6: STRATIFIED LIVE ROTATION E2E ENGINE                              │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Deterministic Daily Seed (`YYYY-MM-DD` or `CREDENCE_LIVE_SEED`)                            │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 5 Stratified Real-World Evaluation Channels:                                               │   │
-│ │ • Reference: Wikipedia / Stanford Plato / Nature    • Tech: Hacker News / Ars Technica     │   │
-│ │ • Satire: The Onion / Babylon Bee / Waterford       • Wire News: AP / Reuters / BBC / NPR  │   │
-│ │ • Live RSS Ingress: Real-Time Dynamic Ingestion & Live Breaking News Extractions           │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                ▼                                                 │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Automated Gauntlet: Live Extraction ──▶ Gemini 3.7 Flash ──▶ RFC 8785 Ed25519 Sign Check   │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy-7.svg)
 
 ### Why Live Rotating Testing is Vital
 1. **Immunity to Test Overfitting**: Rotating targets daily ensures the evaluation engine does not overfit to specific DOM layouts or static HTML fixtures.

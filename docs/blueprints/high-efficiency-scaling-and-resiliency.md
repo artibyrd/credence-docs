@@ -14,26 +14,7 @@ This blueprint documents the architectural patterns enabling Credence to scale h
 
 ## 1. The 5 Value Pillars
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         5-PILLAR HIGH-EFFICIENCY SCALING ARCHITECTURE                            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ 1. IMMUTABLE EDGE CACHING │ 2. DUAL-DIALECT SQL           │ 3. FAST-PATH INGESTION         │   │
-│ │ • 95%+ Cloudflare CDN hit │ • Local SQLite WAL dev        │ • 50ms Trafilatura (<15MB RAM) │   │
-│ │ • Sub-20ms global edge TTS│ • Managed PostgreSQL in Cloud │ • Deferred Playwright fallback │   │
-│ └─────────────┬─────────────┴───────────────┬───────────────┴────────────────┬───────────────┘   │
-│               │                             │                                │                   │
-│               └─────────────────────────────┼────────────────────────────────┘                   │
-│                                             ▼                                                    │
-│ ┌───────────────────────────────────────────┴────────────────────────────────────────────────┐   │
-│ │ 4. SHARED ATOMIC STATE STORE              │ 5. CAS IMMUTABLE BLOB STORAGE                  │   │
-│ │ • Atomic Lua token metering & feed locks  │ • Cloudflare R2 / S3 zero-egress snapshots     │   │
-│ └───────────────────────────────────────────┴────────────────────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🌐 Planetary Scale: 100M+ monthly queries • Sub-20ms reads • <$40/month baseline cloud spend     │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Technical Blueprint: High-Efficiency Scaling & Resiliency Architecture](assets/illustrations/high-efficiency-scaling-and-resiliency.svg)
 
 ---
 

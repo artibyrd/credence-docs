@@ -18,32 +18,7 @@ This transformation presents a fundamental dilemma for automated verification en
 
 In **Credence v1.21.0**, we formalized **Invariant 40** and **EPEP-17** to solve this through **The BuzzFeed News Doctrine**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         THE BUZZFEED NEWS DOCTRINE: ASYMMETRIC BAYESIAN REDEMPTION               │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛑 DECEPTIVE OUTLET ($S \ge 80.0$) ──▶ `QUARANTINED_PROBATION` ($16\times$ Exponential Polling Backoff)│
-│                                                   │                                              │
-│                                                   ▼                                              │
-│                        Lazarus Sampling Probe (1 item / week @ $\ge 50\%$ Token Headroom)        │
-│                                                   │                                              │
-│       ┌───────────────────────────────────────────┴──────────────────────────────────────────┐   │
-│       ▼ Fails Audit ($S \ge 50.0$)                               ▼ Clean Audit ($S \le 20.0, G=1.00$)│
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ 🔴 RESET BACKOFF TO $64\times$           │   │ 🟢 ACCUMULATE CLEAN STREAK ($k \ge 5$)   │      │
-│ │ • Extend penalty duration exponentially  │   │ • Multi-subject diversity check required │      │
-│ └──────────────────────────────────────────┘   └─────────────────────┬────────────────────┘      │
-│                                                                      │                           │
-│       ┌──────────────────────────────────────────────────────────────┴────────┐                  │
-│       ▼ Single-subject only (Trojan weather/sports spam)                      ▼ $\ge 2$ namespaces│
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ 🟡 BLOCKED: ANTI-TROJAN DIVERSITY RULE   │   │ ✨ GRADUATE TO `PROBATIONARY_RECOVERY`   │      │
-│ │ • Diversity failure prevents graduation  │   │ • Restore normal polling ($1\times$), Rep $\ge 40$│
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Invariant 40: Fast asymmetric penalization, slow diverse empirical redemption                 │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The BuzzFeed News Doctrine: How Autonomous Trust Networks Handle Redemption Without Blindspots](assets/illustrations/the-buzzfeed-news-doctrine.svg)
 
 ---
 

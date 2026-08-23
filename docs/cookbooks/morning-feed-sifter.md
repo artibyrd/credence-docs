@@ -15,31 +15,7 @@ This cookbook shows how to set up an autonomous, zero-trust **Credence Morning F
 
 ## 1. Zero-Trust Architecture Overview
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         AUTONOMOUS MORNING FEED SIFTER & EPISTEMIC DIGEST                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Dynamic Feed Discovery (`credence feed discover`) ──▶ Pre-Flight Forensic Audit ($H_{\text{topic}}$ & SPJ)│
-│                                              │                                                   │
-│                                              ▼ Quality Score Gate ($F_j \ge 0.70$)               │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Real-Time Sifter Daemon (`credence sifter`) & HRW Workload Partitioning                      │   │
-│ └────────────────────────────────────────────┬───────────────────────────────────────────────┘   │
-│                                              │                                                   │
-│                     ┌────────────────────────┴────────────────────────┐                          │
-│                     ▼ Audit Attestation Found on P2P Mesh             ▼ Novel Item Audited       │
-│ ┌────────────────────────────────────────────────────────┐ ┌─────────────────────────────────┐ │
-│ │ ⚡ Zero-Token Mesh Adoption ($0.00 Token Burn)         │ │ 🔬 Pareto LLM Audit (Gemini 3.7)│ │
-│ │ • Verify Ed25519 signature in <1ms                     │ │ • Verbatim Grounding ($G=1.00$) │ │
-│ │ • Save 92.3% of compute tokens across swarm            │ │ • Signs RFC 8785 envelope & goss│ │
-│ └───────────────────────────┬────────────────────────────┘ └────────────────┬────────────────┘ │
-│                             └────────────────────────┬──────────────────────┘                    │
-│                                                      ▼                                           │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 📰 Morning Epistemic Digest Generator (`credence digest` · Terminal / Markdown / JSON)     │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![1. Autodiscover feed candidate endpoints from any target website](assets/illustrations/morning-feed-sifter.svg)
 
 > [!TIP]
 > **Zero-Configuration Work-Sharing**: When multiple team members or automated agents run the sifter daemon across your local network or VPN, they automatically partition feed ingestion using Rendezvous Hashing without requiring a central coordination server.

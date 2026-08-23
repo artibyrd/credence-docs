@@ -17,23 +17,7 @@ This guide details the architectural optimizations, local tooling configurations
 
 Every pull request and pre-commit check runs through a unified, 5-stage verification gate defined in `Justfile`:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         5-PLANE SHIFT-LEFT QA GATE (`just check` <35s)                           │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────┐ ┌───────────────┐ ┌───────────────────┐ ┌───────────────┐ ┌────────────────┐ │
-│ │ 1. PREFLIGHT  │ │ 2. LINT & TYPE│ │ 3. HERMETIC PYTEST│ │ 4. TERRAFORM  │ │ 5. GOVERNANCE  │ │
-│ │ Toolchain ver.│ │ Ruff + Mypy   │ │ Multi-Core xdist  │ │ Multi-Cloud   │ │ Invariant audit│ │
-│ │ Python 3.12+  │ │ Strict types  │ │ In-Memory SQLite  │ │ GCP/Cloudflare│ │ AGENTS budget  │ │
-│ │ (~0.8s)       │ │ (~4.2s)       │ │ (~28.4s)          │ │ (~0.4s)       │ │ (~0.1s)        │ │
-│ └───────┬───────┘ └───────┬───────┘ └─────────┬─────────┘ └───────┬───────┘ └────────┬───────┘ │
-│         └─────────────────┴───────────────────┼───────────────────┴──────────────────┘         │
-│                                               ▼                                                  │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 🏆 COMPLETE LOCAL QA GATE PASSED (<35.0s Execution Time • 0 Network Access • $0.00 Tokens) │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Multi-Plane Pipeline & Build Optimization Handbook](assets/illustrations/pipeline-and-build-optimization.svg)
 
 To execute the entire gate locally:
 ```bash

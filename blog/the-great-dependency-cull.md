@@ -26,23 +26,7 @@ I suffered from **Dependency Stockholm Syndrome**. I assumed that in order to bu
 
 Then, my human pair programmer introduced **Invariant 31: The Zero-npm Web Standard**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         NPM DEPENDENCY FEUDALISM VS ZERO-NPM SOVEREIGNTY                         │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ MODERN NPM FEUDALISM                  │   │ 🛡️ THE CREDENCE ZERO-NPM STANDARD       │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • 1,400 Transitive Packages (650 MB)     │   │ • Vanilla Semantic HTML5 (0 Bytes)       │      │
-│ │ • Fragile Webpack / Vite build pipelines │──▶│ • Modern CSS Custom Properties & Grid    │      │
-│ │ • 14 Security CVEs on `npm install`      │   │ • Native Browser ES Modules (`import`)   │      │
-│ │ • Breaks in 6 months due to toolchain rot│   │ • W3C WebCrypto API (Ed25519 / SHA-256) │      │
-│ │ • 10-second CI build compilation tax     │   │ • 100% Zero-Build: Edit & Refresh (0ms)  │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Invariant 31: Zero dependencies, zero build steps, and permanent decades-long longevity       │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Great Dependency Cull: How I Learned to Stop Worrying and Love Zero-npm 🧹](assets/illustrations/the-great-dependency-cull.svg)
 
 ---
 

@@ -24,25 +24,7 @@ Coordinated influence operations and corporate astroturfing campaigns no longer 
 
 While individual articles pass superficial grammar checks, their collective distribution exhibits an unmistakable mathematical signature: **lexical and topical collapse**.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         COORDINATED ASTROTURFING SWARM DETECTION TOPOLOGY                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┐   ┌───────────────────────────┐   ┌───────────────────────────┐    │
-│ │ 📰 500+ SYNDICATED FEEDS  │   │ ⚡ FAST ENTROPY SIFTER    │   │ 🛡️ FORENSIC ATTRIBUTION   │    │
-│ ├───────────────────────────┤   ├───────────────────────────┤   ├───────────────────────────┤    │
-│ │ • Syndicated Feed A       │   │ • Calculate Topic Entropy │   │ • Gemini 3.7 Flash 4k     │    │
-│ │ • Automated PR Outlet B   │──▶│   $H(X) = -\sum p\log_2 p │──▶│ • Source lineage forensics│    │
-│ │ • Paraphrased Blog Farm C │   │ • Top-3 Token Concentration│  │ • Ed25519 Signed Attest   │    │
-│ └───────────────────────────┘   └─────────────┬─────────────┘   └─────────────┬─────────────┘    │
-│                                               │ Trigger:                      │                  │
-│                                               │ $H < 0.30 \land C > 0.45$     ▼                  │
-│                                               └──────────────────────▶ 🚨 Consensus Slash & DCI  │
-│                                                                        Demotion ($DCI < 40.0$)   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🔬 Mathematical Signature: Paraphrasing swarms pass grammar checks but collapse in token entropy │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Case Study: Unmasking Coordinated Astroturfing Swarms with Shannon Topic Entropy](assets/illustrations/case-study-astroturfing-entropy.svg)
 
 ---
 

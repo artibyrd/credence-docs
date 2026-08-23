@@ -37,21 +37,7 @@ Here is the forensic breakdown of what was stealing our time, and how we solved 
 
 We instrumented the container startup using Python's `-X importtime`, process timers, and GCP Cloud Logging traces. What we discovered was an eye-opening stack of hidden overheads:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         CONTAINER COLD-START FORENSIC LATENCY BREAKDOWN                          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 0.0s ──── 1.5s ──── 2.5s ────────── 3.3s ──────── 4.5s ──────── 5.5s ─────────────────── 11.5s  │
-│ [MicroVM] [Poetry]  [AST Parse]   [Trafilatura]  [FastMCP Bind] [10s Startup Probe Polling Lag] │
-│                                                                                                  │
-│ ❌ CRITICAL BOTTLENECK ANALYSIS:                                                                  │
-│ • Poetry Virtualenv Wrapper Tax: ~1,000ms before Python begins execution                         │
-│ • Dateparser / Trafilatura Import Subtree: ~1,185ms loading unused regex tables                  │
-│ • Startup Probe Polling Lag: ~4,500ms container idling while load balancer probe waits           │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Cold-Start Invariant: 80% of serverless Python lag stems from tooling wrappers & probe delays │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Taming the 10-Second Cold Start: How We Cut Python Cloud Run Startup by 80% at $0.00 Idle Cost](assets/illustrations/taming-the-10-second-cold-start-scale-to-zero.svg)
 
 ### Culprit #1: The Poetry Wrapper Tax (~1,000ms)
 Like many Python projects, our container `CMD` was running:

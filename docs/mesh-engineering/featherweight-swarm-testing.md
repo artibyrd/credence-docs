@@ -13,25 +13,7 @@ Testing decentralized peer-to-peer (P2P) swarms has historically been an infrast
 
 In **Credence**, we engineered a **featherweight swarm architecture** that allows developers to run complete, mathematically rigorous 13-node cluster simulations in **$<150\text{MB}$ of RAM in under 4.5 seconds** on a $35 Raspberry Pi or standard GitHub Actions CI runner.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         SWARM SIMULATION ARCHITECTURE BENCHMARK                                  │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ❌ TRADITIONAL K8S / DOCKER P2P TESTING (16GB+ RAM, 120s Startup)                                │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Heavy VM/K8s Cluster (8-16GB RAM) ──▶ 13 Virtual Machine OS Images ──▶ $10+ Token API Cost │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-│                                                                                                  │
-│ ⚡ CREDENCE FEATHERWEIGHT ARCHITECTURE (<150MB RAM, <1s Startup)                                  │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Single Asyncio Python Process (Event Loop)                                                 │   │
-│ │ ┌──────────────────────┐ ┌──────────────────────┐         ┌──────────────────────────────┐ │   │
-│ │ │ Relay 1 (:9501)      │ │ Relay 2 (:9502)      │  . . .  │ Relay 13 (:9513)             │ │   │
-│ │ └──────────┬───────────┘ └──────────┬───────────┘         └──────────────┬───────────────┘ │   │
-│ │            └─────────── In-Memory Small-World Ring Lattice (d=4, beta=0.20) ─────────────┘ │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Featherweight Swarm Simulation & Low-Resource Testing](assets/illustrations/featherweight-swarm-testing.svg)
 
 ---
 

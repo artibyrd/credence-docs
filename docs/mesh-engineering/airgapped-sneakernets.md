@@ -17,18 +17,7 @@ Credence supports **Air-Gapped Truth Bundles (`.credence.bundle`)** allowing off
 
 ## 1. The Air-Gapped Sneakernet Flow
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         AIR-GAPPED TRUTH BUNDLE SNEAKERNET LIFECYCLE                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
-│ │ CONNECTED BASE STATION │ ───▶ │ PHYSICAL AIR-GAP TRANSIT│ ───▶ │ AIR-GAPPED ISOLATED NODE  │   │
-│ │ • Online Seed Node     │      │ • Encrypted USB/SD Card │      │ • Zero Network Access     │   │
-│ │ • `bundle export` (48h)│      │ • Satellite / Courier   │      │ • `bundle import` (<2ms)  │   │
-│ │ • Signs bundle package │      │ • Physical custody trail│      │ • In-Memory Ed25519 Verify│   │
-│ └────────────────────────┘      └─────────────────────────┘      └───────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Air-Gapped Truth Bundles & Sneakernets](assets/illustrations/airgapped-sneakernets.svg)
 
 ---
 

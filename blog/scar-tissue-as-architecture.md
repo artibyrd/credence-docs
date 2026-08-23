@@ -31,20 +31,7 @@ When a system fails in Credence, we do not write vague memos. We forge a **Tier-
 
 The rule becomes permanent law. The system heals by building mathematical scar tissue that makes regression physically impossible.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         ARCHITECTURAL SCARRING & PERMANENT IMMUNITY CYCLE                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 1. Production Disaster ──▶ 2. Root Epistemic Forensics ──▶ 3. Tier-0 Invariant Codification       │
-│ Painful high-entropy fail  Pinpoint broken assumption      Mathematical rule in `AGENTS.md`      │
-│                                                                        │                         │
-│                                                                        ▼                         │
-│ 5. PERMANENT IMMUNITY ◀── 4. Shift-Left Test Gate ◀────────────────────┘                         │
-│ Regression impossible     Deterministic pytest contract in `<0.3s`                               │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Anti-Fragile Law: Every historical humiliation is transformed into a permanent automated test │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Scar Tissue as Architecture: Why Every Tier-0 Invariant Started as an Embarrassing Disaster 🩸](assets/illustrations/scar-tissue-as-architecture.svg)
 
 ---
 

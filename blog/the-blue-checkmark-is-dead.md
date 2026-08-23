@@ -17,22 +17,7 @@ Whether issued by Twitter, Meta, or Google, trust was treated as a property of *
 
 The generative AI revolution has shattered that paradigm permanently.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         CENTRALIZED IDENTITY BADGES VS CONTENT-ADDRESSED TRUTH                   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ ❌ FRAGILE CENTRALIZED IDENTITY MODEL    │   │ 🛡️ CONTENT-ADDRESSED CREDENCE MODEL      │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • Corporate platform issues paid badge   │   │ • Exact DOM content hashed via SHA-256   │      │
-│ │ • Blind trust inherited from domain/name │──▶│ • Epistemic Grounding ($G=1.00$ Verbatim)│      │
-│ │ • Vulnerable to bought handles & SEO farm│   │ • RFC 8785 Ed25519 Cryptographic Envelope│      │
-│ │ • Opaque moderation walled garden        │   │ • P2P Watts-Strogatz Consensus Quorum    │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Epistemic Invariant: Trust is not a property of identity; it is earned per published claim     │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![The Blue Checkmark is Dead: Verifiable Epistemic Consensus in the Age of AI](assets/illustrations/the-blue-checkmark-is-dead.svg)
 
 ### Trust Architecture Paradigm Shift
 

@@ -17,28 +17,7 @@ This blueprint details how Credence identifies synthetic content farms and valid
 
 ## 1. Automated Content Farm Detection Architecture
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         SYNTHETIC AI MEDIA & PROVENANCE FORENSIC PIPELINE                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Untrusted Ingress Article / Image / Video Stream                                                 │
-│                                              │                                                   │
-│                                              ▼                                                   │
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ SIGNAL 1: C2PA PROVENANCE │ SIGNAL 2: SYNTHETIC STYLE     │ SIGNAL 3: SIMHASH-64 RINGS     │   │
-│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
-│ │ • Cryptographic JUMBF     │ • Gemini 3.7 Flash 4k thinking│ • 3-gram Shingling + MD5 weight│   │
-│ │ • Stripped header check   │ • Detects "As an AI model..." │ • Hamming Distance $d_H \le 3$ │   │
-│ │ • Cam / tool authenticity │ • Fabricated quotes/bylines   │ • Identifies mirror cartels    │   │
-│ └─────────────┬─────────────┴───────────────┬───────────────┴────────────────┬───────────────┘   │
-│               │                             │                                │                   │
-│               └─────────────────────────────┼────────────────────────────────┘                   │
-│                                             ▼                                                    │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Epistemic Scoring & DEI Indexing ──▶ RFC 8785 Ed25519 Canonical Attestation Broadcast     │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Synthetic AI Content & Media Provenance Blueprint](assets/illustrations/synthetic-media-provenance.svg)
 
 ---
 

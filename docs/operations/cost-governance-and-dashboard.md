@@ -16,21 +16,7 @@ Credence incorporates an autonomous **Cost Governance & Resource Optimization** 
 
 Credence provides 5 distinct cost profiles, defaulting to **`ECONOMY`**—the most conservative profile that is 100% fully functional with Gemini 3.7 Flash reasoning:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         5-TIER OPERATIONAL COST PROFILE SPECTRUM                                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┬──────────────┬──────────────┬───────────────┬──────────────────┐   │
-│ │ Profile Tier              │ Daily Budget │ Hourly Tokens│ Think Budget  │ Target Audience  │   │
-│ ├───────────────────────────┼──────────────┼──────────────┼───────────────┼──────────────────┤   │
-│ │ 1. `OFFLINE`              │ $0.00 / day  │ 0 tokens     │ 0 tokens      │ Air-Gapped Labs  │   │
-│ │ 2. `FREE`                 │ $0.00 / day  │ 50,000 tok   │ 0 tokens      │ Free Ingress     │   │
-│ │ 3. 🏆 `ECONOMY` (DEFAULT) │ $0.15 / day  │ 50,000 tok   │ 512 tokens    │ Conservative Dev │   │
-│ │ 4. `BALANCED`             │ $0.50 / day  │ 100,000 tok  │ 1,024 tokens  │ Standard Prod    │   │
-│ │ 5. `ULTRA`                │ $5.00 / day  │ 2,000,000 tok│ 4,096 tokens  │ Investigative Dsk│   │
-│ └───────────────────────────┴──────────────┴──────────────┴───────────────┴──────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+![Operational Guide: Cost Governance, Dashboard & AI Optimizer](assets/illustrations/cost-governance-and-dashboard.svg)
 
 | Profile | Target Audience | Primary Model | Thinking Budget | Max Daily Budget | Max Tokens / Hour | Concurrency |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
