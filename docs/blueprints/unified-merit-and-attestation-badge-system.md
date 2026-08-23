@@ -46,9 +46,9 @@ graph TD
 
 | Modality | Target Entity | Core Metric | Primary Embed Format | Endpoint / Interface |
 | :--- | :--- | :--- | :--- | :--- |
-| **Node Epistemic Merit** | P2P Validator Nodes | 11 Milestones & 5 Tiers ($Q_i, U_i, L_i, G_i$) | Dynamic Vector SVG (`.svg`) | `/api/badge/{badge_id}` / `credence badge export` |
-| **Publisher Trust** | Newsrooms & Outlets | Domain Credence Index (DCI %) | Dynamic Vector SVG (`.svg`) | `/api/badge/publisher/{domain}` |
-| **Article Attestation** | Individual Articles | Verbatim DOM Grounding ($G$) | Web Component (`<credence-badge>`) | `<credence-badge url="..." receipt="...">` |
+| **Node Epistemic Merit** | P2P Validator Nodes | 11 Milestones & 5 Tiers ($Q_i, U_i, L_i, G_i$) | Dynamic Vector SVG (`.svg`) | `/api/badge/{badge_id}` / `credence badge export --modality node` |
+| **Publisher Trust** | Newsrooms & Outlets | Domain Credence Index (DCI %) | Dynamic Vector SVG (`.svg`) | `/api/badge/publisher/{domain}` / `credence badge export --modality publisher` |
+| **Article Attestation** | Individual Articles | Verbatim DOM Grounding ($G$) | Web Component / Dynamic SVG | `/api/badge/attestation/{identifier}` / `credence badge export --modality attestation` |
 
 
 ---

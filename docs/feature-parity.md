@@ -3,8 +3,8 @@ title: Universal Feature Parity Matrix
 description: Synchronous capability matrix across CLI, FastMCP 2.0, Textual TUI, and
   Zero-Build Web portals.
 since_version: v1.0.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.8.1
+last_verified: 2026-08-22
 ---
 
 # Universal Feature Parity Matrix
@@ -13,8 +13,8 @@ In accordance with **[Invariant 24](invariants.md#invariant-24) (Universal Prese
 
 1. **🖥️ CLI**: Rich terminal command-line interface (`credence <cmd>`).
 2. **⚡ FastMCP 2.0 Server**: Model Context Protocol tools, dynamic resources, and prompt templates (`credence serve`).
-3. **📟 Textual TUI Workstation**: Interactive live terminal dashboard (`credence tui`).
-4. **🌐 Zero-Build Web UI**: Client-side Web Cryptography portals (`credence.run`, `credence.report`, `credence.foundation`, `credence.nexus`).
+3. **📟 Textual TUI Workstation**: Interactive live terminal dashboard with 9 full-screen tabs (`credence tui`).
+4. **🌐 Zero-Build Web UI**: Client-side Web Cryptography portals (`credence.run`, `credence.report`, `credence.foundation`, `credence.nexus`, `admin.credence.run`).
 
 ---
 
@@ -24,10 +24,10 @@ In accordance with **[Invariant 24](invariants.md#invariant-24) (Universal Prese
 graph TD
     Core["Credence Core Epistemic Engine<br>(Dual-Capture, Grounding Gate, Scoring Math, Ed25519)"]
     
-    Core --> CLI["🖥️ CLI Interface<br>credence audit / feed / sifter / digest"]
+    Core --> CLI["🖥️ CLI Interface<br>credence check / evaluate / report / badge / merit"]
     Core --> MCP["⚡ FastMCP 2.0 Server<br>stdio & SSE Streaming for AI Agents"]
-    Core --> TUI["📟 Textual TUI Workstation<br>Full-Screen Terminal Workspace"]
-    Core --> Web["🌐 Zero-Build Web Suite<br>credence.run / .report / Extension"]
+    Core --> TUI["📟 Textual TUI Workstation<br>9-Tab Interactive Terminal Workspace"]
+    Core --> Web["🌐 Zero-Build Web Suite<br>credence.run / .report / .nexus / .foundation / admin"]
 ```
 
 ---
@@ -38,11 +38,11 @@ graph TD
 
 | Feature Area | 🖥️ CLI & ⚡ FastMCP 2.0 | 📟 Textual TUI & 🌐 Web UI | Status |
 | :--- | :--- | :--- | :--- |
-| **Audit Webpage (Live DOM)** | `credence audit <url>`<br/>Tool: `credence_check_url` | `/` Shortcut Dialog<br/>`credence.run` Form | **Full Parity** |
-| **Direct Text Evaluation** | `credence audit`<br/>Tool: `credence_evaluate_text` | Live Inspector View<br/>`credence.report` Form | **Full Parity** |
-| **Attestation Lookup** | `credence lookup <hash>`<br/>Tool: `credence_get_audit` | Recent Attestations Table<br/>`credence.report/viewer.html` | **Full Parity** |
-| **Human Report Viewer** | `credence report view --open`<br/>Resource: `credence://reports/{id}/human` | Tab 1: 🛡️ Inspector Dual-Pane<br/>`credence.report` Multi-Mode Viewer | **Full Parity** |
-| **Attestation Verification** | `credence verify-file`<br/>Tool: `credence_verify_attestation` | Row Selection Auto-Verify<br/>W3C WebCrypto API (`window.crypto`) | **Full Parity** |
+| **Audit Webpage (Live DOM)** | `credence check <url>`<br/>Tool: `credence_check_url` | `/` Shortcut Dialog<br/>`credence.run` Form | **Full Parity** |
+| **Direct Text Evaluation** | `credence evaluate "<text>"`<br/>Tool: `credence_evaluate_text` | Live Inspector View (`Tab 1`)<br/>`credence.report` Form | **Full Parity** |
+| **Attestation Lookup** | `credence report <hash>`<br/>Tool: `credence_get_audit` | Recent Attestations Table<br/>`credence.report/viewer.html` | **Full Parity** |
+| **Human Report Viewer** | `credence report <url>`<br/>Resource: `credence://reports/{id}/human` | Tab 1: 🛡️ Inspector Dual-Pane<br/>`credence.report` Multi-Mode Viewer | **Full Parity** |
+| **Attestation Verification** | `credence verify <envelope.json>`<br/>Tool: `credence_verify_attestation` | Row Selection Auto-Verify<br/>W3C WebCrypto API (`window.crypto`) | **Full Parity** |
 | **Consensus Aggregation** | Embedded Consensus Engine<br/>Tool: `credence_get_consensus` | Consolidated Verdict Panel<br/>Consensus Badge Display | **Full Parity** |
 
 ### B. Syndication, Feeds & Epistemic Digest
@@ -51,18 +51,20 @@ graph TD
 | :--- | :--- | :--- | :--- |
 | **Dynamic Feed Discovery** | `credence feed discover <url>`<br/>Tool: `credence_discover_feeds` | Feed Autodiscovery Bar<br/>Feed Discovery Widget | **Full Parity** |
 | **Pre-Flight Feed Inspection** | `credence feed inspect <url>`<br/>Tool: `credence_inspect_feed_health` | 1-Click Pre-Flight Modal<br/>Interactive Pre-Flight Modal | **Full Parity** |
-| **Dynamic Quality Scoring ($F_j$)** | `credence feed health`<br/>Resource: `credence://feeds/status` | Tab 4: `📡 Feeds & Dedup`<br/>Feed Status Dashboard | **Full Parity** |
+| **Dynamic Quality Scoring ($F_j$)** | `credence feed status`<br/>Resource: `credence://feeds/status` | Tab 4: `📡 Feeds & Dedup`<br/>Feed Status Dashboard | **Full Parity** |
 | **Real-Time Sifter Daemon** | `credence sifter`<br/>FastMCP Sifter Task | Sifter Status Indicator<br/>Web Status Indicator | **Full Parity** |
-| **Morning Epistemic Digest** | `credence digest`<br/>Resource: `credence://digest/morning` | Tab 7: `🌅 Morning Digest`<br/>Morning Briefing Card | **Full Parity** |
+| **Morning Epistemic Digest** | `credence digest`<br/>Resource: `credence://digest/morning` | Tab 4: `📡 Feeds Stream`<br/>Morning Briefing Card | **Full Parity** |
 
 ### C. Mesh Topology, Governance & Identity
 
-| **Node & Mesh Health Dashboard** | `credence stats`<br/>Tool: `credence_get_mesh_stats` | SRE Vitals Panel<br/>`credence.nexus/dashboard.html` | **Full Parity** |
-| **Whole-Mesh Network Topology** | `credence stats --mesh`<br/>Tool: `credence_get_mesh_network_health`<br/>Resource: `credence://mesh/network-health` | Tab 8: 🕸️ Swarm Graph<br/>`credence.nexus/mesh.html` (13-Node Canvas) | **Full Parity** |
-| **Token Headroom Governor** | `credence quota`<br/>Tool: `credence_get_quota_status` | Tab 5: `⚡ Quota`<br/>Status Badge at `credence.run` | **Full Parity** |
+| Feature Area | 🖥️ CLI & ⚡ FastMCP 2.0 | 📟 Textual TUI & 🌐 Web UI | Status |
+| :--- | :--- | :--- | :--- |
+| **Node & Mesh Health Dashboard** | `credence stats`<br/>Tool: `credence_get_mesh_stats` | Tab 8: `🛠️ Ops Telemetry`<br/>`credence.nexus/dashboard.html` | **Full Parity** |
+| **Whole-Mesh Network Topology** | `credence stats --mesh`<br/>Tool: `credence_get_mesh_network_health`<br/>Resource: `credence://mesh/network-health` | Tab 9: `🕸️ P2P Mesh`<br/>`credence.nexus/mesh.html` (13-Node Canvas) | **Full Parity** |
+| **Token Headroom Governor** | `credence quota`<br/>Tool: `credence_get_quota_status` | Tab 6: `⚡ Quota`<br/>Status Badge at `credence.run` | **Full Parity** |
 | **Cost Profiles** | `credence profile list`<br/>Resource: `credence://profiles` | Profile Badge `[FREE/BALANCED]`<br/>Cost Tier Grid | **Full Parity** |
 | **Taxonomy Governance** | `credence taxonomy list`<br/>Resource: `credence://taxonomies` | Tab 2: `📚 Taxonomies`<br/>`taxonomies.credence.foundation` | **Full Parity** |
-| **Cryptographic Identity** | `credence identity show`<br/>Resource: `credence://node/identity` | Tab 6: `🔑 Node Identity`<br/>`keys.credence.foundation` | **Full Parity** |
+| **Cryptographic Identity** | `credence identity show`<br/>Resource: `credence://node/identity` | Tab 7: `🔑 Node Identity`<br/>`keys.credence.foundation` | **Full Parity** |
 | **P2P Mesh Seeds & Ranking** | `credence seeds`, `rank`<br/>Resource: `credence://mesh/seeds` | Peer Status Indicators<br/>`seeds.credence.nexus/peers.json` | **Full Parity** |
 | **Hierarchical Subjects** | `credence subjects list`<br/>Resource: `credence://subjects/registry` | Tab 3: `🧠 Domain Subjects`<br/>Subject Explorer | **Full Parity** |
 | **White-Label Org Generator** | `credence init-org`<br/>*Intentionally CLI-Only* | *Intentionally CLI-Only*<br/>*Intentionally CLI-Only* | OS Scaffolding |
@@ -72,9 +74,9 @@ graph TD
 
 | Feature Area | 🖥️ CLI & ⚡ FastMCP 2.0 | 📟 Textual TUI & 🌐 Web UI | Status |
 | :--- | :--- | :--- | :--- |
-| **Epistemic Leaderboards** | `credence leaderboard`<br/>Tool: `credence_get_leaderboard` | Tab 8: `🏆 Leaderboard`<br/>`credence.nexus` Leaderboards | **Full Parity** |
-| **Sovereign Node Merit** | `credence merit`<br/>Tool: `credence_get_node_merit` | Tab 8: Split Merit Card<br/>`credence.nexus` Merit Matrix | **Full Parity** |
-| **Live Vector SVG Badges** | `credence badge export`<br/>Resource: `credence://merit/badges` | Merit Matrix & Studio<br/>`credence.nexus` Badge Studio | **Full Parity** |
+| **Epistemic Leaderboards** | `credence rankings`<br/>Tool: `credence_get_leaderboard` | Tab 5: `🏛️ Dossiers & Rankings`<br/>`credence.nexus` Leaderboards | **Full Parity** |
+| **Sovereign Node Merit** | `credence merit --mesh`<br/>Tool: `credence_get_node_merit` | Tab 5: Split Merit Card<br/>`credence.nexus` Merit Matrix | **Full Parity** |
+| **Live Vector SVG & Web Component Badges** | `credence badge export --modality <m> --format <f>`<br/>Tool: `credence_generate_badge`<br/>Resource: `credence://merit/badges` | Merit Matrix & Studio<br/>`credence.nexus` Badge Studio (Node / Publisher / Attestation) | **Full Parity** |
 | **Domain Credence Index (DCI)** | `credence rankings`<br/>Tool: `credence_get_domain_rankings` | DCI Honor Roll Table<br/>`credence.report` Honor Roll / Shame | **Full Parity** |
 | **Top Violated Rules** | `credence rankings --type rules`<br/>Tool: `credence_get_taxonomy_analytics` | Rules Breakdown View<br/>`credence.report` Rules Aggregator | **Full Parity** |
 | **Epistemic Weather Barometer** | `credence rankings --type weather`<br/>Tool: `credence_get_epistemic_weather` | Global Climate Widget<br/>`credence.report` Weather Barometer | **Full Parity** |

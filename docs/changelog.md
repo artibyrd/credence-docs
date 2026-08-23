@@ -2,11 +2,22 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.4.0
-last_verified: 2026-08-21
+verified_version: v2.9.0
+last_verified: 2026-08-22
 ---
 
 # Release Changelog
+
+## [2.9.0] - 2026-08-22
+
+### Added
+- **Universal 4-Way Feature Parity**: Synchronized feature capabilities across CLI (`credence`), FastMCP 2.0, Textual TUI (`credence tui`), REST API, and Zero-Build Web Workstations.
+- **3-Modality Vector Badge Studio**: Integrated `node`, `publisher`, and `attestation` badge generation across SVG, Web Component, and JSON formats (`credence_generate_badge` and `/api/badge/attestation/`).
+- **Quorum Sentinel Milestone Badge**: Registered `quorum_sentinel` in `BADGE_REGISTRY` evaluating Byzantine consensus participation across 3f+1 peer quorum rounds.
+- **Textual TUI Zero-Mock Database Binding**: Connected 9 full-screen TUI tabs to live SQLite telemetry with fail-closed empty state cards (`STANDALONE / NO DATA RECORDED`).
+- **Zero-Drift Info Modal Auto-Registration System**: Built `scripts/sync_info_topics.py` (<110 LOC) and `just sync-topics` to automatically synchronize JavaScript modal registries with `topic-index.md`, backed by shift-left CI integrity tests.
+
+---
 
 ## [2.8.1] - 2026-08-22
 
