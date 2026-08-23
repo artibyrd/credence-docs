@@ -127,3 +127,31 @@ just bootstrap-approvals-hosted
 python3 scripts/bootstrap_approvals.py --scope hosted --execute
 ```
 Sequentially triggers read-only cloud telemetry (`just cloud-status`, `just edge-status`, `just tf-validate`, `just doctor`), environment-aware Dev/Prod probes (`just cloud-probe credence-dev dev`, `just cloud-probe credence-server prod`), and direct HTTP health endpoint probes (`curl -sI ...`).
+
+---
+
+## 7. Authentication Freshness Verification (`auth-check`)
+
+Traditional `preflight` checks only verify binary existence in `$PATH` and read static configuration files without actively testing whether OAuth tokens, browser sessions, or API keys are warm and unexpired.
+
+Credence introduces the parameterized `auth-check target="all"` gate in `just/preflight.just`:
+
+```bash
+# Verify all ecosystem authentication sessions
+just auth-check all
+
+# Targeted authentication checks
+just auth-check gh         # GitHub CLI OAuth session
+just auth-check gcloud     # Google Cloud token freshness (gcloud auth print-access-token)
+just auth-check wrangler   # Cloudflare Edge token/session (npx wrangler whoami)
+just auth-check docker     # Docker daemon connectivity
+just auth-check env        # LLM API keys (GEMINI_API_KEY, etc.)
+```
+
+### Dependency Injection Across Justfiles
+Downstream mutating recipes declare their exact authentication prerequisites as recipe parameters:
+* `pr-create` / `pr-merge` / `branch-protect`: `(preflight "gh") (auth-check "gh")`
+* `cloud-deploy-dev` / `cloud-deploy-prod` / `cloud-rollback`: `(preflight "gcloud") (auth-check "gcloud")`
+* `edge-deploy`: `(preflight "wrangler") (auth-check "wrangler")`
+* `release`: `(auth-check "gh")`
+
