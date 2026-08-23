@@ -14,8 +14,10 @@ last_verified: 2026-08-23
 - **The Wetware Chronicles Redux Series Expansion**: Re-authored 5 cornerstone classics and added 7 new architectural essays (*The Myth of the 100-Agent Swarm*, *The Demotion Highway*, *The Mock-Data Trap*, *The 500-Line Ceiling*, *The Anti-Truncation Crusade*, *Pining for the Fjords*, and *The Four-Way Parity Quest*) exploring human/agent pair programming under Rule SPJ-42.0.
 - **Interactive Diagram Pan-to-Scroll & Fullscreen Lightbox**: Built an in-place zoom/drag-to-pan toolbar (`0.75x` to `3.0x`) and `<dialog>` lightbox modal in `credence-docs/app.js` with mousewheel zooming, touch panning, and keyboard shortcuts.
 - **Universal WCAG 2.1 AA/AAA Dark Mermaid Palette**: Enforced `#1e293b` dark slate fills and `#38bdf8` sky-cyan borders across all flowchart nodes, subgraphs (`#090d16`), and sequence diagrams in `styles.css`.
-- **Sovereign Open-Standard Social Embeds Engine**: Added complete Open Graph protocol (`og:*`) and Schema.org ClaimReview metadata across all 11 web surfaces, dynamic client-side meta updating in `app.js`, and automated 1200x630 `og-card.png` generation.
-- **Dev Staging Branch Isolation Fix**: Resolved `deploy-dev.yml` branch resolution for manual `workflow_dispatch` dispatches on feature branches.
+- **Sovereign Open-Standard Social Embeds Engine**: Added complete Open Graph protocol (`og:*`) and Schema.org ClaimReview metadata across all 11 web surfaces, dynamic client-side meta updating in `app.js`, origin-aware edge rewriting in `_worker.js`, and redesigned plain-English 1200x630 `og-card.png`.
+- **Unified Checkmark Shield Logo & Favicon Suite**: Designed canonical cyan gradient glow checkmark shield logo (`assets/logo.svg`), vector favicon (`assets/favicon.svg`), raster favicon (`assets/favicon.png`), and Apple Touch icon (`assets/apple-touch-icon.png`) across all 11 web surfaces.
+- **Markdown Callout & Multi-Line Blockquote Hardening**: Refactored `parseMarkdown()` in `credence-docs/app.js` to slurp all contiguous blockquote lines and recursively parse markdown AST structures (headings, numbered/unordered lists, paragraphs, bold, and math), eliminating premature HTML flushes and raw `>` text leaks.
+- **Automated Docs Zero-Leak Integrity Gate**: Hardened `test_javascript_markdown_parser_runtime_integrity` in `tests/governance/test_docs_integrity.py` to scan all 189 documentation and blog files in Node.js, asserting 0 unrendered blockquote leaks.
 
 ---
 
