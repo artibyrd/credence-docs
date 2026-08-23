@@ -2,11 +2,21 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.9.0
+verified_version: v2.9.1
 last_verified: 2026-08-22
 ---
 
 # Release Changelog
+
+## [2.9.1] - 2026-08-22
+
+### Added
+- **Scoped Workstation CSS & Viewport Invariant**: Scoped desktop `100vh; overflow: hidden;` in `credence-ui.css` to `html:has(.workstation-container)` so landing pages and docs retain natural scrolling. Added Section 6 to `architecture-governance`.
+- **Multi-Domain Edge Proxy Subpath Preservation**: Ensured `web/_worker.js` preserves full markdown subpaths for `docs.credence.run` and `blog.credence.run`, preventing SPA fallback nesting.
+- **Fail-Closed Markdown Fetch Validation**: Implemented `<!DOCTYPE html>` rejection in `credence-docs/app.js` (`loadDocument`) to prevent HTML error responses from rendering as markdown.
+- **Staged Semantic Versioning Invariant**: Mandated 7-manifest version synchronization on feature branches prior to PR staging in `inv-mk1-eyeball` and `knowledge-governance`.
+
+---
 
 ## [2.9.0] - 2026-08-22
 
