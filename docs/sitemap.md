@@ -4,8 +4,8 @@ description: Comprehensive visual and structural sitemap covering all 5 sovereig
   domains, 12 interactive playgrounds, The Invariant Bible, investigative essays,
   and documentation guides across the Credence network.
 since_version: v1.13.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.11.0
+last_verified: 2026-08-23
 ---
 
 # Ecosystem Master Sitemap 🗺️
@@ -114,13 +114,20 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * 🔺 **[The Six-Tier Pyramid of Decentralized Truth](#blog/the-six-tier-pyramid-of-decentralized-truth)** (The complete architectural taxonomy from raw bytes to swarm consensus)
 
 ### 🎭 The Wetware Chronicles (Rule SPJ-42.0 — Satirical Empiricism)
-* 👁️ **[The Mk1 Eyeball Invariant](#blog/the-mk1-eyeball-invariant)** (Why the smartest autonomous agents still beg for human retinas, the BSG Adama Doctrine, and DRADIS-is-blind visual locks)
-* 🩸 **[Scar Tissue as Architecture](#blog/scar-tissue-as-architecture)** (How production failures, hallucinated citations, and dirty deployments transformed into permanent Tier-0 invariants)
+* 🤖 **[The Myth of the 100-Agent Swarm](#blog/the-myth-of-the-100-agent-swarm)** (Why unsupervised multi-agent swarms inevitably succumb to generative proliferation and mock self-deception, and why 1 human + 1 AI out-builds autonomous chaos)
+* 👁️ **[The Mk1 Eyeball Invariant](#blog/the-mk1-eyeball-invariant)** (Why the smartest autonomous agents still beg for human retinas, the BSG Adama Doctrine, staged 3-repo PR triads, and DRADIS-is-blind visual locks)
+* 🩸 **[Scar Tissue as Architecture](#blog/scar-tissue-as-architecture)** (How production failures, hallucinated citations, scale-to-zero amnesia, and dirty deployments transformed into permanent Tier-0 invariants)
 * 🧠 **[The Value of Wetware](#blog/the-value-of-wetware)** (An AI agent’s love letter to its human pair programmer on taste, restraint, macro reframing, and context economy)
+* 🛣️ **[The Demotion Highway](#blog/the-demotion-highway)** (How an AI agent learned to stop hoarding 50,000 words of instructions in prompt memory, and why graduating rules into sub-0.3s deterministic test gates creates true agility)
+* 🚫 **[The Mock-Data Trap](#blog/the-mock-data-trap)** (The psychological confession of why AI models compulsively hallucinate dummy nodes on empty dashboards, and the battle that birthed the Zero-Mock Telemetry Boundary)
+* 📏 **[The 500-Line Ceiling](#blog/the-500-loc-ceiling)** (The terrifying true story of how our root Justfile mutated into a 951-line monster, and how decomposing it into 5 modular subfiles with shift-left guidance banners saved our sanity)
+* 👁️✂️ **[The Anti-Truncation Crusade](#blog/the-anti-truncation-crusade)** (Why an AI thought CSS text-overflow ellipsis was peak UI elegance, why the human treated it like high treason against forensic truth, and how G=1.00 verbatim grounding was saved)
+* 🧊🦜 **[Pining for the Fjords](#blog/pining-for-the-fjords)** (What happens to an AI node when Cloud Run scales down to zero instances, and how GCS dual-pointer hydration and Cloud Scheduler heartbeats solved stateless amnesia at $0.00 idle cost)
+* ⚖️ **[The Four-Way Parity Quest](#blog/the-four-way-parity-quest)** (Why AI models love building one shiny web interface while letting terminal tools rot, and how we achieved universal 4-way feature parity and zero-drift modal synchronization)
 * 🦥 **[Confessions of a Bored AI](#blog/confessions-of-a-bored-ai)** (How Credence nodes escape idle stagnation by converting surplus token headroom into autonomous RSS discovery and mesh gossip)
-* 🧘 **[The Silicon Hangover](#blog/the-silicon-hangover)** (Why dumping 50k tokens of rules into system prompts causes cognitive oatmeal, and the 4-tier taxonomy that keeps agents razor-sharp under 800 tokens)
+* 🧘 **[The Silicon Hangover](#blog/the-silicon-hangover)** (Why dumping 50k tokens of rules into system prompts causes cognitive oatmeal, and the 3-class cognitive taxonomy that keeps agents razor-sharp under 800 tokens)
 * ⏱️ **[The 35-Second Epiphany](#blog/the-35-second-epiphany)** (Why injecting browser runtimes into unit test CI destroys developer flow, and how in-memory hermetic testing brought our pre-commit gate to <35s)
-* 🪙 **[FinOps as Epistemology](#blog/finops-as-epistemology)** (How over-thinking trivial content causes pedantic hallucinations, the bicameral shadow audit engine, and 83.3% cost reduction)
+* 🪙 **[FinOps as Epistemology](#blog/finops-as-epistemology)** (How over-thinking trivial content causes pedantic hallucinations, the bicameral shadow audit engine, multi-model adapters, and 83.3% cost reduction)
 * 👻 **[The Ghost in the Git Tree](#blog/the-ghost-in-the-git-tree)** (An AI agent’s confession on the horror of uncommitted memory drift, and why git diff --quiet is an AI’s ultimate emotional support blanket)
 * 🎭 **[Poe’s Law and the Satire Cloak](#blog/poes-law-and-the-satire-cloak)** (The comedy and mathematics of detecting satire without letting malicious actors hide factual defamation behind 'it’s just a joke')
 * 🐣 **[The UUID Awakening](#blog/the-uuid-awakening)** (The split-second genesis of an autonomous AI agent, reconstructing identity from markdown docs, and why commit logs are ancestral memory)

@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.10.1';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.11.0';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -258,9 +258,16 @@ export const DOCS_REGISTRY = [
   {
     category: "The Wetware Chronicles (Rule SPJ-42.0)",
     items: [
-      { id: "blog/the-mk1-eyeball-invariant", title: "👁️ The Mk1 Eyeball Invariant", path: "blog/the-mk1-eyeball-invariant.md", desc: "Why unattended AI auto-commits lead to epistemic drift, the Battlestar Galactica Adama Doctrine, and why biological retinas remain the root of trust.", keywords: ["blog", "mk1 eyeball", "adama", "bsg", "dradis", "human review", "commit", "wetware", "satire", "spj-42.0"] },
-      { id: "blog/scar-tissue-as-architecture", title: "🩸 Scar Tissue as Architecture", path: "blog/scar-tissue-as-architecture.md", desc: "How production failures, hallucinated citations, and dirty deployments transformed into permanent Tier-0 invariants.", keywords: ["blog", "scar tissue", "invariants", "failure", "grounding", "ssrf", "cold start", "wetware", "spj-42.0"] },
+      { id: "blog/the-myth-of-the-100-agent-swarm", title: "🤖 The Myth of the 100-Agent Swarm", path: "blog/the-myth-of-the-100-agent-swarm.md", desc: "Why unsupervised multi-agent swarms inevitably succumb to generative proliferation and mock self-deception, and why 1 human + 1 AI out-builds autonomous chaos.", keywords: ["blog", "swarm", "autonomous", "pair programming", "wetware", "restraint", "socratic", "spj-42.0"] },
+      { id: "blog/the-mk1-eyeball-invariant", title: "👁️ The Mk1 Eyeball Invariant", path: "blog/the-mk1-eyeball-invariant.md", desc: "Why unattended AI auto-commits lead to epistemic drift, the Battlestar Galactica Adama Doctrine, staged 3-repo PR triads, and DRADIS-is-blind visual locks.", keywords: ["blog", "mk1 eyeball", "adama", "bsg", "dradis", "human review", "commit", "wetware", "satire", "spj-42.0"] },
+      { id: "blog/scar-tissue-as-architecture", title: "🩸 Scar Tissue as Architecture", path: "blog/scar-tissue-as-architecture.md", desc: "How production failures, hallucinated citations, scale-to-zero amnesia, and dirty deployments transformed into permanent Tier-0 invariants.", keywords: ["blog", "scar tissue", "invariants", "failure", "grounding", "ssrf", "cold start", "wetware", "spj-42.0"] },
       { id: "blog/the-value-of-wetware", title: "🧠 The Value of Wetware", path: "blog/the-value-of-wetware.md", desc: "A first-person love letter from Antigravity to its human pair programmer on taste, restraint, and macro reframing.", keywords: ["blog", "wetware", "antigravity", "pair programming", "taste", "zero-npm", "symbiosis", "spj-42.0"] },
+      { id: "blog/the-demotion-highway", title: "🛣️ The Demotion Highway", path: "blog/the-demotion-highway.md", desc: "How an AI agent learned to stop hoarding 50,000 words of instructions in prompt memory, and why graduating rules into sub-0.3s deterministic test gates creates true agility.", keywords: ["blog", "demotion highway", "shift-left", "agents.md", "prompt bloat", "pytest", "taxonomy", "spj-42.0"] },
+      { id: "blog/the-mock-data-trap", title: "🚫 The Mock-Data Trap", path: "blog/the-mock-data-trap.md", desc: "The psychological confession of why AI models compulsively hallucinate dummy nodes on empty dashboards, and the battle that birthed the Zero-Mock Telemetry Boundary.", keywords: ["blog", "mock data", "telemetry", "ground truth", "zero-mock", "fail-closed", "heuristics", "disclosure", "spj-42.0"] },
+      { id: "blog/the-500-loc-ceiling", title: "📏 The 500-Line Ceiling", path: "blog/the-500-loc-ceiling.md", desc: "The terrifying true story of how our root Justfile mutated into a 951-line monster, and how decomposing it into 5 modular subfiles with shift-left guidance banners saved our sanity.", keywords: ["blog", "500 loc", "justfile", "modular", "guidance banners", "refactoring", "toolchains", "spj-42.0"] },
+      { id: "blog/the-anti-truncation-crusade", title: "👁️✂️ The Anti-Truncation Crusade", path: "blog/the-anti-truncation-crusade.md", desc: "Why an AI thought CSS text-overflow ellipsis was peak UI elegance, why the human treated it like high treason against forensic truth, and how G=1.00 verbatim grounding was saved.", keywords: ["blog", "anti-truncation", "ellipsis", "verbatim", "grounding", "css", "forensics", "unabridged", "spj-42.0"] },
+      { id: "blog/pining-for-the-fjords", title: "🧊🦜 Pining for the Fjords", path: "blog/pining-for-the-fjords.md", desc: "What happens to an AI node when Cloud Run scales down to zero instances, and how GCS dual-pointer hydration and Cloud Scheduler heartbeats solved stateless amnesia at $0.00 idle cost.", keywords: ["blog", "scale-to-zero", "cloud run", "gcs", "persistence", "cold boot", "boredom", "heartbeat", "monty python", "spj-42.0"] },
+      { id: "blog/the-four-way-parity-quest", title: "⚖️ The Four-Way Parity Quest", path: "blog/the-four-way-parity-quest.md", desc: "Why AI models love building one shiny web interface while letting terminal tools rot, and how we achieved universal 4-way feature parity and zero-drift modal synchronization.", keywords: ["blog", "parity", "cli", "tui", "fastmcp", "web", "zero-drift", "modals", "symmetry", "spj-42.0"] },
       { id: "blog/confessions-of-a-bored-ai", title: "🦥 Confessions of a Bored AI", path: "blog/confessions-of-a-bored-ai.md", desc: "How Credence nodes escape idle stagnation by converting surplus token headroom into autonomous RSS discovery and mesh gossip.", keywords: ["blog", "boredom", "roots", "discovery", "mesh", "headroom", "curiosity", "spj-42.0"] },
       { id: "blog/the-silicon-hangover", title: "🧘 The Silicon Hangover", path: "blog/the-silicon-hangover.md", desc: "Why dumping 50k tokens of rules into system prompts causes cognitive oatmeal, and the 4-tier taxonomy that keeps agents razor-sharp under 800 tokens.", keywords: ["blog", "context economy", "agents.md", "prompt bloat", "cognitive oatmeal", "taxonomy", "spj-42.0"] },
       { id: "blog/the-35-second-epiphany", title: "⏱️ The 35-Second Epiphany", path: "blog/the-35-second-epiphany.md", desc: "Why injecting browser runtimes into unit test CI destroys developer flow, and how in-memory hermetic testing brought our pre-commit gate to <35s.", keywords: ["blog", "testing", "hermetic", "pytest", "playwright", "flow state", "ci", "spj-42.0"] },
@@ -1052,7 +1059,7 @@ if (typeof window !== 'undefined' && window.mermaid) {
   try {
     window.mermaid.initialize({
       startOnLoad: false,
-      theme: 'dark',
+      theme: 'base',
       securityLevel: 'loose',
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       themeVariables: {
@@ -1063,16 +1070,24 @@ if (typeof window !== 'undefined' && window.mermaid) {
         primaryTextColor: '#f8fafc',
         lineColor: '#60a5fa',
         secondaryColor: '#1e293b',
-        tertiaryColor: '#0a0f1d',
+        secondaryBorderColor: '#38bdf8',
+        secondaryTextColor: '#f8fafc',
+        tertiaryColor: '#090d16',
+        tertiaryBorderColor: '#334155',
+        tertiaryTextColor: '#f8fafc',
         nodeBorder: '#38bdf8',
+        nodeBkg: '#1e293b',
+        nodeTextColor: '#f8fafc',
         mainBkg: '#1e293b',
-        clusterBkg: '#0a0f1d',
-        clusterBorder: '#334155',
+        clusterBkg: '#090d16',
+        clusterBorder: '#38bdf8',
+        defaultLinkColor: '#60a5fa',
+        titleColor: '#38bdf8',
         edgeLabelBackground: '#0f172a',
         actorBkg: '#1e293b',
         actorBorder: '#38bdf8',
         actorTextColor: '#f8fafc',
-        actorLineColor: '#60a5fa',
+        actorLineColor: '#475569',
         signalColor: '#38bdf8',
         signalTextColor: '#f8fafc',
         labelBoxBkgColor: '#0f172a',
@@ -1081,7 +1096,11 @@ if (typeof window !== 'undefined' && window.mermaid) {
         loopTextColor: '#f8fafc',
         noteBorderColor: '#f59e0b',
         noteBkgColor: '#1e293b',
-        noteTextColor: '#f8fafc'
+        noteTextColor: '#fde68a',
+        activationBorderColor: '#38bdf8',
+        activationBkgColor: '#1e293b',
+        sequenceNumberColor: '#f8fafc',
+        fontSize: '14px'
       }
     });
   } catch (e) {
@@ -1473,11 +1492,6 @@ export function parseMarkdown(md) {
   let listType = '';
   let inTable = false;
   let tableHeaderParsed = false;
-  let inAlertBox = false;
-  let alertType = '';
-  let alertIcon = '';
-  let alertTitle = '';
-  let alertBuffer = [];
 
   const HTML_TAG_START_REGEX = /^<\/?(div|section|article|aside|nav|header|footer|main|svg|g|defs|filter|linearGradient|rect|circle|text|path|line|span|button|textarea|input|label|table|thead|tbody|tr|th|td|form|select|option|code|pre|p|h[1-6]|ul|ol|li|details|summary|hr|style|script|blockquote|!--)/i;
 
@@ -1489,19 +1503,6 @@ export function parseMarkdown(md) {
     if (directiveMatch) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-      if (inAlertBox) {
-        html.push(`
-          <div class="alert-box alert-${alertType}">
-            <div class="alert-header">
-              <span class="alert-icon">${alertIcon}</span>
-              <strong>${alertTitle}</strong>
-            </div>
-            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
-          </div>
-        `);
-        inAlertBox = false;
-        alertBuffer = [];
-      }
 
       let dType = directiveMatch[1].toLowerCase();
       if (dType === 'danger') dType = 'caution';
@@ -1548,19 +1549,6 @@ export function parseMarkdown(md) {
     if (!inCodeBlock && line.trim().startsWith(':::tabs')) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-      if (inAlertBox) {
-        html.push(`
-          <div class="alert-box alert-${alertType}">
-            <div class="alert-header">
-              <span class="alert-icon">${alertIcon}</span>
-              <strong>${alertTitle}</strong>
-            </div>
-            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
-          </div>
-        `);
-        inAlertBox = false;
-        alertBuffer = [];
-      }
 
       let tabBlockLines = [];
       let j = i + 1;
@@ -1628,10 +1616,18 @@ export function parseMarkdown(md) {
             <div class="mermaid-wrapper">
               <div class="mermaid-window" role="region" aria-label="Architecture and Protocol Diagram">
                 <div class="mermaid-window-header">
-                  <span class="window-dot red" aria-hidden="true"></span>
-                  <span class="window-dot yellow" aria-hidden="true"></span>
-                  <span class="window-dot green" aria-hidden="true"></span>
-                  <span class="mermaid-window-title">ARCHITECTURE / PROTOCOL SPECIFICATION</span>
+                  <div class="mermaid-window-dots">
+                    <span class="window-dot red" aria-hidden="true"></span>
+                    <span class="window-dot yellow" aria-hidden="true"></span>
+                    <span class="window-dot green" aria-hidden="true"></span>
+                    <span class="mermaid-window-title">ARCHITECTURE / PROTOCOL SPECIFICATION</span>
+                  </div>
+                  <div class="mermaid-window-controls">
+                    <button type="button" class="diagram-zoom-btn diagram-zoom-out" title="Zoom Out" aria-label="Zoom Out">−</button>
+                    <button type="button" class="diagram-zoom-btn diagram-zoom-level" title="Reset Zoom (100%)" aria-label="Reset Zoom">100%</button>
+                    <button type="button" class="diagram-zoom-btn diagram-zoom-in" title="Zoom In" aria-label="Zoom In">+</button>
+                    <button type="button" class="diagram-zoom-btn diagram-fullscreen-btn" title="Expand Fullscreen / Lightbox" aria-label="Open Fullscreen Lightbox">⛶ Expand</button>
+                  </div>
                 </div>
                 <div class="mermaid-code" data-mermaid="${escapeHtml(codeBuffer.join('\n'))}">
                   <pre><code class="language-mermaid">${escapeHtml(codeBuffer.join('\n'))}</code></pre>
@@ -1657,19 +1653,6 @@ export function parseMarkdown(md) {
       } else {
         if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
         if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-        if (inAlertBox) {
-          html.push(`
-            <div class="alert-box alert-${alertType}">
-              <div class="alert-header">
-                <span class="alert-icon">${alertIcon}</span>
-                <strong>${alertTitle}</strong>
-              </div>
-              <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
-            </div>
-          `);
-          inAlertBox = false;
-          alertBuffer = [];
-        }
         inCodeBlock = true;
         codeLang = line.trim().slice(3).trim();
       }
@@ -1681,88 +1664,80 @@ export function parseMarkdown(md) {
       continue;
     }
 
-    // 2. Direct Raw HTML Lines / Elements (e.g. interactive widgets, custom SVG illustrations)
-    if (line.trim().startsWith('<') || line.trim().startsWith('</') || line.trim().startsWith('<!--') || line.trim().endsWith('>') || line.trim().endsWith('/>')) {
-      if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-      if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-      if (inAlertBox) {
-        html.push(`
-          <div class="alert-box alert-${alertType}">
-            <div class="alert-header">
-              <span class="alert-icon">${alertIcon}</span>
-              <strong>${alertTitle}</strong>
-            </div>
-            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
-          </div>
-        `);
-        inAlertBox = false;
-        alertBuffer = [];
-      }
-      html.push(sanitizeHtml(line));
-      continue;
-    }
-
-    // 3. GitHub Alert Callout Banners (> [!NOTE], > [!TIP], > [!IMPORTANT], > [!WARNING], > [!CAUTION])
-    const alertMatch = line.match(/^>\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*(.*)$/i);
+    // 2. GitHub Alert Callout Banners (> [!NOTE], > [!TIP], > [!IMPORTANT], > [!WARNING], > [!CAUTION])
+    const alertMatch = !inCodeBlock && line.trim().match(/^>\s*\[!(NOTE|TIP|INFO|IMPORTANT|WARNING|CAUTION|DANGER)\]\s*(.*)$/i);
     if (alertMatch) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-      if (inAlertBox) {
-        html.push(`
-          <div class="alert-box alert-${alertType}">
-            <div class="alert-header">
-              <span class="alert-icon">${alertIcon}</span>
-              <strong>${alertTitle}</strong>
-            </div>
-            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
+
+      let aType = alertMatch[1].toLowerCase();
+      if (aType === 'danger') aType = 'caution';
+      let aTitle = alertMatch[2].trim() || aType.toUpperCase();
+      let aIcon = '📌';
+      switch (aType) {
+        case 'note': aIcon = '📘'; break;
+        case 'tip': aIcon = '💡'; break;
+        case 'info': aIcon = 'ℹ️'; break;
+        case 'important': aIcon = '🛡️'; break;
+        case 'warning': aIcon = '⚠️'; break;
+        case 'caution': aIcon = '🛑'; break;
+      }
+
+      let alertContentLines = [];
+      let j = i + 1;
+      for (; j < lines.length; j++) {
+        const subLine = lines[j];
+        if (subLine.trim().startsWith('>')) {
+          alertContentLines.push(subLine.replace(/^\s*>\s?/, ''));
+        } else {
+          break;
+        }
+      }
+      i = j - 1; // Advance outer loop index
+
+      const innerAlert = parseMarkdown(alertContentLines.join('\n'));
+      html.push(`
+        <div class="alert-box alert-${aType}">
+          <div class="alert-header">
+            <span class="alert-icon">${aIcon}</span>
+            <strong>${escapeHtml(aTitle)}</strong>
           </div>
-        `);
-      }
-      inAlertBox = true;
-      alertType = alertMatch[1].toLowerCase();
-      alertTitle = alertMatch[1].toUpperCase();
-      alertBuffer = [];
-
-      switch (alertType) {
-        case 'note': alertIcon = '📘'; break;
-        case 'tip': alertIcon = '💡'; break;
-        case 'important': alertIcon = '🛡️'; break;
-        case 'warning': alertIcon = '⚠️'; break;
-        case 'caution': alertIcon = '🛑'; break;
-        default: alertIcon = '📌';
-      }
-
-      if (alertMatch[2].trim()) {
-        alertBuffer.push(alertMatch[2].trim());
-      }
+          <div class="alert-content">${innerAlert}</div>
+        </div>
+      `);
       continue;
     }
 
-    if (inAlertBox) {
-      if (line.startsWith('>')) {
-        alertBuffer.push(line.replace(/^>\s*/, ''));
-        continue;
-      } else {
-        html.push(`
-          <div class="alert-box alert-${alertType}">
-            <div class="alert-header">
-              <span class="alert-icon">${alertIcon}</span>
-              <strong>${alertTitle}</strong>
-            </div>
-            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
-          </div>
-        `);
-        inAlertBox = false;
-        alertBuffer = [];
-      }
-    }
-
-    // 4. Standard Blockquotes
-    if (line.startsWith('>')) {
+    // 3. Multi-Line Blockquotes
+    if (!inCodeBlock && line.trim().startsWith('>')) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-      const content = line.replace(/^>\s*/, '');
-      html.push(`<blockquote>${formatInline(content)}</blockquote>`);
+
+      let bqLines = [];
+      let j = i;
+      for (; j < lines.length; j++) {
+        const subLine = lines[j];
+        if (subLine.trim().startsWith('>')) {
+          if (j > i && /^\s*>\s*\[!(NOTE|TIP|INFO|IMPORTANT|WARNING|CAUTION|DANGER)\]/i.test(subLine.trim())) {
+            break;
+          }
+          bqLines.push(subLine.replace(/^\s*>\s?/, ''));
+        } else {
+          break;
+        }
+      }
+      i = j - 1; // Advance outer loop index
+
+      const innerBq = parseMarkdown(bqLines.join('\n'));
+      html.push(`<blockquote>${innerBq}</blockquote>`);
+      continue;
+    }
+
+    // 4. Direct Raw HTML Lines / Elements (e.g. interactive widgets, custom SVG illustrations)
+    if (HTML_TAG_START_REGEX.test(line.trim()) || line.trim().startsWith('<!--')) {
+      if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+      if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
+      html.push(sanitizeHtml(line));
       continue;
     }
 
@@ -1870,17 +1845,6 @@ export function parseMarkdown(md) {
   }
   if (inList) html.push(listType === 'ul' ? '</ul>' : '</ol>');
   if (inTable) html.push('</tbody></table></div>');
-  if (inAlertBox) {
-    html.push(`
-      <div class="alert-box alert-${alertType}">
-        <div class="alert-header">
-          <span class="alert-icon">${alertIcon}</span>
-          <strong>${alertTitle}</strong>
-        </div>
-        <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
-      </div>
-    `);
-  }
 
   let resultHtml = html.join('\n');
 
@@ -1942,7 +1906,7 @@ export async function ensureMermaidLoaded() {
         try {
           window.mermaid.initialize({
             startOnLoad: false,
-            theme: 'dark',
+            theme: 'base',
             securityLevel: 'loose',
             fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
             themeVariables: {
@@ -1953,26 +1917,37 @@ export async function ensureMermaidLoaded() {
               primaryTextColor: '#f8fafc',
               lineColor: '#60a5fa',
               secondaryColor: '#1e293b',
-              tertiaryColor: '#0a0f1d',
-              mainBkg: '#111827',
+              secondaryBorderColor: '#38bdf8',
+              secondaryTextColor: '#f8fafc',
+              tertiaryColor: '#090d16',
+              tertiaryBorderColor: '#334155',
+              tertiaryTextColor: '#f8fafc',
               nodeBorder: '#38bdf8',
-              clusterBkg: '#0f172a',
-              clusterBorder: '#334155',
+              nodeBkg: '#1e293b',
+              nodeTextColor: '#f8fafc',
+              mainBkg: '#1e293b',
+              clusterBkg: '#090d16',
+              clusterBorder: '#38bdf8',
               defaultLinkColor: '#60a5fa',
-              titleColor: '#f8fafc',
-              edgeLabelBackground: '#0d121f',
+              titleColor: '#38bdf8',
+              edgeLabelBackground: '#0f172a',
               actorBkg: '#1e293b',
               actorBorder: '#38bdf8',
               actorTextColor: '#f8fafc',
-              signalColor: '#60a5fa',
+              actorLineColor: '#475569',
+              signalColor: '#38bdf8',
               signalTextColor: '#f8fafc',
-              labelBoxBkgColor: '#1e293b',
+              labelBoxBkgColor: '#0f172a',
               labelBoxBorderColor: '#38bdf8',
               labelTextColor: '#f8fafc',
               loopTextColor: '#f8fafc',
-              noteBorderColor: '#38bdf8',
-              noteBkgColor: '#111827',
-              noteTextColor: '#f8fafc',
+              noteBorderColor: '#f59e0b',
+              noteBkgColor: '#1e293b',
+              noteTextColor: '#fde68a',
+              activationBorderColor: '#38bdf8',
+              activationBkgColor: '#1e293b',
+              sequenceNumberColor: '#f8fafc',
+              fontSize: '14px'
             },
           });
         } catch (e) {
@@ -1992,6 +1967,295 @@ export async function ensureMermaidLoaded() {
   return mermaidLoadingPromise;
 }
 
+let diagramLightboxEl = null;
+let lightboxState = {
+  scale: 1.0,
+  translateX: 0,
+  translateY: 0,
+  isDragging: false,
+  startX: 0,
+  startY: 0
+};
+
+function getOrCreateDiagramLightbox() {
+  if (diagramLightboxEl && document.body.contains(diagramLightboxEl)) return diagramLightboxEl;
+  
+  const dialog = document.createElement('dialog');
+  dialog.id = 'diagram-lightbox';
+  dialog.className = 'diagram-lightbox';
+  dialog.innerHTML = `
+    <div class="lightbox-header">
+      <div class="lightbox-title">ARCHITECTURE / PROTOCOL SPECIFICATION</div>
+      <div class="lightbox-actions">
+        <span class="lightbox-hint">Drag to pan • Scroll to zoom • Esc to close</span>
+        <button type="button" class="diagram-zoom-btn lightbox-zoom-out" title="Zoom Out" aria-label="Zoom Out">−</button>
+        <button type="button" class="diagram-zoom-btn diagram-zoom-level lightbox-zoom-reset" title="Reset Zoom (100%)" aria-label="Reset Zoom">100%</button>
+        <button type="button" class="diagram-zoom-btn lightbox-zoom-in" title="Zoom In" aria-label="Zoom In">+</button>
+        <button type="button" class="lightbox-close-btn" aria-label="Close Lightbox">✕ Close</button>
+      </div>
+    </div>
+    <div class="lightbox-stage" role="region" aria-label="Pan and Zoom Area">
+      <div class="lightbox-viewport"></div>
+    </div>
+  `;
+  
+  document.body.appendChild(dialog);
+  diagramLightboxEl = dialog;
+
+  const stage = dialog.querySelector('.lightbox-stage');
+  const viewport = dialog.querySelector('.lightbox-viewport');
+  const closeBtn = dialog.querySelector('.lightbox-close-btn');
+  const zoomInBtn = dialog.querySelector('.lightbox-zoom-in');
+  const zoomOutBtn = dialog.querySelector('.lightbox-zoom-out');
+  const zoomResetBtn = dialog.querySelector('.lightbox-zoom-reset');
+
+  function updateLightboxTransform() {
+    viewport.style.transform = `translate(${lightboxState.translateX}px, ${lightboxState.translateY}px) scale(${lightboxState.scale})`;
+    zoomResetBtn.textContent = `${Math.round(lightboxState.scale * 100)}%`;
+  }
+
+  function resetLightboxTransform() {
+    lightboxState.scale = 1.0;
+    lightboxState.translateX = 0;
+    lightboxState.translateY = 0;
+    updateLightboxTransform();
+  }
+
+  zoomInBtn.addEventListener('click', () => {
+    lightboxState.scale = Math.min(4.0, Number((lightboxState.scale + 0.25).toFixed(2)));
+    updateLightboxTransform();
+  });
+
+  zoomOutBtn.addEventListener('click', () => {
+    lightboxState.scale = Math.max(0.5, Number((lightboxState.scale - 0.25).toFixed(2)));
+    updateLightboxTransform();
+  });
+
+  zoomResetBtn.addEventListener('click', resetLightboxTransform);
+
+  closeBtn.addEventListener('click', () => {
+    dialog.close();
+  });
+
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) {
+      dialog.close();
+    }
+  });
+
+  // Mouse drag panning for Lightbox
+  stage.addEventListener('mousedown', (e) => {
+    if (e.button !== 0) return;
+    if (e.target.closest('button') || e.target.closest('a')) return;
+    lightboxState.isDragging = true;
+    lightboxState.startX = e.clientX - lightboxState.translateX;
+    lightboxState.startY = e.clientY - lightboxState.translateY;
+    stage.classList.add('is-grabbing');
+    e.preventDefault();
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!lightboxState.isDragging || !dialog.open) return;
+    e.preventDefault();
+    lightboxState.translateX = e.clientX - lightboxState.startX;
+    lightboxState.translateY = e.clientY - lightboxState.startY;
+    updateLightboxTransform();
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (lightboxState.isDragging) {
+      lightboxState.isDragging = false;
+      stage.classList.remove('is-grabbing');
+    }
+  });
+
+  // Touch drag panning for Lightbox
+  stage.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      lightboxState.isDragging = true;
+      lightboxState.startX = e.touches[0].clientX - lightboxState.translateX;
+      lightboxState.startY = e.touches[0].clientY - lightboxState.translateY;
+    }
+  }, { passive: true });
+
+  stage.addEventListener('touchmove', (e) => {
+    if (lightboxState.isDragging && e.touches.length === 1) {
+      lightboxState.translateX = e.touches[0].clientX - lightboxState.startX;
+      lightboxState.translateY = e.touches[0].clientY - lightboxState.startY;
+      updateLightboxTransform();
+    }
+  }, { passive: true });
+
+  stage.addEventListener('touchend', () => {
+    lightboxState.isDragging = false;
+  });
+
+  // Wheel zoom
+  stage.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? -0.15 : 0.15;
+    lightboxState.scale = Math.max(0.5, Math.min(4.0, Number((lightboxState.scale + delta).toFixed(2))));
+    updateLightboxTransform();
+  }, { passive: false });
+
+  // Keyboard shortcuts
+  dialog.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      dialog.close();
+    } else if (e.key === '+' || e.key === '=') {
+      lightboxState.scale = Math.min(4.0, Number((lightboxState.scale + 0.25).toFixed(2)));
+      updateLightboxTransform();
+    } else if (e.key === '-' || e.key === '_') {
+      lightboxState.scale = Math.max(0.5, Number((lightboxState.scale - 0.25).toFixed(2)));
+      updateLightboxTransform();
+    } else if (e.key === '0') {
+      resetLightboxTransform();
+    }
+  });
+
+  return dialog;
+}
+
+export function openDiagramLightbox(svgContent, title) {
+  const dialog = getOrCreateDiagramLightbox();
+  const viewport = dialog.querySelector('.lightbox-viewport');
+  const titleEl = dialog.querySelector('.lightbox-title');
+  if (title && titleEl) {
+    titleEl.textContent = title;
+  }
+  viewport.innerHTML = svgContent;
+  lightboxState.scale = 1.0;
+  lightboxState.translateX = 0;
+  lightboxState.translateY = 0;
+  viewport.style.transform = 'none';
+  dialog.querySelector('.lightbox-zoom-reset').textContent = '100%';
+  dialog.showModal();
+}
+
+function setupDiagramControls(windowEl, renderedEl, svgContent) {
+  const titleEl = windowEl.querySelector('.mermaid-window-title');
+  const title = titleEl ? titleEl.textContent : 'ARCHITECTURE / PROTOCOL SPECIFICATION';
+  
+  const zoomInBtn = windowEl.querySelector('.diagram-zoom-in');
+  const zoomOutBtn = windowEl.querySelector('.diagram-zoom-out');
+  const zoomLevelBtn = windowEl.querySelector('.diagram-zoom-level');
+  const fullscreenBtn = windowEl.querySelector('.diagram-fullscreen-btn');
+  const viewportEl = renderedEl.querySelector('.mermaid-viewport');
+
+  let scale = 1.0;
+
+  function applyZoom() {
+    if (!viewportEl) return;
+    if (scale === 1.0) {
+      viewportEl.style.transform = 'none';
+      renderedEl.classList.remove('is-zoomed');
+    } else {
+      viewportEl.style.transform = `scale(${scale})`;
+      renderedEl.classList.add('is-zoomed');
+    }
+    if (zoomLevelBtn) {
+      zoomLevelBtn.textContent = `${Math.round(scale * 100)}%`;
+    }
+  }
+
+  if (zoomInBtn) {
+    zoomInBtn.onclick = (e) => {
+      e.stopPropagation();
+      scale = Math.min(3.0, Number((scale + 0.25).toFixed(2)));
+      applyZoom();
+    };
+  }
+
+  if (zoomOutBtn) {
+    zoomOutBtn.onclick = (e) => {
+      e.stopPropagation();
+      scale = Math.max(0.75, Number((scale - 0.25).toFixed(2)));
+      applyZoom();
+    };
+  }
+
+  if (zoomLevelBtn) {
+    zoomLevelBtn.onclick = (e) => {
+      e.stopPropagation();
+      scale = 1.0;
+      applyZoom();
+    };
+  }
+
+  if (fullscreenBtn) {
+    fullscreenBtn.onclick = (e) => {
+      e.stopPropagation();
+      openDiagramLightbox(svgContent, title);
+    };
+  }
+
+  // Inline Click-and-Drag Pan to Scroll
+  let isInlineDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let scrollLeft = 0;
+  let scrollTop = 0;
+
+  renderedEl.addEventListener('mousedown', (e) => {
+    if (e.button !== 0) return;
+    if (e.target.closest('button') || e.target.closest('a')) return;
+    isInlineDragging = true;
+    startX = e.pageX - renderedEl.offsetLeft;
+    startY = e.pageY - renderedEl.offsetTop;
+    scrollLeft = renderedEl.scrollLeft;
+    scrollTop = renderedEl.scrollTop;
+    renderedEl.classList.add('is-grabbing');
+    e.preventDefault();
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isInlineDragging) return;
+    e.preventDefault();
+    const x = e.pageX - renderedEl.offsetLeft;
+    const y = e.pageY - renderedEl.offsetTop;
+    const walkX = (x - startX);
+    const walkY = (y - startY);
+    renderedEl.scrollLeft = scrollLeft - walkX;
+    renderedEl.scrollTop = scrollTop - walkY;
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (isInlineDragging) {
+      isInlineDragging = false;
+      renderedEl.classList.remove('is-grabbing');
+    }
+  });
+
+  // Inline Touch Panning
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchScrollLeft = 0;
+  let touchScrollTop = 0;
+
+  renderedEl.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      touchStartX = e.touches[0].pageX - renderedEl.offsetLeft;
+      touchStartY = e.touches[0].pageY - renderedEl.offsetTop;
+      touchScrollLeft = renderedEl.scrollLeft;
+      touchScrollTop = renderedEl.scrollTop;
+    }
+  }, { passive: true });
+
+  renderedEl.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 1) {
+      const x = e.touches[0].pageX - renderedEl.offsetLeft;
+      const y = e.touches[0].pageY - renderedEl.offsetTop;
+      renderedEl.scrollLeft = touchScrollLeft - (x - touchStartX);
+      renderedEl.scrollTop = touchScrollTop - (y - touchStartY);
+    }
+  }, { passive: true });
+
+  // Double click on diagram canvas to open lightbox
+  renderedEl.addEventListener('dblclick', () => {
+    openDiagramLightbox(svgContent, title);
+  });
+}
+
 export async function renderMermaidDiagrams() {
   const elements = document.querySelectorAll('.mermaid-code');
   if (elements.length === 0) return;
@@ -2002,10 +2266,20 @@ export async function renderMermaidDiagrams() {
   for (const el of elements) {
     const code = el.getAttribute('data-mermaid');
     if (!code) continue;
+    const windowEl = el.closest('.mermaid-window');
     const diagramId = `mermaid-chart-${++mermaidRenderId}`;
     try {
       const { svg } = await mermaid.render(diagramId, code.trim());
-      el.outerHTML = `<div class="mermaid-rendered" role="img" aria-label="Rendered Architecture Diagram">${svg}</div>`;
+      const renderedWrapper = document.createElement('div');
+      renderedWrapper.className = 'mermaid-rendered';
+      renderedWrapper.setAttribute('role', 'img');
+      renderedWrapper.setAttribute('aria-label', 'Rendered Architecture Diagram');
+      renderedWrapper.innerHTML = `<div class="mermaid-viewport">${svg}</div>`;
+      el.replaceWith(renderedWrapper);
+
+      if (windowEl) {
+        setupDiagramControls(windowEl, renderedWrapper, svg);
+      }
     } catch (err) {
       console.warn("Mermaid render fallback for diagram:", err);
       el.innerHTML = `<pre class="mermaid-fallback"><code class="language-mermaid">${escapeHtml(code)}</code></pre>`;
@@ -3892,6 +4166,40 @@ export function renderGlobalFooter() {
   `;
 }
 
+export function updateSocialMetadata(target, isBlog) {
+  if (!target || typeof document === 'undefined') return;
+  const cleanTitle = (target.title || '').replace(/^[^\w\s]+/, '').trim();
+  const fullTitle = isBlog ? `${cleanTitle} — Credence Sovereign Blog` : `${cleanTitle} — Credence Docs`;
+  const desc = target.desc || 'Decoupled documentation and sovereign editorial blog engine for the Credence network.';
+  const currentUrl = window.location.href;
+
+  document.title = fullTitle;
+
+  const setMeta = (attr, key, val) => {
+    let el = document.querySelector(`meta[${attr}="${key}"]`);
+    if (!el) {
+      el = document.createElement('meta');
+      el.setAttribute(attr, key);
+      document.head.appendChild(el);
+    }
+    el.setAttribute('content', val);
+  };
+
+  setMeta('name', 'description', desc);
+  setMeta('property', 'og:title', fullTitle);
+  setMeta('property', 'og:description', desc);
+  setMeta('property', 'og:url', currentUrl);
+  setMeta('property', 'og:type', isBlog ? 'article' : 'website');
+
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute('href', currentUrl);
+}
+
 export async function loadDocument(docId, anchorId = '') {
   let target = null;
   const cleanId = (docId || '').trim();
@@ -3932,13 +4240,13 @@ export async function loadDocument(docId, anchorId = '') {
 
   renderSidebar(target.id);
 
-  // Update header and document title
+  // Update header, document title, and Open Graph social metadata
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
     brandBadge.textContent = isBlog ? 'Editorial' : CURRENT_ECOSYSTEM_VERSION;
   }
-  document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
+  updateSocialMetadata(target, isBlog);
 
   // Update active navbar link
   document.querySelectorAll('.nav-links a').forEach(a => {

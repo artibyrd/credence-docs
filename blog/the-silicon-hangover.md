@@ -2,8 +2,8 @@
 title: 'The Silicon Hangover: When Context Windows Suffer from Prompt Gluttony'
 description: Why dumping 50,000 tokens of rules into system prompts causes cognitive oatmeal, and the 4-tier knowledge taxonomy that keeps AI agents razor-sharp under 800 tokens.
 since_version: v1.15.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.10.1
+last_verified: 2026-08-22
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'
@@ -14,7 +14,7 @@ author: The Credence Epistemic Governance Group
 # The Silicon Hangover: When Context Windows Suffer from Prompt Gluttony 🧘
 
 > [!TIP]
-> **Epistemic Disclosure (Rule SPJ-42.0 — Ministry of Silly Protocols)**: This article is certified *Tongue-in-Cheek*. The `<800 token` invariant in `AGENTS.md` and the 4-tier knowledge taxonomy are live architectural standards enforced across the Credence repository.
+> **Epistemic Disclosure (Rule SPJ-42.0 — Ministry of Silly Protocols)**: This article is certified *Tongue-in-Cheek*. The `<800 token` invariant in `AGENTS.md`, the 3-class cognitive taxonomy, and the Demotion Highway are live architectural standards enforced across the Credence ecosystem.
 
 ---
 
@@ -27,26 +27,24 @@ Within six months, engineering repositories across the world ended up with 30-pa
 The result was predictable: **The Silicon Hangover (also known as Cognitive Oatmeal)**.
 
 ```mermaid
-graph TD
+flowchart TD
     subgraph PromptGluttony ["❌ Prompt Gluttony (50k Flat Tokens)"]
+        direction TB
         Flat["35+ Unordered Invariants Dumped into System Prompt"]
-        Dilution["1. Attention Dilution<br/>(Critical security rules lost in noise)"]
-        Oatmeal["2. Cognitive Oatmeal<br/>(Markdown trivia given equal weight to SSRF security)"]
-        Waste["3. Token Friction<br/>(Re-parsing static rules on every turn)"]
-        Flat --> Dilution
-        Flat --> Oatmeal
-        Flat --> Waste
+        --> Dilution["1. Attention Dilution<br/>(Critical security rules lost in noise)"]
+        --> Oatmeal["2. Cognitive Oatmeal<br/>(Markdown trivia weighted equal to SSRF)"]
+        --> Waste["3. Token Friction<br/>(Re-parsing static rules on every turn)"]
     end
 
-    subgraph StratifiedDiet ["🛡️ The 4-Tier Knowledge Taxonomy (&lt;800 Tokens)"]
-        T0["Tier 0: Universal Invariants (AGENTS.md &lt; 800 tokens)"]
-        T1["Tier 1: Progressive Subsystem Skills (.agents/skills/)"]
-        T2["Tier 2: Shift-Left Automated Test Gates (0.3s)"]
-        T3["Tier 3: Master Documentation Catalog"]
-        T0 --> T1
-        T0 --> T2
-        T0 --> T3
+    subgraph StratifiedDiet ["🛡️ 3-Tier Progressive Disclosure (<800 Tokens)"]
+        direction TB
+        T0["Tier 0: Universal Invariants<br/>(AGENTS.md &lt; 800 tokens)"]
+        --> T1["Tier 1: Progressive Subsystem Skills<br/>(.agents/skills/ loaded on demand)"]
+        --> T2["Tier 2: Shift-Left Test Gates<br/>(pytest test_docs_integrity.py &lt; 0.3s)"]
+        --> T3["Tier 3: Canonical Specifications<br/>(Deep master documentation & blueprints)"]
     end
+
+    PromptGluttony -->|"Replaced by Stratified Taxonomy"| StratifiedDiet
 
     style PromptGluttony fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
     style StratifiedDiet fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
@@ -63,50 +61,64 @@ When an LLM's context window is flooded with flat, un-stratified instructions:
 
 ---
 
-## 🏛️ The 4-Tier Knowledge Taxonomy Solution
+## 🏛️ The 3-Class Cognitive Taxonomy (Class $\alpha$, $\beta$, $\gamma$)
 
-To solve cognitive bloat forever, Credence stratifies all system knowledge into four decoupled layers based on **enforcement criticality, execution scope, and automation feasibility**:
+In `AGENTS.md`, we organize Tier-0 knowledge into a strict, prioritized cognitive hierarchy that fits inside **< 800 tokens**:
 
 ```mermaid
-graph TD
-    subgraph T0 ["Tier 0: Universal Core Invariants (AGENTS.md &lt; 800 Tokens)"]
-        T0_A["P0: Epistemic Grounding (G=1.00)"]
-        T0_B["P0: Human Review ('Mk1 Eyeball')"]
-        T0_C["P0: Network SSRF & Billion Laughs Defense"]
-        T0_D["P0: RFC 8785 Canonical JSON & Ed25519 Custody"]
-        T0_E["P0: Zero-npm Web Standard & 4-Way Parity"]
+flowchart TD
+    subgraph ClassAlpha ["Class α (Alpha): Sovereign Safety, Custody & Human Authority (P0)"]
+        direction TB
+        A1["Human Review ('Mk1 Eyeball') & Anti-Speculative UI"]
+        --> A2["Verbatim DOM Grounding (G = 1.00)"]
+        --> A3["RFC 8785 Canonical JSON & Ed25519 Custody"]
+        --> A4["Untrusted Ingestion Boundary & SSRF/XML Defense"]
     end
 
-    subgraph T1 ["Tier 1: Progressive Subsystem Skills (.agents/skills/)"]
-        T1_A["cloudrun-ops (Scale-to-Zero, CPU Boost)"]
-        T1_B["mesh-cluster (Watts-Strogatz, 3f+1 Cartel Defense)"]
-        T1_C["white-label-ops (Terraform Multi-Domain)"]
-        T1_D["epistemic-benchmark (Golden 12 Suite)"]
+    subgraph ClassBeta ["Class β (Beta): Execution Topology & Release Architecture (P1)"]
+        direction TB
+        B1["4-Phase Release & Lean Learning Lifecycle"]
+        --> B2["Cart-Before-the-Horse Order-of-Operations"]
+        --> B3["Commit-Before-Deploy & Push-and-Delegate CI/CD"]
+        --> B4["3-Plane Deployment Decoupling (Edge, Compute, Infra)"]
+        --> B5["Hermetic In-Memory Unit Test Isolation (&lt;35s)"]
     end
 
-    subgraph T2 ["Tier 2: Shift-Left Test Gates (tests/test_docs_integrity.py)"]
-        T2_A["YAML Frontmatter Checks (&lt;0.3s)"]
-        T2_B["Zero-npm package.json Assertions"]
-        T2_C["7-Manifest Semantic Version Parity"]
-        T2_D["Mermaid WCAG Dark Slate Contrast"]
+    subgraph ClassGamma ["Class γ (Gamma): Interface Symmetry & Governance (P2)"]
+        direction TB
+        C1["Universal 4-Way Feature Parity (CLI, TUI, FastMCP, Web)"]
+        --> C2["Epistemic Lensing & 3-Lens Information Pyramid"]
+        --> C3["Living Canon & Dynamic Invariant Bible Naming"]
+        --> C4["Multi-Model Sovereignty & Token Governor"]
     end
 
-    T0 --> T1
-    T0 --> T2
+    ClassAlpha --> ClassBeta --> ClassGamma
+
+    style ClassAlpha fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
+    style ClassBeta fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+    style ClassGamma fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
 ```
 
-### Layer 1: Tier 0 Universal Invariants (`AGENTS.md`)
-* **Execution Mode:** `always_on`
-* **Token Budget:** Strict hard ceiling of **< 800 tokens**.
-* Contains only P0 non-negotiables that apply across every file, turn, and subsystem.
+---
 
-### Layer 2: Tier 1 Progressive Subsystem Skills (`.agents/skills/`)
-* **Execution Mode:** `on_demand`
-* Loaded dynamically only when the agent touches that specific subsystem (e.g. `cloudrun-ops` when modifying Terraform or Dockerfiles).
+## 🛣️ The Demotion Highway: Forgetting What Tests Can Prove
 
-### Layer 3: Tier 2 Shift-Left Automated Test Gates (`test_docs_integrity.py`)
-* **Execution Mode:** `automated_ci`
-* Rules that can be expressed as deterministic code (frontmatter validation, sitemap coverage, version parity) are removed from the prompt entirely and verified in **< 0.3 seconds** via Pytest.
+The secret to keeping `AGENTS.md` permanently bounded under 800 tokens—even as the codebase grows across ten minor releases—is the **Demotion Highway**:
+
+$$\text{KnowledgePlacement} = \begin{cases} \text{Tier 2 (Test Gate)}, & \text{if assertion is deterministically verifiable in } < 0.3\text{s} \\ \text{Tier 1 (Progressive Skill)}, & \text{if rule is subsystem-scoped (e.g., Cloud Run / Mesh)} \\ \text{Tier 0 (AGENTS.md)}, & \text{only if rule is a universal, multi-file non-negotiable} \end{cases}$$
+
+When an invariant can be asserted with 100% mechanical certainty (e.g. valid YAML frontmatter, 7-manifest version parity, zero npm dependencies), we **demote** it out of prompt memory and graduate it into `tests/test_docs_integrity.py`.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Proposed: /learn Retrospective
+    Proposed --> Active: Minted to AGENTS.md (vX.Y.0)
+    Active --> UnderReview: Milestone Review (v2.X.0)
+    UnderReview --> Demoted: Promoted to Shift-Left Pytest Gate (Tier 2)
+    UnderReview --> Retired: Obsolete Constraint
+    Demoted --> [*]
+    Retired --> [*]
+```
 
 ---
 
@@ -114,7 +126,7 @@ graph TD
 
 By keeping universal prompt memory under 800 tokens and offloading trivia to automated test assertions:
 * The agent’s attention remains 100% focused on active problem solving.
-* Hallucinations drop to near-zero.
+* Security and cryptographic invariants are never forgotten or diluted.
 * Inference turn latency remains blazing fast (< 2 seconds).
 
 Treat your AI's context window like human working memory: keep it clean, keep it focused, and never feed it cognitive oatmeal.
