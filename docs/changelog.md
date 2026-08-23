@@ -2,11 +2,19 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.12.0
+verified_version: v2.12.1
 last_verified: 2026-08-23
 ---
 
 # Release Changelog
+
+## [2.12.1] - 2026-08-23
+
+### Added
+- **Shift-Left Descriptive Figcaptions Integrity Test Gate**: Added `test_doc_illustrations_require_descriptive_figcaptions` in `tests/governance/test_docs_integrity.py` to mechanically enforce substantive, non-duplicate alt text across all documentation illustrations.
+- **Architectural Technical Schematics & Figcaption Invariant**: Codified Section 10 in `.agents/skills/architecture-governance/SKILL.md` enforcing concrete structural modeling, prohibiting generic "text-in-boxes with arrows", and mandating visible `<figcaption>` rendering.
+
+---
 
 ## [2.12.0] - 2026-08-23
 
