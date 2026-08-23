@@ -510,29 +510,177 @@ details.sidebar-group[open] > summary .sidebar-chevron {
   -webkit-user-drag: none;
 }
 
-/* Anti-Light-on-Light SVG Typography Enforcement (WCAG 2.1 AA/AAA) */
+/* ==============================================================================
+   WCAG 2.1 AA/AAA High-Contrast Anti-Light-on-Light Palette Enforcement
+   ============================================================================== */
+
+/* 1. Default Node Backgrounds: Dark Slate (NEVER White or Light) */
+.mermaid-rendered svg .node rect,
+.mermaid-rendered svg .node circle,
+.mermaid-rendered svg .node ellipse,
+.mermaid-rendered svg .node polygon,
+.mermaid-rendered svg .node path,
+.mermaid-rendered svg g.node rect,
+.mermaid-rendered svg g.node circle,
+.mermaid-rendered svg g.node ellipse,
+.mermaid-rendered svg g.node polygon,
+.mermaid-rendered svg g.node path,
+.lightbox-viewport svg .node rect,
+.lightbox-viewport svg .node circle,
+.lightbox-viewport svg .node ellipse,
+.lightbox-viewport svg .node polygon,
+.lightbox-viewport svg .node path,
+.lightbox-viewport svg g.node rect,
+.lightbox-viewport svg g.node circle,
+.lightbox-viewport svg g.node ellipse,
+.lightbox-viewport svg g.node polygon,
+.lightbox-viewport svg g.node path {
+  fill: #1e293b;
+  stroke: #38bdf8;
+  stroke-width: 1.5px;
+}
+
+/* 2. Subgraph / Cluster Framing: Deep Obsidian Background with Subtle Cyan Border */
+.mermaid-rendered svg .cluster rect,
+.lightbox-viewport svg .cluster rect {
+  fill: #090d16 !important;
+  stroke: rgba(56, 189, 248, 0.35) !important;
+  stroke-width: 1.5px !important;
+}
+
+.mermaid-rendered svg .cluster text,
+.mermaid-rendered svg .cluster span,
+.mermaid-rendered svg .cluster .nodeLabel,
+.lightbox-viewport svg .cluster text,
+.lightbox-viewport svg .cluster span,
+.lightbox-viewport svg .cluster .nodeLabel {
+  fill: #38bdf8 !important;
+  color: #38bdf8 !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* 3. High-Contrast Typography Across All Text Elements */
 .mermaid-rendered svg text,
 .mermaid-rendered svg .nodeLabel,
+.mermaid-rendered svg .nodeLabel p,
+.mermaid-rendered svg .nodeLabel span,
+.mermaid-rendered svg .nodeLabel code,
+.mermaid-rendered svg .nodeLabel i,
+.mermaid-rendered svg .nodeLabel b,
 .mermaid-rendered svg .edgeLabel,
 .mermaid-rendered svg .actor,
+.mermaid-rendered svg .actor text,
 .mermaid-rendered svg .messageText,
 .mermaid-rendered svg .noteText,
-.mermaid-rendered svg .loopText {
+.mermaid-rendered svg .loopText,
+.lightbox-viewport svg text,
+.lightbox-viewport svg .nodeLabel,
+.lightbox-viewport svg .nodeLabel p,
+.lightbox-viewport svg .nodeLabel span,
+.lightbox-viewport svg .nodeLabel code,
+.lightbox-viewport svg .nodeLabel i,
+.lightbox-viewport svg .nodeLabel b,
+.lightbox-viewport svg .edgeLabel,
+.lightbox-viewport svg .actor,
+.lightbox-viewport svg .actor text,
+.lightbox-viewport svg .messageText,
+.lightbox-viewport svg .noteText,
+.lightbox-viewport svg .loopText {
   fill: #f8fafc !important;
   color: #f8fafc !important;
   font-family: var(--font-sans, system-ui, -apple-system, sans-serif) !important;
   font-size: 14px !important;
 }
 
+/* 4. Sequence Diagram Elements */
+.mermaid-rendered svg .actor,
+.lightbox-viewport svg .actor {
+  stroke: #38bdf8 !important;
+  fill: #1e293b !important;
+}
+
+.mermaid-rendered svg text.actor,
+.lightbox-viewport svg text.actor {
+  fill: #f8fafc !important;
+  font-weight: 600 !important;
+}
+
+.mermaid-rendered svg .actor-line,
+.lightbox-viewport svg .actor-line {
+  stroke: #475569 !important;
+}
+
+.mermaid-rendered svg .messageLine0,
+.mermaid-rendered svg .messageLine1,
+.lightbox-viewport svg .messageLine0,
+.lightbox-viewport svg .messageLine1 {
+  stroke: #38bdf8 !important;
+  stroke-width: 1.5px !important;
+}
+
+.mermaid-rendered svg .messageText,
+.lightbox-viewport svg .messageText {
+  fill: #38bdf8 !important;
+  font-size: 13px !important;
+}
+
+.mermaid-rendered svg #arrowhead,
+.mermaid-rendered svg #crosshead,
+.mermaid-rendered svg .sequenceNumber,
+.lightbox-viewport svg #arrowhead,
+.lightbox-viewport svg #crosshead,
+.lightbox-viewport svg .sequenceNumber {
+  fill: #38bdf8 !important;
+  stroke: #38bdf8 !important;
+}
+
+/* 5. Edge Labels and Links */
 .mermaid-rendered svg .edgeLabel rect,
-.mermaid-rendered svg .labelBox {
+.mermaid-rendered svg .labelBox,
+.mermaid-rendered svg .labelBox rect,
+.lightbox-viewport svg .edgeLabel rect,
+.lightbox-viewport svg .labelBox,
+.lightbox-viewport svg .labelBox rect {
   fill: #0f172a !important;
   stroke: #334155 !important;
 }
 
-.mermaid-rendered svg .note {
+.mermaid-rendered svg .edgeLabel,
+.mermaid-rendered svg .edgeLabel span,
+.lightbox-viewport svg .edgeLabel,
+.lightbox-viewport svg .edgeLabel span {
+  fill: #94a3b8 !important;
+  color: #94a3b8 !important;
+  font-size: 12px !important;
+}
+
+.mermaid-rendered svg .flowchart-link,
+.lightbox-viewport svg .flowchart-link {
+  stroke: #60a5fa !important;
+  stroke-width: 1.5px !important;
+}
+
+.mermaid-rendered svg .marker,
+.lightbox-viewport svg .marker {
+  fill: #60a5fa !important;
+  stroke: #60a5fa !important;
+}
+
+/* 6. Notes & Annotations */
+.mermaid-rendered svg .note,
+.lightbox-viewport svg .note {
   fill: #1e293b !important;
   stroke: #f59e0b !important;
+}
+
+.mermaid-rendered svg .noteText,
+.mermaid-rendered svg .note text,
+.lightbox-viewport svg .noteText,
+.lightbox-viewport svg .note text {
+  fill: #fde68a !important;
+  color: #fde68a !important;
 }
 
 .mermaid-fallback {
