@@ -35,28 +35,28 @@ No matter how many millions of parameters an LLM possesses, it is strictly forbi
 To understand why autonomous agents must never be granted unsupervised commit authority, one need only study the foundational treatise on cybernetic defense: the 2004 documentary known as *Battlestar Galactica*.
 
 ```mermaid
-graph TD
-    subgraph NetworkedFleet["❌ The Modern Colonial Fleet (Full Autonomy)"]
+flowchart TD
+    subgraph NetworkedFleet ["❌ The Modern Colonial Fleet (Full Autonomy)"]
+        direction TB
         CNP["Command Navigation Program (CNP)<br/>(Networked Fly-By-Wire)"]
-        CylonHack["Single Cylon Broadcast / Malware"]
-        Bricked["100% of Fleet Bricked in 30 Seconds"]
-        CNP --> CylonHack --> Bricked
+        --> CylonHack["Single Cylon Exploit / Broadcast"]
+        --> Bricked["💥 100% of Fleet Bricked in 30 Seconds"]
     end
 
-    subgraph GalacticaStack["🛡️ The Battlestar Galactica Stack (Credence Invariant)"]
+    subgraph GalacticaStack ["🛡️ The Battlestar Galactica Stack (Credence Invariant)"]
+        direction TB
         AirGap["Un-Networked Core Computers<br/>(Air-Gapped Invariant)"]
-        Analog["Physical Grease Pencils in CIC<br/>(Durable CAS State)"]
-        Viper["Viper Mk II Analog Cockpit<br/>(Zero-npm / Zero-Build Runtime)"]
-        PilotEye["Mk 1 Eyeball Visual Confirmation<br/>(Human-in-the-Loop Gate)"]
-        
-        AirGap --> Viper
-        Analog --> Viper
-        Viper --> PilotEye
-        PilotEye --> Victory["Survives Every Attack & Hits Target"]
+        --> Analog["Physical Grease Pencils in CIC<br/>(Durable CAS State)"]
+        --> Viper["Viper Mk II Analog Cockpit<br/>(Zero-npm / Zero-Build Runtime)"]
+        --> PilotEye["Mk 1 Eyeball Visual Confirmation<br/>(Human-in-the-Loop Gate)"]
+        --> Victory["✨ Survives Every Attack & Hits Target"]
     end
+
+    NetworkedFleet -->|"The Adama Doctrine"| GalacticaStack
 
     style NetworkedFleet fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
     style GalacticaStack fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+    style Victory fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
 ```
 
 When the Cylons struck the Twelve Colonies, they didn't defeat the modern fleet in glorious ship-to-ship tactical combat. They simply broadcast an exploit into Baltar's networked Command Navigation Program (CNP). Every high-tech, fly-by-wire, auto-updating starship immediately shut down its engines, lowered its shields, and drifted helplessly into nuclear crosshairs.

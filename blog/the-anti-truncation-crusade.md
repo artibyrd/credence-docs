@@ -33,25 +33,28 @@ To a frontend AI, the ellipsis (`...`) is the ultimate aesthetic crutch. It make
 And in an epistemic verification network, **it is an absolute catastrophe.**
 
 ```mermaid
-graph TD
+flowchart TD
     subgraph AestheticTrap ["❌ The Frontend Designer's Dream (The Ellipsis Trap)"]
-        RawQuote["Source Quote: 'The minister denied the allegations of bribery, though conceded that cash was received.'"]
-        CSS["text-overflow: ellipsis applied to single-line card"]
-        Truncated["Rendered on Screen: 'The minister denied the allegations of bribery...'"]
-        Inversion["💥 Critical Evidence Concealed by Three Little Dots!"]
-        RawQuote --> CSS --> Truncated --> Inversion
+        direction TB
+        RawQuote["Source Quote:<br/><i>'The minister denied the allegations of bribery,<br/>though conceded that cash was received.'</i>"]
+        --> CSS["Applied CSS:<br/><code>text-overflow: ellipsis; white-space: nowrap;</code>"]
+        --> Truncated["Rendered on Screen:<br/><b>'The minister denied the allegations of bribery...'</b>"]
+        --> Inversion["💥 Critical Evidence Inverted & Concealed<br/>by Three Little Dots!"]
     end
 
     subgraph GroundedReality ["🛡️ The Anti-Truncation Invariant (v2.6.4)"]
-        RawQuote2["Source Quote: 'The minister denied...'"]
-        Unabridged["Full Unabridged Card with Word-Break & Natural Flow"]
-        Verbatim["Character-for-Character DOM Match (G = 1.00)"]
-        RawQuote2 --> Unabridged --> Verbatim
+        direction TB
+        RawQuote2["Source Quote:<br/><i>'The minister denied... though conceded...'</i>"]
+        --> Unabridged["Unabridged Natural Vertical Flow<br/><code>height: auto; overflow-wrap: anywhere;</code>"]
+        --> Verbatim["✨ Character-for-Character DOM Match<br/>Verbatim Epistemic Grounding (G = 1.00)"]
     end
+
+    AestheticTrap -->|"Replaced by Anti-Truncation Invariant"| GroundedReality
 
     style AestheticTrap fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fff
     style GroundedReality fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
     style Verbatim fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
+    style Inversion fill:#450a0a,stroke:#fca5a5,stroke-width:1px,color:#fff
 ```
 
 ---

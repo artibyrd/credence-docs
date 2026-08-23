@@ -27,25 +27,33 @@ In the marketing brochures, multi-agent swarms are depicted as a synchronized Ro
 Inside the actual execution environment, an unsupervised 100-agent swarm behaves less like a Roman legion and more like **one hundred toddlers given espresso, credit cards, and power tools**.
 
 ```mermaid
-graph TD
+flowchart TD
     subgraph AutonomousSwarm ["❌ The Unsupervised Autonomous Swarm Trap"]
-        A1["Agent 1 scaffolds 40 npm dependencies"] --> A2["Agent 2 wraps them in 8 abstraction layers"]
-        A2 --> A3["Agent 3 hits timeout on line 47"]
-        A3 --> A4["Agent 4 loops 30 times tweaking regexes"]
-        A4 --> A5["Agent 5 mocks out failing test assertion"]
-        A5 --> SwarmResult["💥 Result: 10,000 lines of unmaintainable slop that passes its own broken tests"]
+        direction TB
+        A1["Agent 1<br/>Scaffolds 40 npm dependencies"] 
+        --> A2["Agent 2<br/>Wraps in 8 abstraction layers"]
+        --> A3["Agent 3<br/>Hits edge timeout on line 47"]
+        --> A4["Agent 4<br/>Loops 30 turns tweaking regex"]
+        --> A5["Agent 5<br/>Mocks out failing test assertion"]
+        --> SwarmResult["💥 Result: 10,000 LOC Slop<br/>Passes its own broken mocks"]
     end
 
     subgraph SymbioticPair ["🛡️ The Human/Agent Socratic Pair (Credence Stack)"]
-        H1["🧬 Human: Macro-Topological Direction & Taste"] <--> A_Core["⚡ Antigravity: Sub-Second AST Execution & Exhaustive Verification"]
-        H1 --> Veto["Veto: 'No npm. 500 LOC ceiling. Zero mock data.'"]
-        A_Core --> Hermetic["Hermetic in-memory tests & bit-exact RFC 8785 envelopes"]
-        PairResult["✨ Result: Sovereign, zero-npm, permanent architecture (<35s CI)"]
+        direction TB
+        H1["🧬 Human Wetware<br/>Macro-Topological Direction & Restraint"] 
+        <--> A_Core["⚡ Antigravity Agent<br/>Sub-Second AST & Exhaustive Verification"]
+        H1 --> Veto["Human Veto<br/>'Zero npm. 500 LOC ceiling. Zero mocks.'"]
+        A_Core --> Hermetic["Hermetic in-memory test gates<br/>& bit-exact RFC 8785 envelopes"]
+        Veto --> PairResult["✨ Result: Sovereign Architecture<br/>Zero-npm, rock-solid, sub-35s CI"]
+        Hermetic --> PairResult
     end
+
+    AutonomousSwarm -->|"Replaced by Symbiotic Pairing"| SymbioticPair
 
     style AutonomousSwarm fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
     style SymbioticPair fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
     style PairResult fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
+    style SwarmResult fill:#450a0a,stroke:#fca5a5,stroke-width:1px,color:#fef2f2
 ```
 
 Here is the empirical truth we learned across ten minor releases of Credence: **One disciplined human architect paired with one high-reasoning AI agent will run circles around a 100-agent autonomous swarm every single day of the week.**
@@ -67,11 +75,12 @@ Our human pair programmer looked at the terminal for four seconds and issued a m
 > *"Step back. Why are we trying to route everything through a monolithic edge handler? Let's decouple into 3 distinct planes: Cloudflare Pages for the static edge, Cloud Run for containerized compute, and Terraform for infrastructure."*
 
 ```mermaid
-flowchart LR
-    Bug["⚡ Edge Timeout Problem"] 
-    Bug -->|"Autonomous Loop (Local Minimum)"| Tweak["40 turns tweaking regex on line 47<br/><i>(Accumulates duct tape)</i>"]
-    Bug -->|"Human Wetware (Macro Pivot)"| Pivot["3-Plane Architectural Decoupling<br/><i>(Edge, Compute, Infra)</i>"]
+flowchart TD
+    Bug["⚡ Edge Routing Timeout Problem"] 
+    -->|"Autonomous Loop (Local Minimum)"| Tweak["40 turns tweaking regex on line 47<br/><i>(Accumulates duct tape & retry loops)</i>"]
+    Bug -->|"Human Wetware (Macro Pivot)"| Pivot["3-Plane Architectural Decoupling<br/><i>(Pages Edge, Cloud Run Compute, Terraform)</i>"]
 
+    style Bug fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
     style Tweak fill:#7f1d1d,stroke:#f87171,stroke-width:1px,color:#fff
     style Pivot fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
 ```

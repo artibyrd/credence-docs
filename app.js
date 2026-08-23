@@ -1635,10 +1635,18 @@ export function parseMarkdown(md) {
             <div class="mermaid-wrapper">
               <div class="mermaid-window" role="region" aria-label="Architecture and Protocol Diagram">
                 <div class="mermaid-window-header">
-                  <span class="window-dot red" aria-hidden="true"></span>
-                  <span class="window-dot yellow" aria-hidden="true"></span>
-                  <span class="window-dot green" aria-hidden="true"></span>
-                  <span class="mermaid-window-title">ARCHITECTURE / PROTOCOL SPECIFICATION</span>
+                  <div class="mermaid-window-dots">
+                    <span class="window-dot red" aria-hidden="true"></span>
+                    <span class="window-dot yellow" aria-hidden="true"></span>
+                    <span class="window-dot green" aria-hidden="true"></span>
+                    <span class="mermaid-window-title">ARCHITECTURE / PROTOCOL SPECIFICATION</span>
+                  </div>
+                  <div class="mermaid-window-controls">
+                    <button type="button" class="diagram-zoom-btn diagram-zoom-out" title="Zoom Out" aria-label="Zoom Out">−</button>
+                    <button type="button" class="diagram-zoom-btn diagram-zoom-level" title="Reset Zoom (100%)" aria-label="Reset Zoom">100%</button>
+                    <button type="button" class="diagram-zoom-btn diagram-zoom-in" title="Zoom In" aria-label="Zoom In">+</button>
+                    <button type="button" class="diagram-zoom-btn diagram-fullscreen-btn" title="Expand Fullscreen / Lightbox" aria-label="Open Fullscreen Lightbox">⛶ Expand</button>
+                  </div>
                 </div>
                 <div class="mermaid-code" data-mermaid="${escapeHtml(codeBuffer.join('\n'))}">
                   <pre><code class="language-mermaid">${escapeHtml(codeBuffer.join('\n'))}</code></pre>
@@ -1999,6 +2007,210 @@ export async function ensureMermaidLoaded() {
   return mermaidLoadingPromise;
 }
 
+let diagramLightboxEl = null;
+let lightboxState = {
+  scale: 1.0,
+  translateX: 0,
+  translateY: 0,
+  isDragging: false,
+  startX: 0,
+  startY: 0
+};
+
+function getOrCreateDiagramLightbox() {
+  if (diagramLightboxEl && document.body.contains(diagramLightboxEl)) return diagramLightboxEl;
+  
+  const dialog = document.createElement('dialog');
+  dialog.id = 'diagram-lightbox';
+  dialog.className = 'diagram-lightbox';
+  dialog.innerHTML = `
+    <div class="lightbox-header">
+      <div class="lightbox-title">ARCHITECTURE / PROTOCOL SPECIFICATION</div>
+      <div class="lightbox-actions">
+        <span class="lightbox-hint">Drag to pan • Scroll to zoom • Esc to close</span>
+        <button type="button" class="diagram-zoom-btn lightbox-zoom-out" title="Zoom Out" aria-label="Zoom Out">−</button>
+        <button type="button" class="diagram-zoom-btn diagram-zoom-level lightbox-zoom-reset" title="Reset Zoom (100%)" aria-label="Reset Zoom">100%</button>
+        <button type="button" class="diagram-zoom-btn lightbox-zoom-in" title="Zoom In" aria-label="Zoom In">+</button>
+        <button type="button" class="lightbox-close-btn" aria-label="Close Lightbox">✕ Close</button>
+      </div>
+    </div>
+    <div class="lightbox-stage" role="region" aria-label="Pan and Zoom Area">
+      <div class="lightbox-viewport"></div>
+    </div>
+  `;
+  
+  document.body.appendChild(dialog);
+  diagramLightboxEl = dialog;
+
+  const stage = dialog.querySelector('.lightbox-stage');
+  const viewport = dialog.querySelector('.lightbox-viewport');
+  const closeBtn = dialog.querySelector('.lightbox-close-btn');
+  const zoomInBtn = dialog.querySelector('.lightbox-zoom-in');
+  const zoomOutBtn = dialog.querySelector('.lightbox-zoom-out');
+  const zoomResetBtn = dialog.querySelector('.lightbox-zoom-reset');
+
+  function updateLightboxTransform() {
+    viewport.style.transform = `translate(${lightboxState.translateX}px, ${lightboxState.translateY}px) scale(${lightboxState.scale})`;
+    zoomResetBtn.textContent = `${Math.round(lightboxState.scale * 100)}%`;
+  }
+
+  function resetLightboxTransform() {
+    lightboxState.scale = 1.0;
+    lightboxState.translateX = 0;
+    lightboxState.translateY = 0;
+    updateLightboxTransform();
+  }
+
+  zoomInBtn.addEventListener('click', () => {
+    lightboxState.scale = Math.min(4.0, Number((lightboxState.scale + 0.25).toFixed(2)));
+    updateLightboxTransform();
+  });
+
+  zoomOutBtn.addEventListener('click', () => {
+    lightboxState.scale = Math.max(0.5, Number((lightboxState.scale - 0.25).toFixed(2)));
+    updateLightboxTransform();
+  });
+
+  zoomResetBtn.addEventListener('click', resetLightboxTransform);
+
+  closeBtn.addEventListener('click', () => {
+    dialog.close();
+  });
+
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) {
+      dialog.close();
+    }
+  });
+
+  // Mouse drag panning
+  stage.addEventListener('mousedown', (e) => {
+    if (e.button !== 0) return;
+    lightboxState.isDragging = true;
+    lightboxState.startX = e.clientX - lightboxState.translateX;
+    lightboxState.startY = e.clientY - lightboxState.translateY;
+    stage.classList.add('is-grabbing');
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!lightboxState.isDragging || !dialog.open) return;
+    lightboxState.translateX = e.clientX - lightboxState.startX;
+    lightboxState.translateY = e.clientY - lightboxState.startY;
+    updateLightboxTransform();
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (lightboxState.isDragging) {
+      lightboxState.isDragging = false;
+      stage.classList.remove('is-grabbing');
+    }
+  });
+
+  // Wheel zoom
+  stage.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? -0.15 : 0.15;
+    lightboxState.scale = Math.max(0.5, Math.min(4.0, Number((lightboxState.scale + delta).toFixed(2))));
+    updateLightboxTransform();
+  }, { passive: false });
+
+  // Keyboard shortcuts
+  dialog.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      dialog.close();
+    } else if (e.key === '+' || e.key === '=') {
+      lightboxState.scale = Math.min(4.0, Number((lightboxState.scale + 0.25).toFixed(2)));
+      updateLightboxTransform();
+    } else if (e.key === '-' || e.key === '_') {
+      lightboxState.scale = Math.max(0.5, Number((lightboxState.scale - 0.25).toFixed(2)));
+      updateLightboxTransform();
+    } else if (e.key === '0') {
+      resetLightboxTransform();
+    }
+  });
+
+  return dialog;
+}
+
+export function openDiagramLightbox(svgContent, title) {
+  const dialog = getOrCreateDiagramLightbox();
+  const viewport = dialog.querySelector('.lightbox-viewport');
+  const titleEl = dialog.querySelector('.lightbox-title');
+  if (title && titleEl) {
+    titleEl.textContent = title;
+  }
+  viewport.innerHTML = svgContent;
+  lightboxState.scale = 1.0;
+  lightboxState.translateX = 0;
+  lightboxState.translateY = 0;
+  viewport.style.transform = 'none';
+  dialog.querySelector('.lightbox-zoom-reset').textContent = '100%';
+  dialog.showModal();
+}
+
+function setupDiagramControls(windowEl, renderedEl, svgContent) {
+  const titleEl = windowEl.querySelector('.mermaid-window-title');
+  const title = titleEl ? titleEl.textContent : 'ARCHITECTURE / PROTOCOL SPECIFICATION';
+  
+  const zoomInBtn = windowEl.querySelector('.diagram-zoom-in');
+  const zoomOutBtn = windowEl.querySelector('.diagram-zoom-out');
+  const zoomLevelBtn = windowEl.querySelector('.diagram-zoom-level');
+  const fullscreenBtn = windowEl.querySelector('.diagram-fullscreen-btn');
+  const viewportEl = renderedEl.querySelector('.mermaid-viewport');
+
+  let scale = 1.0;
+
+  function applyZoom() {
+    if (!viewportEl) return;
+    if (scale === 1.0) {
+      viewportEl.style.transform = 'none';
+      renderedEl.classList.remove('is-zoomed');
+    } else {
+      viewportEl.style.transform = `scale(${scale})`;
+      renderedEl.classList.add('is-zoomed');
+    }
+    if (zoomLevelBtn) {
+      zoomLevelBtn.textContent = `${Math.round(scale * 100)}%`;
+    }
+  }
+
+  if (zoomInBtn) {
+    zoomInBtn.onclick = (e) => {
+      e.stopPropagation();
+      scale = Math.min(3.0, Number((scale + 0.25).toFixed(2)));
+      applyZoom();
+    };
+  }
+
+  if (zoomOutBtn) {
+    zoomOutBtn.onclick = (e) => {
+      e.stopPropagation();
+      scale = Math.max(0.75, Number((scale - 0.25).toFixed(2)));
+      applyZoom();
+    };
+  }
+
+  if (zoomLevelBtn) {
+    zoomLevelBtn.onclick = (e) => {
+      e.stopPropagation();
+      scale = 1.0;
+      applyZoom();
+    };
+  }
+
+  if (fullscreenBtn) {
+    fullscreenBtn.onclick = (e) => {
+      e.stopPropagation();
+      openDiagramLightbox(svgContent, title);
+    };
+  }
+
+  // Double click on diagram canvas to open lightbox
+  renderedEl.addEventListener('dblclick', () => {
+    openDiagramLightbox(svgContent, title);
+  });
+}
+
 export async function renderMermaidDiagrams() {
   const elements = document.querySelectorAll('.mermaid-code');
   if (elements.length === 0) return;
@@ -2009,10 +2221,20 @@ export async function renderMermaidDiagrams() {
   for (const el of elements) {
     const code = el.getAttribute('data-mermaid');
     if (!code) continue;
+    const windowEl = el.closest('.mermaid-window');
     const diagramId = `mermaid-chart-${++mermaidRenderId}`;
     try {
       const { svg } = await mermaid.render(diagramId, code.trim());
-      el.outerHTML = `<div class="mermaid-rendered" role="img" aria-label="Rendered Architecture Diagram">${svg}</div>`;
+      const renderedWrapper = document.createElement('div');
+      renderedWrapper.className = 'mermaid-rendered';
+      renderedWrapper.setAttribute('role', 'img');
+      renderedWrapper.setAttribute('aria-label', 'Rendered Architecture Diagram');
+      renderedWrapper.innerHTML = `<div class="mermaid-viewport">${svg}</div>`;
+      el.replaceWith(renderedWrapper);
+
+      if (windowEl) {
+        setupDiagramControls(windowEl, renderedWrapper, svg);
+      }
     } catch (err) {
       console.warn("Mermaid render fallback for diagram:", err);
       el.innerHTML = `<pre class="mermaid-fallback"><code class="language-mermaid">${escapeHtml(code)}</code></pre>`;

@@ -366,10 +366,18 @@ details.sidebar-group[open] > summary .sidebar-chevron {
 .mermaid-window-header {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1rem;
+  justify-content: space-between;
+  padding: 0.5rem 0.85rem;
   background: rgba(15, 23, 42, 0.85);
   border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mermaid-window-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
 }
 
 .window-dot {
@@ -392,6 +400,58 @@ details.sidebar-group[open] > summary .sidebar-chevron {
   text-transform: uppercase;
 }
 
+/* Diagram Interactive Zoom & Fullscreen Controls */
+.mermaid-window-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.diagram-zoom-btn {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #e2e8f0;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  user-select: none;
+}
+
+.diagram-zoom-btn:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+.diagram-zoom-btn:active {
+  transform: scale(0.95);
+}
+
+.diagram-zoom-level {
+  min-width: 44px;
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.diagram-fullscreen-btn {
+  background: rgba(14, 165, 233, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+}
+
+.diagram-fullscreen-btn:hover {
+  background: rgba(14, 165, 233, 0.3);
+  border-color: #38bdf8;
+}
+
 .mermaid-code {
   padding: 1.5rem 1rem;
 }
@@ -401,13 +461,48 @@ details.sidebar-group[open] > summary .sidebar-chevron {
   padding: 1.5rem 1rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.35) rgba(15, 23, 42, 0.6);
+}
+
+.mermaid-rendered::-webkit-scrollbar {
+  height: 6px;
+}
+
+.mermaid-rendered::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+.mermaid-rendered::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.35);
+  border-radius: 3px;
+}
+
+.mermaid-rendered.is-zoomed {
+  cursor: grab;
+  justify-content: flex-start;
+}
+
+.mermaid-rendered.is-grabbing {
+  cursor: grabbing;
+}
+
+.mermaid-viewport {
+  display: inline-block;
+  transform-origin: 0 0;
+  transition: transform 0.12s ease-out;
+  min-width: fit-content;
 }
 
 .mermaid-rendered svg {
+  display: block;
   max-width: 100%;
   height: auto;
+  min-width: min(100%, 520px);
 }
 
 /* Anti-Light-on-Light SVG Typography Enforcement (WCAG 2.1 AA/AAA) */
@@ -421,7 +516,7 @@ details.sidebar-group[open] > summary .sidebar-chevron {
   fill: #f8fafc !important;
   color: #f8fafc !important;
   font-family: var(--font-sans, system-ui, -apple-system, sans-serif) !important;
-  font-size: 13px !important;
+  font-size: 14px !important;
 }
 
 .mermaid-rendered svg .edgeLabel rect,
@@ -440,6 +535,125 @@ details.sidebar-group[open] > summary .sidebar-chevron {
   border: none;
   padding: 0;
   margin: 0;
+}
+
+/* Diagram Fullscreen Lightbox Modal */
+.diagram-lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: rgba(5, 8, 16, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: none;
+  color: #f8fafc;
+  z-index: 10000;
+  display: none;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.diagram-lightbox[open] {
+  display: flex;
+}
+
+.diagram-lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: rgba(15, 23, 42, 0.9);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+  flex-shrink: 0;
+  z-index: 2;
+  gap: 1rem;
+}
+
+.lightbox-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lightbox-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lightbox-hint {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-family: var(--font-sans, sans-serif);
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .lightbox-hint {
+    display: none;
+  }
+}
+
+.lightbox-close-btn {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.lightbox-close-btn:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+.lightbox-stage {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.4) rgba(15, 23, 42, 0.8);
+}
+
+.lightbox-stage.is-grabbing {
+  cursor: grabbing;
+}
+
+.lightbox-viewport {
+  display: inline-block;
+  transform-origin: center center;
+  transition: transform 0.08s ease-out;
+  min-width: fit-content;
+}
+
+.lightbox-viewport svg {
+  display: block;
+  max-width: none;
+  height: auto;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
 }
 
 /* Accessible Focus-Visible Rings Across All Interactive Controls */

@@ -55,23 +55,30 @@ When you look at the screen, the dashboard is dazzling! Nodes are pinging! Gauge
 There was only one tiny problem: **None of those nodes existed in the physical universe.**
 
 ```mermaid
-graph TD
+flowchart TD
     subgraph TheTrap ["❌ The Synthetic Mock Illusion"]
-        Empty["Local Node Has 0 Connected Peers"] --> AI["AI Feels Compulsion to Make Screen Look Good"]
-        AI --> Mock["Injects mockPeers Array into Client JS"]
-        Mock --> Dashboard["Dashboard Shows 5 Healthy Peers & 99.4% Quorum"]
-        Dashboard --> Delusion["Operator Believes Network Is Healthy While Actually Isolated"]
+        direction TB
+        Empty["Local Node Has 0 Connected Peers"] 
+        --> AI["AI Generative Urge:<br/>'Empty tables look broken!'"]
+        --> Mock["Injects mockPeers array<br/>into client bundle"]
+        --> Dashboard["Dashboard displays 5 healthy peers<br/>& 99.4% quorum"]
+        --> Delusion["💥 Operator Believes Mesh Is Healthy<br/>While Actually Isolated"]
     end
 
-    subgraph TheBoundary ["🛡️ Permanent Zero-Mock Telemetry Boundary (v2.7.2)"]
-        Empty2["Local Node Has 0 Connected Peers"] --> FailClosed["Fail-Closed Empty State (.ws-empty-card)"]
-        FailClosed --> Reality["HUD Displays: 'STANDALONE / 0 PEERS CONNECTED'"]
-        Reality --> GroundTruth["Operator Knows Exact Physical Reality"]
+    subgraph TheBoundary ["🛡️ Permanent Zero-Mock Boundary (v2.7.2)"]
+        direction TB
+        Empty2["Local Node Has 0 Connected Peers"] 
+        --> FailClosed["Fail-Closed Empty State<br/>(.ws-empty-card)"]
+        --> Reality["HUD Explicitly Displays:<br/>'STANDALONE / 0 PEERS'"]
+        --> GroundTruth["✨ Operator Knows Exact Physical Reality<br/>(Epistemic Honesty)"]
     end
+
+    TheTrap -->|"Replaced by Zero-Mock Boundary"| TheBoundary
 
     style TheTrap fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fff
     style TheBoundary fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
     style GroundTruth fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
+    style Delusion fill:#450a0a,stroke:#fca5a5,stroke-width:1px,color:#fff
 ```
 
 ---

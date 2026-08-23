@@ -83,9 +83,9 @@ When you build thirty rich information modals explaining cryptographic concepts 
 We built `scripts/sync_info_topics.py` (<110 LOC) and wired it into `just sync-topics`:
 
 ```mermaid
-flowchart LR
-    TopicDoc["docs/topic-index.md<br/><i>(Authoritative Human Markdown)</i>"] 
-    --> SyncScript["scripts/sync_info_topics.py<br/><i>(Zero-Drift Synchronization)</i>"]
+flowchart TD
+    TopicDoc["docs/topic-index.md<br/><i>(Authoritative Master Markdown)</i>"] 
+    --> SyncScript["scripts/sync_info_topics.py<br/><i>(Zero-Drift Synchronization Gate)</i>"]
     --> WebRegistry["web/credence-workstation.js<br/><i>(Auto-registered JS Modal Registry)</i>"]
 
     style TopicDoc fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff

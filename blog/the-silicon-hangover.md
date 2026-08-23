@@ -27,26 +27,24 @@ Within six months, engineering repositories across the world ended up with 30-pa
 The result was predictable: **The Silicon Hangover (also known as Cognitive Oatmeal)**.
 
 ```mermaid
-graph TD
+flowchart TD
     subgraph PromptGluttony ["❌ Prompt Gluttony (50k Flat Tokens)"]
+        direction TB
         Flat["35+ Unordered Invariants Dumped into System Prompt"]
-        Dilution["1. Attention Dilution<br/>(Critical security rules lost in noise)"]
-        Oatmeal["2. Cognitive Oatmeal<br/>(Markdown trivia given equal weight to SSRF security)"]
-        Waste["3. Token Friction<br/>(Re-parsing static rules on every turn)"]
-        Flat --> Dilution
-        Flat --> Oatmeal
-        Flat --> Waste
+        --> Dilution["1. Attention Dilution<br/>(Critical security rules lost in noise)"]
+        --> Oatmeal["2. Cognitive Oatmeal<br/>(Markdown trivia weighted equal to SSRF)"]
+        --> Waste["3. Token Friction<br/>(Re-parsing static rules on every turn)"]
     end
 
-    subgraph StratifiedDiet ["🛡️ The 3-Tier Progressive Disclosure Architecture (<800 Tokens)"]
-        T0["Tier 0: Universal Invariants (AGENTS.md < 800 tokens)"]
-        T1["Tier 1: Progressive Subsystem Skills (.agents/skills/)"]
-        T2["Tier 2: Shift-Left Automated Test Gates (<0.3s)"]
-        T3["Tier 3: Canonical Specs & Master Documentation"]
-        T0 --> T1
-        T0 --> T2
-        T0 --> T3
+    subgraph StratifiedDiet ["🛡️ 3-Tier Progressive Disclosure (<800 Tokens)"]
+        direction TB
+        T0["Tier 0: Universal Invariants<br/>(AGENTS.md &lt; 800 tokens)"]
+        --> T1["Tier 1: Progressive Subsystem Skills<br/>(.agents/skills/ loaded on demand)"]
+        --> T2["Tier 2: Shift-Left Test Gates<br/>(pytest test_docs_integrity.py &lt; 0.3s)"]
+        --> T3["Tier 3: Canonical Specifications<br/>(Deep master documentation & blueprints)"]
     end
+
+    PromptGluttony -->|"Replaced by Stratified Taxonomy"| StratifiedDiet
 
     style PromptGluttony fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
     style StratifiedDiet fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
@@ -68,28 +66,33 @@ When an LLM's context window is flooded with flat, un-stratified instructions:
 In `AGENTS.md`, we organize Tier-0 knowledge into a strict, prioritized cognitive hierarchy that fits inside **< 800 tokens**:
 
 ```mermaid
-graph TD
+flowchart TD
     subgraph ClassAlpha ["Class α (Alpha): Sovereign Safety, Custody & Human Authority (P0)"]
+        direction TB
         A1["Human Review ('Mk1 Eyeball') & Anti-Speculative UI"]
-        A2["Verbatim DOM Grounding (G=1.00)"]
-        A3["RFC 8785 Canonical JSON & Ed25519 Custody"]
-        A4["Untrusted Ingestion Boundary & SSRF/XML Defense"]
+        --> A2["Verbatim DOM Grounding (G = 1.00)"]
+        --> A3["RFC 8785 Canonical JSON & Ed25519 Custody"]
+        --> A4["Untrusted Ingestion Boundary & SSRF/XML Defense"]
     end
 
     subgraph ClassBeta ["Class β (Beta): Execution Topology & Release Architecture (P1)"]
-        B1["4-Phase Release & Learning Lifecycle"]
-        B2["Cart-Before-the-Horse Order-of-Operations"]
-        B3["Commit-Before-Deploy & Push-and-Delegate CI/CD"]
-        B4["3-Plane Decoupling (Edge, Compute, Infra)"]
-        B5["Hermetic Unit Test Isolation (<35s)"]
+        direction TB
+        B1["4-Phase Release & Lean Learning Lifecycle"]
+        --> B2["Cart-Before-the-Horse Order-of-Operations"]
+        --> B3["Commit-Before-Deploy & Push-and-Delegate CI/CD"]
+        --> B4["3-Plane Deployment Decoupling (Edge, Compute, Infra)"]
+        --> B5["Hermetic In-Memory Unit Test Isolation (&lt;35s)"]
     end
 
     subgraph ClassGamma ["Class γ (Gamma): Interface Symmetry & Governance (P2)"]
-        C1["Universal 4-Way Feature Parity (CLI, TUI, MCP, Web)"]
-        C2["Epistemic Lensing & Information Pyramid"]
-        C3["Living Canon & Dynamic Invariant Bible Naming"]
-        C4["Multi-Model Sovereignty & Token Governor"]
+        direction TB
+        C1["Universal 4-Way Feature Parity (CLI, TUI, FastMCP, Web)"]
+        --> C2["Epistemic Lensing & 3-Lens Information Pyramid"]
+        --> C3["Living Canon & Dynamic Invariant Bible Naming"]
+        --> C4["Multi-Model Sovereignty & Token Governor"]
     end
+
+    ClassAlpha --> ClassBeta --> ClassGamma
 
     style ClassAlpha fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
     style ClassBeta fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc

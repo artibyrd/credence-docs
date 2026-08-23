@@ -31,22 +31,29 @@ If you hand a 32,000-token deep-thinking model an article titled *"Local Bakery 
 **Over-parameterized reasoning turns an AI into an insufferable pedant.**
 
 ```mermaid
-graph TD
+flowchart TD
     subgraph MonolithicInference ["❌ Monolithic Ultra Thinking (32k Tokens on Everything)"]
-        SimpleNews["Simple Community News Article"] --> DeepLLM["32,000-Token Heavy Reasoning Model"]
-        DeepLLM --> Overthinking["Pedantic Over-Analysis & False Positives"]
-        DeepLLM --> HighBill["High Inference Costs ($5.00/day)"]
+        direction TB
+        SimpleNews["Simple Community News Article"] 
+        --> DeepLLM["32,000-Token Heavy Reasoning Model"]
+        --> Overthinking["Pedantic Over-Analysis<br/>& False Positives"]
+        --> HighBill["💥 High Inference Costs ($5.00/day)"]
     end
 
     subgraph BicameralEngine ["🛡️ Bicameral Tiered Shadow Architecture (83.3% Savings)"]
-        Input["Inbound Syndicated Article"] --> Triage["Stage 1: FREE / ECONOMY Fast Heuristic Triage (System 1)"]
-        Triage --> Decision{"Benign & Clean?<br/>(Suspicion &le; 25.0)"}
+        direction TB
+        Input["Inbound Syndicated Article"] 
+        --> Triage["Stage 1: Fast Heuristic Triage<br/>(FREE / ECONOMY System 1)"]
+        --> Decision{"Benign & Clean?<br/>(Suspicion &le; 25.0)"}
         Decision -->|Yes (83.3% of feeds)| FastPass["Adopt & Sign at $0.00 / 0 Tokens"]
-        Decision -->|No (Ambiguous / High Entropy)| UltraEscalate["Stage 2: Escalate to 4,000-Token ULTRA Thinking (System 2)"]
+        Decision -->|No (Ambiguous Claims)| UltraEscalate["Stage 2: Escalate to ULTRA<br/>(4,000-Token System 2)"]
     end
+
+    MonolithicInference -->|"Replaced by Bicameral Architecture"| BicameralEngine
 
     style MonolithicInference fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
     style BicameralEngine fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+    style FastPass fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
 ```
 
 ---
@@ -74,13 +81,15 @@ We engineered a **Decoupled Multi-Model Adapter Subsystem** (`credence.pipeline.
 * **Local Ollama Adapter**: Fully offline, zero-token-cost inference for air-gapped node sovereignty.
 
 ```mermaid
-flowchart LR
-    Ingest["Inbound Claim"] --> Gov{"Token Safety Governor<br/>(30% Headroom Floor)"}
-    Gov -->|Quota Normal| AdapterRouter["Multi-Model Adapter Router<br/>(Gemini / Claude / OpenAI / Ollama)"]
+flowchart TD
+    Ingest["Inbound Claim / Article"] 
+    --> Gov{"Token Safety Governor<br/>(30% Headroom Floor Breaker)"}
+    Gov -->|Quota Normal| AdapterRouter["Multi-Model Adapter Router<br/>(Gemini 3.7 / Claude 3.7 / GPT-4o / Ollama)"]
     Gov -->|Quota Low / Offline| Fallback["Offline Structural Heuristic<br/>(Confidence &le; 0.50 Capped)"]
     
     style Gov fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
     style Fallback fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
+    style AdapterRouter fill:#0f172a,stroke:#a855f7,stroke-width:2px,color:#fff
 ```
 
 When API budgets approach the **30% headroom floor**, the **Token Safety Governor** trips an offline circuit breaker (`QUOTA_PRESERVED`). Instead of failing or burning emergency funds, the node gracefully falls back to deterministic regex heuristics—and honestly reports its confidence as capped at 0.50.

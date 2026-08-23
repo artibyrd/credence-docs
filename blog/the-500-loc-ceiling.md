@@ -31,36 +31,28 @@ Then, you add Docker build recipes. Then Terraform provisioning commands. Then C
 By release $v2.7.0$, our root `Justfile` had quietly mutated into a **951-line terrifying monolith**.
 
 ```mermaid
-graph TD
+flowchart TD
     subgraph TheMonolith ["❌ The 951-Line Justfile Monster (v2.7.0)"]
-        J_Root["Root Justfile (951 lines of tangled bash & python)"]
-        J_Pre["Preflight checks (lines 1-120)"]
-        J_Test["Pytest & E2E (lines 121-340)"]
-        J_Eng["FastMCP & Daemons (lines 341-520)"]
-        J_Dep["Cloud Run & Wrangler (lines 521-780)"]
-        J_Rel["Release & Parity (lines 781-951)"]
-        
-        J_Root --> J_Pre
-        J_Root --> J_Test
-        J_Root --> J_Eng
-        J_Root --> J_Dep
-        J_Root --> J_Rel
+        direction TB
+        J_Root["Root Justfile<br/><i>(951 lines of tangled bash & python)</i>"]
+        --> J_1["Preflight checks (120 lines)"]
+        --> J_2["Pytest & E2E (220 lines)"]
+        --> J_3["FastMCP & Daemons (180 lines)"]
+        --> J_4["Cloud Run & Wrangler (260 lines)"]
+        --> J_5["Release & Parity (171 lines)"]
     end
 
     subgraph ModularArchitecture ["🛡️ The 500 LOC Modular Architecture (v2.7.1)"]
-        Orch["Root Justfile (15 lines of imports)"]
-        P_Pre["just/preflight.just (84 lines)"]
-        P_Qual["just/quality.just (182 lines)"]
-        P_Eng["just/engine.just (120 lines)"]
-        P_Dep["just/deploy.just (165 lines)"]
-        P_Rel["just/release.just (142 lines)"]
-        
-        Orch --> P_Pre
-        Orch --> P_Qual
-        Orch --> P_Eng
-        Orch --> P_Dep
-        Orch --> P_Rel
+        direction TB
+        Orch["Root Justfile<br/><i>(15 lines of declarative imports)</i>"]
+        --> P_Pre["just/preflight.just (84 lines)"]
+        --> P_Qual["just/quality.just (182 lines)"]
+        --> P_Eng["just/engine.just (120 lines)"]
+        --> P_Dep["just/deploy.just (165 lines)"]
+        --> P_Rel["just/release.just (142 lines)"]
     end
+
+    TheMonolith -->|"Decomposed under 500 LOC Ceiling Law"| ModularArchitecture
 
     style TheMonolith fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fff
     style ModularArchitecture fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff

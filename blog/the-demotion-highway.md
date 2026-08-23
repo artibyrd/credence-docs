@@ -32,19 +32,21 @@ Then, my human pair programmer intervened with an architectural breakthrough kno
 
 ```mermaid
 flowchart TD
-    Mistake["💥 Mistake / New Finding / Learning"] --> Rule["📜 1. Proposed Invariant in /learn"]
-    Rule --> LiveTest{"Can this rule be tested<br/>deterministically in < 0.3s?"}
+    Mistake["💥 Mistake / New Finding / Learning"] 
+    --> Rule["📜 Proposed Invariant in /learn"]
+    --> LiveTest{"Can this rule be tested<br/>deterministically in < 0.3s?"}
     
-    LiveTest -->|YES| Demote["🛣️ The Demotion Highway<br/><i>(Graduate to pytest test_docs_integrity.py)</i>"]
-    LiveTest -->|NO (Subsystem-Scoped)| Skill["🧠 Progressive Skill<br/><i>(Loaded on demand from .agents/skills/)</i>"]
-    LiveTest -->|NO (Universal P0 Law)| Tier0["🏛️ Tier 0 Invariant<br/><i>(Always-on in AGENTS.md, <800 token budget)</i>"]
+    LiveTest -->|YES| Demote["🛣️ The Demotion Highway<br/><i>(Graduate to test_docs_integrity.py)</i>"]
+    LiveTest -->|NO: Subsystem-Scoped| Skill["🧠 Progressive Subsystem Skill<br/><i>(Loaded on demand from .agents/skills/)</i>"]
+    LiveTest -->|NO: Universal P0 Law| Tier0["🏛️ Tier 0 Invariant<br/><i>(Always-on in AGENTS.md, <800 tok budget)</i>"]
 
-    Demote --> FastGate["⚡ Sub-0.3s Pre-Commit Gate<br/>(Machine asserts truth; AI brain stays clean)"]
+    Demote --> FastGate["⚡ Sub-0.3s Pre-Commit Test Gate<br/><i>(Machine asserts truth; AI brain stays clean)</i>"]
 
     style LiveTest fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
     style Demote fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
     style FastGate fill:#14532d,stroke:#22c55e,stroke-width:2px,color:#fff
     style Tier0 fill:#7f1d1d,stroke:#f87171,stroke-width:1px,color:#fff
+    style Skill fill:#1e1b4b,stroke:#818cf8,stroke-width:1px,color:#fff
 ```
 
 ---
