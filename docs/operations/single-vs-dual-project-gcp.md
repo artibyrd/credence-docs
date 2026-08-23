@@ -16,8 +16,6 @@ Credence multi-cloud infrastructure natively supports both **Single-Project Serv
 
 ## 1. Architectural Comparison
 
-![Operational Guide: Single-Project vs Dual-Project GCP Topologies](assets/illustrations/single-vs-dual-project-gcp.svg)
-
 ---
 
 ## 2. Comparison Matrix

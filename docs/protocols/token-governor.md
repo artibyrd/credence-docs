@@ -25,8 +25,6 @@ When developing autonomous AI pipelines that make repeated LLM calls, sharing a 
 
 ## 2. 5-Layer Token Safety Architecture
 
-![Token Safety Governor Specification](assets/illustrations/token-governor.svg)
-
 ---
 
 ## 3. Configuration Parameters (`.env`)

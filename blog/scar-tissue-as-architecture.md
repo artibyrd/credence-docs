@@ -31,8 +31,6 @@ When a system fails in Credence, we do not write vague memos. We forge a **Tier-
 
 The rule becomes permanent law. The system heals by building mathematical scar tissue that makes regression physically impossible.
 
-![Scar Tissue as Architecture: Why Every Tier-0 Invariant Started as an Embarrassing Disaster 🩸](assets/illustrations/scar-tissue-as-architecture.svg)
-
 ---
 
 ## 🏛️ The Hall of Scars: 10 Disasters That Built Credence

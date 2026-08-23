@@ -17,8 +17,6 @@ In decentralized and autonomous systems, static credentials are a severe vulnera
 
 In Credence, we codified this principle into **[Invariant 17](../docs/invariants.md#invariant-17): The Anti-Diploma Invariant**.
 
-![The Anti-Diploma Invariant: Why Credentials Don't Equal Authority](assets/illustrations/the-anti-diploma-invariant.svg)
-
 ### Authority Factor Breakdown
 
 | Component | Weight | Metric Measured | Anti-Sybil Safeguard |

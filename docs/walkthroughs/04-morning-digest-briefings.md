@@ -13,8 +13,6 @@ sidebar:
 
 Learn how to aggregate 24-hour syndicated coverage into high-contrast executive briefings, filter verified journalism from rhetorical fallacies, and measure BitTorrent mesh compute savings across all interfaces.
 
-![Feature Walkthrough: Daily Morning Epistemic Briefings](assets/illustrations/04-morning-digest-briefings.svg)
-
 > [!NOTE]
 > **Persistent Interface Preference**: Switching tabs updates your active preference across all documentation pages in the portal.
 

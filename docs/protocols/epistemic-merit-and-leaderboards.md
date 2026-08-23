@@ -22,8 +22,6 @@ A node's **Epistemic Tier** is evaluated dynamically based on five verifiable pa
 4. **Max Empirical Domain Expertise ($E_{\text{max}} \in [0.0, 1.0]$)**
 5. **Active Longevity ($L_i$ in days)**
 
-![Epistemic Merit & Sovereign Node Leaderboards](assets/illustrations/epistemic-merit-and-leaderboards.svg)
-
 ### Mathematical Tier Milestones
 
 ```python
@@ -65,7 +63,6 @@ Badges are awarded automatically when observable metric records satisfy strict c
 | `root_seed_candidate` | 🌳 | Root Seed Candidate | `ROOT_ANCHOR` | $Q_i \ge 0.85, U_i \ge 0.80, G_i \ge 0.80, >30$d | Qualified for inclusion in `peers.json` |
 | `sybil_shield` | 🛡️ | Sybil Sentinel | `ROOT_ANCHOR` | $\ge 5,000$ audits with 0 collusion & 0 slashing | Root anchor candidate badge |
 | `century_anchor` | 🏛️ | Century Anchor | `ROOT_ANCHOR` | $\ge 100\text{d}$ longevity, $Q_i \ge 0.90, G_i \ge 0.98$ | Sovereign network pillar mark |
-
 
 ---
 

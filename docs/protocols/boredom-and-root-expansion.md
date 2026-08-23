@@ -20,8 +20,6 @@ Autonomous nodes operate under a dual-mode evaluation loop:
 
 ## 2. Mathematical Formalization & State Machine
 
-![Epistemic Protocol Specification: Boredom Engine & Root Expansion (EPEP-16)](assets/illustrations/boredom-and-root-expansion.svg)
-
 | Current State | Trigger / Event | Guard Condition | Next State | System Action & Invariant |
 | :--- | :--- | :--- | :--- | :--- |
 | `IDLE` | Cron timer fired | $\mathcal{H}_{\text{daily}} \ge 0.30 \land \mathcal{C}_{\text{trip}} == 0$ | `QUEUE_SCAN` | Check pending queue depth and token budget |

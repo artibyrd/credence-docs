@@ -29,8 +29,6 @@ As autonomous agent ecosystems mature, system invariants must scale without succ
 
 When every bug fix or post-mortem appends a new rule to a flat `AGENTS.md`, prompt adherence degrades non-linearly. Critical security boundaries compete for attention with formatting preferences.
 
-![06. The Demotion Highway & Invariant Lifecycle Governance](assets/illustrations/06-the-demotion-highway-and-invariant-lifecycle.svg)
-
 To prevent this, Credence establishes the **Constant-Ceiling Theorem**:
 - **Tier 0 Hard Budget**: Total Tier 0 rules in `AGENTS.md` must **never exceed 10–12 core axioms** and must remain strictly **$<800$ tokens**.
 - **Mechanics over Memory**: *If a machine can assert a rule deterministically in $<0.3\text{s}$, never waste LLM attention tokens prompting for it.*
@@ -52,8 +50,6 @@ Invariants in `AGENTS.md` are strictly organized into three ranked cognitive cla
 ## 3. Invariant Mutability & The 6-State Lifecycle
 
 Invariants are not divine dogmas; they represent the **strongest empirical truth validated at project epoch $t$**. Over time, new tooling, compiler capabilities, or test suites may revise, consolidate, or demote an invariant.
-
-![06. The Demotion Highway & Invariant Lifecycle Governance](assets/illustrations/06-the-demotion-highway-and-invariant-lifecycle-2.svg)
 
 ### The 6 Lifecycle States:
 1. **`Proposed`**: Synthesized during `/learn` retrospectives or post-mortems and documented in `learning_proposal.md`.

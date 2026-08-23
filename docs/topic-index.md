@@ -246,5 +246,4 @@ Every metric card, interactive table, and telemetry widget across the zero-build
 * 🔬 Inspect the **[Conflict of Pun-terest Forensic Case Study](../blog/conflict-of-pun-terest.md)** for live exurban monopoly auditing.
 * 🐙 Open an issue or discussion on the **[Credence GitHub Repository](https://github.com/artibyrd/credence)**.
 
-
 Press <kbd>/</kbd> or <kbd>Ctrl+K</kbd> anywhere in the documentation to activate the instant search engine, or jump to the [Introduction](intro.md) to explore the core philosophy.

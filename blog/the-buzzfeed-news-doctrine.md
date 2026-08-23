@@ -18,8 +18,6 @@ This transformation presents a fundamental dilemma for automated verification en
 
 In **Credence v1.21.0**, we formalized **Invariant 40** and **EPEP-17** to solve this through **The BuzzFeed News Doctrine**.
 
-![The BuzzFeed News Doctrine: How Autonomous Trust Networks Handle Redemption Without Blindspots](assets/illustrations/the-buzzfeed-news-doctrine.svg)
-
 ---
 
 ## 1. Soft Quarantine vs. Hard Deletion

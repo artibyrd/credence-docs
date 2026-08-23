@@ -31,8 +31,6 @@ read_time: 8 min
 
 Explore the communication architecture powering Credence's **FastMCP 2.0 server**, providing unified tool and resource access to Claude Desktop, Cursor, and Antigravity while maintaining 4-way synchronous feature parity.
 
-![FastMCP 2.0 Substrate: Dual Transports & 4-Way Synchronous Parity](assets/illustrations/05-fastmcp-dual-transport-and-four-way-parity.svg)
-
 > [!IMPORTANT]
 > **[Invariant 30: Universal Feature Parity](../invariants.md#invariant-30)**: Every capability in Credence must be synchronously accessible across all 4 surfaces: CLI (`credence`), FastMCP 2.0 tools and resources, Textual TUI (`credence tui`), and the Zero-Build Web UI.
 

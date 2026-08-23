@@ -13,8 +13,6 @@ sidebar:
 
 Learn how to dynamically discover syndicated feed endpoints, execute pre-flight forensic audits against covert astroturfing (The Pizza Hut Problem), and run real-time sifting workers across all interfaces.
 
-![Feature Walkthrough: Zero-Trust Feed Autodiscovery & Sifting](assets/illustrations/02-zero-trust-feed-sifting.svg)
-
 > [!NOTE]
 > **Persistent Interface Preference**: Switch between **CLI**, **FastMCP 2.0**, **Python SDK**, or **TUI** below. Your choice is automatically remembered across all documentation pages.
 

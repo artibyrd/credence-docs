@@ -19,8 +19,6 @@ Candidate seed nodes are ranked by a composite quality metric ($Q_i \in [0.0, 1.
 
 $$Q_i = 0.25 U_i + 0.30 C_i + 0.25 G_i + 0.10 T_i + 0.10 K_i$$
 
-![Bootstrap Seed Governance & Node Quality](assets/illustrations/bootstrap-seeds.svg)
-
 ---
 
 ## 2. 4-Tier Discovery Fallback Sequence

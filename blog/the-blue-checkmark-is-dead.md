@@ -17,8 +17,6 @@ Whether issued by Twitter, Meta, or Google, trust was treated as a property of *
 
 The generative AI revolution has shattered that paradigm permanently.
 
-![The Blue Checkmark is Dead: Verifiable Epistemic Consensus in the Age of AI](assets/illustrations/the-blue-checkmark-is-dead.svg)
-
 ### Trust Architecture Paradigm Shift
 
 | Dimension | Centralized Identity Badges | Credence Epistemic Consensus |

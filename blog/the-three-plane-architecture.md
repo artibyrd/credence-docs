@@ -22,9 +22,7 @@ When designing **Credence**, we took a radically different architectural path dr
 
 To fulfill these requirements without sacrificing latency, cryptographic verifiability, or multi-cloud portability, we organized the entire ecosystem into **The 3-Plane Architecture**.
 
-![The 3-Plane Architecture: Zero-npm Edge, Scale-to-Zero Compute, and Sovereign Infra](assets/illustrations/the-three-plane-architecture.svg)
-
----
+![Figure 1.1: 3-Plane decoupled deployment governance across Edge, Compute, and Infrastructure planes](assets/illustrations/the-three-plane-architecture.svg)---
 
 ## Plane 1: The Edge Plane (Cloudflare Workers & Zero-Build Assets)
 

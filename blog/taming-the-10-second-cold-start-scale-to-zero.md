@@ -37,8 +37,6 @@ Here is the forensic breakdown of what was stealing our time, and how we solved 
 
 We instrumented the container startup using Python's `-X importtime`, process timers, and GCP Cloud Logging traces. What we discovered was an eye-opening stack of hidden overheads:
 
-![Taming the 10-Second Cold Start: How We Cut Python Cloud Run Startup by 80% at $0.00 Idle Cost](assets/illustrations/taming-the-10-second-cold-start-scale-to-zero.svg)
-
 ### Culprit #1: The Poetry Wrapper Tax (~1,000ms)
 Like many Python projects, our container `CMD` was running:
 ```bash

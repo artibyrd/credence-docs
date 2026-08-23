@@ -13,8 +13,6 @@ sidebar:
 
 Learn how Credence nodes establish cryptographic identity, exchange attestations over Watts-Strogatz small-world lattices, and aggregate Byzantine-resistant consensus using Domain Authority Weighted Medians.
 
-![Feature Walkthrough: P2P Mesh Gossip & Bayesian Consensus](assets/illustrations/03-p2p-mesh-consensus.svg)
-
 > [!NOTE]
 > **Persistent Interface Preference**: Selecting your preferred interface below automatically applies across all feature walkthroughs and tutorials in the portal.
 

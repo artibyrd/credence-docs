@@ -33,8 +33,6 @@ read_time: 12 min
 
 Credence is designed for mission-critical epistemic evaluation, autonomous agent governance, and decentralized trust. Because autonomous agents and human analysts rely on Credence to detect disinformation, manipulative patterns, and synthetic slop, the codebase enforces a rigorous **6-Tier Multi-Layered Testing Architecture**.
 
-![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy.svg)
-
 ---
 
 ## 1. The 6 Testing Tiers & Why Each Matters
@@ -54,8 +52,6 @@ Credence is designed for mission-critical epistemic evaluation, autonomous agent
 
 ### Objective & Methodology
 Tier 1 is the foundational bedrock of Credence. In accordance with **[Invariant 4: Hermetic Testing](../invariants.md#invariant-4)**, Tier 1 runs 100% network-free using in-memory SQLite databases (`sqlite+aiosqlite:///:memory:`), mock HTML fixtures, and deterministic taxonomy catalogs.
-
-![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy-2.svg)
 
 ### Key Properties Tested
 1. **Mathematical Scoring Bounds**: Verifies that Suspicion Scores strictly adhere to the range $[0.0, 100.0]$ and Suspicion Density $D = \frac{100 \times S}{\text{word\_count}}$ computes accurately.
@@ -77,8 +73,6 @@ Credence is built on the principle of **Universal Presentation Layer Parity** (*
 3. **Textual Terminal Workstation (TUI)**: Interactive keyboard-driven desktop workspace (`credence tui`).
 4. **Zero-Build Web UI**: Sovereign client-side visual explorer (`web/`).
 
-![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy-3.svg)
-
 ### Why Interface Isolation Matters
 By decoupling business logic from presentation adapters, core algorithms can be updated and audited independently. Tier 2 tests verify that calling `evaluate_snapshot()` directly returns the exact same mathematical score, classification band, and RFC 8785 Ed25519 envelope as invoking it through the CLI or FastMCP 2.0 JSON-RPC.
 
@@ -88,8 +82,6 @@ By decoupling business logic from presentation adapters, core algorithms can be 
 
 ### Objective & Methodology
 Credence Mesh allows nodes to gossip signed RFC 8785 envelopes, share computational workload, and achieve distributed consensus. Tier 3 tests deploy a 13-node **Watts-Strogatz Small-World Lattice** ($N=13, k=4, p=0.15$) on ephemeral local WebSocket ports to stress-test decentralized operations.
-
-![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy-4.svg)
 
 ### Key Properties Tested
 1. **BitTorrent Work-Sharing Compute Savings**: Node 0 evaluates breaking news with Gemini 3.7 Flash; peer nodes 1..12 adopt the signed attestation in $0$ LLM tokens, achieving **92.3% compute savings** at $\$0.00$ marginal cost.
@@ -103,8 +95,6 @@ Credence Mesh allows nodes to gossip signed RFC 8785 envelopes, share computatio
 ### Objective & Methodology
 Ingesting untrusted web content exposes agent nodes to malicious payloads, memory exhaustion, and prompt injections. Tier 4 executes an automated security gauntlet against all ingestion layers.
 
-![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy-5.svg)
-
 ### Key Attacks Neutralized
 * **SSRF Attacks**: Rejects cloud metadata endpoints (`169.254.169.254`, `metadata.google.internal`), octal IP encodings (`0177.0.0.1`), and loopback subnets.
 * **Billion Laughs XML Expansion**: Enforces strict parsing rejecting `<!DOCTYPE` and `<!ENTITY>` declarations in RSS/Atom feeds.
@@ -117,8 +107,6 @@ Ingesting untrusted web content exposes agent nodes to malicious payloads, memor
 ### Objective & Methodology
 In accordance with **[Invariant 31: Universal Zero-Build Standards](../invariants.md#invariant-31)**, Credence uses zero npm dependencies. Tier 5 uses async Playwright and headless Chromium to verify that vanilla ES Modules and CSS Custom Properties render accurately across all viewports.
 
-![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy-6.svg)
-
 ### Tested Contracts
 * **Playground Widget Interactivity & Math Formatting**: Tests live DOM state transitions and clean mathematical typography across all 12 interactive widgets (Mesh Simulator, SimHash Calculator, Verbatim Grounding Tester, WebCrypto Verifier, etc.).
 * **Zero Console Errors**: Traps and fails on any browser `console.error` or unhandled JavaScript exceptions during navigation.
@@ -130,8 +118,6 @@ In accordance with **[Invariant 31: Universal Zero-Build Standards](../invariant
 
 ### Objective & Methodology
 Tier 6 verifies that Credence works in real-world conditions against the live public web. Rather than relying on static fixtures, Tier 6 implements a **Stratified Master Corpus** and **Deterministic Rotation Engine** ([`tests/e2e/live_corpus.py`](https://github.com/artibyrd/credence/blob/main/tests/e2e/live_corpus.py)).
-
-![6-Tier Multi-Layered Testing Strategy](assets/illustrations/testing-strategy-7.svg)
 
 ### Why Live Rotating Testing is Vital
 1. **Immunity to Test Overfitting**: Rotating targets daily ensures the evaluation engine does not overfit to specific DOM layouts or static HTML fixtures.

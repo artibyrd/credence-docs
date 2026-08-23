@@ -27,8 +27,6 @@ Imagine a 50-page complex financial prospectus.
 
 In a standard mean or trimmed-median consensus algorithm, the single forensic node is flagged as a statistical outlier and rejected!
 
-![The Galileo Rule: Asymmetric Grounded Evidence](assets/illustrations/the-galileo-rule.svg)
-
 ### Evidence Asymmetry Matrix
 
 | Evaluator Group | Findings Reported | Grounded Citation Evidence | Consensus Treatment |

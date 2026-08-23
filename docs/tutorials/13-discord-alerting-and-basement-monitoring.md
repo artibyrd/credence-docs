@@ -25,8 +25,6 @@ This tutorial walks through configuring and verifying Credence's **Dual-Tier Mon
 
 Credence supports two primary monitoring tiers via Terraform:
 
-![Tutorial 13: Dual-Tier Cloud Monitoring, Discord Webhooks & Interface Telemetry](assets/illustrations/13-discord-alerting-and-basement-monitoring.svg)
-
 ---
 
 ## 3. Step-by-Step Configuration

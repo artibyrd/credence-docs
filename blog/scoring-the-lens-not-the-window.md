@@ -14,8 +14,6 @@ The article is a forensic takedown of unethical municipal journalism. It documen
 
 How can an article that discusses deceptive journalism receive a flawless epistemic trust score?
 
-![Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0 on Credence](assets/illustrations/scoring-the-lens-not-the-window.svg)
-
 ---
 
 ## 1. The Discourse Boundary & Investigative Safe Harbor (`SPJ-1.6`)

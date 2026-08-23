@@ -19,8 +19,6 @@ Credence solves this with a **two-tier satire evaluation pipeline**.
 
 ## 1. Two-Tier Satire Pipeline
 
-![Poe's Law & Satire Cloaking Defense](assets/illustrations/satire-cloaking-defense.svg)
-
 ---
 
 ## 2. Tier 1: Legitimate Satire Neutralization

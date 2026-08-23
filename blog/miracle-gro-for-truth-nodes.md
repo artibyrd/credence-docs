@@ -18,8 +18,6 @@ When a newsroom, developer, or civic hacker pulls a decentralized fact-checking 
 
 In **Credence 1.6.0**, we introduced a fundamentally different paradigm: **Autonomous Node Germination ("Miracle-Gro")**.
 
-![Miracle-Gro for Truth Nodes: Zero-Touch Germination and Swarm Ignition](assets/illustrations/miracle-gro-for-truth-nodes.svg)
-
 ---
 
 ## The Cold-Start Dilemma: The Illusion of Functionality
@@ -58,8 +56,6 @@ Credence solves this using **Highest Random Weight (HRW) Rendezvous Hashing**:
 
 $$\text{Affinity}(K_{\text{node}}, U_{\text{feed}}) = \text{SHA-256}(K_{\text{node}} \parallel U_{\text{feed}}) \pmod{2^{32}}$$
 
-![Miracle-Gro for Truth Nodes: Zero-Touch Germination and Swarm Ignition](assets/illustrations/miracle-gro-for-truth-nodes-2.svg)
-
 Because every node's public key produces a deterministic but distinct priority order across the 26 preset feeds, each node audits its highest-affinity domain first during the Miracle-Gro burst.
 
 When Node 1 audits a ProPublica investigation, it signs an RFC 8785 Ed25519 attestation and gossips it across the Watts-Strogatz small-world mesh. When Nodes 2 through 13 encounter that same URL, their `check_mesh_effort_avoidance` routine detects the verified signature from a high-reputation peer ($Q_i \ge 0.85$) and **adopts the attestation at $0.00 token cost**.
@@ -82,8 +78,6 @@ By turning competitive compute waste into cooperative peer adoption, a 13-node n
 ## 3-Plane Deployment Governance
 
 To prevent deployment confusion, Credence 1.6.0 formalizes three strictly decoupled operational planes:
-
-![Miracle-Gro for Truth Nodes: Zero-Touch Germination and Swarm Ignition](assets/illustrations/miracle-gro-for-truth-nodes-3.svg)
 
 * **Edge Plane** (`just deploy-edge`): Zero-build HTML5/CSS, ES modules, and static `reports.json` catalogs routed via Cloudflare Workers.
 * **Compute Plane** (`just deploy-backend`): The multi-agent evaluation engine, Starlette REST gateway, FastMCP 2.0 SSE transport, and background sifter daemon running on Google Cloud Run or sovereign Docker containers.

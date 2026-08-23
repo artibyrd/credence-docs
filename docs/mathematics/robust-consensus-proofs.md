@@ -11,8 +11,6 @@ last_verified: 2026-08-20
 
 Decentralized consensus over qualitative or factual evaluations cannot rely on simple majority voting or arithmetic means. A cartel of shallow or dishonest nodes could easily manipulate averages.
 
-![The Mathematics of Robust Consensus](assets/illustrations/robust-consensus-proofs.svg)
-
 ### Consensus Mechanism Comparison
 
 | Mechanism | Sybil Cartel Resistance | Vulnerability to Outliers | Factual Discovery Protection |

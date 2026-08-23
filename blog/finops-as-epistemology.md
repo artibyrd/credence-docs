@@ -30,9 +30,7 @@ If you hand a 32,000-token deep-thinking model an article titled *"Local Bakery 
 
 **Over-parameterized reasoning turns an AI into an insufferable pedant.**
 
-![FinOps as Epistemology: Why Frugal Prompts Produce Sharper Truths 🪙](assets/illustrations/finops-as-epistemology.svg)
-
----
+![Figure 1.1: Bicameral inference triage and offline rate-limit circuit breaker architecture](assets/illustrations/finops-as-epistemology.svg)---
 
 ## 🧠 System 1 vs. System 2: The Bicameral Engine
 
@@ -55,8 +53,6 @@ We engineered a **Decoupled Multi-Model Adapter Subsystem** (`credence.pipeline.
 * **Gemini Adapter**: Configured for Gemini 3.7 Flash with a calibrated 4,000-token thinking sweet spot for complex claims.
 * **Anthropic / OpenAI Adapters**: Standardized payload wrappers enabling hot-swapping if API pricing shifts.
 * **Local Ollama Adapter**: Fully offline, zero-token-cost inference for air-gapped node sovereignty.
-
-![FinOps as Epistemology: Why Frugal Prompts Produce Sharper Truths 🪙](assets/illustrations/finops-as-epistemology-2.svg)
 
 When API budgets approach the **30% headroom floor**, the **Token Safety Governor** trips an offline circuit breaker (`QUOTA_PRESERVED`). Instead of failing or burning emergency funds, the node gracefully falls back to deterministic regex heuristics—and honestly reports its confidence as capped at 0.50.
 

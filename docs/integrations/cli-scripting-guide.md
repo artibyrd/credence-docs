@@ -9,8 +9,6 @@ last_verified: 2026-08-20
 
 The **`credence` CLI** is built with rich formatting for human terminals and structured JSON streams for shell automation, CI/CD pipelines, and data processing.
 
-![Get the calibrated suspicion score](assets/illustrations/cli-scripting-guide.svg)
-
 ### CLI Exit Codes & CI Behavior
 
 | Exit Code | Classification | Meaning & Recommended CI Action |

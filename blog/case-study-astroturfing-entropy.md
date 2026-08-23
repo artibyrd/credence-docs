@@ -24,9 +24,7 @@ Coordinated influence operations and corporate astroturfing campaigns no longer 
 
 While individual articles pass superficial grammar checks, their collective distribution exhibits an unmistakable mathematical signature: **lexical and topical collapse**.
 
-![Case Study: Unmasking Coordinated Astroturfing Swarms with Shannon Topic Entropy](assets/illustrations/case-study-astroturfing-entropy.svg)
-
----
+![Figure 1.1: Shannon topic entropy analysis distinguishing coordinated bot astroturfing from organic civic discourse](assets/illustrations/case-study-astroturfing-entropy.svg)---
 
 ## 2. Mathematical Detection Model
 

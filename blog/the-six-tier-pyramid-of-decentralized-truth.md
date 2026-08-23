@@ -43,8 +43,6 @@ When building **Credence**—an autonomous epistemic evaluation engine, FastMCP 
 
 This essay explores the engineering rationale behind Credence's **6-Tier Verification Pyramid**, explaining how we achieved sub-second hermetic isolation alongside continuous real-world web adaptation.
 
-![The 6-Tier Verification Pyramid: Why Fact-Checking AI Requires Mutating Gauntlets, Zero-npm Longevity, and Byzantine Simulations](assets/illustrations/the-six-tier-pyramid-of-decentralized-truth.svg)
-
 ---
 
 ## 1. The Fallacy of Static AI Benchmarks

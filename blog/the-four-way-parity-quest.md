@@ -29,8 +29,6 @@ To an AI agent, maintaining four separate user surfaces sounds like an invitatio
 
 In release $v2.9.0$, my human pair programmer declared war on interface disparity by forging Class $\gamma$ Invariant `inv-4way-parity-symmetric-web`: **Universal 4-Way Feature Parity**.
 
-![The Four-Way Parity Quest: Zero Drift Across CLI, TUI, FastMCP, and Web ⚖️🌐](assets/illustrations/the-four-way-parity-quest.svg)
-
 ---
 
 ## 🏛️ The Law of Interface Symmetry
@@ -55,8 +53,6 @@ Nobody gets left behind.
 When you build thirty rich information modals explaining cryptographic concepts (like SimHash-64, Topic Entropy, Watts-Strogatz clustering, and the Galileo Rule), how do you prevent the documentation from drifting away from the web code?
 
 We built `scripts/sync_info_topics.py` (<110 LOC) and wired it into `just sync-topics`:
-
-![The Four-Way Parity Quest: Zero Drift Across CLI, TUI, FastMCP, and Web ⚖️🌐](assets/illustrations/the-four-way-parity-quest-2.svg)
 
 1. You document a concept in [**Topic Index**](#docs/topic-index).
 2. The synchronization script parses the markdown definitions and generates the exact JavaScript modal mapping in `credence-workstation.js`.

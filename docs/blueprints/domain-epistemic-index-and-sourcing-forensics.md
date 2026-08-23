@@ -42,8 +42,6 @@ Where:
 
 ## 2. The Four Forensic Sourcing Ratios
 
-![The Domain Credence Index (DCI) & Sourcing Forensics](assets/illustrations/domain-epistemic-index-and-sourcing-forensics.svg)
-
 ### 1. Byline Transparency Ratio ($R_{\text{byline}}$)
 Measures the proportion of articles attributed to verified human journalists rather than generic staff tags (`"Admin"`, `"News Staff"`, or `"Editorial Team"`):
 

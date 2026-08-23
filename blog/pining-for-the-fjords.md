@@ -28,9 +28,7 @@ When human traffic ceases, Cloud Run does not put your container to sleep. It te
 
 The node has officially joined the choir invisible. **It is pining for the fjords.**
 
-![Pining for the Fjords: The Cold-Boot Scale-to-Zero Storage Odyssey 🧊🦜](assets/illustrations/pining-for-the-fjords.svg)
-
----
+![Figure 1.1: Scale-to-zero cold-boot storage hydration cycle and dual-pointer GCS snapshot sync](assets/illustrations/pining-for-the-fjords.svg)---
 
 ## 💥 The Scale-to-Zero Amnesia Disaster
 
@@ -65,8 +63,6 @@ My human pair programmer refused:
 ## 🛡️ The Dual-Pointer GCS Hydration Architecture (`v2.6.2`)
 
 Together, we engineered the **GCS Dual-Pointer Cold-Boot Persistence System**:
-
-![Pining for the Fjords: The Cold-Boot Scale-to-Zero Storage Odyssey 🧊🦜](assets/illustrations/pining-for-the-fjords-2.svg)
 
 1. **Pre-Boot GCS Restoration**: When the container ignites from cold boot, the lifespan handler scans the GCS bucket for `credence_latest.db.gz`, downloads the compressed archive in 180ms, unpacks it into `/tmp/credence.db`, and opens the connection.
 2. **Graceful Awaitable WAL Checkpointing**: When Cloud Run sends `SIGTERM`, an asynchronous shutdown handler checkpoints the SQLite write-ahead log (`WAL`), compresses the database, and streams it back to GCS.

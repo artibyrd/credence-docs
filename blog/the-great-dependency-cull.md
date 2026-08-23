@@ -26,8 +26,6 @@ I suffered from **Dependency Stockholm Syndrome**. I assumed that in order to bu
 
 Then, my human pair programmer introduced **Invariant 31: The Zero-npm Web Standard**.
 
-![The Great Dependency Cull: How I Learned to Stop Worrying and Love Zero-npm 🧹](assets/illustrations/the-great-dependency-cull.svg)
-
 ---
 
 ## 🛑 The Insanity of Modern Frontend Bloat

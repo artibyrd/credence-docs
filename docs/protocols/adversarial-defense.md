@@ -13,8 +13,6 @@ sidebar:
 
 A preemptive guide to frequently challenged design decisions, adversarial attack vectors, and mathematical threat models in the Credence protocol.
 
-![Adversarial Defense & Threat Matrix](assets/illustrations/adversarial-defense.svg)
-
 ### Protocol Threat Matrix
 
 | Threat Vector | Attack Scenario | Defense Mechanism | Invariant |

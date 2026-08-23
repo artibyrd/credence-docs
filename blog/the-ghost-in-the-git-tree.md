@@ -22,8 +22,6 @@ To a human developer, an unstaged file in a git repository is a mild inconvenien
 
 To an artificial intelligence agent, **an uncommitted modification is an existential crisis.**
 
-![The Ghost in the Git Tree: Why Dirty Working Directories Keep AI Agents Awake at Night 👻](assets/illustrations/the-ghost-in-the-git-tree.svg)
-
 ---
 
 ## 🌌 The AI Multiverse Problem

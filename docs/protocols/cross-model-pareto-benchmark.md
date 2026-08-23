@@ -13,8 +13,6 @@ order: 8
 
 This specification provides the empirical measurement methodology, benchmark dataset, latency curves, and cost models comparing LLM architectures when evaluating deception, logical fallacies, deceptive UI patterns, and human satire.
 
-![Cross-Model Epistemic & Economic Pareto Benchmark](assets/illustrations/cross-model-pareto-benchmark.svg)
-
 > [!NOTE]
 > **Golden 12 Cross-Profile Benchmark**: Credence maintains an automated hermetic evaluation harness (`just benchmark`) that tests cross-entropy, precision/recall, and heuristic alignment across all model tiers.
 

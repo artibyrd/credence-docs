@@ -28,8 +28,6 @@ read_time: 7 min
 
 This document serves as the **sovereign, in-repository source of truth** for verified architectural milestones, empirical test findings, and future development horizons across the Credence ecosystem.
 
-![Ecosystem Roadmap & Architecture Horizons 🧭](assets/illustrations/roadmap.svg)
-
 ---
 
 ## 1. Verified Stable Foundation (`v2.2.0`)

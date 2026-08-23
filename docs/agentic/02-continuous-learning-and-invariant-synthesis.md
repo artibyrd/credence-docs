@@ -27,8 +27,6 @@ read_time: 6 min
 
 Discover how Credence uses the `/learn` slash command to transform transient corrections and post-mortem findings into permanent, machine-verifiable invariants in `AGENTS.md`.
 
-![Continuous Learning with /learn: Codifying Edge Cases into Machine Invariants](assets/illustrations/02-continuous-learning-and-invariant-synthesis.svg)
-
 > [!NOTE]
 > **[Invariant 18: Context Governance & Progressive Disclosure](../invariants.md#invariant-18)**: Keep `AGENTS.md` lean (<800 tokens) in thematic categories. Place multi-step runbooks in `.agents/skills/` and complete specifications in `docs/`.
 

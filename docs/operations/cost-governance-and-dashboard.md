@@ -16,8 +16,6 @@ Credence incorporates an autonomous **Cost Governance & Resource Optimization** 
 
 Credence provides 5 distinct cost profiles, defaulting to **`ECONOMY`**—the most conservative profile that is 100% fully functional with Gemini 3.7 Flash reasoning:
 
-![Operational Guide: Cost Governance, Dashboard & AI Optimizer](assets/illustrations/cost-governance-and-dashboard.svg)
-
 | Profile | Target Audience | Primary Model | Thinking Budget | Max Daily Budget | Max Tokens / Hour | Concurrency |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **`OFFLINE`** | Air-gapped testing | *Local Rules* | 0 tokens | **$0.00** | 0 tokens | 1 |

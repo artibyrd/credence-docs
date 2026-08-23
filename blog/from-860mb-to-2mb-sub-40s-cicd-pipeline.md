@@ -33,9 +33,7 @@ Here is the technical forensic teardown of how we identified three hidden bottle
 
 When we profiled our pipeline runtime, we discovered that drag was accumulating across three decoupled planes:
 
-![From 860MB to 2MB: Engineering a Sub-40-Second Multi-Plane CI/CD Pipeline](assets/illustrations/from-860mb-to-2mb-sub-40s-cicd-pipeline.svg)
-
----
+![Figure 1.1: Multi-stage container build optimization and keyless WIF CI/CD staging pipeline](assets/illustrations/from-860mb-to-2mb-sub-40s-cicd-pipeline.svg)---
 
 ## 2. Bottleneck 1: The 10.7-Second Ghost in the Test Suite
 

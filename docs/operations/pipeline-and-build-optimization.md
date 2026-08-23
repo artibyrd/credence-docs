@@ -17,8 +17,6 @@ This guide details the architectural optimizations, local tooling configurations
 
 Every pull request and pre-commit check runs through a unified, 5-stage verification gate defined in `Justfile`:
 
-![Multi-Plane Pipeline & Build Optimization Handbook](assets/illustrations/pipeline-and-build-optimization.svg)
-
 To execute the entire gate locally:
 ```bash
 just check

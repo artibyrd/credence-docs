@@ -12,8 +12,6 @@ last_verified: 2026-08-20
 
 This hands-on tutorial guides node operators through the complete epistemic progression lifecycle: from minting a fresh node identity on a Raspberry Pi or cloud instance to earning verifiable merit badges, saving LLM tokens for the swarm, and qualifying as a canonical root seed anchor.
 
-![12. Climbing the Epistemic Tiers](assets/illustrations/12-climbing-the-epistemic-tiers.svg)
-
 ---
 
 ## Prerequisites

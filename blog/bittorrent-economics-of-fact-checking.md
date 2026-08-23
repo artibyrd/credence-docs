@@ -17,9 +17,7 @@ If 100 developers, newsrooms, and AI agent frameworks each independently ingest 
 
 Why are 100 different computers doing the exact same evaluation 100 times?
 
-![The BitTorrent Economics of Fact-Checking: Slashing LLM Bills by 92%](assets/illustrations/bittorrent-economics-of-fact-checking.svg)
-
-### Swarm Scaling & Monthly LLM API Cost
+![Figure 1.1: Decentralized compute swarm economics and deduplicated gossip audit propagation](assets/illustrations/bittorrent-economics-of-fact-checking.svg)### Swarm Scaling & Monthly LLM API Cost
 
 | Swarm Size ($N$) | Centralized Redundant Cost (500 Arts/day) | Credence P2P Mesh Cost | Net Compute Savings |
 | :--- | :--- | :--- | :--- |

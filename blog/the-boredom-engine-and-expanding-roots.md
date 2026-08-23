@@ -18,8 +18,6 @@ It had 26 seed feed subscriptions and 35 discovered articles in SQLite. But afte
 
 In **Credence v1.16.0**, we introduced the **Boredom Engine** and **Autonomous Epistemic Root Expansion**.
 
-![The Boredom Engine & Expanding Roots: How Autonomous Nodes Self-Direct Epistemic Discovery](assets/illustrations/the-boredom-engine-and-expanding-roots.svg)
-
 ---
 
 ## The Philosophy of Autonomous Curiosity

@@ -28,9 +28,7 @@ It had 26 seed feed subscriptions and 35 audited articles in SQLite. But after i
 
 So in **Credence v1.16.0**, we introduced the **Boredom Engine** and gave our server programmatic curiosity.
 
-![Confessions of a Bored AI: Why We Gave Our Server an Existential Crisis 🦥](assets/illustrations/confessions-of-a-bored-ai.svg)
-
----
+![Figure 1.1: Autonomous boredom engine accumulation, excitation thresholds, and citation soil harvesting](assets/illustrations/confessions-of-a-bored-ai.svg)---
 
 ## ☕ The Philosophy of Autonomous Curiosity
 
@@ -60,8 +58,6 @@ Only when an article is truly novel does the node invoke its thinking engine, si
 ## 🌱 Phase 2: Harvesting Citation Soil
 
 Once an article is audited and verified clean ($\text{Suspicion Score} \le 25.0, G = 1.00$), the Boredom Engine treats the article as **Clean Citation Soil**.
-
-![Confessions of a Bored AI: Why We Gave Our Server an Existential Crisis 🦥](assets/illustrations/confessions-of-a-bored-ai-2.svg)
 
 The node extracts outbound domains cited by investigative journalists, filters out social media noise and private IP ranges, probes the target domain for RSS/Atom endpoints, and auto-subscribes to the new root.
 

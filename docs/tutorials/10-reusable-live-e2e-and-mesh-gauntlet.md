@@ -31,8 +31,6 @@ read_time: 10 min
 
 In this hands-on tutorial, you will learn how to operate, configure, and extend Credence's **Reusable Live Rotating E2E Test Suite**. You will execute live audits against real-world targets, test remote FastMCP 2.0 Server-Sent Events (SSE) streaming, and simulate Byzantine ungrounded smear attacks in a 13-node P2P mesh cluster.
 
-![Tutorial 10: Running the Reusable Live Rotating E2E & Byzantine Mesh Gauntlet](assets/illustrations/10-reusable-live-e2e-and-mesh-gauntlet.svg)
-
 ---
 
 ## Prerequisites

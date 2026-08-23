@@ -13,8 +13,6 @@ Credence's evaluation engine is completely decoupled from hardcoded heuristics. 
 
 This guide walks you through authoring a new domain taxonomy catalog (e.g. for `FINANCIAL_DISCLOSURES` or `MEDICAL_CLAIMS`).
 
-![Taxonomy Rule Engineering 101](assets/illustrations/taxonomy-engineering.svg)
-
 > [!IMPORTANT]
 > **Immutable URI Invariant**: Rule IDs are permanently pinned by catalog SHA-256 digests. Evaluator models cannot invent ad-hoc rules outside the active registered taxonomy.
 

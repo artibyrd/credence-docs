@@ -13,8 +13,6 @@ sidebar:
 
 Learn how to audit digital media, news articles, and raw prose against formal journalistic ethics (SPJ), logical fallacies (IEP), and deceptive UI patterns across all supported interfaces.
 
-![Feature Walkthrough: Webpage & Prose Epistemic Auditing](assets/illustrations/01-auditing-webpages-and-text.svg)
-
 > [!NOTE]
 > **Persistent Interface Preference**: Selecting a tab below saves your preference (`localStorage`). As you navigate across documentation pages, all tabbed examples will automatically match your selected interface.
 

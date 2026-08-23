@@ -31,8 +31,6 @@ A comprehensive, unabridged operations runbook for deploying, configuring, secur
 
 Credence is engineered to run as a multi-domain, hybrid-cloud federation spanning **Google Cloud Platform (GCP)** (for serverless compute, Secret Manager, and token governor monitoring) and **Cloudflare** (for global edge CDN, DDoS protection, zero-egress R2 distribution, and DNS delegation).
 
-![Bootstrap Operator Guide & Runbook](assets/illustrations/operator-guide.svg)
-
 > [!NOTE]
 > **Zero-Build Invariant**: All web properties (`credence.run`, `docs.credence.run`, `blog.credence.run`, `credence.nexus`, `credence.foundation`, and `credence.report`) run purely on vanilla HTML5, native CSS Custom Properties, and ES modules with **0 npm dependencies and 0 build steps**. All 18 production and development subdomains are bound in `wrangler.toml` and served with zero-cache headers.
 

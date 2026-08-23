@@ -10,8 +10,6 @@ last_verified: 2026-08-20
 
 Deploying both a **simple Dev instance** and an **advanced Prod instance** creates a **Bicameral Epistemic Engine**. This architecture enables safe shadow evaluation, zero-downtime canary testing, cross-organization cryptographic federation, and verifiable FinOps cost optimization.
 
-![Bicameral Testing & Autonomous Experimentation Handbook](assets/illustrations/bicameral-testing-and-experiments.svg)
-
 ---
 
 ## 1. Environment Configuration Matrix & Invariants

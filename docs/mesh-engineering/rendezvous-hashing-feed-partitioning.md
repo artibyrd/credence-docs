@@ -32,8 +32,6 @@ The node with the highest weight for feed $f$ is deterministically assigned prim
 N^*(f) = \arg\max_{N_i \in \mathcal{N}} W(f, N_i)
 \]
 
-![Zero-Coordination Swarm Partitioning with Rendezvous Hashing](assets/illustrations/rendezvous-hashing-feed-partitioning.svg)
-
 ---
 
 ## 2. Mathematical Properties & Resilience

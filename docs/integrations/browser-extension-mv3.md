@@ -17,8 +17,6 @@ This guide shows how to build a **100% Zero-Build browser extension (Manifest V3
 
 ## 1. Extension Directory Structure
 
-![Building a Zero-Build Browser Extension (Manifest V3)](assets/illustrations/browser-extension-mv3.svg)
-
 ---
 
 ## 2. The Manifest File (`manifest.json`)

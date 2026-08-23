@@ -27,8 +27,6 @@ Why make a major version break over a naming prefix?
 - **`calculate_*`**: Imperative, verbose, and historically blended with UI rendering logic and database fetching side effects.
 - **`compute_*`**: Mathematically pure, deterministic, and side-effect free. In functional and epistemic protocols, `compute_*` denotes a deterministic transformation: given identical cryptographic and attestation inputs, it yields the exact same metric output every time.
 
-![The compute_* Ontology Revolution: Why Precision in Naming Eliminates Epistemic Ambiguity](assets/illustrations/the-compute-ontology-revolution.svg)
-
 ---
 
 ## 2. The Living Invariant Gate

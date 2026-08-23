@@ -18,8 +18,6 @@ If a breaking global news event occurs and hundreds of articles flood into your 
 
 Credence solves this with a multi-tiered **Dynamic Headroom Governor**:
 
-![The Economics of Epistemic Headroom: Why AI Cost Governance Needs a Dynamic Brake](assets/illustrations/the-economics-of-epistemic-headroom.svg)
-
 1. **Zone 1: Unrestricted Epistemic Reasoning ($>30\%$ Headroom)**: Full Gemini 3.7 Flash inference with calibrated thinking tokens (512–4096 tokens).
 2. **Zone 2: Soft-Throttle Auto-Downshift ($<20\%$ Headroom or $>80\%$ Spend)**: Automatically downshifts background triage and subagents to zero-marginal-cost models (`gemini-2.0-flash-lite`), stretching remaining budget by 10x without stopping audits.
 3. **Zone 3: Failsafe Circuit Breaker ($100\%$ Budget or Emergency Brake)**: Instantly cuts all external API calls across all 500 Cloud Run container replicas, switching 100% of audits to deterministic local structural heuristics at **$0.00 cost**.

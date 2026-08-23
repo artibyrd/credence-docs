@@ -13,8 +13,6 @@ Testing decentralized peer-to-peer (P2P) swarms has historically been an infrast
 
 In **Credence**, we engineered a **featherweight swarm architecture** that allows developers to run complete, mathematically rigorous 13-node cluster simulations in **$<150\text{MB}$ of RAM in under 4.5 seconds** on a $35 Raspberry Pi or standard GitHub Actions CI runner.
 
-![Featherweight Swarm Simulation & Low-Resource Testing](assets/illustrations/featherweight-swarm-testing.svg)
-
 ---
 
 ## 1. The 3 Pillars of Low-Resource Swarm Simulation

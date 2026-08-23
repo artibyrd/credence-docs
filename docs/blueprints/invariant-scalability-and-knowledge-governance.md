@@ -23,15 +23,11 @@ As complex software ecosystems evolve, engineering invariants, security boundari
 
 When all rules are dumped into a single flat file (`AGENTS.md` / system prompt), autonomous agents suffer from three distinct cognitive failure modes:
 
-![Technical Blueprint: Invariant Scalability & Knowledge Governance](assets/illustrations/invariant-scalability-and-knowledge-governance.svg)
-
----
+![Figure 1.1: Invariant scalability matrix, knowledge taxonomy, and AGENTS.md context economy](assets/illustrations/invariant-scalability-and-knowledge-governance.svg)---
 
 ## 2. The 3-Tier Invariant Scalability Framework
 
 To maintain extreme precision while keeping universal system prompt context under **800 tokens**, Credence stratifies invariants into a 4-layer taxonomy based on **enforcement criticality, execution scope, and automation feasibility**:
-
-![Technical Blueprint: Invariant Scalability & Knowledge Governance](assets/illustrations/invariant-scalability-and-knowledge-governance-2.svg)
 
 ---
 
@@ -75,8 +71,6 @@ To maintain extreme precision while keeping universal system prompt context unde
 
 Invariants are not immutable dogmas; they represent the **strongest empirical truth validated at project epoch $t$**.
 
-![Technical Blueprint: Invariant Scalability & Knowledge Governance](assets/illustrations/invariant-scalability-and-knowledge-governance-3.svg)
-
 ### The Invariant Lifecycle State Machine
 1. **`Proposed`**: Synthesized during `/learn` retrospectives or post-mortems.
 2. **`Active`**: Formally adopted and minted into `AGENTS.md` and `docs/invariants.md`.
@@ -102,8 +96,6 @@ To streamline complex multi-agent pair programming, specialized subagents are de
 ## 6. The 4-Phase Delivery & Continuous Learning Lifecycle
 
 Knowledge synthesis and invariant crystallization strictly follow the 4-phase delivery lifecycle:
-
-![Technical Blueprint: Invariant Scalability & Knowledge Governance](assets/illustrations/invariant-scalability-and-knowledge-governance-4.svg)
 
 1. **Phase 1 (Mk1 Eyeball Review)**: Implement feature, execute local QA gauntlet (`just check`), present working-tree diff and explicit target version for human inspection ("Mk1 Eyeball").
 2. **Phase 2 (Feature Release)**: Upon approval, commit with clean working tree, synchronize manifests, tag, push to origin, and verify live cloud deployment (e.g. `v2.3.0`).
@@ -138,8 +130,6 @@ When a new requirement, discovery, or post-mortem action item arises, apply this
 
 To prevent system invariants from stagnating into obsolete dogmas or unnecessarily consuming prompt context when test coverage is mature, the ecosystem implements **The Invariant Challenger** (`scripts/challenge_invariant.py` / `just challenge-invariant <slug>`).
 
-![Technical Blueprint: Invariant Scalability & Knowledge Governance](assets/illustrations/invariant-scalability-and-knowledge-governance-5.svg)
-
 ### Epistemic Scrutiny Dimensions:
 - **Merit & Necessity**: Is the invariant still actively preventing critical failures?
 - **Test Saturation**: Has automated shift-left testing reached 100% mechanical coverage (qualifying for Tier 2 Demotion)?
@@ -169,6 +159,4 @@ To balance strict production safety with continuous learning agility, the ecosys
 | **Human Authority Gate** | Code Owner Review on PR + Mk1 Eyeball | `learning_proposal.md` Approval + Mk1 Eyeball |
 | **Delivery Vehicle** | `just pr merge` $\rightarrow$ CI/CD Prod Deploy | `just release vX.Y.1` $\rightarrow$ CI/CD Prod Deploy |
 | **Ceremony Overhead** | High rigor (staged feature changes) | Zero friction (fast crystallization of session wisdom) |
-
-
 

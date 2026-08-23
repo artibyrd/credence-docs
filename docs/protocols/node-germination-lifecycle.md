@@ -12,9 +12,7 @@ last_verified: 2026-08-20
 
 This specification defines the protocol, data structures, mathematical formulas, and concurrency invariants governing **Autonomous Node Germination** and **Swarm Ignition** across the Credence ecosystem.
 
-![Node Germination & Swarm Ignition Specification](assets/illustrations/node-germination-lifecycle.svg)
-
----
+![Figure 1.1: Zero-touch node germination lifecycle, seed initialization, and attestation persistence](assets/illustrations/node-germination-lifecycle.svg)---
 
 ## 1. The 5-Phase Germination Lifecycle
 

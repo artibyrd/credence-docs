@@ -14,8 +14,6 @@ This blueprint details the edge routing algorithms and cache tiering implemented
 
 ## 1. Request Resolution Pipeline
 
-![Technical Blueprint: Zero-Build Edge Routing and Subdomain Dispatch](assets/illustrations/zero-build-edge-routing-and-subdomain-dispatch.svg)
-
 ---
 
 ## 2. Zero-Build Web Assets Invariant

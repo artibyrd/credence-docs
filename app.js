@@ -1358,7 +1358,7 @@ export function formatInline(text) {
 
   // Markdown images ![alt](url)
   res = res.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, altText, url) => {
-    let clean = url.trim();
+    let clean = url.trim().replace(/^(\.\.\/)+assets\//, 'assets/');
     if (clean.includes('illustrations/') || clean.endsWith('.svg')) {
       const captionHtml = altText ? `<figcaption>${altText}</figcaption>` : '';
       return `<figure class="doc-illustration"><img src="${clean}" alt="${altText}" loading="lazy" decoding="async" />${captionHtml}</figure>`;

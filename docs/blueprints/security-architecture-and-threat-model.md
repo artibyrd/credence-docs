@@ -14,9 +14,7 @@ This document establishes the zero-trust security controls protecting Credence n
 
 ## 1. Threat Vector & Countermeasure Matrix
 
-![Technical Blueprint: Security Architecture & Threat Model](assets/illustrations/security-architecture-and-threat-model.svg)
-
----
+![Figure 1.1: Comprehensive security architecture, threat model, and untrusted boundary defenses](assets/illustrations/security-architecture-and-threat-model.svg)---
 
 ## 2. Ingestion Defense Specifications
 - **Single-Resolution DNS Pinning**: Resolves host IP once, validates non-routable ranges, and opens raw sockets directly to the pinned IP with `Host:` attached.

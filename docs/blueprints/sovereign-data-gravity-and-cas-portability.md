@@ -24,8 +24,6 @@ read_time: 12 min
 
 This blueprint details how Credence enforces cryptographic content immutability, universal multi-cloud backup, and cold-boot recovery across local workstations, containerized serverless runtimes (Cloud Run), and distributed Kubernetes clusters.
 
-![Technical Blueprint: Sovereign Data Gravity and CAS Portability](assets/illustrations/sovereign-data-gravity-and-cas-portability.svg)
-
 ---
 
 ## 1. Content-Addressable Storage (CAS) Invariant

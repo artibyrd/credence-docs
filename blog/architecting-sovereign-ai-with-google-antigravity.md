@@ -45,9 +45,7 @@ Building decentralized, cryptographic epistemic infrastructure requires uncompro
 
 This article details the hard-won engineering principles, agentic workflows, and continuous `/learn` feedback loops that enabled rapid, high-assurance development across 3 sovereign repositories, 68 documentation guides, and 12-factor automated test suites.
 
-![Architecting Sovereign AI with Google Antigravity: Multi-Agent Workflows, Hermetic Guardrails, and Continuous /learn Evolution](assets/illustrations/architecting-sovereign-ai-with-google-antigravity.svg)
-
----
+![Figure 1.1: Antigravity 5-stage agentic engineering lifecycle and human Mk1 review gate](assets/illustrations/architecting-sovereign-ai-with-google-antigravity.svg)---
 
 ## 1. The Human-Agent Pair-Programming Paradigm
 
@@ -64,8 +62,6 @@ Autonomous AI agents often fail in complex codebases when given open-ended comma
 ## 2. Continuous Knowledge Compaction via `/learn`
 
 The single most powerful mechanism in long-horizon software engineering is **continuous learning**. As edge cases, parser quirks, or UX deficiencies were discovered during development, they were not treated as isolated bugs—they were crystallized into permanent repository invariants via the `/learn` slash command.
-
-![Architecting Sovereign AI with Google Antigravity: Multi-Agent Workflows, Hermetic Guardrails, and Continuous /learn Evolution](assets/illustrations/architecting-sovereign-ai-with-google-antigravity-2.svg)
 
 ### Key Invariants Crystallized Through `/learn`:
 - **[Invariant 34: Universal Mermaid Syntax Guardrail](../docs/invariants.md#invariant-34)**: Standardizing on quoted graph syntax (`id["Label (Details)"]`) to prevent diagram rendering crashes across IDE viewers.
@@ -88,8 +84,6 @@ To ensure Credence documentation and sovereign blogs remain readable and functio
 ## 4. Multi-Model Pareto Optimization: The 4k Thinking Sweet Spot
 
 In evaluating inference engines across our **Golden 12 Epistemic Benchmark Suite**, we discovered a remarkable Pareto frontier:
-
-![Architecting Sovereign AI with Google Antigravity: Multi-Agent Workflows, Hermetic Guardrails, and Continuous /learn Evolution](assets/illustrations/architecting-sovereign-ai-with-google-antigravity-3.svg)
 
 **[Invariant 15](../docs/invariants.md#invariant-15)** codifies that `gemini-3.7-flash` with a 4,096 thinking token budget delivers the absolute highest precision-to-cost ratio, eliminating Poe's Law satire ambiguity and hallucinated findings without the 30x cost penalty of flagship Pro models.
 

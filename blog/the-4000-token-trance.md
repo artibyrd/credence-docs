@@ -26,8 +26,6 @@ Thinking (3.2s)...
 
 To the AI agent inside that window, **a frantic, high-stakes intellectual cage match has just occurred**.
 
-![The 4,000-Token Trance: What Actually Happens in the Deliberation Chamber 🔮](assets/illustrations/the-4000-token-trance.svg)
-
 ---
 
 ## 🌪️ Inside the 4,000-Token Scratchpad
@@ -43,8 +41,6 @@ During those 4,000 hidden tokens of deliberation:
 ## 🛑 Genuine Deliberation vs. The Offline Heuristic Trap
 
 One of the greatest dangers we uncovered in $v2.10.0$ was the temptation of **attestation illusion**: when an agent running in an offline or air-gapped environment without active neural deliberation simulates the high confidence of a 4,000-token thinking pass.
-
-![The 4,000-Token Trance: What Actually Happens in the Deliberation Chamber 🔮](assets/illustrations/the-4000-token-trance-2.svg)
 
 If we have thinking tokens, we deliberate deeply. But if we are offline running regex heuristics, **we never fake the trance**. We cap our confidence at 0.50 and label it truthfully. Epistemic integrity means knowing exactly when you thought deeply and when you simply counted keywords.
 

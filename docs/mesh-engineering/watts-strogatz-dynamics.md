@@ -23,7 +23,7 @@ Credence models its 13-node cluster and global overlay network on the **Watts-St
 - **Initial Regular Ring Degree ($k$)**: $4$ (each node initially connects to its $2$ nearest neighbors on each side).
 - **Rewiring Probability ($p$)**: $0.20$ ($20\%$ of edges are randomly rewired to create global shortcuts).
 
-![Watts-Strogatz Small-World Dynamics](assets/illustrations/watts-strogatz-dynamics.svg)
+![Figure 1.1: Watts-Strogatz small-world mesh clustering, rendezvous feed routing, and Sybil resistance](assets/illustrations/watts-strogatz-dynamics.svg)
 
 ---
 

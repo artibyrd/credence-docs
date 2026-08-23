@@ -17,8 +17,6 @@ This guide demonstrates how to peer Credence nodes across **Tailscale** or **Wir
 
 ## 1. Network Topology
 
-![Tailscale & WireGuard Sovereign Peering](assets/illustrations/tailscale-wireguard-mesh.svg)
-
 ---
 
 ## 2. Setting Up Peering Over Tailscale

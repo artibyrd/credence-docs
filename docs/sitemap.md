@@ -29,8 +29,6 @@ Welcome to the complete structural directory of the **Credence Epistemic Network
 
 ## 1. 🛡️ Sovereign Domains & Web Surfaces
 
-![Ecosystem Master Sitemap 🗺️](assets/illustrations/sitemap.svg)
-
 - **[https://credence.run](https://credence.run)**: Core landing page, single-command installation (`curl -fsSL https://credence.run/install.sh | bash`), terminal quickstart, and feature overview.
 - **[https://credence.report](https://credence.report)**: Public report search by content SHA-256 or URL, live DEI rankings, and curated scenario benchmarks.
   - **[Interactive Report Viewer](https://credence.report/viewer.html)**: Multi-display mode audit viewer (Human Executive Briefing, Compact Density, Machine RFC 8785 JSON/ClaimReview).

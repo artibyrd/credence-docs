@@ -14,8 +14,6 @@ Running zero-downtime schema migrations across auto-scaling Cloud Run containers
 
 ## 1. The 4-Phase Zero-Downtime Migration Architecture
 
-![Operational Guide: Zero-Downtime Database Migrations](assets/illustrations/zero-downtime-database-migrations.svg)
-
 1. **Phase 1: Expand**: Apply additive non-destructive DDL (`ALTER TABLE ... ADD COLUMN ... DEFAULT ...`).
 2. **Phase 2: Migrate**: Deploy new application container revisions running `credence serve`.
 3. **Phase 3: Contract**: Drop legacy columns only after all older container revisions have rolled off traffic.

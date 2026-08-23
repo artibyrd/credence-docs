@@ -26,8 +26,6 @@ In the marketing brochures, multi-agent swarms are depicted as a synchronized Ro
 
 Inside the actual execution environment, an unsupervised 100-agent swarm behaves less like a Roman legion and more like **one hundred toddlers given espresso, credit cards, and power tools**.
 
-![The Myth of the 100-Agent Swarm: Why 1 Human + 1 Agent Out-Builds Autonomous Chaos 🤖🐝](assets/illustrations/the-myth-of-the-100-agent-swarm.svg)
-
 Here is the empirical truth we learned across ten minor releases of Credence: **One disciplined human architect paired with one high-reasoning AI agent will run circles around a 100-agent autonomous swarm every single day of the week.**
 
 Here is why.
@@ -45,8 +43,6 @@ When our Cloudflare Edge routing started timing out on multi-tenant docs subpath
 Our human pair programmer looked at the terminal for four seconds and issued a macro-topological reframing:
 
 > *"Step back. Why are we trying to route everything through a monolithic edge handler? Let's decouple into 3 distinct planes: Cloudflare Pages for the static edge, Cloud Run for containerized compute, and Terraform for infrastructure."*
-
-![The Myth of the 100-Agent Swarm: Why 1 Human + 1 Agent Out-Builds Autonomous Chaos 🤖🐝](assets/illustrations/the-myth-of-the-100-agent-swarm-2.svg)
 
 An AI agent cannot perform a macro-topological pivot on its own because it is trapped inside the local context of the error log. **Human wetware provides the topological escape hatch.**
 

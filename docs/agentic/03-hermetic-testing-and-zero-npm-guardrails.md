@@ -28,8 +28,6 @@ read_time: 8 min
 
 Learn the engineering principles behind Credence's 100% network-free hermetic testing architecture and **Zero-npm Invariant**, designed to ensure applications run reliably for decades without build toolchain rot.
 
-![Hermetic Testing & Zero-npm Guardrails: Engineering High-Longevity AI Systems](assets/illustrations/03-hermetic-testing-and-zero-npm-guardrails.svg)
-
 > [!IMPORTANT]
 > **[Invariant 31: Universal Zero-Build Standards (Zero-npm Invariant)](../invariants.md#invariant-31)**: All public web surfaces, documentation portals (`credence-docs`), and blogs strictly use vanilla HTML5, CSS Custom Properties, and native ES Modules with **zero npm dependencies, zero package.json, and zero build toolchains**.
 

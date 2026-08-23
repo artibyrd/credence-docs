@@ -14,8 +14,6 @@ This blueprint documents the architectural patterns enabling Credence to scale h
 
 ## 1. The 5 Value Pillars
 
-![Technical Blueprint: High-Efficiency Scaling & Resiliency Architecture](assets/illustrations/high-efficiency-scaling-and-resiliency.svg)
-
 ---
 
 ## 2. Ingestion Decision Matrix

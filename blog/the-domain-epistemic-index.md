@@ -15,8 +15,6 @@ Creating sensationalized clickbait, partisan outrage bait, and unverified allega
 
 To restore epistemic balance, the Credence network introduces the **Domain Credence Index ($DCI$)**: a decentralized, unforgeable reputation metric computed through mutual peer observation across thousands of independent verification audits.
 
-![The Domain Credence Index (DCI): The Web's Honor Roll & Wall of Shame](assets/illustrations/the-domain-epistemic-index.svg)
-
 ---
 
 ## What is the Domain Credence Index ($DCI$)?

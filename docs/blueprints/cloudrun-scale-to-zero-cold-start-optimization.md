@@ -19,15 +19,11 @@ In modern sovereign decentralized networks and edge applications, operating comp
 
 However, scale-to-zero introduces container cold start latency:
 
-![Technical Blueprint: Cloud Run Scale-to-Zero Cold Start Optimization](assets/illustrations/cloudrun-scale-to-zero-cold-start-optimization.svg)
-
----
+![Figure 1.1: Cloud Run scale-to-zero cold-start container optimization and sub-1.2s snapshot restore](assets/illustrations/cloudrun-scale-to-zero-cold-start-optimization.svg)---
 
 ## 2. The 5-Pillar Cold Start Optimization Framework
 
 To reduce cold starts from **~11.5s** down to **~1.9s**, Credence applies five complementary engineering interventions across container packaging, runtime execution, and cloud infrastructure:
-
-![Technical Blueprint: Cloud Run Scale-to-Zero Cold Start Optimization](assets/illustrations/cloudrun-scale-to-zero-cold-start-optimization-2.svg)
 
 ### Pillar 1: Google Cloud Run v2 Startup CPU Boost & Gen 2
 - **Startup CPU Boost (`startup_cpu_boost = true` / `--cpu-boost`)**: Temporarily multiplies instance CPU allocation by 2–4x during container boot until the first request completes. Because CPython import parsing is single-threaded and CPU-bound, this halves raw import latency at zero idle expense.
@@ -119,7 +115,6 @@ While further micro-optimizations exist (e.g. native C-extension compilation via
 - Compiling Python code via Cython/MypyC creates brittle builds and debugging complexity for a marginal gain of ~40–80ms.
 - Moving Playwright to a sidecar introduces inter-process RPC latency and multi-container cold start synchronization overhead.
 - The 5-pillar framework captures **>85% of all theoretically achievable latency gains** while preserving 100% developer ergonomics and standard Python semantics.
-
 
 ---
 

@@ -20,9 +20,7 @@ In accordance with **[Invariant 24](invariants.md#invariant-24) (Universal Prese
 
 ## 🏛️ Interface Architecture
 
-![Universal Feature Parity Matrix](assets/illustrations/feature-parity.svg)
-
----
+![Figure 1.1: Universal 4-way feature parity across CLI, FastMCP, TUI, and Zero-Build Web UI](assets/illustrations/feature-parity.svg)---
 
 ## 1. Interface Capability Matrix
 

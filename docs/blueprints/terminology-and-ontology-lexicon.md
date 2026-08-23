@@ -25,15 +25,11 @@ In **Credence v2.0.0**, all system concepts adhere to two strict semantic laws:
 2. **The 5 Cohesive Thematic Families**:
    All 36 Credence-invented concepts are organized into **5 unified metaphors** to provide an intuitive, memorable mental model across the ecosystem.
 
-![Credence Ecosystem Terminology & Ontology Lexicon](assets/illustrations/terminology-and-ontology-lexicon.svg)
-
 ---
 
 ## 2. Complexity & Origin Distribution
 
 Across the **52 terms** governing Credence (16 Industry Standards + 36 Credence Inventions), the vocabulary forms an intentional **cognitive pyramid**:
-
-![Credence Ecosystem Terminology & Ontology Lexicon](assets/illustrations/terminology-and-ontology-lexicon-2.svg)
 
 | Complexity Level | Count | Share | Target Audience | Primary Focus |
 | :--- | :---: | :---: | :--- | :--- |

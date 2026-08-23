@@ -21,8 +21,6 @@ $$\text{DCI} = 100 - \left( 0.50 \cdot \overline{S} + 0.30 \cdot \min(50, \overl
 
 ### Metric Definitions
 
-![Global Web Intelligence, DCI & Epistemic Weather](assets/illustrations/web-epistemic-intelligence.svg)
-
 ---
 
 ## 2. Topic Entropy & Astroturfing Defense

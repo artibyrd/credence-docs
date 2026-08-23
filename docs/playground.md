@@ -77,7 +77,6 @@ Interact with a canonical Watts-Strogatz small-world benchmark network ($N=13, d
   </div>
 </div>
 
-
 ---
 
 ## 2. SimHash-64 & Hamming Distance Bit-Diff Visualizer

@@ -34,8 +34,6 @@ In the real world:
 
 If an epistemic network relies on hardcoded seeds, the network is trivially vulnerable to **Covert Ingestion Capture**.
 
-![Autodiscover feeds dynamically from any website](assets/illustrations/the-pizza-hut-problem.svg)
-
 > [!IMPORTANT]
 > **Dynamic Trust Invariant**: Credence never relies on static domain whitelists. Every outlet is continuously re-evaluated on live topic entropy, verbatim citation grounding, and empirical suspicion metrics.
 

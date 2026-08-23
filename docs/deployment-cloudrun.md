@@ -15,9 +15,7 @@ This guide covers deploying the **Credence FastMCP Server** to **Google Cloud Pl
 
 ## 1. Architecture Overview
 
-![Cloud Run Deployment & Dual-Tier Monitoring Guide](assets/illustrations/deployment-cloudrun.svg)
-
----
+![Figure 1.1: Google Cloud Run serverless compute plane deployment with keyless WIF authentication](assets/illustrations/deployment-cloudrun.svg)---
 
 ## 2. Dual-Tier Monitoring Architecture
 
@@ -260,7 +258,6 @@ The repository provides a single canonical parameterized operator command family
 > [!WARNING]
 > **Local Production Deployment Safety Gate**:
 > Running local production deployments (`just deploy prod`, `just deploy backend prod`, `just deploy all`, or `just edge deploy`) triggers a safety confirmation prompt requiring the operator to explicitly type `DEPLOY-PROD`. Production releases should standardly be executed via GitHub Actions PR merges to `main`. For non-interactive troubleshooting scripts, pass `FORCE_PROD_DEPLOY=true`.
-
 
 ---
 

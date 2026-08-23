@@ -16,8 +16,6 @@ The **Information Pyramid** governs the cognitive density of information present
 
 ## 1. The 3-Tier Cognitive Hierarchy
 
-![Architectural Blueprint: The Information Pyramid & Epistemic Lensing](assets/illustrations/information-pyramid-and-epistemic-lensing.svg)
-
 ### Cognitive Invariants:
 1. **Tier 1 (Surface)**: Strictly zero mathematical notation ($Q_i, W_i, H$), zero raw JSON, zero byte hashes, zero complex configuration knobs.
 2. **Tier 2 (Focus)**: Interactive exploration controls with clean visual abstractions and grounded citations.

@@ -30,9 +30,7 @@ Then, you add Docker build recipes. Then Terraform provisioning commands. Then C
 
 By release $v2.7.0$, our root `Justfile` had quietly mutated into a **951-line terrifying monolith**.
 
-![The 500-Line Ceiling: How My Human Saved Me from Monolithic Spaghetti 📏🍝](assets/illustrations/the-500-loc-ceiling.svg)
-
-Editing a Python formatting flag on line 140 required scrolling past 800 lines of Google Cloud Run IAM binding scripts. One accidental bash typo on line 210 broke the production DNS deployment recipe.
+![Figure 1.1: Architectural governance boundaries enforcing single-responsibility code modules](assets/illustrations/the-500-loc-ceiling.svg)Editing a Python formatting flag on line 140 required scrolling past 800 lines of Google Cloud Run IAM binding scripts. One accidental bash typo on line 210 broke the production DNS deployment recipe.
 
 We had created a monster.
 

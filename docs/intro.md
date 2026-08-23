@@ -58,8 +58,6 @@ Every evaluation produces an Ed25519-signed `.credence.json` envelope. Anyone ca
 
 ## 🏛️ How Credence Works
 
-![Welcome to Credence 🛡️](assets/illustrations/intro.svg)
-
 ---
 
 ## 🖥️ The 4 Universal Interfaces

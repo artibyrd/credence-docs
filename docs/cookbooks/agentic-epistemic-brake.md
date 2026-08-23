@@ -17,8 +17,6 @@ This cookbook provides copy-paste integration recipes to give your agents an **e
 
 ## 1. The Epistemic Gate Pattern
 
-![The Agentic Epistemic Brake Cookbook](assets/illustrations/agentic-epistemic-brake.svg)
-
 ### Agentic Verification Decision Policy
 
 | Suspicion Score ($S$) | Classification | Agent Behavior & Policy |

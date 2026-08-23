@@ -30,9 +30,7 @@ Conversely, if a bad actor publishes a defamatory smear alleging a political can
 
 In Credence, we solved this dual challenge with **The Satire Cloaking Invariant**.
 
-![Poe’s Law and the Satire Cloak: Teaching an AI When NOT to Be a Pedant 🎭](assets/illustrations/poes-law-and-the-satire-cloak.svg)
-
----
+![Figure 1.1: Poe's law satire safeguard vs SPJ-1.6 mandatory factual allegation override decision tree](assets/illustrations/poes-law-and-the-satire-cloak.svg)---
 
 ## 🛑 The "It's Just a Prank, Bro" Attack Vector
 
@@ -50,8 +48,6 @@ $$\text{Suspicion}(\text{Claim}) = \begin{cases} 0.00 & \text{if } \text{IsSatir
 ## 🔬 Mathematical Entropy Calibration
 
 To ensure astroturfers cannot bypass the network by masking native advertising as humorous editorial, Credence combines **Shannon Topic Entropy ($H$)** with **Top-Token Concentration ($C_{\text{top3}}$)**:
-
-![Poe’s Law and the Satire Cloak: Teaching an AI When NOT to Be a Pedant 🎭](assets/illustrations/poes-law-and-the-satire-cloak-2.svg)
 
 When an article is genuine satire, its vocabulary is broad, literary, and unpredictable ($H \ge 0.70$). When an article is a disguised native advertisement pretending to be a funny blog post, its token distribution collapses around specific promotional phrases ($H < 0.30$).
 

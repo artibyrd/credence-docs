@@ -40,9 +40,7 @@ Mandatory invariants, mathematical formulas, and runtime guardrails governing hu
 
 ## Pillar 1: Core Engineering & Runtime Safety
 
-![The Invariant Bible: Living Canon of System-Wide Invariants & Protocols](assets/illustrations/invariants.svg)
-
-<div class="invariant-card" id="inv-workspace-isolation">
+![Figure 1.1: Universal living invariant canon and cognitive hierarchy architecture](assets/illustrations/invariants.svg)<div class="invariant-card" id="inv-workspace-isolation">
 <a id="invariant-1"></a>
 <h3><a href="#docs/invariants#inv-workspace-isolation">Invariant 1: Project & Workspace Isolation</a></h3>
 <p>Credence is completely decoupled from any external or sibling repositories. All tools, databases, configurations, and test runners must execute hermetically within the workspace boundary without depending on external host environment states.</p>
@@ -153,8 +151,6 @@ Mandatory invariants, mathematical formulas, and runtime guardrails governing hu
 
 ## Pillar 2: Epistemic Ingestion & Scoring Engine
 
-![The Invariant Bible: Living Canon of System-Wide Invariants & Protocols](assets/illustrations/invariants-2.svg)
-
 <div class="invariant-card" id="inv-topic-entropy-defense">
 <a id="invariant-19"></a>
 <h3><a href="#docs/invariants#inv-topic-entropy-defense">Invariant 19: Topic Entropy Astroturfing Defense (The Pizza Hut Problem)</a></h3>
@@ -189,8 +185,6 @@ $$H_{\text{penalized}} = H \times (1.0 - C_{\text{top3}})$$
 ---
 
 ## Pillar 3: Cryptographic Mesh & Empirical Authority
-
-![The Invariant Bible: Living Canon of System-Wide Invariants & Protocols](assets/illustrations/invariants-3.svg)
 
 <div class="invariant-card" id="inv-canonical-json-ed25519">
 <a id="invariant-24"></a>
@@ -231,8 +225,6 @@ $$H_{\text{penalized}} = H \times (1.0 - C_{\text{top3}})$$
 ---
 
 ## Pillar 4: Universal Presentation Layer & Zero-Build Web
-
-![The Invariant Bible: Living Canon of System-Wide Invariants & Protocols](assets/illustrations/invariants-4.svg)
 
 <div class="invariant-card" id="inv-4way-feature-parity">
 <a id="invariant-30"></a>

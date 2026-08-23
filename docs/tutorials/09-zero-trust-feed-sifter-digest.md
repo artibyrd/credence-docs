@@ -11,8 +11,6 @@ sidebar:
 
 Traditional RSS aggregators and news monitoring tools rely on static whitelists. But static whitelists suffer from an insurmountable vulnerability: **The "Pizza Hut Problem"** — what happens when a trusted publication is quietly acquired, compromised, or shifts editorial policy to covert native advertising?
 
-![Autodiscover feeds from tech, news, or scientific outlets](assets/illustrations/09-zero-trust-feed-sifter-digest.svg)
-
 > [!IMPORTANT]
 > **The Anti-Diploma Invariant**: In Credence, no domain name, masthead badge, or historic reputation grants permanent trust. Every feed is continuously evaluated on empirical evidence, semantic entropy, and verbatim grounding.
 

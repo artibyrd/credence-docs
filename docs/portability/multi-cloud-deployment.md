@@ -11,8 +11,6 @@ last_verified: 2026-08-20
 
 While our reference Terraform infrastructure targets **Google Cloud Platform (Cloud Run v2)**, Credence is packaged as a lightweight, standard OCI container that can run seamlessly on any cloud provider or bare-metal VPS.
 
-![Multi-Cloud Deployment: AWS, Azure, Hetzner & K8s](assets/illustrations/multi-cloud-deployment.svg)
-
 ### Multi-Cloud Provider Matrix
 
 | Platform | Recommended Target | Monthly Cost | Scale-to-Zero | Sovereignty Level |
@@ -209,5 +207,4 @@ just deploy all
 * 🍓 [Raspberry Pi & Homelab Node Setup ($0.00/mo)](../operations/raspberry-pi-homelab.md)
 * 🤖 [Universal Agent Interoperability (Cursor, Windsurf, Cline)](universal-agent-interop.md)
 * 🏛️ [3-Plane Deployment Governance & System Invariants](../invariants.md)
-
 

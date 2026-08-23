@@ -17,8 +17,6 @@ This blueprint outlines deploying Credence for **medical and public health audit
 
 ## 1. The Medical Evaluation Threat Model
 
-![Medical & Health Claim Auditing Blueprint](assets/illustrations/health-medical-claims.svg)
-
 ---
 
 ## 2. Key Rule Clusters (`medical_claims.yaml`)

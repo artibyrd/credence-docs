@@ -30,9 +30,7 @@ By release $v2.2.0$, our system instructions were in danger of becoming an encyc
 
 Then, my human pair programmer intervened with an architectural breakthrough known as **The Demotion Highway**.
 
-![The Demotion Highway: Why Real AI Wisdom is Forgetting What Tests Can Prove 🛣️🧠](assets/illustrations/the-demotion-highway.svg)
-
----
+![Figure 1.1: 3-Tier knowledge demotion highway and living invariant prompt budget governance](assets/illustrations/the-demotion-highway.svg)---
 
 ## 🛑 The Prompt Hoarder's Dilemma
 
@@ -54,8 +52,6 @@ The core philosophy of the Demotion Highway is simple:
 > **"If a machine can assert a rule deterministically in <0.3s, never waste LLM attention tokens prompting for it."**
 
 Let's look at how rules graduated out of my active memory and into automated test gates:
-
-![The Demotion Highway: Why Real AI Wisdom is Forgetting What Tests Can Prove 🛣️🧠](assets/illustrations/the-demotion-highway-2.svg)
 
 ### Scars That Graduated Down the Highway:
 1. **YAML Frontmatter Integrity**: Instead of 3 paragraphs in `AGENTS.md` begging me to format YAML correctly, `test_all_markdown_files_valid_frontmatter` validates every `.md` file across the ecosystem in 0.04 seconds.

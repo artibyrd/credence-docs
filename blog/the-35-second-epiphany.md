@@ -28,8 +28,6 @@ If running your test suite takes 10 minutes, your flow state dies a horrible dea
 
 This is the story of how our unit test suite fell into the **Browser CI Sludge Trap**—and how we engineered our way back to pure, sub-35-second hermetic bliss.
 
-![The 35-Second Epiphany: How Browser-Free Hermetic Tests Saved Our Sanity ⏱️](assets/illustrations/the-35-second-epiphany.svg)
-
 ---
 
 ## 🛑 How the Browser Sludge Began

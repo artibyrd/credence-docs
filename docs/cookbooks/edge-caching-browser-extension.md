@@ -14,8 +14,6 @@ This cookbook demonstrates how Chrome Extension Manifest V3 queries cached epist
 
 ## 1. The Zero-Hop Query Flow
 
-![Cookbook: Browser Extension MV3 Zero-Hop Edge Verification](assets/illustrations/edge-caching-browser-extension.svg)
-
 ---
 
 ## 2. Client-Side Implementation

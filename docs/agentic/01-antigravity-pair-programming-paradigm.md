@@ -28,8 +28,6 @@ read_time: 7 min
 
 Explore the operational methodology developed during the creation of Credence using **Google Antigravity (AGY)**—combining rigorous planning mode, non-blocking asynchronous task orchestration, and human-in-the-loop review ("Mk1 Eyeball").
 
-![Antigravity Pair-Programming: Planning Mode, Background Tasks, & Mk1 Eyeball](assets/illustrations/01-antigravity-pair-programming-paradigm.svg)
-
 > [!IMPORTANT]
 > **[Invariant 6: Human Review Before Commits ("Mk1 Eyeball")](../invariants.md#invariant-6)**: Agents must never execute `git commit` or apply infrastructure changes autonomously without presenting live verification results for human approval first.
 
@@ -140,5 +138,4 @@ To prevent high-risk monolithic commits and ensure verifiable step-by-step progr
 
 > [!TIP]
 > Use read-only `epistemic-auditor` subagents when auditing large codebases to prevent polluting the main agent's working context memory.
-
 

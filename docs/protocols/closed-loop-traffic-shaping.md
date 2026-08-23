@@ -13,8 +13,6 @@ In decentralized networks, reputation metrics are frequently toothless—serving
 
 Credence establishes a **Closed-Loop Feedback Architecture**, where reputation scores directly control the physics of the P2P WebSocket transport plane.
 
-![Closed-Loop Routing & P2P Traffic Shaping](assets/illustrations/closed-loop-traffic-shaping.svg)
-
 ---
 
 ## 1. 4-Band Traffic Shaping Architecture

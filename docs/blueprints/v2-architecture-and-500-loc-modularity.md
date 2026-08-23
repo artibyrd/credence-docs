@@ -19,8 +19,6 @@ As the Credence protocol expanded to support decentralized peer-to-peer gossip, 
 
 To safeguard system maintainability, cognitive ergonomics, and test hermeticism, the **500 LOC Ceiling Law** was established as a P0 universal invariant.
 
-![v2 Modular Architecture & The 500 LOC Ceiling Law](assets/illustrations/v2-architecture-and-500-loc-modularity.svg)
-
 ---
 
 ## 2. The 500 LOC Ceiling Law
@@ -69,7 +67,5 @@ In v1.x, calculation functions used a mix of `calculate_*`, `calc_*`, and `compu
 ## 4. Directed Acyclic Graph (DAG) Import Architecture
 
 All subpackages strictly decouple data definitions into local `models.py` modules. Inter-module dependencies strictly flow downward without bidirectional circular imports:
-
-![v2 Modular Architecture & The 500 LOC Ceiling Law](assets/illustrations/v2-architecture-and-500-loc-modularity-2.svg)
 
 This clean DAG hierarchy guarantees that Python modules initialize cleanly in <10ms without delayed import traps or fragile workaround imports.

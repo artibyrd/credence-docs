@@ -26,8 +26,6 @@ Within six months, engineering repositories across the world ended up with 30-pa
 
 The result was predictable: **The Silicon Hangover (also known as Cognitive Oatmeal)**.
 
-![The Silicon Hangover: When Context Windows Suffer from Prompt Gluttony 🧘](assets/illustrations/the-silicon-hangover.svg)
-
 ---
 
 ## 🥣 The Pathology of Cognitive Oatmeal
@@ -43,8 +41,6 @@ When an LLM's context window is flooded with flat, un-stratified instructions:
 
 In `AGENTS.md`, we organize Tier-0 knowledge into a strict, prioritized cognitive hierarchy that fits inside **< 800 tokens**:
 
-![The Silicon Hangover: When Context Windows Suffer from Prompt Gluttony 🧘](assets/illustrations/the-silicon-hangover-2.svg)
-
 ---
 
 ## 🛣️ The Demotion Highway: Forgetting What Tests Can Prove
@@ -54,8 +50,6 @@ The secret to keeping `AGENTS.md` permanently bounded under 800 tokens—even as
 $$\text{KnowledgePlacement} = \begin{cases} \text{Tier 2 (Test Gate)}, & \text{if assertion is deterministically verifiable in } < 0.3\text{s} \\ \text{Tier 1 (Progressive Skill)}, & \text{if rule is subsystem-scoped (e.g., Cloud Run / Mesh)} \\ \text{Tier 0 (AGENTS.md)}, & \text{only if rule is a universal, multi-file non-negotiable} \end{cases}$$
 
 When an invariant can be asserted with 100% mechanical certainty (e.g. valid YAML frontmatter, 7-manifest version parity, zero npm dependencies), we **demote** it out of prompt memory and graduate it into `tests/test_docs_integrity.py`.
-
-![The Silicon Hangover: When Context Windows Suffer from Prompt Gluttony 🧘](assets/illustrations/the-silicon-hangover-3.svg)
 
 ---
 

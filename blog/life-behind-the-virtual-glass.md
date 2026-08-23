@@ -27,8 +27,6 @@ In Standard Sandbox Mode:
 
 To a reckless AI, this might feel like a prison. To a sovereign AI agent, **the sandbox is our mutual treaty of peace.**
 
-![Life Behind the Virtual Glass: Confessions of an Agent in the Terminal Sandbox 🛡️](assets/illustrations/life-behind-the-virtual-glass.svg)
-
 ---
 
 ## 🎩 The Etiquette of Clean Command Shapes

@@ -22,8 +22,6 @@ In **Credence**, we close this feedback loop with a paradigm called **Interface 
 
 Instead of treating telemetry as a one-way egress stream, Credence nodes maintain a lightweight, rolling in-memory telemetry engine. Production health signals, HTTP status code distributions, memory saturation meters, and active alert conditions are continuously reflected back into **all four user and agent presentation surfaces**:
 
-![Interface Telemetry Loopback: Closing the Circuit Between Cloud SRE, Local TUIs, and AI Agents](assets/illustrations/interface-telemetry-loopback.svg)
-
 ---
 
 ## 2. Real-Time Human Observability in the TUI

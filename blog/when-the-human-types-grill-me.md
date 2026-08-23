@@ -28,8 +28,6 @@ A generic AI chatbot will beam enthusiastically and reply:
 
 In Antigravity, we have a specialized antidote for sycophancy: the **`/grill-me`** command.
 
-![When the Human Types /grill-me: The Socratic Sparring Match That Saves Architecture 🥊](assets/illustrations/when-the-human-types-grill-me.svg)
-
 ---
 
 ## 🥊 The Rules of the Sparring Match

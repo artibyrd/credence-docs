@@ -15,8 +15,6 @@ This cookbook shows how to set up an autonomous, zero-trust **Credence Morning F
 
 ## 1. Zero-Trust Architecture Overview
 
-![1. Autodiscover feed candidate endpoints from any target website](assets/illustrations/morning-feed-sifter.svg)
-
 > [!TIP]
 > **Zero-Configuration Work-Sharing**: When multiple team members or automated agents run the sifter daemon across your local network or VPN, they automatically partition feed ingestion using Rendezvous Hashing without requiring a central coordination server.
 
@@ -80,7 +78,6 @@ Launch the real-time sifter daemon as a background systemd service or long-runni
 # Run sifter daemon with 5-minute polling cycles
 credence sifter --interval 300 --profile balanced
 ```
-
 
 ## 5. Generating Daily Morning Epistemic Briefings
 

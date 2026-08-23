@@ -24,9 +24,7 @@ When designing automated fact-checking and deception detection pipelines, newsro
 
 At **$1.25 per 1M input tokens** and **$5.00 per 1M output tokens**, a monolithic flagship pipeline costs **~$18.29 per 1,000 audits**. Auditing a standard newsroom ingest of 100,000 articles per month quickly balloons to **$1,829.00/month**—a prohibitive barrier for independent publishers and autonomous agent swarms.
 
-![Case Study: Slashing LLM Fact-Checking Costs by 83% with Bicameral Architecture](assets/illustrations/case-study-dual-tier-finops.svg)
-
----
+![Figure 1.1: Dual-tier bicameral inference architecture slashing LLM fact-checking costs by 83%](assets/illustrations/case-study-dual-tier-finops.svg)---
 
 ## 2. The Bicameral Architecture
 

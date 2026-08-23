@@ -14,8 +14,6 @@ Credence strictly maintains simultaneous **Universal 4-Way Feature Parity** acro
 
 ## 1. Interface Parity Matrix & Topology
 
-![Technical Blueprint: Universal 4-Way Parity and Environment Governance](assets/illustrations/universal-4-way-parity-and-environment-governance.svg)
-
 ---
 
 ## 2. Core Architectural Contracts

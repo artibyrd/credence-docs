@@ -16,8 +16,6 @@ In **Credence v1.21.0**, we evolved the Boredom Engine into a **Dual-Soil Ingest
 
 Here are the empirical findings from our **13-node Watts-Strogatz local mesh cluster simulation suite** (`credence/experiments/mesh_boredom_study.py`).
 
-![Gazing into the Abyss: Hunting Disinformation Without Drowning in Slop](assets/illustrations/gazing-into-the-abyss-adversarial-boredom.svg)
-
 ---
 
 ## 1. Study A: The Epistemic Ratio Sweep

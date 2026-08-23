@@ -17,8 +17,6 @@ This blueprint details how Credence identifies synthetic content farms and valid
 
 ## 1. Automated Content Farm Detection Architecture
 
-![Synthetic AI Content & Media Provenance Blueprint](assets/illustrations/synthetic-media-provenance.svg)
-
 ---
 
 ## 2. Detection Signals

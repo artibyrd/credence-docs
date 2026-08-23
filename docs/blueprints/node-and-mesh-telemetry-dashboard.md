@@ -27,12 +27,9 @@ The **Credence Node & Mesh Telemetry Dashboard** adheres to three core architect
 2. **Universal 4-Way Feature Parity**: Operators can access identical telemetry structures across Web, CLI, TUI, and FastMCP agent protocols.
 3. **Zero-Build & Zero-npm Strict Invariant**: Web dashboards must run hermetically using vanilla HTML5, CSS Custom Properties, and native ES Modules with zero build steps and zero `npm` packages.
 
-
 ---
 
 ## 2. Telemetry Ingestion & Aggregation Architecture
-
-![Node & P2P Mesh Telemetry Dashboard Architecture](assets/illustrations/node-and-mesh-telemetry-dashboard.svg)
 
 ---
 

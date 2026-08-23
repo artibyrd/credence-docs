@@ -21,8 +21,6 @@ In **Credence**, we set a strict architectural constraint from day one: **the co
 
 Here is how we built it.
 
-![Testing 13-Node Swarms on a $35 Pi: The Featherweight Mesh Architecture](assets/illustrations/testing-13-node-swarms-on-a-raspberry-pi.svg)
-
 ---
 
 ## 1. The Asyncio In-Memory Lattice

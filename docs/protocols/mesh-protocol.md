@@ -22,11 +22,11 @@ Centralized truth or fact-checking APIs have fundamental flaws:
 2. **Duplicative Compute / Token Waste**: If Node A already spent tokens auditing a breaking news article, Node B can verify Node A's cryptographic attestation and reuse the result in $0$ LLM tokens.
 3. **Byzantine Fault Tolerance**: By gathering signed evaluations from multiple independent nodes and computing **Bayesian consensus**, the network eliminates rogue or compromised nodes.
 
+![Figure 1.1: 13-node Watts-Strogatz peer mesh topology and Byzantine Sybil cartel defense](assets/illustrations/mesh-network.svg)
+
 ---
 
 ## 2. P2P Gossip Protocol Specification
-
-![Mesh Protocol & P2P Consensus](assets/illustrations/mesh-protocol.svg)
 
 ---
 

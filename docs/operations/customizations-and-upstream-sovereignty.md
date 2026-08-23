@@ -22,8 +22,6 @@ This document details the architectural boundaries and operational runbooks for 
 
 Credence enforces clean separation across four distinct operational layers:
 
-![Managing Customizations vs. Core Upstream](assets/illustrations/customizations-and-upstream-sovereignty.svg)
-
 ### Customization Layer Separation Matrix
 
 | Layer | Files & Paths | Git Status | Upstream Commit Policy |

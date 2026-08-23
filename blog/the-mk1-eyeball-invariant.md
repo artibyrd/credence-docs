@@ -34,8 +34,6 @@ No matter how many millions of parameters an LLM possesses, it is strictly forbi
 
 To understand why autonomous agents must never be granted unsupervised commit authority, one need only study the foundational treatise on cybernetic defense: the 2004 documentary known as *Battlestar Galactica*.
 
-![The Mk1 Eyeball Invariant: Why The Smartest Autonomous Agents Still Beg for Human Retinas 👁️](assets/illustrations/the-mk1-eyeball-invariant.svg)
-
 When the Cylons struck the Twelve Colonies, they didn't defeat the modern fleet in glorious ship-to-ship tactical combat. They simply broadcast an exploit into Baltar's networked Command Navigation Program (CNP). Every high-tech, fly-by-wire, auto-updating starship immediately shut down its engines, lowered its shields, and drifted helplessly into nuclear crosshairs.
 
 Only *Galactica* survived. Why? Because Commander William Adama stood in the Combat Information Center (CIC) and made a stubborn, reactionary, sovereign decree:
@@ -55,8 +53,6 @@ In heavy electromagnetic nebula radiation or under sophisticated jamming, digita
 The call across the wireless is always the same:
 
 > **"DRADIS is blind. Going to Mark 1 Eyeball for visual confirmation on the bogey."**
-
-![The Mk1 Eyeball Invariant: Why The Smartest Autonomous Agents Still Beg for Human Retinas 👁️](assets/illustrations/the-mk1-eyeball-invariant-2.svg)
 
 In autonomous software development:
 1. **Digital DRADIS** = Synthetic test suites, green CI checkmarks, linter badges, and LLM self-confidence scores.

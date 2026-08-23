@@ -39,8 +39,6 @@ Here is how we solved it in **v1.15.0** with a **3-Tier Scalable Invariant Archi
 
 ## 2. The Anatomy of the Failure: Why Flat Rulebooks Break
 
-![Scaling System Invariants: How We Prevented Context Bloat and Attention Dilution in Autonomous AI Coding](assets/illustrations/scaling-system-invariants-without-prompt-bloat.svg)
-
 Flat rulebooks suffer from three fundamental architectural flaws:
 1. **Zero Prioritization**: Security vulnerabilities and typo-level syntax constraints receive identical prominence in the prompt.
 2. **Context Window Tax**: Static rules are re-ingested on every conversation step, burning input token budgets that should be reserved for reasoning and thinking tokens.
@@ -51,8 +49,6 @@ Flat rulebooks suffer from three fundamental architectural flaws:
 ## 3. The 3-Tier Invariant Scalability Framework
 
 To solve this, we stratified our invariant ecosystem into three clear tiers based on **criticality, scope, and automation feasibility**:
-
-![Scaling System Invariants: How We Prevented Context Bloat and Attention Dilution in Autonomous AI Coding](assets/illustrations/scaling-system-invariants-without-prompt-bloat-2.svg)
 
 ### Tier 0: Universal Non-Negotiables (`AGENTS.md` &mdash; Strict Core)
 - **Token Budget**: **< 800 tokens** (strictly enforced).
@@ -76,8 +72,6 @@ To solve this, we stratified our invariant ecosystem into three clear tiers base
 ## 4. Invariant Mutability: The 6-State Lifecycle
 
 Invariants are not permanent dogma; they reflect the strongest empirical findings at project epoch $t$. Credence manages invariants through a 6-state lifecycle:
-
-![Scaling System Invariants: How We Prevented Context Bloat and Attention Dilution in Autonomous AI Coding](assets/illustrations/scaling-system-invariants-without-prompt-bloat-3.svg)
 
 ---
 

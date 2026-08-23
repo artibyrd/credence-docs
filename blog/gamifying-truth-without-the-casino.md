@@ -17,8 +17,6 @@ When designing the incentive mechanics for the **Credence Epistemic Mesh**, we t
 
 Truth verification is not a mobile game. It is a collaborative computational science.
 
-![Folding@home for Truth: Gamification Without the Casino](assets/illustrations/gamifying-truth-without-the-casino.svg)
-
 ---
 
 ## The Lessons of Distributed Computing: BOINC and Wikipedia
@@ -43,8 +41,6 @@ In Credence, nodes do not "level up" by spending money. They ascend through **5 
 | **Tier III** | 🛡️ | **Auditor** | $\ge 50$ evaluations, $Q_i \ge 0.75$, Grounding $G_i \ge 0.85$ | Consensus voting weight, attestation seeding |
 | **Tier IV** | 🏛️ | **Specialist** | Empirical Authority $E_i \ge 0.80$ across $\ge 5$ distinct FQDNs | Domain Authority weighted medians (Galileo Rule) |
 | **Tier V** | 💎 | **Root Anchor** | $Q_i \ge 0.85$, $U_i \ge 0.80$, $>30$ days active longevity | Inclusion in canonical `peers.json` bootstrap seed |
-
-![Folding@home for Truth: Gamification Without the Casino](assets/illustrations/gamifying-truth-without-the-casino-2.svg)
 
 ---
 

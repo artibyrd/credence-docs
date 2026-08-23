@@ -26,9 +26,7 @@ The 500 LOC ceiling is not an arbitrary aesthetic constraint. It is an operation
 2. **Single Responsibility Discipline**: When a file approaches 450 lines, developers and AI pair programmers are forced to identify the natural seam of decomposition before technical debt hardens into monoliths.
 3. **Deterministic Testability**: Modular subpackages allow pinpoint unit test isolation, guaranteeing that test suites execute hermetically in memory in under 20 seconds.
 
-![The 500 LOC Ceiling Law: How We Modularized the Monolith Without Slowing Down](assets/illustrations/the-500-loc-ceiling-law.svg)
-
----
+![Figure 1.1: The 500 LOC Ceiling Law and modular subpackage decoupling architecture](assets/illustrations/the-500-loc-ceiling-law.svg)---
 
 ## 2. Shift-Left Enforcement in 0.04 Seconds
 

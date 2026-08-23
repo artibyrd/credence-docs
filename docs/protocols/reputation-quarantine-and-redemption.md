@@ -20,8 +20,6 @@ Autonomous nodes operate under a dual-drive epistemic ingestion engine:
 
 ## 2. State Machine & Transition Invariants
 
-![Epistemic Protocol Specification: Domain Reputation, Soft Quarantine & Redemption (EPEP-17)](assets/illustrations/reputation-quarantine-and-redemption.svg)
-
 ### 2.1 Asymmetric Bayesian Scoring Update Rule
 
 Let $R_t \in [0.0, 100.0]$ denote the domain reputation score at audit step $t$:

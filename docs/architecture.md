@@ -11,9 +11,7 @@ last_verified: 2026-08-20
 
 **Credence** is an autonomous epistemic evaluation engine, FastMCP 2.0 server, and decentralized trust network designed to analyze digital media against formal journalistic ethics, logical fallacies, and deceptive UI patterns.
 
-![Decentralized Architecture](assets/illustrations/architecture.svg)
-
-### Architectural Component Matrix
+![Figure 1.1: Comprehensive Credence 3-plane ecosystem architecture and service topologies](assets/illustrations/architecture.svg)### Architectural Component Matrix
 
 | Layer | Primary Responsibilities | Core Technologies | Key Invariants |
 | :--- | :--- | :--- | :--- |

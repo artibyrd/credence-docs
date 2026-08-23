@@ -17,8 +17,6 @@ Credence supports **Air-Gapped Truth Bundles (`.credence.bundle`)** allowing off
 
 ## 1. The Air-Gapped Sneakernet Flow
 
-![Air-Gapped Truth Bundles & Sneakernets](assets/illustrations/airgapped-sneakernets.svg)
-
 ---
 
 ## 2. Exporting an Epistemic Truth Bundle

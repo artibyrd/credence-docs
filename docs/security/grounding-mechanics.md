@@ -13,8 +13,6 @@ The fundamental vulnerability of LLM-based evaluation is **hallucination**: mode
 
 In Credence, an evaluation that cannot cite exact, verifiable substrings from the source document is mathematically invalid ($G < 1.0$).
 
-![Verbatim Grounding Mechanics & Slashing](assets/illustrations/grounding-mechanics.svg)
-
 ### Grounding Precision & Reputation Matrix
 
 | Grounding Precision ($G_i$) | Attestation Status | Consensus Action | Reputation Impact |
