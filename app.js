@@ -4175,6 +4175,32 @@ export function setupSearch() {
 }
 
 export function initRouter() {
+  function normalizeLinks() {
+    const isDev = window.location.hostname.startsWith('dev.') || window.location.hostname.startsWith('mcp.dev.');
+    if (!isDev) return;
+
+    const prodToDev = {
+      'https://credence.run': 'https://dev.credence.run',
+      'https://admin.credence.run': 'https://dev.admin.credence.run',
+      'https://credence.report': 'https://dev.credence.report',
+      'https://credence.nexus': 'https://dev.credence.nexus',
+      'https://credence.foundation': 'https://dev.credence.foundation',
+      'https://docs.credence.run': 'https://dev.docs.credence.run',
+      'https://blog.credence.run': 'https://dev.blog.credence.run',
+      'https://mcp.credence.run': 'https://mcp.dev.credence.run',
+    };
+
+    document.querySelectorAll('a[href]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (!href) return;
+      for (const [prod, dev] of Object.entries(prodToDev)) {
+        if (href === prod || href.startsWith(prod + '/')) {
+          a.setAttribute('href', dev + href.substring(prod.length));
+        }
+      }
+    });
+  }
+
   function handleRoute() {
     let fullHash = window.location.hash.slice(1);
     if (!fullHash) {
@@ -4195,11 +4221,42 @@ export function initRouter() {
     }
 
     loadDocument(docId, anchorId);
+    setTimeout(normalizeLinks, 100);
   }
+
+  // Top-level capture interceptor to guarantee zero escape from dev preview
+  document.addEventListener('click', (e) => {
+    const anchor = e.target && e.target.closest && e.target.closest('a[href]');
+    if (!anchor) return;
+    const isDev = window.location.hostname.startsWith('dev.') || window.location.hostname.startsWith('mcp.dev.');
+    if (!isDev) return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
+
+    const prodToDev = {
+      'https://admin.credence.run': 'https://dev.admin.credence.run',
+      'https://credence.run': 'https://dev.credence.run',
+      'https://credence.report': 'https://dev.credence.report',
+      'https://credence.nexus': 'https://dev.credence.nexus',
+      'https://credence.foundation': 'https://dev.credence.foundation',
+      'https://docs.credence.run': 'https://dev.docs.credence.run',
+      'https://blog.credence.run': 'https://dev.blog.credence.run',
+      'https://mcp.credence.run': 'https://mcp.dev.credence.run',
+    };
+
+    for (const [prod, dev] of Object.entries(prodToDev)) {
+      if (href === prod || href.startsWith(prod + '/')) {
+        e.preventDefault();
+        window.location.href = dev + href.substring(prod.length);
+        return;
+      }
+    }
+  }, true);
 
   window.addEventListener('hashchange', handleRoute);
   handleRoute();
   setupSearch();
+  normalizeLinks();
 }
 
 
