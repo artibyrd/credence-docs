@@ -3,15 +3,15 @@ title: Textual TUI Terminal Workstation Deep Dive
 description: Mastering the interactive terminal user interface, keybindings, 7 core
   panes, 3 multi-display view modes, and real-time epistemic inspection.
 since_version: v1.7.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.8.1
+last_verified: 2026-08-22
 ---
 
 # Textual TUI Terminal Workstation Deep Dive
 
 Credence includes an interactive terminal workstation powered by **Textual** (`credence tui`).
 
-It provides real-time audit monitoring, grounded citation inspection, syndicated feed quality analysis, token headroom governance, and cryptographic identity verification directly inside your terminal emulator.
+It provides real-time audit monitoring, grounded citation inspection across 3-tier epistemic lenses, publisher dossiers, token headroom governance, live SRE telemetry, and decentralized P2P mesh consensus directly inside your terminal emulator.
 
 ```bash
 credence tui
@@ -28,18 +28,19 @@ The workstation is entirely keyboard-driven with single-key shortcuts:
 | Keybinding | Action | Description |
 |:---|:---|:---|
 | `/` | **Audit URL** | Open modal dialog to submit a live URL for multi-agent evaluation. |
-| `1` | **🛡️ Inspector** | Switch to the active epistemic audit & violation inspector. |
-| `2` | **📚 Taxonomies** | Switch to the registered taxonomy catalog hierarchy tree. |
+| `1` | **🛡️ Inspector** | Switch to the active epistemic audit & 3-tier violation inspector. |
+| `2` | **📚 Taxonomies** | Switch to the registered taxonomy catalog hierarchy tree (36 canonical rules). |
 | `3` | **🧠 Subjects** | Switch to the hierarchical subject classification registry. |
-| `4` | **📡 Feeds & Dedup** | Switch to syndicated feeds table with dynamic quality scores ($F_j$). |
-| `5` | **⚡ Quota** | Switch to the real-time token governor & circuit breaker monitor. |
-| `6` | **🔑 Identity** | Switch to local cryptographic Ed25519 node identity & keys. |
-| `v` | **Cycle View Mode** | Toggle between **Rich Takeaway**, **Compact Digest**, and **Raw JSON**. |
-| `f` | **Filter Findings** | Focus the real-time search bar to filter violations (e.g. `SPJ`, `MED`, `fallacy`). |
-| `s` | **Sync Feeds** | Trigger background syndicated feed polling & check mesh effort avoidance. |
-| `r` | **Random Audit** | Select and inspect a random audit from local history. |
-| `o` | **Open in Web** | Open active audit in the zero-build web report viewer (`credence.report`). |
-| `e` | **Export Report** | Export current audit report to formatted Markdown (`credence_audit_export.md`). |
+| `4` | **📡 Feeds** | Switch to syndicated feeds table with dynamic quality scores ($F_j$). |
+| `5` | **🏛️ Dossiers** | Switch to domain leaderboards and longitudinal publisher dossiers. |
+| `6` | **⚡ Quota** | Switch to real-time token governor & 30% headroom circuit breaker monitor. |
+| `7` | **🔑 Identity** | Switch to local cryptographic Ed25519 node identity & public keys. |
+| `8` | **🛠️ Ops** | Switch to SRE telemetry, scale-to-zero vitals, and container health. |
+| `9` | **🕸️ Mesh** | Switch to decentralized P2P mesh cluster reality & Byzantine quorum ($3f+1$). |
+| `l` | **Cycle Lens** | Cycle through 3-tier epistemic lenses: **1. Surface (Glance)** $\to$ **2. Focus (Evidence)** $\to$ **3. Deep Forensic**. |
+| `f` | **Filter Findings** | Focus the real-time search bar to filter violations (e.g. `SPJ`, `IEP`, `fallacy`). |
+| `r` | **Surprise Me** | Select and inspect a random audit from local history. |
+| `i` | **Info Modal** | Open the Invariant Bible & Epistemic Lexicon modal dialog. |
 | `q` | **Quit** | Exit the workstation cleanly. |
 
 ---
@@ -50,33 +51,27 @@ The workstation is entirely keyboard-driven with single-key shortcuts:
 graph TD
     subgraph Textual TUI Workstation Architecture
         Header["1. Header: Live Clock & Profile Badge [FREE / BALANCED / ULTRA]"]
-        Sidebar["2. Left Sidebar: Recent Audits History Table (Score Badges)"]
-        Banner["3. Score Banner: Verdict, Score /100, Density /1k, Ed25519 Signature"]
-        Summary["4. Executive Summary Panel: Human Takeaway / Compact Digest / Raw RFC 8785"]
-        Split["5. Dual-Pane Inspector: Grounded Violations Table (Left) + Evidence & Sourcing (Right)"]
-        Footer["6. Footer: Interactive Global Keybinding Action Bar"]
+        Status["2. Status Pill: Headroom %, G=1.00 Active, Scale-to-Zero State"]
+        Tabs["3. 9-Tab Navigation Suite: Inspector, Taxonomies, Subjects, Feeds, Dossiers, Quota, Identity, Ops, Mesh"]
+        Split["4. Tab Context: Dual-Pane Lensing, Tree Navigators, or Fail-Closed Telemetry Panels"]
+        Footer["5. Footer: Interactive Global Keybinding Action Bar"]
     end
 ```
 
 ---
 
-## 3. The 7 Core Workstation Panes
+## 3. The 9 Core Workstation Panes
 
-### Tab 1 (`1`): 🛡️ Epistemic Inspector & Grounded Evidence
+### Tab 1 (`1`): 🛡️ Epistemic Inspector & 3-Tier Lensing
 The primary analytical surface for inspecting multi-specialist findings. Select any audit from the sidebar to inspect the calibrated suspicion score, density per 1,000 words, and itemized violations.
-
-![TUI Inspector](../../assets/tui/01-inspector-rich.svg)
-
-* **Left Panel**: Filterable DataTable listing Rule IDs, severity badges (`1/5` to `5/5`), taxonomy domains, and verbatim text excerpts.
-* **Right Panel**: Detailed evidence view displaying the exact grounded quote, specialist reasoning, and canonical rule URI.
+* **Surface Lens (1)**: High-level score gauge, trust band, and executive takeaway.
+* **Focus Lens (2)**: Grounded violation table and verbatim quote inspections.
+* **Deep Forensic Lens (3)**: Ed25519 envelope signature, canonical SHA-256 digest, and timestamp.
 
 ---
 
 ### Tab 2 (`2`): 📚 Registered Taxonomy Catalogs
-Browse all loaded taxonomy rulebooks (SPJ Journalistic Ethics, Informal Logical Fallacies, Deceptive UI Patterns, Medical/Health Sourcing).
-
-![Taxonomies Tree](../../assets/tui/05-taxonomies-tree.svg)
-
+Browse all loaded taxonomy rulebooks (SPJ Journalistic Ethics, Informal Logical Fallacies, Deceptive UI Patterns).
 * Collapsible tree hierarchy showing catalogs, thematic clusters, rule IDs, and baseline severity ratings.
 * Pinned by SHA-256 catalog hashes in accordance with **[Invariant 5](../invariants.md#invariant-5)** (Namespaced Fixed Taxonomies).
 
@@ -84,20 +79,38 @@ Browse all loaded taxonomy rulebooks (SPJ Journalistic Ethics, Informal Logical 
 
 ### Tab 3 (`3`): 🧠 Hierarchical Domain Subject Registry
 Explore the subject taxonomy used for domain-weighted consensus and specialist routing.
-
-![Domain Subjects](../../assets/tui/06-domain-subjects.svg)
-
 * Multi-tier hierarchy spanning journalism, computing, science, biology, and satire.
 * Used to calculate empirical node expertise ($E_i$) and enforce the **[Anti-Diploma Invariant](../invariants.md#invariant-17)**.
 
 ---
 
-### Tab 4 (`4`): 📡 Syndicated Feeds & Dedup Stream
+### Tab 4 (`4`): 📡 Syndicated Feeds Stream
 Monitor RSS, Atom, and JSON syndicated feeds partitioned across the swarm via Highest Random Weight (HRW) Rendezvous Hashing.
 
-![Feeds Stream](../../assets/tui/07-feeds-stream.svg)
+---
 
-* Displays priority tiers (`T1` Breaking to `T4` Satire), title, feed URL, classified subject tag, and active status.
+### Tab 5 (`5`): 🏛️ Dossiers & Domain Leaderboards
+Inspect longitudinal reputation records, Bayesian DCI scores, and trust band transitions for news publishers.
+
+---
+
+### Tab 6 (`6`): ⚡ Quota & Headroom Governor
+Real-time token spend gauges, cost ceiling alerts, and 30% headroom circuit breakers across configured LLM adapters.
+
+---
+
+### Tab 7 (`7`): 🔑 Cryptographic Node Identity
+Inspect local Ed25519 public key pinning, RFC 8785 envelope signing status, and root key provenance.
+
+---
+
+### Tab 8 (`8`): 🛠️ SRE Ops Telemetry
+Real-time node performance, scale-to-zero idle optimization ($0.00 cost), and container health.
+
+---
+
+### Tab 9 (`9`): 🕸️ P2P Mesh Consensus & Byzantine Quorum
+Live network topology reporting active node count ($N \ge 1$), Byzantine fault tolerance ($f = \lfloor (N-1)/3 \rfloor$), and peer gossip health. In standalone mode, explicitly reports `STANDALONE` in adherence with the **[Production Telemetry Boundary Invariant](../invariants.md#invariant-25)**.
 * Real-time composite quality metric ($F_j = 0.35 S + 0.25 G + 0.20 H + 0.20 T$).
 * Press `s` to execute instant background feed synchronization and check mesh effort avoidance.
 

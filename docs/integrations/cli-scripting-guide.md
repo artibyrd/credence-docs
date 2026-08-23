@@ -131,3 +131,31 @@ credence digest --format markdown --output /srv/web/morning_brief.md --hours 24
 # Stream JSON for custom alerting pipes
 credence digest --format json | jq '{clean: .clean_articles_count, flagged: .flagged_articles_count, tokens_saved: .estimated_tokens_saved}'
 ```
+
+---
+
+## 6. Multi-Modality Badge Studio CLI Automation
+
+Generate vector SVG badges or embeddable Web Component markup across node, publisher, and attestation modalities:
+
+```bash
+# Export Publisher Trust Badge (DCI) as vector SVG
+credence badge export reuters.com --modality publisher --style pill --output ./reuters_badge.svg
+
+# Export Article Attestation Web Component markup
+credence badge export https://example.com/article --modality attestation --format component
+
+# Export Node Merit Anchor SVG
+credence badge export sprout_node --modality node --style shield --output ./node_merit.svg
+```
+
+---
+
+## 7. P2P Swarm Topology & Byzantine Quorum
+
+Inspect active mesh reality and Byzantine fault tolerance limits ($f = \lfloor (N-1)/3 \rfloor$):
+
+```bash
+# Query live mesh status with fault tolerance capacity
+credence merit --mesh
+```
