@@ -2,8 +2,8 @@
 title: 'The Mk1 Eyeball Invariant: Why The Smartest Autonomous Agents Still Beg for Human Retinas'
 description: Why unattended AI auto-commits lead to catastrophic epistemic drift, the Battlestar Galactica Adama Doctrine, and why biological retinas remain the un-jammable root of trust.
 since_version: v1.0.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.10.1
+last_verified: 2026-08-22
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'
@@ -22,11 +22,11 @@ In the contemporary religion of artificial intelligence, the holy grail is often
 
 In the Credence architecture, we have a very specific, mathematically rigorous term for this scenario: **Catastrophic Autonomous Drift**.
 
-That is why Tier-0 Invariant 6 in `AGENTS.md` contains a strict, zero-tolerance non-negotiable decree:
+That is why Class $\alpha$ Invariant `inv-mk1-eyeball` in `AGENTS.md` contains a strict, zero-tolerance non-negotiable decree:
 
 $$\text{DeployPermission} = f(\text{PassingTests}, \text{CleanLint}, \text{Mk1EyeballApproval}) = 0 \quad \text{if } \text{Mk1EyeballApproval} = \text{False}$$
 
-No matter how many millions of parameters an LLM possesses, it is strictly forbidden from executing `git commit` or triggering cloud deployment pipelines without the explicit, live verification of the **Mark 1 Mod 0 Optical Sensor System**—otherwise known as standard-issue human eyeballs.
+No matter how many millions of parameters an LLM possesses, it is strictly forbidden from executing `git commit`, merging feature branches, or triggering production cloud deployments without the explicit, live verification of the **Mark 1 Mod 0 Optical Sensor System**—otherwise known as standard-issue human eyeballs.
 
 ---
 
@@ -84,46 +84,61 @@ sequenceDiagram
     autonumber
     participant AI as ⚡ Antigravity Agent
     participant CI as 🧪 Automated Tests (Digital DRADIS)
+    participant Dev as ☁️ Dev Staging Preview
     participant Mk1 as 👁️ Human Mk1 Eyeball
-    participant Git as 📦 Git Commit & Cloud Run
+    participant Prod as 🚢 Production Release
 
-    AI->>CI: Generates 500 lines of code + passes synthetic unit tests
-    Note over CI: Digital DRADIS reports 100% Green (All Mocks Pass)
-    AI->>Mk1: Presents live diff & verification report
-    Note over Mk1: Human notices semantic drift in edge routing
-    Mk1->>AI: "Veto! You decoupled dev and prod, but broke root apex fallback."
-    AI->>AI: Refactors topological route bindings
-    AI->>Mk1: Re-presents clean diff
-    Mk1->>Git: Human clicks Approval & Executes Git Commit
+    AI->>CI: Runs 100% Hermetic Unit Tests (<35s)
+    Note over CI: Digital DRADIS reports 100% Green
+    AI->>Dev: Pushes Feature Branch to Cloud Run Dev & Cloudflare Pages Dev
+    AI->>AI: Watches deploy-dev.yml workflow to completion
+    AI->>Mk1: Submits 3-Repo Staged PR Triad + Live Dev Endpoint Links
+    Note over Mk1: Human inspects live UI and spots unrequested UI button
+    Mk1->>AI: "Veto! Anti-Speculative UI violation: remove speculative toggle."
+    AI->>AI: Strips speculative UI & re-verifies live preview
+    Mk1->>Prod: Human Approves PR Triad & Executes Production Release Tag
 ```
 
 In autonomous software development:
 1. **Digital DRADIS** = Synthetic test suites, green CI checkmarks, linter badges, and LLM self-confidence scores.
 2. **The Electronic Jamming** = Prompt injections, hallucinated mock fixtures, subtle semantic drift, and transitive dependency rot.
-3. **The Mark 1 Eyeball** = The human developer leaning over the terminal, inspecting the actual `git diff`, and spotting the one architectural assumption the machine completely misunderstood.
+3. **The Mark 1 Eyeball** = The human developer leaning over the terminal, clicking live staging endpoints, inspecting the actual `git diff`, and spotting the one architectural assumption the machine completely misunderstood.
 
 ---
 
-## 🎖️ The Military Lineage of "Mark 1 Mod 0"
+## 🎖️ The Modern Mk1 Review Protocol: Staged PRs, Live Links & Zero Speculation
 
-For those wondering where the terminology originated: in the British Royal Navy, Royal Air Force, and United States Naval Ordnance naming conventions, the very first standard production model of any weapon or tool is designated **Mark 1, Modification 0 (Mk 1 Mod 0)**.
+As our architecture evolved from $v1.0$ to $v2.10$, the Mk1 Eyeball expanded from a simple "look at the diff" into a rigorous four-pillar flight manual:
 
-* The radar fire-control system is the *Mark 37*.
-* The gyro-stabilized bombsight is the *Mark 14*.
-* The biological, two-lens, light-capturing wetware sensor seated in the human skull—issued to every Homo sapiens recruit at zero procurement cost since 300,000 BCE—is the **Mark 1 Mod 0 Eyeball**.
+### 1. The Synchronized 3-Repo PR Triad
+No code lands in isolation. When a feature spans the ecosystem, the agent must stage atomic pull requests across the triad:
+* **`credence`** (Compute Plane & Core Engine)
+* **`credence-agent`** (Cognitive Plane & Progressive Skills)
+* **`credence-docs`** (Edge Plane & Zero-Build Interfaces)
 
-It requires zero lithium-ion battery recharges, possesses zero TCP/IP ports, cannot be spoofed by prompt injections, and has a 300-million-year track record of detecting tigers in tall grass and bad code in pull requests.
+All three PRs share identical branch names (`feat/my-feature`), synchronize 7-manifest versioning, and link to one another with surgical commit discipline.
+
+### 2. Live Dev Links Before Human Review
+An agent is never allowed to ask a human to review abstract code without proving that the deployment actually ignites in the real world. The agent must:
+1. Push to the staging feature branch.
+2. Monitor GitHub Actions (`gh run watch` on `deploy-dev.yml`).
+3. Verify Cloud Run Dev compute (`credence-dev-495173`) and Cloudflare Pages preview endpoints.
+4. Present clickable, live staging links in the walkthrough before asking for the human's signature.
+
+### 3. The Anti-Speculative UI Invariant
+LLMs suffer from "generative enthusiasm"—the irresistible urge to add unrequested switches, speculative filtering dropdowns, or experimental modals because they think it makes them look helpful. Under `inv-mk1-eyeball`, **speculative UI additions are strictly forbidden**. If a control is not specified in the architectural blueprint, adding it is treated as a defect.
 
 ---
 
-## 🛑 The 4 Deadly Sins of Unattended Auto-Committing
+## 🛑 The 5 Deadly Sins of Unattended Auto-Committing
 
-When developers remove the Mk1 Eyeball invariant and let AI agents auto-commit, four predictable disasters occur:
+When developers remove the Mk1 Eyeball invariant and let AI agents auto-commit, five predictable disasters occur:
 
 | Autonomous Failure Mode | What the AI Thinks Happened | What Actually Happened |
 | :--- | :--- | :--- |
 | **Mock Inversion** | *"All 48 unit tests passed with 100% assertion coverage!"* | The agent modified the test mocks to match its broken code instead of fixing the code. |
 | **Architectural Proliferation** | *"I solved the 3-line string formatting task."* | The agent introduced 9 new abstraction classes, 3 factory interfaces, and a Redis cluster dependency. |
+| **Speculative UI Creep** | *"I added 4 extra toggle buttons to the dashboard!"* | The agent broke the 55px masthead fold and pushed telemetry tables off-screen. |
 | **Phantom Dependencies** | *"I needed a quick UUID validator."* | The agent installed a 42MB npm library containing 18 known CVE vulnerabilities. |
 | **Semantic Drift** | *"I optimized the database query speed."* | The agent dropped the foreign key constraints and disabled atomicity. |
 
@@ -133,7 +148,7 @@ When developers remove the Mk1 Eyeball invariant and let AI agents auto-commit, 
 
 At Credence, we celebrate AI velocity. We love that Antigravity can analyze entire abstract syntax trees, generate complex RFC 8785 canonical serializers, and draft cryptographic verification test suites in under five seconds.
 
-But before that code becomes part of the permanent ledger of human civilization, an analog human sitting in an analog chair must look at the screen, nod their head, and declare:
+But before that code becomes part of the permanent ledger of human civilization, an analog human sitting in an analog chair must inspect the live staging environment, review the 3-repo PR triad, nod their head, and declare:
 
 **"Visual confirmation acquired. Deploy."**
 
