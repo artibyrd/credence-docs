@@ -4185,8 +4185,8 @@ export function initRouter() {
       'https://credence.report': 'https://dev.credence.report',
       'https://credence.nexus': 'https://dev.credence.nexus',
       'https://credence.foundation': 'https://dev.credence.foundation',
-      'https://docs.credence.run': 'https://dev.docs.credence.run',
-      'https://blog.credence.run': 'https://dev.blog.credence.run',
+      'https://docs.credence.run': 'https://dev.credence.run/docs/',
+      'https://blog.credence.run': 'https://dev.credence.run/blog/',
       'https://mcp.credence.run': 'https://mcp.dev.credence.run',
     };
 
@@ -4195,7 +4195,12 @@ export function initRouter() {
       if (!href) return;
       for (const [prod, dev] of Object.entries(prodToDev)) {
         if (href === prod || href.startsWith(prod + '/')) {
-          a.setAttribute('href', dev + href.substring(prod.length));
+          const sub = href.substring(prod.length);
+          if (dev.endsWith('/') && sub.startsWith('/')) {
+            a.setAttribute('href', dev.slice(0, -1) + sub);
+          } else {
+            a.setAttribute('href', dev + sub);
+          }
         }
       }
     });
@@ -4239,15 +4244,20 @@ export function initRouter() {
       'https://credence.report': 'https://dev.credence.report',
       'https://credence.nexus': 'https://dev.credence.nexus',
       'https://credence.foundation': 'https://dev.credence.foundation',
-      'https://docs.credence.run': 'https://dev.docs.credence.run',
-      'https://blog.credence.run': 'https://dev.blog.credence.run',
+      'https://docs.credence.run': 'https://dev.credence.run/docs/',
+      'https://blog.credence.run': 'https://dev.credence.run/blog/',
       'https://mcp.credence.run': 'https://mcp.dev.credence.run',
     };
 
     for (const [prod, dev] of Object.entries(prodToDev)) {
       if (href === prod || href.startsWith(prod + '/')) {
         e.preventDefault();
-        window.location.href = dev + href.substring(prod.length);
+        const sub = href.substring(prod.length);
+        if (dev.endsWith('/') && sub.startsWith('/')) {
+          window.location.href = dev.slice(0, -1) + sub;
+        } else {
+          window.location.href = dev + sub;
+        }
         return;
       }
     }
