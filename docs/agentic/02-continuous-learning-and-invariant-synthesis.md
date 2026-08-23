@@ -69,7 +69,7 @@ When delivering features and capturing edge cases during pair-programming, Crede
 
 | Incident / Edge Case | Immediate Fix | Codified Invariant Added via `/learn` | Automated Guardrail |
 | :--- | :--- | :--- | :--- |
-| **Mermaid Syntax Crashes** | Quoted node strings | **[Invariant 34: Universal Mermaid Syntax Guardrail](../invariants.md#invariant-34)** | `test_mermaid_diagram_syntax_integrity` |
+| **Mermaid Syntax Fragility** | Migrated to UTF-8 schematics | **[Invariant 34: Universal Technical Schematic Guardrail](../invariants.md#invariant-34)** | `test_schematic_box_diagram_integrity` |
 | **Wall-of-Text Fatigue** | Added flowcharts & tables | **[Invariant 35: Visual Density Invariant ($\ge 2.0$/500w)](../invariants.md#invariant-35)** | `scratch/audit_visual_density.py` |
 | **Multi-Repo Version Drift** | Updated `credence.run` | **[Invariant 3: Version Parity Governance](../invariants.md#invariant-3)** | `test_ecosystem_version_parity` |
 | **Unlinked Invariant Mentions** | Cross-linked markdown | **[Invariant 30: Invariant Linking Guardrail](../invariants.md#invariant-30)** | `test_all_invariant_references_are_linked` |

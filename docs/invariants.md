@@ -328,14 +328,14 @@ $$H_{\text{penalized}} = H \times (1.0 - C_{\text{top3}})$$
 
 <div class="invariant-card" id="inv-mermaid-syntax-safety">
 <a id="invariant-34"></a>
-<h3><a href="#docs/invariants#inv-mermaid-syntax-safety">Invariant 34: Universal Mermaid & Visual Syntax Guardrail</a></h3>
-<p>All Mermaid diagrams across markdown documentation and planning artifacts must strictly use standard flow/graph/sequence syntax (<code>graph TD</code>, <code>flowchart TD</code>, <code>sequenceDiagram</code>) with all special characters (<code>>=</code>, <code><=</code>, <code>()</code>, <code>/</code>, <code>&</code>) enclosed in double quotes (e.g. <code>id["Label (Details)"]</code>), avoiding unquoted <code>< ></code> brackets or unsupported diagram types to prevent rendering failures across IDE viewers and static engines.</p>
+<h3><a href="#docs/invariants#inv-mermaid-syntax-safety">Invariant 34: Universal Technical Schematic & Visual Syntax Guardrail</a></h3>
+<p>All technical diagrams across markdown documentation and planning artifacts must strictly use enclosed UTF-8 box schematics, wire sequence layouts, or structured state matrices (<code>┌─┐│└┘├┤┬┴┼═║</code>) with strict $\le 150$ characters line width constraints and zero external client-side rendering bundle dependencies to guarantee high-density visual clarity across all devices.</p>
 </div>
 
 <div class="invariant-card" id="inv-visual-density">
 <a id="invariant-35"></a>
 <h3><a href="#docs/invariants#inv-visual-density">Invariant 35: Visual Density & Anti-Wall-of-Text Invariant</a></h3>
-<p>All documentation guides, tutorials, and editorial blog posts must maintain a visual density of $\ge 2.0$ visual elements per 500 words (using Mermaid architecture diagrams, comparison matrices, and styled alert callout boxes) to eliminate unformatted prose fatigue.</p>
+<p>All documentation guides, tutorials, and editorial blog posts must maintain a visual density of $\ge 2.0$ visual elements per 500 words (using enclosed UTF-8 technical schematics, comparison matrices, and styled alert callout boxes) to eliminate unformatted prose fatigue.</p>
 </div>
 
 <div class="invariant-card" id="inv-playwright-rendering-tests">
@@ -435,7 +435,7 @@ $$H_{\text{penalized}} = H \times (1.0 - C_{\text{top3}})$$
 | **[`inv-zero-build-standards`](#inv-zero-build-standards)** | Inv 31 | Class γ | Zero-npm / Zero-Build | Vanilla ES Modules & 0 node_modules |
 | **[`inv-zero-build-math`](#inv-zero-build-math)** | Inv 32 | Presentation | Zero-Build Math | Native Unicode & currency preservation |
 | **[`inv-edge-canonicalization`](#inv-edge-canonicalization)** | Inv 33 | Presentation | Edge Subdirectory Canonical | 301 redirects preventing folder leaks |
-| **[`inv-mermaid-syntax-safety`](#inv-mermaid-syntax-safety)** | Inv 34 | Presentation | Mermaid Syntax Safety | Standard quoted graph syntax |
+| **[`inv-mermaid-syntax-safety`](#inv-mermaid-syntax-safety)** | Inv 34 | Presentation | Technical Schematic Guardrail | Enclosed UTF-8 box schematics & line limits |
 | **[`inv-visual-density`](#inv-visual-density)** | Inv 35 | Presentation | Visual Density | $\ge 2.0$ visuals per 500 words |
 | **[`inv-playwright-rendering-tests`](#inv-playwright-rendering-tests)** | Inv 36 | Presentation | Live Playwright Tests | SVG geometry & 0 HTML leaks |
 | **[`inv-inline-html-math-integrity`](#inv-inline-html-math-integrity)** | Inv 37 | Presentation | Inline HTML & Math | Balanced-brace LaTeX & safe tag masking |

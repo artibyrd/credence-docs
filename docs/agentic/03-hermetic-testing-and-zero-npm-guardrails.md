@@ -68,20 +68,19 @@ By building the Credence documentation and blog engine purely in **vanilla moder
 Static HTML linters cannot detect whether client-side JavaScript actually rendered an SVG diagram or if a mathematical formula threw an exception. Credence uses headless Chromium to verify live DOM geometry:
 
 ```python
-# From tests/test_docs_rendering.py
+# From tests/governance/test_docs_rendering.py
 @pytest.mark.e2e
-def test_mermaid_diagrams_render_to_svg(page: Page, docs_server: str) -> None:
-    page.goto(f"{docs_server}/#docs/architecture", wait_until="networkidle")
+async def test_schematic_and_diagram_rendering(page: Page, docs_server: str) -> None:
+    await page.goto(f"{docs_server}/#docs/architecture", wait_until="networkidle")
     
-    # 1. Ensure raw code blocks were converted
-    raw_blocks = page.query_selector_all(".mermaid-code pre code.language-mermaid")
-    assert len(raw_blocks) == 0
-
-    # 2. Ensure rendered SVGs have non-zero geometry
-    rendered_svgs = page.query_selector_all(".mermaid-rendered svg")
-    for svg in rendered_svgs:
-        box = svg.bounding_box()
-        assert box["width"] > 50 and box["height"] > 30
+    # Ensure high-density UTF-8 schematic pre/code blocks render with clean bounding dimensions
+    schematics = await page.query_selector_all(".markdown-body pre code")
+    assert len(schematics) >= 1
+    for code_el in schematics:
+        text = await code_el.inner_text()
+        if any(c in text for c in "┌─┐│└┘"):
+            box = await code_el.bounding_box()
+            assert box is not None and box["width"] > 200 and box["height"] > 40
 ```
 
 ---

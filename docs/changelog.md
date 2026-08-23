@@ -15,6 +15,9 @@ last_verified: 2026-08-23
 - **Interactive Playground Math Engine Upgrade**: Upgraded `credence-docs/app.js` math parser to evaluate inline and display LaTeX expressions (`$...$`, `\(...\)`, `$$...$$`, `\[...\]`) across standard markdown and direct HTML widget elements, eliminating double parentheses, broken escapes, and raw LaTeX macro leaks.
 - **Automated Schematic & Math Integrity Test Gates**: Added `test_schematic_box_diagram_integrity` and `test_playground_and_docs_math_rendering_integrity` to `tests/governance/test_docs_integrity.py`, and added `test_schematic_and_diagram_rendering` and `test_playground_math_rendering_integrity` to `tests/governance/test_docs_rendering.py`.
 
+### Removed
+- **Mermaid Viewing Engine & Vendor Assets**: Removed obsolete 1.8 MB `mermaid.min.js` vendor bundles from `credence-docs/assets/` and `credence/web/assets/`, pruned ~500 LOC of zoom/pan/lightbox runtime code and CSS styling from `app.js` and `styles.css`, and codified `test_zero_legacy_mermaid_diagrams_invariant` to prevent future regressions.
+
 ---
 
 ## [2.11.1] - 2026-08-23
