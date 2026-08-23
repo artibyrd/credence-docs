@@ -106,12 +106,24 @@ python3 /home/pendragon/.gemini/antigravity/brain/<conversation-id>/scratch/<nam
 
 When setting up a fresh development workspace or resetting command approval caches, running individual commands manually to populate the IDE approval list is tedious.
 
-Credence provides an automated approval bootstrapper:
+Credence provides two discrete, scope-isolated bootstrapping runners:
+
+### 1. Open-Source Core Developer Scope (Fork-Safe)
+For open-source contributors and developers working locally with zero cloud dependencies:
 
 ```bash
 just bootstrap-approvals
 # Or directly via Python:
-python3 scripts/bootstrap_approvals.py --execute
+python3 scripts/bootstrap_approvals.py --scope core --execute
 ```
+Sequentially triggers harmless read-only passes across preflight toolchains, parallel quality gates (`just check`, `just lint`, `just format`), hermetic unit tests (`just test-unit`, `just test-docs`), agent health checks, and read-only git/PR inspection commands.
 
-This runner sequentially triggers harmless, read-only passes of every primary command shape (`just preflight all`, `just check`, `just status`, `just test-unit`, `just cloud-status`, `just tf-validate`), allowing the developer to click "Always Allow" in rapid succession.
+### 2. Maintainer Hosted Infrastructure Scope
+For Artibyrd maintainers managing Google Cloud Run, Cloudflare Edge, Terraform, and live URL health verification:
+
+```bash
+just bootstrap-approvals-hosted
+# Or directly via Python:
+python3 scripts/bootstrap_approvals.py --scope hosted --execute
+```
+Sequentially triggers read-only cloud telemetry (`just cloud-status`, `just edge-status`, `just tf-validate`, `just doctor`), environment-aware Dev/Prod probes (`just cloud-probe credence-dev dev`, `just cloud-probe credence-server prod`), and direct HTTP health endpoint probes (`curl -sI ...`).

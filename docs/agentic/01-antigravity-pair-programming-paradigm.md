@@ -140,7 +140,9 @@ To prevent high-risk monolithic commits and ensure verifiable step-by-step progr
 
 To maximize autonomous pair-programming velocity while safeguarding sovereign user authorization:
 
-1. **Workspace Approval Bootstrapping (`just bootstrap-approvals`)**: When starting in a fresh workspace or after resetting approval caches, run `just bootstrap-approvals`. This sequentially triggers harmless read-only checks for all standard command shapes, allowing the operator to click **"Always Allow"** in rapid succession.
+1. **Workspace Approval Bootstrapping (`just bootstrap-approvals` & `just bootstrap-approvals-hosted`)**:
+   - **Open-Source Core (`just bootstrap-approvals`)**: Runs harmless passes across all standard local developer commands (preflight, parallel check, hermetic unit tests, git/PR inspection) so contributors and forks can authorize autonomous workflows with "Always Allow".
+   - **Maintainer Hosted (`just bootstrap-approvals-hosted`)**: Runs harmless passes across Google Cloud Run status/probes, Cloudflare Edge routing, Terraform validation, and direct URL health checks for production maintainers.
 2. **Zero-Blob Brain Scratch Scripts (`inv-clean-scratch-scripts`)**: Any custom or exploratory scripts requiring user approval (`BypassSandbox: true`) are written to standalone files in the session artifact brain directory (`<appDataDir>/brain/<conversation-id>/scratch/<name>.py`). Executing the standalone file allows the operator to grant approval once and enables the agent to iterate on script improvements without triggering subsequent approval modals.
 
 > [!TIP]
