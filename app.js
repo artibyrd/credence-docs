@@ -4229,6 +4229,40 @@ export function renderGlobalFooter() {
   `;
 }
 
+export function updateSocialMetadata(target, isBlog) {
+  if (!target || typeof document === 'undefined') return;
+  const cleanTitle = (target.title || '').replace(/^[^\w\s]+/, '').trim();
+  const fullTitle = isBlog ? `${cleanTitle} — Credence Sovereign Blog` : `${cleanTitle} — Credence Docs`;
+  const desc = target.desc || 'Decoupled documentation and sovereign editorial blog engine for the Credence network.';
+  const currentUrl = window.location.href;
+
+  document.title = fullTitle;
+
+  const setMeta = (attr, key, val) => {
+    let el = document.querySelector(`meta[${attr}="${key}"]`);
+    if (!el) {
+      el = document.createElement('meta');
+      el.setAttribute(attr, key);
+      document.head.appendChild(el);
+    }
+    el.setAttribute('content', val);
+  };
+
+  setMeta('name', 'description', desc);
+  setMeta('property', 'og:title', fullTitle);
+  setMeta('property', 'og:description', desc);
+  setMeta('property', 'og:url', currentUrl);
+  setMeta('property', 'og:type', isBlog ? 'article' : 'website');
+
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute('href', currentUrl);
+}
+
 export async function loadDocument(docId, anchorId = '') {
   let target = null;
   const cleanId = (docId || '').trim();
@@ -4269,13 +4303,13 @@ export async function loadDocument(docId, anchorId = '') {
 
   renderSidebar(target.id);
 
-  // Update header and document title
+  // Update header, document title, and Open Graph social metadata
   const isBlog = isBlogContext();
   const brandBadge = document.querySelector('.credence-nav .badge');
   if (brandBadge) {
     brandBadge.textContent = isBlog ? 'Editorial' : CURRENT_ECOSYSTEM_VERSION;
   }
-  document.title = isBlog ? `Credence Sovereign Blog · ${target.title}` : `Credence Docs · ${target.title}`;
+  updateSocialMetadata(target, isBlog);
 
   // Update active navbar link
   document.querySelectorAll('.nav-links a').forEach(a => {
