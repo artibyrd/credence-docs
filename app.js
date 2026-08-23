@@ -3948,6 +3948,9 @@ export async function loadDocument(docId, anchorId = '') {
     const res = await fetch(target.path);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const md = await res.text();
+    if (md.trim().startsWith('<!DOCTYPE html>') || md.trim().startsWith('<html') || md.trim().startsWith('<head')) {
+      throw new Error(`Invalid markdown response: received HTML payload for ${target.path}`);
+    }
     contentArea.innerHTML = parseMarkdown(md) + renderGlobalFooter();
     renderTableOfContents();
 
