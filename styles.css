@@ -873,6 +873,46 @@ textarea:focus-visible,
   color: #e2e8f0;
 }
 
+.alert-content h1,
+.alert-content h2,
+.alert-content h3,
+.alert-content h4 {
+  margin: 0.75rem 0 0.5rem 0;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.alert-content h1:first-child,
+.alert-content h2:first-child,
+.alert-content h3:first-child,
+.alert-content h4:first-child {
+  margin-top: 0.25rem;
+}
+
+.alert-content p {
+  margin: 0.5rem 0;
+}
+
+.alert-content p:first-child {
+  margin-top: 0.2rem;
+}
+
+.alert-content p:last-child {
+  margin-bottom: 0.2rem;
+}
+
+.alert-content ol,
+.alert-content ul {
+  margin: 0.5rem 0 0.5rem 1.4rem;
+  padding: 0;
+}
+
+.alert-content li {
+  margin: 0.35rem 0;
+  line-height: 1.6;
+}
+
 .alert-note {
   background: rgba(56, 189, 248, 0.08);
   border-color: #38bdf8;

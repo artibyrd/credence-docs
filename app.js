@@ -1492,11 +1492,6 @@ export function parseMarkdown(md) {
   let listType = '';
   let inTable = false;
   let tableHeaderParsed = false;
-  let inAlertBox = false;
-  let alertType = '';
-  let alertIcon = '';
-  let alertTitle = '';
-  let alertBuffer = [];
 
   const HTML_TAG_START_REGEX = /^<\/?(div|section|article|aside|nav|header|footer|main|svg|g|defs|filter|linearGradient|rect|circle|text|path|line|span|button|textarea|input|label|table|thead|tbody|tr|th|td|form|select|option|code|pre|p|h[1-6]|ul|ol|li|details|summary|hr|style|script|blockquote|!--)/i;
 
@@ -1508,19 +1503,6 @@ export function parseMarkdown(md) {
     if (directiveMatch) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-      if (inAlertBox) {
-        html.push(`
-          <div class="alert-box alert-${alertType}">
-            <div class="alert-header">
-              <span class="alert-icon">${alertIcon}</span>
-              <strong>${alertTitle}</strong>
-            </div>
-            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
-          </div>
-        `);
-        inAlertBox = false;
-        alertBuffer = [];
-      }
 
       let dType = directiveMatch[1].toLowerCase();
       if (dType === 'danger') dType = 'caution';
@@ -1567,19 +1549,6 @@ export function parseMarkdown(md) {
     if (!inCodeBlock && line.trim().startsWith(':::tabs')) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-      if (inAlertBox) {
-        html.push(`
-          <div class="alert-box alert-${alertType}">
-            <div class="alert-header">
-              <span class="alert-icon">${alertIcon}</span>
-              <strong>${alertTitle}</strong>
-            </div>
-            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
-          </div>
-        `);
-        inAlertBox = false;
-        alertBuffer = [];
-      }
 
       let tabBlockLines = [];
       let j = i + 1;
@@ -1684,19 +1653,6 @@ export function parseMarkdown(md) {
       } else {
         if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
         if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-        if (inAlertBox) {
-          html.push(`
-            <div class="alert-box alert-${alertType}">
-              <div class="alert-header">
-                <span class="alert-icon">${alertIcon}</span>
-                <strong>${alertTitle}</strong>
-              </div>
-              <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
-            </div>
-          `);
-          inAlertBox = false;
-          alertBuffer = [];
-        }
         inCodeBlock = true;
         codeLang = line.trim().slice(3).trim();
       }
@@ -1708,88 +1664,80 @@ export function parseMarkdown(md) {
       continue;
     }
 
-    // 2. Direct Raw HTML Lines / Elements (e.g. interactive widgets, custom SVG illustrations)
-    if (line.trim().startsWith('<') || line.trim().startsWith('</') || line.trim().startsWith('<!--') || line.trim().endsWith('>') || line.trim().endsWith('/>')) {
-      if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-      if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-      if (inAlertBox) {
-        html.push(`
-          <div class="alert-box alert-${alertType}">
-            <div class="alert-header">
-              <span class="alert-icon">${alertIcon}</span>
-              <strong>${alertTitle}</strong>
-            </div>
-            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
-          </div>
-        `);
-        inAlertBox = false;
-        alertBuffer = [];
-      }
-      html.push(sanitizeHtml(line));
-      continue;
-    }
-
-    // 3. GitHub Alert Callout Banners (> [!NOTE], > [!TIP], > [!IMPORTANT], > [!WARNING], > [!CAUTION])
-    const alertMatch = line.match(/^>\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*(.*)$/i);
+    // 2. GitHub Alert Callout Banners (> [!NOTE], > [!TIP], > [!IMPORTANT], > [!WARNING], > [!CAUTION])
+    const alertMatch = !inCodeBlock && line.trim().match(/^>\s*\[!(NOTE|TIP|INFO|IMPORTANT|WARNING|CAUTION|DANGER)\]\s*(.*)$/i);
     if (alertMatch) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-      if (inAlertBox) {
-        html.push(`
-          <div class="alert-box alert-${alertType}">
-            <div class="alert-header">
-              <span class="alert-icon">${alertIcon}</span>
-              <strong>${alertTitle}</strong>
-            </div>
-            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
+
+      let aType = alertMatch[1].toLowerCase();
+      if (aType === 'danger') aType = 'caution';
+      let aTitle = alertMatch[2].trim() || aType.toUpperCase();
+      let aIcon = '📌';
+      switch (aType) {
+        case 'note': aIcon = '📘'; break;
+        case 'tip': aIcon = '💡'; break;
+        case 'info': aIcon = 'ℹ️'; break;
+        case 'important': aIcon = '🛡️'; break;
+        case 'warning': aIcon = '⚠️'; break;
+        case 'caution': aIcon = '🛑'; break;
+      }
+
+      let alertContentLines = [];
+      let j = i + 1;
+      for (; j < lines.length; j++) {
+        const subLine = lines[j];
+        if (subLine.trim().startsWith('>')) {
+          alertContentLines.push(subLine.replace(/^\s*>\s?/, ''));
+        } else {
+          break;
+        }
+      }
+      i = j - 1; // Advance outer loop index
+
+      const innerAlert = parseMarkdown(alertContentLines.join('\n'));
+      html.push(`
+        <div class="alert-box alert-${aType}">
+          <div class="alert-header">
+            <span class="alert-icon">${aIcon}</span>
+            <strong>${escapeHtml(aTitle)}</strong>
           </div>
-        `);
-      }
-      inAlertBox = true;
-      alertType = alertMatch[1].toLowerCase();
-      alertTitle = alertMatch[1].toUpperCase();
-      alertBuffer = [];
-
-      switch (alertType) {
-        case 'note': alertIcon = '📘'; break;
-        case 'tip': alertIcon = '💡'; break;
-        case 'important': alertIcon = '🛡️'; break;
-        case 'warning': alertIcon = '⚠️'; break;
-        case 'caution': alertIcon = '🛑'; break;
-        default: alertIcon = '📌';
-      }
-
-      if (alertMatch[2].trim()) {
-        alertBuffer.push(alertMatch[2].trim());
-      }
+          <div class="alert-content">${innerAlert}</div>
+        </div>
+      `);
       continue;
     }
 
-    if (inAlertBox) {
-      if (line.startsWith('>')) {
-        alertBuffer.push(line.replace(/^>\s*/, ''));
-        continue;
-      } else {
-        html.push(`
-          <div class="alert-box alert-${alertType}">
-            <div class="alert-header">
-              <span class="alert-icon">${alertIcon}</span>
-              <strong>${alertTitle}</strong>
-            </div>
-            <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
-          </div>
-        `);
-        inAlertBox = false;
-        alertBuffer = [];
-      }
-    }
-
-    // 4. Standard Blockquotes
-    if (line.startsWith('>')) {
+    // 3. Multi-Line Blockquotes
+    if (!inCodeBlock && line.trim().startsWith('>')) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-      const content = line.replace(/^>\s*/, '');
-      html.push(`<blockquote>${formatInline(content)}</blockquote>`);
+
+      let bqLines = [];
+      let j = i;
+      for (; j < lines.length; j++) {
+        const subLine = lines[j];
+        if (subLine.trim().startsWith('>')) {
+          if (j > i && /^\s*>\s*\[!(NOTE|TIP|INFO|IMPORTANT|WARNING|CAUTION|DANGER)\]/i.test(subLine.trim())) {
+            break;
+          }
+          bqLines.push(subLine.replace(/^\s*>\s?/, ''));
+        } else {
+          break;
+        }
+      }
+      i = j - 1; // Advance outer loop index
+
+      const innerBq = parseMarkdown(bqLines.join('\n'));
+      html.push(`<blockquote>${innerBq}</blockquote>`);
+      continue;
+    }
+
+    // 4. Direct Raw HTML Lines / Elements (e.g. interactive widgets, custom SVG illustrations)
+    if (HTML_TAG_START_REGEX.test(line.trim()) || line.trim().startsWith('<!--')) {
+      if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
+      if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
+      html.push(sanitizeHtml(line));
       continue;
     }
 
@@ -1897,17 +1845,6 @@ export function parseMarkdown(md) {
   }
   if (inList) html.push(listType === 'ul' ? '</ul>' : '</ol>');
   if (inTable) html.push('</tbody></table></div>');
-  if (inAlertBox) {
-    html.push(`
-      <div class="alert-box alert-${alertType}">
-        <div class="alert-header">
-          <span class="alert-icon">${alertIcon}</span>
-          <strong>${alertTitle}</strong>
-        </div>
-        <div class="alert-content">${alertBuffer.map(formatInline).join('<br>')}</div>
-      </div>
-    `);
-  }
 
   let resultHtml = html.join('\n');
 
