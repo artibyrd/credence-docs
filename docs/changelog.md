@@ -11,12 +11,14 @@ last_verified: 2026-08-23
 ## [2.12.0] - 2026-08-23
 
 ### Added
-- **Ecosystem-Wide Diagram Modernization**: Audited all 83 documentation files and 49 blog posts, replacing 185 fragile/low-density Mermaid diagrams with 163+ responsive, high-contrast UTF-8 technical box schematics, RFC-style wire sequences, and mathematical spectrum bounds.
+- **Curated Vector SVG Architectural Schematics Engine**: Replaced fragile Mermaid diagrams with 27 bespoke, high-contrast vector SVG architectural schematics illustrating core system mechanisms (closed-loop municipal conflict models, Watts-Strogatz peer swarms, scale-to-zero storage hydration, and bicameral FinOps inference pipelines).
+- **Descriptive Visible Figcaptions**: Added context-specific alt text rendered as visible `<figcaption>` beneath all illustrations, providing immediate clarity on what each diagram illustrates.
 - **Interactive Playground Math Engine Upgrade**: Upgraded `credence-docs/app.js` math parser to evaluate inline and display LaTeX expressions (`$...$`, `\(...\)`, `$$...$$`, `\[...\]`) across standard markdown and direct HTML widget elements, eliminating double parentheses, broken escapes, and raw LaTeX macro leaks.
-- **Automated Schematic & Math Integrity Test Gates**: Added `test_schematic_box_diagram_integrity` and `test_playground_and_docs_math_rendering_integrity` to `tests/governance/test_docs_integrity.py`, and added `test_schematic_and_diagram_rendering` and `test_playground_math_rendering_integrity` to `tests/governance/test_docs_rendering.py`.
+- **Automated Schematic & Math Integrity Test Gates**: Added `test_doc_illustration_assets_integrity` and `test_ecosystem_illustration_checksum_parity` to `tests/governance/test_docs_integrity.py`, and added `test_svg_illustration_live_rendering` to `tests/governance/test_docs_rendering.py`.
 
 ### Removed
 - **Mermaid Viewing Engine & Vendor Assets**: Removed obsolete 1.8 MB `mermaid.min.js` vendor bundles from `credence-docs/assets/` and `credence/web/assets/`, pruned ~500 LOC of zoom/pan/lightbox runtime code and CSS styling from `app.js` and `styles.css`, and codified `test_zero_legacy_mermaid_diagrams_invariant` to prevent future regressions.
+- **Decorative Clutter**: Pruned 134 non-essential decorative boxes from reference manuals, index files, and changelogs.
 
 ---
 
