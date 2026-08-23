@@ -2,11 +2,22 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.10.0
-last_verified: 2026-08-22
+verified_version: v2.11.0
+last_verified: 2026-08-23
 ---
 
 # Release Changelog
+
+## [2.11.0] - 2026-08-23
+
+### Added
+- **The Wetware Chronicles Redux Series Expansion**: Re-authored 5 cornerstone classics and added 7 new architectural essays (*The Myth of the 100-Agent Swarm*, *The Demotion Highway*, *The Mock-Data Trap*, *The 500-Line Ceiling*, *The Anti-Truncation Crusade*, *Pining for the Fjords*, and *The Four-Way Parity Quest*) exploring human/agent pair programming under Rule SPJ-42.0.
+- **Interactive Diagram Pan-to-Scroll & Fullscreen Lightbox**: Built an in-place zoom/drag-to-pan toolbar (`0.75x` to `3.0x`) and `<dialog>` lightbox modal in `credence-docs/app.js` with mousewheel zooming, touch panning, and keyboard shortcuts.
+- **Universal WCAG 2.1 AA/AAA Dark Mermaid Palette**: Enforced `#1e293b` dark slate fills and `#38bdf8` sky-cyan borders across all flowchart nodes, subgraphs (`#090d16`), and sequence diagrams in `styles.css`.
+- **Sovereign Open-Standard Social Embeds Engine**: Added complete Open Graph protocol (`og:*`) and Schema.org ClaimReview metadata across all 11 web surfaces, dynamic client-side meta updating in `app.js`, and automated 1200x630 `og-card.png` generation.
+- **Dev Staging Branch Isolation Fix**: Resolved `deploy-dev.yml` branch resolution for manual `workflow_dispatch` dispatches on feature branches.
+
+---
 
 ## [2.10.1] - 2026-08-22
 
