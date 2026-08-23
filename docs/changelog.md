@@ -8,6 +8,15 @@ last_verified: 2026-08-22
 
 # Release Changelog
 
+## [2.10.1] - 2026-08-22
+
+### Added
+- **Conventional PR Scope Taxonomy**: Codified strict scope taxonomy (`governance`, `forensics`, `mesh`, `crypto`, `ui`, `ops`) and conventional PR title formats in `architecture-governance`.
+- **Mk1 Review Walkthrough Readiness Checklist**: Codified comprehensive 5-step preparation sequence (Local QA, Feature Branching, Staged PR Triad, CI/CD Health, Live Dev Probing) in `knowledge-governance`.
+- **Hermetic Pipeline Test Assertion Boundaries**: Codified classification assertion rules (`LOW_SUSPICION` offline heuristic vs `SUSPICIOUS`/`DECEPTIVE` online LLM) in `invariant-audit`.
+
+---
+
 ## [2.10.0] - 2026-08-22
 
 ### Added
