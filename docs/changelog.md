@@ -8,6 +8,15 @@ last_verified: 2026-08-21
 
 # Release Changelog
 
+## [2.8.1] - 2026-08-22
+
+### Added
+- **Multi-Plane Edge Isolation & Dev Preview Playbook**: Codified the Dev Preview Hermetic Boundary and added Section 12 to `cloudrun-ops` skill.
+- **Shift-Left Automated Edge Isolation Tests**: Added `test_wrangler_route_isolation`, `test_deploy_dev_branch_isolation`, and `test_worker_assets_routing_invariant` to `tests/governance/test_docs_integrity.py`.
+- **Pair Programming Process & Scope Discipline**: Refined `inv-mk1-eyeball` to forbid speculative/unrequested UI controls and sharpened `inv-dual-env-least-privilege-cicd` with strict `--branch=dev` Cloudflare Pages preview isolation.
+
+---
+
 ## [2.8.0] - 2026-08-22
 
 ### Added
