@@ -191,9 +191,9 @@ credence germinate
 Verify your installation by running the hermetic test suite:
 
 ```bash
-just test
+just test-unit
 ```
-All 144 unit tests execute hermetically in under 60 seconds with zero external network access.
+All unit tests execute hermetically in-memory (<35s) with zero external network access.
 
 ---
 

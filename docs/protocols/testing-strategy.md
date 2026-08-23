@@ -39,11 +39,11 @@ Credence is designed for mission-critical epistemic evaluation, autonomous agent
 
 | Tier | Focus Area | Primary Command | Network Required? | Latency | Why It Is Vital |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Tier 1** | **Hermetic Unit & Math** | `just test` | ❌ No (100% Offline) | `<35s` | Guarantees deterministic scoring math, SimHash hashing, and offline heuristics with $0.00$ token cost. |
-| **Tier 2** | **4-Way Interface Parity** | `pytest tests/test_interfaces_isolation.py` | ❌ No | `<3s` | Guarantees zero business logic leakage across CLI, FastMCP 2.0, Textual TUI, and Web. |
-| **Tier 3** | **P2P Mesh & Byzantine Cluster** | `pytest tests/test_mesh_cluster.py` | ❌ No (Local Sockets) | `<25s` | Validates BitTorrent work-sharing (92.3% compute savings) and Byzantine cartel slashing ($3f+1$). |
-| **Tier 4** | **Adversarial Red-Team** | `pytest tests/test_red_team_cluster_attacks.py` | ❌ No (Hermetic Fixtures) | `<5s` | Protects ingestion engines against SSRF, XML entity expansion bombs, and prompt injections. |
-| **Tier 5** | **Zero-Build Playwright** | `pytest tests/test_docs_rendering.py` | ❌ No (Local HTTP) | `<20s` | Verifies live DOM rendering, 12 interactive labs, and zero npm supply-chain dependencies. |
+| **Tier 1** | **Hermetic Unit & Math** | `just test-unit` | ❌ No (100% Offline) | `<35s` | Guarantees deterministic scoring math, SimHash hashing, and offline heuristics with $0.00$ token cost. |
+| **Tier 2** | **4-Way Interface Parity** | `just test-docs` | ❌ No | `<3s` | Guarantees zero business logic leakage across CLI, FastMCP 2.0, Textual TUI, and Web. |
+| **Tier 3** | **P2P Mesh & Byzantine Cluster** | `just test-unit` | ❌ No (Local Sockets) | `<25s` | Validates BitTorrent work-sharing (92.3% compute savings) and Byzantine cartel slashing ($3f+1$). |
+| **Tier 4** | **Adversarial Red-Team** | `just test-unit` | ❌ No (Hermetic Fixtures) | `<5s` | Protects ingestion engines against SSRF, XML entity expansion bombs, and prompt injections. |
+| **Tier 5** | **Zero-Build Playwright** | `just test-docs` | ❌ No (Local HTTP) | `<20s` | Verifies live DOM rendering, 12 interactive labs, and zero npm supply-chain dependencies. |
 | **Tier 6** | **Live Rotating E2E Suite** | `just test-live` | 🌐 Yes (Live Public Web) | `<30s` | Validates live RSS syndication, dynamic article extraction, remote FastMCP 2.0 SSE, and live web drift. |
 
 ---
@@ -60,7 +60,7 @@ Tier 1 is the foundational bedrock of Credence. In accordance with **[Invariant 
 4. **Token Headroom & Offline Circuit Breakers**: Validates that when token limits or offline flags activate, the engine seamlessly switches to `evaluation_method: "offline_structural_heuristic"` with confidence capped at $\le 0.50$.
 
 > [!TIP]
-> Run Tier 1 locally during development with `just test`. It executes over 150 tests in under 35 seconds with zero network access and zero token expenditure.
+> Run Tier 1 locally during development with `just test-unit`. It executes over 170 tests in under 35 seconds with zero network access and zero token expenditure.
 
 ---
 
@@ -130,21 +130,24 @@ Tier 6 verifies that Credence works in real-world conditions against the live pu
 ## 8. Operational Task Commands & Test Runner Guide
 
 ```bash
-# 1. Run standard hermetic unit test suite (<65s)
-just test
+# 1. Run standard hermetic unit test suite (<35s)
+just test-unit
 
-# 2. Run reusable live rotating E2E gauntlet with default daily seed
+# 2. Run documentation integrity, frontmatter, parity, and living canon tests
+just test-docs
+
+# 3. Run mock end-to-end integration tests
+just test-mock
+
+# 4. Run reusable live rotating E2E gauntlet with default daily seed
 just test-live
 
-# 3. Run live rotating E2E suite with a custom pseudo-random seed
-CREDENCE_LIVE_SEED=seed_gamma_2026 just test-live
+# 5. Run full parallel test suite across all cores
+just test-all
 
-# 4. Run all live E2E tests (rotating suite, domains, remote MCP, mesh)
-just test-e2e
+# 6. Run high-speed parallel pre-commit QA verification gate (<3s)
+just check
 
-# 5. Run Playwright zero-build documentation rendering verification
-poetry run pytest tests/test_docs_rendering.py -v -m e2e
-
-# 6. Run full static linting and type checking (Ruff + Mypy)
+# 7. Run full static linting and type checking (Ruff + Mypy)
 just lint
 ```
