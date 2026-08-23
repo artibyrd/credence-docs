@@ -13,13 +13,27 @@ sidebar:
 
 Learn how to dynamically discover syndicated feed endpoints, execute pre-flight forensic audits against covert astroturfing (The Pizza Hut Problem), and run real-time sifting workers across all interfaces.
 
-```mermaid
-flowchart TD
-    Target["Target Web Domain"] --> Discover["Dynamic Autodiscovery<br/>(link tags & well-known paths)"]
-    Discover --> PreFlight["Pre-Flight Forensic Audit"]
-    PreFlight --> DynamicScore["Dynamic Quality Score (F_j)<br/>0.35 S + 0.25 G + 0.20 H + 0.20 T"]
-    DynamicScore --> SifterDaemon["Continuous Sifter Daemon<br/>(Rendezvous Hash Partitioning)"]
-    SifterDaemon --> MeshGossip["Gossip RFC 8785 Attestations<br/>(92.3% Compute Savings)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         ZERO-TRUST FEED AUTODISCOVERY & SIFTING ENGINE                           │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Target Web Domain ──▶ Dynamic Autodiscovery (`<link>` tags, MIME headers, `.well-known`)        │
+│                              │                                                                   │
+│                              ▼ Pre-Flight Forensic Audit ($H_{\text{topic}}$ & Grounding Gate)   │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Composite Quality Score ($F_j = 0.35S + 0.25G + 0.20H + 0.20T$):                           │   │
+│ ├──────────────────────────────────────────┬─────────────────────────────────────────────────┤   │
+│ │ Score Tier Range                         │ Continuous Sifter Action                        │   │
+│ ├──────────────────────────────────────────┼─────────────────────────────────────────────────┤   │
+│ │ 🟢 $F_j \ge 0.70$ (Healthy Active)       │ Continuous Sifter Daemon Ingestion              │   │
+│ │ 🟡 $0.40 \le F_j < 0.70$ (Under Review)  │ Throttled Ingestion with Warning                │   │
+│ │ 🔴 $F_j < 0.40$ (Compromised)            │ Autonomous Eviction & Quarantine                │   │
+│ └──────────────────────────────────────────┴─────────────────────────────────────────────────┘   │
+│                              │                                                                   │
+│                              ▼ Continuous Sifter Daemon (HRW Workload Partitioning)              │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🌐 Watts-Strogatz Mesh Gossip Diffusion ──▶ 92.3% Compute Token Savings Across Swarm       │   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > [!NOTE]

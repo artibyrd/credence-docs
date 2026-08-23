@@ -37,23 +37,20 @@ Here is the forensic breakdown of what was stealing our time, and how we solved 
 
 We instrumented the container startup using Python's `-X importtime`, process timers, and GCP Cloud Logging traces. What we discovered was an eye-opening stack of hidden overheads:
 
-```mermaid
-gantt
-    title Forensic Breakdown of Container Cold Start
-    dateFormat X
-    axisFormat %s s
-
-    section 1. Infrastructure (GCP)
-    MicroVM Boot & Layer Pull          :active, 0, 15
-    Startup Probe Polling Lag (10s)    :crit, 55, 115
-
-    section 2. Process Layer
-    Poetry CLI Virtualenv Resolution   :crit, 15, 25
-
-    section 3. CPython Runtime
-    Uncompiled AST Parsing             :crit, 25, 33
-    Trafilatura / Dateparser Subtree   :crit, 33, 45
-    FastMCP & Starlette Bind           :45, 55
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         CONTAINER COLD-START FORENSIC LATENCY BREAKDOWN                          │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 0.0s ──── 1.5s ──── 2.5s ────────── 3.3s ──────── 4.5s ──────── 5.5s ─────────────────── 11.5s  │
+│ [MicroVM] [Poetry]  [AST Parse]   [Trafilatura]  [FastMCP Bind] [10s Startup Probe Polling Lag] │
+│                                                                                                  │
+│ ❌ CRITICAL BOTTLENECK ANALYSIS:                                                                  │
+│ • Poetry Virtualenv Wrapper Tax: ~1,000ms before Python begins execution                         │
+│ • Dateparser / Trafilatura Import Subtree: ~1,185ms loading unused regex tables                  │
+│ • Startup Probe Polling Lag: ~4,500ms container idling while load balancer probe waits           │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Cold-Start Invariant: 80% of serverless Python lag stems from tooling wrappers & probe delays │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Culprit #1: The Poetry Wrapper Tax (~1,000ms)
@@ -95,15 +92,22 @@ If our application finished booting in 1.5 seconds, Cloud Run wouldn't re-check 
 
 ## 3. The 5-Pillar Optimization Solution
 
-```mermaid
-graph TD
-    subgraph Architecture ["Sub-2.5s Scale-to-Zero Engine"]
-        A["1. Startup CPU Boost<br/>(2-4x vCPU during boot)"]
-        B["2. Direct Virtualenv Exec<br/>(Bypass Poetry CLI)"]
-        C["3. Build-Time 'compileall'<br/>(Precompile .pyc bytecode)"]
-        D["4. Lazy Import Deferral<br/>(Trafilatura & Playwright on-demand)"]
-        E["5. Aggressive 2s HTTP Probe<br/>(Fast readiness detection)"]
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         SUB-2.5S SCALE-TO-ZERO COLD-START ENGINE                                 │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
+│ │ 1. STARTUP CPU BOOST      │ 2. DIRECT VENV EXEC           │ 3. BYTECODE PRECOMPILATION     │   │
+│ │ • 2-4x vCPU during boot   │ • Bypasses `poetry run` CLI   │ • `compileall` in Dockerfile   │   │
+│ │ • Cuts CPython AST import │ • Saves ~950ms process penalty│ • 0 runtime AST compilation    │   │
+│ ├───────────────────────────┴───┬───────────────────────────┴────────────────────────────────┤   │
+│ │ 4. LAZY IMPORT DEFERRAL       │ 5. AGGRESSIVE 2S HTTP PROBE                                │   │
+│ │ • Defer Trafilatura/Playwright│ • Polls in-memory `/health` endpoint in <5ms               │   │
+│ │ • Imports drop 2.8s ──▶ 0.6s  │ • Load balancer detects readiness in 1.5-2.0s              │   │
+│ └───────────────────────────────┴────────────────────────────────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🚀 Net Result: Total cold-start latency slashed from 11.5s down to 2.1s (-81.2%) @ $0.00 idle    │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### 1. Unlocking Google Cloud Run v2 Startup CPU Boost
@@ -165,10 +169,17 @@ The `/health` endpoint responds with in-memory telemetry in $<5\text{ms}$ withou
 
 ## 4. The Results: 81.2% Latency Reduction
 
-```mermaid
-pie title "Cold Start Latency Slashed from 11.5s to 2.1s"
-    "Optimized Runtime (2.1s)" : 2150
-    "Eliminated Overhead (9.3s)" : 9310
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         COLD START LATENCY REDUCTION (11.5s ──▶ 2.1s)                            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Before Optimization: [████████████████████████████████████████████████] 11.5s                    │
+│ After Optimization:  [████████] 2.1s (-81.2% Reduction)                                          │
+│                                                                                                  │
+│ ⚡ Slashed Overhead: 9,310ms eliminated across process wrapper, AST compile, imports & probes     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Scale-to-Zero Efficiency: Full enterprise capability with instant wakeups and $0.00 idle bill │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 | Phase | Before Optimization | After Optimization | Delta |

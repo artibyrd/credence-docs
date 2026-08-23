@@ -17,27 +17,27 @@ This blueprint outlines deploying Credence for **medical and public health audit
 
 ## 1. The Medical Evaluation Threat Model
 
-```mermaid
-graph LR
-    subgraph Ingestion
-        Webpage[Health Article / Supplement Landing Page]
-    end
-
-    subgraph Specialist Audits
-        Bio[Biomedical Claim Auditor]
-        Fallacy[Causal Fallacy Auditor]
-        Deceptive[Urgency & Dark Pattern Auditor]
-    end
-
-    subgraph Evidence Gate
-        Bio --> MetaCheck{Correlation with PubMed/Cochrane Evidence?}
-        Fallacy --> PostHoc{Post-Hoc Ergo Propter Hoc?}
-        Deceptive --> FakeScarcity{Fake Stock Counter?}
-    end
-
-    subgraph Scoring
-        MetaCheck & PostHoc & FakeScarcity --> CalibratedScore[Calibrated Suspicion Score]
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         MEDICAL & HEALTH CLAIM AUDITING ARCHITECTURE                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Untrusted Health Article / Wellness Landing Page / Clinical Preprint Ingestion                   │
+│                                              │                                                   │
+│                                              ▼                                                   │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 3-Specialist Medical Audit Pipeline:                                                       │   │
+│ ├────────────────────────────┬───────────────────────────────┬───────────────────────────────┤   │
+│ │ 🧬 BIOMEDICAL SPECIALIST   │ 🔍 CAUSAL FALLACY SPECIALIST  │ ⚠️ DECEPTIVE UI SPECIALIST    │   │
+│ ├────────────────────────────┼───────────────────────────────┼───────────────────────────────┤   │
+│ │ • Cross-checks with PubMed │ • Detects Post-Hoc fallacies  │ • Identifies fake scarcity ctr│   │
+│ │ • Flags in-vitro extrapolat│ • Anecdotal testimonial traps │ • Hidden recurring auto-bills │   │
+│ └────────────────────────────┴───────────────┬───────────────┴───────────────────────────────┘   │
+│                                              │                                                   │
+│                                              ▼                                                   │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 100% Verbatim Grounding ($G=1.00$) Gate ──▶ Calibrated Medical Suspicion Score ($S \in 0..100$)│   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

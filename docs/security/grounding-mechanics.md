@@ -13,16 +13,31 @@ The fundamental vulnerability of LLM-based evaluation is **hallucination**: mode
 
 In Credence, an evaluation that cannot cite exact, verifiable substrings from the source document is mathematically invalid ($G < 1.0$).
 
-```mermaid
-flowchart TD
-    A["LLM Specialist Evaluation Output"] --> B["Extract Candidate Citation Quotes"]
-    B --> C["NFKC & Whitespace Collapse (s+ -> space)"]
-    C --> D{"Exact Substring in Source DOM?"}
-    D -- "Yes (G = 1.00)" --> E["Calculate Offsets [start : end]"]
-    E --> F["Sign RFC 8785 Ed25519 Attestation"]
-    F --> G["Gossip to 13-Node Mesh"]
-    D -- "No (Hallucinated Quote)" --> H["Grounding Rejection (G = 0.00)"]
-    H --> I["Escalate & Slash Node Quality by 50%"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         VERBATIM GROUNDING ($G=1.00$) & ANTI-HALLUCINATION GATE                  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ LLM Specialist Evaluation Findings & Candidate Citation Quotes                              │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ NFKC Unicode Normalization & Whitespace Collapsing (`\s+` $\to$ `0x20`)                     │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Exact Substring Match in Source DOM Prose?                                                 │   │
+│ ├──────────────────────────────────────────────────────────────┬─────────────────────────────┤   │
+│ │ Result                                                       │ System Action               │   │
+│ ├──────────────────────────────────────────────────────────────┼─────────────────────────────┤   │
+│ │ ✅ EXACT MATCH ($G=1.00$)                                    │ Compute `[start:end]` offset│   │
+│ │                                                              │ Sign RFC 8785 Ed25519 Envel.│   │
+│ │                                                              │ Gossip to 13-Node Mesh      │   │
+│ ├──────────────────────────────────────────────────────────────┼─────────────────────────────┤   │
+│ │ ❌ HALLUCINATED QUOTE ($G < 0.75$)                           │ Discard finding immediately │   │
+│ │                                                              │ Autonomous 50% score slash  │   │
+│ └──────────────────────────────────────────────────────────────┴─────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Grounding Precision & Reputation Matrix

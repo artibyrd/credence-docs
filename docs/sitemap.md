@@ -29,19 +29,30 @@ Welcome to the complete structural directory of the **Credence Epistemic Network
 
 ## 1. 🛡️ Sovereign Domains & Web Surfaces
 
-```mermaid
-graph TD
-  CR["credence.run<br/><b>Core Portal & CLI</b>"] --> DOCS["docs.credence.run<br/><b>Zero-Build Docs & Playgrounds</b>"]
-  CR --> BLOG["blog.credence.run<br/><b>Sovereign Forensic Essays</b>"]
-  CR --> REP["credence.report<br/><b>Public Audit Viewer & DEI</b>"]
-  CR --> NEX["credence.nexus<br/><b>P2P Mesh Seeds & Telemetry</b>"]
-  CR --> FND["credence.foundation<br/><b>Root Keys & Taxonomies</b>"]
-  CR --> MCP["mcp.credence.run<br/><b>FastMCP 2.0 Reverse Proxy</b>"]
-
-  classDef portal fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff;
-  classDef edge fill:#1e293b,stroke:#334155,stroke-width:1px,color:#94a3b8;
-  class CR portal;
-  class DOCS,BLOG,REP,NEX,FND,MCP edge;
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                             SOVEREIGN DOMAINS & WEB SURFACES MAP                                 │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                  `credence.run` (Core Hub)                                       │
+│                                              │                                                   │
+│                 ┌────────────────────────────┼────────────────────────────┐                      │
+│                 ▼                            ▼                            ▼                      │
+│   ┌───────────────────────────┐┌───────────────────────────┐┌───────────────────────────┐       │
+│   │ `docs.credence.run`       ││ `blog.credence.run`       ││ `credence.report`         │       │
+│   │ Zero-Build Documentation  ││ Sovereign Editorial &     ││ Public Audit Viewer &     │       │
+│   │ & 12 In-Browser Labs      ││ Forensic Deep Dives       ││ Global DEI Rankings       │       │
+│   └───────────────────────────┘└───────────────────────────┘└───────────────────────────┘       │
+│                 ▲                            ▲                            ▲                      │
+│                 └────────────────────────────┼────────────────────────────┘                      │
+│                                              │                                                   │
+│                 ┌────────────────────────────┴────────────────────────────┐                      │
+│                 ▼                                                         ▼                      │
+│   ┌───────────────────────────┐                             ┌───────────────────────────┐        │
+│   │ `credence.nexus`          │                             │ `credence.foundation`     │        │
+│   │ P2P Swarm Seeds & Live    │                             │ Root Ed25519 Custody &    │        │
+│   │ Mesh Telemetry Directory  │                             │ Fixed Taxonomy Registries │        │
+│   └───────────────────────────┘                             └───────────────────────────┘        │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 - **[https://credence.run](https://credence.run)**: Core landing page, single-command installation (`curl -fsSL https://credence.run/install.sh | bash`), terminal quickstart, and feature overview.

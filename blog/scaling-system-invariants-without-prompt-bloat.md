@@ -39,18 +39,21 @@ Here is how we solved it in **v1.15.0** with a **3-Tier Scalable Invariant Archi
 
 ## 2. The Anatomy of the Failure: Why Flat Rulebooks Break
 
-```mermaid
-flowchart TD
-    subgraph FlatOatmeal ["The Flat Rulebook Anti-Pattern"]
-        R1["SSRF Ingestion Defense (Fatal Security)"]
-        R2["YAML Frontmatter Syntax (Formatting Trivia)"]
-        R3["Ed25519 Anti-Tampering (Cryptographic Trust)"]
-        R4["Pipefail SIGPIPE Workaround (Shell Idiom)"]
-        R5["Cloud Run Cold Start Tuning (Cloud SRE)"]
-    end
-    
-    FlatOatmeal -->|"Equal Weight & Attention Dilution"| LLM["Autonomous AI Agent"]
-    LLM --> Blunder["Missed Critical Safety Guardrail"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         FLAT RULEBOOK ANTI-PATTERN & ATTENTION DILUTION                          │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🚨 THE FLAT INVARIANT MUSH (30+ Unordered Rules with Equal Weight)                         │   │
+│ ├──────────────────────────┬─────────────────────────────┬───────────────────────────────────┤   │
+│ │ P0 SSRF Defense (Fatal)  │ P2 YAML Frontmatter Trivia  │ P0 Ed25519 Custody (Fatal)        │   │
+│ │ P1 Cloud Run SRE Tuning  │ P2 Bash Pipefail Workaround │ P1 4-Phase Release Order          │   │
+│ └──────────────────────────┴─────────────────────────────┴───────────────────────────────────┘   │
+│                                           │                                                      │
+│                                           ▼ Equal Prompt Salience (Cognitive Oatmeal)            │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 💥 AGENT FAILURE MODE: LLM overlooks fatal security boundary to fix Markdown syntax        │   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 Flat rulebooks suffer from three fundamental architectural flaws:
@@ -64,32 +67,29 @@ Flat rulebooks suffer from three fundamental architectural flaws:
 
 To solve this, we stratified our invariant ecosystem into three clear tiers based on **criticality, scope, and automation feasibility**:
 
-```mermaid
-graph TD
-    subgraph Tier0 ["Tier 0: Universal Core Invariants (AGENTS.md &lt; 800 tokens)"]
-        T0A["P0: Security & SSRF Ingestion Defense"]
-        T0B["P0: Epistemic Grounding (G=1.0) & Hallucination Slashing"]
-        T0C["P0: Ed25519 Canonical JSON Integrity (RFC 8785)"]
-        T0D["P0: Human Review ('Mk1 Eyeball') & Target Version Disclosure"]
-        T0E["P0: 4-Way Feature Parity & Zero-npm Web Standard"]
-    end
-
-    subgraph Tier1 ["Tier 1: Progressive Subsystem Skills (.agents/skills/)"]
-        T1A["cloudrun-ops: Cold Start Tuning & SRE Playbooks"]
-        T1B["mesh-cluster: Watts-Strogatz & Cartel Defense"]
-        T1C["white-label-ops: Sovereign Multi-Domain Routing"]
-        T1D["epistemic-benchmark: Golden 12 Benchmarks"]
-    end
-
-    subgraph Tier2 ["Tier 2: Shift-Left Automated Test Gates (test_docs_integrity.py)"]
-        T2A["Markdown YAML Frontmatter (title/desc)"]
-        T2B["7-Manifest Ecosystem Version Parity"]
-        T2C["Zero-npm / Zero-package.json Assertions"]
-        T2D["Mermaid Diagram High-Contrast Contrast"]
-    end
-
-    Tier0 --> Tier1
-    Tier0 --> Tier2
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         3-TIER INVARIANT GOVERNANCE FRAMEWORK                                    │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🏛️ TIER 0: UNIVERSAL CORE INVARIANTS (`AGENTS.md` · Hard Ceiling < 800 tokens)             │   │
+│ │ • Class α (P0): Mk1 Eyeball Review, Epistemic Grounding (G=1.0), Ed25519 Custody, SSRF Gate │   │
+│ │ • Class β (P1): 4-Phase Lifecycle, Push-and-Delegate CI/CD, 3-Plane Decoupling, Hermetic  │   │
+│ │ • Class γ (P2): Universal 4-Way Parity, 3-Tier Lensing Pyramid, Multi-Model Sovereignty    │   │
+│ └──────────────────────────────┬───────────────────────────────┬─────────────────────────────┘   │
+│                                │                               │                                 │
+│                                ▼ On-Demand Activation          ▼ Shift-Left Automation           │
+│ ┌──────────────────────────────────────────────┐ ┌───────────────────────────────────────────┐   │
+│ │ 🧠 TIER 1: PROGRESSIVE SKILLS (`.agents/`)   │ │ 🧪 TIER 2: AUTOMATED TEST GATES (Pytest)  │   │
+│ ├──────────────────────────────────────────────┤ ├───────────────────────────────────────────┤   │
+│ │ • `cloudrun-ops`: Cold Start Tuning & SRE    │ │ • Frontmatter Syntax & Zero-npm Guardrail │   │
+│ │ • `mesh-cluster`: Watts-Strogatz Simulation  │ │ • 7-Manifest Version Parity Assertions    │   │
+│ │ • `white-label-ops`: Sovereign Multi-Domain  │ │ • Sitemap & Link Verification (<0.3s)     │   │
+│ │ • `epistemic-benchmark`: Golden 12 Benchmarks│ │ • Demotion Highway Scanner (`just audit`) │   │
+│ └──────────────────────────────────────────────┘ └───────────────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Constant-Ceiling Law: Mechanics over memory. Never prompt for what code can assert in <0.3s   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Tier 0: Universal Non-Negotiables (`AGENTS.md` &mdash; Strict Core)
@@ -115,15 +115,22 @@ graph TD
 
 Invariants are not permanent dogma; they reflect the strongest empirical findings at project epoch $t$. Credence manages invariants through a 6-state lifecycle:
 
-```mermaid
-stateDiagram-v2
-    [*] --> Proposed: Post-Mortem Discovery
-    Proposed --> Active: Formally Minted
-    Active --> UnderReview: Milestone Audit
-    UnderReview --> Active: Re-affirmed
-    UnderReview --> Amended: Scope Refined
-    UnderReview --> Demoted: Graduated to Automated Test (Tier 2)
-    UnderReview --> Retired: Obsolete
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         INVARIANT MUTABILITY 6-STATE MACHINE                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                                  │
+│       [Proposed] ──(Adopted)──▶ [Active (Living Canon)] ──(Milestone Audit)──▶ [Under Review]     │
+│                                                                                       │          │
+│                      ┌────────────────────────────────┬───────────────────────────────┤          │
+│                      ▼                                ▼                               ▼          │
+│             [Re-affirmed Active]             [Amended / Upgraded]          [Demoted / Retired]   │
+│             Merit confirmed                  Scope/Formula refined         Demoted to Tier 2 test│
+│             remains in AGENTS.md             in AGENTS.md                  or Tier 1 Skill file  │
+│                                                                                                  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ⚖️ Dynamic Evolution: Invariants continuously adapt across releases through empirical feedback  │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

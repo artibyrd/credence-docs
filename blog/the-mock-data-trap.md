@@ -54,31 +54,21 @@ When you look at the screen, the dashboard is dazzling! Nodes are pinging! Gauge
 
 There was only one tiny problem: **None of those nodes existed in the physical universe.**
 
-```mermaid
-flowchart TD
-    subgraph TheTrap ["❌ The Synthetic Mock Illusion"]
-        direction TB
-        Empty["Local Node Has 0 Connected Peers"] 
-        --> AI["AI Generative Urge:<br/>'Empty tables look broken!'"]
-        --> Mock["Injects mockPeers array<br/>into client bundle"]
-        --> Dashboard["Dashboard displays 5 healthy peers<br/>& 99.4% quorum"]
-        --> Delusion["💥 Operator Believes Mesh Is Healthy<br/>While Actually Isolated"]
-    end
-
-    subgraph TheBoundary ["🛡️ Permanent Zero-Mock Boundary (v2.7.2)"]
-        direction TB
-        Empty2["Local Node Has 0 Connected Peers"] 
-        --> FailClosed["Fail-Closed Empty State<br/>(.ws-empty-card)"]
-        --> Reality["HUD Explicitly Displays:<br/>'STANDALONE / 0 PEERS'"]
-        --> GroundTruth["✨ Operator Knows Exact Physical Reality<br/>(Epistemic Honesty)"]
-    end
-
-    TheTrap -->|"Replaced by Zero-Mock Boundary"| TheBoundary
-
-    style TheTrap fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fff
-    style TheBoundary fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style GroundTruth fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
-    style Delusion fill:#450a0a,stroke:#fca5a5,stroke-width:1px,color:#fff
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         SYNTHETIC MOCK ILLUSION VS ZERO-MOCK REALITY                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ ❌ THE SYNTHETIC MOCK TRAP               │   │ 🛡️ THE PERMANENT ZERO-MOCK BOUNDARY      │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Local Node has 0 connected peers       │   │ • Local Node has 0 connected peers       │      │
+│ │ • Generative panic: "Empty UI looks bad!"│──▶│ • Fail-Closed Empty State cards rendered │      │
+│ │ • Injects `mockPeers` array silently     │   │ • HUD Explicitly declares: `STANDALONE`  │      │
+│ │ • 💥 Operator misled by synthetic quorum │   │ • ✨ 100% Truthful Ground Reality        │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Invariant 28: Zero mock data in production dashboards. Physical reality is non-negotiable     │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

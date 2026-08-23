@@ -22,34 +22,26 @@ This document details the architectural boundaries and operational runbooks for 
 
 Credence enforces clean separation across four distinct operational layers:
 
-```mermaid
-graph TD
-    subgraph Core ["1. Core Upstream Repo (Public & Universal)"]
-        Engine["Scoring & Evaluation Pipeline"]
-        UnivTax["Universal Taxonomies & Subjects<br>(e.g. municipal_governance.yaml)"]
-        GlobalPresets["Global Wire Presets<br>(AP, Reuters, ProPublica, Nature)"]
-    end
-
-    subgraph State ["2. Runtime Database State (Local & Ephemeral)"]
-        LocalDB[("data/credence.db (Gitignored)<br>FeedSubscriptionRecord & Audits")]
-        CLIAdd["CLI: credence feed add & audit"]
-        CLIAdd --> LocalDB
-    end
-
-    subgraph Config ["3. Local Configuration Overlays (config/)"]
-        CustomFeeds["config/feeds.local.yaml"]
-        EntityGraph["config/entities/hometown.local.yaml<br>(Publisher / Council Conflict Graph)"]
-    end
-
-    subgraph Deploy ["4. Sovereign Deployments (credence init-org)"]
-        InitOrg["Independent Org Workspace<br>(Terraform, Cloud Run, Cloudflare)"]
-        CloudSeeds[("GCS Seed Bucket / peers.json")]
-        InitOrg --> CloudSeeds
-    end
-
-    Core --> LocalDB
-    Config --> Engine
-    Core -.->|Upstream Dependency| InitOrg
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         4-TIER CUSTOMIZATION & UPSTREAM SOVEREIGNTY                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ TIER 1: CORE UPSTREAM REPO (Public & Universal • `credence/`, `taxonomies/*.yaml`)         │   │
+│ │ • Generic scoring engine • Universal SPJ/IEP taxonomies • Global Wire Presets (AP/Reuters)│   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                │                                                 │
+│       ┌────────────────────────────────────────┼────────────────────────────────────────┐        │
+│       ▼                                        ▼                                        ▼        │
+│ ┌───────────────────────────┐┌───────────────────────────┐┌───────────────────────────┐ │
+│ │ TIER 2: RUNTIME DB STATE  ││ TIER 3: CONFIG OVERLAYS   ││ TIER 4: SOVEREIGN ORGS    │ │
+│ │ • `data/credence.db`      ││ • `config/feeds.local.yml`││ • `credence init-org`     │ │
+│ │ • Gitignored local SQLite ││ • Hyper-local entity graph││ • Multi-cloud Terraform   │ │
+│ │ • Live Attestation Cache  ││ • `.local.yaml` extensions││ • Custom Domain & Keyring │ │
+│ └───────────────────────────┘└───────────────────────────┘└───────────────────────────┘ │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Invariant: Zero hyper-local or proprietary entities committed to upstream core git tree       │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Customization Layer Separation Matrix

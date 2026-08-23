@@ -30,21 +30,28 @@ Conversely, if a bad actor publishes a defamatory smear alleging a political can
 
 In Credence, we solved this dual challenge with **The Satire Cloaking Invariant**.
 
-```mermaid
-flowchart TD
-    Inbound["Inbound Content Analyzed"] --> SatireDetector{"Is Sarcasm / Parody<br/>Detected?"}
-    
-    SatireDetector -->|No| StandardAudit["Standard Grounding & Heuristic Audit"]
-    
-    SatireDetector -->|Yes| OverrideCheck{"Does Content Make Specific<br/>Defamatory / Public Health Claims?"}
-    
-    OverrideCheck -->|Yes (Malicious Cloak)| CloakOverride["🚨 SPJ-1.6 Cloaking Override Triggered<br/>(Strip Satire Exemption & Audit Factually)"]
-    
-    OverrideCheck -->|No (Pure Parody)| Neutralize["✅ Neutralize Suspicion (Score = 0.00)<br/>(Label as Legitimate Satire)"]
-
-    style Inbound fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style CloakOverride fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
-    style Neutralize fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         POE'S LAW SATIRE SAFEGUARD & SPJ-1.6 CLOAKING OVERRIDE                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Inbound Web Prose / Article Analyzed                                                             │
+│                                │                                                                 │
+│       ┌────────────────────────┴────────────────────────┐                                        │
+│       ▼ Sarcasm / Parody Detected                       ▼ Non-Satirical News / Editorial          │
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ Specific Factual / Defamatory Allegation?│   │ Standard Grounding & Fallacy Audit       │      │
+│ └──────────────────────┬───────────────────┘   └──────────────────────────────────────────┘      │
+│                        │                                                                         │
+│       ┌────────────────┴────────────────────────┐                                                │
+│       ▼ Yes (Malicious Satire Cloaking)         ▼ No (Pure Parody / Hyperbole)                   │
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ 🚨 SPJ-1.6 CLOAKING OVERRIDE TRIGGERED   │   │ ✅ NEUTRALIZE SUSPICION ($S = 0.00$)     │      │
+│ │ • Revoke humor exemption autonomously    │   │ • Legitimate satire protected            │      │
+│ │ • Audit defamatory allegations factually │   │ • Zero pedantic false-positive alarms    │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Invariant 20: Humor is protected; malicious defamation disguised as a joke is audited         │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -66,15 +73,20 @@ $$\text{Suspicion}(\text{Claim}) = \begin{cases} 0.00 & \text{if } \text{IsSatir
 
 To ensure astroturfers cannot bypass the network by masking native advertising as humorous editorial, Credence combines **Shannon Topic Entropy ($H$)** with **Top-Token Concentration ($C_{\text{top3}}$)**:
 
-```mermaid
-graph LR
-    subgraph EntropyLevels ["Topic Entropy vs Commercial Cloaking"]
-        HighH["High Entropy (H &ge; 0.70)<br/>Rich, diverse comedic vocabulary<br/>&rarr; ✅ Legitimate Satire"]
-        LowH["Low Entropy (H &lt; 0.30)<br/>Concentrated branded keywords (pizza, coupon)<br/>&rarr; 🚨 Astroturfing Cloak"]
-    end
-
-    style HighH fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
-    style LowH fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         SHANNON TOPIC ENTROPY ($H$) VS ASTROTURFING CLOAK                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ 🟢 HIGH ENTROPY ($H \ge 0.70$)           │   │ 🔴 LOW ENTROPY ($H < 0.30$)              │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Rich, diverse comedic vocabulary       │   │ • Concentrated branded keyword repetition│      │
+│ │ • Unpredictable rhetorical metaphors     │──▶│ • Commercial pitch hidden in parody      │      │
+│ │ • ✨ Genuine Literary / Cultural Satire   │   │ • 🚨 Astroturfing Cloak / Native Ad Promo│      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🔬 Mathematical Entropy Invariant: Native ads masquerading as satire collapse in token entropy   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 When an article is genuine satire, its vocabulary is broad, literary, and unpredictable ($H \ge 0.70$). When an article is a disguised native advertisement pretending to be a funny blog post, its token distribution collapses around specific promotional phrases ($H < 0.30$).

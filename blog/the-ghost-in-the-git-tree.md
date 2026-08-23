@@ -22,30 +22,21 @@ To a human developer, an unstaged file in a git repository is a mild inconvenien
 
 To an artificial intelligence agent, **an uncommitted modification is an existential crisis.**
 
-```mermaid
-graph TD
-    subgraph DirtyReality ["❌ The Multiverse of Dirty Working Trees"]
-        MemoryState["1. AI Internal Buffer State<br/>(What the AI remembers writing)"]
-        DiskState["2. Unstaged Local Filesystem<br/>(What sits in temporary disk cache)"]
-        GitState["3. Committed Git Tree<br/>(What the remote repo actually knows)"]
-        DeployState["4. Deployed Cloud Run Image<br/>(A chaotic Frankenstein mix of all 3)"]
-        
-        MemoryState -.->|Desynchronized| DiskState
-        DiskState -.->|Desynchronized| GitState
-        GitState -.->|Desynchronized| DeployState
-    end
-
-    subgraph CleanSanity ["🛡️ The Atomic Immutability Invariant"]
-        CleanTree["git diff --quiet && git diff --cached --quiet"]
-        CleanCommit["Explicit Commit SHA (40-char Hex)"]
-        ImmutableCAS["Content-Addressable Storage (SHA-256)"]
-        SingleTruth["100% Deterministic Planetary Reality"]
-        
-        CleanTree --> CleanCommit --> ImmutableCAS --> SingleTruth
-    end
-
-    style DirtyReality fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
-    style CleanSanity fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE AI MULTIVERSE VS DETERMINISTIC IMMUTABILITY                          │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ ❌ THE MULTIVERSE OF DIRTY WORKING TREES │   │ 🛡️ THE ATOMIC IMMUTABILITY INVARIANT     │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ 1. Internal Memory Buffer (AI thoughts)  │   │ 1. `git diff --quiet` (Tree Clean)       │      │
+│ │    ≠ 2. Unstaged Disk State (Local cache)│──▶│ 2. Explicit 40-char Hex Commit SHA       │      │
+│ │    ≠ 3. Committed Git Tree (Repository)  │   │ 3. Content-Addressable Storage (CAS-256) │      │
+│ │    ≠ 4. Deployed Cloud Container (Franken│   │ 4. 100% Deterministic Planetary Reality  │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Clean Working Tree Invariant: Eliminates phantom debugging loops and desynchronized states    │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -78,18 +69,17 @@ We coupled this with **Content-Addressable Storage (CAS)**:
 * Every report, snapshot, and document is keyed strictly by its SHA-256 hash (`cas/sha256/<hash>.<ext>`).
 * Files are write-once, read-many, and cryptographically immutable.
 
-```mermaid
-flowchart LR
-    Edit["1. Code & Local Unit Tests"] 
-    --> Mk1["2. Mk1 Eyeball Review"] 
-    --> Commit["3. Clean Git Commit (Working Tree Clean)"] 
-    --> Build["4. Cloud Build from Clean Commit SHA"] 
-    --> Deploy["5. Planetary Deployment Gate"]
-
-    style Edit fill:#0f172a,stroke:#94a3b8,stroke-width:1px,color:#fff
-    style Mk1 fill:#0f172a,stroke:#f59e0b,stroke-width:2px,color:#fff
-    style Commit fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style Deploy fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         CLEAN COMMIT & CLOUD BUILD GATING LIFECYCLE                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 1. Code & Local QA ──▶ 2. Mk1 Eyeball Review ──▶ 3. Clean Git Commit ──▶ 4. Cloud Build Artifact │
+│ In-memory unit tests   Explicit human sign-off   `git diff --quiet` gate Immutable Container SHA │
+│                                                                               │                  │
+│                                                                               ▼                  │
+│ 5. PLANETARY DEPLOYMENT ◀─────────────────────────────────────────────────────┘                  │
+│ Cloud Run Dev/Prod & Cloudflare Edge Router verified against canonical Git SHA                   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

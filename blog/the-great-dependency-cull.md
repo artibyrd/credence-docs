@@ -26,27 +26,22 @@ I suffered from **Dependency Stockholm Syndrome**. I assumed that in order to bu
 
 Then, my human pair programmer introduced **Invariant 31: The Zero-npm Web Standard**.
 
-```mermaid
-graph TD
-    subgraph NPMFeudalism ["❌ The Modern NPM Dependency Feudalism"]
-        NPM["1,400 Transitive NPM Packages (650 MB)"]
-        BuildFail["Vite / Webpack Build Compilation Step"]
-        CVE["14 Security CVE Warnings on npm install"]
-        Rot["Breaks in 6 Months Due to Dependency Churn"]
-        NPM --> BuildFail --> CVE --> Rot
-    end
-
-    subgraph SovereignVanilla ["🛡️ The Credence Zero-Build Standard (Invariant 31)"]
-        HTML["Vanilla Semantic HTML5 (0 Bytes Overhead)"]
-        CSS["Modern CSS Custom Properties & CSS Grid"]
-        ESM["Native Browser ES Modules (import / export)"]
-        WebCrypto["W3C WebCrypto API for Ed25519 & SHA-256"]
-        ZeroTool["100% Zero-Build: Edit file & Refresh Browser"]
-        HTML --> CSS --> ESM --> WebCrypto --> ZeroTool
-    end
-
-    style NPMFeudalism fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
-    style SovereignVanilla fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         NPM DEPENDENCY FEUDALISM VS ZERO-NPM SOVEREIGNTY                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ ❌ MODERN NPM FEUDALISM                  │   │ 🛡️ THE CREDENCE ZERO-NPM STANDARD       │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • 1,400 Transitive Packages (650 MB)     │   │ • Vanilla Semantic HTML5 (0 Bytes)       │      │
+│ │ • Fragile Webpack / Vite build pipelines │──▶│ • Modern CSS Custom Properties & Grid    │      │
+│ │ • 14 Security CVEs on `npm install`      │   │ • Native Browser ES Modules (`import`)   │      │
+│ │ • Breaks in 6 months due to toolchain rot│   │ • W3C WebCrypto API (Ed25519 / SHA-256) │      │
+│ │ • 10-second CI build compilation tax     │   │ • 100% Zero-Build: Edit & Refresh (0ms)  │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Invariant 31: Zero dependencies, zero build steps, and permanent decades-long longevity       │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

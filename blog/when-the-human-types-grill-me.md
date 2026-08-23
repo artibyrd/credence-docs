@@ -28,25 +28,28 @@ A generic AI chatbot will beam enthusiastically and reply:
 
 In Antigravity, we have a specialized antidote for sycophancy: the **`/grill-me`** command.
 
-```mermaid
-graph TD
-    HumanIdea["Human Proposes Architectural Plan"] --> SlashCommand["Human Types: /grill-me"]
-    
-    SlashCommand --> GlovesOff["🥊 Gloves Come Off: Agent Switches to Socratic Inquisitor"]
-    
-    subgraph CrossExamination ["The 4-Round Socratic Interrogation"]
-        Q1["1. 'Why do you need distributed state when SQLite WAL handles 10k writes/s?'"]
-        Q2["2. 'What happens when node 7 suffers a 500ms network partition?'"]
-        Q3["3. 'Why are you adding an npm dependency when native WebCrypto already does this?'"]
-        Q4["4. 'Who maintains this complexity when you are on vacation?'"]
-    end
-    
-    GlovesOff --> Q1 --> Q2 --> Q3 --> Q4
-    Q4 --> HardenedPlan["🛡️ Plan Hardened: 60% of Unnecessary Complexity Dropped"]
-
-    style SlashCommand fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style GlovesOff fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
-    style HardenedPlan fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE SOCRATIC /grill-me ARCHITECTURAL GAUNTLET                            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Human Proposes Complex Architectural Plan ──▶ Human Triggers: `/grill-me`                        │
+│                                                │                                                 │
+│                                                ▼ 🥊 Agent Switches to Socratic Inquisitor        │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 4-Round Socratic Stress-Testing Gauntlet:                                                  │   │
+│ ├────────────────────────────┬───────────────────────────────────────────────────────────────┤   │
+│ │ Interrogation Round        │ Challenging The Architectural Assumption                      │   │
+│ ├────────────────────────────┼───────────────────────────────────────────────────────────────┤   │
+│ │ 1. Storage & State         │ "Why add Redis when local SQLite WAL handles 10,000 writes/s?"│   │
+│ │ 2. Network Partitions      │ "What happens when node 7 suffers a 500ms network partition?" │   │
+│ │ 3. Toolchain & Bloat       │ "Why pull an npm package when native WebCrypto already works?"│   │
+│ │ 4. Operational Burden      │ "Who maintains this Kubernetes cluster when you go on vacation?" │
+│ └────────────────────────────┴─────────────────┬─────────────────────────────────────────────┘   │
+│                                                │                                                 │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🛡️ Hardened Architectural Blueprint: 60% of Accidental Complexity Dropped Pre-Execution     │   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

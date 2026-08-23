@@ -15,19 +15,30 @@ This cookbook shows how to set up an autonomous, zero-trust **Credence Morning F
 
 ## 1. Zero-Trust Architecture Overview
 
-```mermaid
-graph TD
-    Discover["Dynamic Discovery<br>credence feed discover"] --> PreFlight["Pre-Flight Forensic Audit<br>H_topic & SPJ Ethics"]
-    PreFlight --> DynamicScore["Dynamic Quality Score (F_j)<br>F_j >= 0.70 Active | Evicted < 0.40"]
-    
-    DynamicScore --> SifterDaemon["Real-Time Sifter Daemon<br>credence sifter"]
-    SifterDaemon --> MeshRelay{"Audit Cached on P2P Mesh?"}
-    MeshRelay -- "Yes (92.3% of items)" --> Adopt["Zero-Token Mesh Adoption ($0.00 Token Burn)"]
-    MeshRelay -- "No (Novel item)" --> Audit["Pareto Audit (Gemini 3.7 Flash 4k Thinking)"]
-    Audit --> Gossip["Gossip Signed RFC 8785 Attestation"]
-    
-    Adopt & Gossip --> DigestGen["Morning Epistemic Digest Generator<br>credence digest"]
-    DigestGen --> OutputReport["Executive Briefing (Terminal, Markdown, JSON)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         AUTONOMOUS MORNING FEED SIFTER & EPISTEMIC DIGEST                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Dynamic Feed Discovery (`credence feed discover`) ──▶ Pre-Flight Forensic Audit ($H_{\text{topic}}$ & SPJ)│
+│                                              │                                                   │
+│                                              ▼ Quality Score Gate ($F_j \ge 0.70$)               │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Real-Time Sifter Daemon (`credence sifter`) & HRW Workload Partitioning                      │   │
+│ └────────────────────────────────────────────┬───────────────────────────────────────────────┘   │
+│                                              │                                                   │
+│                     ┌────────────────────────┴────────────────────────┐                          │
+│                     ▼ Audit Attestation Found on P2P Mesh             ▼ Novel Item Audited       │
+│ ┌────────────────────────────────────────────────────────┐ ┌─────────────────────────────────┐ │
+│ │ ⚡ Zero-Token Mesh Adoption ($0.00 Token Burn)         │ │ 🔬 Pareto LLM Audit (Gemini 3.7)│ │
+│ │ • Verify Ed25519 signature in <1ms                     │ │ • Verbatim Grounding ($G=1.00$) │ │
+│ │ • Save 92.3% of compute tokens across swarm            │ │ • Signs RFC 8785 envelope & goss│ │
+│ └───────────────────────────┬────────────────────────────┘ └────────────────┬────────────────┘ │
+│                             └────────────────────────┬──────────────────────┘                    │
+│                                                      ▼                                           │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 📰 Morning Epistemic Digest Generator (`credence digest` · Terminal / Markdown / JSON)     │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > [!TIP]

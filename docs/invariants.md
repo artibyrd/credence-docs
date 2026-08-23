@@ -40,12 +40,22 @@ Mandatory invariants, mathematical formulas, and runtime guardrails governing hu
 
 ## Pillar 1: Core Engineering & Runtime Safety
 
-```mermaid
-flowchart LR
-    Dev["AI / Human Developer"] --> Plan["1. Planning Mode<br/>(Invariant 6 · Mk1 Eyeball)"]
-    Plan --> Hermetic["2. Hermetic CI & Tests<br/>(Invariant 4 · In-Memory SQLite)"]
-    Hermetic --> Model["3. Multi-Model Adapter<br/>(Invariant 7 & 15 · Gemini 4k Pareto)"]
-    Model --> Defense["4. Protocol & SSRF Defense<br/>(Invariant 8 & 9 · Billion Laughs & Container)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         PILLAR 1: CORE ENGINEERING & RUNTIME SAFETY                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
+│ │ 1. Human Gate (Mk1)    │ ───▶ │ 2. Hermetic Isolation   │ ───▶ │ 3. Multi-Model Sovereign  │   │
+│ │ • inv-mk1-eyeball      │      │ • inv-hermetic-testing  │      │ • inv-multi-model-sovereign│  │
+│ │ • Zero unverified auto │      │ • In-memory SQLite WAL  │      │ • Gemini 3.7 4k Pareto    │   │
+│ └────────────────────────┘      └─────────────────────────┘      └─────────────┬─────────────┘   │
+│                                                                                │                 │
+│ ┌────────────────────────┐      ┌─────────────────────────┐                    ▼                 │
+│ │ 5. Edge Cloud Security │ ◀─── │ 4. Untrusted Ingestion  │ ◀──────────────────┘                 │
+│ │ • inv-edge-origin-hdr  │      │ • inv-ssrf-defense      │                                      │
+│ │ • Keyless WIF + CORS   │      │ • Billion Laughs Block  │                                      │
+│ └────────────────────────┘      └─────────────────────────┘                                      │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 <div class="invariant-card" id="inv-workspace-isolation">
@@ -148,7 +158,6 @@ flowchart LR
 <a id="invariant-17"></a>
 <h3><a href="#docs/invariants#inv-content-decoupling">Invariant 17: Content Decoupling & Hermetic CI</a></h3>
 <p>Keep application repos lean by separating marketing HTML from core code. Maintain technical tutorials in <code>docs/tutorials/</code> in clean Markdown. CI workflows (<code>ci.yml</code>) must run 100% hermetically without cloud secrets.</p>
-</div>
 
 <div class="invariant-card" id="inv-progressive-disclosure">
 <a id="invariant-18"></a>
@@ -160,13 +169,22 @@ flowchart LR
 
 ## Pillar 2: Epistemic Ingestion & Scoring Engine
 
-```mermaid
-flowchart TD
-    RawDoc["Raw Web Text / Document"] --> AST["1. Whitespace-Collapsed DOM Parser<br/>(inv-verbatim-grounding · G=1.0 Grounding)"]
-    AST --> Entropy["2. Shannon Topic Entropy & Concentration<br/>(inv-topic-entropy-defense · Pizza Hut Astroturfing Defense)"]
-    Entropy --> Satire["3. Poe's Law Classifier & SPJ-1.6<br/>(inv-poes-law-satire · Satire Cloaking Override)"]
-    Satire --> Namespaces["4. Fixed Taxonomy Catalog<br/>(inv-fixed-taxonomies · SHA-256 Pinned URIs)"]
-    Namespaces --> Score["5. Weighted Mathematical Aggregate"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                      PILLAR 2: EPISTEMIC INGESTION & SCORING ENGINE                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
+│ │ 1. DOM Ingestion       │ ───▶ │ 2. Verbatim Grounding   │ ───▶ │ 3. Entropy & Astroturf    │   │
+│ │ • Trafilatura Prose    │      │ • inv-verbatim-grounding│      │ • inv-topic-entropy-def   │   │
+│ │ • Whitespace Normalized│      │ • G=1.00 Character Match│      │ • H_penalized < 0.30 cut  │   │
+│ └────────────────────────┘      └─────────────────────────┘      └─────────────┬─────────────┘   │
+│                                                                                │                 │
+│ ┌────────────────────────┐      ┌─────────────────────────┐                    ▼                 │
+│ │ 5. Calibrated Score    │ ◀─── │ 4. Fixed Taxonomies     │ ◀──────────────────┘                 │
+│ │ • S_calibrated curve   │      │ • inv-fixed-taxonomies  │                                      │
+│ │ • Poe's Law & SPJ-1.6  │      │ • SPJ / IEP / Deceptive │                                      │
+│ └────────────────────────┘      └─────────────────────────┘                                      │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 <div class="invariant-card" id="inv-topic-entropy-defense">
@@ -204,13 +222,22 @@ $$H_{\text{penalized}} = H \times (1.0 - C_{\text{top3}})$$
 
 ## Pillar 3: Cryptographic Mesh & Empirical Authority
 
-```mermaid
-flowchart LR
-    Node["Peer Node Attestation"] --> Sig["1. RFC 8785 Ed25519 Custody<br/>(inv-canonical-json-ed25519)"]
-    Sig --> Qual["2. 5-Factor Node Quality Q_i<br/>(inv-5factor-node-quality)"]
-    Qual --> Exp["3. Empirical Expertise E_i<br/>(inv-empirical-expertise · Anti-Diploma)"]
-    Exp --> Consensus["4. Bayesian Weighted Consensus<br/>(inv-galileo-rule · Galileo Rule Override)"]
-    Consensus --> Mesh["5. BitTorrent Work-Sharing<br/>(inv-bittorrent-worksharing & inv-byzantine-cartel-resistance)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                   PILLAR 3: CRYPTOGRAPHIC MESH & EMPIRICAL AUTHORITY                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
+│ │ 1. RFC 8785 Ed25519    │ ───▶ │ 2. 5-Factor Quality Q_i │ ───▶ │ 3. Empirical Expertise    │   │
+│ │ • inv-canonical-json   │      │ • inv-5factor-quality   │      │ • inv-empirical-expertise │   │
+│ │ • Deterministic Bytes  │      │ • Q_i = 0.25U+0.30C+... │      │ • Anti-Diploma Invariant  │   │
+│ └────────────────────────┘      └─────────────────────────┘      └─────────────┬─────────────┘   │
+│                                                                                │                 │
+│ ┌────────────────────────┐      ┌─────────────────────────┐                    ▼                 │
+│ │ 5. Work-Sharing Mesh   │ ◀─── │ 4. The Galileo Rule     │ ◀──────────────────┘                 │
+│ │ • inv-bittorrent-mesh  │      │ • inv-galileo-rule      │                                      │
+│ │ • 92.3% Token Savings  │      │ • Asymmetric Grounding  │                                      │
+│ └────────────────────────┘      └─────────────────────────┘                                      │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 <div class="invariant-card" id="inv-canonical-json-ed25519">
@@ -253,16 +280,26 @@ flowchart LR
 
 ## Pillar 4: Universal Presentation Layer & Zero-Build Web
 
-```mermaid
-flowchart TD
-    Core["Unified Business Core Logic<br/>(inv-4way-feature-parity)"] --> CLI["1. Terminal CLI (credence)"]
-    Core --> FastMCP["2. FastMCP 2.0 (stdio / SSE)"]
-    Core --> TUI["3. Textual TUI (credence tui)"]
-    Core --> Web["4. Zero-Build Web (0 npm · inv-zero-build-standards)"]
-    
-    Web --> Router["Edge Router & Subdirectory Canonical<br/>(inv-edge-canonicalization)"]
-    Web --> Math["Unicode Math Parser<br/>(inv-zero-build-math)"]
-    Web --> Density["Visual Density & Playwright Verification<br/>(inv-mermaid-syntax-safety, inv-visual-density, inv-playwright-rendering-tests)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│               PILLAR 4: UNIVERSAL PRESENTATION LAYER & ZERO-BUILD WEB                            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Unified Epistemic Core Engine (`credence.pipeline` & `credence.scoring`)                    │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 4-WAY SYMMETRIC PRESENTATION PARITY (Invariant 30)                                         │   │
+│ │ ┌──────────────────────┐ ┌──────────────────────┐ ┌───────────────────┐ ┌────────────────┐ │   │
+│ │ │ 🖥️ Terminal CLI       │ │ ⚡ FastMCP 2.0 Server│ │ 📟 Textual TUI    │ │ 🌐 Zero-Build Web│ │   │
+│ │ │ `credence audit`     │ │ stdio / SSE JSON-RPC │ │ `credence tui`    │ │ Zero-npm / HTML5 │ │   │
+│ │ └──────────────────────┘ └──────────────────────┘ └───────────────────┘ └────────────────┘ │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Edge Routing (`_worker.js`) • Monospace Typography • Dynamic WebCrypto Attestation Receipt │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 <div class="invariant-card" id="inv-4way-feature-parity">

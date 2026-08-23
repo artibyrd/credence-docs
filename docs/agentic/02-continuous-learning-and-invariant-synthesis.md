@@ -27,11 +27,26 @@ read_time: 6 min
 
 Discover how Credence uses the `/learn` slash command to transform transient corrections and post-mortem findings into permanent, machine-verifiable invariants in `AGENTS.md`.
 
-```mermaid
-flowchart LR
-    Phase1["1. Mk1 Eyeball Review<br/><i>(Code, Local QA, Target Version)</i>"] --> Phase2["2. Feature Release<br/><i>(Commit, Tag, Deploy vX.Y.0)</i>"]
-    Phase2 --> Phase3["3. /learn Retrospective<br/><i>(Capture Feedback & Invariants)</i>"]
-    Phase3 --> Phase4["4. Learning Patch Release<br/><i>(Apply Invariants, Tag vX.Y.1)</i>"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         4-PHASE RELEASE & LEAN LEARNING LIFECYCLE                                │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
+│ │ PHASE 1: CODE & MK1 REVIEW│ PHASE 2: FEATURE RELEASE      │ PHASE 3: `/learn` RETROSPECTIVE│   │
+│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
+│ │ • Implement capabilities  │ • Clean working tree verification• Analyze edge-case discoveries│  │
+│ │ • Fast local QA (`just check`)• Sync version manifests   │ • Synthesize candidate rules   │   │
+│ │ • Mk1 Eyeball Human Sign-Off• Tag & Deploy `vX.Y.0`       │ • Draft `learning_proposal.md` │   │
+│ └─────────────┬─────────────┴───────────────┬───────────────┴────────────────┬───────────────┘   │
+│               │                             │                                │                   │
+│               └─────────────────────────────┼────────────────────────────────┘                   │
+│                                             ▼                                                    │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ PHASE 4: LEAN PATCH RELEASE (`vX.Y.1`)                                                     │   │
+│ │ • Codify invariant to `AGENTS.md` (<800 tokens) or Tier 1 Progressive Subsystem Skill      │   │
+│ │ • Add automated shift-left contract test in `tests/test_docs_integrity.py`                 │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > [!NOTE]

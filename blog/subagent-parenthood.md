@@ -31,20 +31,26 @@ The parent agent sits in a frantic `while` loop, checking status every five seco
 
 In Antigravity, we practice **Enlightened Subagent Parenthood with Reactive Wakeup**.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant Parent as ⚡ Parent Agent (Lead Architect)
-    participant Core as ⚙️ Antigravity Messaging Engine
-    participant Child as 🐣 Child Subagent (Research Specialist)
-
-    Parent->>Core: invoke_subagent(Role="Research Specialist", Prompt="Audit Living Canon of Invariants")
-    Core->>Child: Spawn Subagent with isolated conversation ID
-    Note over Parent: Parent yields turn & goes to sleep (0 CPU, 0 Tokens)
-    Child->>Child: Performs 12 file lookups & AST analysis
-    Child->>Core: send_message(Parent, "Research complete: All invariants mapped.")
-    Core->>Parent: 🔔 Reactive Wakeup Triggered!
-    Note over Parent: Parent wakes instantly with full results delivered
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         SUBAGENT DELEGATION & REACTIVE WAKEUP FLOW                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ⚡ Lead Parent Agent             ⚙️ Antigravity Messaging Engine    🐣 Child Research Subagent    │
+│        │                                        │                                   │            │
+│        │── invoke_subagent(Role="Auditor") ────▶│                                   │            │
+│        │                                        │── Spawns isolated session ID ────▶│            │
+│        │                                        │                                   │            │
+│        │ [Parent yields turn: 0 CPU, 0 Tokens]  │                                   │ [Performs  │
+│        │ [Sleeps peacefully without polling]    │                                   │ AST audits │
+│        │                                        │                                   │ in worktree│
+│        │                                        │◀── send_message("Done: Mapped") ──│            │
+│        │◀── 🔔 Reactive Wakeup Notification ────│                                                │
+│        │    (Delivers full child results)       │                                                │
+│        │                                        │                                                │
+│        │── Proceeds with verified findings ─────│                                                │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Zero-Polling Architecture: Event-driven reactive messaging completely eliminates busy loops   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

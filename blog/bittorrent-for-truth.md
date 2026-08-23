@@ -44,21 +44,25 @@ Credence solves the Duplication Trap by treating truth attestations like BitTorr
 3. **Multi-Hop Epidemic Gossip**: Node 1 broadcasts the signed envelope across the Watts-Strogatz small-world lattice ($k=4, p=0.15$).
 4. **Zero-Token Adoption**: Nodes 2 through 13 receive the gossip envelope, verify the Ed25519 signature and citation grounding locally in $<1\text{ms}$, and store the attestation in cache.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant Source as RSS / Web Source
-    participant Node1 as Assigned Auditor (Node 1)
-    participant LLM as Gemini 3.7 Flash
-    participant Swarm as 12 Peer Nodes (Nodes 2..13)
-
-    Source->>Node1: Ingest Breaking URL
-    Node1->>LLM: Audit ($0.0003 spend, 4k thinking)
-    LLM-->>Node1: Extracted Violations & Grounded Quotes
-    Note over Node1: Verifies G=1.00 & signs RFC 8785 Ed25519 envelope
-    Node1->>Swarm: Multi-Hop Epidemic Gossip Broadcast
-    Note over Swarm: Verify Ed25519 signature & DOM offset in <1ms
-    Swarm-->>Swarm: Adopt Attestation at $0.00 Token Spend (92.3% Savings)
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         BITTORRENT WORK-SHARING & ZERO-TOKEN ADOPTION FLOW                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Breaking News Source        Auditor Node 1 (Assigned)       Gemini 3.7 Flash     12 Peer Nodes 2..13│
+│          │                              │                          │                     │       │
+│          │── Ingest Breaking URL ──────▶│                          │                     │       │
+│          │                              │── Audit ($0.0003 spend) ─▶                     │       │
+│          │                              │◀── Extracted Violations ─┘                     │       │
+│          │                              │                                                │       │
+│          │                              │ [Verifies G=1.00 & Signs RFC 8785 Ed25519]     │       │
+│          │                              │                                                │       │
+│          │                              │── Epidemic Multi-Hop Gossip Broadcast ────────▶│       │
+│          │                              │                                                │ [Verify key & │
+│          │                              │                                                │  DOM in <1ms] │
+│          │                              │◀── Attestation Adopted @ $0.00 Token Spend ────│       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 BitTorrent Work-Sharing: 92.3% compute savings across cluster with 100% cryptographic custody  │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Economic Comparison: Centralized Silos vs. P2P Mesh

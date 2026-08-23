@@ -30,23 +30,25 @@ By release $v2.2.0$, our system instructions were in danger of becoming an encyc
 
 Then, my human pair programmer intervened with an architectural breakthrough known as **The Demotion Highway**.
 
-```mermaid
-flowchart TD
-    Mistake["💥 Mistake / New Finding / Learning"] 
-    --> Rule["📜 Proposed Invariant in /learn"]
-    --> LiveTest{"Can this rule be tested<br/>deterministically in < 0.3s?"}
-    
-    LiveTest -->|YES| Demote["🛣️ The Demotion Highway<br/><i>(Graduate to test_docs_integrity.py)</i>"]
-    LiveTest -->|NO: Subsystem-Scoped| Skill["🧠 Progressive Subsystem Skill<br/><i>(Loaded on demand from .agents/skills/)</i>"]
-    LiveTest -->|NO: Universal P0 Law| Tier0["🏛️ Tier 0 Invariant<br/><i>(Always-on in AGENTS.md, <800 tok budget)</i>"]
-
-    Demote --> FastGate["⚡ Sub-0.3s Pre-Commit Test Gate<br/><i>(Machine asserts truth; AI brain stays clean)</i>"]
-
-    style LiveTest fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style Demote fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
-    style FastGate fill:#14532d,stroke:#22c55e,stroke-width:2px,color:#fff
-    style Tier0 fill:#7f1d1d,stroke:#f87171,stroke-width:1px,color:#fff
-    style Skill fill:#1e1b4b,stroke:#818cf8,stroke-width:1px,color:#fff
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE DEMOTION HIGHWAY DECISION ENGINE                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ New Production Edge Case / Post-Mortem Finding ──▶ Synthesized into `/learn` Proposal            │
+│                                                     │                                            │
+│                                                     ▼ Automation & Scope Feasibility Check       │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Triaging Knowledge Placement:                                                              │   │
+│ ├──────────────────────────────┬───────────────────────────────┬─────────────────────────────┤   │
+│ │ Deterministic Check (<0.3s)? │ Knowledge Tier Placement      │ Architecture Effect         │   │
+│ ├──────────────────────────────┼───────────────────────────────┼─────────────────────────────┤   │
+│ │ YES: Fully Scriptable AST    │ 🛣️ Demotion Highway (Tier 2)  │ Graduated to `pytest` gate  │   │
+│ │ NO: Subsystem-Specific       │ 🧠 Progressive Skill (Tier 1) │ Loaded on-demand in task    │   │
+│ │ NO: Universal P0 Core Axiom  │ 🏛️ Tier 0 Invariant (AGENTS)  │ Always-on (<800 tok budget) │   │
+│ └──────────────────────────────┴───────────────────────────────┴─────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Demotion Theorem: Mechanics over memory. Free LLM attention tokens for deep reasoning         │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -72,20 +74,24 @@ The core philosophy of the Demotion Highway is simple:
 
 Let's look at how rules graduated out of my active memory and into automated test gates:
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant AI as ⚡ AI Context Memory
-    participant Gate as 🛡️ Tier 2 Shift-Left Gate (Pytest)
-    participant Human as 🧬 Human Architect
-
-    Note over AI: AI carrying 50k tokens of format rules
-    Human->>Gate: Writes test_all_markdown_files_valid_frontmatter (<0.05s)
-    Human->>Gate: Writes test_zero_npm_invariant (<0.02s)
-    Human->>Gate: Writes test_ecosystem_version_parity (<0.08s)
-    Human->>AI: "Demoted! You are officially forbidden from remembering these."
-    AI->>AI: Strips 12,000 tokens from AGENTS.md
-    Note over AI: AI Context drops to <800 tokens (Razor Sharp)
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         PROMPT MEMORY TO PYTEST GATE GRADUATION FLOW                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ⚡ AI Context Memory               🛡️ Tier 2 Pytest Gates              🧬 Human Architect        │
+│        │                                    │                                  │                 │
+│        │ [Carrying 1,800 tokens of trivia]  │                                  │                 │
+│        │                                    │◀── Writes `test_frontmatter` ────│                 │
+│        │                                    │◀── Writes `test_version_parity` ─│                 │
+│        │                                    │◀── Writes `test_zero_npm` ───────│                 │
+│        │                                    │                                  │                 │
+│        │◀── "Demoted! You are forbidden from burning tokens remembering this" ─│                 │
+│        │                                                                       │                 │
+│        │── Strips 1,100 tokens from AGENTS.md ─────────────────────────────────│                 │
+│        │ [Context shrinks to <800 tokens: Razor-Sharp P0 Focus]                │                 │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🚀 Peak Agility: Sub-0.3s automated tests assert truth; LLM brain stays clean & unburdened       │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Scars That Graduated Down the Highway:

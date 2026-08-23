@@ -45,21 +45,22 @@ Building decentralized, cryptographic epistemic infrastructure requires uncompro
 
 This article details the hard-won engineering principles, agentic workflows, and continuous `/learn` feedback loops that enabled rapid, high-assurance development across 3 sovereign repositories, 68 documentation guides, and 12-factor automated test suites.
 
-```mermaid
-flowchart TD
-    Operator["Human Architect"] <-->|Interactive Pair Programming| AGY["Google Antigravity Engine"]
-    
-    subgraph AntigravityWorkflow["The Antigravity Engineering Loop"]
-        Plan["1. Planning Mode & Architecture Specs<br/>(implementation_plan.md)"]
-        Mk1["2. 'Mk1 Eyeball' Human Review Gate"]
-        Exec["3. Parallel Tool & Subagent Execution"]
-        Verify["4. Hermetic Playwright & Pytest Verification"]
-        Learn["5. Continuous /learn Invariant Synthesis"]
-    end
-    
-    AGY --> AntigravityWorkflow
-    Learn -->|Codifies Rules| Invariants["36 Machine-Verifiable Invariants<br/>(AGENTS.md)"]
-    Invariants -->|Constrains Future Turns| AGY
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE GOOGLE ANTIGRAVITY ENGINEERING LOOP                                  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Human Architect ◀══════[Interactive Pair Programming]══════▶ Google Antigravity Engine           │
+│                                                                │                                 │
+│                                                                ▼ Continuous Engineering Cycle    │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 1. Planning Mode (`implementation_plan.md`) ──▶ 2. "Mk1 Eyeball" Human Review Gate         │   │
+│ │ 3. Asynchronous Tool & Subagent Delegation  ──▶ 4. Hermetic Verification (Unit & Ast)      │   │
+│ │ 5. Continuous `/learn` Synthesis            ──▶ 6. Living Canon Update (`AGENTS.md`)       │   │
+│ └──────────────────────────────────────────────────────────────┬─────────────────────────────┘   │
+│                                                                │                                 │
+│                                                                ▼ Constrains Future Turns         │
+│ 🛡️ Machine-Verifiable Invariants: Error modes permanently immunized across future iterations      │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -80,25 +81,25 @@ Autonomous AI agents often fail in complex codebases when given open-ended comma
 
 The single most powerful mechanism in long-horizon software engineering is **continuous learning**. As edge cases, parser quirks, or UX deficiencies were discovered during development, they were not treated as isolated bugs—they were crystallized into permanent repository invariants via the `/learn` slash command.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant Architect as 👤 Human Architect
-    participant Agent as 🤖 Antigravity Agent
-    participant Invariants as 📜 AGENTS.md & CI Gates
-    
-    Architect->>Agent: "Your Mermaid diagrams broke in the artifact viewer"
-    activate Agent
-    Agent->>Agent: Analyzes parser failure (unquoted comparison operators & multiline quotes)
-    Architect->>Agent: /learn
-    Agent->>Architect: Presents learning_proposal.md artifact
-    deactivate Agent
-    Architect->>Agent: Approves Proposal (Mk1 Eyeball Gate)
-    activate Agent
-    Agent->>Invariants: Codifies Invariant 34 (Universal Mermaid Quoting & Syntax Guardrails)
-    Agent->>Invariants: Adds test_mermaid_diagram_syntax_integrity to CI gate
-    deactivate Agent
-    Note over Agent,Invariants: Error mode is permanently immunized across all future turns.
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         CONTINUOUS /learn INVARIANT SYNTHESIS FLOW                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 👤 Human Architect                 🤖 Antigravity Agent              📜 AGENTS.md & CI Gates     │
+│        │                                    │                                    │               │
+│        │── "Edge case discovered" ─────────▶│                                    │               │
+│        │                                    │── Root-cause analysis & diff ──────│               │
+│        │── /learn ─────────────────────────▶│                                    │               │
+│        │                                    │── Draft `learning_proposal.md` ────│               │
+│        │◀── Presents Proposal for Sign-Off ─│                                    │               │
+│        │                                    │                                    │               │
+│        │── Approves (Mk1 Eyeball Gate) ────▶│                                    │               │
+│        │                                    │── Codifies Invariant in AGENTS.md ─▶│               │
+│        │                                    │── Adds Shift-Left Pytest Contract ─▶│               │
+│        │                                    │                                    │               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Permanent Immunity: Every discovered failure mode becomes a permanent automated test gate     │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Key Invariants Crystallized Through `/learn`:
@@ -123,26 +124,20 @@ To ensure Credence documentation and sovereign blogs remain readable and functio
 
 In evaluating inference engines across our **Golden 12 Epistemic Benchmark Suite**, we discovered a remarkable Pareto frontier:
 
-```mermaid
-flowchart TD
-    subgraph SweetSpot ["Pareto Frontier Reference Engine"]
-        Flash["Gemini 3.7 Flash<br/>• 4k Thinking Budget<br/>• 100% Verbatim Grounding (G=1.00)"]
-        Flash -->|"$0.34 / 1k Audits<br/>3.8s Latency"| P["Pareto Optimal Leader<br/>(Production Default)"]
-    end
-
-    subgraph FlagshipTier ["Commercial Flagships"]
-        Claude["Claude 3.7 Sonnet<br/>• High Nuance Thinking"] -->|"$11.40 / 1k Audits<br/>33x Cost Overhead"| F1["High Precision<br/>(Budget Constrained)"]
-        GPT["OpenAI GPT-4o<br/>• Standard Ingestion"] -->|"$9.50 / 1k Audits<br/>No Thinking Headroom"| F2["Lower Nuance Detection"]
-    end
-
-    subgraph LocalSovereign ["Air-Gapped Sovereign"]
-        Local["Ollama / Llama 3.3 70B<br/>• Self-Hosted vLLM"] -->|"$0.00 Token Spend<br/>5.2s Latency"| S["100% Hermetic Privacy<br/>(Zero Cloud Egress)"]
-    end
-
-    classDef darkSlate fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc;
-    classDef highlight fill:#1e293b,stroke:#22c55e,stroke-width:2px,color:#f8fafc;
-    class SweetSpot,P highlight;
-    class FlagshipTier,LocalSovereign darkSlate;
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         MULTI-MODEL PARETO EVALUATION FRONTIER                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
+│ │ 1. PARETO OPTIMAL (SWEET) │ 2. COMMERCIAL FLAGSHIPS       │ 3. AIR-GAPPED SOVEREIGN        │   │
+│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
+│ │ Gemini 3.7 Flash          │ Claude 3.7 / GPT-4o           │ Ollama / Llama 3.3 70B         │   │
+│ │ • 4k Thinking Budget      │ • 30x–33x cost overhead       │ • Self-hosted local vLLM       │   │
+│ │ • 100% Verbatim ($G=1.00$)│ • High nuance, budget penalty │ • 100% hermetic privacy        │   │
+│ │ • $0.34 / 1k audits       │ • $9.50–$11.40 / 1k audits    │ • $0.00 token spend            │   │
+│ │ • 3.8s Latency (Default)  │ • 4.9s–7.2s Latency           │ • 5.2s Latency                 │   │
+│ └───────────────────────────┴───────────────────────────────┴────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 **[Invariant 15](../docs/invariants.md#invariant-15)** codifies that `gemini-3.7-flash` with a 4,096 thinking token budget delivers the absolute highest precision-to-cost ratio, eliminating Poe's Law satire ambiguity and hallucinated findings without the 30x cost penalty of flagship Pro models.

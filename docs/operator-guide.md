@@ -31,22 +31,37 @@ A comprehensive, unabridged operations runbook for deploying, configuring, secur
 
 Credence is engineered to run as a multi-domain, hybrid-cloud federation spanning **Google Cloud Platform (GCP)** (for serverless compute, Secret Manager, and token governor monitoring) and **Cloudflare** (for global edge CDN, DDoS protection, zero-egress R2 distribution, and DNS delegation).
 
-```mermaid
-flowchart TD
-    User([User / AI Agent / Peer Node]) --> Worker["Cloudflare Edge Worker (_worker.js)"]
-    
-    Worker -->|credence.run| Static1["Static Assets: Landing & Install Script (public, max-age=0)"]
-    Worker -->|docs.credence.run| Pages1["Dynamic Proxy: Docs Portal (no-cache, no-store)"]
-    Worker -->|blog.credence.run| Pages2["Dynamic Proxy: Sovereign Blog (no-cache, no-store)"]
-    Worker -->|credence.report| Static2["Static Assets: Cryptographic Report Viewer"]
-    Worker -->|credence.nexus| Static3["Static Assets: Mesh Directory & Explorer"]
-    Worker -->|seeds.credence.nexus| Seeds["Root Peer Manifest (peers.json)"]
-    Worker -->|credence.foundation| Static4["Static Assets: Governance & Keys Portal"]
-    Worker -->|keys.credence.foundation| Keys["Root Signing Key (root.pub)"]
-    Worker -->|mcp.credence.run| CR["GCP Cloud Run: FastMCP 2.0 SSE Engine (/sse)"]
-
-    classDef darkSlate fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff;
-    class Worker,Static1,Pages1,Pages2,Static2,Static3,Seeds,Static4,Keys,CR darkSlate;
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                      CREDENCE MULTI-CLOUD EDGE & COMPUTE ROUTING TOPOLOGY                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                  USER / AI AGENT / PEER NODE                                     │
+│                                               │                                                  │
+│                                               ▼                                                  │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ CLOUDFLARE EDGE PLANE (`_worker.js` / Global Anycast CDN)                                  │   │
+│ ├────────────────────────────┬───────────────────────────────┬───────────────────────────────┤   │
+│ │ DOMAIN / HOST              │ ROUTING TARGET                │ CACHE / HEADER POLICY         │   │
+│ ├────────────────────────────┼───────────────────────────────┼───────────────────────────────┤   │
+│ │ `credence.run`             │ Static Landing & Install Shell│ public, max-age=0             │   │
+│ │ `docs.credence.run`        │ Dynamic Proxy: Docs Portal    │ no-cache, no-store            │   │
+│ │ `blog.credence.run`        │ Dynamic Proxy: Sovereign Blog │ no-cache, no-store            │   │
+│ │ `credence.report`          │ Web Report Viewer             │ public, max-age=3600          │   │
+│ │ `credence.nexus`           │ Live Swarm Mesh Directory     │ no-cache, must-revalidate     │   │
+│ │ `seeds.credence.nexus`     │ Genesis Peer Manifest         │ RFC 8785 Canonical JSON       │   │
+│ │ `credence.foundation`      │ Governance & Keys Portal      │ public, max-age=86400         │   │
+│ │ `keys.credence.foundation` │ Genesis Ed25519 Root Public Key│ immutable, text/plain        │   │
+│ └────────────────────────────┴───────────────┬───────────────┴───────────────────────────────┘   │
+│                                              │ `mcp.credence.run` (Host Rewriting)               │
+│                                              ▼                                                   │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ GCP COMPUTE PLANE (Cloud Run `credence-server` / `us-central1`)                            │   │
+│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
+│ │ • FastMCP 2.0 Streaming SSE Engine (`/sse`, `/messages/`)                                  │   │
+│ │ • Gemini 3.7 Flash Reference Engine + 30% Headroom Token Governor Circuit Breaker          │   │
+│ │ • In-Memory / Cloud Storage WAL Attestation Sync • WIF Least-Privilege IAM Roles           │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > [!NOTE]

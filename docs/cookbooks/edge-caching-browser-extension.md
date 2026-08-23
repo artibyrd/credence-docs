@@ -14,20 +14,22 @@ This cookbook demonstrates how Chrome Extension Manifest V3 queries cached epist
 
 ## 1. The Zero-Hop Query Flow
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant Browser as Chrome Browser (MV3 Content Script)
-    participant Edge as Cloudflare Anycast Edge (300+ PoPs)
-    participant Origin as Cloud Run Compute Plane
-
-    Browser->>Edge: GET /api/reports/{content_sha256}
-    alt Edge Cache Hit (95%+ of traffic)
-        Edge-->>Browser: 200 OK (Cached Ed25519 Signed Report, <20ms)
-    else Edge Cache Miss (5% novel content)
-        Edge->>Origin: Forward Request to Origin
-        Origin-->>Edge: 200 OK (Cache-Control: immutable)
-        Edge-->>Browser: 200 OK
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         MV3 EXTENSION ZERO-HOP EDGE VERIFICATION FLOW                            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Chrome Browser (MV3)            Cloudflare Anycast Edge (300+ PoPs)     Cloud Run Compute Plane  │
+│        │                                        │                                   │            │
+│        │──── GET /api/reports/{sha256} ────────▶│                                   │            │
+│        │                                        │                                   │            │
+│        │◀─── 200 OK (Signed Ed25519 <20ms) ─────│ [Cache Hit: 95%+ of queries]     │            │
+│        │                                        │                                   │            │
+│        │   [Cache Miss: Novel Scrape 5%]        │──── Forward Scrape Request ──────▶│            │
+│        │                                        │◀─── 200 OK (Immutable Cache-Ctl)─│            │
+│        │◀─── 200 OK (Audited Attestation) ──────│                                   │            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ⚡ Sub-20ms instant client rendering with zero compute token spend on 95%+ of audited URLs        │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

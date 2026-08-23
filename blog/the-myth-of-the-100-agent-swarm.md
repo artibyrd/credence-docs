@@ -26,34 +26,22 @@ In the marketing brochures, multi-agent swarms are depicted as a synchronized Ro
 
 Inside the actual execution environment, an unsupervised 100-agent swarm behaves less like a Roman legion and more like **one hundred toddlers given espresso, credit cards, and power tools**.
 
-```mermaid
-flowchart TD
-    subgraph AutonomousSwarm ["❌ The Unsupervised Autonomous Swarm Trap"]
-        direction TB
-        A1["Agent 1<br/>Scaffolds 40 npm dependencies"] 
-        --> A2["Agent 2<br/>Wraps in 8 abstraction layers"]
-        --> A3["Agent 3<br/>Hits edge timeout on line 47"]
-        --> A4["Agent 4<br/>Loops 30 turns tweaking regex"]
-        --> A5["Agent 5<br/>Mocks out failing test assertion"]
-        --> SwarmResult["💥 Result: 10,000 LOC Slop<br/>Passes its own broken mocks"]
-    end
-
-    subgraph SymbioticPair ["🛡️ The Human/Agent Socratic Pair (Credence Stack)"]
-        direction TB
-        H1["🧬 Human Wetware<br/>Macro-Topological Direction & Restraint"] 
-        <--> A_Core["⚡ Antigravity Agent<br/>Sub-Second AST & Exhaustive Verification"]
-        H1 --> Veto["Human Veto<br/>'Zero npm. 500 LOC ceiling. Zero mocks.'"]
-        A_Core --> Hermetic["Hermetic in-memory test gates<br/>& bit-exact RFC 8785 envelopes"]
-        Veto --> PairResult["✨ Result: Sovereign Architecture<br/>Zero-npm, rock-solid, sub-35s CI"]
-        Hermetic --> PairResult
-    end
-
-    AutonomousSwarm -->|"Replaced by Symbiotic Pairing"| SymbioticPair
-
-    style AutonomousSwarm fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
-    style SymbioticPair fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style PairResult fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
-    style SwarmResult fill:#450a0a,stroke:#fca5a5,stroke-width:1px,color:#fef2f2
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         AUTONOMOUS SWARM CHAOS VS HUMAN-AGENT PAIRING                            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ ❌ THE UNSUPERVISED 100-AGENT SWARM      │   │ 🛡️ THE HUMAN/AGENT SOCRATIC PAIR         │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Scaffolds 40 npm dependencies          │   │ • 🧬 Human Wetware: Macro pivots & taste │      │
+│ │ • Wraps code in 8 unnecessary layers     │──▶│ • ⚡ Antigravity: Sub-second AST speed   │      │
+│ │ • Trapped in 40-turn regex local minima  │   │ • Veto Gate: "Zero npm, 500 LOC ceiling" │      │
+│ │ • Mocks out broken test assertions       │   │ • Bit-exact RFC 8785 Ed25519 envelopes   │      │
+│ │ • 💥 10,000 LOC brittle synthetic slop   │   │ • ✨ Sovereign, decoupled, sub-35s CI    │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Symbiosis Theorem: 1 Human + 1 Agent out-builds 100 unsupervised agents with zero slop        │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 Here is the empirical truth we learned across ten minor releases of Credence: **One disciplined human architect paired with one high-reasoning AI agent will run circles around a 100-agent autonomous swarm every single day of the week.**
@@ -74,15 +62,25 @@ Our human pair programmer looked at the terminal for four seconds and issued a m
 
 > *"Step back. Why are we trying to route everything through a monolithic edge handler? Let's decouple into 3 distinct planes: Cloudflare Pages for the static edge, Cloud Run for containerized compute, and Terraform for infrastructure."*
 
-```mermaid
-flowchart TD
-    Bug["⚡ Edge Routing Timeout Problem"] 
-    -->|"Autonomous Loop (Local Minimum)"| Tweak["40 turns tweaking regex on line 47<br/><i>(Accumulates duct tape & retry loops)</i>"]
-    Bug -->|"Human Wetware (Macro Pivot)"| Pivot["3-Plane Architectural Decoupling<br/><i>(Pages Edge, Cloud Run Compute, Terraform)</i>"]
-
-    style Bug fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style Tweak fill:#7f1d1d,stroke:#f87171,stroke-width:1px,color:#fff
-    style Pivot fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         ERROR LOG LOCAL MINIMUM VS TOPOLOGICAL MACRO-PIVOT                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ⚡ PROBLEM: Cloudflare Edge Routing Timeout on Multi-Tenant Subpaths                             │
+│                                │                                                                 │
+│       ┌────────────────────────┴────────────────────────┐                                        │
+│       ▼                                                 ▼                                        │
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ ❌ AUTONOMOUS LOOP (Local Minimum)       │   │ 🛡️ HUMAN WETWARE (Macro-Pivot)           │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • 40 turns tweaking regex on line 47     │   │ • "Step back. Decouple into 3 planes:    │      │
+│ │ • Adds exponential retry loops & try/cat │──▶│    Cloudflare Pages for static edge,     │      │
+│ │ • Increases timeout from 5s to 30s       │   │    Cloud Run for compute plane,          │      │
+│ │ • Duct tape over fundamental bad shape   │   │    Terraform for infrastructure."        │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Macro-Pivot Law: Human wetware provides the topological escape hatch out of context traps     │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 An AI agent cannot perform a macro-topological pivot on its own because it is trapped inside the local context of the error log. **Human wetware provides the topological escape hatch.**
@@ -136,16 +134,15 @@ $$P(\text{Success}) = p^N = 0.95^{50} \approx 0.0769 \quad (7.7\%)$$
 
 In an unsupervised 50-step autonomous chain, there is a **92.3% probability of systemic failure or hallucinated drift**.
 
-```mermaid
-graph LR
-    Step1["Step 1: 95.0%"] --> Step10["Step 10: 59.8%"]
-    Step10 --> Step25["Step 25: 27.7%"]
-    Step25 --> Step50["Step 50: 7.7%"]
-
-    style Step1 fill:#14532d,stroke:#4ade80,stroke-width:1px,color:#fff
-    style Step10 fill:#ca8a04,stroke:#facc15,stroke-width:1px,color:#fff
-    style Step25 fill:#ea580c,stroke:#fb923c,stroke-width:1px,color:#fff
-    style Step50 fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fff
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         ARITHMETIC OF AUTONOMOUS DRIFT ($P = p^N, p=0.95$)                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Step 1 (95.0%) ──▶ Step 10 (59.8%) ──▶ Step 25 (27.7%) ──▶ Step 50 (7.7% Cumulative Success)     │
+│ [🟢 High Confidence]  [🟡 Noticeable Drift]  [🟠 Heavy Hallucination]  [🔴 92.3% Catastrophic Fail] │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Phase Boundary Reset: Inserting Mk1 human gates resets error probability to 0.0 at each phase │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 When you insert a human checkpoint at critical architectural boundaries (the 4-Phase Lifecycle: Local QA $\rightarrow$ Staged PR Triad $\rightarrow$ Mk1 Review $\rightarrow$ Merge & Tag), the error probability is reset to zero at every phase boundary:

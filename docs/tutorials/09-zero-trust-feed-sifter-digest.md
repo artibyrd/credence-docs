@@ -11,17 +11,27 @@ sidebar:
 
 Traditional RSS aggregators and news monitoring tools rely on static whitelists. But static whitelists suffer from an insurmountable vulnerability: **The "Pizza Hut Problem"** — what happens when a trusted publication is quietly acquired, compromised, or shifts editorial policy to covert native advertising?
 
-```mermaid
-flowchart TD
-    A["Target Domain / Webpage"] --> B["Autodiscover Endpoints<br>(link tags & well-known paths)"]
-    B --> C["Pre-Flight Forensic Audit"]
-    C --> D{"Topic Entropy (H) >= 0.70?"}
-    D -- "Yes (Diverse Coverage)" --> E["Dynamic Sifter Active Queue"]
-    D -- "No (Astroturf H < 0.30)" --> F["Quarantine / Evict Feed"]
-    E --> G["Rendezvous Hash (HRW)<br>Swarm Partitioning"]
-    G --> H["Evaluate with Gemini 3.7 Flash<br>Sign Ed25519 Attestation"]
-    H --> I["P2P Gossip Diffusion<br>(92.3% Compute Savings)"]
-    I --> J["Morning Epistemic Digest<br>(CLI, FastMCP 2.0, Newsletter)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         ZERO-TRUST FEED SIFTER & MORNING BRIEFING LIFECYCLE                      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Target Domain / Webpage ──▶ Autodiscover Endpoints (`<link>` tags & well-known paths)           │
+│                                │                                                                 │
+│                                ▼ Pre-Flight Forensic Audit ($H_{\text{topic}}$ & SPJ Ethics)     │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Topic Entropy Gate ($H_{\text{topic}}$):                                                   │   │
+│ ├──────────────────────────────┬───────────────────────────────┬─────────────────────────────┤   │
+│ │ Entropy Condition            │ Classification                │ Lifecycle Action            │   │
+│ ├──────────────────────────────┼───────────────────────────────┼─────────────────────────────┤   │
+│ │ $H_{\text{topic}} \ge 0.70$  │ Diverse Journalistic Coverage │ ✅ Admit to Active Queue    │   │
+│ │ $H_{\text{topic}} < 0.30$   │ Commercial SEO Astroturfing   │ 🚫 Evict & Quarantine Feed  │   │
+│ └──────────────────────────────┴───────────────────────────────┴─────────────────────────────┘   │
+│                                │                                                                 │
+│                                ▼ HRW Swarm Partitioning ──▶ Pareto LLM Evaluation ($G=1.00$)     │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 📰 P2P Gossip Attestation Diffusion (92.3% Savings) ──▶ Morning Epistemic Executive Digest │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > [!IMPORTANT]

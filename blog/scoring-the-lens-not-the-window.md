@@ -14,28 +14,21 @@ The article is a forensic takedown of unethical municipal journalism. It documen
 
 How can an article that discusses deceptive journalism receive a flawless epistemic trust score?
 
-```mermaid
-flowchart LR
-    subgraph Subject["Investigative Subject (e.g. Bad Journalism)"]
-        Sensationalism["Unbacked Clickbait"]
-        UndisclosedCOI["Undisclosed Conflicts"]
-        Astroturf["Promotional Astroturfing"]
-    end
-
-    subgraph Lens["The Investigative Lens (The Article)"]
-        Quotes["Verbatim Citations (G = 1.00)"]
-        Transparency["SPJ-1.6 Attribution & Disclosure"]
-        Entropy["High Semantic Entropy (H >= 0.70)"]
-    end
-
-    subgraph NodeMesh["Credence Autonomous Evaluation"]
-        Score["Score: 100.0 Clean"]
-        Receipt["Ed25519 Signed Attestation"]
-    end
-
-    Subject -->|"Quoted inside Critical Context"| Quotes
-    Lens --> NodeMesh
-    NodeMesh --> Score & Receipt
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         SCORING THE LENS VS SCORING THE WINDOW                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┐   ┌───────────────────────────┐   ┌───────────────────────────┐    │
+│ │ 🪟 THE WINDOW (Subject)   │   │ 🔍 THE LENS (The Article) │   │ 🛡️ CREDENCE AUTONOMOUS    │    │
+│ ├───────────────────────────┤   ├───────────────────────────┤   ├───────────────────────────┤    │
+│ │ • Unbacked Clickbait      │   │ • Verbatim Citations      │   │ • Epistemic Score: 100.0  │    │
+│ │ • Undisclosed COI Bias    │──▶│   ($G = 1.00$ Grounding)  │──▶│ • Ed25519 Signed Custody  │    │
+│ │ • Promotional Astroturf   │   │ • `SPJ-1.6` Safe Harbor   │   │ • Zero False Positives    │    │
+│ │ • Deceptive Local Reports │   │ • High Entropy ($H \ge 0.7$)│ • Discourse Containerized   │    │
+│ └───────────────────────────┘   └───────────────────────────┘   └───────────────────────────┘    │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Epistemic Principle: Score the integrity of the lens, not the dirt on the window it exposes   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

@@ -17,22 +17,17 @@ Credence supports **Air-Gapped Truth Bundles (`.credence.bundle`)** allowing off
 
 ## 1. The Air-Gapped Sneakernet Flow
 
-```mermaid
-graph LR
-    subgraph Connected Base Station (Europe)
-        OnlineNode[Credence Online Seed Node] --> Export["credence bundle export --since 24h"]
-        Export --> USB[(Encrypted USB / SD Card)]
-    end
-
-    subgraph Physical Transport
-        USB --> Courier[Physical Courier / Satellite Drop]
-    end
-
-    subgraph Air-Gapped Island / Research Facility
-        Courier --> OfflineNode[Isolated Credence Node]
-        OfflineNode --> Import["credence bundle import bundle.credence.json"]
-        Import --> Verify[100% In-Memory Ed25519 Signature Verification]
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         AIR-GAPPED TRUTH BUNDLE SNEAKERNET LIFECYCLE                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
+│ │ CONNECTED BASE STATION │ ───▶ │ PHYSICAL AIR-GAP TRANSIT│ ───▶ │ AIR-GAPPED ISOLATED NODE  │   │
+│ │ • Online Seed Node     │      │ • Encrypted USB/SD Card │      │ • Zero Network Access     │   │
+│ │ • `bundle export` (48h)│      │ • Satellite / Courier   │      │ • `bundle import` (<2ms)  │   │
+│ │ • Signs bundle package │      │ • Physical custody trail│      │ • In-Memory Ed25519 Verify│   │
+│ └────────────────────────┘      └─────────────────────────┘      └───────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

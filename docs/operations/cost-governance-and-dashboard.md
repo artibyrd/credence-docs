@@ -16,15 +16,20 @@ Credence incorporates an autonomous **Cost Governance & Resource Optimization** 
 
 Credence provides 5 distinct cost profiles, defaulting to **`ECONOMY`**—the most conservative profile that is 100% fully functional with Gemini 3.7 Flash reasoning:
 
-```mermaid
-flowchart LR
-    subgraph ProfileSpectrum ["Operational Cost Profiles"]
-        P0["1. OFFLINE ($0.00)<br/>Local Rules Only"]
-        P1["2. FREE ($0.00)<br/>Gemini 2.0 Flash-Lite"]
-        P2["3. ECONOMY ($0.15/d)<br/>Gemini 3.7 Flash (512 Thinking)"]
-        P3["4. BALANCED ($0.50/d)<br/>Gemini 3.7 Flash (1024 Thinking)"]
-        P4["5. ULTRA ($5.00/d)<br/>Gemini 3.7 Flash + 1.5 Pro"]
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         5-TIER OPERATIONAL COST PROFILE SPECTRUM                                 │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┬──────────────┬──────────────┬───────────────┬──────────────────┐   │
+│ │ Profile Tier              │ Daily Budget │ Hourly Tokens│ Think Budget  │ Target Audience  │   │
+│ ├───────────────────────────┼──────────────┼──────────────┼───────────────┼──────────────────┤   │
+│ │ 1. `OFFLINE`              │ $0.00 / day  │ 0 tokens     │ 0 tokens      │ Air-Gapped Labs  │   │
+│ │ 2. `FREE`                 │ $0.00 / day  │ 50,000 tok   │ 0 tokens      │ Free Ingress     │   │
+│ │ 3. 🏆 `ECONOMY` (DEFAULT) │ $0.15 / day  │ 50,000 tok   │ 512 tokens    │ Conservative Dev │   │
+│ │ 4. `BALANCED`             │ $0.50 / day  │ 100,000 tok  │ 1,024 tokens  │ Standard Prod    │   │
+│ │ 5. `ULTRA`                │ $5.00 / day  │ 2,000,000 tok│ 4,096 tokens  │ Investigative Dsk│   │
+│ └───────────────────────────┴──────────────┴──────────────┴───────────────┴──────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 | Profile | Target Audience | Primary Model | Thinking Budget | Max Daily Budget | Max Tokens / Hour | Concurrency |

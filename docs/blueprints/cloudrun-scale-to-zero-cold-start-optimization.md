@@ -19,14 +19,20 @@ In modern sovereign decentralized networks and edge applications, operating comp
 
 However, scale-to-zero introduces container cold start latency:
 
-```mermaid
-flowchart TD
-    Req["Incoming HTTP / SSE Request"] --> Provision["1. MicroVM Allocation & Layer Pull<br/>(~1.0s)"]
-    Provision --> Exec["2. Entrypoint Binary Execution<br/>(~0.05s)"]
-    Exec --> CPython["3. CPython Bytecode & Import Graph<br/>(~0.6s with CPU Boost)"]
-    CPython --> Lifespan["4. Fast Non-Blocking Lifespan<br/>(~0.1s)"]
-    Lifespan --> Probe["5. Tuned HTTP Readiness Probe<br/>(~0.2s)"]
-    Probe --> Serve["🟢 Ready to Serve Traffic<br/>(Total: ~1.95s)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         SCALE-TO-ZERO COLD START TIMELINE (~1.95s TOTAL)                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Incoming HTTP / SSE Request                                                                      │
+│    │                                                                                             │
+│    ├──▶ 1. MicroVM Allocation & Layer Pull (~1.00s) [Cloud Run Gen 2 Execution Env]              │
+│    ├──▶ 2. Direct Virtualenv Entrypoint Execution (~0.05s) [Bypasses Poetry wrapper]             │
+│    ├──▶ 3. CPython Bytecode & Import Evaluation (~0.60s) [Startup CPU Boost + Precompiled .pyc]  │
+│    ├──▶ 4. Fast Non-Blocking Lifespan Initialization (~0.10s) [Async background task ignition]   │
+│    └──▶ 5. Tuned HTTP Readiness Probe (~0.20s) [2s HTTP GET `/health` with 1s initial delay]    │
+│                                                                                                  │
+│ 🟢 READY TO SERVE TRAFFIC (<2.1s Cold Start • $0.00 Idle Infrastructure Cost)                    │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -35,28 +41,27 @@ flowchart TD
 
 To reduce cold starts from **~11.5s** down to **~1.9s**, Credence applies five complementary engineering interventions across container packaging, runtime execution, and cloud infrastructure:
 
-```mermaid
-graph TD
-    subgraph Pillar1 ["Pillar 1: Infrastructure Acceleration"]
-        Boost["Startup CPU Boost (2-4x vCPU)"]
-        Gen2["Execution Environment Gen 2"]
-    end
-
-    subgraph Pillar2 ["Pillar 2: Process Invocation"]
-        Direct["Direct Virtualenv Binary Execution<br/>(Bypass Poetry CLI wrapper)"]
-    end
-
-    subgraph Pillar3 ["Pillar 3: Bytecode Optimization"]
-        Compile["Build-time 'compileall'<br/>(Precompile .py to .pyc)"]
-    end
-
-    subgraph Pillar4 ["Pillar 4: Import Graph Deferral"]
-        Lazy["Lazy Handler-Level Loading<br/>(Trafilatura, Dateparser, Playwright)"]
-    end
-
-    subgraph Pillar5 ["Pillar 5: Fast Readiness Probing"]
-        HTTP["2s HTTP GET /health<br/>(1s initial delay)"]
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE 5-PILLAR COLD START OPTIMIZATION FRAMEWORK                           │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
+│ │ PILLAR 1: INFRASTRUCTURE  │ PILLAR 2: PROCESS INVOCATION  │ PILLAR 3: BYTECODE COMPILATION │   │
+│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
+│ │ • Startup CPU Boost (2-4x)│ • Direct venv binary execution│ • Build-time `compileall`      │   │
+│ │ • Gen 2 Linux Kernel Env  │ • Eliminates Poetry wrapper   │ • Precompiles `.py` to `.pyc`  │   │
+│ │ • Image Layer Streaming   │ • Saves ~950ms on boot        │ • Eliminates runtime tokenizing│   │
+│ └─────────────┬─────────────┴───────────────┬───────────────┴────────────────┬───────────────┘   │
+│               │                             │                                │                   │
+│               └─────────────────────────────┼────────────────────────────────┘                   │
+│                                             ▼                                                    │
+│ ┌───────────────────────────────────────────┴────────────────────────────────────────────────┐   │
+│ │ PILLAR 4: LAZY IMPORT GRAPH DEFERRAL      │ PILLAR 5: AGGRESSIVE READINESS PROBING         │   │
+│ ├───────────────────────────────────────────┼────────────────────────────────────────────────┤   │
+│ │ • Defers Trafilatura, Dateparser, Playwrgt│ • 2s HTTP GET `/health` (1s initial delay)     │   │
+│ │ • Drops ASGI boot time from 2.8s to 1.4s  │ • Eliminates 10s default TCP probe idle lag    │   │
+│ └───────────────────────────────────────────┴────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Pillar 1: Google Cloud Run v2 Startup CPU Boost & Gen 2
@@ -163,20 +168,24 @@ However, under a strict **scale-to-zero** serverless policy (`min_instance_count
 2. The node cannot tick or discover new claims during hours of zero user traffic.
 3. Attempting to "piggyback" background tasks onto user requests creates an architectural anti-pattern: curiosity only triggers when the node is already busy, defeating the philosophical purpose of boredom.
 
-```mermaid
-flowchart LR
-    subgraph AntiPattern ["❌ Anti-Pattern: Request Piggybacking"]
-        R[Incoming User Request] --> Busy[Node Busy Serving]
-        Busy --> Piggy[Spawns Heavy Background Tasks]
-        Piggy --> Degraded[Increases Latency for Humans]
-    end
-
-    subgraph DecoupledHeartbeat ["✅ Decoupled Epistemic Heartbeat"]
-        Cron[⏰ Cloud Scheduler (Every 10m)] --> Trigger[POST /cron/boredom]
-        Trigger --> ColdBoot[Boots with CPU Boost <1.2s]
-        ColdBoot --> VariableAudit[Excitement-Weighted Audit Burst]
-        VariableAudit --> ScaleZero[Scales Back to 0 Instances ($0.00 Idle Cost)]
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         SERVERLESS EPISTEMIC HEARTBEAT ARCHITECTURE                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ❌ ANTI-PATTERN: REQUEST PIGGYBACKING                                                            │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Inbound User Request ──▶ Triggers Heavy Background Crawl ──▶ High User Latency Lag Spill   │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+│                                                                                                  │
+│ ⚡ DECOUPLED SERVERLESS EPISTEMIC HEARTBEAT                                                       │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ ⏰ Cloud Scheduler (Every 10m) ──▶ POST `/cron/boredom`                                     │   │
+│ │    │                                                                                       │   │
+│ │    ├──▶ MicroVM Boots with CPU Boost (<1.2s)                                               │   │
+│ │    ├──▶ Executes Excitement-Weighted Curiosity Crawl & Attestation Burst                   │   │
+│ │    └──▶ Completes Work & Scales Back to 0 Instances ($0.00 Idle Infrastructure Cost)       │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

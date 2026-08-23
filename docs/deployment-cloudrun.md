@@ -15,30 +15,21 @@ This guide covers deploying the **Credence FastMCP Server** to **Google Cloud Pl
 
 ## 1. Architecture Overview
 
-```mermaid
-graph LR
-    subgraph Client ["Clients & Operators"]
-        Antigravity[Antigravity IDE / Agent] -->|HTTPS / SSE| CloudRun
-        TUI[Textual TUI / Terminal CLI] -->|Telemetry Loopback| CloudRun
-    end
-
-    subgraph GCP ["Google Cloud Platform (us-central1)"]
-        CloudRun["Cloud Run v2 Service<br/>(Scale-to-Zero | 1024Mi | 1 CPU)"]
-        SM["Secret Manager<br/>(credence-gemini-api-key)"]
-        Budget["Cloud Billing Budget<br/>($15.00/mo Ceiling)"]
-        Monitoring["Cloud Monitoring<br/>(Dual-Tier SRE & Uptime)"]
-        CloudRun --> SM
-        CloudRun --> Monitoring
-    end
-
-    subgraph Egress ["Alert Dispatch"]
-        Discord["Discord / Powercord Webhook"]
-        Email["Direct Admin Email"]
-        Monitoring --> Discord
-        Monitoring --> Email
-        Budget --> Discord
-        Budget --> Email
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         CLOUD RUN COMPUTE & OBSERVABILITY ARCHITECTURE                           │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┐   ┌───────────────────────────────┐   ┌────────────────────────┐   │
+│ │ CLIENTS & OPERATORS       │   │ GCP CLOUD RUN SERVICE (v2)    │   │ SRE ALERT DISPATCH     │   │
+│ ├───────────────────────────┤   ├───────────────────────────────┤   ├────────────────────────┤   │
+│ │ • Antigravity / Agent     │──▶│ • Scale-to-Zero Container     │──▶│ • Discord Webhook      │   │
+│ │ • Textual TUI / CLI Workst│   │ • Secret Manager API Keys     │   │   (`#ops-alerts`)      │   │
+│ │ • Cloudflare Edge Proxy   │   │ • $15.00/mo Budget Guardrails │   │ • Admin Email Digest   │   │
+│ │ • Web Browser Consumers   │   │ • Dual-Tier Cloud Monitoring  │   │ • Telemetry Loopback   │   │
+│ └───────────────────────────┘   └───────────────────────────────┘   └────────────────────────┘   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Strict Least Privilege: Workload Identity Federation (WIF) with zero exported JSON keys        │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

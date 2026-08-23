@@ -13,15 +13,21 @@ Credence's evaluation engine is completely decoupled from hardcoded heuristics. 
 
 This guide walks you through authoring a new domain taxonomy catalog (e.g. for `FINANCIAL_DISCLOSURES` or `MEDICAL_CLAIMS`).
 
-```mermaid
-graph TD
-    Domain["Domain: FINANCIAL_DISCLOSURES"] --> Cluster1["Cluster: PROJECTIONS"]
-    Domain --> Cluster2["Cluster: REVENUE_RECOGNITION"]
-    Cluster1 --> Rule1["Rule: ungrounded_ebitda@1.0.0 (Severity 4)"]
-    Cluster1 --> Rule2["Rule: unsupported_guidance@1.0.0 (Severity 3)"]
-    
-    Rule1 --> Invariant["Pinned SHA-256 Hash Verification"]
-    Invariant --> Evaluator["Multi-Agent Auditor Invocation"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         NAMESPACED TAXONOMY CATALOG HIERARCHY & URI STRUCTURE                    │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Taxonomy Domain Root: `FINANCIAL_DISCLOSURES`                                                    │
+│    │                                                                                             │
+│    ├──▶ Cluster 1: `PROJECTIONS`                                                                 │
+│    │    ├── Rule A: `ungrounded_ebitda@1.0.0` (Severity 4 · GAAP Reconciliation Failure)         │
+│    │    └── Rule B: `unsupported_guidance@1.0.0` (Severity 3 · Forward Guidance Without Baseline)│
+│    │                                                                                             │
+│    └──▶ Cluster 2: `REVENUE_RECOGNITION`                                                         │
+│         └── Rule C: `premature_booking@1.0.0` (Severity 5 · Premature Multi-Year Contract Rec)   │
+│                                                                                                  │
+│ 🛡️ Immutable URI Invariant: `domain:cluster/rule_id@version` pinned by SHA-256 catalog digest   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > [!IMPORTANT]

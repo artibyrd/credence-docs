@@ -17,18 +17,21 @@ Whether issued by Twitter, Meta, or Google, trust was treated as a property of *
 
 The generative AI revolution has shattered that paradigm permanently.
 
-```mermaid
-graph TD
-    subgraph OldModel["❌ Fragile Identity Model (The Blue Checkmark)"]
-        Authority["Centralized Platform / Corporate Badge"] --> Entity["Domain / Verified Author"]
-        Entity --> Claim1["Claim (Blind Trust, No Grounding Verification)"]
-    end
-
-    subgraph NewModel["✅ Content-Addressed Mathematical Model (Credence)"]
-        DOM["Exact Rendered Prose (SHA-256)"] --> Audit["4-Specialist Evaluation + G=1.0 Grounding"]
-        Audit --> Attestation["RFC 8785 Ed25519 Cryptographic Envelope"]
-        Attestation --> Swarm["P2P Watts-Strogatz Mesh Consensus"]
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         CENTRALIZED IDENTITY BADGES VS CONTENT-ADDRESSED TRUTH                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ ❌ FRAGILE CENTRALIZED IDENTITY MODEL    │   │ 🛡️ CONTENT-ADDRESSED CREDENCE MODEL      │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Corporate platform issues paid badge   │   │ • Exact DOM content hashed via SHA-256   │      │
+│ │ • Blind trust inherited from domain/name │──▶│ • Epistemic Grounding ($G=1.00$ Verbatim)│      │
+│ │ • Vulnerable to bought handles & SEO farm│   │ • RFC 8785 Ed25519 Cryptographic Envelope│      │
+│ │ • Opaque moderation walled garden        │   │ • P2P Watts-Strogatz Consensus Quorum    │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Epistemic Invariant: Trust is not a property of identity; it is earned per published claim     │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Trust Architecture Paradigm Shift

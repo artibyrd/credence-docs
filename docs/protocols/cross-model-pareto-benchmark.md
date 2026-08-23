@@ -13,13 +13,29 @@ order: 8
 
 This specification provides the empirical measurement methodology, benchmark dataset, latency curves, and cost models comparing LLM architectures when evaluating deception, logical fallacies, deceptive UI patterns, and human satire.
 
-```mermaid
-graph TD
-    Input["Golden 12 Test Fixtures<br>(Clean, Fallacious, Deceptive, Satire, Health, Slop)"] --> MultiAgent["4-Specialist Evaluation Pipeline"]
-    MultiAgent --> Heuristic["Offline Heuristic: 0.0s | $0.00 / 1k | Safe Baseline"]
-    MultiAgent --> FlashLite["Flash-Lite: 1.2s | $0.12 / 1k | Rapid Triage"]
-    MultiAgent --> Flash4k["Gemini 3.7 Flash 4k: 3.8s | $0.55 / 1k | 🏆 Pareto Optimum"]
-    MultiAgent --> Pro["Flagship Pro: 23.9s | $18.29 / 1k | Over-analyzes Satire"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         CROSS-MODEL EPISTEMIC & ECONOMIC PARETO FRONTIER                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Golden 12 Test Fixtures (Clean, Fallacies, Deceptive UI, Satire, Health Claims, AI Slop)   │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌───────────────────────────┬──────────┬──────────┬──────────────┬──────────────┬──────────────┐ │
+│ │ Architecture / Tier       │ Latency  │ Cost/1k  │ Grounding    │ Fallacy Rec. │ Satire Neut. │ │
+│ ├───────────────────────────┼──────────┼──────────┼──────────────┼──────────────┼──────────────┤ │
+│ │ ⚡ `offline-heuristic`    │  0.00s   │ $0.0000  │ 100.0%       │ 80.0%        │ 100.0%       │ │
+│ │ 🚀 `gemini-3.5-flash-lite`│  1.21s   │ $0.1235  │  75.0%       │ 85.0%        │  66.7%       │ │
+│ │ ⚖️ `gemini-3.7-flash` (1k)│  2.25s   │ $0.4156  │ 100.0%       │ 90.0%        │  66.7%       │ │
+│ │ 🏆 `gemini-3.7-flash` (4k)│  3.80s   │ $0.5562  │ 100.0%       │ 100.0%       │ 100.0% (Opt) │ │
+│ │ 🐢 `gemini-pro-latest`    │ 23.91s   │ $18.291  │  66.7%       │ 100.0%       │   0.0% (Fail)│ │
+│ └───────────────────────────┴──────────┴──────────┴──────────────┴──────────────┴──────────────┘ │
+│                                                │                                                 │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🎯 PARETO OPTIMUM: Gemini 3.7 Flash + 4k Thinking Tokens (100% Precision @ $0.00055/Audit) │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > [!NOTE]

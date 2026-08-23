@@ -23,11 +23,18 @@ As complex software ecosystems evolve, engineering invariants, security boundari
 
 When all rules are dumped into a single flat file (`AGENTS.md` / system prompt), autonomous agents suffer from three distinct cognitive failure modes:
 
-```mermaid
-flowchart TD
-    Flat["Flat Invariant List<br/>(30+ Unordered Rules)"] --> Dilution["1. Attention Dilution<br/>(LLMs overlook critical safety rules)"]
-    Flat --> Oatmeal["2. Cognitive Oatmeal<br/>(Formatting trivia given equal weight to SSRF security)"]
-    Flat --> Friction["3. Token Waste & Friction<br/>(Re-parsing static rules on every turn)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         FLAT INVARIANT PROMPT FAILURE MODES                                      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Flat Invariant List (30+ Unordered Rules Dumped in Root Prompt)                                  │
+│    │                                                                                             │
+│    ├──▶ 1. Attention Dilution (LLMs overlook critical safety rules amidst formatting trivia)     │
+│    ├──▶ 2. Cognitive Oatmeal (Whitespace rules given equal cognitive weight to SSRF security)   │
+│    └──▶ 3. Token Waste & Friction (Re-parsing static rules on every single agent turn)           │
+│                                                                                                  │
+│ ❌ Result: Frequent security lapses, rule drift, and depleted reasoning token budgets            │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -36,39 +43,28 @@ flowchart TD
 
 To maintain extreme precision while keeping universal system prompt context under **800 tokens**, Credence stratifies invariants into a 4-layer taxonomy based on **enforcement criticality, execution scope, and automation feasibility**:
 
-```mermaid
-graph TD
-    subgraph Tier0 ["Tier 0: Universal Core Invariants (AGENTS.md &lt; 800 tokens)"]
-        T0_Security["P0: Ingestion SSRF Guard & Billion Laughs"]
-        T0_Grounding["P0: Epistemic Grounding (G=1.0) & Hallucination Slashing"]
-        T0_Crypto["P0: Ed25519 Signature Verification & RFC 8785 Canonical JSON"]
-        T0_Review["P0: Human Review ('Mk1 Eyeball') & Target Version Disclosure"]
-        T0_Parity["P0: 4-Way Feature Parity & Zero-npm Web Standards"]
-        T0_Docs["P0: Session-Driven Documentation Expansion"]
-    end
-
-    subgraph Tier1 ["Tier 1: Progressive Subsystem Skills (.agents/skills/)"]
-        T1_Cloud["cloudrun-ops: Scale-to-Zero, CPU Boost, compileall, Probes"]
-        T1_Mesh["mesh-cluster: Watts-Strogatz Lattice, 3f+1 Cartel Defense"]
-        T1_Org["white-label-ops: Init-Org, Multi-Domain Edge Routing"]
-        T1_Bench["epistemic-benchmark: Golden 12 Benchmark Profiles"]
-    end
-
-    subgraph Tier2 ["Tier 2: Shift-Left Automated Test Gates (test_docs_integrity.py)"]
-        T2_FM["Markdown YAML Frontmatter (title/desc)"]
-        T2_NPM["Zero-npm / Zero-package.json Assertion"]
-        T2_Ver["7-Manifest Semantic Version Parity"]
-        T2_Route["Sitemap Route & Deep Link Coverage"]
-        T2_Mermaid["Mermaid High-Contrast WCAG Contrast"]
-    end
-
-    subgraph Tier3 ["Tier 3: Master Canonical Reference Catalog (docs/invariants.md)"]
-        T3_Catalog["Living Canon of System Invariants with Mathematical Proofs"]
-    end
-
-    Tier0 --> Tier1
-    Tier0 --> Tier2
-    Tier0 --> Tier3
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         4-TIER INVARIANT SCALABILITY & KNOWLEDGE FRAMEWORK                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ TIER 0: UNIVERSAL CORE INVARIANTS (`AGENTS.md` · ALWAYS ON · <800 TOKENS)                  │   │
+│ │ • Class α: Mk1 Eyeball, Verbatim Grounding ($G=1.0$), RFC 8785 Ed25519, Ingestion SSRF Guard│   │
+│ │ • Class β: 4-Phase Lifecycle, Cart-Before-Horse, Commit-Before-Deploy, Hermetic Unit Tests  │   │
+│ │ • Class γ: 4-Way Feature Parity, Zero-npm Web, Epistemic Lensing, Dynamic Canon Naming     │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                │                                                 │
+│       ┌────────────────────────────────────────┼────────────────────────────────────────┐        │
+│       ▼                                        ▼                                        ▼        │
+│ ┌───────────────────────────┐┌───────────────────────────┐┌───────────────────────────┐ │
+│ │ TIER 1: PROGRESSIVE SKILLS││ TIER 2: AUTOMATED GATES   ││ TIER 3: LIVING CANON      │ │
+│ │ `.agents/skills/`         ││ `test_docs_integrity.py`  ││ `docs/invariants.md`      │ │
+│ │ • `cloudrun-ops`          ││ • Frontmatter validation  ││ • Complete Living Canon   │ │
+│ │ • `mesh-cluster`          ││ • Zero-npm verification   ││ • Mathematical proofs     │ │
+│ │ • `white-label-ops`       ││ • 7-manifest parity check ││ • Historical architecture │ │
+│ │ • `epistemic-benchmark`   ││ • Sitemap link coverage   ││ • Full LaTeX derivations  │ │
+│ └───────────────────────────┘└───────────────────────────┘└───────────────────────────┘ │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -113,19 +109,21 @@ graph TD
 
 Invariants are not immutable dogmas; they represent the **strongest empirical truth validated at project epoch $t$**.
 
-```mermaid
-stateDiagram-v2
-    [*] --> Proposed: /learn Retrospective / Discovery
-    Proposed --> Active: Minted into Living Canon (vX.Y.0)
-    Active --> UnderReview: Milestone Audit (v2.X.0)
-    
-    UnderReview --> Active: Re-affirmed (Merit Holds)
-    UnderReview --> Amended: Scope Refined / Upgraded
-    UnderReview --> Demoted: Promoted to Automated Gate (Tier 2) or Skill (Tier 1)
-    UnderReview --> Retired: Obsolete (Constraint No Longer Exists)
-    
-    Demoted --> [*]
-    Retired --> [*]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE INVARIANT LIFECYCLE STATE MACHINE                                    │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                                  │
+│       [Proposed] ──▶ Minted (vX.Y.0) ──▶ [Active] ──▶ Milestone Audit ──▶ [Under Review]         │
+│                                            ▲                                  │                  │
+│                                            │ Re-affirmed                      │                  │
+│                                            └──────────────────────────────────┤                  │
+│                                                                               │                  │
+│                                ┌──────────────────────────────────────────────┼────────────────┐ │
+│                                ▼ Scope Refined                                ▼ Test Saturated ▼ │
+│                            [Amended]                           [Demoted to Tier 2]   [Retired]   │
+│                                                                                                  │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### The Invariant Lifecycle State Machine
@@ -154,11 +152,17 @@ To streamline complex multi-agent pair programming, specialized subagents are de
 
 Knowledge synthesis and invariant crystallization strictly follow the 4-phase delivery lifecycle:
 
-```mermaid
-flowchart LR
-    Phase1["1. Mk1 Eyeball Review<br/><i>(Code, Local QA, Target Version)</i>"] --> Phase2["2. Feature Release<br/><i>(Commit, Tag, Deploy vX.Y.0)</i>"]
-    Phase2 --> Phase3["3. /learn Retrospective<br/><i>(Synthesize Feedback & Invariants)</i>"]
-    Phase3 --> Phase4["4. Learning Patch Release<br/><i>(Apply Invariants, Tag vX.Y.1)</i>"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         4-PHASE RELEASE & CONTINUOUS LEARNING LIFECYCLE                          │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────┐   ┌────────────────────┐   ┌────────────────────┐   ┌───────────────────┐ │
+│ │ 1. MK1 EYEBALL     │──▶│ 2. FEATURE RELEASE │──▶│ 3. /LEARN RETRO    │──▶│ 4. PATCH RELEASE  │ │
+│ │ • Local QA gauntlet│   │ • Synchronize sync │   │ • Synthesize review│   │ • Mint invariants │ │
+│ │ • Inspect full diff│   │ • Tag vX.Y.0       │   │ • Extract new rules│   │ • Tag vX.Y.1      │ │
+│ │ • Verify version   │   │ • Push & CI deploy │   │ • Author test gates│   │ • Lean patch push │ │
+│ └────────────────────┘   └────────────────────┘   └────────────────────┘   └───────────────────┘ │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 1. **Phase 1 (Mk1 Eyeball Review)**: Implement feature, execute local QA gauntlet (`just check`), present working-tree diff and explicit target version for human inspection ("Mk1 Eyeball").
@@ -194,13 +198,22 @@ When a new requirement, discovery, or post-mortem action item arises, apply this
 
 To prevent system invariants from stagnating into obsolete dogmas or unnecessarily consuming prompt context when test coverage is mature, the ecosystem implements **The Invariant Challenger** (`scripts/challenge_invariant.py` / `just challenge-invariant <slug>`).
 
-```mermaid
-flowchart TD
-    Run["just challenge-invariant <slug>"] --> Evaluate{"Challenger Evaluation"}
-    Evaluate -->|"Cognitive Reasoning / Human Authority Required"| P["1. PRESERVE (Tier 0 Active)"]
-    Evaluate -->|"100% Test Saturated (Mechanical Verification)"| D["2. DEMOTE (Graduate to Tier 2 Test Gate)"]
-    Evaluate -->|"Ecosystem Shift / Refinement Needed"| A["3. AMEND (Sharpen Invariant Scope)"]
-    Evaluate -->|"Technology Obsoleted / Constraint Invalidated"| N["4. NULLIFY / RETIRE (Archive in Invariant Bible)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE INVARIANT CHALLENGER DECISION ENGINE                                 │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Invariant Audit Trigger: `just challenge-invariant <slug>`                                       │
+│                                              │                                                   │
+│                                              ▼ Epistemic Scrutiny & Test Saturation Check        │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Challenger Verdict Outcomes:                                                               │   │
+│ ├──────────────────────────────────────────┬─────────────────────────────────────────────────┤   │
+│ │ 1. PRESERVE (Tier 0 Active Invariant)    │ Reasoning & human authority strictly required   │   │
+│ │ 2. DEMOTE (Graduate to Tier 2 Gate)      │ 100% test-saturated mechanical verification     │   │
+│ │ 3. AMEND (Sharpen & Scope Invariant)     │ Ecosystem evolution requires updated rules      │   │
+│ │ 4. RETIRE / NULLIFY (Archive in Canon)   │ Technology or constraint completely obsoleted   │   │
+│ └──────────────────────────────────────────┴─────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Epistemic Scrutiny Dimensions:

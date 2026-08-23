@@ -30,30 +30,21 @@ If you hand a 32,000-token deep-thinking model an article titled *"Local Bakery 
 
 **Over-parameterized reasoning turns an AI into an insufferable pedant.**
 
-```mermaid
-flowchart TD
-    subgraph MonolithicInference ["❌ Monolithic Ultra Thinking (32k Tokens on Everything)"]
-        direction TB
-        SimpleNews["Simple Community News Article"] 
-        --> DeepLLM["32,000-Token Heavy Reasoning Model"]
-        --> Overthinking["Pedantic Over-Analysis<br/>& False Positives"]
-        --> HighBill["💥 High Inference Costs ($5.00/day)"]
-    end
-
-    subgraph BicameralEngine ["🛡️ Bicameral Tiered Shadow Architecture (83.3% Savings)"]
-        direction TB
-        Input["Inbound Syndicated Article"] 
-        --> Triage["Stage 1: Fast Heuristic Triage<br/>(FREE / ECONOMY System 1)"]
-        --> Decision{"Benign & Clean?<br/>(Suspicion &le; 25.0)"}
-        Decision -->|Yes (83.3% of feeds)| FastPass["Adopt & Sign at $0.00 / 0 Tokens"]
-        Decision -->|No (Ambiguous Claims)| UltraEscalate["Stage 2: Escalate to ULTRA<br/>(4,000-Token System 2)"]
-    end
-
-    MonolithicInference -->|"Replaced by Bicameral Architecture"| BicameralEngine
-
-    style MonolithicInference fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
-    style BicameralEngine fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style FastPass fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         MONOLITHIC OVERTHINKING VS BICAMERAL TIERED ENGINE                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ ❌ MONOLITHIC 32K THINKING INFERENCE     │   │ 🛡️ BICAMERAL TIERED SHADOW ENGINE        │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Simple community fair news article     │   │ • Stage 1: Fast Heuristic Triage         │      │
+│ │ • 32,000-token heavy reasoning model     │──▶│ • Benign & Clean? ($S \le 25.0$):        │      │
+│ │ • Pedantic over-analysis & false alarm   │   │   Adopt & Sign at $0.00 / 0 Tokens       │      │
+│ │ • 💥 Cost: $5.00/day + 14.8% false alarm │   │ • Stage 2 (Ambiguous): Escalate to ULTRA │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 FinOps Invariant: System 1 triage + System 2 escalation cuts token spend by 83.3%             │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -80,16 +71,25 @@ We engineered a **Decoupled Multi-Model Adapter Subsystem** (`credence.pipeline.
 * **Anthropic / OpenAI Adapters**: Standardized payload wrappers enabling hot-swapping if API pricing shifts.
 * **Local Ollama Adapter**: Fully offline, zero-token-cost inference for air-gapped node sovereignty.
 
-```mermaid
-flowchart TD
-    Ingest["Inbound Claim / Article"] 
-    --> Gov{"Token Safety Governor<br/>(30% Headroom Floor Breaker)"}
-    Gov -->|Quota Normal| AdapterRouter["Multi-Model Adapter Router<br/>(Gemini 3.7 / Claude 3.7 / GPT-4o / Ollama)"]
-    Gov -->|Quota Low / Offline| Fallback["Offline Structural Heuristic<br/>(Confidence &le; 0.50 Capped)"]
-    
-    style Gov fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style Fallback fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
-    style AdapterRouter fill:#0f172a,stroke:#a855f7,stroke-width:2px,color:#fff
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         MULTI-MODEL ADAPTER ROUTER & 30% HEADROOM BREAKER                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Inbound Claim / Web Article Ingestion                                                            │
+│                                │                                                                 │
+│                                ▼ Token Safety Governor & Quota Health Monitor                    │
+│       ┌────────────────────────┴────────────────────────┐                                        │
+│       ▼ Quota Normal ($\ge 30\%$ Headroom)              ▼ Quota Exhausted / Low ($< 30\%$ Floor)  │
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ 🚀 MULTI-MODEL ADAPTER ROUTER            │   │ 🛡️ OFFLINE HEURISTIC CIRCUIT BREAKER     │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Gemini 3.7 Flash (4k thinking tokens)  │   │ • `QUOTA_PRESERVED` Tripped              │      │
+│ │ • Claude 3.7 / GPT-4o Standard Adapter   │   │ • Deterministic Regex Heuristics         │      │
+│ │ • Local Ollama Offline Air-Gapped Engine │   │ • Honestly Capped Confidence ($\le 0.50$)│      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Invariant 38: Multi-model sovereignty prevents vendor lock-in and protects offline continuity │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 When API budgets approach the **30% headroom floor**, the **Token Safety Governor** trips an offline circuit breaker (`QUOTA_PRESERVED`). Instead of failing or burning emergency funds, the node gracefully falls back to deterministic regex heuristics—and honestly reports its confidence as capped at 0.50.

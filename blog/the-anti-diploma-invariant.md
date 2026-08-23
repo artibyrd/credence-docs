@@ -17,23 +17,23 @@ In decentralized and autonomous systems, static credentials are a severe vulnera
 
 In Credence, we codified this principle into **[Invariant 17](../docs/invariants.md#invariant-17): The Anti-Diploma Invariant**.
 
-```mermaid
-graph TD
-    subgraph AuthorityCalc["Empirical Authority Formula (W_i = 0.20 Q_i + 0.80 E_i)"]
-        Q["Node Quality (Q_i)<br>0.25 Uptime + 0.30 Conformance + 0.25 Grounding + 0.10 Latency + 0.10 Keys"]
-        E["Domain Expertise (E_i)<br>0.40 Concordance + 0.35 Grounding + 0.15 Volume + 0.10 Longevity"]
-        Q --> W["Composite Authority Weight (W_i)"]
-        E --> W
-    end
-
-    subgraph SecurityGates["Anti-Cartel Defense Gates"]
-        Gate1["Domain Entropy Gate<br>(Requires >= 5 Distinct FQDNs)"]
-        Gate2["Grounding Gate<br>(100% Verbatim Substrings)"]
-    end
-
-    W --> Gate1
-    Gate1 --> Gate2
-    Gate2 --> Verified["Eligible for Galileo Override & Consensus Weight"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         EMPIRICAL AUTHORITY WEIGHT & ANTI-CARTEL DEFENSE GATES                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ ⚖️ AUTHORITY WEIGHT ($W_i=0.2Q_i+0.8E_i$) │   │ 🛡️ ANTI-CARTEL DEFENSE GATES             │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Node Quality ($Q_i \in [0,1]$):        │   │ • 1. Domain Entropy Gate ($D_i$):        │      │
+│ │   Uptime + Conformance + Grounding + Keys│   │   Must audit $\ge 5$ distinct FQDNs      │      │
+│ │ • Domain Expertise ($E_i \in [0,1]$):    │──▶│ • 2. Epistemic Grounding Gate ($G_i$):   │      │
+│ │   Concordance + Grounding + Longevity    │   │   100% Verbatim Substrings ($G=1.00$)    │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+│                                       │                                                          │
+│                                       ▼                                                          │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ ✨ ELIGIBLE FOR GALILEO OVERRIDE: Verified domain truth cannot be silenced by majorities   │   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Authority Factor Breakdown

@@ -22,31 +22,33 @@ When designing **Credence**, we took a radically different architectural path dr
 
 To fulfill these requirements without sacrificing latency, cryptographic verifiability, or multi-cloud portability, we organized the entire ecosystem into **The 3-Plane Architecture**.
 
-```mermaid
-flowchart TD
-    subgraph EdgePlane ["Plane 1: Edge Plane (Cloudflare Workers)"]
-        E1["5 Sovereign Domains (docs, blog, report, run, nexus)"]
-        E2["Vanilla ES Modules & CSS Custom Properties"]
-        E3["Sub-50ms Global Edge Routing & Origin Rewriting"]
-        E4["Zero npm Dependencies (0 Bytes node_modules)"]
-    end
-
-    subgraph ComputePlane ["Plane 2: Compute Plane (Google Cloud Run v2)"]
-        C1["FastMCP 2.0 (Dual Transport: stdio & SSE)"]
-        C2["Starlette REST API & WebSockets"]
-        C3["Epistemic Scoring & Verbatim Grounding Engine"]
-        C4["Scale-to-Zero (min_instances = 0, $0.00 Idle)"]
-    end
-
-    subgraph InfraPlane ["Plane 3: Infrastructure Plane (Terraform Multi-Cloud)"]
-        I1["GCP Cloud Run & IAM Workload Identity"]
-        I2["Cloudflare DNS & Worker Edge Bindings"]
-        I3["Zero-Drift Declarative State"]
-    end
-
-    EdgePlane -.->|"Proxy /api & /sse"| ComputePlane
-    InfraPlane ==>|"Provisions & Binds"| EdgePlane
-    InfraPlane ==>|"Provisions & Binds"| ComputePlane
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE CREDENCE 3-PLANE DECOUPLED ARCHITECTURE                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🌐 PLANE 1: EDGE PLANE (Cloudflare Workers & Zero-Build Assets)                            │   │
+│ │ • 5 Sovereign Domains (`credence.run`, `docs.*`, `blog.*`, `credence.report`, `*.nexus`)   │   │
+│ │ • Vanilla ES Modules & CSS Custom Properties • Sub-50ms Global Edge Routing                │   │
+│ │ • Zero npm Dependencies (0 Bytes `node_modules` · Zero build step)                         │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                │ Proxies `/api` & `/sse`                         │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ ⚙️ PLANE 2: COMPUTE PLANE (Google Cloud Run v2 Serverless Container)                        │   │
+│ │ • FastMCP 2.0 (Dual Transport: `stdio` & `sse`) • Starlette REST API & WebSocket Relays    │   │
+│ │ • 4-Specialist Epistemic Scoring & $G=1.00$ Verbatim Grounding Engine                      │   │
+│ │ • Scale-to-Zero (`min_instances = 0`, $0.00 Idle Cost per Hour)                            │   │
+│ └──────────────────────────────────────────────▲─────────────────────────────────────────────┘   │
+│                                                │ Provisions & Binds                              │
+│ ┌──────────────────────────────────────────────┴─────────────────────────────────────────────┐   │
+│ │ 🏛️ PLANE 3: INFRASTRUCTURE PLANE (Declarative Multi-Cloud Terraform)                       │   │
+│ │ • GCP Cloud Run, WIF IAM Roles & GCS Buckets • Cloudflare DNS Records & Worker Edge Rules  │   │
+│ │ • Zero-Drift Declarative State (`just tf-plan` / `just tf-apply`)                          │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Strict Separation of Concerns: Global edge velocity + serverless compute + declarative IaC   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

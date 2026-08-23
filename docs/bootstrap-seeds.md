@@ -19,20 +19,34 @@ Candidate seed nodes are ranked by a composite quality metric ($Q_i \in [0.0, 1.
 
 $$Q_i = 0.25 U_i + 0.30 C_i + 0.25 G_i + 0.10 T_i + 0.10 K_i$$
 
-```mermaid
-graph TD
-    subgraph Factors ["5-Factor Quality Evaluation ($Q_i$)"]
-        F1["1. Uptime & Latency ($U_i$, 25%)<br/>(Heartbeat success rate & latency <300ms)"]
-        F2["2. Consensus Concordance ($C_i$, 30%)<br/>(Proximity to Robust Median Consensus)"]
-        F3["3. Quote Grounding Precision ($G_i$, 25%)<br/>(100% DOM/Text Grounded Excerpts)"]
-        F4["4. Taxonomy Currency ($T_i$, 10%)<br/>(Official SHA-256 catalog hashes)"]
-        F5["5. Key Longevity & Sybil Damping ($K_i$, 10%)<br/>(Ed25519 identity age)"]
-    end
-
-    Factors --> Composite["Composite Metric $Q_i$<br/>$Q_i = 0.25 U_i + 0.30 C_i + 0.25 G_i + 0.10 T_i + 0.10 K_i$"]
-    Composite --> Threshold{"$Q_i \ge 0.85$ & Top 20?"}
-    Threshold -- "Yes" --> SeedCandidate["Promoted to Signed Seed Manifest (peers.json)"]
-    Threshold -- "No" --> StandardPeer["Standard Mesh Peer"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         5-FACTOR NODE QUALITY ($Q_i$) EVALUATION ARCHITECTURE                    │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ $Q_i = 0.25 U_i + 0.30 C_i + 0.25 G_i + 0.10 T_i + 0.10 K_i$                               │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌───────────────────────────┬───────┬───────────────────────────────┬──────────────────────────┐ │
+│ │ Factor                    │ Weight│ Evaluation Method             │ Slashing / Guard         │ │
+│ ├───────────────────────────┼───────┼───────────────────────────────┼──────────────────────────┤ │
+│ │ $U_i$: Uptime & Latency   │  25%  │ Heartbeat success rate (<300ms│ Drop if down > 1h        │ │
+│ │ $C_i$: Consensus Concord  │  30%  │ Proximity to Bayesian median  │ Slashing if Byzantine    │ │
+│ │ $G_i$: Quote Grounding    │  25%  │ Verifiable DOM character-match│ Auto-zero if hallucinated│ │
+│ │ $T_i$: Taxonomy Currency  │  10%  │ Pinned SHA-256 catalog hashes │ Reject if stale catalog  │ │
+│ │ $K_i$: Key Longevity      │  10%  │ Ed25519 identity age & entropy│ Sybil rate-limiting      │ │
+│ └───────────────────────────┴───────┴───────────────┬───────────────┴──────────────────────────┘ │
+│                                                     │                                            │
+│                       ┌─────────────────────────────┴────────────────────────────┐               │
+│                       │ Promotion Gate: $Q_i \ge 0.85$ & Rank $\le 20$ in Cluster│               │
+│                       └───────────────┬──────────────────────────┬───────────────┘               │
+│                                  Pass │                     Fail │                               │
+│                                       ▼                          ▼                               │
+│                ┌───────────────────────────────┐   ┌──────────────────────────┐                  │
+│                │ 🛡️ Signed Seed Directory      │   │ 🟢 Standard Mesh Peer    │                  │
+│                │ (`seeds.credence.nexus/peers`)│   │ (Normal Gossip Exchange) │                  │
+│                └───────────────────────────────┘   └──────────────────────────┘                  │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

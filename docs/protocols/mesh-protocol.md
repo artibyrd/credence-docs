@@ -26,38 +26,31 @@ Centralized truth or fact-checking APIs have fundamental flaws:
 
 ## 2. P2P Gossip Protocol Specification
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant NodeA as 🛡️ Node Alpha (ws://8761)
-    participant NodeB as 🛡️ Node Beta (ws://8762)
-    participant NodeC as 🛡️ Node Gamma (ws://8763)
-
-    Note over NodeA,NodeB: 1. Bidirectional P2P Handshake
-    activate NodeA
-    NodeA->>NodeB: PEER_HELLO (Ed25519 PubKey, Catalog Hashes, Protocol v1.21.1)
-    activate NodeB
-    NodeB->>NodeA: PEER_HELLO (Ed25519 PubKey, Catalog Hashes, Protocol v1.21.1)
-    deactivate NodeA
-    deactivate NodeB
-
-    Note over NodeA,NodeC: 2. Autonomous Epistemic Audit & Broadcast
-    activate NodeA
-    NodeA->>NodeA: Audits Ingress URL with Gemini 3.7 Flash ($0.0003 spend)
-    NodeA->>NodeA: Validates G=1.00 & signs RFC 8785 Ed25519 envelope
-    NodeA->>NodeB: ANNOUNCE_ATTESTATION (Signed Envelope, TTL=3, Hop=1)
-    NodeA->>NodeC: ANNOUNCE_ATTESTATION (Signed Envelope, TTL=3, Hop=1)
-    deactivate NodeA
-
-    Note over NodeB,NodeC: 3. Zero-Token Verification & Storm Suppression
-    activate NodeB
-    NodeB->>NodeB: Verifies Ed25519 signature & DOM offset in <1ms ($0.00 tokens)
-    NodeB->>NodeB: Inserts AttestationRecord to local SQLite WAL
-    NodeB->>NodeC: Epidemic Rebroadcast ANNOUNCE_ATTESTATION (TTL=2, Hop=2)
-    deactivate NodeB
-    activate NodeC
-    NodeC->>NodeC: Suppresses Duplicate Attestation (Bloom Filter / Seen Cache)
-    deactivate NodeC
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         P2P GOSSIP & ZERO-TOKEN EPIDEMIC REPLICATION                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Node Alpha (ws://8761)                 Node Beta (ws://8762)                 Node Gamma (ws://8763)│
+│       │                                      │                                      │    │
+│  [1]  ├───── PEER_HELLO(Ed25519_Pub, Catalog_SHA256, v2.1.1) ───────────────────────▶│    │
+│       │◀──── PEER_HELLO(Ed25519_Pub, Catalog_SHA256, v2.1.1) ────────────────────────┤    │
+│       │                                      │                                      │    │
+│  [2]  │── 1. Ingress URL Audit ($0.0003) ──┐ │                                      │    │
+│       │   2. G=1.00 Grounding Validation   │ │                                      │    │
+│       │   3. RFC 8785 Ed25519 Signing      │ │                                      │    │
+│       │◀───────────────────────────────────┘ │                                      │    │
+│       │                                      │                                      │    │
+│  [3]  ├───── ANNOUNCE_ATTESTATION (Signed Envelope, TTL=3, Hop=1) ──────────────────▶│    │
+│       │                                      │                                      │    │
+│  [4]  │                                      ├── 1. Verify Ed25519 in <1ms ($0.00)─┐│    │
+│       │                                      │   2. Insert to SQLite WAL           ││    │
+│       │                                      │◀────────────────────────────────────┘│    │
+│       │                                      │                                      │    │
+│  [5]  │                                      ├──── Epidemic Rebroadcast (TTL=2) ───▶│    │
+│       │                                      │                                      │    │
+│       │                                      │                   (Bloom Filter Hit: │    │
+│       │                                      │                    Drop Duplicate)───┤    │
+└───────┴──────────────────────────────────────┴──────────────────────────────────────┴────┘
 ```
 
 ---

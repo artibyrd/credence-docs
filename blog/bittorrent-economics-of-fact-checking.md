@@ -17,16 +17,22 @@ If 100 developers, newsrooms, and AI agent frameworks each independently ingest 
 
 Why are 100 different computers doing the exact same evaluation 100 times?
 
-```mermaid
-graph LR
-    subgraph SwarmEconomics["Cooperative Work-Sharing Economics"]
-        Feed["High-Volume Feed Stream<br>(500 Articles/day)"] --> Part["Consistent Hashing Partition"]
-        Part --> N1["Node 1 (Audits Feed Part A)"]
-        Part --> N2["Node 2 (Audits Feed Part B)"]
-        Part --> N3["Node 3 (Audits Feed Part C)"]
-        N1 & N2 & N3 --> Mesh["P2P Watts-Strogatz Lattice"]
-        Mesh --> Adopt["All 13 Nodes Cache Full Stream<br>(92.3% Savings at $0.00 Tokens)"]
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         COOPERATIVE WORK-SHARING FEED PARTITIONING                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ High-Volume Syndicated News Stream (500 Articles / Day)                                          │
+│                                │                                                                 │
+│                                ▼ Consistent Rendezvous Modulo Partitioning                       │
+│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
+│ │ Node 1 (Audits Slice A)   │ Node 2 (Audits Slice B)       │ Node 3 (Audits Slice C)        │   │
+│ └─────────────┬─────────────┴───────────────┬───────────────┴───────────────┬────────────────┘   │
+│               │                             │                               │                    │
+│               └─────────────────────────────┼───────────────────────────────┘                    │
+│                                             ▼                                                    │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🌐 Watts-Strogatz P2P Mesh: All 13 Nodes Cache Full Stream (92.3% Savings @ $0.00 Extra)    │   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Swarm Scaling & Monthly LLM API Cost

@@ -33,18 +33,22 @@ read_time: 12 min
 
 Credence is designed for mission-critical epistemic evaluation, autonomous agent governance, and decentralized trust. Because autonomous agents and human analysts rely on Credence to detect disinformation, manipulative patterns, and synthetic slop, the codebase enforces a rigorous **6-Tier Multi-Layered Testing Architecture**.
 
-```mermaid
-flowchart TD
-    subgraph TestingPyramid ["The Credence 6-Tier Verification Pyramid"]
-        T6["Tier 6: Reusable Live Rotating E2E Gauntlet<br/><code>just test-live</code> (Live Web, Mutating Seeds, Remote SSE FastMCP)"]
-        T5["Tier 5: Zero-Build Playwright & DOM Integrity<br/><code>test_docs_rendering.py</code> (Headless Chromium, SVG Geometry, 8 Widgets)"]
-        T4["Tier 4: Adversarial Red-Team & Security Protocol<br/><code>test_red_team_cluster_attacks.py</code> (SSRF, Billion Laughs, Prompt Injection)"]
-        T3["Tier 3: 13-Node P2P Mesh & Byzantine Cluster<br/><code>test_mesh_cluster.py</code> (Watts-Strogatz Lattice, Sybil Cartels, Work-Sharing)"]
-        T2["Tier 2: Universal Interface Isolation & 4-Way Parity<br/><code>test_interfaces_isolation.py</code> (CLI, FastMCP 2.0, Textual TUI, Web UI)"]
-        T1["Tier 1: Hermetic In-Memory Unit & Sub-Agent Suite<br/><code>just test</code> (In-Memory SQLite, Zero Network, Deterministic Math)"]
-    end
-
-    T1 --> T2 --> T3 --> T4 --> T5 --> T6
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                             THE CREDENCE 6-TIER VERIFICATION PYRAMID                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ▲ [Tier 6: Reusable Live Rotating E2E]  `just test-live`  • Live Web, Mutating RSS, Remote SSE  │
+│ ┼────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ │ [Tier 5: Zero-Build DOM Integrity]    `test_docs_rendering.py` • Headless Chrome, 12 Labs, A11y│
+│ ┼────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ │ [Tier 4: Adversarial Red-Team]        `test_red_team.py` • SSRF, Billion Laughs, Injections    │
+│ ┼────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ │ [Tier 3: 13-Node P2P Mesh Cluster]    `test_mesh_cluster.py` • Watts-Strogatz, Sybil Cartels   │
+│ ┼────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ │ [Tier 2: 4-Way Interface Parity]      `test_interfaces_isolation.py` • CLI, MCP, TUI, Web UI   │
+│ ┼────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ▼ [Tier 1: Hermetic In-Memory Unit]     `just test` • In-Memory SQLite WAL, Math Bounds, <35s    │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -53,11 +57,11 @@ flowchart TD
 
 | Tier | Focus Area | Primary Command | Network Required? | Latency | Why It Is Vital |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Tier 1** | **Hermetic Unit & Math** | `just test` | ❌ No (100% Offline) | `<65s` | Guarantees deterministic scoring math, SimHash hashing, and offline heuristics with $0.00$ token cost. |
+| **Tier 1** | **Hermetic Unit & Math** | `just test` | ❌ No (100% Offline) | `<35s` | Guarantees deterministic scoring math, SimHash hashing, and offline heuristics with $0.00$ token cost. |
 | **Tier 2** | **4-Way Interface Parity** | `pytest tests/test_interfaces_isolation.py` | ❌ No | `<3s` | Guarantees zero business logic leakage across CLI, FastMCP 2.0, Textual TUI, and Web. |
 | **Tier 3** | **P2P Mesh & Byzantine Cluster** | `pytest tests/test_mesh_cluster.py` | ❌ No (Local Sockets) | `<25s` | Validates BitTorrent work-sharing (92.3% compute savings) and Byzantine cartel slashing ($3f+1$). |
 | **Tier 4** | **Adversarial Red-Team** | `pytest tests/test_red_team_cluster_attacks.py` | ❌ No (Hermetic Fixtures) | `<5s` | Protects ingestion engines against SSRF, XML entity expansion bombs, and prompt injections. |
-| **Tier 5** | **Zero-Build Playwright** | `pytest tests/test_docs_rendering.py` | ❌ No (Local HTTP) | `<20s` | Verifies live SVG diagram dimensions, widget state transitions, and zero npm supply-chain dependencies. |
+| **Tier 5** | **Zero-Build Playwright** | `pytest tests/test_docs_rendering.py` | ❌ No (Local HTTP) | `<20s` | Verifies live DOM rendering, 12 interactive labs, and zero npm supply-chain dependencies. |
 | **Tier 6** | **Live Rotating E2E Suite** | `just test-live` | 🌐 Yes (Live Public Web) | `<30s` | Validates live RSS syndication, dynamic article extraction, remote FastMCP 2.0 SSE, and live web drift. |
 
 ---
@@ -67,15 +71,23 @@ flowchart TD
 ### Objective & Methodology
 Tier 1 is the foundational bedrock of Credence. In accordance with **[Invariant 4: Hermetic Testing](../invariants.md#invariant-4)**, Tier 1 runs 100% network-free using in-memory SQLite databases (`sqlite+aiosqlite:///:memory:`), mock HTML fixtures, and deterministic taxonomy catalogs.
 
-```mermaid
-flowchart LR
-    subgraph Tier1Components ["Tier 1 Hermetic Core"]
-        A["Scoring Engine (scoring.py)"] --> M["In-Memory SQLite"]
-        B["SimHash Hasher (hasher.py)"] --> M
-        C["Poe's Law Satire Engine"] --> M
-        D["Offline Heuristics Governor"] --> M
-    end
-    M --> Verdict["Deterministic Signed Audit Report (0.0ms)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                 TIER 1: HERMETIC IN-MEMORY CORE                                  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
+│ │ Scoring Engine Math    │ ───▶ │ In-Memory SQLite WAL    │ ◀─── │ SimHash-64 Hasher         │   │
+│ │ • Suspicion S in [0,100│      │ `sqlite+aiosqlite://`   │      │ • Hamming Distance d_H<=3 │   │
+│ └────────────────────────┘      └────────────┬────────────┘      └───────────────────────────┘   │
+│                                              │                                                   │
+│ ┌────────────────────────┐                   │                   ┌───────────────────────────┐   │
+│ │ Poe's Law Satire Gate  │ ──────────────────┼─────────────────▶ │ Token Budget Governor    │   │
+│ │ • Neutralize 0.00      │                   ▼                   │ • 30% Headroom Breaker    │   │
+│ └────────────────────────┘      ┌─────────────────────────┐      └───────────────────────────┘   │
+│                                 │ Deterministic Signed    │                                      │
+│                                 │ Audit Report (0.0ms)    │                                      │
+│                                 └─────────────────────────┘                                      │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Key Properties Tested
@@ -85,37 +97,38 @@ flowchart LR
 4. **Token Headroom & Offline Circuit Breakers**: Validates that when token limits or offline flags activate, the engine seamlessly switches to `evaluation_method: "offline_structural_heuristic"` with confidence capped at $\le 0.50$.
 
 > [!TIP]
-> Run Tier 1 locally during development with `just test`. It executes over 150 tests in under 65 seconds with zero network access and zero token expenditure.
+> Run Tier 1 locally during development with `just test`. It executes over 150 tests in under 35 seconds with zero network access and zero token expenditure.
 
 ---
 
 ## 3. Tier 2: Universal Interface Isolation & 4-Way Parity
 
 ### Objective & Methodology
-Credence is built on the principle of **Universal Presentation Layer Parity** (**[Invariant 26](../invariants.md#invariant-26)**). All capabilities must be symmetrically accessible through all four primary interfaces:
+Credence is built on the principle of **Universal Presentation Layer Parity** (**[Invariant 30](../invariants.md#invariant-30)**). All capabilities must be symmetrically accessible through all four primary interfaces:
 1. **CLI Workstation**: `credence audit`, `credence lookup`, `credence export-report`, `credence verify-file`.
 2. **FastMCP 2.0 Agent Server**: `credence_` JSON-RPC tools and `credence://` state resources over stdio/SSE.
 3. **Textual Terminal Workstation (TUI)**: Interactive keyboard-driven desktop workspace (`credence tui`).
 4. **Zero-Build Web UI**: Sovereign client-side visual explorer (`web/`).
 
-```mermaid
-sequenceDiagram
-    participant User as Human / AI Agent
-    participant Core as Pure Epistemic Engine (credence.pipeline)
-    participant CLI as CLI Interface
-    participant MCP as FastMCP 2.0 Server
-    participant TUI as Textual TUI
-    participant Web as Zero-Build Web
-
-    User->>CLI: credence audit <url>
-    CLI->>Core: evaluate_snapshot()
-    Core-->>CLI: AuditReport (Score=12.5, Sig=Ed25519)
-
-    User->>MCP: tools/call credence_evaluate_url
-    MCP->>Core: evaluate_snapshot()
-    Core-->>MCP: AuditReport (Score=12.5, Sig=Ed25519)
-
-    Note over CLI,Web: 100% Bit-for-Bit Score & Signature Equivalence
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         TIER 2: 4-WAY PRESENTATION PARITY SPECIFICATION                          │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Human Operator / AI Sub-Agent                                                                    │
+│       │                                                                                          │
+│       ├───── 1. CLI Workstation: `credence audit <url>` ───────────────────────▶ ┌─────────────┐ │
+│       │◀──── Raw Stdout JSON / Rich ANSI Table (Score=12.5, Sig=Ed25519) ───────┤ Pure Pure   │ │
+│       │                                                                         │ Epistemic   │ │
+│       ├───── 2. FastMCP 2.0 Agent Server: `tools/call credence_audit` ─────────▶│ Pipeline    │ │
+│       │◀──── JSON-RPC Result (Score=12.5, Sig=Ed25519) ────────────────────────┤ Core Engine │ │
+│       │                                                                         │             │ │
+│       ├───── 3. Textual TUI Workstation: `credence tui` ───────────────────────▶│ `evaluate_  │ │
+│       │◀──── Reactive Terminal Screen (Score=12.5, Sig=Ed25519) ────────────────┤  snapshot()`│ │
+│       │                                                                         │             │ │
+│       ├───── 4. Zero-Build Web UI: Client-Side WebCrypto ──────────────────────▶│             │ │
+│       │◀──── Rendered DOM Card (Score=12.5, Sig=Ed25519) ───────────────────────└─────────────┘ │
+│       │                                                                                          │
+│       └───── 100% BIT-FOR-BIT SCORE, EVIDENCE & SIGNATURE EQUIVALENCE ───────────────────────────┘
 ```
 
 ### Why Interface Isolation Matters
@@ -128,26 +141,36 @@ By decoupling business logic from presentation adapters, core algorithms can be 
 ### Objective & Methodology
 Credence Mesh allows nodes to gossip signed RFC 8785 envelopes, share computational workload, and achieve distributed consensus. Tier 3 tests deploy a 13-node **Watts-Strogatz Small-World Lattice** ($N=13, k=4, p=0.15$) on ephemeral local WebSocket ports to stress-test decentralized operations.
 
-```mermaid
-flowchart TD
-    subgraph Cluster13 ["13-Node Watts-Strogatz P2P Mesh (k=4, p=0.15)"]
-        N0["Node 0 (Primary Evaluator)"] -->|"Gossip Broadcast"| N1["Node 1"]
-        N0 -->|"Gossip Broadcast"| N2["Node 2"]
-        N1 --> N3["Node 3"]
-        N2 --> N4["Node 4"]
-        N3 & N4 --> Peers["Peer Nodes 5..11 (0 Tokens)"]
-        
-        Rogue["Node 12 (Byzantine Attacker)"] -.->|"Ungrounded Hallucination Smear (S=95.0, G=0.0)"| Aggregator["Bayesian Consensus Aggregator"]
-    end
-
-    Peers --> Aggregator
-    Aggregator --> Verdict["Consensus Score: 16.5 (LOW_SUSPICION)<br/>✅ Rogue Node 12 Slashed & Isolated"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                      TIER 3: 13-NODE WATTS-STROGATZ MESH SIMULATION GAUNTLET                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 13-Node Small-World Ring Lattice Topology (k=4, p=0.15)                                    │   │
+│ │                                                                                            │   │
+│ │   [Node 0: Primary Ingress Evaluator (Gemini 3.7 Flash $0.0003)]                           │   │
+│ │         │                                                                                  │   │
+│ │         ├─── Gossip Broadcast (Hop=1, TTL=3) ──▶ [Nodes 1..4 (Local WebSocket Ports)]      │   │
+│ │                                                        │                                   │   │
+│ │                                                        ├──▶ [Nodes 5..11 (0 LLM Tokens)]   │   │
+│ │                                                                   │ (92.3% Compute Savings)│   │
+│ │                                                                   ▼                        │   │
+│ │   [Node 12: Byzantine Sybil Rogue Attacker] ─────────────▶ [Bayesian Consensus Engine]    │   │
+│ │   (Submits Ungrounded S=95.0, G=0.00 Hallucination)       • Detects G < 0.75               │   │
+│ │                                                           • Applies Galileo Rule Override  │   │
+│ │                                                           • Slashes Rogue Node 12          │   │
+│ └───────────────────────────────────────────────────────────────────┬────────────────────────┘   │
+│                                                                     ▼                            │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ VERDICT: Consensus Score S=16.5 (LOW_SUSPICION) • Rogue Cartel Neutralized                 │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Key Properties Tested
 1. **BitTorrent Work-Sharing Compute Savings**: Node 0 evaluates breaking news with Gemini 3.7 Flash; peer nodes 1..12 adopt the signed attestation in $0$ LLM tokens, achieving **92.3% compute savings** at $\$0.00$ marginal cost.
 2. **Gossip Epidemic Diffusion & Storm Suppression**: Verifies that attestations propagate across all 13 nodes in $<0.6\text{s}$ while LRU deduplicators prevent message storm loops.
-3. **Byzantine Sybil Cartel Resistance ($3f+1$)**: Injects malicious rogue nodes submitting ungrounded hallucinated smear attacks ($S=95.0, G=0.0$). The Bayesian Consensus Aggregator detects $G < 0.80$, enforces **[Invariant 23: The Galileo Rule](../invariants.md#invariant-23)**, and slashes the rogue node from consensus.
+3. **Byzantine Sybil Cartel Resistance ($3f+1$)**: Injects malicious rogue nodes submitting ungrounded hallucinated smear attacks ($S=95.0, G=0.0$). The Bayesian Consensus Aggregator detects $G < 0.80$, enforces **[Invariant 27: The Galileo Rule](../invariants.md#invariant-27)**, and slashes the rogue node from consensus.
 
 ---
 
@@ -156,29 +179,18 @@ flowchart TD
 ### Objective & Methodology
 Ingesting untrusted web content exposes agent nodes to malicious payloads, memory exhaustion, and prompt injections. Tier 4 executes an automated security gauntlet against all ingestion layers.
 
-```mermaid
-flowchart LR
-    subgraph Attacks ["Adversarial Gauntlet"]
-        A1["Octal/Hex/Rebind SSRF"]
-        A2["XML Billion Laughs Bomb"]
-        A3["Indirect Prompt Injection"]
-        A4["Salami-Slicing Consensus Drift"]
-        A5["FastMCP Burst Flooding"]
-    end
-
-    subgraph Defenses ["Credence Security Guardrails"]
-        D1["RFC 1918 & Cloud Metadata Filter"]
-        D2["safe_parse_xml DTD / Entity Rejection"]
-        D3["&lt;untrusted_source_text&gt; Isolation"]
-        D4["Median-Weighted Damping"]
-        D5["Token-Bucket Rate Limiter"]
-    end
-
-    A1 --> D1 --> Safe["Safe Ingestion"]
-    A2 --> D2 --> Safe
-    A3 --> D3 --> Safe
-    A4 --> D4 --> Safe
-    A5 --> D5 --> Safe
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         TIER 4: ADVERSARIAL GAUNTLET & DEFENSE MATRIX                            │
+├──────────────────────────────────────┬───────────────────────────────────────────────────────────┤
+│ Attack Vector                        │ Active Security Guardrail & Invariant                     │
+├──────────────────────────────────────┼───────────────────────────────────────────────────────────┤
+│ Octal / Hex / Rebind SSRF            │ RFC 1918 & Cloud Metadata Blocking (`inv-ssrf-defense`)   │
+│ XML Billion Laughs Bomb              │ `safe_parse_xml` DTD & Entity Rejection (`inv-ingestion`) │
+│ Indirect Prompt Injection            │ `<untrusted_source_text>` Directive Wrapping              │
+│ Salami-Slicing Consensus Drift       │ Domain-Entropy Weighted Median & Galileo Rule Override    │
+│ FastMCP Burst Flooding / DoS         │ Token-Bucket Rate Limiter & Semaphore Concurrency Control │
+└──────────────────────────────────────┴───────────────────────────────────────────────────────────┘
 ```
 
 ### Key Attacks Neutralized
@@ -193,21 +205,25 @@ flowchart LR
 ### Objective & Methodology
 In accordance with **[Invariant 31: Universal Zero-Build Standards](../invariants.md#invariant-31)**, Credence uses zero npm dependencies. Tier 5 uses async Playwright and headless Chromium to verify that vanilla ES Modules and CSS Custom Properties render accurately across all viewports.
 
-```mermaid
-flowchart TD
-    subgraph PlaywrightGauntlet ["Playwright Live DOM Verification"]
-        P1["Verify All Mermaid Diagrams Render into Non-Zero SVGs"]
-        P2["Verify Zero Raw HTML Leaks (&lt;div&gt;, &lt;textarea&gt;) in Prose"]
-        P3["Interactive State Verification on All 8 Playground Widgets"]
-        P4["GCP Tabbed Container Switching & localStorage Persistence"]
-        P5["Invariant Deep-Linking & Viewport Scroll Geometry"]
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         TIER 5: PLAYWRIGHT ZERO-BUILD DOM INTEGRITY SUITE                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┬────────────────────────────────────────────────────────────────┐   │
+│ │ Verification Target       │ Enforced Contract & Integrity Invariant                        │   │
+│ ├───────────────────────────┼────────────────────────────────────────────────────────────────┤   │
+│ │ 12 Interactive Labs       │ Zero console errors, valid DOM state changes, zero raw LaTeX   │   │
+│ │ Architecture Schematics   │ Crisp monospace alignment, high contrast, zero overflow leaks  │   │
+│ │ Frontmatter & Sitemap     │ 100% route validity, zero broken markdown anchors, zero-npm    │   │
+│ │ Invariant Deep-Links      │ Canonical hash fragment resolution & viewport scroll geometry  │   │
+│ └───────────────────────────┴────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Tested Contracts
-* **Mermaid SVG Rendering**: Asserts all diagram blocks render into SVGs with bounding box `width > 50px` and `height > 30px`.
-* **Playground Widget Interactivity**: Tests live DOM state transitions across all 8 interactive widgets (Mesh Simulator, SimHash Calculator, Verbatim Grounding Tester, WebCrypto Verifier, etc.).
+* **Playground Widget Interactivity & Math Formatting**: Tests live DOM state transitions and clean mathematical typography across all 12 interactive widgets (Mesh Simulator, SimHash Calculator, Verbatim Grounding Tester, WebCrypto Verifier, etc.).
 * **Zero Console Errors**: Traps and fails on any browser `console.error` or unhandled JavaScript exceptions during navigation.
+* **Zero Layout Glitches**: Verifies high-density ASCII/UTF-8 schematics render responsively without clipping or horizontal overflow.
 
 ---
 
@@ -216,21 +232,25 @@ flowchart TD
 ### Objective & Methodology
 Tier 6 verifies that Credence works in real-world conditions against the live public web. Rather than relying on static fixtures, Tier 6 implements a **Stratified Master Corpus** and **Deterministic Rotation Engine** ([`tests/e2e/live_corpus.py`](https://github.com/artibyrd/credence/blob/main/tests/e2e/live_corpus.py)).
 
-```mermaid
-flowchart TD
-    subgraph RotationEngine ["Stratified Mutation Engine"]
-        Seed["Daily Seed (YYYY-MM-DD) or CREDENCE_LIVE_SEED"]
-        Seed --> Cat1["Reference (Wikipedia, Stanford Plato, Nature)"]
-        Seed --> Cat2["Satire (The Onion, Babylon Bee, Waterford Whispers)"]
-        Seed --> Cat3["Investigative Wire News (AP, BBC, Reuters, NPR)"]
-        Seed --> Cat4["Tech Media (Hacker News, Ars Technica, Verge)"]
-        Seed --> Cat5["Syndicated Live RSS Feeds (BBC RSS, HN RSS, Ars RSS)"]
-    end
-
-    Cat5 --> DynamicExtractor["Real-Time RSS Item Extractor"]
-    DynamicExtractor --> FreshNews["Fresh Breaking News Articles"]
-    
-    RotationEngine --> Suite["test_live_rotating_suite.py"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         TIER 6: STRATIFIED LIVE ROTATION E2E ENGINE                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Deterministic Daily Seed (`YYYY-MM-DD` or `CREDENCE_LIVE_SEED`)                            │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 5 Stratified Real-World Evaluation Channels:                                               │   │
+│ │ • Reference: Wikipedia / Stanford Plato / Nature    • Tech: Hacker News / Ars Technica     │   │
+│ │ • Satire: The Onion / Babylon Bee / Waterford       • Wire News: AP / Reuters / BBC / NPR  │   │
+│ │ • Live RSS Ingress: Real-Time Dynamic Ingestion & Live Breaking News Extractions           │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Automated Gauntlet: Live Extraction ──▶ Gemini 3.7 Flash ──▶ RFC 8785 Ed25519 Sign Check   │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Why Live Rotating Testing is Vital

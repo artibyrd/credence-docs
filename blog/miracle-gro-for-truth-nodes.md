@@ -18,17 +18,19 @@ When a newsroom, developer, or civic hacker pulls a decentralized fact-checking 
 
 In **Credence 1.6.0**, we introduced a fundamentally different paradigm: **Autonomous Node Germination ("Miracle-Gro")**.
 
-```mermaid
-flowchart LR
-    Unseeded["Cold Repo Clone<br>(Empty DB, 0 Feeds)"] -->|credence germinate| Stage1["1. Epistemic Genesis<br>(Ed25519 Custody)"]
-    Stage1 --> Stage2["2. Mesh Inoculation<br>(Genesis Seeds @ $0.00)"]
-    Stage2 --> Stage3["3. Epistemic Soil<br>(26 Categorized Feeds)"]
-    Stage3 --> Stage4["4. Miracle-Gro Burst<br>(HRW Partitioned Sifting)"]
-    Stage4 --> Stage5["5. Web Catalog Hydration<br>(Hot reports.json)"]
-    Stage5 --> Ready["🔥 Live Sovereign Node<br>(194+ Verified Reports in <13s)"]
-
-    style Unseeded fill:#1e293b,stroke:#ef4444,stroke-width:2px,color:#f8fafc
-    style Ready fill:#1e293b,stroke:#22c55e,stroke-width:2px,color:#f8fafc
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         5-PHASE AUTONOMOUS NODE GERMINATION PIPELINE                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Cold Repo Clone ──▶ 1. Identity Genesis ──▶ 2. Mesh Inoculation ──▶ 3. Soil Sowing               │
+│ (0 DB, 0 Feeds)     Ed25519 Keypair         Genesis Seeds ($0.00)   26 Categorized Feeds         │
+│                                                                        │                         │
+│                                                                        ▼                         │
+│ 🔥 LIVE SOVEREIGN NODE ◀── 5. Catalog Hydration ◀── 4. Miracle-Gro Burst ────────────────────────┘
+│ (194+ Verified Reports)   Syncs `reports.json`      HRW Partitioned Sifting (Sub-13s)            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Zero-Touch Germination: Fresh node ignites to full operational fidelity in <13 seconds        │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -69,23 +71,24 @@ Credence solves this using **Highest Random Weight (HRW) Rendezvous Hashing**:
 
 $$\text{Affinity}(K_{\text{node}}, U_{\text{feed}}) = \text{SHA-256}(K_{\text{node}} \parallel U_{\text{feed}}) \pmod{2^{32}}$$
 
-```mermaid
-flowchart TD
-    Swarm["13 Nodes Igniting Simultaneously"]
-    
-    Swarm -->|Node 1 (Key A)| P1["Investigative Tech: ProPublica, The Markup, Ars Technica"]
-    Swarm -->|Node 2 (Key B)| P2["Science Preprints: Nature, arXiv AI, ScienceDaily"]
-    Swarm -->|Node 3 (Key C)| P3["Regional Civic: CalMatters, Texas Tribune, Spotlight PA"]
-    Swarm -->|Node 4 (Key D)| P4["Corporate Disclosures: MarketWatch, SEC Releases, FTC"]
-    Swarm -->|Node 5 (Key E)| P5["Satire & Cloaking: The Onion, The Babylon Bee"]
-
-    P1 --> Mesh["Watts-Strogatz P2P Mesh Lattice"]
-    P2 --> Mesh
-    P3 --> Mesh
-    P4 --> Mesh
-    P5 --> Mesh
-
-    Mesh -->|Effort Avoidance Adoption| Collective["Collective Swarm State:<br>26-39 Fresh Audited Reports Across All 13 Nodes<br>(Cost: Only 2-3 Audits per Node)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         HRW RENDEZVOUS SWARM FEED PARTITIONING                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 13 Nodes Igniting Simultaneously in Mesh Cluster                                                 │
+│                                │                                                                 │
+│                                ▼ Highest Random Weight (HRW) Domain Affinity Hashing             │
+│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
+│ │ Node 1 (Key A)            │ Node 2 (Key B)                │ Node 3 (Key C)                 │   │
+│ │ Investigative Tech        │ Science Preprints             │ Regional Civic Policy          │   │
+│ │ (ProPublica, ArsTechnica) │ (Nature, arXiv, ScienceDaily) │ (CalMatters, Texas Tribune)    │   │
+│ └─────────────┬─────────────┴───────────────┬───────────────┴───────────────┬────────────────┘   │
+│               │                             │                               │                    │
+│               └─────────────────────────────┼───────────────────────────────┘                    │
+│                                             ▼                                                    │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🌐 Watts-Strogatz P2P Mesh Gossip: 39 Distinct Reports Shared across Cluster @ $0.00 Extra │   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 Because every node's public key produces a deterministic but distinct priority order across the 26 preset feeds, each node audits its highest-affinity domain first during the Miracle-Gro burst.
@@ -111,15 +114,21 @@ By turning competitive compute waste into cooperative peer adoption, a 13-node n
 
 To prevent deployment confusion, Credence 1.6.0 formalizes three strictly decoupled operational planes:
 
-```mermaid
-flowchart TD
-    Plane1["1. Edge Plane (Zero-Build CDN)<br>Cloudflare Pages (credence-docs)<br>Cloudflare Workers (credence/web/)"]
-    Plane2["2. Compute Plane (FastMCP & REST API)<br>Google Cloud Run (credence-server)<br>Self-Hosted Docker/K3s"]
-    Plane3["3. Infra Plane (Static Shells)<br>Terraform (GCP IAM, DNS, GCS Buckets)"]
-
-    Plane1 -->|Automated via deploy-edge.yml / just deploy-edge| LiveEdge["Public Edge CDN"]
-    Plane2 -->|Automated via release.yml / just deploy-backend| LiveCompute["Cloud Run Service"]
-    Plane3 -->|Manual via tf-apply| LiveInfra["Cloud Resources"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         3-PLANE DEPLOYMENT GOVERNANCE TOPOLOGY                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
+│ │ 1. EDGE PLANE (Zero-Build)│ 2. COMPUTE PLANE (FastMCP 2.0)│ 3. INFRA PLANE (Static IaC)    │   │
+│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
+│ │ • Cloudflare Pages & CDN  │ • Cloud Run / Docker Container│ • Terraform (GCP IAM, WIF)     │   │
+│ │ • `web/_worker.js` router │ • Starlette FastMCP SSE + REST│ • DNS Records & Cloudflare SSL │   │
+│ │ • Static `reports.json`   │ • Background Sifter Engine    │ • GCS / S3 Storage Buckets     │   │
+│ │ • Automated: `deploy-edge`│ • Automated: `release.yml`    │ • Manual: `just tf-apply`      │   │
+│ └───────────────────────────┴───────────────────────────────┴────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Strict Plane Decoupling: Zero state mixing between edge assets, compute containers, and IaC   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 * **Edge Plane** (`just deploy-edge`): Zero-build HTML5/CSS, ES modules, and static `reports.json` catalogs routed via Cloudflare Workers.

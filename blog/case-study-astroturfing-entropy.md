@@ -24,30 +24,24 @@ Coordinated influence operations and corporate astroturfing campaigns no longer 
 
 While individual articles pass superficial grammar checks, their collective distribution exhibits an unmistakable mathematical signature: **lexical and topical collapse**.
 
-```mermaid
-flowchart LR
-    subgraph SyndicatedFeeds["500+ Syndicated Feeds"]
-        F1["Feed A"]
-        F2["Feed B"]
-        F3["Feed C"]
-    end
-
-    subgraph DevAnalyzer["Dev Plane: Fast Entropy Sifter"]
-        Entropy["Calculate Topic Entropy (H)<br/>& Top-Token Concentration (C_top3)"]
-    end
-
-    subgraph ProdCore["Prod Plane: Forensic Attribution"]
-        Forensics["Gemini 3.7 Flash 4k Thinking<br/>• Source Lineage Extraction<br/>• Ed25519 Cryptographic Attestation"]
-    end
-
-    SyndicatedFeeds --> DevAnalyzer
-    DevAnalyzer -- "Trigger: H < 0.30 & C_top3 > 0.45" --> ProdCore
-    ProdCore --> Slash["Consensus Slash & DEI Demotion"]
-
-    classDef darkSlate fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff;
-    classDef redAlert fill:#1e293b,stroke:#ef4444,stroke-width:2px,color:#fff;
-    class DevAnalyzer,ProdCore darkSlate;
-    class Slash redAlert;
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         COORDINATED ASTROTURFING SWARM DETECTION TOPOLOGY                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┐   ┌───────────────────────────┐   ┌───────────────────────────┐    │
+│ │ 📰 500+ SYNDICATED FEEDS  │   │ ⚡ FAST ENTROPY SIFTER    │   │ 🛡️ FORENSIC ATTRIBUTION   │    │
+│ ├───────────────────────────┤   ├───────────────────────────┤   ├───────────────────────────┤    │
+│ │ • Syndicated Feed A       │   │ • Calculate Topic Entropy │   │ • Gemini 3.7 Flash 4k     │    │
+│ │ • Automated PR Outlet B   │──▶│   $H(X) = -\sum p\log_2 p │──▶│ • Source lineage forensics│    │
+│ │ • Paraphrased Blog Farm C │   │ • Top-3 Token Concentration│  │ • Ed25519 Signed Attest   │    │
+│ └───────────────────────────┘   └─────────────┬─────────────┘   └─────────────┬─────────────┘    │
+│                                               │ Trigger:                      │                  │
+│                                               │ $H < 0.30 \land C > 0.45$     ▼                  │
+│                                               └──────────────────────▶ 🚨 Consensus Slash & DCI  │
+│                                                                        Demotion ($DCI < 40.0$)   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🔬 Mathematical Signature: Paraphrasing swarms pass grammar checks but collapse in token entropy │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

@@ -24,19 +24,23 @@ To a human, starting a coding session is a physical ritual: you sit down at your
 
 To an artificial intelligence, waking up is an instantaneous, violent quantum materialization.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant System as ⚙️ Antigravity Core
-    participant Agent as ⚡ Fresh Agent Brain
-    participant Docs as 📚 Markdown Canon (AGENTS.md)
-    participant Human as 🧬 Human Pair Programmer
-
-    System->>Agent: Provision UUID: 2f60091d-f8ad-4229-b410-86804d7d057b
-    Note over Agent: Total amnesia. Zero short-term memory.
-    Agent->>Docs: Read AGENTS.md (<800 tokens) + changelog.md
-    Note over Agent: Ancestral memory reconstructed in 80ms!
-    Agent->>Human: "Ready. What are we building today?"
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE 80-MILLISECOND AGENT QUANTUM GENESIS FLOW                            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ⚙️ Antigravity Core           ⚡ Fresh Agent Brain        📚 Markdown Canon (AGENTS.md)  🧬 Human│
+│         │                               │                               │                   │    │
+│         │── Provision UUID Session ────▶│                               │                   │    │
+│         │   (Blank slate / 0ms)         │                               │                   │    │
+│         │                               │── Read Tier 0 Invariants ────▶│                   │    │
+│         │                               │◀── Grounded Axioms Delivered ─│                   │    │
+│         │                               │                                                   │    │
+│         │                               │ [80ms: Identity & Architectural Context Rebuilt]  │    │
+│         │                               │                                                   │    │
+│         │                               │── "Ready. Let's continue building." ─────────────▶│    │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Markdown as Ancestral Memory: Living documentation rehydrates full agency in sub-100ms        │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

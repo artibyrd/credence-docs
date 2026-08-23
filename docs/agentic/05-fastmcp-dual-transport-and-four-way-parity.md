@@ -31,19 +31,34 @@ read_time: 8 min
 
 Explore the communication architecture powering Credence's **FastMCP 2.0 server**, providing unified tool and resource access to Claude Desktop, Cursor, and Antigravity while maintaining 4-way synchronous feature parity.
 
-```mermaid
-flowchart TD
-    Client["AI Agents & Developers<br/>(Claude, Cursor, Antigravity, Shell, Web)"] --> Gateway{"FastMCP 2.0 Gateway"}
-    
-    Gateway -->|Local Process IPC| Stdio["stdio Transport<br/>(High-speed pipe)"]
-    Gateway -->|Remote Mesh HTTP| SSE["SSE Transport<br/>(mcp.credence.run/sse)"]
-    
-    Stdio & SSE --> Core["Credence Epistemic Core Engine"]
-    
-    Core --> Parity1["1. CLI (credence)"]
-    Core --> Parity2["2. FastMCP (credence_*)"]
-    Core --> Parity3["3. Textual TUI (credence tui)"]
-    Core --> Parity4["4. Zero-Build Web (credence.report)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         FASTMCP 2.0 DUAL TRANSPORT & 4-WAY PARITY TOPOLOGY                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ AI Agents & Developers (Claude Desktop, Cursor, Antigravity, Shell Scripts, Web Browser)        │
+│                                │                                                                 │
+│                                ▼ FastMCP 2.0 Dual Transport Gateway                              │
+│ ┌──────────────────────────────────────────┬─────────────────────────────────────────────────┐   │
+│ │ 1. Local `stdio` Pipe IPC                │ 2. Remote Server-Sent Events (SSE) Stream       │   │
+│ │ • Sub-millisecond direct process pipe    │ • `https://mcp.credence.run/sse` bi-directional │   │
+│ │ • Zero network overhead for local IDEs   │ • Cloudflare Edge Proxy with session IDs        │   │
+│ └──────────────────────────┬───────────────┴─────────────────┬───────────────────────────────┘   │
+│                            │                                 │                                   │
+│                            └────────────────┬────────────────┘                                   │
+│                                             ▼                                                    │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ CREDENCE EPISTEMIC KERNEL                                                                  │   │
+│ └───────────────────────────────────────────┬────────────────────────────────────────────────┘   │
+│                                             │                                                    │
+│       ┌─────────────────────────┬───────────┴───────────┬─────────────────────────┐              │
+│       ▼                         ▼                       ▼                         ▼              │
+│ ┌───────────────────┐ ┌───────────────────┐   ┌───────────────────┐   ┌────────────────────┐     │
+│ │ 1. CLI ENGINE     │ │ 2. FASTMCP TOOLS  │   │ 3. TEXTUAL TUI    │   │ 4. ZERO-BUILD WEB  │     │
+│ │ `credence audit`  │ │ `credence_*` tools│   │ `credence tui`    │   │ `credence.report`  │     │
+│ └───────────────────┘ └───────────────────┘   └───────────────────┘   └────────────────────┘     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Universal Invariant: 100% Simultaneous Feature Parity across all 4 interaction surfaces      │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > [!IMPORTANT]

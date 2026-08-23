@@ -15,28 +15,21 @@ Creating sensationalized clickbait, partisan outrage bait, and unverified allega
 
 To restore epistemic balance, the Credence network introduces the **Domain Credence Index ($DCI$)**: a decentralized, unforgeable reputation metric computed through mutual peer observation across thousands of independent verification audits.
 
-```mermaid
-flowchart LR
-    subgraph Web["The Open Web"]
-        P1["Publishers &amp; Wire Services"]
-        P2["Content Mills &amp; Clickbait"]
-        P3["Astroturf PR Campaigns"]
-    end
-
-    subgraph Engine["Credence Analytics Engine"]
-        E1["Verbatim Quoted Evidence"]
-        E2["SimHash Deduplication"]
-        E3["Topic Entropy H(X)"]
-        E4["Byline Ratio"]
-    end
-
-    subgraph Output["Epistemic Intelligence"]
-        O1["🛡️ Honor Roll (DCI &ge; 85%)"]
-        O2["🛑 Wall of Shame (DCI &lt; 40%)"]
-        O3["📢 Astroturf Alerts (H &lt; 0.30)"]
-    end
-
-    Web --> Engine --> Output
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         DOMAIN CREDENCE INDEX (DCI) ANALYTICS PIPELINE                           │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┐   ┌───────────────────────────┐   ┌───────────────────────────┐    │
+│ │ 🌐 1. THE OPEN WEB        │   │ ⚙️ 2. ANALYTICS ENGINE    │   │ 📊 3. EPISTEMIC OUTPUT    │    │
+│ ├───────────────────────────┤   ├───────────────────────────┤   ├───────────────────────────┤    │
+│ │ • Investigative Wires     │   │ • Verbatim Quoted Evidence│   │ • 🛡️ Honor Roll ($DCI\ge 85$)│
+│ │ • Content Mills & Click   │──▶│ • SimHash Deduplication   │──▶│ • 🛑 Wall of Shame ($DCI<40$)│
+│ │ • Astroturf PR Campaigns  │   │ • Topic Entropy $H(X)$    │   │ • 📢 Astroturf Alerts ($H<0.3$)│
+│ │ • Syndicated RSS Feeds    │   │ • Byline Transparency $R$ │   │ • FastMCP 2.0 API Queries │    │
+│ └───────────────────────────┘   └───────────────────────────┘   └───────────────────────────┘    │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 DCI Formula: $DCI = 100 - (0.50\bar{S} + 0.30\min(50, \bar{D}) + 0.20(1 - R_{\text{byline}})\cdot 100)$│
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

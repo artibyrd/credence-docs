@@ -14,13 +14,25 @@ This blueprint details the edge routing algorithms and cache tiering implemented
 
 ## 1. Request Resolution Pipeline
 
-```mermaid
-flowchart TD
-    Host["Host Evaluation"] -->|"dev.credence.run"| DevTarget["Dev Compute Backend (credence-dev)"]
-    Host -->|"credence.run"| ProdTarget["Prod Compute Backend (credence-server)"]
-    Host -->|"mcp.credence.run"| SSEProxy["FastMCP SSE Streaming Proxy"]
-    Host -->|"credence.report/api/reports/*"| ImmutableCache["Edge Cache (30d Immutable)"]
-    Host -->|"dev.credence.report/api/reports/*"| DevCache["Dev Cache (60s Short-Lived)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         CLOUDFLARE ANYCAST EDGE ROUTING & SUBDOMAIN DISPATCH                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Incoming HTTP / SSE Request at Cloudflare Edge (`_worker.js`)                                    │
+│                                │                                                                 │
+│                                ▼ Hostname & Route Evaluation                                     │
+│ ┌──────────────────────────────┬─────────────────────────────────────────────────────────────┐   │
+│ │ Host / Path Pattern          │ Edge Dispatch Target & Cache Policy                         │   │
+│ ├──────────────────────────────┼─────────────────────────────────────────────────────────────┤   │
+│ │ `dev.credence.run`           │ 🛠️ Dev Compute Plane (`credence-dev-495173`)                 │   │
+│ │ `credence.run`               │ 🏛️ Prod Compute Plane (`credence-prod-505902`)               │   │
+│ │ `mcp.credence.run`           │ ⚡ FastMCP 2.0 Real-Time SSE Streaming Proxy (Long-Lived)   │   │
+│ │ `credence.report/api/*`      │ 🗄️ Prod Immutable Edge Cache (`Cache-Control: 30d, max-age`)│   │
+│ │ `dev.credence.report/api/*`  │ 🧪 Dev Ephemeral Preview Cache (`Cache-Control: 60s`)       │   │
+│ └──────────────────────────────┴─────────────────────────────────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ⚡ Zero-Build Invariant: 100% Native HTML5/ESM served directly with zero node/npm compilation     │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

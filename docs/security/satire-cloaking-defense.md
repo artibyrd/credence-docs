@@ -19,14 +19,36 @@ Credence solves this with a **two-tier satire evaluation pipeline**.
 
 ## 1. Two-Tier Satire Pipeline
 
-```mermaid
-graph TD
-    Article["Incoming Article / Webpage"] --> Cues["Tier 1: Satire Cue Extraction<br/>(Schema.org ClaimReview, 'About Us', Masthead)"]
-    Cues -- "Satire Confirmed" --> CloakingCheck{"Tier 2: SPJ-1.6 Cloaking Check<br/>(Contains Defamatory or Health Disinfo?)"}
-    Cues -- "Not Satire" --> StandardAudit["Standard Multi-Agent Epistemic Audit"]
-
-    CloakingCheck -- "Clean Parody (The Onion, Babylon Bee)" --> Neutralize["Neutralize Suspicion ($0.00)<br/>Tag: SATIRE"]
-    CloakingCheck -- "Factual Defamation / Health Poisoning" --> Override["SPJ-1.6 Cloaking Override Triggered<br/>Disable Satire Protection & Audit as Disinformation"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         TWO-TIER SATIRE & SPJ-1.6 CLOAKING DEFENSE                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Incoming Audited Article / Prose Content                                                    │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ TIER 1: SATIRE CUE & SCHEMA EXTRACTION                                                     │   │
+│ │ • Masthead analysis, `Schema.org/SatiricalArticle`, domain taxonomy registry               │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                │                                                 │
+│                     ┌──────────────────────────┴──────────────────────────┐                      │
+│                     ▼ Satire Confirmed                                    ▼ Not Satire           │
+│ ┌────────────────────────────────────────────────────────┐ ┌─────────────────────────────────┐ │
+│ │ TIER 2: `SPJ-1.6` CLOAKING OVERRIDE GATE               │ │ Standard Multi-Specialist Audit │ │
+│ ├────────────────────────────────────────────────────────┤ └─────────────────────────────────┘ │
+│ │ Does the text contain defamatory or medical harms?     │                                       │
+│ ├────────────────────────────┬───────────────────────────┤                                       │
+│ │ Condition                  │ Operational Action        │                                       │
+│ ├────────────────────────────┼───────────────────────────┤                                       │
+│ │ ✅ Clean Humor / Parody     │ Neutralize Score: $S=0.00$│                                       │
+│ │    (The Onion, Bee, Whispers│ Tag: `SATIRE_PARODY`      │                                       │
+│ ├────────────────────────────┼───────────────────────────┤                                       │
+│ │ ❌ Poisoning / Defamation  │ `SPJ-1.6` Override Fires  │                                       │
+│ │    (Bad-faith cloaking)    │ Strip Satire Exemption    │                                       │
+│ │                            │ Full Disinformation Audit │                                       │
+│ └────────────────────────────┴───────────────────────────┘                                       │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

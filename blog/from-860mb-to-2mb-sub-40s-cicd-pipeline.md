@@ -33,26 +33,21 @@ Here is the technical forensic teardown of how we identified three hidden bottle
 
 When we profiled our pipeline runtime, we discovered that drag was accumulating across three decoupled planes:
 
-```mermaid
-flowchart TD
-    subgraph Bottlenecks ["Identified Pipeline Bottlenecks"]
-        B1["1. Sequential Pytest Execution (81.1s)"]
-        B2["2. Unmocked Network Socket (10.67s timeout)"]
-        B3["3. Missing Ignore Manifests (861 MB upload)"]
-        B4["4. Shell Pipefail SIGPIPEs (Exit code 141)"]
-    end
-
-    subgraph Solutions ["Targeted Architectural Fixes"]
-        S1["pytest-xdist (-n auto) + asyncio.gather Teardown"]
-        S2["AsyncMock Feed Parser Injection (0.23s execution)"]
-        S3[".dockerignore & .gcloudignore (2.1 MB upload context)"]
-        S4["Stream-Draining sed -n '1p' (Exit 0 safe preflights)"]
-    end
-
-    B1 --> S1
-    B2 --> S2
-    B3 --> S3
-    B4 --> S4
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         PIPELINE BOTTLENECK ANALYSIS & ARCHITECTURAL FIXES                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ ❌ IDENTIFIED PIPELINE BOTTLENECKS       │   │ 🛡️ TARGETED ARCHITECTURAL FIXES          │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Sequential pytest execution (81.1s)    │   │ • Parallel `pytest-xdist -n auto`        │      │
+│ │ • Unmocked network socket (10.7s timeout)│──▶│ • AsyncMock feed parser injection (0.23s)│      │
+│ │ • Missing ignore manifests (861MB upload)│   │ • `.dockerignore` / `.gcloudignore` (2MB)│      │
+│ │ • Shell pipefail SIGPIPEs (Exit code 141)│   │ • Stream-draining `sed -n '1p'` (Exit 0) │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🚀 Net Result: Full QA gate slashed 88s ──▶ 35s (-60%) | Build upload slashed 861MB ──▶ 2.1MB    │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

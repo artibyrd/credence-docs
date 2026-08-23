@@ -25,20 +25,38 @@ When developing autonomous AI pipelines that make repeated LLM calls, sharing a 
 
 ## 2. 5-Layer Token Safety Architecture
 
-```mermaid
-graph TD
-    A["Incoming Audit Request"] --> B{"1. Local Cache Check"}
-    B -- "SHA-256 Hit" --> C["Instant 0-Token Attestation"]
-    B -- "Cache Miss" --> D{"2. Token Governor & Budget Check"}
-    D -- "Daily/Hourly Limit Reached" --> E["Trip Circuit Breaker (QUOTA_PRESERVED Mode)"]
-    D -- "Budget Available" --> F["3. Fast Triage & Satire Filter (Flash-Lite)"]
-    F -- "Is Authentic Satire" --> G["Short-Circuit Pipeline (Save 75% Tokens)"]
-    F -- "Requires Full Audit" --> H["4. Truncate Input Prose (Max 2.5k words)"]
-    H --> I["5. Dispatch Specialists (Gemini 3.7 Flash + Thinking)"]
-    I --> J{"6. Response Quality Gate"}
-    J -- "Citation Grounding < 75% / Ambiguous Margin" --> K["Dynamic Thinking Escalation"]
-    J -- "Passes" --> L["Record Token Usage in SQLite & Sign Attestation"]
-    K --> L
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                             5-LAYER TOKEN SAFETY & GOVERNOR PIPELINE                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Incoming Audit Request (URL, Prose Text, or RSS Item)                                      │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
+│ │ 1. Local Cache Check   │─Hit─▶│ 0-Token Instant Replay  │      │ 2. Token Governor Check   │   │
+│ │ (SHA-256 / SimHash-64) │      │ (RFC 8785 Cached Receipt│      │ • Rolling Daily Cap ($0.5)│   │
+│ └──────────┬─────────────┘      └─────────────────────────┘      │ • Hourly Limit (100k tok) │   │
+│            │ Miss                                                └─────────────┬─────────────┘   │
+│            └───────────────────────────────────────────────────────────────────┤                 │
+│                                                                                ▼                 │
+│                                 ┌────────────────────────────────────────────────────────────┐   │
+│                                 │ Headroom < 30% or Cap Reached?                             │   │
+│                                 └──────────────┬─────────────────────────────┬───────────────┘   │
+│                                           Yes  │                        No   │                   │
+│                                                ▼                             ▼                   │
+│ ┌────────────────────────────────────────────────────────┐ ┌─────────────────────────────────┐ │
+│ │ 🛑 CIRCUIT BREAKER TRIPPED (`QUOTA_PRESERVED` Mode)    │ │ 3. Satire Filter & Triage Gate  │ │
+│ │ • 100% Offline Structural Heuristics ($0.00 Spend)     │ │ • Neutralize Satire (0.00 Score)│ │
+│ │ • `evaluation_method: "offline_structural_heuristic"`  │ └──────────────┬──────────────────┘ │
+│ └────────────────────────────────────────────────────────┘                │                      │
+│                                                                           ▼                      │
+│ ┌────────────────────────────────────────────────────────┐ ┌─────────────────────────────────┐ │
+│ │ 5. Dynamic Quality & Escalation Gate                   │ │ 4. Multi-Specialist Deliberation│ │
+│ │ • Grounding >= 75% ──Pass──▶ Sign RFC 8785 Envelope    │◀│ • Gemini 3.7 Flash + Thinking   │ │
+│ │ • Grounding < 75%  ──Esc───▶ High-Thinking Escalation  │ │ • SPJ, IEP & Deceptive Pattern  │ │
+│ └────────────────────────────────────────────────────────┘ └─────────────────────────────────┘ │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

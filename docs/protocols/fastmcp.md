@@ -13,21 +13,25 @@ sidebar:
 
 Credence implements a fully compliant **Model Context Protocol (FastMCP 2.0)** server allowing AI coding assistants (Antigravity, Claude Desktop, Cursor, and custom autonomous agents) to invoke epistemic tools and inspect live taxonomy resources.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant Agent as AI Assistant (Claude / Cursor / Antigravity)
-    participant MCP as Credence FastMCP 2.0 Server
-    participant Engine as Epistemic Audit Pipeline
-    participant Mesh as P2P Trust Mesh
-
-    Agent->>MCP: GET /sse (Establish Event Stream)
-    MCP-->>Agent: SSE Endpoint Assigned (session_id)
-    Agent->>MCP: POST /messages (tools/call: credence_check_url)
-    MCP->>Engine: Run 4-Specialist Audit & Verbatim Grounding
-    Engine->>Mesh: Gossip Signed Attestation (RFC 8785 Ed25519)
-    Engine-->>MCP: AuditReport (Score, Findings, Ed25519 Sig)
-    MCP-->>Agent: JSON-RPC Result (Epistemic Verdict)
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         FASTMCP 2.0 TRANSPORT & PROTOCOL SPECIFICATION                           │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ AI Assistant (Claude / Cursor / Antigravity)             Credence FastMCP Server / Engine        │
+│       │                                                                 │                        │
+│  [1]  ├───── GET /sse (Establish Persistent Event Stream) ─────────────▶│                        │
+│       │◀──── 200 OK (text/event-stream, endpoint: /messages?session=xyz)┤                        │
+│       │                                                                 │                        │
+│  [2]  ├───── POST /messages (JSON-RPC `tools/call`: `credence_check_url`)▶│                       │
+│       │      { "method": "tools/call", "params": { "name": "...", ... } }│── 1. Scrape DOM / Prose│
+│       │                                                                 │   2. Specialist Audits │
+│       │                                                                 │   3. Grounding G=1.00  │
+│       │                                                                 │   4. Sign RFC 8785 JSON│
+│       │                                                                 │◀── 5. P2P Gossip Broadcast
+│       │                                                                 │                        │
+│  [3]  │◀──── SSE event: message (JSON-RPC Result: Epistemic Verdict) ───┤                        │
+│       │      { "score": 12.5, "classification": "LOW", "sig": "..." }   │                        │
+└───────┴─────────────────────────────────────────────────────────────────┴────────────────────────┘
 ```
 
 ---

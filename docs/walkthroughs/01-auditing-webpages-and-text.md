@@ -13,16 +13,24 @@ sidebar:
 
 Learn how to audit digital media, news articles, and raw prose against formal journalistic ethics (SPJ), logical fallacies (IEP), and deceptive UI patterns across all supported interfaces.
 
-```mermaid
-flowchart LR
-    Source["Input Content<br/>(Live URL / Raw Prose / HTML DOM)"] --> Engine["Credence Epistemic Engine"]
-    Engine --> Specialist1["1. SPJ Ethics Specialist"]
-    Engine --> Specialist2["2. Fallacy Specialist"]
-    Engine --> Specialist3["3. Deceptive UI Specialist"]
-    Engine --> Specialist4["4. Provenance & Satire Specialist"]
-    
-    Specialist1 & Specialist2 & Specialist3 & Specialist4 --> Gate["G=1.0 Grounding Gate"]
-    Gate --> Output["Signed RFC 8785 Ed25519 Attestation"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         EPISTEMIC PROSE & URL AUDITING PIPELINE                                  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Input Content (Live Web URL / Raw Markdown Prose / Clean HTML DOM)                               │
+│                                │                                                                 │
+│                                ▼ Multi-Specialist Forensic Analysis                              │
+│ ┌──────────────────────────┬─────────────────────────────┬───────────────────────────────────┐   │
+│ │ 1. SPJ Ethics Specialist │ 2. Fallacy Specialist       │ 3. Deceptive Patterns & Provenance│   │
+│ │ • Unsubstantiated claims │ • Fallacies of relevance    │ • Poe's law satire classification │   │
+│ │ • Anonymous sourcing     │ • Causal fallacies          │ • Forced urgency & dark UI        │   │
+│ └──────────────────────────┴──────────────┬──────────────┴───────────────────────────────────┘   │
+│                                           │                                                      │
+│                                           ▼                                                      │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🛡️ Epistemic Verbatim Grounding Gate ($G=1.00$) ──▶ RFC 8785 Canonical JSON + Ed25519 Sig   │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > [!NOTE]

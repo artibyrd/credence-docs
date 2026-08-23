@@ -14,14 +14,26 @@ Credence strictly maintains simultaneous **Universal 4-Way Feature Parity** acro
 
 ## 1. Interface Parity Matrix & Topology
 
-```mermaid
-flowchart TD
-    Core["Credence Epistemic Kernel<br/>(RFC 8785 Canonical JSON, Ed25519 Custody, G=1.00 Gate, Scoring Math)"]
-
-    Core --> CLI["1. CLI Engine (`credence`)<br/>• check / evaluate / report<br/>• badge export (3 modalities)<br/>• merit --mesh (Byzantine quorum)"]
-    Core --> MCP["2. FastMCP 2.0 Server (`credence serve`)<br/>• stdio & SSE bidirectional streaming<br/>• credence_generate_badge & merit tools<br/>• URI resources (credence://badge/...)"]
-    Core --> TUI["3. Textual TUI Workstation (`credence tui`)<br/>• 9 Full-Screen Tabs<br/>• 3-Tier Lensing Hierarchy<br/>• Fail-Closed Zero-Mock Boundaries"]
-    Core --> WEB["4. Zero-Build Web Portals (`web/`)<br/>• credence.run / .report / .nexus / .foundation / admin<br/>• Badge Studio (Node, Publisher, Attestation)<br/>• W3C WebCrypto In-Browser Verification"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         UNIVERSAL 4-WAY FEATURE PARITY ARCHITECTURE                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ CREDENCE EPISTEMIC KERNEL                                                                  │   │
+│ │ • RFC 8785 Canonical JSON • Ed25519 Custody • Verbatim Grounding ($G=1.00$) • Scoring Math │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                │                                                 │
+│       ┌─────────────────────────┬──────────────┴──────────────┬─────────────────────────┐        │
+│       ▼                         ▼                             ▼                         ▼        │
+│ ┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐ │
+│ │ 1. RICH CLI       │ │ 2. FASTMCP 2.0    │ │ 3. TEXTUAL TUI    │ │ 4. ZERO-BUILD WEB │ │
+│ │ • check / audit   │ │ • stdio / SSE     │ │ • 9 Terminal Tabs │ │ • 5 Portals (Run, │ │
+│ │ • badge export (3)│ │ • `generate_badge`│ │ • 3-Tier Lensing  │ │   Report, Nexus...) │ │
+│ │ • merit / mesh    │ │ • MCP Resources   │ │ • Zero-mock SRE   │ │ • WebCrypto verify│ │
+│ └───────────────────┘ └───────────────────┘ └───────────────────┘ └───────────────────┘ │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Invariant: 100% Feature Symmetry across CLI, FastMCP 2.0, Textual TUI, and Zero-Build Web UI  │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

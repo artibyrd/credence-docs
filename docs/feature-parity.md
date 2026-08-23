@@ -20,14 +20,26 @@ In accordance with **[Invariant 24](invariants.md#invariant-24) (Universal Prese
 
 ## 🏛️ Interface Architecture
 
-```mermaid
-graph TD
-    Core["Credence Core Epistemic Engine<br>(Dual-Capture, Grounding Gate, Scoring Math, Ed25519)"]
-    
-    Core --> CLI["🖥️ CLI Interface<br>credence check / evaluate / report / badge / merit"]
-    Core --> MCP["⚡ FastMCP 2.0 Server<br>stdio & SSE Streaming for AI Agents"]
-    Core --> TUI["📟 Textual TUI Workstation<br>9-Tab Interactive Terminal Workspace"]
-    Core --> Web["🌐 Zero-Build Web Suite<br>credence.run / .report / .nexus / .foundation / admin"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         UNIVERSAL 4-WAY INTERFACE PARITY ARCHITECTURE                            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ CREDENCE EPISTEMIC KERNEL                                                                  │   │
+│ │ Dual-Capture • Grounding Gate ($G=1.00$) • Scoring Math • Ed25519 Custody • RFC 8785 JSON  │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                │                                                 │
+│       ┌─────────────────────────┬──────────────┴──────────────┬─────────────────────────┐        │
+│       ▼                         ▼                             ▼                         ▼        │
+│ ┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐ │
+│ │ 🖥️ CLI ENGINE     │ │ ⚡ FASTMCP 2.0    │ │ 📟 TEXTUAL TUI    │ │ 🌐 ZERO-BUILD WEB │ │
+│ │ • check/evaluate  │ │ • stdio & SSE     │ │ • 9-Tab Terminal  │ │ • 5 Portals       │ │
+│ │ • badge export (3)│ │ • `credence_*`    │ │ • 3-Tier Lensing  │ │ • WebCrypto API   │ │
+│ │ • merit / mesh    │ │ • MCP Resources   │ │ • Zero-mock SRE   │ │ • Zero-npm bundle │ │
+│ └───────────────────┘ └───────────────────┘ └───────────────────┘ └───────────────────┘ │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Invariant 24: 100% Simultaneous Feature Parity across all 4 operational interfaces             │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

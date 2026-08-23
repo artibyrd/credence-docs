@@ -17,43 +17,27 @@ This blueprint details how Credence identifies synthetic content farms and valid
 
 ## 1. Automated Content Farm Detection Architecture
 
-```mermaid
-flowchart TD
-    Article(["📄 Target Ingest Article / Visual Media"]) --> Ingress{"Forensic Pipeline Router"}
-
-    subgraph ProvenancePlane ["Signal 1: C2PA & Provenance Metadata"]
-        Ingress --> C2PACheck["C2PA Manifest Inspector<br/>• Cryptographic JUMBF extraction<br/>• Stripped header signature check"]
-        C2PACheck --> C2PAResult{"Valid C2PA Signature?"}
-        C2PAResult -- "Verified Human / Tool" --> C2PAClean["✅ Authenticated Provenance"]
-        C2PAResult -- "Stripped / Tampered" --> C2PAFlag["⚠️ PROVENANCE:ORIGIN/stripped_c2pa_metadata"]
-    end
-
-    subgraph StylisticPlane ["Signal 2: Synthetic Style & Slop Extraction"]
-        Ingress --> StyleScan["LLM Boilerplate & Hallucination Scan<br/>• Gemini 3.7 Flash 4k Thinking<br/>• 'As an AI...', fabricated bylines"]
-        StyleScan --> StyleResult{"Synthetic Signatures?"}
-        StyleResult -- "None Detected" --> StyleClean["✅ Natural Human Prose"]
-        StyleResult -- "AI Artifacts" --> StyleFlag["🚨 PROVENANCE:SYNTHETIC/undisclosed_ai_generation"]
-    end
-
-    subgraph RingPlane ["Signal 3: 64-Bit SimHash Syndication Rings"]
-        Ingress --> SimHashScan["SimHash-64 Bitwise Visualizer<br/>• 3-gram Shingling + MD5 weights<br/>• Hamming Distance D_H calculation"]
-        SimHashScan --> SimHashResult{"Hamming Distance D_H &le; 3?"}
-        SimHashResult -- "D_H > 10 (Distinct)" --> RingClean["✅ Unique Original Source"]
-        SimHashResult -- "D_H &le; 3 (Clone Ring)" --> RingFlag["🚫 Pink Slime Mirror Cartel Demotion"]
-    end
-
-    C2PAClean & StyleClean & RingClean --> ScoreEngine["Epistemic Scoring & DEI Indexing<br/>(RFC 8785 Canonical Attestation)"]
-    C2PAFlag & StyleFlag & RingFlag --> ScoreEngine
-    ScoreEngine --> Attestation[("🏛️ SQLite WAL & Public Nexus Attestation")]
-
-    classDef darkSlate fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc;
-    classDef safe fill:#1e293b,stroke:#22c55e,stroke-width:2px,color:#f8fafc;
-    classDef warning fill:#1e293b,stroke:#f59e0b,stroke-width:2px,color:#f8fafc;
-    classDef danger fill:#1e293b,stroke:#ef4444,stroke-width:2px,color:#f8fafc;
-    class Article,Ingress,C2PACheck,StyleScan,SimHashScan,ScoreEngine,Attestation darkSlate;
-    class C2PAClean,StyleClean,RingClean safe;
-    class C2PAFlag,StyleFlag warning;
-    class RingFlag danger;
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         SYNTHETIC AI MEDIA & PROVENANCE FORENSIC PIPELINE                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Untrusted Ingress Article / Image / Video Stream                                                 │
+│                                              │                                                   │
+│                                              ▼                                                   │
+│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
+│ │ SIGNAL 1: C2PA PROVENANCE │ SIGNAL 2: SYNTHETIC STYLE     │ SIGNAL 3: SIMHASH-64 RINGS     │   │
+│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
+│ │ • Cryptographic JUMBF     │ • Gemini 3.7 Flash 4k thinking│ • 3-gram Shingling + MD5 weight│   │
+│ │ • Stripped header check   │ • Detects "As an AI model..." │ • Hamming Distance $d_H \le 3$ │   │
+│ │ • Cam / tool authenticity │ • Fabricated quotes/bylines   │ • Identifies mirror cartels    │   │
+│ └─────────────┬─────────────┴───────────────┬───────────────┴────────────────┬───────────────┘   │
+│               │                             │                                │                   │
+│               └─────────────────────────────┼────────────────────────────────┘                   │
+│                                             ▼                                                    │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Epistemic Scoring & DEI Indexing ──▶ RFC 8785 Ed25519 Canonical Attestation Broadcast     │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

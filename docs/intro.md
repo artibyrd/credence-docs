@@ -58,17 +58,25 @@ Every evaluation produces an Ed25519-signed `.credence.json` envelope. Anyone ca
 
 ## 🏛️ How Credence Works
 
-```mermaid
-graph TD
-    Target["Target Webpage, Prose Text, or RSS Feed"] --> Capture["1. Clean Capture<br>(HTML DOM & Prose Text)"]
-    Capture --> Grounding["2. Verbatim Quote Validation<br>(Zero Hallucination Filter)"]
-    Grounding --> Specialists["3. Multi-Rule Audit Engine<br>(Ethics, Fallacies, Deceptive Patterns)"]
-    Specialists --> Signer["4. Cryptographic Envelope<br>(Ed25519 Signed Receipt)"]
-    
-    Signer --> Output1["🖥️ Terminal CLI<br>credence audit"]
-    Signer --> Output2["⚡ FastMCP 2.0 Server<br>Claude, Cursor & Antigravity"]
-    Signer --> Output3["📟 Textual TUI<br>credence tui"]
-    Signer --> Output4["🌐 Web Report Viewer<br>credence.report"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                CREDENCE EPISTEMIC AUDIT PIPELINE                                 │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 1. INGESTION & CAPTURE        2. GROUNDING GATE            3. MULTI-TAXONOMY AUDIT               │
+│ ┌────────────────────────┐    ┌────────────────────────┐   ┌───────────────────────────────────┐ │
+│ │ Target Webpage / Text  │───▶│ Verbatim Quote Guard   │──▶│ • SPJ Journalistic Ethics         │ │
+│ │ • HTML DOM Extraction  │    │ • Zero Hallucination   │   │ • IEP Logical Fallacies           │ │
+│ │ • Trafilatura Prose    │    │ • Character Match G=1.0│   │ • Deceptive UI / Dark Patterns    │ │
+│ └────────────────────────┘    └────────────────────────┘   └─────────────────┬─────────────────┘ │
+│                                                                              │                   │
+│ 5. 4-WAY SYMMETRIC INTERFACES                              4. ATTESTATION    ▼                   │
+│ ┌────────────────────────────────────────────────────────┐ ┌───────────────────────────────────┐ │
+│ │ 🖥️ CLI: `credence audit <url>` (jq/JSON pipes)          │ │ RFC 8785 Ed25519 Signed Envelope  │ │
+│ │ ⚡ FastMCP 2.0: stdio / SSE tools for Claude & Cursor   │◀│ • Canonical JSON payload          │ │
+│ │ 📟 Textual TUI: `credence tui` keyboard workstation    │ │ • Tamper-proof `.credence.json`   │ │
+│ │ 🌐 Zero-Build Web: WebCrypto in-browser report viewer  │ └───────────────────────────────────┘ │
+│ └────────────────────────────────────────────────────────┘                                       │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

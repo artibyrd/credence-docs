@@ -11,21 +11,25 @@ last_verified: 2026-08-20
 
 While our reference Terraform infrastructure targets **Google Cloud Platform (Cloud Run v2)**, Credence is packaged as a lightweight, standard OCI container that can run seamlessly on any cloud provider or bare-metal VPS.
 
-```mermaid
-graph TD
-    subgraph MultiCloud["Decentralized Multi-Cloud Mesh Federation"]
-        GCP["GCP Cloud Run v2<br>(FastMCP SSE Reference)"]
-        AWS["AWS ECS Fargate<br>(Scale-to-Zero Container)"]
-        Azure["Azure Container Apps<br>(Managed Ingress)"]
-        Hetzner["Hetzner Cloud / VPS<br>(Sovereign $5/mo CAX11)"]
-        K8s["Bare-Metal k3s / K8s<br>(Air-Gapped Newsroom)"]
-    end
-
-    CF["Cloudflare Multi-Domain Edge CDN"] --> GCP & AWS & Azure & Hetzner & K8s
-    GCP <-->|P2P Gossip 8765| AWS
-    AWS <-->|P2P Gossip 8765| Azure
-    Azure <-->|P2P Gossip 8765| Hetzner
-    Hetzner <-->|P2P Gossip 8765| K8s
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         DECENTRALIZED MULTI-CLOUD MESH FEDERATION                                │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Cloudflare Anycast Multi-Domain Edge Router & Subdomain Dispatch                           │   │
+│ └───────┬──────────────┬───────────────┬────────────────┬────────────────┬───────────────────┘   │
+│         │              │               │                │                │                       │
+│         ▼              ▼               ▼                ▼                ▼                       │
+│ ┌──────────────┐ ┌───────────┐ ┌───────────────┐ ┌────────────┐ ┌────────────────────────────┐   │
+│ │ 1. GCP       │ │ 2. AWS    │ │ 3. AZURE      │ │ 4. HETZNER │ │ 5. K8S / BARE-METAL        │   │
+│ │ Cloud Run v2 │ │ ECS Fargat│ │ Container App │ │ CAX11 VPS  │ │ Sovereign k3s Newsroom     │   │
+│ └───────┬──────┘ └─────┬─────┘ └───────┬───────┘ └─────┬──────┘ └──────────────┬─────────────┘   │
+│         │              │               │               │                       │                 │
+│         └──────────────┴───────────────┴───────────────┴───────────────────────┘                 │
+│                                        ▼                                                         │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🌐 Sovereign P2P WebSocket Gossip Mesh (Port 8765 · RFC 8785 Canonical Attestations)       │   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Multi-Cloud Provider Matrix
@@ -178,15 +182,21 @@ Credence is completely self-contained and does not require Google Cloud Platform
 
 Credence strictly isolates deployment concerns into three independent operational planes:
 
-```mermaid
-flowchart TD
-    Plane1["1. Edge Plane (Zero-Build CDN)<br>Cloudflare Pages (credence-docs)<br>Cloudflare Workers (credence/web/)"]
-    Plane2["2. Compute Plane (FastMCP & REST API)<br>Google Cloud Run (credence-server)<br>Self-Hosted Docker/K3s"]
-    Plane3["3. Infra Plane (Static Shells)<br>Terraform (GCP IAM, DNS, GCS Buckets)"]
-
-    Plane1 -->|Automated via deploy-edge.yml / just deploy-edge| LiveEdge["Public Edge CDN"]
-    Plane2 -->|Automated via release.yml / just deploy-backend| LiveCompute["Cloud Run Service"]
-    Plane3 -->|Manual via tf-apply| LiveInfra["Cloud Resources"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         3-PLANE DEPLOYMENT GOVERNANCE TOPOLOGY                                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
+│ │ 1. EDGE PLANE (Zero-Build)│ 2. COMPUTE PLANE (FastMCP 2.0)│ 3. INFRA PLANE (Static IaC)    │   │
+│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
+│ │ • Cloudflare Pages & CDN  │ • Cloud Run / Docker Container│ • Terraform (GCP IAM, WIF)     │   │
+│ │ • `web/_worker.js` router │ • Starlette FastMCP SSE + REST│ • DNS Records & Cloudflare SSL │   │
+│ │ • Static `reports.json`   │ • Background Sifter Engine    │ • GCS / S3 Storage Buckets     │   │
+│ │ • Automated: `deploy-edge`│ • Automated: `release.yml`    │ • Manual: `just tf-apply`      │   │
+│ └───────────────────────────┴───────────────────────────────┴────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Strict Plane Decoupling: Zero state mixing between edge assets, compute containers, and IaC   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 | Operational Plane | Managed Artifacts | Deployment Mechanism |

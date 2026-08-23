@@ -16,30 +16,31 @@ Credence multi-cloud infrastructure natively supports both **Single-Project Serv
 
 ## 1. Architectural Comparison
 
-```mermaid
-graph TB
-    subgraph DualProj ["Topology A: Dual-Project Hard Isolation (Enterprise Standard)"]
-        subgraph DevProj ["GCP: credence-dev-XXXXXX"]
-            DevCR["Cloud Run: credence-dev<br/>(512Mi | Economy Profile)"]
-            DevSM["Secret Manager: credence-gemini-api-key"]
-            DevBudget["Budget: $5.00/mo Cap"]
-        end
-        subgraph ProdProj ["GCP: credence-prod-XXXXXX"]
-            ProdCR["Cloud Run: credence-server<br/>(1024Mi | Balanced Profile)"]
-            ProdSM["Secret Manager: credence-gemini-api-key"]
-            ProdBudget["Budget: $15.00/mo Cap"]
-        end
-    end
-
-    subgraph SingleProj ["Topology B: Single-Project Service Partitioning (Lean Standard)"]
-        subgraph SharedGCP ["GCP: credence-prod-XXXXXX"]
-            S_DevCR["Cloud Run: credence-dev"]
-            S_ProdCR["Cloud Run: credence-server"]
-            S_DevSM["Secret: credence-gemini-api-key-dev"]
-            S_ProdSM["Secret: credence-gemini-api-key"]
-            SharedBudget["Budget: Combined $15.00/mo Cap"]
-        end
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         GCP DEPLOYMENT TOPOLOGIES: DUAL-PROJECT VS SINGLE-PROJECT                │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ TOPOLOGY A: DUAL-PROJECT HARD ISOLATION (Enterprise Standard)                                    │
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ GCP DEV PROJECT (`credence-dev-495173`)  │   │ GCP PROD PROJECT (`credence-prod-505902`) │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Cloud Run: `credence-dev` (512Mi / Eco)│   │ • Cloud Run: `credence-server` (1024Mi)  │      │
+│ │ • Secret Manager: `credence-gemini-api`  │   │ • Secret Manager: `credence-gemini-api`  │      │
+│ │ • Hard Billing Cap: $5.00/month          │   │ • Hard Billing Cap: $15.00/month         │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+│                                                                                                  │
+│ TOPOLOGY B: SINGLE-PROJECT SERVICE PARTITIONING (Lean Standard)                                  │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ GCP UNIFIED PROJECT (`credence-prod-505902`)                                               │   │
+│ ├──────────────────────────────────────────┬─────────────────────────────────────────────────┤   │
+│ │ DEV WORKLOADS (Namespaced)               │ PROD WORKLOADS (Primary)                        │   │
+│ ├──────────────────────────────────────────┼─────────────────────────────────────────────────┤   │
+│ │ • Cloud Run: `credence-dev` (512Mi)      │ • Cloud Run: `credence-server` (1024Mi)         │   │
+│ │ • Secret: `credence-gemini-api-key-dev`  │ • Secret: `credence-gemini-api-key`             │   │
+│ ├──────────────────────────────────────────┴─────────────────────────────────────────────────┤   │
+│ │ • Combined Billing Cap: $15.00/month • Scoped IAM Service Accounts                         │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

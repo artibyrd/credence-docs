@@ -16,17 +16,23 @@ The **Information Pyramid** governs the cognitive density of information present
 
 ## 1. The 3-Tier Cognitive Hierarchy
 
-```
-        ▲
-       / \        🔍 Tier 1: Surface Lens (Glance — Above the Fold)
-      /   \       • 1-line verdict, score gauge, 3 key signal tags
-     /─────\
-    /       \      🔬 Tier 2: Focus Lens (Explore — Mid-Page)
-   /         \     • Claim quotes (G=1.00), category scorecards, trajectory sparklines
-  /───────────\
- /             \    🌌 Tier 3: Deep Spectrum Lens (Forensic — Base of Page)
-/               \   • Ed25519 receipts, RFC 8785 canonical bytes, live DOM hash gates
-─────────────────
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE 3-TIER COGNITIVE INFORMATION PYRAMID                                 │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│         ▲                                                                                        │
+│        / \        🔍 TIER 1: SURFACE LENS (Glance — Above the Fold)                              │
+│       /   \       • 1-line verdict, score gauge, 3 key signal tags, zero raw math notation       │
+│      /─────\                                                                                     │
+│     /       \      🔬 TIER 2: FOCUS LENS (Explore — Mid-Page)                                    │
+│    /         \     • Claim quotes ($G=1.00$), category scorecards, trajectory sparklines        │
+│   /───────────\                                                                                  │
+│  /             \    🌌 TIER 3: DEEP SPECTRUM LENS (Forensic — Base of Page)                      │
+│ /               \   • Ed25519 receipts, RFC 8785 canonical bytes, live DOM hash gates           │
+│ ─────────────────                                                                                │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Epistemic Lensing: Progressive disclosure from high-level glance to cryptographic custody     │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Cognitive Invariants:

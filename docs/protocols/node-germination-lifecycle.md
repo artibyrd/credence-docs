@@ -12,25 +12,41 @@ last_verified: 2026-08-20
 
 This specification defines the protocol, data structures, mathematical formulas, and concurrency invariants governing **Autonomous Node Germination** and **Swarm Ignition** across the Credence ecosystem.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant Node as Credence Node
-    participant DB as SQLite WAL (credence.db)
-    participant Mesh as Peer Mesh / Genesis Seeds
-    participant LLM as Multi-Agent LLM Pipeline
-    participant Web as Web Viewer (reports.json)
-
-    Node->>DB: 1. Epistemic Genesis (Load/Gen Ed25519 Keypair)
-    Node->>Mesh: 2. Request Genesis Seed Attestations
-    Mesh-->>Node: Return signed Genesis Attestation Pack
-    Node->>DB: Inoculate Genesis Attestations ($0.00 token spend)
-    Node->>DB: 3. Sow 26 Categorized Feed Subscriptions
-    Node->>DB: 4. Sort Feeds via HRW Rendezvous Hashing
-    Node->>LLM: Miracle-Gro Burst: Audit Top N Novel Items
-    LLM-->>Node: Return signed AuditReport entities
-    Node->>Mesh: Broadcast Newly Signed Attestations
-    Node->>Web: 5. Export reports.json Static Catalog
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         5-PHASE NODE GERMINATION & SWARM IGNITION                                │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ PHASE 1: EPISTEMIC GENESIS                                                                 │   │
+│ │ • Load or generate sovereign Ed25519 identity keypair (`node_identity.json`)               │   │
+│ │ • Derive 64-char hexadecimal public key $K_{\text{node}}$                                   │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ PHASE 2: GENESIS PEER MESH INOCULATION                                                     │   │
+│ │ • Ingest canonical signed Genesis seed attestations (`genesis_attestations.json`)          │   │
+│ │ • Verify Ed25519 signatures and populate SQLite WAL in <2ms ($0.00 token cost)             │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ PHASE 3: TAXONOMY & SUBSCRIPTION SEEDING                                                   │   │
+│ │ • Register 26 verified RSS/Atom root feeds across news, technology, satire, and science    │   │
+│ │ • Invariant: 0 duplicate subscriptions per node database                                   │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ PHASE 4: HRW RENDEZVOUS HASHING & MIRACLE-GRO BURST AUDIT                                  │   │
+│ │ • Partition syndicated feeds via HRW $h(K_{\text{node}}, \text{URL})$                      │   │
+│ │ • Evaluate Top-$N$ novel articles using Gemini 3.7 Flash ($G=1.00$ grounding gate)         │   │
+│ │ • Broadcast newly signed RFC 8785 Ed25519 attestations across P2P gossip mesh              │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ PHASE 5: STATIC WEB & PUBLIC REPORT CATALOG EXPORT                                         │   │
+│ │ • Export `reports.json` static catalog for client-side zero-build viewers                  │   │
+│ │ • Ready for interactive CLI, FastMCP 2.0 stdio/SSE server, and background Boredom Engine   │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

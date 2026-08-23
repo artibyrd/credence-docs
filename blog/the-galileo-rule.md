@@ -27,17 +27,27 @@ Imagine a 50-page complex financial prospectus.
 
 In a standard mean or trimmed-median consensus algorithm, the single forensic node is flagged as a statistical outlier and rejected!
 
-```mermaid
-flowchart TD
-    A["Cluster Evaluation<br>(99 Shallow Nodes vs 1 Forensic Specialist)"] --> B["99 Shallow Nodes<br>Report Score 0.0"]
-    A --> C["1 Forensic Specialist<br>Report Score 65.0"]
-    
-    B --> D["Zero Citations Provided<br>(Absence of Evidence)"]
-    C --> E["Verbatim Citation Found<br>(G = 1.00 Exact DOM Offset)"]
-    
-    D & E --> F{"Consensus Gate: Outlier Trimming?"}
-    F -- "Naive Swarm Consensus" --> G["❌ Discard Specialist as Outlier<br>(Violation Covered Up)"]
-    F -- "Credence Galileo Rule" --> H["✅ Protect Finding (is_outlier = False)<br>Consensus Anchored on Grounded Truth"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE GALILEO RULE: ASYMMETRIC GROUNDED EVIDENCE                           │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Forensic Evaluation: 99 Skimming Nodes vs 1 Domain Forensic Specialist                           │
+│                                │                                                                 │
+│       ┌────────────────────────┴────────────────────────┐                                        │
+│       ▼                                                 ▼                                        │
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ 99 SKIMMING NODES                        │   │ 1 DOMAIN SPECIALIST                      │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Reports Score $S = 0.00$ (No issues)   │   │ • Reports Score $S = 65.00$ (Violation)  │      │
+│ │ • Zero citations (Absence of evidence)   │──▶│ • Verbatim DOM quote ($G = 1.00$)        │      │
+│ │ • Cannot prove fraud does not exist      │   │ • Specific SEC violation rule cited      │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+│                                       │                                                          │
+│                                       ▼ Consensus Decision Gate                                  │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ ⚖️ NAIVE MAJORITY: Discards specialist as outlier $\rightarrow$ Fraud covered up ❌         │   │
+│ │ 🛡️ GALILEO RULE: Protects specialist (`is_outlier=False`) $\rightarrow$ Truth anchored ✅   │   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Evidence Asymmetry Matrix

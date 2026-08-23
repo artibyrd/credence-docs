@@ -9,14 +9,28 @@ last_verified: 2026-08-20
 
 The **`credence` CLI** is built with rich formatting for human terminals and structured JSON streams for shell automation, CI/CD pipelines, and data processing.
 
-```mermaid
-flowchart LR
-    A["Input Stream<br>(URLs / RSS / Text)"] --> B["credence audit --json"]
-    B --> C{"Score Evaluation"}
-    C -- "Score < 25.0 (Reliable)" --> D["Pass CI Gate (Exit 0)"]
-    C -- "Score >= 50.0 (Flagged)" --> E["Block / Alert (Exit 1)"]
-    B --> F["jq / xargs Automation"]
-    F --> G["Slack Webhooks / JSON DB"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         CLI AUTOMATION & CI/CD SCRIPTING PIPELINE                                │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Input Stream (Raw URLs, Syndicated RSS, Untrusted DOM Prose)                                     │
+│                                │                                                                 │
+│                                ▼ `credence audit <target> --json`                                │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Deterministic Exit Code Evaluation:                                                        │   │
+│ ├──────────────────────────────┬───────────────┬─────────────────────────────────────────────┤   │
+│ │ Suspicion Score              │ Exit Code     │ Pipeline Action                             │   │
+│ ├──────────────────────────────┼───────────────┼─────────────────────────────────────────────┤   │
+│ │ $S < 25.0$ (Reliable)        │ Exit `0`      │ ✅ Pass CI PR Gate / Deploy                 │   │
+│ │ $S \ge 50.0$ (Deceptive)     │ Exit `1`      │ 🚫 Block PR / Trigger Slack Webhook Alert   │   │
+│ │ Offline Structural Fallback  │ Exit `2`      │ ⚠️ Quota Preserved / Log Warning            │   │
+│ │ Ingestion Timeout / SSRF     │ Exit `3`      │ ❌ Fail Fast Ingestion Trap                 │   │
+│ └──────────────────────────────┴───────────────┴─────────────────────────────────────────────┘   │
+│                                │                                                                 │
+│                                ▼ High-Throughput Shell Ingestion (`jq` & `xargs -P 4`)           │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ ⚡ Downstream Consumers: Automated PR Review Comments, SQLite Store, Webhook Dispatch      │   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### CLI Exit Codes & CI Behavior

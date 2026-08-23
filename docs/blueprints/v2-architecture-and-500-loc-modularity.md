@@ -19,33 +19,29 @@ As the Credence protocol expanded to support decentralized peer-to-peer gossip, 
 
 To safeguard system maintainability, cognitive ergonomics, and test hermeticism, the **500 LOC Ceiling Law** was established as a P0 universal invariant.
 
-```mermaid
-flowchart TD
-    subgraph "Monolithic v1.x"
-        M1["credence/cli.py (850 LOC)"]
-        M2["credence/server.py (790 LOC)"]
-        M3["credence/merit.py (650 LOC)"]
-    end
-
-    subgraph "Decoupled v2.0.0 Hierarchy"
-        C1["credence/cli/main.py (<250 LOC)"]
-        C2["credence/cli/commands/ (*.py <300 LOC)"]
-        C3["credence/cli/formatting/ (*.py <200 LOC)"]
-        
-        S1["credence/server/app.py (<150 LOC)"]
-        S2["credence/server/api/ (*.py <250 LOC)"]
-        S3["credence/server/middleware/ (*.py <150 LOC)"]
-        S4["credence/server/mcp/ (*.py <300 LOC)"]
-
-        P1["credence/mesh/topology.py (<250 LOC)"]
-        P2["credence/mesh/badges.py (<180 LOC)"]
-        P3["credence/mesh/merit.py (<350 LOC)"]
-        P4["credence/mesh/models.py (<100 LOC)"]
-    end
-
-    M1 -.-> C1 & C2 & C3
-    M2 -.-> S1 & S2 & S3 & S4
-    M3 -.-> P1 & P2 & P3 & P4
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         V2 MODULAR DECOUPLING & THE 500 LOC CEILING LAW                          │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ❌ MONOLITHIC V1.X ARCHITECTURE (Large cross-cutting files > 650 LOC)                            │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ • `credence/cli.py` (850 LOC)  • `credence/server.py` (790 LOC)  • `credence/merit.py` (650)│   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+│                                              │                                                   │
+│                                              ▼ Refactored into Subpackages                       │
+│                                                                                                  │
+│ ⚡ DECOUPLED V2.X ARCHITECTURE (Strict 500 LOC Limit per File)                                   │
+│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
+│ │ CLI SUBPACKAGE            │ SERVER SUBPACKAGE             │ MESH & MERIT SUBPACKAGE        │   │
+│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
+│ │ • `cli/main.py` (<250)    │ • `server/app.py` (<150)      │ • `mesh/topology.py` (<250)    │   │
+│ │ • `cli/commands/` (<300)  │ • `server/api/` (<250)        │ • `mesh/badges.py` (<180)      │   │
+│ │ • `cli/formatting/` (<200)│ • `server/middleware/` (<150) │ • `mesh/merit.py` (<350)       │   │
+│ │                           │ • `server/mcp/` (<300)        │ • `mesh/models.py` (<100)      │   │
+│ └───────────────────────────┴───────────────────────────────┴────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Invariant: Shift-left static test gate halts commit if ANY .py file exceeds 500 LOC (<0.05s)  │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -97,12 +93,18 @@ In v1.x, calculation functions used a mix of `calculate_*`, `calc_*`, and `compu
 
 All subpackages strictly decouple data definitions into local `models.py` modules. Inter-module dependencies strictly flow downward without bidirectional circular imports:
 
-```
-[credence.models] (Root DB & Protocol Models)
-        │
-        ├──► [credence.mesh.models] ──► [credence.mesh.badges] ──► [credence.mesh.merit]
-        │
-        └──► [credence.subjects.models] ──► [credence.subjects.weather] ──► [credence.subjects.analytics]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         DIRECTED ACYCLIC GRAPH (DAG) IMPORT ARCHITECTURE                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ [`credence.models`] (Root DB & Protocol Models)                                                  │
+│         │                                                                                        │
+│         ├──▶ [`credence.mesh.models`] ──▶ [`credence.mesh.badges`] ──▶ [`credence.mesh.merit`]   │
+│         │                                                                                        │
+│         └──▶ [`credence.subjects.models`] ──▶ [`credence.subjects.weather`] ──▶ [`analytics`]   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Strict DAG Invariant: Modular dependencies flow downward; zero bidirectional circular imports │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 This clean DAG hierarchy guarantees that Python modules initialize cleanly in <10ms without delayed import traps or fragile workaround imports.

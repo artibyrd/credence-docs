@@ -12,12 +12,23 @@ last_verified: 2026-08-20
 
 This hands-on tutorial guides node operators through the complete epistemic progression lifecycle: from minting a fresh node identity on a Raspberry Pi or cloud instance to earning verifiable merit badges, saving LLM tokens for the swarm, and qualifying as a canonical root seed anchor.
 
-```mermaid
-flowchart LR
-    Step1["1. Mint Identity<br/>🌱 SPROUT"] --> Step2["2. Sift Feeds<br/>📡 SIFTER"]
-    Step2 --> Step3["3. Verbatim Audits<br/>🛡️ AUDITOR"]
-    Step3 --> Step4["4. Domain Authority<br/>🏛️ SPECIALIST"]
-    Step4 --> Step5["5. Seed Manifest<br/>💎 ROOT_ANCHOR"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         EPISTEMIC NODE OPERATOR MERIT PROGRESSION SPECTRUM                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐ ┌──────────┐ │
+│ │ TIER 1: SPROUT   │ │ TIER 2: SIFTER   │ │ TIER 3: AUDITOR  │ │ TIER 4: SPECIAL  │ │ TIER 5:  │ │
+│ │ 🌱 Genesis Init  │ │ 📡 Dynamic Feeds │ │ 🛡️ $G=1.00$ Gate │ │ 🏛️ Domain Master │ │ 💎 ROOT  │ │
+│ ├──────────────────┤ ├──────────────────┤ ├──────────────────┤ ├──────────────────┤ ├──────────┤ │
+│ │ • Mint Ed25519   │ │ • Harvest Feeds  │ │ • 100+ Audits    │ │ • $\alpha_d \ge  │ │ • Seed   │ │
+│ │ • Inoculate Peer │ │ • Save tokens    │ │ • Zero Slashing  │ │   0.85$ on domain│ │   Manifest│ │
+│ │ • Prior $Q=0.50$ │ │ • $Q_i \ge 0.65$ │ │ • $Q_i \ge 0.80$ │ │ • Quorum Anchor  │ │ • Cartel │ │
+│ │ • Sprout Badge   │ │ • Sifter Century │ │ • Auditor Shield │ │ • Specialist Tag │ │   Shield │ │
+│ └────────┬─────────┘ └────────┬─────────┘ └────────┬─────────┘ └────────┬─────────┘ └───┬──────┘ │
+│          └────────────────────┼────────────────────┼────────────────────┼───────────────┘        │
+│                               ▼                    ▼                    ▼                        │
+│ 🛡️ Strict Meritocratic Promotion: Autonomous Byzantine mathematical verification ($3f+1$)       │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

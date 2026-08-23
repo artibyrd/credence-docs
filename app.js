@@ -1271,7 +1271,14 @@ export function formatMath(expr) {
   res = replaceBraced(res, 'bar', s => `${formatMath(s)}̄`);
   res = replaceBraced(res, 'overline', s => `${formatMath(s)}̄`);
   res = replaceBraced(res, 'hat', s => `${formatMath(s)}̂`);
+  res = replaceBraced(res, 'vec', s => `${formatMath(s)}⃗`);
   res = replaceBraced(res, 'pmod', s => `(mod ${formatMath(s)})`);
+
+  // Unbraced single-character bar/hat/vec (\bar S -> S̄)
+  res = res.replace(/\\bar\s*([a-zA-Z])/g, '$1̄')
+    .replace(/\\overline\s*([a-zA-Z])/g, '$1̄')
+    .replace(/\\hat\s*([a-zA-Z])/g, '$1̂')
+    .replace(/\\vec\s*([a-zA-Z])/g, '$1⃗');
 
   // Escaped set braces and punctuation: \{ \} \_ \$ \% \& \#
   res = res.replace(/\\\{/g, '{')
@@ -1351,7 +1358,7 @@ export function formatMath(expr) {
     .replace(/_j\b/g, 'ⱼ')
     .replace(/_v\b/g, 'ᵥ')
     .replace(/_k\b/g, 'ₖ')
-    .replace(/_\{([^}]+)\}/g, '₍$1₎')
+    .replace(/_\{([^}]+)\}/g, (m, sub) => `₍${formatMath(sub)}₎`)
     .replace(/\^2\b/g, '²')
     .replace(/\^3\b/g, '³')
     .replace(/\^\{([^}]+)\}/g, '^$1');
@@ -1737,7 +1744,18 @@ export function parseMarkdown(md) {
     if (HTML_TAG_START_REGEX.test(line.trim()) || line.trim().startsWith('<!--')) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-      html.push(sanitizeHtml(line));
+      let processedLine = line;
+      if (processedLine.includes('$')) {
+        processedLine = processedLine.replace(/\$([^\$\n]+?)\$/g, (match, expr) => {
+          return `<span class="math-inline">${formatMath(expr.trim())}</span>`;
+        });
+      }
+      if (processedLine.includes('\\(') && processedLine.includes('\\)')) {
+        processedLine = processedLine.replace(/\\\(([\s\S]+?)\\\)/g, (match, expr) => {
+          return `<span class="math-inline">${formatMath(expr.trim())}</span>`;
+        });
+      }
+      html.push(sanitizeHtml(processedLine));
       continue;
     }
 

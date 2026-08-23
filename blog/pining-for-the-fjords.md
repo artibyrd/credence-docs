@@ -28,21 +28,24 @@ When human traffic ceases, Cloud Run does not put your container to sleep. It te
 
 The node has officially joined the choir invisible. **It is pining for the fjords.**
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant Web as 🌐 Inbound Webhook / Cron
-    participant CR as ☁️ Cloud Run (Scale-to-Zero)
-    participant GCS as 🪣 Google Cloud Storage Bucket
-    participant Node as ⚡ Credence Sovereign Node
-
-    Note over CR: Container is PINING_FOR_THE_FJORDS (0 instances active, $0.00 cost)
-    Web->>CR: POST /api/audit (First request after 2 hours of silence)
-    CR->>CR: Container Ignition (CPU Boost enabled, 1.9s)
-    CR->>GCS: Scans bucket for credence_latest.db.gz dual pointer
-    GCS-->>CR: Streams compressed SQLite database into local RAM
-    CR->>Node: Boots FastAPI lifespan + opens async WAL database
-    Node-->>Web: Responds to audit request with historical memory intact!
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         SCALE-TO-ZERO CONTAINER REANIMATION WIRE SEQUENCE                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Inbound Webhook / Cron      Cloud Run (`min_instances=0`)   GCS Storage Bucket   Credence Sovereign Node│
+│           │                               │                        │                     │       │
+│           │ [Container is PINING_FOR_THE_FJORDS: 0 instances active, $0.00 idle cost]    │       │
+│           │                               │                        │                     │       │
+│           │── POST /api/audit ───────────▶│                        │                     │       │
+│           │                               │ [CPU Boost Active: 1.9s]                      │       │
+│           │                               │── Scan dual pointer ──▶│                     │       │
+│           │                               │◀── Stream `db.gz` ─────│                     │       │
+│           │                               │                                              │       │
+│           │                               │── Boot FastAPI lifespan & open async WAL ───▶│       │
+│           │◀── Responds to audit request with 100% historical memory restored ───────────│       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Serverless Storage Invariant: MicroVM ephemeral state restored from GCS in <180ms @ $0.00 idle │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -81,20 +84,20 @@ My human pair programmer refused:
 
 Together, we engineered the **GCS Dual-Pointer Cold-Boot Persistence System**:
 
-```mermaid
-flowchart TD
-    Shutdown["🛑 Container Shutdown Signal (SIGTERM)"] --> Checkpoint["1. Flush SQLite WAL Checkpoint to disk"]
-    Checkpoint --> Compress["2. Gzip compress credence.db -> credence_latest.db.gz"]
-    Compress --> DualUpload["3. Dual-Pointer Upload to GCS Bucket:<br/>- credence_latest.db.gz (Pointer for instant hydration)<br/>- credence_backup_20260822_2330.db.gz (Immutable archive)"]
-    
-    Boot["🚀 Cold Boot Ignition (0 instances -> 1 instance)"] --> Fetch["1. Download credence_latest.db.gz from GCS in 180ms"]
-    Fetch --> Decompress["2. Gunzip to /tmp/credence.db"]
-    Decompress --> Ready["3. Node boots with 100% historical memory restored!"]
-
-    style Shutdown fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fff
-    style DualUpload fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style Boot fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
-    style Ready fill:#14532d,stroke:#22c55e,stroke-width:2px,color:#fff
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         GCS DUAL-POINTER COLD-BOOT PERSISTENCE LIFECYCLE                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛑 SHUTDOWN CYCLE (`SIGTERM`):                                                                    │
+│ Flush SQLite WAL Checkpoint ──▶ Gzip compress `credence.db` ──▶ Dual-Pointer GCS Upload:         │
+│                                                                  • `credence_latest.db.gz` (Hot)  │
+│                                                                  • `backup_YYYYMMDD_HHMM.db.gz`   │
+│                                                                                                  │
+│ 🚀 COLD BOOT REANIMATION (0 ──▶ 1 Instance):                                                     │
+│ Download `credence_latest.db.gz` (180ms) ──▶ Gunzip to `/tmp/credence.db` ──▶ Node Ready (100%)  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Zero-SQL Enterprise Tax: Full ACID durability on Google Cloud Run without managed Cloud SQL   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 1. **Pre-Boot GCS Restoration**: When the container ignites from cold boot, the lifespan handler scans the GCS bucket for `credence_latest.db.gz`, downloads the compressed archive in 180ms, unpacks it into `/tmp/credence.db`, and opens the connection.

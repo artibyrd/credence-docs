@@ -17,23 +17,27 @@ This guide demonstrates how to peer Credence nodes across **Tailscale** or **Wir
 
 ## 1. Network Topology
 
-```mermaid
-graph LR
-    subgraph Newsroom Alpha (London)
-        NodeA["Node Alpha (100.64.0.10:8765)"]
-    end
-
-    subgraph Research Lab Beta (Berlin)
-        NodeB["Node Beta (100.64.0.20:8765)"]
-    end
-
-    subgraph Field Team Gamma (Geneva)
-        NodeC["Node Gamma (100.64.0.30:8765)"]
-    end
-
-    NodeA <-->|Encrypted WireGuard Tunnel| NodeB
-    NodeB <-->|Encrypted WireGuard Tunnel| NodeC
-    NodeA <-->|Encrypted WireGuard Tunnel| NodeC
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                   SOVEREIGN P2P OVERLAY TOPOLOGY (TAILSCALE / WIREGUARD)                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                                  │
+│                 ┌──────────────────────────────────────────────┐                                 │
+│                 │ 🏛️ Newsroom Alpha (London)                   │                                 │
+│                 │ Node Alpha (`100.64.0.10:8765`)              │                                 │
+│                 └──────────────┬───────────────────────────────┘                                 │
+│                                │                                                                 │
+│                 Encrypted P2P  │  Encrypted P2P                                                  │
+│                 Tunnel         │  Tunnel                                                         │
+│                                │                                                                 │
+│       ┌────────────────────────┴───────┐       ┌────────────────────────────────┐                │
+│       │ 🔬 Research Lab Beta (Berlin)  │       │ 🛡️ Field Team Gamma (Geneva)   │                │
+│       │ Node Beta (`100.64.0.20:8765`) │◀─────▶│ Node Gamma (`100.64.0.30:8765`)│                │
+│       └────────────────────────────────┘       └────────────────────────────────┘                │
+│                                Encrypted Tunnel                                                  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ • Zero Public IPv4 Open Ports • End-to-End ChaCha20-Poly1305 WireGuard Encryption               │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

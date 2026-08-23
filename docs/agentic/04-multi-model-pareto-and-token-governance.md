@@ -28,16 +28,26 @@ read_time: 9 min
 
 Discover how Credence achieves institutional-grade epistemic accuracy at $0.0003 per audit by identifying the empirical **4k Thinking Token Pareto Frontier** and enforcing multi-tier adversarial prompt boundaries.
 
-```mermaid
-flowchart LR
-    Input["Untrusted Web Text"] --> Guard["Prompt Injection Guard<br/>(<untrusted_source_text>)"]
-    Guard --> Gov["Token Safety Governor<br/>(30% Headroom Circuit Breaker)"]
-    
-    Gov -->|Budget Healthy| Gemini["Gemini 3.7 Flash<br/>(4k Thinking · $0.075/1M)"]
-    Gov -->|Quota Exceeded| Offline["Offline Structural Heuristic<br/>(Invariant 23 · $0.00 cost)"]
-    
-    Gemini --> Grounding["G=1.00 Verbatim Grounding Gate"]
-    Offline --> Grounding
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         MULTI-MODEL PARETO FRONTIER & TOKEN SAFETY GOVERNOR                      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Untrusted Web Text ──▶ Prompt Injection Defense Enclosure (`<untrusted_source_text>`)            │
+│                              │                                                                   │
+│                              ▼ Token Safety Governor (30% Headroom Circuit Breaker)              │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Routing Decision Matrix:                                                                   │   │
+│ ├────────────────────────────┬─────────────────────────────────┬─────────────────────────────┤   │
+│ │ Headroom Condition         │ Model Adapter Invocations       │ Economic & Latency Profile  │   │
+│ ├────────────────────────────┼─────────────────────────────────┼─────────────────────────────┤   │
+│ │ Healthy Budget (>30%)      │ Gemini 3.7 Flash (4k Thinking)  │ $0.34 / 1k audits · 3.8s    │   │
+│ │ Quota Preservation (<30%)  │ Offline Heuristic Rule Engine   │ $0.00 token cost · <0.05s   │   │
+│ └────────────────────────────┴────────────────┬────────────────┴─────────────────────────────┘   │
+│                                               │                                                  │
+│                                               ▼                                                  │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🛡️ Verbatim Grounding Gate ($G=1.00$) ──▶ RFC 8785 Canonical JSON + Ed25519 Signature      │   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > [!NOTE]

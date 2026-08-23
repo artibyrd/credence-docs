@@ -25,12 +25,28 @@ This tutorial walks through configuring and verifying Credence's **Dual-Tier Mon
 
 Credence supports two primary monitoring tiers via Terraform:
 
-```mermaid
-graph TD
-    TierChoice{"monitoring_tier"}
-    TierChoice -->|"simple (Default)"| SimpleMode["Guy in His Basement Easy Mode<br/>• 3 Core Alerts (Outage, 5xx, RAM)<br/>• Discord Webhook & Email<br/>• 4-Tile SRE Dashboard<br/>• Zero False Positives"]
-    TierChoice -->|"advanced"| AdvancedMode["Advanced Production Tier<br/>• All Simple Mode Features<br/>• Log Error Surge Metric<br/>• P95 Latency Degradation<br/>• CPU Saturation Alert<br/>• Cloud Scheduler Failure"]
-    TierChoice -->|"disabled"| DisabledMode["Disabled Tier<br/>• Dashboard Only<br/>• Zero Alerts"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         DUAL-TIER SRE CLOUD MONITORING & DISCORD ALERTING                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Configuration Parameter: `monitoring_tier` in `terraform.tfvars`                           │   │
+│ ├──────────────────────────────┬───────────────────────────────┬─────────────────────────────┤   │
+│ │ Simple Mode (Default)        │ Advanced Production Tier      │ Disabled Tier               │   │
+│ ├──────────────────────────────┼───────────────────────────────┼─────────────────────────────┤   │
+│ │ • "Guy in Basement" Mode     │ • Enterprise Outage Defense   │ • Metrics Dashboard Only    │   │
+│ │ • 3 Core Alerts:             │ • All Simple Mode Alerts +    │ • Zero Alert Notifications  │   │
+│ │   - Container Outage         │   - Log Error Rate Surges     │ • Safe for isolated local   │   │
+│ │   - HTTP 5xx Error Spike     │   - P95 Latency Degradation   │   testing and sandbox labs  │   │
+│ │   - RAM Saturation (>85%)    │   - CPU Spike Alert (>90%)    │                             │   │
+│ │ • Discord Webhook + Email    │   - Cloud Scheduler Failures  │                             │   │
+│ │ • 4-Tile SRE Dashboard       │ • 8-Tile SRE Dashboard        │                             │   │
+│ └──────────────────────────────┴───────────────────────────────┴─────────────────────────────┘   │
+│                                │                                                                 │
+│                                ▼ Real-Time Dispatch Pipeline                                     │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🔔 Discord Webhook (`#ops-alerts`) • Email Digest • Textual TUI Ops Pane (`credence tui`)  │   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

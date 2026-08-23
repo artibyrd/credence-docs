@@ -42,14 +42,24 @@ Where:
 
 ## 2. The Four Forensic Sourcing Ratios
 
-```mermaid
-flowchart TD
-    subgraph SourcingRatios ["The 4 Forensic Sourcing Pillars"]
-        R1["1. Byline Transparency Ratio (R_byline)<br/>Proportion of articles with verified human bylines"]
-        R2["2. Single-Source Reliance Ratio (R_single)<br/>Frequency of articles relying on a single press release"]
-        R3["3. Conflict Disclosure Rate (R_COI)<br/>Rate of explicit financial/political conflict disclosures"]
-        R4["4. Advertorial Separation Index (ASI)<br/>Separation metric isolating disguised native advertorials"]
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE 4 FORENSIC SOURCING PILLARS ($DEI$)                                  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
+│ │ 1. BYLINE TRANSPARENCY    │ 2. SINGLE-SOURCE RELIANCE     │ 3. CONFLICT DISCLOSURE RATE    │   │
+│ │ $R_{\text{byline}} \in [0, 1]$│ $R_{\text{single}} \in [0, 1]$│ $R_{\text{COI}} \in [0, 1]$    │   │
+│ │ Verified human authors vs │ Reliance on single PR handout │ Explicit financial / political │   │
+│ │ anonymous "Staff" tags    │ without corroboration         │ conflict-of-interest notes     │   │
+│ └─────────────┬─────────────┴───────────────┬───────────────┴────────────────┬───────────────┘   │
+│               │                             │                                │                   │
+│               └─────────────────────────────┼────────────────────────────────┘                   │
+│                                             ▼                                                    │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 4. ADVERTORIAL SEPARATION INDEX ($\text{ASI} \in [0, 1]$)                                  │   │
+│ │ • Isolates disguised native advertising, affiliate links, and sponsored cloaked advertorials │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### 1. Byline Transparency Ratio ($R_{\text{byline}}$)

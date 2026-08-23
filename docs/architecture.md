@@ -11,45 +11,47 @@ last_verified: 2026-08-20
 
 **Credence** is an autonomous epistemic evaluation engine, FastMCP 2.0 server, and decentralized trust network designed to analyze digital media against formal journalistic ethics, logical fallacies, and deceptive UI patterns.
 
-```mermaid
-graph TD
-    subgraph Ingestion Layer
-        URL[Target Webpage URL] --> Extractor[Trafilatura Extractor]
-        URL --> Snapshot[Playwright Dual-Capture]
-        Snapshot --> DOM[Rendered HTML DOM]
-        Snapshot --> PNG[Visual Screenshot PNG]
-        Extractor --> CleanText[Normalized Prose Text]
-        CleanText --> Hasher[Hasher & SimHash-64]
-    end
-
-    subgraph Governance & Quality Layer
-        Hasher --> CacheCheck{SQLite Cache Hit?}
-        CacheCheck -- Yes --> CachedReport[Instant 0-Token Attestation]
-        CacheCheck -- No --> Governor[TokenBudgetGovernor]
-        Governor -- Budget OK --> Triage[Triage & Satire Filter]
-        Governor -- Budget Tripped --> OfflineFallback[Offline Heuristic Engine]
-    end
-
-    subgraph Multi-Agent Evaluation Layer
-        Triage -- Is Satire --> SatireNeutralizer[Zero Suspicion / Tag Satire]
-        Triage -- News / Opinion --> Dispatcher[Concurrent Specialist Auditors]
-        Dispatcher --> SPJ[SPJ Ethics Auditor]
-        Dispatcher --> Fallacy[IEP Fallacy Auditor]
-        Dispatcher --> DP[Deceptive Pattern Auditor]
-        SPJ & Fallacy & DP --> GroundingGate[Grounded Quote Validator]
-        GroundingGate --> QualityGate{Citation Grounding >= 75%?}
-        QualityGate -- Fails --> Escalation[Gemini 3.7 Flash High-Thinking Escalation]
-        QualityGate -- Passes --> Scoring[Scoring & Saturation Engine]
-        Escalation --> Scoring
-    end
-
-    subgraph Attestation & Interface Layer
-        Scoring --> Ed25519[Ed25519 Cryptographic Signing]
-        Ed25519 --> DB[(SQLite Database / WAL Mode)]
-        Ed25519 --> CLI[Rich Terminal CLI]
-        Ed25519 --> TUI[Textual Interactive Workstation]
-        Ed25519 --> MCP[FastMCP Tools & Resources]
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                CREDENCE DECENTRALIZED ARCHITECTURE                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 1. INGESTION & DUAL-CAPTURE LAYER                                                                │
+│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
+│ │ Target Webpage URL     │ ───▶ │ Normalized Prose Text   │ ───▶ │ 64-Bit SimHash Fingerprint│   │
+│ │ • Trafilatura Extractor│      │ (Whitespace Normalized) │      │ (Hamming Distance d_H<=3) │   │
+│ │ • Playwright DOM & PNG │      └─────────────────────────┘      └─────────────┬─────────────┘   │
+│ └────────────────────────┘                                                     │                 │
+├────────────────────────────────────────────────────────────────────────────────┼─────────────────┤
+│ 2. GOVERNANCE & HEADROOM CIRCUIT BREAKER                                       ▼                 │
+│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
+│ │ SQLite WAL Cache Check │─Hit─▶│ 0-Token Instant Replay  │      │ Token Budget Governor     │   │
+│ │ (SimHash Deduplication)│      │ (Canonical RFC Receipt) │      │ • >=30% Quota Headroom    │   │
+│ └──────────┬─────────────┘      └─────────────────────────┘      │ • Circuit Tripped: Offline│   │
+│            │ Miss                                                └─────────────┬─────────────┘   │
+├────────────┴───────────────────────────────────────────────────────────────────┼─────────────────┤
+│ 3. CONCURRENT SPECIALIST AUDIT & GROUNDING GATE                                ▼                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Poe's Law & Satire Triage Filter (Neutralize Satire 0.00 vs SPJ-1.6 Allegation Override)   │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────┐      ┌─────────────────────────┐      ┌───────────────────────────┐   │
+│ │ SPJ Ethics Specialist  │      │ IEP Fallacy Specialist  │      │ Deceptive Pattern Auditor │   │
+│ │ • Anonymous sources    │      │ • Ad Hominem, Strawman  │      │ • Fake countdown urgency  │   │
+│ └──────────┬─────────────┘      └────────────┬────────────┘      └─────────────┬─────────────┘   │
+│            └─────────────────────────────────┼─────────────────────────────────┘                 │
+│                                              ▼                                                   │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Grounded Quote Validator (Character-Match G=1.00) ──Pass (G>=0.75)──▶ Epistemic Scoring    │   │
+│ │                                                  └──Fail (G<0.75)───▶ Escalation (Thinking)│   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+├────────────────────────────────────────────────┼─────────────────────────────────────────────────┤
+│ 4. CRYPTOGRAPHIC ATTESTATION & 4-WAY EGRESS    ▼                                                 │
+│ ┌────────────────────────┐      ┌────────────────────────────────────────────────────────────┐   │
+│ │ RFC 8785 Ed25519 Sign  │ ───▶ │ 4 Universal Presentation Interfaces:                       │   │
+│ │ Canonical JSON Receipt │      │ • CLI (`credence audit`)       • FastMCP 2.0 (Agent Tools) │   │
+│ │ SQLite WAL Persistence │      │ • Textual TUI (`credence tui`) • Zero-Build Web UI (`web/`)│   │
+│ └────────────────────────┘      └────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Architectural Component Matrix

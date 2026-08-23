@@ -30,33 +30,23 @@ Then, you add Docker build recipes. Then Terraform provisioning commands. Then C
 
 By release $v2.7.0$, our root `Justfile` had quietly mutated into a **951-line terrifying monolith**.
 
-```mermaid
-flowchart TD
-    subgraph TheMonolith ["❌ The 951-Line Justfile Monster (v2.7.0)"]
-        direction TB
-        J_Root["Root Justfile<br/><i>(951 lines of tangled bash & python)</i>"]
-        --> J_1["Preflight checks (120 lines)"]
-        --> J_2["Pytest & E2E (220 lines)"]
-        --> J_3["FastMCP & Daemons (180 lines)"]
-        --> J_4["Cloud Run & Wrangler (260 lines)"]
-        --> J_5["Release & Parity (171 lines)"]
-    end
-
-    subgraph ModularArchitecture ["🛡️ The 500 LOC Modular Architecture (v2.7.1)"]
-        direction TB
-        Orch["Root Justfile<br/><i>(15 lines of declarative imports)</i>"]
-        --> P_Pre["just/preflight.just (84 lines)"]
-        --> P_Qual["just/quality.just (182 lines)"]
-        --> P_Eng["just/engine.just (120 lines)"]
-        --> P_Dep["just/deploy.just (165 lines)"]
-        --> P_Rel["just/release.just (142 lines)"]
-    end
-
-    TheMonolith -->|"Decomposed under 500 LOC Ceiling Law"| ModularArchitecture
-
-    style TheMonolith fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fff
-    style ModularArchitecture fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style Orch fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE JUSTFILE 500 LOC DECOMPOSITION ARCHITECTURE                          │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ ❌ THE 951-LINE MONOLITH (v2.7.0)        │   │ 🛡️ THE 500 LOC MODULAR TOOLCHAIN (v2.7.1) │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Root `Justfile` (951 lines of tangled  │   │ • Root `Justfile` (15 lines of imports)  │      │
+│ │   bash, python, and cloud deploys)       │──▶│ • `just/preflight.just` (84 lines)       │      │
+│ │ • Tangled dependencies & slow navigation │   │ • `just/quality.just` (182 lines)        │      │
+│ │ • High risk of accidental recipe edits   │   │ • `just/engine.just` (120 lines)         │      │
+│ │ • Exceeded LLM reasoning attention bounds│   │ • `just/deploy.just` (165 lines)         │      │
+│ │                                          │   │ • `just/release.just` (142 lines)        │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Ergonomic Invariant: All recipe modules stay strictly below 500 LOC with banner guidance       │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 Editing a Python formatting flag on line 140 required scrolling past 800 lines of Google Cloud Run IAM binding scripts. One accidental bash typo on line 210 broke the production DNS deployment recipe.

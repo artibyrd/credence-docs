@@ -21,24 +21,22 @@ In **Credence**, we set a strict architectural constraint from day one: **the co
 
 Here is how we built it.
 
-```mermaid
-flowchart TD
-    subgraph "Legacy P2P Test (16GB RAM / 3 minutes)"
-        D1["Docker Daemon"] --> C1["Container 1 (512MB)"]
-        D1 --> C2["Container 2 (512MB)"]
-        D1 --> C13["Container 13 (512MB)"]
-    end
-
-    subgraph "Credence Featherweight Swarm (<150MB RAM / 4.5s)"
-        EventLoop["Single Python Asyncio Event Loop"]
-        EventLoop --> N1["Node 1 (Port :9501)"]
-        EventLoop --> N2["Node 2 (Port :9502)"]
-        EventLoop --> N13["Node 13 (Port :9513)"]
-        N1 <-->|Watts-Strogatz Small-World Lattice (d=4, beta=0.20)| N13
-    end
-
-    style EventLoop fill:#1e293b,stroke:#22c55e,stroke-width:2px,color:#f8fafc
-    style D1 fill:#1e293b,stroke:#ef4444,stroke-width:2px,color:#f8fafc
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         LEGACY DOCKER P2P VS FEATHERWEIGHT ASYNCIO SWARM                         │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ ❌ LEGACY P2P TEST (16GB RAM / 3 Mins)   │   │ 🛡️ CREDENCE FEATHERWEIGHT SWARM (<150MB) │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Docker daemon + 13 bulky containers    │   │ • Single Python Asyncio Event Loop       │      │
+│ │ • 13 separate Linux OS kernels & systemd │──▶│ • 13 Local Relays (:9501 to :9513)       │      │
+│ │ • 512MB RAM allocated per container      │   │ • Watts-Strogatz Small-World ($d=4,\beta=0.2$) │
+│ │ • Slow boot, port clashes, flaky timeouts│   │ • 13 Distinct Ed25519 Keys & WAL Caches  │      │
+│ │ • 💥 Unrunnable on CI runners / Rasp Pi  │   │ • ✨ 100% In-Memory Green in 4.5 Seconds │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Resource Invariant: Test protocol isolation via async memory streams, not OS virtualization   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -76,14 +74,24 @@ Because all 13 WebSocket servers run inside Python's native `asyncio` event loop
 
 When running our physical multi-container homelab cluster (`just mesh-cluster-up`), we enforce strict hardware boundaries via `credence/hardware_guard.py`.
 
-```mermaid
-flowchart LR
-    Host["Host Machine"] --> Check{"RAM >= 2.0 GB?"}
-    Check -->|Yes| FullSwarm["Launch Full 13-Node Cluster<br>(128MB cgroup per container)"]
-    Check -->|No| SafeFallback["Graceful Fallback: 3-Node Triangle<br>(Consumes <300MB total)"]
-
-    style FullSwarm fill:#1e293b,stroke:#22c55e,stroke-width:2px,color:#f8fafc
-    style SafeFallback fill:#1e293b,stroke:#fbbf24,stroke-width:2px,color:#f8fafc
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         HARDWARE RESOURCE GOVERNOR DECISION ENGINE                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Host Environment Interrogation (`psutil.virtual_memory()`)                                        │
+│                                │                                                                 │
+│       ┌────────────────────────┴────────────────────────┐                                        │
+│       ▼ RAM Available $\ge 2.0\text{GB}$                ▼ RAM Constrained ($< 2.0\text{GB}$)     │
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ 🚀 FULL 13-NODE SWARM CLUSTER            │   │ 🛡️ GRACEFUL 3-NODE FALLBACK TRIANGLE     │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • 13 Active WebSocket Relays             │   │ • 3 Node Triangle Cluster (Consumes <300M│      │
+│ │ • Full Watts-Strogatz Lattice ($N=13$)   │   │ • Preserves Byzantine Quorum Math ($f=0$)│      │
+│ │ • 128MB Hard Cgroups (`mem_limit: 128m`) │   │ • Emits Clear Educational Warning        │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Adaptive Scaling: Automatic graceful degradation prevents OOM panics on edge hardware        │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 1. **Pre-Flight Memory Probing**: Before launching containers, the governor interrogates `psutil.virtual_memory()`. If available RAM is $<2\text{GB}$, it throttles cluster size down to a 3-node triangle with a clear warning.

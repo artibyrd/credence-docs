@@ -22,34 +22,28 @@ In **Credence**, we close this feedback loop with a paradigm called **Interface 
 
 Instead of treating telemetry as a one-way egress stream, Credence nodes maintain a lightweight, rolling in-memory telemetry engine. Production health signals, HTTP status code distributions, memory saturation meters, and active alert conditions are continuously reflected back into **all four user and agent presentation surfaces**:
 
-```mermaid
-graph TD
-    subgraph Compute ["Compute & SRE Engine"]
-        CloudRun["Cloud Run Container / Local Node"]
-        Tracker["ServerTelemetryTracker (Rolling 5m Window)"]
-        GCP["Google Cloud Monitoring & Uptime Probes"]
-        CloudRun --> Tracker
-        CloudRun --> GCP
-    end
-
-    subgraph Loopback ["Interface Telemetry Loopback (ITLP-v1)"]
-        HealthAPI["REST /health & /api/health"]
-        MCPResource["FastMCP credence://node/health"]
-        Tracker --> HealthAPI
-        Tracker --> MCPResource
-    end
-
-    subgraph Surfaces ["Four Epistemic Presentation Surfaces"]
-        TUI["Interactive Textual TUI<br/>(Live ⚠️ 5xx Spike Badge & Ops Tab)"]
-        CLI["CLI (credence health / alerts)"]
-        Agents["AI Agents (Claude / Antigravity / Cursor)"]
-        Web["Zero-Build Web UI (Live Health Pill)"]
-
-        HealthAPI --> TUI
-        HealthAPI --> CLI
-        HealthAPI --> Web
-        MCPResource --> Agents
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         INTERFACE TELEMETRY LOOPBACK (ITLP-v1) ARCHITECTURE                      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ ⚙️ COMPUTE & SRE ENGINE: Rolling In-Memory Telemetry Tracker (`ServerTelemetryTracker`)      │   │
+│ │ • Sub-5ms Health Ingress • 5-Minute Sliding Error Window • GCP Uptime Probes & Saturation  │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                │                                                 │
+│                                                ▼ Closed-Loop Telemetry Distribution              │
+│       ┌────────────────────────────────────────┴────────────────────────────────────────┐        │
+│       ▼ REST Telemetry (`/health`, `/api/health`)        ▼ FastMCP Resource (`credence://node`)  │
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ 🖥️ HUMAN INTERFACES                      │   │ 🤖 AUTONOMOUS AGENTS & EXTENSIONS        │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Textual TUI (Live ⚠️ 5xx Spike Badge)  │   │ • FastMCP 2.0 Agent Stream (Claude/AGY)  │      │
+│ │ • CLI Workstation (`credence health`)    │   │ • Subagent Telemetry Introspection       │      │
+│ │ • Zero-Build Web UI (Live Health Pill)   │   │ • Instant Circuit-Breaker Backoff        │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Loopback Invariant: Real-time telemetry reflects into terminal, web, and agent surfaces       │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

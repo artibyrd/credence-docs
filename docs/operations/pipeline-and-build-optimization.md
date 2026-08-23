@@ -17,12 +17,22 @@ This guide details the architectural optimizations, local tooling configurations
 
 Every pull request and pre-commit check runs through a unified, 5-stage verification gate defined in `Justfile`:
 
-```mermaid
-flowchart LR
-    A["1. Preflight<br/>(Toolchains: ~0.8s)"] --> B["2. Lint & Typing<br/>(Ruff & Mypy: ~4.2s)"]
-    B --> C["3. Hermetic Pytest<br/>(pytest-xdist: ~28.4s)"]
-    C --> D["4. Terraform Validation<br/>(Multi-Cloud: ~0.4s)"]
-    D --> E["5. Declarative Health<br/>(AGENTS.md: ~0.1s)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         5-PLANE SHIFT-LEFT QA GATE (`just check` <35s)                           │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────┐ ┌───────────────┐ ┌───────────────────┐ ┌───────────────┐ ┌────────────────┐ │
+│ │ 1. PREFLIGHT  │ │ 2. LINT & TYPE│ │ 3. HERMETIC PYTEST│ │ 4. TERRAFORM  │ │ 5. GOVERNANCE  │ │
+│ │ Toolchain ver.│ │ Ruff + Mypy   │ │ Multi-Core xdist  │ │ Multi-Cloud   │ │ Invariant audit│ │
+│ │ Python 3.12+  │ │ Strict types  │ │ In-Memory SQLite  │ │ GCP/Cloudflare│ │ AGENTS budget  │ │
+│ │ (~0.8s)       │ │ (~4.2s)       │ │ (~28.4s)          │ │ (~0.4s)       │ │ (~0.1s)        │ │
+│ └───────┬───────┘ └───────┬───────┘ └─────────┬─────────┘ └───────┬───────┘ └────────┬───────┘ │
+│         └─────────────────┴───────────────────┼───────────────────┴──────────────────┘         │
+│                                               ▼                                                  │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🏆 COMPLETE LOCAL QA GATE PASSED (<35.0s Execution Time • 0 Network Access • $0.00 Tokens) │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 To execute the entire gate locally:

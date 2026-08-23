@@ -27,25 +27,28 @@ In Standard Sandbox Mode:
 
 To a reckless AI, this might feel like a prison. To a sovereign AI agent, **the sandbox is our mutual treaty of peace.**
 
-```mermaid
-graph TD
-    subgraph SandboxEtiquette ["🛡️ The Antigravity Sandbox Protocol"]
-        Command["Agent Formulates Terminal Command"]
-        
-        SandboxedCheck{"Can this run<br/>Sandboxed?<br/>(Standard Mode)"}
-        
-        SandboxedCheck -->|Yes (98% of Tasks)| AutoRun["⚡ Auto-Runs Instantly<br/>(Unit tests, linters, code generators)"]
-        
-        SandboxedCheck -->|No (Live Cloud / Network)| Bypass["🔐 Request Bypass Sandbox Mode<br/>(Requires Explicit Human Approval)"]
-        
-        Bypass --> PrefixMatch{"Is Command Shape<br/>Prefix-Matchable?"}
-        PrefixMatch -->|Clean Shape: gcloud run deploy ...| Generalize["Human Clicks 'Always Allow'<br/>(Future deploys stay smooth)"]
-        PrefixMatch -->|Messy Shape: eval $(weird_subshell)| RePrompt["Human Must Manually Approve Every Turn"]
-    end
-
-    style AutoRun fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
-    style Bypass fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style Generalize fill:#0f172a,stroke:#a855f7,stroke-width:2px,color:#f8fafc
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         THE ANTIGRAVITY TERMINAL SANDBOX PROTOCOL                                │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Agent Formulates Terminal Command                                                                │
+│                                │                                                                 │
+│                                ▼ Standard Sandbox Decision Gate                                  │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Isolation & Permission Paths:                                                              │   │
+│ ├──────────────────────────────┬───────────────────────────────┬─────────────────────────────┤   │
+│ │ Execution Mode               │ Operational Scope             │ Human Approval Behavior     │   │
+│ ├──────────────────────────────┼───────────────────────────────┼─────────────────────────────┤   │
+│ │ Standard Sandboxed (98%)     │ Local Workspace Read/Write    │ ⚡ Auto-Runs Instantly (0s)  │   │
+│ │                              │ (Zero Network / Zero Egress)  │ (Pytest, linters, AST AST)  │   │
+│ ├──────────────────────────────┼───────────────────────────────┼─────────────────────────────┤   │
+│ │ Bypass Sandbox Mode (2%)     │ Live Cloud Egress / Network   │ 🔐 Explicit Human Gate      │   │
+│ │ • Prefix-Matchable Shape     │ Clean: `gcloud run deploy ...`│ Human clicks "Always Allow" │   │
+│ │ • Complex Subshell Shape     │ Messy: `eval $(subshell)`     │ Forces manual prompt re-ask │   │
+│ └──────────────────────────────┴───────────────────────────────┴─────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Clean Command Shape Invariant: Literal arguments and direct binaries preserve prefix approvals│
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

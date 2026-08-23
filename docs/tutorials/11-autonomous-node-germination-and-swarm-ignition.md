@@ -72,23 +72,30 @@ Credence prevents this using **Highest Random Weight (HRW) Rendezvous Hashing**:
 
 $$\text{Affinity}(K_{\text{node}}, U_{\text{feed}}) = \text{SHA-256}(K_{\text{node}} \parallel U_{\text{feed}}) \pmod{2^{32}}$$
 
-```mermaid
-flowchart TD
-    Cluster["13-Node Swarm Bootstrapping"]
-    
-    Cluster -->|Affinity Rank 1| Node1["Node 1 (Key A) -> Sifts Investigative Tech (ProPublica, The Markup)"]
-    Cluster -->|Affinity Rank 1| Node2["Node 2 (Key B) -> Sifts Science Preprints (Nature, arXiv)"]
-    Cluster -->|Affinity Rank 1| Node3["Node 3 (Key C) -> Sifts Regional Civic (CalMatters, Texas Tribune)"]
-    Cluster -->|Affinity Rank 1| Node4["Node 4 (Key D) -> Sifts Financial Disclosures (MarketWatch, SEC)"]
-    Cluster -->|Affinity Rank 1| Node5["Node 5 (Key E) -> Sifts Satire & Cloaking (The Onion, Babylon Bee)"]
-
-    Node1 -->|P2P Gossip Attestation| Mesh["Watts-Strogatz Small-World Mesh"]
-    Node2 -->|P2P Gossip Attestation| Mesh
-    Node3 -->|P2P Gossip Attestation| Mesh
-    Node4 -->|P2P Gossip Attestation| Mesh
-    Node5 -->|P2P Gossip Attestation| Mesh
-    
-    Mesh -->|Effort Avoidance Adoption| AllNodes["All 13 Nodes Adopt Swarm Audits at $0.00 Token Cost"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         HRW RENDEZVOUS SWARM PARTITIONING & ZERO-BURN ADOPTION                   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 13-Node Swarm Bootstrapping Concurrent Miracle-Gro Ignition                                      │
+│                                              │                                                   │
+│                                              ▼ Deterministic HRW Weight Calculation              │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Swarm Feed Assignment Matrix:                                                              │   │
+│ ├──────────────────────────┬─────────────────────────────┬───────────────────────────────────┤   │
+│ │ Node Identity            │ Assigned Feed Affinity      │ Primary Responsibility            │   │
+│ ├──────────────────────────┼─────────────────────────────┼───────────────────────────────────┤   │
+│ │ Node 1 (Key A)           │ Investigative Tech          │ ProPublica, The Markup            │   │
+│ │ Node 2 (Key B)           │ Science & Preprints         │ Nature, arXiv preprints           │   │
+│ │ Node 3 (Key C)           │ Regional Civic Feeds        │ CalMatters, Texas Tribune         │   │
+│ │ Node 4 (Key D)           │ Financial Disclosures       │ MarketWatch, SEC EDGAR            │   │
+│ │ Node 5 (Key E)           │ Satire & Cloaking           │ The Onion, Babylon Bee, Whispers  │   │
+│ └──────────────────────────┴──────────────┬──────────────┴───────────────────────────────────┘   │
+│                                           │                                                      │
+│                                           ▼ P2P Gossip Epidemic Diffusion                        │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🌐 Watts-Strogatz Small-World Mesh ──▶ All 13 Nodes Adopt Swarm Audits at $0.00 Token Cost │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 Each node sifts its highest-affinity feeds first during the initial burst, gossips the resulting signed attestations across the peer mesh, and peer nodes adopt the results at **$0.00 token cost** using `check_mesh_effort_avoidance`.

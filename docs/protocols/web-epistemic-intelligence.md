@@ -21,22 +21,32 @@ $$\text{DCI} = 100 - \left( 0.50 \cdot \overline{S} + 0.30 \cdot \min(50, \overl
 
 ### Metric Definitions
 
-```mermaid
-flowchart TD
-    subgraph Inputs["Audited Domain Metrics"]
-        S["Mean Suspicion Score S (0-100)<br/>Weight: 50%"]
-        D["Suspicion Density D (Violations / 1k words)<br/>Weight: 30%"]
-        B["Byline Transparency Ratio R_byline<br/>Weight: 20%"]
-    end
-
-    Inputs --> DCI["Domain Credence Index (DCI)<br/>0.0% to 100.0%"]
-
-    DCI --> Bands{"Trust Band Classifier"}
-    Bands -->|&ge; 85%| TB1["HIGH_INTEGRITY (Clean Record)"]
-    Bands -->|65 - 84.9%| TB2["RELIABLE"]
-    Bands -->|45 - 64.9%| TB3["MIXED"]
-    Bands -->|25 - 44.9%| TB4["LOW_INTEGRITY"]
-    Bands -->|&lt; 25%| TB5["DECEPTIVE (High Risk)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         DOMAIN CREDENCE INDEX ($DCI$) ARCHITECTURE                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ $\text{DCI} = 100 - \left( 0.50 \cdot \overline{S} + 0.30 \cdot \min(50, \overline{D}) + 0.20 \cdot (1 - R_{\text{byline}}) \cdot 100 \right)$ │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌──────────────────┬──────────────┬──────────────┬─────────────────────────────────────────┐     │
+│ │ Metric           │ Range        │ Weight       │ Meaning / Impact                        │     │
+│ ├──────────────────┼──────────────┼──────────────┼─────────────────────────────────────────┤     │
+│ │ $\overline{S}$   │ $[0, 100]$   │ 50%          │ Mean Suspicion Score across audits      │     │
+│ │ $\overline{D}$   │ $[0, 50]$    │ 30%          │ Suspicion Density (Violations / 1k wds) │     │
+│ │ $R_{\text{byline}}$│ $[0.0, 1.0]$│ 20%          │ Byline Transparency Ratio               │     │
+│ └──────────────────┴──────────────┴──────┬───────┴─────────────────────────────────────────┘     │
+│                                          │                                                       │
+│                                          ▼                                                       │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 5 Epistemic Trust Bands:                                                                   │   │
+│ │ • $\ge 85.0\%$: 🛡️ `HIGH_INTEGRITY` (Verified clean track record, grounded reporting)      │   │
+│ │ • $65.0..84.9\%$: 🟢 `RELIABLE` (Occasional low-severity rhetorical bias)                  │   │
+│ │ • $45.0..64.9\%$: 🟡 `MIXED` (Moderate sensationalism or unsourced claims)                 │   │
+│ │ • $25.0..44.9\%$: 🟠 `LOW_INTEGRITY` (Systematic fallacies, missing bylines)               │   │
+│ │ • $< 25.0\%$: 🔴 `DECEPTIVE` (Severe journalistic violations, active quarantine)           │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -97,14 +107,23 @@ $ credence rankings --type rules --limit 10
 
 The **Epistemic Weather Barometer** aggregates web-wide integrity metrics into a single climate indicator:
 
-```mermaid
-flowchart LR
-    A["Web Audits Stream"] --> B["Global Integrity Score (0-100)"]
-    B --> C["Climate States"]
-    C --> D["☀️ CLEAR_SKIES (Score &ge; 85)"]
-    C --> E["⛅ PARTLY_CLOUDY (Score 70-84)"]
-    C --> F["☁️ OVERCAST_HAZE (Score 50-69)"]
-    C --> G["⛈️ STORMY_DECEPTION (Score &lt; 50)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         MACRO EPISTEMIC WEATHER BAROMETER                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Global Attestation Stream (Cross-Domain Rolling Bayesian Average)                          │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌───────────────┬─────────────┬──────────────────────────────────────────────────────────────┐   │
+│ │ Climate State │ Score Band  │ Environmental Interpretation & Epistemic Impact             │   │
+│ ├───────────────┼─────────────┼──────────────────────────────────────────────────────────────┤   │
+│ │ ☀️ Clear Skies│ $\ge 85.0$  │ High journalistic rigor, verified primary sources, G=1.00    │   │
+│ │ ⛅ P. Cloudy  │ $70.0..84.9$│ Baseline rhetoric, isolated clickbait headlines detected     │   │
+│ │ ☁️ Overcast   │ $50.0..69.9$│ Elevated fallacy density, synthetic content surges           │   │
+│ │ ⛈️ Stormy     │ $< 50.0$    │ Coordinated disinfo campaigns, widespread SPJ violations     │   │
+│ └───────────────┴─────────────┴──────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Category Integrity Dials

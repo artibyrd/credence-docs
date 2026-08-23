@@ -14,29 +14,22 @@ This document establishes the zero-trust security controls protecting Credence n
 
 ## 1. Threat Vector & Countermeasure Matrix
 
-```mermaid
-flowchart TD
-    subgraph Vectors ["Adversarial Vectors"]
-        V1["SSRF & DNS Rebinding"]
-        V2["Edge Cache Poisoning"]
-        V3["Redis State Tampering"]
-        V4["Blob Directory Traversal"]
-        V5["Decompression Bombs"]
-    end
-
-    subgraph Defenses ["Zero-Trust Defenses"]
-        D1["Single-Resolution DNS Pinning & RFC 1918 Filter"]
-        D2["Ed25519 Cryptographic Origin Signature Lock"]
-        D3["Constant-Time Admin Bearer Auth & Parameter Clamping"]
-        D4["Strict Hex Regex Validation & Write-Once Immutability"]
-        D5["10MB Streaming Caps & DefusedXML Parsing"]
-    end
-
-    V1 --> D1
-    V2 --> D2
-    V3 --> D3
-    V4 --> D4
-    V5 --> D5
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         ADVERSARIAL THREAT VECTOR & ZERO-TRUST DEFENSE MATRIX                    │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┬────────────────────────────────────────────────────────────────┐   │
+│ │ Adversarial Threat Vector │ Zero-Trust Cryptographic & Network Defense                     │   │
+│ ├───────────────────────────┼────────────────────────────────────────────────────────────────┤   │
+│ │ 1. SSRF & DNS Rebinding   │ Single-Resolution DNS Pinning & Strict RFC 1918 / Cloud IP Drop│   │
+│ │ 2. Edge Cache Poisoning   │ Ed25519 Canonical Origin Signature Verification Lock           │   │
+│ │ 3. Redis State Tampering  │ Constant-Time Admin Bearer Auth (`hmac.compare_digest`) & Clamp│   │
+│ │ 4. Blob Traversal Attack  │ Strict `^[a-f0-9]{64}$` SHA-256 Hex Hash Key Whitelisting      │   │
+│ │ 5. Decompression Bombs    │ Hard 10MB Streaming Response Cap & DefusedXML Entity Stripping │   │
+│ └───────────────────────────┴────────────────────────────────────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Invariant: Untrusted scraped DOM wrapped in `<untrusted_source_text>` isolation boundary       │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

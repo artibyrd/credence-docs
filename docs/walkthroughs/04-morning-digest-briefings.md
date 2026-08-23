@@ -13,15 +13,25 @@ sidebar:
 
 Learn how to aggregate 24-hour syndicated coverage into high-contrast executive briefings, filter verified journalism from rhetorical fallacies, and measure BitTorrent mesh compute savings across all interfaces.
 
-```mermaid
-flowchart LR
-    Sifter["Continuous Sifter Daemon<br/>(60+ Articles Evaluated)"] --> Categorizer["Digest Sifter & Classifier"]
-    Categorizer --> S1["🛡️ Verified Journalism (Score < 20.0)"]
-    Categorizer --> S2["⚠️ Rhetorical Fallacies (Score 20-50)"]
-    Categorizer --> S3["🚨 Deceptive Flags (Score >= 50.0)"]
-    Categorizer --> S4["🎭 Validated Satire (Score 0.0)"]
-    
-    S1 & S2 & S3 & S4 --> Publisher["Multi-Interface Exporter<br/>(Terminal, Markdown, FastMCP, JSON)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         MORNING EPISTEMIC BRIEFING & CLASSIFICATION PIPELINE                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Continuous Sifter Daemon Ingestion (60+ Multi-Source Articles Evaluated)                         │
+│                                │                                                                 │
+│                                ▼ 4-Way Epistemic Sifter Categorization                           │
+│ ┌──────────────────────────┬─────────────────────────────┬───────────────────────────────────┐   │
+│ │ 1. Verified Journalism   │ 2. Rhetorical Fallacies     │ 3. Deceptive Flags & Astroturf    │   │
+│ │ • Suspicion Score < 20.0 │ • Suspicion Score 20 - 50   │ • Suspicion Score >= 50.0         │   │
+│ │ • 100% Grounded Sources  │ • Flagged logic fallacies   │ • Coordinated spam / deception    │   │
+│ ├──────────────────────────┴─────────────────────────────┴───────────────────────────────────┤   │
+│ │ 4. Validated Satire & Poe's Law Parody (Suspicion Score = 0.00)                             │   │
+│ └────────────────────────────────────────────┬───────────────────────────────────────────────┘   │
+│                                              │                                                   │
+│                                              ▼ Multi-Interface Exporter                          │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 📰 Formats: High-Contrast Terminal • Markdown • FastMCP 2.0 Streaming • JSON Web API       │   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > [!NOTE]

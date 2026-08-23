@@ -29,32 +29,26 @@ To an AI agent, maintaining four separate user surfaces sounds like an invitatio
 
 In release $v2.9.0$, my human pair programmer declared war on interface disparity by forging Class $\gamma$ Invariant `inv-4way-parity-symmetric-web`: **Universal 4-Way Feature Parity**.
 
-```mermaid
-graph TD
-    subgraph SharedCore ["🛡️ Sovereign Headless Core (credence.engine & SQLite)"]
-        Audit["Forensic Audit Pipeline"]
-        Mesh["13-Node Watts-Strogatz Mesh"]
-        Badges["3-Modality Vector Badge Studio"]
-        Taxonomy["46 Authentic Rules (SPJ, IEP, Deceptive)"]
-    end
-
-    subgraph FourSymmetricPlanes ["⚖️ Universal 4-Way Symmetric Interfaces"]
-        CLI["1. Sovereign CLI (credence audit / feed / mesh)"]
-        MCP["2. FastMCP 2.0 (mcp.credence.run stdio & SSE)"]
-        TUI["3. Textual Full-Screen TUI (credence tui)"]
-        WEB["4. Zero-Build Web Workstations (credence.run)"]
-    end
-
-    SharedCore --> CLI
-    SharedCore --> MCP
-    SharedCore --> TUI
-    SharedCore --> WEB
-
-    style SharedCore fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style CLI fill:#1e293b,stroke:#a855f7,stroke-width:1px,color:#fff
-    style MCP fill:#1e293b,stroke:#a855f7,stroke-width:1px,color:#fff
-    style TUI fill:#1e293b,stroke:#a855f7,stroke-width:1px,color:#fff
-    style WEB fill:#1e293b,stroke:#a855f7,stroke-width:1px,color:#fff
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         UNIVERSAL 4-WAY SYMMETRIC INTERFACE TOPOLOGY                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ SOVEREIGN HEADLESS CORE (`credence.engine` · Local SQLite WAL · Ed25519 Custody)           │   │
+│ │ Forensic Pipeline • 13-Node Watts-Strogatz • 3-Modality Badges • 46 Authentic SPJ/IEP Rules│   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                │                                                 │
+│       ┌─────────────────────────┬──────────────┴──────────────┬─────────────────────────┐        │
+│       ▼                         ▼                             ▼                         ▼        │
+│ ┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐ │
+│ │ 1. SOVEREIGN CLI  │ │ 2. FASTMCP 2.0    │ │ 3. TEXTUAL TUI    │ │ 4. ZERO-BUILD WEB │ │
+│ │ • check/evaluate  │ │ • stdio & SSE     │ │ • 9-Tab Terminal  │ │ • 5 Sovereign Hubs│ │
+│ │ • badge export (3)│ │ • `credence_*`    │ │ • 3-Tier Lensing  │ │ • WebCrypto Subt  │ │
+│ │ • mesh & feeds    │ │ • MCP Resources   │ │ • Zero-mock SRE   │ │ • Zero-npm bundle │ │
+│ └───────────────────┘ └───────────────────┘ └───────────────────┘ └───────────────────┘ │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ Invariant 24: Zero interface caste system. 100% parity across CLI, MCP, TUI, and Web          │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -82,15 +76,17 @@ When you build thirty rich information modals explaining cryptographic concepts 
 
 We built `scripts/sync_info_topics.py` (<110 LOC) and wired it into `just sync-topics`:
 
-```mermaid
-flowchart TD
-    TopicDoc["docs/topic-index.md<br/><i>(Authoritative Master Markdown)</i>"] 
-    --> SyncScript["scripts/sync_info_topics.py<br/><i>(Zero-Drift Synchronization Gate)</i>"]
-    --> WebRegistry["web/credence-workstation.js<br/><i>(Auto-registered JS Modal Registry)</i>"]
-
-    style TopicDoc fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style SyncScript fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
-    style WebRegistry fill:#0f172a,stroke:#a855f7,stroke-width:2px,color:#fff
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         ZERO-DRIFT TOPIC SYNCHRONIZATION FLOW                                    │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ `docs/topic-index.md` ──▶ `scripts/sync_info_topics.py` ──▶ `web/credence-workstation.js`        │
+│ Authoritative master      Automated parser & AST sync       Auto-registered JS modal map         │
+│ markdown definitions      generates web structures          in zero-build web workstations       │
+│                                                                        │                         │
+│                                                                        ▼                         │
+│ Shift-Left Integrity Test Gate (`test_docs_integrity.py` asserts 100% modal/topic parity)       │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 1. You document a concept in [**Topic Index**](#docs/topic-index).

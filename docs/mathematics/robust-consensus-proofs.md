@@ -11,15 +11,37 @@ last_verified: 2026-08-20
 
 Decentralized consensus over qualitative or factual evaluations cannot rely on simple majority voting or arithmetic means. A cartel of shallow or dishonest nodes could easily manipulate averages.
 
-```mermaid
-flowchart TD
-    A["Swarm Evaluations (S_1..S_N)"] --> B["Compute Composite Weights<br>W_i = 0.20 Q_i + 0.80 E_i"]
-    B --> C["Sort Evaluations<br>S_(1) <= S_(2) <= ... <= S_(N)"]
-    C --> D["Calculate Domain Authority Weighted Median"]
-    D --> E{"Galileo Check: Grounded Citation (G=1.0)<br>by Authority (W >= 0.70)?"}
-    E -- "Yes (Asymmetric Evidence)" --> F["Preserve Finding<br>(is_outlier = False)"]
-    E -- "No (Ungrounded / Cartel)" --> G["Adopt Weighted Median Consensus"]
-    F & G --> H["Final Cryptographic Consensus Verdict"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                   DOMAIN AUTHORITY WEIGHTED MEDIAN & GALILEO RULE CONSENSUS                      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Swarm Evaluations: $S_1, S_2, \dots, S_N \in [0.0, 100.0]$                                 │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 1. Composite Weights: $W_i = 0.20 Q_i + 0.80 E_{i, \text{domain}}$                          │   │
+│ │ 2. Sorted Evaluation Order: $S_{(1)} \le S_{(2)} \le \dots \le S_{(N)}$                    │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 3. Cumulative Weighted Median: $\sum_{j=1}^k W_{(j)} \ge \frac{W_{\text{total}}}{2}$       │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                │                                                 │
+│                                                ▼                                                 │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 4. The Galileo Rule Gate (Invariant 27: Asymmetric Grounded Evidence)                      │   │
+│ ├──────────────────────────────────────────────────────────────┬─────────────────────────────┤   │
+│ │ Condition                                                    │ Action & Consensus Status   │   │
+│ ├──────────────────────────────────────────────────────────────┼─────────────────────────────┤   │
+│ │ Grounded Citation ($G=1.00$) by Authority ($W_i \ge 0.70$)   │ 🔭 Preserve (`outlier=False`)│   │
+│ │ Ungrounded Hallucination / Cheap Sybil Cartel ($G < 0.75$)   │ 🚫 Slashed & Excluded       │   │
+│ └──────────────────────────────────────────────────────────────┴──────────────┬──────────────┘   │
+│                                                                               ▼                  │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 🏛️ Final Signed RFC 8785 Consensus Attestation Record (WAL Inserted & Broadcast)          │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Consensus Mechanism Comparison

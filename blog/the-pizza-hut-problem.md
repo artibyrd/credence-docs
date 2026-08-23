@@ -34,15 +34,21 @@ In the real world:
 
 If an epistemic network relies on hardcoded seeds, the network is trivially vulnerable to **Covert Ingestion Capture**.
 
-```mermaid
-graph TD
-    StaticWhitelist["❌ Static Whitelist<br>(Blindly Trusts Domain Name)"] --> CorporateTakeover["Covert Acquisition /<br>Editorial Shift"]
-    CorporateTakeover --> DeceptiveIngestion["Blind Ingestion of Native Ads<br>& Commercial Astroturfing"]
-    
-    DynamicAudit["🛡️ Credence Zero-Trust Engine<br>(Continuous Metric Evaluation)"] --> PreFlight["Pre-Flight Forensic Audit"]
-    PreFlight --> TopicEntropy["Calculate Shannon Topic Entropy (H_topic)"]
-    TopicEntropy --> DynamicScore["Dynamic Quality Metric (F_j)"]
-    DynamicScore --> AutonomousEviction["Automatic Eviction & Quarantine<br>(Evicted when F_j < 0.40)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         STATIC WHITELISTS VS DYNAMIC SHANNON TOPIC ENTROPY                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ ❌ STATIC DOMAIN WHITELIST TRAP          │   │ 🛡️ DYNAMIC ZERO-TRUST ENTROPY ENGINE     │      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ • Blind trust granted to domain FQDN     │   │ • Pre-flight forensic text ingestion     │      │
+│ │ • Covert PE acquisition / editorial rot  │──▶│ • Shannon Topic Entropy ($H_{\text{top}}$)│      │
+│ │ • Blind ingestion of disguised native ads│   │ • Dynamic Feed Quality Metric ($F_j$)    │      │
+│ │ • 💥 Blue checkmark trojan horse attacks │   │ • Automatic eviction when $F_j < 0.40$   │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Anti-Diploma Law: Trust is never static. Outlets are re-evaluated per published article batch  │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > [!IMPORTANT]

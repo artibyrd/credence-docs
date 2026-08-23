@@ -13,25 +13,24 @@ Testing decentralized peer-to-peer (P2P) swarms has historically been an infrast
 
 In **Credence**, we engineered a **featherweight swarm architecture** that allows developers to run complete, mathematically rigorous 13-node cluster simulations in **$<150\text{MB}$ of RAM in under 4.5 seconds** on a $35 Raspberry Pi or standard GitHub Actions CI runner.
 
-```mermaid
-flowchart TD
-    subgraph "Traditional P2P Testing (16GB+ RAM)"
-        K8s["Minikube / Kind Cluster (8-16GB RAM)"] --> VM1["VM Node 1"]
-        K8s --> VM2["VM Node 2"]
-        K8s --> VM13["VM Node 13"]
-    end
-
-    subgraph "Credence Featherweight Architecture (<150MB RAM)"
-        SingleProc["Single Python Process (Asyncio Event Loop)"]
-        SingleProc --> WS1["Relay 1 (:9501)"]
-        SingleProc --> WS2["Relay 2 (:9502)"]
-        SingleProc --> WS13["Relay 13 (:9513)"]
-        WS1 <-->|In-Memory WebSocket Lattice| WS2
-        WS2 <-->|Watts-Strogatz d=4, beta=0.20| WS13
-    end
-
-    style SingleProc fill:#1e293b,stroke:#22c55e,stroke-width:2px,color:#f8fafc
-    style K8s fill:#1e293b,stroke:#ef4444,stroke-width:2px,color:#f8fafc
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         SWARM SIMULATION ARCHITECTURE BENCHMARK                                  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ❌ TRADITIONAL K8S / DOCKER P2P TESTING (16GB+ RAM, 120s Startup)                                │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Heavy VM/K8s Cluster (8-16GB RAM) ──▶ 13 Virtual Machine OS Images ──▶ $10+ Token API Cost │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+│                                                                                                  │
+│ ⚡ CREDENCE FEATHERWEIGHT ARCHITECTURE (<150MB RAM, <1s Startup)                                  │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Single Asyncio Python Process (Event Loop)                                                 │   │
+│ │ ┌──────────────────────┐ ┌──────────────────────┐         ┌──────────────────────────────┐ │   │
+│ │ │ Relay 1 (:9501)      │ │ Relay 2 (:9502)      │  . . .  │ Relay 13 (:9513)             │ │   │
+│ │ └──────────┬───────────┘ └──────────┬───────────┘         └──────────────┬───────────────┘ │   │
+│ │            └─────────── In-Memory Small-World Ring Lattice (d=4, beta=0.20) ─────────────┘ │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -114,18 +113,20 @@ By mocking the outer HTTP boundary while preserving 100% real Ed25519 cryptograp
 
 Despite its ultra-low resource profile, the test gauntlet verifies deep distributed systems properties:
 
-```mermaid
-flowchart LR
-    Test1["1. 13-Node Diffusion<br>(Epidemic Multihop)"] --> Test2["2. Sybil Cartel (3f+1)<br>(4 Colluding Nodes Isolated)"]
-    Test2 --> Test3["3. Linear Daisy Chain<br>(TTL Exhaustion)"]
-    Test3 --> Test4["4. Eclipse Attack<br>(Ring Shattering Recovery)"]
-    Test4 --> Test5["5. Swarm Germination<br>(HRW Feed Partitioning)"]
-
-    style Test1 fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style Test2 fill:#1e293b,stroke:#f87171,stroke-width:2px,color:#f8fafc
-    style Test3 fill:#1e293b,stroke:#fbbf24,stroke-width:2px,color:#f8fafc
-    style Test4 fill:#1e293b,stroke:#a78bfa,stroke-width:2px,color:#f8fafc
-    style Test5 fill:#1e293b,stroke:#34d399,stroke-width:2px,color:#f8fafc
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         13-NODE PATHOLOGICAL TEST GAUNTLET                                       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┬────────────────────────────────────────────────────────────────┐   │
+│ │ Gauntlet Stage            │ Invariant Tested & Expected Behavior                           │   │
+│ ├───────────────────────────┼────────────────────────────────────────────────────────────────┤   │
+│ │ 1. Epidemic Diffusion     │ Single attestation reaches 13 nodes in <450ms with storm guard │   │
+│ │ 2. Sybil Cartel (3f+1)    │ 4 collusive nodes isolated; Galileo Rule overrides false swarm │   │
+│ │ 3. Linear Daisy Chain     │ Strict TTL and hop-count exhaustion prevents infinite loops    │   │
+│ │ 4. Eclipse Partition      │ Ring-shattering recovery heals network partitions (<1.2s)      │   │
+│ │ 5. Swarm Germination      │ HRW feed partitioning achieves 92.3% compute savings at $0.00  │   │
+│ └───────────────────────────┴────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### 1. Multi-Hop Epidemic Diffusion

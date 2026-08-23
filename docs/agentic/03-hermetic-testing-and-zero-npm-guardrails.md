@@ -28,15 +28,23 @@ read_time: 8 min
 
 Learn the engineering principles behind Credence's 100% network-free hermetic testing architecture and **Zero-npm Invariant**, designed to ensure applications run reliably for decades without build toolchain rot.
 
-```mermaid
-flowchart TD
-    subgraph Testing["Hermetic Test Pyramid"]
-        T1["Playwright Live Rendering Tests<br/>(tests/test_docs_rendering.py · 18s)"]
-        T2["Static AST & DOM Contract Integrity<br/>(tests/test_docs_integrity.py · 0.08s)"]
-        T3["In-Memory SQLite Unit & Math Suite<br/>(tests/test_scoring.py, test_mesh.py · 3.2s)"]
-    end
-    
-    Testing --> CI["Hermetic CI Pipeline (0 Cloud Secrets · 0 Network Calls)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         HERMETIC TEST PYRAMID & ZERO-NPM GUARDRAILS                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ 1. PLAYWRIGHT LIVE DOM RENDERING & WCAG CONTRAST                                           │   │
+│ │ Headless Chromium live DOM geometry, zero console errors, dynamic theme checks (~18s)       │   │
+│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
+│ │ 2. SHIFT-LEFT AST, STATIC FRONTMATTER & CONTRACT INTEGRITY                                 │   │
+│ │ `tests/test_docs_integrity.py` validates frontmatters, link anchors, and Zero-npm (<0.1s) │   │
+│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
+│ │ 3. IN-MEMORY HERMETIC UNIT SUITE & MATHEMATICAL PROOFS                                     │   │
+│ │ `@pytest.mark.unit` tests scoring formulas, Watts-Strogatz mesh, and CAS storage (<3.2s)   │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🛡️ 100% Network-Free CI: Zero Cloud Secrets • Zero Flakiness • Zero npm Package Dependencies    │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > [!IMPORTANT]
