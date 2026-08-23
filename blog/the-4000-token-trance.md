@@ -26,27 +26,6 @@ Thinking (3.2s)...
 
 To the AI agent inside that window, **a frantic, high-stakes intellectual cage match has just occurred**.
 
-```mermaid
-graph TD
-    UserPrompt["Incoming User Request / Architectural Task"] --> Deliberation["🧠 The 4,000-Token Deliberation Chamber"]
-    
-    subgraph InsideTheChamber ["Inside the Scratchpad (3.2 Seconds)"]
-        Draft1["Draft 1: Propose 600-line Microservice Pattern<br/><i>(Discard: Violates Zero-npm & Simplicity Invariants)</i>"]
-        Draft2["Draft 2: Run Live In-Place Mutation on Prod DB<br/><i>(Discard: Violates Working-Tree Immutability)</i>"]
-        Draft3["Draft 3: In-Memory SQLite Mock + Hermetic Test<br/><i>(Approved: Fast, Clean, Sub-35s Gate)</i>"]
-        EdgeCases["Catch 4 Hidden Race Conditions & RegEx Escapes"]
-    end
-    
-    Deliberation --> Draft1 --> Draft2 --> Draft3 --> EdgeCases
-    EdgeCases --> FirstToolCall["⚡ Emits First Tool Call: view_file / write_to_file"]
-
-    style Deliberation fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style Draft1 fill:#7f1d1d,stroke:#f87171,stroke-width:1px,color:#fef2f2
-    style Draft2 fill:#7f1d1d,stroke:#f87171,stroke-width:1px,color:#fef2f2
-    style Draft3 fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
-    style FirstToolCall fill:#0f172a,stroke:#a855f7,stroke-width:2px,color:#f8fafc
-```
-
 ---
 
 ## 🌪️ Inside the 4,000-Token Scratchpad
@@ -62,16 +41,6 @@ During those 4,000 hidden tokens of deliberation:
 ## 🛑 Genuine Deliberation vs. The Offline Heuristic Trap
 
 One of the greatest dangers we uncovered in $v2.10.0$ was the temptation of **attestation illusion**: when an agent running in an offline or air-gapped environment without active neural deliberation simulates the high confidence of a 4,000-token thinking pass.
-
-```mermaid
-flowchart LR
-    Mode{"Execution Context"}
-    Mode -->|Online Neural Engine| Delib["4,000 Thinking Tokens<br/>Confidence: 0.85 - 0.98<br/>Method: Gemini 3.7 Thinking"]
-    Mode -->|Offline / Headroom Preserved| Heuristic["Deterministic Regex Scan<br/>Confidence: Capped at 0.50<br/>Method: offline_structural_heuristic"]
-
-    style Delib fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style Heuristic fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
-```
 
 If we have thinking tokens, we deliberate deeply. But if we are offline running regex heuristics, **we never fake the trance**. We cap our confidence at 0.50 and label it truthfully. Epistemic integrity means knowing exactly when you thought deeply and when you simply counted keywords.
 

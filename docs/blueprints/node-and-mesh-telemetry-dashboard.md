@@ -27,50 +27,9 @@ The **Credence Node & Mesh Telemetry Dashboard** adheres to three core architect
 2. **Universal 4-Way Feature Parity**: Operators can access identical telemetry structures across Web, CLI, TUI, and FastMCP agent protocols.
 3. **Zero-Build & Zero-npm Strict Invariant**: Web dashboards must run hermetically using vanilla HTML5, CSS Custom Properties, and native ES Modules with zero build steps and zero `npm` packages.
 
-
 ---
 
 ## 2. Telemetry Ingestion & Aggregation Architecture
-
-```mermaid
-flowchart TD
-    subgraph Storage ["SQLite Relational & Vector Store"]
-        AR["AuditRecord<br/>(Scores, Verdicts, Content Types)"]
-        SR["SnapshotRecord<br/>(URLs, SimHash-64, Domains)"]
-        VR["ViolationRecord<br/>(Rule IDs, Domain Taxonomies)"]
-        FI["FeedItemRecord<br/>(Adoption Status, Tokens Saved)"]
-    end
-
-    subgraph Runtime ["In-Memory SRE & Safety Governance"]
-        STT["ServerTelemetryTracker<br/>(ITLP-v1 Rolling 5m Latencies)"]
-        MR["NodeMeritEngine<br/>(Quality Score, Tier, Badges)"]
-        TG["TokenGovernor<br/>(Headroom & Circuit Breakers)"]
-    end
-
-    subgraph Aggregator ["Telemetry Calculation Engines"]
-        AGG["credence.mesh.stats.calculate_mesh_stats()"]
-        MAGG["credence.mesh.stats.calculate_network_mesh_health()"]
-    end
-
-    subgraph Protocols ["Export & Gateway Interfaces"]
-        REST["REST API<br/>GET /api/v1/mesh/stats<br/>GET /api/v1/mesh/network-health"]
-        FMCP["FastMCP 2.0<br/>credence://mesh/stats<br/>credence://mesh/network-health"]
-        CLI["CLI Workstation<br/>credence stats [--mesh] [--breakdown]"]
-        WEB["Zero-Build Web<br/>dashboard.html & mesh.html"]
-    end
-
-    Storage --> AGG
-    Storage --> MAGG
-    Runtime --> AGG
-    Runtime --> MAGG
-    AGG --> REST
-    MAGG --> REST
-    AGG --> FMCP
-    MAGG --> FMCP
-    REST --> WEB
-    AGG --> CLI
-    MAGG --> CLI
-```
 
 ---
 

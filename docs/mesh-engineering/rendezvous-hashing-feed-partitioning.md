@@ -32,28 +32,6 @@ The node with the highest weight for feed $f$ is deterministically assigned prim
 N^*(f) = \arg\max_{N_i \in \mathcal{N}} W(f, N_i)
 \]
 
-```mermaid
-flowchart TD
-    Feed["Syndicated Feed URL (f)"] --> HashEngine["HRW Affinity Calculator"]
-    
-    subgraph SwarmNodes ["Active Peer Nodes in Cluster"]
-        N1["Node 1 (Pubkey A)<br/>Weight: 0x4a1b..."]
-        N2["Node 2 (Pubkey B)<br/>Weight: 0xf9e3... (MAX)"]
-        N3["Node 3 (Pubkey C)<br/>Weight: 0x12c8..."]
-    end
-
-    HashEngine --> N1
-    HashEngine --> N2
-    HashEngine --> N3
-
-    N2 ==>|"Primary Auditor<br/>(Conducts LLM Evaluation)"| Audit["Signed RFC 8785 Ed25519 Attestation"]
-    Audit -->|"Gossip Epidemic Diffusion"| N1
-    Audit -->|"Gossip Epidemic Diffusion"| N3
-    
-    N1 -.->|"Verify Sig & Adopt ($0.00 Tokens)"| DB1["Local DB Cache"]
-    N3 -.->|"Verify Sig & Adopt ($0.00 Tokens)"| DB3["Local DB Cache"]
-```
-
 ---
 
 ## 2. Mathematical Properties & Resilience

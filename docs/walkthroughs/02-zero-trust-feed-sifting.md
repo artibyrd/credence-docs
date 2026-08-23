@@ -13,15 +13,6 @@ sidebar:
 
 Learn how to dynamically discover syndicated feed endpoints, execute pre-flight forensic audits against covert astroturfing (The Pizza Hut Problem), and run real-time sifting workers across all interfaces.
 
-```mermaid
-flowchart TD
-    Target["Target Web Domain"] --> Discover["Dynamic Autodiscovery<br/>(link tags & well-known paths)"]
-    Discover --> PreFlight["Pre-Flight Forensic Audit"]
-    PreFlight --> DynamicScore["Dynamic Quality Score (F_j)<br/>0.35 S + 0.25 G + 0.20 H + 0.20 T"]
-    DynamicScore --> SifterDaemon["Continuous Sifter Daemon<br/>(Rendezvous Hash Partitioning)"]
-    SifterDaemon --> MeshGossip["Gossip RFC 8785 Attestations<br/>(92.3% Compute Savings)"]
-```
-
 > [!NOTE]
 > **Persistent Interface Preference**: Switch between **CLI**, **FastMCP 2.0**, **Python SDK**, or **TUI** below. Your choice is automatically remembered across all documentation pages.
 

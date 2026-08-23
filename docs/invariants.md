@@ -40,15 +40,7 @@ Mandatory invariants, mathematical formulas, and runtime guardrails governing hu
 
 ## Pillar 1: Core Engineering & Runtime Safety
 
-```mermaid
-flowchart LR
-    Dev["AI / Human Developer"] --> Plan["1. Planning Mode<br/>(Invariant 6 · Mk1 Eyeball)"]
-    Plan --> Hermetic["2. Hermetic CI & Tests<br/>(Invariant 4 · In-Memory SQLite)"]
-    Hermetic --> Model["3. Multi-Model Adapter<br/>(Invariant 7 & 15 · Gemini 4k Pareto)"]
-    Model --> Defense["4. Protocol & SSRF Defense<br/>(Invariant 8 & 9 · Billion Laughs & Container)"]
-```
-
-<div class="invariant-card" id="inv-workspace-isolation">
+![Figure 1.1: Universal living invariant canon and cognitive hierarchy architecture](assets/illustrations/invariants.svg)<div class="invariant-card" id="inv-workspace-isolation">
 <a id="invariant-1"></a>
 <h3><a href="#docs/invariants#inv-workspace-isolation">Invariant 1: Project & Workspace Isolation</a></h3>
 <p>Credence is completely decoupled from any external or sibling repositories. All tools, databases, configurations, and test runners must execute hermetically within the workspace boundary without depending on external host environment states.</p>
@@ -148,7 +140,6 @@ flowchart LR
 <a id="invariant-17"></a>
 <h3><a href="#docs/invariants#inv-content-decoupling">Invariant 17: Content Decoupling & Hermetic CI</a></h3>
 <p>Keep application repos lean by separating marketing HTML from core code. Maintain technical tutorials in <code>docs/tutorials/</code> in clean Markdown. CI workflows (<code>ci.yml</code>) must run 100% hermetically without cloud secrets.</p>
-</div>
 
 <div class="invariant-card" id="inv-progressive-disclosure">
 <a id="invariant-18"></a>
@@ -159,15 +150,6 @@ flowchart LR
 ---
 
 ## Pillar 2: Epistemic Ingestion & Scoring Engine
-
-```mermaid
-flowchart TD
-    RawDoc["Raw Web Text / Document"] --> AST["1. Whitespace-Collapsed DOM Parser<br/>(inv-verbatim-grounding · G=1.0 Grounding)"]
-    AST --> Entropy["2. Shannon Topic Entropy & Concentration<br/>(inv-topic-entropy-defense · Pizza Hut Astroturfing Defense)"]
-    Entropy --> Satire["3. Poe's Law Classifier & SPJ-1.6<br/>(inv-poes-law-satire · Satire Cloaking Override)"]
-    Satire --> Namespaces["4. Fixed Taxonomy Catalog<br/>(inv-fixed-taxonomies · SHA-256 Pinned URIs)"]
-    Namespaces --> Score["5. Weighted Mathematical Aggregate"]
-```
 
 <div class="invariant-card" id="inv-topic-entropy-defense">
 <a id="invariant-19"></a>
@@ -203,15 +185,6 @@ $$H_{\text{penalized}} = H \times (1.0 - C_{\text{top3}})$$
 ---
 
 ## Pillar 3: Cryptographic Mesh & Empirical Authority
-
-```mermaid
-flowchart LR
-    Node["Peer Node Attestation"] --> Sig["1. RFC 8785 Ed25519 Custody<br/>(inv-canonical-json-ed25519)"]
-    Sig --> Qual["2. 5-Factor Node Quality Q_i<br/>(inv-5factor-node-quality)"]
-    Qual --> Exp["3. Empirical Expertise E_i<br/>(inv-empirical-expertise · Anti-Diploma)"]
-    Exp --> Consensus["4. Bayesian Weighted Consensus<br/>(inv-galileo-rule · Galileo Rule Override)"]
-    Consensus --> Mesh["5. BitTorrent Work-Sharing<br/>(inv-bittorrent-worksharing & inv-byzantine-cartel-resistance)"]
-```
 
 <div class="invariant-card" id="inv-canonical-json-ed25519">
 <a id="invariant-24"></a>
@@ -253,18 +226,6 @@ flowchart LR
 
 ## Pillar 4: Universal Presentation Layer & Zero-Build Web
 
-```mermaid
-flowchart TD
-    Core["Unified Business Core Logic<br/>(inv-4way-feature-parity)"] --> CLI["1. Terminal CLI (credence)"]
-    Core --> FastMCP["2. FastMCP 2.0 (stdio / SSE)"]
-    Core --> TUI["3. Textual TUI (credence tui)"]
-    Core --> Web["4. Zero-Build Web (0 npm · inv-zero-build-standards)"]
-    
-    Web --> Router["Edge Router & Subdirectory Canonical<br/>(inv-edge-canonicalization)"]
-    Web --> Math["Unicode Math Parser<br/>(inv-zero-build-math)"]
-    Web --> Density["Visual Density & Playwright Verification<br/>(inv-mermaid-syntax-safety, inv-visual-density, inv-playwright-rendering-tests)"]
-```
-
 <div class="invariant-card" id="inv-4way-feature-parity">
 <a id="invariant-30"></a>
 <h3><a href="#docs/invariants#inv-4way-feature-parity">Invariant 30: Universal Feature Parity</a></h3>
@@ -291,14 +252,14 @@ flowchart TD
 
 <div class="invariant-card" id="inv-mermaid-syntax-safety">
 <a id="invariant-34"></a>
-<h3><a href="#docs/invariants#inv-mermaid-syntax-safety">Invariant 34: Universal Mermaid & Visual Syntax Guardrail</a></h3>
-<p>All Mermaid diagrams across markdown documentation and planning artifacts must strictly use standard flow/graph/sequence syntax (<code>graph TD</code>, <code>flowchart TD</code>, <code>sequenceDiagram</code>) with all special characters (<code>>=</code>, <code><=</code>, <code>()</code>, <code>/</code>, <code>&</code>) enclosed in double quotes (e.g. <code>id["Label (Details)"]</code>), avoiding unquoted <code>< ></code> brackets or unsupported diagram types to prevent rendering failures across IDE viewers and static engines.</p>
+<h3><a href="#docs/invariants#inv-mermaid-syntax-safety">Invariant 34: Universal Technical Schematic & Visual Syntax Guardrail</a></h3>
+<p>All technical diagrams across markdown documentation and planning artifacts must strictly use enclosed UTF-8 box schematics, wire sequence layouts, or structured state matrices (<code>┌─┐│└┘├┤┬┴┼═║</code>) with strict $\le 150$ characters line width constraints and zero external client-side rendering bundle dependencies to guarantee high-density visual clarity across all devices.</p>
 </div>
 
 <div class="invariant-card" id="inv-visual-density">
 <a id="invariant-35"></a>
 <h3><a href="#docs/invariants#inv-visual-density">Invariant 35: Visual Density & Anti-Wall-of-Text Invariant</a></h3>
-<p>All documentation guides, tutorials, and editorial blog posts must maintain a visual density of $\ge 2.0$ visual elements per 500 words (using Mermaid architecture diagrams, comparison matrices, and styled alert callout boxes) to eliminate unformatted prose fatigue.</p>
+<p>All documentation guides, tutorials, and editorial blog posts must maintain a visual density of $\ge 2.0$ visual elements per 500 words (using enclosed UTF-8 technical schematics, comparison matrices, and styled alert callout boxes) to eliminate unformatted prose fatigue.</p>
 </div>
 
 <div class="invariant-card" id="inv-playwright-rendering-tests">
@@ -398,7 +359,7 @@ flowchart TD
 | **[`inv-zero-build-standards`](#inv-zero-build-standards)** | Inv 31 | Class γ | Zero-npm / Zero-Build | Vanilla ES Modules & 0 node_modules |
 | **[`inv-zero-build-math`](#inv-zero-build-math)** | Inv 32 | Presentation | Zero-Build Math | Native Unicode & currency preservation |
 | **[`inv-edge-canonicalization`](#inv-edge-canonicalization)** | Inv 33 | Presentation | Edge Subdirectory Canonical | 301 redirects preventing folder leaks |
-| **[`inv-mermaid-syntax-safety`](#inv-mermaid-syntax-safety)** | Inv 34 | Presentation | Mermaid Syntax Safety | Standard quoted graph syntax |
+| **[`inv-mermaid-syntax-safety`](#inv-mermaid-syntax-safety)** | Inv 34 | Presentation | Technical Schematic Guardrail | Enclosed UTF-8 box schematics & line limits |
 | **[`inv-visual-density`](#inv-visual-density)** | Inv 35 | Presentation | Visual Density | $\ge 2.0$ visuals per 500 words |
 | **[`inv-playwright-rendering-tests`](#inv-playwright-rendering-tests)** | Inv 36 | Presentation | Live Playwright Tests | SVG geometry & 0 HTML leaks |
 | **[`inv-inline-html-math-integrity`](#inv-inline-html-math-integrity)** | Inv 37 | Presentation | Inline HTML & Math | Balanced-brace LaTeX & safe tag masking |

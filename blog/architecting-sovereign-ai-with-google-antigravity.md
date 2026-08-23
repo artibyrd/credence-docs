@@ -45,24 +45,7 @@ Building decentralized, cryptographic epistemic infrastructure requires uncompro
 
 This article details the hard-won engineering principles, agentic workflows, and continuous `/learn` feedback loops that enabled rapid, high-assurance development across 3 sovereign repositories, 68 documentation guides, and 12-factor automated test suites.
 
-```mermaid
-flowchart TD
-    Operator["Human Architect"] <-->|Interactive Pair Programming| AGY["Google Antigravity Engine"]
-    
-    subgraph AntigravityWorkflow["The Antigravity Engineering Loop"]
-        Plan["1. Planning Mode & Architecture Specs<br/>(implementation_plan.md)"]
-        Mk1["2. 'Mk1 Eyeball' Human Review Gate"]
-        Exec["3. Parallel Tool & Subagent Execution"]
-        Verify["4. Hermetic Playwright & Pytest Verification"]
-        Learn["5. Continuous /learn Invariant Synthesis"]
-    end
-    
-    AGY --> AntigravityWorkflow
-    Learn -->|Codifies Rules| Invariants["36 Machine-Verifiable Invariants<br/>(AGENTS.md)"]
-    Invariants -->|Constrains Future Turns| AGY
-```
-
----
+![Figure 1.1: Antigravity 5-stage agentic engineering lifecycle and human Mk1 review gate](assets/illustrations/architecting-sovereign-ai-with-google-antigravity.svg)---
 
 ## 1. The Human-Agent Pair-Programming Paradigm
 
@@ -79,27 +62,6 @@ Autonomous AI agents often fail in complex codebases when given open-ended comma
 ## 2. Continuous Knowledge Compaction via `/learn`
 
 The single most powerful mechanism in long-horizon software engineering is **continuous learning**. As edge cases, parser quirks, or UX deficiencies were discovered during development, they were not treated as isolated bugs—they were crystallized into permanent repository invariants via the `/learn` slash command.
-
-```mermaid
-sequenceDiagram
-    autonumber
-    participant Architect as 👤 Human Architect
-    participant Agent as 🤖 Antigravity Agent
-    participant Invariants as 📜 AGENTS.md & CI Gates
-    
-    Architect->>Agent: "Your Mermaid diagrams broke in the artifact viewer"
-    activate Agent
-    Agent->>Agent: Analyzes parser failure (unquoted comparison operators & multiline quotes)
-    Architect->>Agent: /learn
-    Agent->>Architect: Presents learning_proposal.md artifact
-    deactivate Agent
-    Architect->>Agent: Approves Proposal (Mk1 Eyeball Gate)
-    activate Agent
-    Agent->>Invariants: Codifies Invariant 34 (Universal Mermaid Quoting & Syntax Guardrails)
-    Agent->>Invariants: Adds test_mermaid_diagram_syntax_integrity to CI gate
-    deactivate Agent
-    Note over Agent,Invariants: Error mode is permanently immunized across all future turns.
-```
 
 ### Key Invariants Crystallized Through `/learn`:
 - **[Invariant 34: Universal Mermaid Syntax Guardrail](../docs/invariants.md#invariant-34)**: Standardizing on quoted graph syntax (`id["Label (Details)"]`) to prevent diagram rendering crashes across IDE viewers.
@@ -122,28 +84,6 @@ To ensure Credence documentation and sovereign blogs remain readable and functio
 ## 4. Multi-Model Pareto Optimization: The 4k Thinking Sweet Spot
 
 In evaluating inference engines across our **Golden 12 Epistemic Benchmark Suite**, we discovered a remarkable Pareto frontier:
-
-```mermaid
-flowchart TD
-    subgraph SweetSpot ["Pareto Frontier Reference Engine"]
-        Flash["Gemini 3.7 Flash<br/>• 4k Thinking Budget<br/>• 100% Verbatim Grounding (G=1.00)"]
-        Flash -->|"$0.34 / 1k Audits<br/>3.8s Latency"| P["Pareto Optimal Leader<br/>(Production Default)"]
-    end
-
-    subgraph FlagshipTier ["Commercial Flagships"]
-        Claude["Claude 3.7 Sonnet<br/>• High Nuance Thinking"] -->|"$11.40 / 1k Audits<br/>33x Cost Overhead"| F1["High Precision<br/>(Budget Constrained)"]
-        GPT["OpenAI GPT-4o<br/>• Standard Ingestion"] -->|"$9.50 / 1k Audits<br/>No Thinking Headroom"| F2["Lower Nuance Detection"]
-    end
-
-    subgraph LocalSovereign ["Air-Gapped Sovereign"]
-        Local["Ollama / Llama 3.3 70B<br/>• Self-Hosted vLLM"] -->|"$0.00 Token Spend<br/>5.2s Latency"| S["100% Hermetic Privacy<br/>(Zero Cloud Egress)"]
-    end
-
-    classDef darkSlate fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc;
-    classDef highlight fill:#1e293b,stroke:#22c55e,stroke-width:2px,color:#f8fafc;
-    class SweetSpot,P highlight;
-    class FlagshipTier,LocalSovereign darkSlate;
-```
 
 **[Invariant 15](../docs/invariants.md#invariant-15)** codifies that `gemini-3.7-flash` with a 4,096 thinking token budget delivers the absolute highest precision-to-cost ratio, eliminating Poe's Law satire ambiguity and hallucinated findings without the 30x cost penalty of flagship Pro models.
 

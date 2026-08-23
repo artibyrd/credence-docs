@@ -15,30 +15,6 @@ Creating sensationalized clickbait, partisan outrage bait, and unverified allega
 
 To restore epistemic balance, the Credence network introduces the **Domain Credence Index ($DCI$)**: a decentralized, unforgeable reputation metric computed through mutual peer observation across thousands of independent verification audits.
 
-```mermaid
-flowchart LR
-    subgraph Web["The Open Web"]
-        P1["Publishers &amp; Wire Services"]
-        P2["Content Mills &amp; Clickbait"]
-        P3["Astroturf PR Campaigns"]
-    end
-
-    subgraph Engine["Credence Analytics Engine"]
-        E1["Verbatim Quoted Evidence"]
-        E2["SimHash Deduplication"]
-        E3["Topic Entropy H(X)"]
-        E4["Byline Ratio"]
-    end
-
-    subgraph Output["Epistemic Intelligence"]
-        O1["🛡️ Honor Roll (DCI &ge; 85%)"]
-        O2["🛑 Wall of Shame (DCI &lt; 40%)"]
-        O3["📢 Astroturf Alerts (H &lt; 0.30)"]
-    end
-
-    Web --> Engine --> Output
-```
-
 ---
 
 ## What is the Domain Credence Index ($DCI$)?

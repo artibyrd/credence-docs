@@ -106,13 +106,23 @@ A node evaluates its overall health status according to deterministic mathematic
 
 ## 4. Multi-Surface Integration Matrix
 
-```mermaid
-graph LR
-    Engine["ServerTelemetryTracker<br/>(In-Memory State)"] -->|JSON API| Web["Zero-Build Web UI<br/>(Live Status Badge)"]
-    Engine -->|Direct Memory| TUI["Textual TUI<br/>(Header Pill & Tab 8)"]
-    Engine -->|CLI Subcommand| CLI["Terminal CLI<br/>(credence health)"]
-    Engine -->|MCP Resource| MCP["FastMCP 2.0<br/>(credence://node/health)"]
-    Engine -->|Webhook Egress| Discord["Discord / Powercord<br/>(Incident Alerts)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         MULTI-SURFACE TELEMETRY LOOPBACK DISTRIBUTION                            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ `ServerTelemetryTracker` (In-Memory Rolling 300s Aggregation Window)                       │   │
+│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
+│                                                │                                                 │
+│       ┌───────────────────┬────────────────────┼───────────────────┬────────────────────┐        │
+│       │                   │                    │                   │                    │        │
+│       ▼                   ▼                    ▼                   ▼                    ▼        │
+│ ┌───────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌─────────────┐ │
+│ │ 📟 TUI    │     │ ⚡ FastMCP    │     │ 🖥️ CLI       │     │ 🌐 Web UI    │     │ 🔔 Webhook  │ │
+│ │ Direct    │     │ `credence://`│     │ `credence    │     │ `GET /health`│     │ Discord /   │ │
+│ │ Memory    │     │ node/health  │     │ health`      │     │ Live Badge   │     │ Pager Alerts│ │
+│ └───────────┘     └──────────────┘     └──────────────┘     └──────────────┘     └─────────────┘ │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 1. **Terminal TUI**: Queries in-process `global_telemetry` on a 3.0-second interval, reactively updating the `#header_status_pill` and `#ops_panel` without network overhead.

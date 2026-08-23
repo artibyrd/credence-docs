@@ -31,24 +31,6 @@ read_time: 10 min
 
 In this hands-on tutorial, you will learn how to operate, configure, and extend Credence's **Reusable Live Rotating E2E Test Suite**. You will execute live audits against real-world targets, test remote FastMCP 2.0 Server-Sent Events (SSE) streaming, and simulate Byzantine ungrounded smear attacks in a 13-node P2P mesh cluster.
 
-```mermaid
-flowchart TD
-    subgraph Engine ["Live Rotator Architecture"]
-        Seed["Deterministic Seed (YYYY-MM-DD or Env)"] --> Sampler["Stratified Sampler"]
-        Sampler --> Targets["Rotated Category Sample"]
-        Feed["Live RSS Stream"] --> Extractor["Real-Time Article Extractor"]
-    end
-
-    subgraph Gauntlet ["4 Verification Milestones"]
-        Targets --> M1["1. CLI Live Audits & Ed25519 Anti-Tamper Check"]
-        Extractor --> M2["2. Feed Sifter Health (F_j) & Fresh Article Audit"]
-        Targets --> M3["3. Remote FastMCP 2.0 SSE Session & Tool Invocation"]
-        Targets --> M4["4. 13-Node Mesh Gossip & Byzantine Slash Defense"]
-    end
-
-    Engine --> Gauntlet
-```
-
 ---
 
 ## Prerequisites
@@ -213,23 +195,23 @@ This ensures that remote autonomous AI agents (Claude, Cursor, OpenAI Swarms) ca
 
 The mesh test spins up 13 isolated `MeshGossipRelay` instances in a Watts-Strogatz small-world lattice.
 
-```mermaid
-sequenceDiagram
-    participant N0 as Node 0 (Evaluator)
-    participant N1_11 as Nodes 1..11 (Honest Peers)
-    participant N12 as Node 12 (Byzantine Attacker)
-    participant Agg as Bayesian Consensus Aggregator
-
-    N0->>N0: Audits Live Target with Gemini 3.7 Flash
-    N0->>N1_11: Gossips Signed Attestation Envelope
-    Note over N1_11: 12 Nodes Adopt Attestation in 0 Tokens (92.3% Savings!)
-    
-    N12->>Agg: Submits Fake Hallucinated Violation (S=95.0, G=0.0)
-    N0->>Agg: Submits Grounded Attestation (S=16.5, G=1.0)
-    N1_11->>Agg: Submits Grounded Attestations (S=16.5, G=1.0)
-    
-    Agg->>Agg: Applies Galileo Rule & Outlier Filtering
-    Agg-->>N0: Consensus = 16.5 | Slashes Node 12 (Outlier Detected)
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         13-NODE MESH GOSSIP & BYZANTINE SLASHING SEQUENCE                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Node 0 (Evaluator)          Nodes 1..11 (Honest Swarm)  Node 12 (Byzantine)  Consensus Aggregator│
+│        │                               │                        │                     │          │
+│        │── Audits target (Gemini 3.7) ─│                        │                     │          │
+│        │──── Gossips Signed Envelope ─▶│                        │                     │          │
+│        │                               │ [12 nodes adopt: 92.3% compute savings at $0.00]        │
+│        │                               │                        │                     │          │
+│        │                               │                        │── Fake Smear ($G=0)─▶│          │
+│        │──── Grounded Attestation ($G=1.0) ──────────────────────────────────────────▶│          │
+│        │                               │──── Grounded Attestation ($G=1.0) ──────────▶│          │
+│        │                               │                        │                     │          │
+│        │                               │                        │   [Galileo Rule Applied]       │
+│        │◀── Consensus Verified = 16.5 (Node 12 Slashed & Excluded from Quorum) ───────│          │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 The test validates:

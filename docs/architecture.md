@@ -11,48 +11,7 @@ last_verified: 2026-08-20
 
 **Credence** is an autonomous epistemic evaluation engine, FastMCP 2.0 server, and decentralized trust network designed to analyze digital media against formal journalistic ethics, logical fallacies, and deceptive UI patterns.
 
-```mermaid
-graph TD
-    subgraph Ingestion Layer
-        URL[Target Webpage URL] --> Extractor[Trafilatura Extractor]
-        URL --> Snapshot[Playwright Dual-Capture]
-        Snapshot --> DOM[Rendered HTML DOM]
-        Snapshot --> PNG[Visual Screenshot PNG]
-        Extractor --> CleanText[Normalized Prose Text]
-        CleanText --> Hasher[Hasher & SimHash-64]
-    end
-
-    subgraph Governance & Quality Layer
-        Hasher --> CacheCheck{SQLite Cache Hit?}
-        CacheCheck -- Yes --> CachedReport[Instant 0-Token Attestation]
-        CacheCheck -- No --> Governor[TokenBudgetGovernor]
-        Governor -- Budget OK --> Triage[Triage & Satire Filter]
-        Governor -- Budget Tripped --> OfflineFallback[Offline Heuristic Engine]
-    end
-
-    subgraph Multi-Agent Evaluation Layer
-        Triage -- Is Satire --> SatireNeutralizer[Zero Suspicion / Tag Satire]
-        Triage -- News / Opinion --> Dispatcher[Concurrent Specialist Auditors]
-        Dispatcher --> SPJ[SPJ Ethics Auditor]
-        Dispatcher --> Fallacy[IEP Fallacy Auditor]
-        Dispatcher --> DP[Deceptive Pattern Auditor]
-        SPJ & Fallacy & DP --> GroundingGate[Grounded Quote Validator]
-        GroundingGate --> QualityGate{Citation Grounding >= 75%?}
-        QualityGate -- Fails --> Escalation[Gemini 3.7 Flash High-Thinking Escalation]
-        QualityGate -- Passes --> Scoring[Scoring & Saturation Engine]
-        Escalation --> Scoring
-    end
-
-    subgraph Attestation & Interface Layer
-        Scoring --> Ed25519[Ed25519 Cryptographic Signing]
-        Ed25519 --> DB[(SQLite Database / WAL Mode)]
-        Ed25519 --> CLI[Rich Terminal CLI]
-        Ed25519 --> TUI[Textual Interactive Workstation]
-        Ed25519 --> MCP[FastMCP Tools & Resources]
-    end
-```
-
-### Architectural Component Matrix
+![Figure 1.1: Comprehensive Credence 3-plane ecosystem architecture and service topologies](assets/illustrations/architecture.svg)### Architectural Component Matrix
 
 | Layer | Primary Responsibilities | Core Technologies | Key Invariants |
 | :--- | :--- | :--- | :--- |

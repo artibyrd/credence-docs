@@ -20,27 +20,6 @@ Autonomous nodes operate under a dual-drive epistemic ingestion engine:
 
 ## 2. State Machine & Transition Invariants
 
-```mermaid
-stateDiagram-v2
-    [*] --> NEUTRAL: New Domain Discovered (R = 50.0)
-    NEUTRAL --> TRUSTED: k &ge; 3 Clean Audits (R &ge; 75.0)
-    NEUTRAL --> SUSPICIOUS: Suspicion &ge; 50.0 (R &lt; 50.0)
-    
-    TRUSTED --> SUSPICIOUS: Severity 4/5 Finding or G &lt; 1.00
-    SUSPICIOUS --> QUARANTINED: Deceptions &ge; 3 OR R &le; 20.0
-    
-    state QUARANTINED {
-        [*] --> EXPONENTIAL_BACKOFF: Polling Backoff 16x-64x
-        EXPONENTIAL_BACKOFF --> LAZARUS_PROBE: HRW Rendezvous Sample (1 item / 7d)
-        LAZARUS_PROBE --> EXPONENTIAL_BACKOFF: Fails Audit (Backoff Resets to Max)
-        LAZARUS_PROBE --> PROBATIONARY_RECOVERY: k = 5 Clean Audits across &ge; 2 Namespaces
-    }
-    
-    QUARANTINED --> PROBATIONARY_RECOVERY: BuzzFeed Doctrine Invariant 40
-    PROBATIONARY_RECOVERY --> NEUTRAL: Stable Audits (R &ge; 50.0, Polling 1x)
-    PROBATIONARY_RECOVERY --> QUARANTINED: Any Severity &ge; 3 Violation (Immediate Relapse)
-```
-
 ### 2.1 Asymmetric Bayesian Scoring Update Rule
 
 Let $R_t \in [0.0, 100.0]$ denote the domain reputation score at audit step $t$:

@@ -69,14 +69,13 @@ Interact with a canonical Watts-Strogatz small-world benchmark network ($N=13, d
 
   <div id="mesh-node-inspector" class="node-inspector-card" style="display: none; margin-top: 0.75rem; background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 0.75rem;">
     <div><strong>Selected: <span id="inspector-node-id" style="color: #38bdf8;">Node 1</span></strong> | Status: <span id="inspector-node-status" style="color: #4ade80;">Healthy Peer</span> | Role: <span id="inspector-node-role" style="color: #c084fc;">ROOT_ANCHOR</span></div>
-    <div style="margin-top: 0.25rem; font-size: 0.85rem;">Quality (\(Q_i\)): <strong id="inspector-node-qi" style="color: #38bdf8;">0.995</strong> | Region: <strong id="inspector-node-region">us-central1</strong> | Connected Peers: <strong id="inspector-node-links">3 edges</strong></div>
+    <div style="margin-top: 0.25rem; font-size: 0.85rem;">Quality ($Q_i$): <strong id="inspector-node-qi" style="color: #38bdf8;">0.995</strong> | Region: <strong id="inspector-node-region">us-central1</strong> | Connected Peers: <strong id="inspector-node-links">3 edges</strong></div>
   </div>
 
   <div id="mesh-event-log" class="widget-status idle" style="margin-top: 0.75rem;">
     <span>Ready. Select a chaos scenario or click "Broadcast Attestation from Node 1" to observe diffusion.</span>
   </div>
 </div>
-
 
 ---
 
@@ -86,9 +85,9 @@ Compare two text snippets to compute their 64-bit SimHash fingerprints, Hamming 
 
 <div class="interactive-widget" id="simhash-calculator-widget">
   <div class="filter-chip-group">
-    <button type="button" id="btn-preset-mirror" class="filter-chip active">Scenario: Syndicated Mirror (\(D_H \le 3\))</button>
-    <button type="button" id="btn-preset-plagiarism" class="filter-chip">Scenario: Paraphrased Content (\(D_H = 6\))</button>
-    <button type="button" id="btn-preset-distinct" class="filter-chip">Scenario: Distinct Article (\(D_H > 15\))</button>
+    <button type="button" id="btn-preset-mirror" class="filter-chip active">Scenario: Syndicated Mirror ($D_H \le 3$)</button>
+    <button type="button" id="btn-preset-plagiarism" class="filter-chip">Scenario: Paraphrased Content ($D_H = 6$)</button>
+    <button type="button" id="btn-preset-distinct" class="filter-chip">Scenario: Distinct Article ($D_H > 15$)</button>
   </div>
 
   <div class="widget-row">
@@ -109,7 +108,7 @@ Compare two text snippets to compute their 64-bit SimHash fingerprints, Hamming 
   <div id="simhash-result-box" class="widget-result-box" style="margin-top: 1rem; text-align: left;">
     <div style="display: flex; justify-content: space-between; align-items: center;">
       <div>
-        <div class="widget-metric-title">Hamming Distance (\(D_H\))</div>
+        <div class="widget-metric-title">Hamming Distance ($D_H$)</div>
         <div id="simhash-dh-val" class="widget-score-big" style="font-size: 2.25rem;">--</div>
       </div>
       <div id="simhash-verdict-badge" class="verdict-tag reliable">AWAITING INPUT</div>
@@ -131,14 +130,14 @@ Compare two text snippets to compute their 64-bit SimHash fingerprints, Hamming 
 
 ---
 
-## 3. Verbatim Quote Grounding Validator (\(G=1.00\))
+## 3. Verbatim Quote Grounding Validator ($G=1.00$)
 
 Test character-offset substring matching and Unicode normalization. If an AI model hallucinates or paraphrases even a single word, the citation is rejected ($G=0.00$):
 
 <div class="interactive-widget" id="grounding-tester-widget">
   <div class="filter-chip-group">
-    <button type="button" id="btn-preset-verbatim" class="filter-chip active">Preset: Exact Verbatim Match (\(G=1.00\))</button>
-    <button type="button" id="btn-preset-paraphrase" class="filter-chip">Preset: Hallucinated Paraphrase (\(G=0.00\))</button>
+    <button type="button" id="btn-preset-verbatim" class="filter-chip active">Preset: Exact Verbatim Match ($G=1.00$)</button>
+    <button type="button" id="btn-preset-paraphrase" class="filter-chip">Preset: Hallucinated Paraphrase ($G=0.00$)</button>
   </div>
 
   <label class="widget-label">Source DOM Prose Text:</label>
@@ -187,14 +186,14 @@ $$S_{\text{calibrated}} = 100 \times \left(1 - e^{-S_{\text{raw}} / 12}\right)$$
       <div id="calc-result-score" class="widget-score-big">48.6</div>
       <div id="calc-result-badge" class="verdict-tag mixed">MIXED / QUESTIONABLE</div>
       <div class="widget-submetrics">
-        <div>Raw Score (\(S_{\text{raw}}\)): <strong id="calc-raw-score">8.10</strong></div>
+        <div>Raw Score ($S_{\text{raw}}$): <strong id="calc-raw-score">8.10</strong></div>
         <div>Saturation: <strong id="calc-saturation-pct">48.6%</strong></div>
       </div>
     </div>
   </div>
 
   <div style="margin-top: 1.5rem; background: rgba(5, 10, 20, 0.8); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 8px; padding: 0.75rem;">
-    <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; margin-bottom: 0.25rem;">Live Asymptotic Saturation Plot (\(y = 100(1 - e^{-x/12})\))</div>
+    <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; margin-bottom: 0.25rem;">Live Asymptotic Saturation Plot ($y = 100(1 - e^{-x/12})$)</div>
     <svg id="calc-curve-svg" viewBox="0 0 500 160" style="width: 100%; height: 160px;">
       <!-- Dynamic SVG Plot injected here -->
     </svg>
@@ -295,35 +294,35 @@ Compare estimated monthly operational costs, latency (TTFT), and cloud sovereign
 
 ---
 
-## 8. Zero-Trust Dynamic Feed Discovery & Quality (\(F_j\)) Simulator
+## 8. Zero-Trust Dynamic Feed Discovery & Quality ($F_j$) Simulator
 
-Test how Credence dynamically evaluates candidate feeds, calculates Topic Entropy (\(H_{\text{topic}}\)), detects commercial astroturfing (The "Pizza Hut Test"), and determines whether a feed is approved for active mesh rotation:
+Test how Credence dynamically evaluates candidate feeds, calculates Topic Entropy ($H_{\text{topic}}$), detects commercial astroturfing (The "Pizza Hut Test"), and determines whether a feed is approved for active mesh rotation:
 
 $$F_j = 0.35 (1.0 - \bar{S}_j/100) + 0.25 G_j + 0.20 H_{\text{topic}} + 0.20 T_{\text{freshness}}$$
 
 <div class="interactive-widget" id="feed-simulator-widget">
   <div class="filter-chip-group">
     <button type="button" id="btn-preset-investigative" class="filter-chip active">Preset: High-Entropy Investigative Feed</button>
-    <button type="button" id="btn-preset-astroturf" class="filter-chip">Preset: Single-Topic Astroturfing Pivot (\(H < 0.30\))</button>
+    <button type="button" id="btn-preset-astroturf" class="filter-chip">Preset: Single-Topic Astroturfing Pivot ($H < 0.30$)</button>
   </div>
 
   <div class="widget-row">
     <div class="widget-col">
-      <label for="feed-suspicion-slider" class="widget-label">Average Suspicion (\(\bar{S}_j\)): <span id="feed-suspicion-val" class="widget-val">12.0</span> / 100</label>
+      <label for="feed-suspicion-slider" class="widget-label">Average Suspicion ($\bar{S}_j$): <span id="feed-suspicion-val" class="widget-val">12.0</span> / 100</label>
       <input type="range" id="feed-suspicion-slider" min="0" max="100" step="1" value="12" class="widget-slider">
 
-      <label for="feed-grounding-slider" class="widget-label">Verbatim Grounding Precision (\(G_j\)): <span id="feed-grounding-val" class="widget-val">95%</span></label>
+      <label for="feed-grounding-slider" class="widget-label">Verbatim Grounding Precision ($G_j$): <span id="feed-grounding-val" class="widget-val">95%</span></label>
       <input type="range" id="feed-grounding-slider" min="0" max="100" step="5" value="95" class="widget-slider">
 
-      <label for="feed-entropy-slider" class="widget-label">Topic Entropy / Diversity (\(H_{\text{topic}}\)): <span id="feed-entropy-val" class="widget-val">0.85</span></label>
+      <label for="feed-entropy-slider" class="widget-label">Topic Entropy / Diversity ($H_{\text{topic}}$): <span id="feed-entropy-val" class="widget-val">0.85</span></label>
       <input type="range" id="feed-entropy-slider" min="0.0" max="1.0" step="0.05" value="0.85" class="widget-slider">
 
-      <label for="feed-freshness-slider" class="widget-label">Cadence Freshness Index (\(T_{\text{freshness}}\)): <span id="feed-freshness-val" class="widget-val">0.90</span></label>
+      <label for="feed-freshness-slider" class="widget-label">Cadence Freshness Index ($T_{\text{freshness}}$): <span id="feed-freshness-val" class="widget-val">0.90</span></label>
       <input type="range" id="feed-freshness-slider" min="0.1" max="1.0" step="0.05" value="0.90" class="widget-slider">
     </div>
 
     <div class="widget-col widget-result-box">
-      <div class="widget-metric-title">Composite Feed Quality Score (\(F_j\))</div>
+      <div class="widget-metric-title">Composite Feed Quality Score ($F_j$)</div>
       <div id="feed-result-score" class="widget-score-big" style="color: #4ade80;">0.89</div>
       <div id="feed-result-badge" class="verdict-tag reliable">ACTIVE ROTATION (APPROVED)</div>
       <div class="widget-submetrics" style="margin-top: 1rem;">
@@ -350,7 +349,7 @@ Simulate how Credence defeats Byzantine Sybil cartel attacks. In standard democr
       <label for="galileo-sybil-slider" class="widget-label">Sybil / Bot Nodes Reporting Score 0 (Ungrounded): <span id="galileo-sybil-val" class="widget-val">12 nodes</span></label>
       <input type="range" id="galileo-sybil-slider" min="1" max="25" value="12" class="widget-slider">
 
-      <label for="galileo-expert-slider" class="widget-label">Verified Domain Authorities Reporting Score 75 (\(G=1.00\)): <span id="galileo-expert-val" class="widget-val">2 nodes</span></label>
+      <label for="galileo-expert-slider" class="widget-label">Verified Domain Authorities Reporting Score 75 ($G=1.00$): <span id="galileo-expert-val" class="widget-val">2 nodes</span></label>
       <input type="range" id="galileo-expert-slider" min="1" max="10" value="2" class="widget-slider">
     </div>
 

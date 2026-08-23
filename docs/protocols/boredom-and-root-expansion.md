@@ -20,34 +20,15 @@ Autonomous nodes operate under a dual-mode evaluation loop:
 
 ## 2. Mathematical Formalization & State Machine
 
-```mermaid
-stateDiagram-v2
-    [*] --> Idle
-    Idle --> HeadroomCheck: Timer Interval Fired
-    HeadroomCheck --> Idle: Headroom < 30% OR Circuit Breaker Tripped
-    HeadroomCheck --> QueueScan: Headroom &ge; 30% AND Circuit Breaker Clear
-    
-    QueueScan --> MeshDeduplication: Pending Items in Queue
-    QueueScan --> RootDiscovery: Queue Empty (No Pending Items)
-    
-    MeshDeduplication --> AdoptMesh: Hash Exists in Mesh/Local Cache
-    AdoptMesh --> SoilExtraction: Adopted @ $0.00 (0 Tokens)
-    
-    MeshDeduplication --> NovelAudit: Novel Article URL
-    NovelAudit --> GossipAttestation: LLM Evaluated & Signed (G=1.00)
-    GossipAttestation --> SoilExtraction
-    
-    SoilExtraction --> SSRFValidation: Citations Extracted from Clean Audit (Score &le; 25.0)
-    SSRFValidation --> FeedProbe: Safe Public Domain
-    SSRFValidation --> SoilExtraction: Discard Private/Cloud/Social
-    
-    FeedProbe --> AutoSubscribe: Valid RSS/Atom/JSON Found
-    FeedProbe --> SoilExtraction: No Feed Endpoint
-    
-    AutoSubscribe --> HarvestInitial: Feed Subscription Created
-    HarvestInitial --> Idle: Cycle Complete
-    SoilExtraction --> Idle: Soil Depleted
-```
+| Current State | Trigger / Event | Guard Condition | Next State | System Action & Invariant |
+| :--- | :--- | :--- | :--- | :--- |
+| `IDLE` | Cron timer fired | $\mathcal{H}_{\text{daily}} \ge 0.30 \land \mathcal{C}_{\text{trip}} == 0$ | `QUEUE_SCAN` | Check pending queue depth and token budget |
+| `QUEUE_SCAN` | Pending items found | Item in `digest_queue` | `DEDUPLICATION` | Check SimHash against local SQLite WAL cache |
+| `DEDUPLICATION`| Cache / Mesh Hit | SimHash distance $d_H \le 3$ | `SOIL_EXTRACTION` | Adopt attestation in $0$ LLM tokens ($0.00 spend) |
+| `DEDUPLICATION`| Novel URL | Unique content | `NOVEL_AUDIT` | Run Gemini 3.7 Flash audit ($G=1.00$) & gossip envelope |
+| `QUEUE_SCAN` | Queue empty | Depth $= 0$ | `SOIL_EXTRACTION` | Discover citations from clean historical audits ($S \le 25.0$) |
+| `SOIL_EXTRACTION`| Citation extracted | Public FQDN (Pass SSRF) | `FEED_PROBE` | Probe `/feed.xml`, `/rss`, `atom.xml` endpoints |
+| `FEED_PROBE` | Feed found | Valid RSS/Atom/JSON | `AUTO_SUBSCRIBE` | Register new root feed; return to `IDLE` |
 
 ### 2.1 Activation Criteria
 

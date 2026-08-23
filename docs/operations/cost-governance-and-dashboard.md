@@ -16,17 +16,6 @@ Credence incorporates an autonomous **Cost Governance & Resource Optimization** 
 
 Credence provides 5 distinct cost profiles, defaulting to **`ECONOMY`**—the most conservative profile that is 100% fully functional with Gemini 3.7 Flash reasoning:
 
-```mermaid
-flowchart LR
-    subgraph ProfileSpectrum ["Operational Cost Profiles"]
-        P0["1. OFFLINE ($0.00)<br/>Local Rules Only"]
-        P1["2. FREE ($0.00)<br/>Gemini 2.0 Flash-Lite"]
-        P2["3. ECONOMY ($0.15/d)<br/>Gemini 3.7 Flash (512 Thinking)"]
-        P3["4. BALANCED ($0.50/d)<br/>Gemini 3.7 Flash (1024 Thinking)"]
-        P4["5. ULTRA ($5.00/d)<br/>Gemini 3.7 Flash + 1.5 Pro"]
-    end
-```
-
 | Profile | Target Audience | Primary Model | Thinking Budget | Max Daily Budget | Max Tokens / Hour | Concurrency |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **`OFFLINE`** | Air-gapped testing | *Local Rules* | 0 tokens | **$0.00** | 0 tokens | 1 |

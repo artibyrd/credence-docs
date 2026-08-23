@@ -19,15 +19,6 @@ Credence introduces **Zero-Touch Node Germination** (also known as *Miracle-Gro 
 
 When a node starts up with an empty database, the germination engine (`credence germinate` / `germinate_node`) executes four deterministic phases:
 
-```mermaid
-flowchart TD
-    Start["Unseeded Node Startup"] --> Phase1["1. Ed25519 Identity Minting<br/>(Generates or loads node_identity.key)"]
-    Phase1 --> Phase2["2. Genesis Inoculation<br/>(Inoculates signed peer attestations @ $0.00)"]
-    Phase2 --> Phase3["3. Preset Catalog Sowing<br/>(Sows 24 curated civic & tech RSS feeds)"]
-    Phase3 --> Phase4["4. Initial Burst Audit<br/>(Evaluates top novel article with grounded quotes)"]
-    Phase4 --> Ready["Operational P2P Mesh Node"]
-```
-
 ### Stage 1: Cryptographic Identity Minting
 The node checks for the existence of `data/identity.key`. If absent, it mints a fresh Ed25519 keypair using RFC 8032:
 - Generates 32-byte cryptographically secure private scalar.

@@ -26,17 +26,7 @@ The 500 LOC ceiling is not an arbitrary aesthetic constraint. It is an operation
 2. **Single Responsibility Discipline**: When a file approaches 450 lines, developers and AI pair programmers are forced to identify the natural seam of decomposition before technical debt hardens into monoliths.
 3. **Deterministic Testability**: Modular subpackages allow pinpoint unit test isolation, guaranteeing that test suites execute hermetically in memory in under 20 seconds.
 
-```mermaid
-flowchart LR
-    File["Module Growth (>450 LOC)"] --> Trigger{"500 LOC Limit Reached?"}
-    Trigger -- Yes --> Decomp["Decompose into Subpackage DAG"]
-    Trigger -- No --> Retain["Maintain Cohesive Unit"]
-    Decomp --> Sub1["commands/ (*.py < 300 LOC)"]
-    Decomp --> Sub2["formatting/ (*.py < 200 LOC)"]
-    Decomp --> Sub3["models.py (< 150 LOC)"]
-```
-
----
+![Figure 1.1: The 500 LOC Ceiling Law and modular subpackage decoupling architecture](assets/illustrations/the-500-loc-ceiling-law.svg)---
 
 ## 2. Shift-Left Enforcement in 0.04 Seconds
 

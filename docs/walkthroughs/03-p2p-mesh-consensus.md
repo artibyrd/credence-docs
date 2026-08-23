@@ -13,14 +13,6 @@ sidebar:
 
 Learn how Credence nodes establish cryptographic identity, exchange attestations over Watts-Strogatz small-world lattices, and aggregate Byzantine-resistant consensus using Domain Authority Weighted Medians.
 
-```mermaid
-flowchart TD
-    Node1["Local Node Identity<br/>(Ed25519 Keypair)"] --> Seeds["Fetch Signed Seeds<br/>(seeds.credence.nexus)"]
-    Seeds --> Lattice["Connect to Watts-Strogatz Lattice<br/>(k=4, p=0.15 WebSocket Relays)"]
-    Lattice --> Gossip["Epidemic Gossip Protocol<br/>(RFC 8785 Canonical Attestations)"]
-    Gossip --> Consensus["Domain Authority Weighted Median<br/>+ Galileo Rule Protection"]
-```
-
 > [!NOTE]
 > **Persistent Interface Preference**: Selecting your preferred interface below automatically applies across all feature walkthroughs and tutorials in the portal.
 

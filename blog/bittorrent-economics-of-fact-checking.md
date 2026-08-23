@@ -17,19 +17,7 @@ If 100 developers, newsrooms, and AI agent frameworks each independently ingest 
 
 Why are 100 different computers doing the exact same evaluation 100 times?
 
-```mermaid
-graph LR
-    subgraph SwarmEconomics["Cooperative Work-Sharing Economics"]
-        Feed["High-Volume Feed Stream<br>(500 Articles/day)"] --> Part["Consistent Hashing Partition"]
-        Part --> N1["Node 1 (Audits Feed Part A)"]
-        Part --> N2["Node 2 (Audits Feed Part B)"]
-        Part --> N3["Node 3 (Audits Feed Part C)"]
-        N1 & N2 & N3 --> Mesh["P2P Watts-Strogatz Lattice"]
-        Mesh --> Adopt["All 13 Nodes Cache Full Stream<br>(92.3% Savings at $0.00 Tokens)"]
-    end
-```
-
-### Swarm Scaling & Monthly LLM API Cost
+![Figure 1.1: Decentralized compute swarm economics and deduplicated gossip audit propagation](assets/illustrations/bittorrent-economics-of-fact-checking.svg)### Swarm Scaling & Monthly LLM API Cost
 
 | Swarm Size ($N$) | Centralized Redundant Cost (500 Arts/day) | Credence P2P Mesh Cost | Net Compute Savings |
 | :--- | :--- | :--- | :--- |

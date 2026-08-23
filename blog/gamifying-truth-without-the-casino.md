@@ -17,23 +17,6 @@ When designing the incentive mechanics for the **Credence Epistemic Mesh**, we t
 
 Truth verification is not a mobile game. It is a collaborative computational science.
 
-```mermaid
-flowchart LR
-    subgraph CasinoModel["The Casino Model (Engagement & Speculation)"]
-        direction TB
-        C1["Virtual Currencies & Tokens"] --> C2["Speculative Trading & Pumps"]
-        C2 --> C3["Outrage Farming & Clickbait"]
-        C3 --> C4["Epistemic Collapse"]
-    end
-
-    subgraph ScientificModel["The Credence Scientific Merit Model"]
-        direction TB
-        S1["Ed25519 Cryptographic Work"] --> S2["Verifiable Verbatim Grounding"]
-        S2 --> S3["Empirical Domain Expertise (E_i)"]
-        S3 --> S4["Epistemic Tiers & Mesh Prestige"]
-    end
-```
-
 ---
 
 ## The Lessons of Distributed Computing: BOINC and Wikipedia
@@ -58,14 +41,6 @@ In Credence, nodes do not "level up" by spending money. They ascend through **5 
 | **Tier III** | 🛡️ | **Auditor** | $\ge 50$ evaluations, $Q_i \ge 0.75$, Grounding $G_i \ge 0.85$ | Consensus voting weight, attestation seeding |
 | **Tier IV** | 🏛️ | **Specialist** | Empirical Authority $E_i \ge 0.80$ across $\ge 5$ distinct FQDNs | Domain Authority weighted medians (Galileo Rule) |
 | **Tier V** | 💎 | **Root Anchor** | $Q_i \ge 0.85$, $U_i \ge 0.80$, $>30$ days active longevity | Inclusion in canonical `peers.json` bootstrap seed |
-
-```mermaid
-graph TD
-    T1["🌱 Tier I: Sprout Node (Identity Minted)"] -->|&ge; 10 audits, Q_i &ge; 0.60| T2["📡 Tier II: Sifter Pioneer (Feed Partitioning)"]
-    T2 -->|&ge; 50 audits, Q_i &ge; 0.75, G_i &ge; 0.85| T3["🛡️ Tier III: Verified Auditor (Consensus Voting)"]
-    T3 -->|E_i &ge; 0.80 across &ge; 5 domains| T4["🏛️ Tier IV: Domain Specialist (Galileo Authority)"]
-    T4 -->|Q_i &ge; 0.85, U_i &ge; 0.80, &gt;30d longevity| T5["💎 Tier V: Root Seed Anchor (Bootstrap Manifest)"]
-```
 
 ---
 
@@ -131,13 +106,22 @@ In most gamified applications, leaderboards are cosmetic vanity metrics. In Cred
 
 The P2P relay dynamically assigns connected peers to **4 Traffic Shaping Classes**:
 
-```mermaid
-flowchart TD
-    Q["Observed Peer Quality Score (Q_i)"]
-    Q -->|Q_i &ge; 0.85| FL["FAST_LANE (500 msgs/s)<br/>Immediate gossip broadcast & prioritized relay"]
-    Q -->|0.50 &le; Q_i &lt; 0.85| ST["STANDARD (50 msgs/s)<br/>Standard peer gossiping rate"]
-    Q -->|0.25 &le; Q_i &lt; 0.50| CH["CHOKED (1 msg/s)<br/>Flaky or divergent nodes constrained"]
-    Q -->|Q_i &lt; 0.25| QU["QUARANTINED (0 msgs/s)<br/>Hallucinating or Sybil nodes severed"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         PEER QUALITY TRAFFIC SHAPING CLASSES                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Observed Peer Quality Score ($Q_i \in [0.0, 1.0]$)                                               │
+│                                │                                                                 │
+│       ┌────────────────────────┼────────────────────────┬────────────────────────┐               │
+│       ▼ $Q_i \ge 0.85$         ▼ $0.50 \le Q_i < 0.85$  ▼ $0.25 \le Q_i < 0.50$  ▼ $Q_i < 0.25$  │
+│ ┌───────────────────┐  ┌───────────────────┐  ┌───────────────────┐  ┌───────────────────┐       │
+│ │ 🟢 FAST_LANE      │  │ 🔵 STANDARD       │  │ 🟡 CHOKED         │  │ 🔴 QUARANTINED    │       │
+│ │ • 500 msgs/sec    │  │ • 50 msgs/sec     │  │ • 1 msg/sec       │  │ • 0 msgs/sec      │       │
+│ │ • Immediate gossip│  │ • Standard gossip │  │ • Flaky/divergent │  │ • Sybil/bad severed│      │
+│ └───────────────────┘  └───────────────────┘  └───────────────────┘  └───────────────────┘       │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Network Physics: Good actors gain high-bandwidth lanes; adversaries are throttled to 0 msg/s   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 If a node submits ungrounded citations or attempts to spam false consensus, its Quality Score ($Q_i$) is slashed. The routing engine automatically demotes its connection from `FAST_LANE` to `CHOKED` (1 msg/s) or `QUARANTINED` (0 msg/s). Good actors receive high-bandwidth fast lanes; adversaries are mathematically throttled out of existence.

@@ -15,21 +15,6 @@ This cookbook shows how to set up an autonomous, zero-trust **Credence Morning F
 
 ## 1. Zero-Trust Architecture Overview
 
-```mermaid
-graph TD
-    Discover["Dynamic Discovery<br>credence feed discover"] --> PreFlight["Pre-Flight Forensic Audit<br>H_topic & SPJ Ethics"]
-    PreFlight --> DynamicScore["Dynamic Quality Score (F_j)<br>F_j >= 0.70 Active | Evicted < 0.40"]
-    
-    DynamicScore --> SifterDaemon["Real-Time Sifter Daemon<br>credence sifter"]
-    SifterDaemon --> MeshRelay{"Audit Cached on P2P Mesh?"}
-    MeshRelay -- "Yes (92.3% of items)" --> Adopt["Zero-Token Mesh Adoption ($0.00 Token Burn)"]
-    MeshRelay -- "No (Novel item)" --> Audit["Pareto Audit (Gemini 3.7 Flash 4k Thinking)"]
-    Audit --> Gossip["Gossip Signed RFC 8785 Attestation"]
-    
-    Adopt & Gossip --> DigestGen["Morning Epistemic Digest Generator<br>credence digest"]
-    DigestGen --> OutputReport["Executive Briefing (Terminal, Markdown, JSON)"]
-```
-
 > [!TIP]
 > **Zero-Configuration Work-Sharing**: When multiple team members or automated agents run the sifter daemon across your local network or VPN, they automatically partition feed ingestion using Rendezvous Hashing without requiring a central coordination server.
 
@@ -93,7 +78,6 @@ Launch the real-time sifter daemon as a background systemd service or long-runni
 # Run sifter daemon with 5-minute polling cycles
 credence sifter --interval 300 --profile balanced
 ```
-
 
 ## 5. Generating Daily Morning Epistemic Briefings
 

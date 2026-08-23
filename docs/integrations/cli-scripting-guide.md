@@ -9,16 +9,6 @@ last_verified: 2026-08-20
 
 The **`credence` CLI** is built with rich formatting for human terminals and structured JSON streams for shell automation, CI/CD pipelines, and data processing.
 
-```mermaid
-flowchart LR
-    A["Input Stream<br>(URLs / RSS / Text)"] --> B["credence audit --json"]
-    B --> C{"Score Evaluation"}
-    C -- "Score < 25.0 (Reliable)" --> D["Pass CI Gate (Exit 0)"]
-    C -- "Score >= 50.0 (Flagged)" --> E["Block / Alert (Exit 1)"]
-    B --> F["jq / xargs Automation"]
-    F --> G["Slack Webhooks / JSON DB"]
-```
-
 ### CLI Exit Codes & CI Behavior
 
 | Exit Code | Classification | Meaning & Recommended CI Action |

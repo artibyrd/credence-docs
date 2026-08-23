@@ -25,31 +25,11 @@ In **Credence v2.0.0**, all system concepts adhere to two strict semantic laws:
 2. **The 5 Cohesive Thematic Families**:
    All 36 Credence-invented concepts are organized into **5 unified metaphors** to provide an intuitive, memorable mental model across the ecosystem.
 
-```mermaid
-flowchart TD
-    subgraph "The 5 Thematic Families of Credence"
-        T1["🌿 1. Botanical Network<br/>(Seeds, Germination, Sprouts, Root Anchors)"]
-        T2["🔭 2. Optical & Forensic Grounding<br/>(Verbatim Grounding, Galileo Rule, Trust Bands, DCI)"]
-        T3["🌤️ 3. Meteorological Epistemics<br/>(Truth Weather, Drift, Astroturf Defense, Satire Shield)"]
-        T4["🏛️ 4. Sovereign Governance<br/>(Invariant Bible, 500 LOC Law, compute_* Rule, Mk1 Eyeball)"]
-        T5["⚡ 5. Self-Regulating Engine<br/>(Feed Sifter, Curiosity Loop, Token Governor, BitTorrent Relay)"]
-    end
-
-    T1 & T2 & T3 & T4 & T5 --> Canon["Canonical v2.0.0 Lexicon (52 Total Terms)"]
-```
-
 ---
 
 ## 2. Complexity & Origin Distribution
 
 Across the **52 terms** governing Credence (16 Industry Standards + 36 Credence Inventions), the vocabulary forms an intentional **cognitive pyramid**:
-
-```mermaid
-pie title Credence Vocabulary Complexity Distribution
-    "🟢 Basic (Level 1 · General)" : 16
-    "🟡 Advanced (Level 2 · Practitioner)" : 21
-    "🔴 Expert (Level 3 · Deep Theory)" : 15
-```
 
 | Complexity Level | Count | Share | Target Audience | Primary Focus |
 | :--- | :---: | :---: | :--- | :--- |

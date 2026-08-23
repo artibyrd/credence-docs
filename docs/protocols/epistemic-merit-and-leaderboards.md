@@ -22,15 +22,6 @@ A node's **Epistemic Tier** is evaluated dynamically based on five verifiable pa
 4. **Max Empirical Domain Expertise ($E_{\text{max}} \in [0.0, 1.0]$)**
 5. **Active Longevity ($L_i$ in days)**
 
-```mermaid
-stateDiagram-v2
-    [*] --> SPROUT: Ed25519 Identity Minted
-    SPROUT --> SIFTER: N_eval &ge; 10, Q_i &ge; 0.60
-    SIFTER --> AUDITOR: N_eval &ge; 50, Q_i &ge; 0.75, G_i &ge; 0.85
-    AUDITOR --> SPECIALIST: E_max &ge; 0.80 across &ge; 5 domains
-    SPECIALIST --> ROOT_ANCHOR: Q_i &ge; 0.85, U_i &ge; 0.80, L_i &ge; 30d
-```
-
 ### Mathematical Tier Milestones
 
 ```python
@@ -60,7 +51,7 @@ def determine_node_tier(
 Badges are awarded automatically when observable metric records satisfy strict cryptographic or computational conditions:
 
 | Badge ID | Icon | Name | Tier | Requirement | Network Impact |
-| :--- | :---: | :--- | :---: | :--- | :--- |
+| :--- | :---: | :--- | :--- | :--- | :--- |
 | `sprout_node` | 🌱 | Sprout Genesis | `SPROUT` | Identity initialized; signed genesis payload | Inoculated into peer routing |
 | `first_attestation` | 🌾 | First Attestation | `SPROUT` | $\ge 5$ verified grounded audits with 0 errors | Initial consensus participation |
 | `sifter_pioneer` | 🔍 | Sifter Century | `SIFTER` | $\ge 100$ feed items partitioned/sifted via HRW | Relays feed bundles to peers |
@@ -72,7 +63,6 @@ Badges are awarded automatically when observable metric records satisfy strict c
 | `root_seed_candidate` | 🌳 | Root Seed Candidate | `ROOT_ANCHOR` | $Q_i \ge 0.85, U_i \ge 0.80, G_i \ge 0.80, >30$d | Qualified for inclusion in `peers.json` |
 | `sybil_shield` | 🛡️ | Sybil Sentinel | `ROOT_ANCHOR` | $\ge 5,000$ audits with 0 collusion & 0 slashing | Root anchor candidate badge |
 | `century_anchor` | 🏛️ | Century Anchor | `ROOT_ANCHOR` | $\ge 100\text{d}$ longevity, $Q_i \ge 0.90, G_i \ge 0.98$ | Sovereign network pillar mark |
-
 
 ---
 
@@ -87,12 +77,16 @@ U_{\text{raw}} & \text{if } \Delta t \le 2\text{ hours} \\
 U_{\text{raw}} \cdot \exp\left( - \frac{\ln(2) \cdot (\Delta t - 2)}{24} \right) & \text{if } \Delta t > 2\text{ hours}
 \end{cases}$$
 
-```mermaid
-flowchart LR
-    A["Node Goes Offline"] --> B{"Offline Duration (&Delta;t)"}
-    B -->|&Delta;t &le; 2 hours| C["Zero Penalty (Grace Period)<br/>Uptime = U_raw"]
-    B -->|&Delta;t &gt; 2 hours| D["Smooth Exponential Decay (&tau; = 24h)<br/>50% retained after 26h"]
-    B -->|&Delta;t &gt; 7 days| E["Uptime decays to zero<br/>Demoted to CHOKED"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         OPERATOR MAINTENANCE GRACE PERIOD & DECAY CURVE                          │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Offline Duration ($\Delta t$)               Uptime Calculation Formula       Operational Impact  │
+├─────────────────────────────────────────────┼────────────────────────────────┼───────────────────┤
+│ $\Delta t \le 2\text{ hours}$ (Grace Period)│ $U_i = U_{\text{raw}}$         │ 0 Penalty (Reboot)│
+│ $2\text{h} < \Delta t \le 26\text{ hours}$  │ $U_i = U_{\text{raw}} \cdot \exp(-\ln(2)(\Delta t-2)/24)$ │ Smooth 50% Decay  │
+│ $\Delta t > 7\text{ days}$ (Stale Node)     │ $U_i \to 0.00$                 │ Demoted to CHOKED │
+└─────────────────────────────────────────────┴────────────────────────────────┴───────────────────┘
 ```
 
 This prevents transient network glitches from wrecking leaderboards while ensuring permanently dead nodes gracefully decay out of top ranks.

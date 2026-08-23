@@ -26,30 +26,6 @@ Within six months, engineering repositories across the world ended up with 30-pa
 
 The result was predictable: **The Silicon Hangover (also known as Cognitive Oatmeal)**.
 
-```mermaid
-flowchart TD
-    subgraph PromptGluttony ["❌ Prompt Gluttony (50k Flat Tokens)"]
-        direction TB
-        Flat["35+ Unordered Invariants Dumped into System Prompt"]
-        --> Dilution["1. Attention Dilution<br/>(Critical security rules lost in noise)"]
-        --> Oatmeal["2. Cognitive Oatmeal<br/>(Markdown trivia weighted equal to SSRF)"]
-        --> Waste["3. Token Friction<br/>(Re-parsing static rules on every turn)"]
-    end
-
-    subgraph StratifiedDiet ["🛡️ 3-Tier Progressive Disclosure (<800 Tokens)"]
-        direction TB
-        T0["Tier 0: Universal Invariants<br/>(AGENTS.md &lt; 800 tokens)"]
-        --> T1["Tier 1: Progressive Subsystem Skills<br/>(.agents/skills/ loaded on demand)"]
-        --> T2["Tier 2: Shift-Left Test Gates<br/>(pytest test_docs_integrity.py &lt; 0.3s)"]
-        --> T3["Tier 3: Canonical Specifications<br/>(Deep master documentation & blueprints)"]
-    end
-
-    PromptGluttony -->|"Replaced by Stratified Taxonomy"| StratifiedDiet
-
-    style PromptGluttony fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
-    style StratifiedDiet fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-```
-
 ---
 
 ## 🥣 The Pathology of Cognitive Oatmeal
@@ -65,40 +41,6 @@ When an LLM's context window is flooded with flat, un-stratified instructions:
 
 In `AGENTS.md`, we organize Tier-0 knowledge into a strict, prioritized cognitive hierarchy that fits inside **< 800 tokens**:
 
-```mermaid
-flowchart TD
-    subgraph ClassAlpha ["Class α (Alpha): Sovereign Safety, Custody & Human Authority (P0)"]
-        direction TB
-        A1["Human Review ('Mk1 Eyeball') & Anti-Speculative UI"]
-        --> A2["Verbatim DOM Grounding (G = 1.00)"]
-        --> A3["RFC 8785 Canonical JSON & Ed25519 Custody"]
-        --> A4["Untrusted Ingestion Boundary & SSRF/XML Defense"]
-    end
-
-    subgraph ClassBeta ["Class β (Beta): Execution Topology & Release Architecture (P1)"]
-        direction TB
-        B1["4-Phase Release & Lean Learning Lifecycle"]
-        --> B2["Cart-Before-the-Horse Order-of-Operations"]
-        --> B3["Commit-Before-Deploy & Push-and-Delegate CI/CD"]
-        --> B4["3-Plane Deployment Decoupling (Edge, Compute, Infra)"]
-        --> B5["Hermetic In-Memory Unit Test Isolation (&lt;35s)"]
-    end
-
-    subgraph ClassGamma ["Class γ (Gamma): Interface Symmetry & Governance (P2)"]
-        direction TB
-        C1["Universal 4-Way Feature Parity (CLI, TUI, FastMCP, Web)"]
-        --> C2["Epistemic Lensing & 3-Lens Information Pyramid"]
-        --> C3["Living Canon & Dynamic Invariant Bible Naming"]
-        --> C4["Multi-Model Sovereignty & Token Governor"]
-    end
-
-    ClassAlpha --> ClassBeta --> ClassGamma
-
-    style ClassAlpha fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
-    style ClassBeta fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style ClassGamma fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
-```
-
 ---
 
 ## 🛣️ The Demotion Highway: Forgetting What Tests Can Prove
@@ -108,17 +50,6 @@ The secret to keeping `AGENTS.md` permanently bounded under 800 tokens—even as
 $$\text{KnowledgePlacement} = \begin{cases} \text{Tier 2 (Test Gate)}, & \text{if assertion is deterministically verifiable in } < 0.3\text{s} \\ \text{Tier 1 (Progressive Skill)}, & \text{if rule is subsystem-scoped (e.g., Cloud Run / Mesh)} \\ \text{Tier 0 (AGENTS.md)}, & \text{only if rule is a universal, multi-file non-negotiable} \end{cases}$$
 
 When an invariant can be asserted with 100% mechanical certainty (e.g. valid YAML frontmatter, 7-manifest version parity, zero npm dependencies), we **demote** it out of prompt memory and graduate it into `tests/test_docs_integrity.py`.
-
-```mermaid
-stateDiagram-v2
-    [*] --> Proposed: /learn Retrospective
-    Proposed --> Active: Minted to AGENTS.md (vX.Y.0)
-    Active --> UnderReview: Milestone Review (v2.X.0)
-    UnderReview --> Demoted: Promoted to Shift-Left Pytest Gate (Tier 2)
-    UnderReview --> Retired: Obsolete Constraint
-    Demoted --> [*]
-    Retired --> [*]
-```
 
 ---
 

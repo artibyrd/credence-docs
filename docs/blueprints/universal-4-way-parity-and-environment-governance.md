@@ -14,16 +14,6 @@ Credence strictly maintains simultaneous **Universal 4-Way Feature Parity** acro
 
 ## 1. Interface Parity Matrix & Topology
 
-```mermaid
-flowchart TD
-    Core["Credence Epistemic Kernel<br/>(RFC 8785 Canonical JSON, Ed25519 Custody, G=1.00 Gate, Scoring Math)"]
-
-    Core --> CLI["1. CLI Engine (`credence`)<br/>• check / evaluate / report<br/>• badge export (3 modalities)<br/>• merit --mesh (Byzantine quorum)"]
-    Core --> MCP["2. FastMCP 2.0 Server (`credence serve`)<br/>• stdio & SSE bidirectional streaming<br/>• credence_generate_badge & merit tools<br/>• URI resources (credence://badge/...)"]
-    Core --> TUI["3. Textual TUI Workstation (`credence tui`)<br/>• 9 Full-Screen Tabs<br/>• 3-Tier Lensing Hierarchy<br/>• Fail-Closed Zero-Mock Boundaries"]
-    Core --> WEB["4. Zero-Build Web Portals (`web/`)<br/>• credence.run / .report / .nexus / .foundation / admin<br/>• Badge Studio (Node, Publisher, Attestation)<br/>• W3C WebCrypto In-Browser Verification"]
-```
-
 ---
 
 ## 2. Core Architectural Contracts

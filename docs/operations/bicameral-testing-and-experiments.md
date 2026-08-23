@@ -10,30 +10,6 @@ last_verified: 2026-08-20
 
 Deploying both a **simple Dev instance** and an **advanced Prod instance** creates a **Bicameral Epistemic Engine**. This architecture enables safe shadow evaluation, zero-downtime canary testing, cross-organization cryptographic federation, and verifiable FinOps cost optimization.
 
-```mermaid
-flowchart TD
-    subgraph Ingress["Ingress Feeds & Untrusted DOMs"]
-        Feeds["RSS Feeds / Webhooks / User Claims"]
-    end
-
-    subgraph DevPlane["Dev Instance (Heuristic & Fast Triage)"]
-        DevTriage["Offline Heuristics + Flash-Lite<br/>• Zero Marginal Cost ($0.00)<br/>• Topic Entropy (H < 0.30)<br/>• Rapid Root Germination"]
-    end
-
-    subgraph ProdPlane["Prod Instance (Cryptographic Sovereign Core)"]
-        ProdCore["Gemini 3.7 Flash (4k Thinking)<br/>• Verbatim Grounding (G = 1.00)<br/>• RFC 8785 + Ed25519 Signing<br/>• P2P Mesh Gossip Broadcast"]
-    end
-
-    Feeds --> DevTriage
-    DevTriage -- "Escalate Suspicious / Ambiguous Claims (ΔS > 25.0)" --> ProdCore
-    ProdCore -- "Signed Attestations & Leaderboards" --> Mesh["Federated Epistemic Mesh"]
-
-    classDef darkSlate fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff;
-    classDef subtle fill:#1e293b,stroke:#334155,stroke-width:1px,color:#94a3b8;
-    class Ingress,DevPlane,ProdPlane darkSlate;
-    class Feeds,DevTriage,ProdCore,Mesh subtle;
-```
-
 ---
 
 ## 1. Environment Configuration Matrix & Invariants

@@ -16,31 +16,6 @@ In **Credence v1.21.0**, we evolved the Boredom Engine into a **Dual-Soil Ingest
 
 Here are the empirical findings from our **13-node Watts-Strogatz local mesh cluster simulation suite** (`credence/experiments/mesh_boredom_study.py`).
 
-```mermaid
-graph LR
-    subgraph MeshCoordination["13-Node Mesh Coordination Architecture"]
-        DISINFO["Viral Deceptive URL<br>(Outbound Citation Ring)"] --> TRIAGE{"Zero-Token Slop Triage<br>(H < 0.30 &amp; Citations &ge; 2)"}
-        
-        TRIAGE -->|"98.3% Rejection (SEO Spam)"| ZERO["Discard @ $0.00 (0 Tokens)"]
-        
-        TRIAGE -->|"Pass (High-Impact Campaign)"| HRW["HRW Rendezvous Hashing<br>N* = argmax H(k_i || URL)"]
-        
-        HRW -->|"Assigned Node 1"| AUDIT["Live LLM Audit &amp; Sign<br>(1,850 Tokens Expended)"]
-        HRW -->|"Nodes 2-13 (Idle)"| WAIT["Standby for Gossip Relay"]
-        
-        AUDIT --> GOSSIP["P2P Gossip Diffusion<br>(&lt;350ms Lattice Propagation)"]
-        GOSSIP --> ADOPT["12 Peer Nodes Adopt @ $0.00<br>(22,200 Tokens Saved)"]
-    end
-    
-    classDef disinfo fill:#4c0519,stroke:#f43f5e,stroke-width:2px,color:#f8fafc;
-    classDef triage fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#f8fafc;
-    classDef audit fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#f8fafc;
-    
-    class DISINFO disinfo;
-    class TRIAGE,HRW,ZERO,WAIT triage;
-    class AUDIT,GOSSIP,ADOPT audit;
-```
-
 ---
 
 ## 1. Study A: The Epistemic Ratio Sweep

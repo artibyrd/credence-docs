@@ -27,13 +27,6 @@ Why make a major version break over a naming prefix?
 - **`calculate_*`**: Imperative, verbose, and historically blended with UI rendering logic and database fetching side effects.
 - **`compute_*`**: Mathematically pure, deterministic, and side-effect free. In functional and epistemic protocols, `compute_*` denotes a deterministic transformation: given identical cryptographic and attestation inputs, it yields the exact same metric output every time.
 
-```mermaid
-flowchart LR
-    Inputs["Signed Attestations + DOM Text"] --> C["compute_* Deterministic Transformation"]
-    C --> Output["Verifiable Score [0.0, 100.0]"]
-    style C fill:#0284c7,stroke:#38bdf8,stroke-width:2px,color:#ffffff
-```
-
 ---
 
 ## 2. The Living Invariant Gate

@@ -31,24 +31,6 @@ A comprehensive, unabridged operations runbook for deploying, configuring, secur
 
 Credence is engineered to run as a multi-domain, hybrid-cloud federation spanning **Google Cloud Platform (GCP)** (for serverless compute, Secret Manager, and token governor monitoring) and **Cloudflare** (for global edge CDN, DDoS protection, zero-egress R2 distribution, and DNS delegation).
 
-```mermaid
-flowchart TD
-    User([User / AI Agent / Peer Node]) --> Worker["Cloudflare Edge Worker (_worker.js)"]
-    
-    Worker -->|credence.run| Static1["Static Assets: Landing & Install Script (public, max-age=0)"]
-    Worker -->|docs.credence.run| Pages1["Dynamic Proxy: Docs Portal (no-cache, no-store)"]
-    Worker -->|blog.credence.run| Pages2["Dynamic Proxy: Sovereign Blog (no-cache, no-store)"]
-    Worker -->|credence.report| Static2["Static Assets: Cryptographic Report Viewer"]
-    Worker -->|credence.nexus| Static3["Static Assets: Mesh Directory & Explorer"]
-    Worker -->|seeds.credence.nexus| Seeds["Root Peer Manifest (peers.json)"]
-    Worker -->|credence.foundation| Static4["Static Assets: Governance & Keys Portal"]
-    Worker -->|keys.credence.foundation| Keys["Root Signing Key (root.pub)"]
-    Worker -->|mcp.credence.run| CR["GCP Cloud Run: FastMCP 2.0 SSE Engine (/sse)"]
-
-    classDef darkSlate fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff;
-    class Worker,Static1,Pages1,Pages2,Static2,Static3,Seeds,Static4,Keys,CR darkSlate;
-```
-
 > [!NOTE]
 > **Zero-Build Invariant**: All web properties (`credence.run`, `docs.credence.run`, `blog.credence.run`, `credence.nexus`, `credence.foundation`, and `credence.report`) run purely on vanilla HTML5, native CSS Custom Properties, and ES modules with **0 npm dependencies and 0 build steps**. All 18 production and development subdomains are bound in `wrangler.toml` and served with zero-cache headers.
 

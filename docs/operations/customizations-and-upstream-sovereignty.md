@@ -22,36 +22,6 @@ This document details the architectural boundaries and operational runbooks for 
 
 Credence enforces clean separation across four distinct operational layers:
 
-```mermaid
-graph TD
-    subgraph Core ["1. Core Upstream Repo (Public & Universal)"]
-        Engine["Scoring & Evaluation Pipeline"]
-        UnivTax["Universal Taxonomies & Subjects<br>(e.g. municipal_governance.yaml)"]
-        GlobalPresets["Global Wire Presets<br>(AP, Reuters, ProPublica, Nature)"]
-    end
-
-    subgraph State ["2. Runtime Database State (Local & Ephemeral)"]
-        LocalDB[("data/credence.db (Gitignored)<br>FeedSubscriptionRecord & Audits")]
-        CLIAdd["CLI: credence feed add & audit"]
-        CLIAdd --> LocalDB
-    end
-
-    subgraph Config ["3. Local Configuration Overlays (config/)"]
-        CustomFeeds["config/feeds.local.yaml"]
-        EntityGraph["config/entities/hometown.local.yaml<br>(Publisher / Council Conflict Graph)"]
-    end
-
-    subgraph Deploy ["4. Sovereign Deployments (credence init-org)"]
-        InitOrg["Independent Org Workspace<br>(Terraform, Cloud Run, Cloudflare)"]
-        CloudSeeds[("GCS Seed Bucket / peers.json")]
-        InitOrg --> CloudSeeds
-    end
-
-    Core --> LocalDB
-    Config --> Engine
-    Core -.->|Upstream Dependency| InitOrg
-```
-
 ### Customization Layer Separation Matrix
 
 | Layer | Files & Paths | Git Status | Upstream Commit Policy |

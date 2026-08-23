@@ -16,19 +16,6 @@ The **Information Pyramid** governs the cognitive density of information present
 
 ## 1. The 3-Tier Cognitive Hierarchy
 
-```
-        ▲
-       / \        🔍 Tier 1: Surface Lens (Glance — Above the Fold)
-      /   \       • 1-line verdict, score gauge, 3 key signal tags
-     /─────\
-    /       \      🔬 Tier 2: Focus Lens (Explore — Mid-Page)
-   /         \     • Claim quotes (G=1.00), category scorecards, trajectory sparklines
-  /───────────\
- /             \    🌌 Tier 3: Deep Spectrum Lens (Forensic — Base of Page)
-/               \   • Ed25519 receipts, RFC 8785 canonical bytes, live DOM hash gates
-─────────────────
-```
-
 ### Cognitive Invariants:
 1. **Tier 1 (Surface)**: Strictly zero mathematical notation ($Q_i, W_i, H$), zero raw JSON, zero byte hashes, zero complex configuration knobs.
 2. **Tier 2 (Focus)**: Interactive exploration controls with clean visual abstractions and grounded citations.

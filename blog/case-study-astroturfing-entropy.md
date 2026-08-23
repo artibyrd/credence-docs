@@ -24,33 +24,7 @@ Coordinated influence operations and corporate astroturfing campaigns no longer 
 
 While individual articles pass superficial grammar checks, their collective distribution exhibits an unmistakable mathematical signature: **lexical and topical collapse**.
 
-```mermaid
-flowchart LR
-    subgraph SyndicatedFeeds["500+ Syndicated Feeds"]
-        F1["Feed A"]
-        F2["Feed B"]
-        F3["Feed C"]
-    end
-
-    subgraph DevAnalyzer["Dev Plane: Fast Entropy Sifter"]
-        Entropy["Calculate Topic Entropy (H)<br/>& Top-Token Concentration (C_top3)"]
-    end
-
-    subgraph ProdCore["Prod Plane: Forensic Attribution"]
-        Forensics["Gemini 3.7 Flash 4k Thinking<br/>• Source Lineage Extraction<br/>• Ed25519 Cryptographic Attestation"]
-    end
-
-    SyndicatedFeeds --> DevAnalyzer
-    DevAnalyzer -- "Trigger: H < 0.30 & C_top3 > 0.45" --> ProdCore
-    ProdCore --> Slash["Consensus Slash & DEI Demotion"]
-
-    classDef darkSlate fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff;
-    classDef redAlert fill:#1e293b,stroke:#ef4444,stroke-width:2px,color:#fff;
-    class DevAnalyzer,ProdCore darkSlate;
-    class Slash redAlert;
-```
-
----
+![Figure 1.1: Shannon topic entropy analysis distinguishing coordinated bot astroturfing from organic civic discourse](assets/illustrations/case-study-astroturfing-entropy.svg)---
 
 ## 2. Mathematical Detection Model
 

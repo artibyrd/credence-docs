@@ -13,15 +13,6 @@ order: 8
 
 This specification provides the empirical measurement methodology, benchmark dataset, latency curves, and cost models comparing LLM architectures when evaluating deception, logical fallacies, deceptive UI patterns, and human satire.
 
-```mermaid
-graph TD
-    Input["Golden 12 Test Fixtures<br>(Clean, Fallacious, Deceptive, Satire, Health, Slop)"] --> MultiAgent["4-Specialist Evaluation Pipeline"]
-    MultiAgent --> Heuristic["Offline Heuristic: 0.0s | $0.00 / 1k | Safe Baseline"]
-    MultiAgent --> FlashLite["Flash-Lite: 1.2s | $0.12 / 1k | Rapid Triage"]
-    MultiAgent --> Flash4k["Gemini 3.7 Flash 4k: 3.8s | $0.55 / 1k | 🏆 Pareto Optimum"]
-    MultiAgent --> Pro["Flagship Pro: 23.9s | $18.29 / 1k | Over-analyzes Satire"]
-```
-
 > [!NOTE]
 > **Golden 12 Cross-Profile Benchmark**: Credence maintains an automated hermetic evaluation harness (`just benchmark`) that tests cross-entropy, precision/recall, and heuristic alignment across all model tiers.
 

@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.11.1';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.12.0';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -1054,60 +1054,6 @@ const MODELS_PRICING = [
   { name: "Anthropic Claude 3.7 Sonnet", inputPerM: 3.00, outputPerM: 15.00, ttft: "1200ms", badge: "HIGH-NUANCE THINKING", badgeClass: "suspicious", sovereignty: "Anthropic API" }
 ];
 
-// Initialize Mermaid with Credence Dark Aesthetic & WCAG 2.1 AA Contrast Standards
-if (typeof window !== 'undefined' && window.mermaid) {
-  try {
-    window.mermaid.initialize({
-      startOnLoad: false,
-      theme: 'base',
-      securityLevel: 'loose',
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      themeVariables: {
-        darkMode: true,
-        background: '#0d121f',
-        primaryColor: '#1e293b',
-        primaryBorderColor: '#38bdf8',
-        primaryTextColor: '#f8fafc',
-        lineColor: '#60a5fa',
-        secondaryColor: '#1e293b',
-        secondaryBorderColor: '#38bdf8',
-        secondaryTextColor: '#f8fafc',
-        tertiaryColor: '#090d16',
-        tertiaryBorderColor: '#334155',
-        tertiaryTextColor: '#f8fafc',
-        nodeBorder: '#38bdf8',
-        nodeBkg: '#1e293b',
-        nodeTextColor: '#f8fafc',
-        mainBkg: '#1e293b',
-        clusterBkg: '#090d16',
-        clusterBorder: '#38bdf8',
-        defaultLinkColor: '#60a5fa',
-        titleColor: '#38bdf8',
-        edgeLabelBackground: '#0f172a',
-        actorBkg: '#1e293b',
-        actorBorder: '#38bdf8',
-        actorTextColor: '#f8fafc',
-        actorLineColor: '#475569',
-        signalColor: '#38bdf8',
-        signalTextColor: '#f8fafc',
-        labelBoxBkgColor: '#0f172a',
-        labelBoxBorderColor: '#38bdf8',
-        labelTextColor: '#f8fafc',
-        loopTextColor: '#f8fafc',
-        noteBorderColor: '#f59e0b',
-        noteBkgColor: '#1e293b',
-        noteTextColor: '#fde68a',
-        activationBorderColor: '#38bdf8',
-        activationBkgColor: '#1e293b',
-        sequenceNumberColor: '#f8fafc',
-        fontSize: '14px'
-      }
-    });
-  } catch (e) {
-    console.warn("Mermaid initialization warning:", e);
-  }
-}
-
 function isBlogContext() {
   const host = window.location.hostname;
   return host === 'blog.credence.run' || window.location.hash.startsWith('#blog');
@@ -1271,7 +1217,14 @@ export function formatMath(expr) {
   res = replaceBraced(res, 'bar', s => `${formatMath(s)}̄`);
   res = replaceBraced(res, 'overline', s => `${formatMath(s)}̄`);
   res = replaceBraced(res, 'hat', s => `${formatMath(s)}̂`);
+  res = replaceBraced(res, 'vec', s => `${formatMath(s)}⃗`);
   res = replaceBraced(res, 'pmod', s => `(mod ${formatMath(s)})`);
+
+  // Unbraced single-character bar/hat/vec (\bar S -> S̄)
+  res = res.replace(/\\bar\s*([a-zA-Z])/g, '$1̄')
+    .replace(/\\overline\s*([a-zA-Z])/g, '$1̄')
+    .replace(/\\hat\s*([a-zA-Z])/g, '$1̂')
+    .replace(/\\vec\s*([a-zA-Z])/g, '$1⃗');
 
   // Escaped set braces and punctuation: \{ \} \_ \$ \% \& \#
   res = res.replace(/\\\{/g, '{')
@@ -1351,7 +1304,7 @@ export function formatMath(expr) {
     .replace(/_j\b/g, 'ⱼ')
     .replace(/_v\b/g, 'ᵥ')
     .replace(/_k\b/g, 'ₖ')
-    .replace(/_\{([^}]+)\}/g, '₍$1₎')
+    .replace(/_\{([^}]+)\}/g, (m, sub) => `₍${formatMath(sub)}₎`)
     .replace(/\^2\b/g, '²')
     .replace(/\^3\b/g, '³')
     .replace(/\^\{([^}]+)\}/g, '^$1');
@@ -1405,8 +1358,12 @@ export function formatInline(text) {
 
   // Markdown images ![alt](url)
   res = res.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, altText, url) => {
-    let clean = url.trim();
-    return `<img src="${clean}" alt="${altText}" class="doc-image" />`;
+    let clean = url.trim().replace(/^(\.\.\/)+assets\//, 'assets/');
+    if (clean.includes('illustrations/') || clean.endsWith('.svg')) {
+      const captionHtml = altText ? `<figcaption>${altText}</figcaption>` : '';
+      return `<figure class="doc-illustration"><img src="${clean}" alt="${altText}" loading="lazy" decoding="async" />${captionHtml}</figure>`;
+    }
+    return `<img src="${clean}" alt="${altText}" class="doc-image" loading="lazy" decoding="async" />`;
   });
 
   // Markdown links [text](url) with sub-anchor and relative path resolution
@@ -1493,7 +1450,7 @@ export function parseMarkdown(md) {
   let inTable = false;
   let tableHeaderParsed = false;
 
-  const HTML_TAG_START_REGEX = /^<\/?(div|section|article|aside|nav|header|footer|main|svg|g|defs|filter|linearGradient|rect|circle|text|path|line|span|button|textarea|input|label|table|thead|tbody|tr|th|td|form|select|option|code|pre|p|h[1-6]|ul|ol|li|details|summary|hr|style|script|blockquote|!--)/i;
+  const HTML_TAG_START_REGEX = /^<\/?(div|section|article|aside|nav|header|footer|main|figure|figcaption|img|svg|g|defs|filter|linearGradient|rect|circle|text|path|line|span|button|textarea|input|label|table|thead|tbody|tr|th|td|form|select|option|code|pre|p|h[1-6]|ul|ol|li|details|summary|hr|style|script|blockquote|!--)/i;
 
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i];
@@ -1611,42 +1568,16 @@ export function parseMarkdown(md) {
     // 1. Code Block boundary check MUST take precedence (support indented fences)
     if (line.trim().startsWith('```')) {
       if (inCodeBlock) {
-        if (codeLang.toLowerCase() === 'mermaid') {
-          html.push(`
-            <div class="mermaid-wrapper">
-              <div class="mermaid-window" role="region" aria-label="Architecture and Protocol Diagram">
-                <div class="mermaid-window-header">
-                  <div class="mermaid-window-dots">
-                    <span class="window-dot red" aria-hidden="true"></span>
-                    <span class="window-dot yellow" aria-hidden="true"></span>
-                    <span class="window-dot green" aria-hidden="true"></span>
-                    <span class="mermaid-window-title">ARCHITECTURE / PROTOCOL SPECIFICATION</span>
-                  </div>
-                  <div class="mermaid-window-controls">
-                    <button type="button" class="diagram-zoom-btn diagram-zoom-out" title="Zoom Out" aria-label="Zoom Out">−</button>
-                    <button type="button" class="diagram-zoom-btn diagram-zoom-level" title="Reset Zoom (100%)" aria-label="Reset Zoom">100%</button>
-                    <button type="button" class="diagram-zoom-btn diagram-zoom-in" title="Zoom In" aria-label="Zoom In">+</button>
-                    <button type="button" class="diagram-zoom-btn diagram-fullscreen-btn" title="Expand Fullscreen / Lightbox" aria-label="Open Fullscreen Lightbox">⛶ Expand</button>
-                  </div>
-                </div>
-                <div class="mermaid-code" data-mermaid="${escapeHtml(codeBuffer.join('\n'))}">
-                  <pre><code class="language-mermaid">${escapeHtml(codeBuffer.join('\n'))}</code></pre>
-                </div>
-              </div>
+        const displayLang = codeLang.trim() || 'text';
+        html.push(`
+          <div class="code-block-wrapper">
+            <div class="code-header">
+              <span class="code-lang">${escapeHtml(displayLang)}</span>
+              <button type="button" class="copy-btn" onclick="navigator.clipboard.writeText(this.closest('.code-block-wrapper').querySelector('code').innerText).then(() => { this.textContent = 'Copied!'; setTimeout(() => this.textContent = 'Copy', 2000); })">Copy</button>
             </div>
-          `);
-        } else {
-          const displayLang = codeLang.trim() || 'text';
-          html.push(`
-            <div class="code-block-wrapper">
-              <div class="code-header">
-                <span class="code-lang">${escapeHtml(displayLang)}</span>
-                <button type="button" class="copy-btn" onclick="navigator.clipboard.writeText(this.closest('.code-block-wrapper').querySelector('code').innerText).then(() => { this.textContent = 'Copied!'; setTimeout(() => this.textContent = 'Copy', 2000); })">Copy</button>
-              </div>
-              <pre><code class="language-${escapeHtml(displayLang)}">${escapeHtml(codeBuffer.join('\n'))}</code></pre>
-            </div>
-          `);
-        }
+            <pre><code class="language-${escapeHtml(displayLang)}">${escapeHtml(codeBuffer.join('\n'))}</code></pre>
+          </div>
+        `);
         inCodeBlock = false;
         codeBuffer = [];
         codeLang = '';
@@ -1737,7 +1668,18 @@ export function parseMarkdown(md) {
     if (HTML_TAG_START_REGEX.test(line.trim()) || line.trim().startsWith('<!--')) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
-      html.push(sanitizeHtml(line));
+      let processedLine = line;
+      if (processedLine.includes('$')) {
+        processedLine = processedLine.replace(/\$([^\$\n]+?)\$/g, (match, expr) => {
+          return `<span class="math-inline">${formatMath(expr.trim())}</span>`;
+        });
+      }
+      if (processedLine.includes('\\(') && processedLine.includes('\\)')) {
+        processedLine = processedLine.replace(/\\\(([\s\S]+?)\\\)/g, (match, expr) => {
+          return `<span class="math-inline">${formatMath(expr.trim())}</span>`;
+        });
+      }
+      html.push(sanitizeHtml(processedLine));
       continue;
     }
 
@@ -1887,404 +1829,6 @@ export function parseMarkdown(md) {
   }
 
   return resultHtml;
-}
-
-let mermaidRenderId = 0;
-let mermaidLoadingPromise = null;
-
-export async function ensureMermaidLoaded() {
-  if (typeof window === 'undefined') return null;
-  if (window.mermaid) return window.mermaid;
-  if (mermaidLoadingPromise) return mermaidLoadingPromise;
-
-  mermaidLoadingPromise = new Promise((resolve) => {
-    const script = document.createElement('script');
-    script.src = 'assets/mermaid.min.js';
-    script.async = true;
-    script.onload = () => {
-      if (window.mermaid) {
-        try {
-          window.mermaid.initialize({
-            startOnLoad: false,
-            theme: 'base',
-            securityLevel: 'loose',
-            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-            themeVariables: {
-              darkMode: true,
-              background: '#0d121f',
-              primaryColor: '#1e293b',
-              primaryBorderColor: '#38bdf8',
-              primaryTextColor: '#f8fafc',
-              lineColor: '#60a5fa',
-              secondaryColor: '#1e293b',
-              secondaryBorderColor: '#38bdf8',
-              secondaryTextColor: '#f8fafc',
-              tertiaryColor: '#090d16',
-              tertiaryBorderColor: '#334155',
-              tertiaryTextColor: '#f8fafc',
-              nodeBorder: '#38bdf8',
-              nodeBkg: '#1e293b',
-              nodeTextColor: '#f8fafc',
-              mainBkg: '#1e293b',
-              clusterBkg: '#090d16',
-              clusterBorder: '#38bdf8',
-              defaultLinkColor: '#60a5fa',
-              titleColor: '#38bdf8',
-              edgeLabelBackground: '#0f172a',
-              actorBkg: '#1e293b',
-              actorBorder: '#38bdf8',
-              actorTextColor: '#f8fafc',
-              actorLineColor: '#475569',
-              signalColor: '#38bdf8',
-              signalTextColor: '#f8fafc',
-              labelBoxBkgColor: '#0f172a',
-              labelBoxBorderColor: '#38bdf8',
-              labelTextColor: '#f8fafc',
-              loopTextColor: '#f8fafc',
-              noteBorderColor: '#f59e0b',
-              noteBkgColor: '#1e293b',
-              noteTextColor: '#fde68a',
-              activationBorderColor: '#38bdf8',
-              activationBkgColor: '#1e293b',
-              sequenceNumberColor: '#f8fafc',
-              fontSize: '14px'
-            },
-          });
-        } catch (e) {
-          console.warn("Failed to initialize mermaid:", e);
-        }
-        resolve(window.mermaid);
-      } else {
-        resolve(null);
-      }
-    };
-    script.onerror = (err) => {
-      console.warn("Failed to lazy load mermaid.min.js:", err);
-      resolve(null);
-    };
-    document.head.appendChild(script);
-  });
-  return mermaidLoadingPromise;
-}
-
-let diagramLightboxEl = null;
-let lightboxState = {
-  scale: 1.0,
-  translateX: 0,
-  translateY: 0,
-  isDragging: false,
-  startX: 0,
-  startY: 0
-};
-
-function getOrCreateDiagramLightbox() {
-  if (diagramLightboxEl && document.body.contains(diagramLightboxEl)) return diagramLightboxEl;
-  
-  const dialog = document.createElement('dialog');
-  dialog.id = 'diagram-lightbox';
-  dialog.className = 'diagram-lightbox';
-  dialog.innerHTML = `
-    <div class="lightbox-header">
-      <div class="lightbox-title">ARCHITECTURE / PROTOCOL SPECIFICATION</div>
-      <div class="lightbox-actions">
-        <span class="lightbox-hint">Drag to pan • Scroll to zoom • Esc to close</span>
-        <button type="button" class="diagram-zoom-btn lightbox-zoom-out" title="Zoom Out" aria-label="Zoom Out">−</button>
-        <button type="button" class="diagram-zoom-btn diagram-zoom-level lightbox-zoom-reset" title="Reset Zoom (100%)" aria-label="Reset Zoom">100%</button>
-        <button type="button" class="diagram-zoom-btn lightbox-zoom-in" title="Zoom In" aria-label="Zoom In">+</button>
-        <button type="button" class="lightbox-close-btn" aria-label="Close Lightbox">✕ Close</button>
-      </div>
-    </div>
-    <div class="lightbox-stage" role="region" aria-label="Pan and Zoom Area">
-      <div class="lightbox-viewport"></div>
-    </div>
-  `;
-  
-  document.body.appendChild(dialog);
-  diagramLightboxEl = dialog;
-
-  const stage = dialog.querySelector('.lightbox-stage');
-  const viewport = dialog.querySelector('.lightbox-viewport');
-  const closeBtn = dialog.querySelector('.lightbox-close-btn');
-  const zoomInBtn = dialog.querySelector('.lightbox-zoom-in');
-  const zoomOutBtn = dialog.querySelector('.lightbox-zoom-out');
-  const zoomResetBtn = dialog.querySelector('.lightbox-zoom-reset');
-
-  function updateLightboxTransform() {
-    viewport.style.transform = `translate(${lightboxState.translateX}px, ${lightboxState.translateY}px) scale(${lightboxState.scale})`;
-    zoomResetBtn.textContent = `${Math.round(lightboxState.scale * 100)}%`;
-  }
-
-  function resetLightboxTransform() {
-    lightboxState.scale = 1.0;
-    lightboxState.translateX = 0;
-    lightboxState.translateY = 0;
-    updateLightboxTransform();
-  }
-
-  zoomInBtn.addEventListener('click', () => {
-    lightboxState.scale = Math.min(4.0, Number((lightboxState.scale + 0.25).toFixed(2)));
-    updateLightboxTransform();
-  });
-
-  zoomOutBtn.addEventListener('click', () => {
-    lightboxState.scale = Math.max(0.5, Number((lightboxState.scale - 0.25).toFixed(2)));
-    updateLightboxTransform();
-  });
-
-  zoomResetBtn.addEventListener('click', resetLightboxTransform);
-
-  closeBtn.addEventListener('click', () => {
-    dialog.close();
-  });
-
-  dialog.addEventListener('click', (e) => {
-    if (e.target === dialog) {
-      dialog.close();
-    }
-  });
-
-  // Mouse drag panning for Lightbox
-  stage.addEventListener('mousedown', (e) => {
-    if (e.button !== 0) return;
-    if (e.target.closest('button') || e.target.closest('a')) return;
-    lightboxState.isDragging = true;
-    lightboxState.startX = e.clientX - lightboxState.translateX;
-    lightboxState.startY = e.clientY - lightboxState.translateY;
-    stage.classList.add('is-grabbing');
-    e.preventDefault();
-  });
-
-  window.addEventListener('mousemove', (e) => {
-    if (!lightboxState.isDragging || !dialog.open) return;
-    e.preventDefault();
-    lightboxState.translateX = e.clientX - lightboxState.startX;
-    lightboxState.translateY = e.clientY - lightboxState.startY;
-    updateLightboxTransform();
-  });
-
-  window.addEventListener('mouseup', () => {
-    if (lightboxState.isDragging) {
-      lightboxState.isDragging = false;
-      stage.classList.remove('is-grabbing');
-    }
-  });
-
-  // Touch drag panning for Lightbox
-  stage.addEventListener('touchstart', (e) => {
-    if (e.touches.length === 1) {
-      lightboxState.isDragging = true;
-      lightboxState.startX = e.touches[0].clientX - lightboxState.translateX;
-      lightboxState.startY = e.touches[0].clientY - lightboxState.translateY;
-    }
-  }, { passive: true });
-
-  stage.addEventListener('touchmove', (e) => {
-    if (lightboxState.isDragging && e.touches.length === 1) {
-      lightboxState.translateX = e.touches[0].clientX - lightboxState.startX;
-      lightboxState.translateY = e.touches[0].clientY - lightboxState.startY;
-      updateLightboxTransform();
-    }
-  }, { passive: true });
-
-  stage.addEventListener('touchend', () => {
-    lightboxState.isDragging = false;
-  });
-
-  // Wheel zoom
-  stage.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    const delta = e.deltaY > 0 ? -0.15 : 0.15;
-    lightboxState.scale = Math.max(0.5, Math.min(4.0, Number((lightboxState.scale + delta).toFixed(2))));
-    updateLightboxTransform();
-  }, { passive: false });
-
-  // Keyboard shortcuts
-  dialog.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      dialog.close();
-    } else if (e.key === '+' || e.key === '=') {
-      lightboxState.scale = Math.min(4.0, Number((lightboxState.scale + 0.25).toFixed(2)));
-      updateLightboxTransform();
-    } else if (e.key === '-' || e.key === '_') {
-      lightboxState.scale = Math.max(0.5, Number((lightboxState.scale - 0.25).toFixed(2)));
-      updateLightboxTransform();
-    } else if (e.key === '0') {
-      resetLightboxTransform();
-    }
-  });
-
-  return dialog;
-}
-
-export function openDiagramLightbox(svgContent, title) {
-  const dialog = getOrCreateDiagramLightbox();
-  const viewport = dialog.querySelector('.lightbox-viewport');
-  const titleEl = dialog.querySelector('.lightbox-title');
-  if (title && titleEl) {
-    titleEl.textContent = title;
-  }
-  viewport.innerHTML = svgContent;
-  lightboxState.scale = 1.0;
-  lightboxState.translateX = 0;
-  lightboxState.translateY = 0;
-  viewport.style.transform = 'none';
-  dialog.querySelector('.lightbox-zoom-reset').textContent = '100%';
-  dialog.showModal();
-}
-
-function setupDiagramControls(windowEl, renderedEl, svgContent) {
-  const titleEl = windowEl.querySelector('.mermaid-window-title');
-  const title = titleEl ? titleEl.textContent : 'ARCHITECTURE / PROTOCOL SPECIFICATION';
-  
-  const zoomInBtn = windowEl.querySelector('.diagram-zoom-in');
-  const zoomOutBtn = windowEl.querySelector('.diagram-zoom-out');
-  const zoomLevelBtn = windowEl.querySelector('.diagram-zoom-level');
-  const fullscreenBtn = windowEl.querySelector('.diagram-fullscreen-btn');
-  const viewportEl = renderedEl.querySelector('.mermaid-viewport');
-
-  let scale = 1.0;
-
-  function applyZoom() {
-    if (!viewportEl) return;
-    if (scale === 1.0) {
-      viewportEl.style.transform = 'none';
-      renderedEl.classList.remove('is-zoomed');
-    } else {
-      viewportEl.style.transform = `scale(${scale})`;
-      renderedEl.classList.add('is-zoomed');
-    }
-    if (zoomLevelBtn) {
-      zoomLevelBtn.textContent = `${Math.round(scale * 100)}%`;
-    }
-  }
-
-  if (zoomInBtn) {
-    zoomInBtn.onclick = (e) => {
-      e.stopPropagation();
-      scale = Math.min(3.0, Number((scale + 0.25).toFixed(2)));
-      applyZoom();
-    };
-  }
-
-  if (zoomOutBtn) {
-    zoomOutBtn.onclick = (e) => {
-      e.stopPropagation();
-      scale = Math.max(0.75, Number((scale - 0.25).toFixed(2)));
-      applyZoom();
-    };
-  }
-
-  if (zoomLevelBtn) {
-    zoomLevelBtn.onclick = (e) => {
-      e.stopPropagation();
-      scale = 1.0;
-      applyZoom();
-    };
-  }
-
-  if (fullscreenBtn) {
-    fullscreenBtn.onclick = (e) => {
-      e.stopPropagation();
-      openDiagramLightbox(svgContent, title);
-    };
-  }
-
-  // Inline Click-and-Drag Pan to Scroll
-  let isInlineDragging = false;
-  let startX = 0;
-  let startY = 0;
-  let scrollLeft = 0;
-  let scrollTop = 0;
-
-  renderedEl.addEventListener('mousedown', (e) => {
-    if (e.button !== 0) return;
-    if (e.target.closest('button') || e.target.closest('a')) return;
-    isInlineDragging = true;
-    startX = e.pageX - renderedEl.offsetLeft;
-    startY = e.pageY - renderedEl.offsetTop;
-    scrollLeft = renderedEl.scrollLeft;
-    scrollTop = renderedEl.scrollTop;
-    renderedEl.classList.add('is-grabbing');
-    e.preventDefault();
-  });
-
-  window.addEventListener('mousemove', (e) => {
-    if (!isInlineDragging) return;
-    e.preventDefault();
-    const x = e.pageX - renderedEl.offsetLeft;
-    const y = e.pageY - renderedEl.offsetTop;
-    const walkX = (x - startX);
-    const walkY = (y - startY);
-    renderedEl.scrollLeft = scrollLeft - walkX;
-    renderedEl.scrollTop = scrollTop - walkY;
-  });
-
-  window.addEventListener('mouseup', () => {
-    if (isInlineDragging) {
-      isInlineDragging = false;
-      renderedEl.classList.remove('is-grabbing');
-    }
-  });
-
-  // Inline Touch Panning
-  let touchStartX = 0;
-  let touchStartY = 0;
-  let touchScrollLeft = 0;
-  let touchScrollTop = 0;
-
-  renderedEl.addEventListener('touchstart', (e) => {
-    if (e.touches.length === 1) {
-      touchStartX = e.touches[0].pageX - renderedEl.offsetLeft;
-      touchStartY = e.touches[0].pageY - renderedEl.offsetTop;
-      touchScrollLeft = renderedEl.scrollLeft;
-      touchScrollTop = renderedEl.scrollTop;
-    }
-  }, { passive: true });
-
-  renderedEl.addEventListener('touchmove', (e) => {
-    if (e.touches.length === 1) {
-      const x = e.touches[0].pageX - renderedEl.offsetLeft;
-      const y = e.touches[0].pageY - renderedEl.offsetTop;
-      renderedEl.scrollLeft = touchScrollLeft - (x - touchStartX);
-      renderedEl.scrollTop = touchScrollTop - (y - touchStartY);
-    }
-  }, { passive: true });
-
-  // Double click on diagram canvas to open lightbox
-  renderedEl.addEventListener('dblclick', () => {
-    openDiagramLightbox(svgContent, title);
-  });
-}
-
-export async function renderMermaidDiagrams() {
-  const elements = document.querySelectorAll('.mermaid-code');
-  if (elements.length === 0) return;
-
-  const mermaid = await ensureMermaidLoaded();
-  if (!mermaid) return;
-
-  for (const el of elements) {
-    const code = el.getAttribute('data-mermaid');
-    if (!code) continue;
-    const windowEl = el.closest('.mermaid-window');
-    const diagramId = `mermaid-chart-${++mermaidRenderId}`;
-    try {
-      const { svg } = await mermaid.render(diagramId, code.trim());
-      const renderedWrapper = document.createElement('div');
-      renderedWrapper.className = 'mermaid-rendered';
-      renderedWrapper.setAttribute('role', 'img');
-      renderedWrapper.setAttribute('aria-label', 'Rendered Architecture Diagram');
-      renderedWrapper.innerHTML = `<div class="mermaid-viewport">${svg}</div>`;
-      el.replaceWith(renderedWrapper);
-
-      if (windowEl) {
-        setupDiagramControls(windowEl, renderedWrapper, svg);
-      }
-    } catch (err) {
-      console.warn("Mermaid render fallback for diagram:", err);
-      el.innerHTML = `<pre class="mermaid-fallback"><code class="language-mermaid">${escapeHtml(code)}</code></pre>`;
-    }
-  }
 }
 
 export function renderSidebar(activeId) {
@@ -4296,9 +3840,6 @@ export async function loadDocument(docId, anchorId = '') {
     } catch (e) {
       console.warn('[Credence] Attestation binding note:', e);
     }
-
-    // Render Mermaid diagrams
-    await renderMermaidDiagrams();
 
     // Synchronize tabbed interface groups to preferred interface
     syncAllTabGroups();

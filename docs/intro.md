@@ -58,19 +58,6 @@ Every evaluation produces an Ed25519-signed `.credence.json` envelope. Anyone ca
 
 ## 🏛️ How Credence Works
 
-```mermaid
-graph TD
-    Target["Target Webpage, Prose Text, or RSS Feed"] --> Capture["1. Clean Capture<br>(HTML DOM & Prose Text)"]
-    Capture --> Grounding["2. Verbatim Quote Validation<br>(Zero Hallucination Filter)"]
-    Grounding --> Specialists["3. Multi-Rule Audit Engine<br>(Ethics, Fallacies, Deceptive Patterns)"]
-    Specialists --> Signer["4. Cryptographic Envelope<br>(Ed25519 Signed Receipt)"]
-    
-    Signer --> Output1["🖥️ Terminal CLI<br>credence audit"]
-    Signer --> Output2["⚡ FastMCP 2.0 Server<br>Claude, Cursor & Antigravity"]
-    Signer --> Output3["📟 Textual TUI<br>credence tui"]
-    Signer --> Output4["🌐 Web Report Viewer<br>credence.report"]
-```
-
 ---
 
 ## 🖥️ The 4 Universal Interfaces

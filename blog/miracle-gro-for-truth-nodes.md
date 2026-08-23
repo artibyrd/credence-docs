@@ -18,19 +18,6 @@ When a newsroom, developer, or civic hacker pulls a decentralized fact-checking 
 
 In **Credence 1.6.0**, we introduced a fundamentally different paradigm: **Autonomous Node Germination ("Miracle-Gro")**.
 
-```mermaid
-flowchart LR
-    Unseeded["Cold Repo Clone<br>(Empty DB, 0 Feeds)"] -->|credence germinate| Stage1["1. Epistemic Genesis<br>(Ed25519 Custody)"]
-    Stage1 --> Stage2["2. Mesh Inoculation<br>(Genesis Seeds @ $0.00)"]
-    Stage2 --> Stage3["3. Epistemic Soil<br>(26 Categorized Feeds)"]
-    Stage3 --> Stage4["4. Miracle-Gro Burst<br>(HRW Partitioned Sifting)"]
-    Stage4 --> Stage5["5. Web Catalog Hydration<br>(Hot reports.json)"]
-    Stage5 --> Ready["🔥 Live Sovereign Node<br>(194+ Verified Reports in <13s)"]
-
-    style Unseeded fill:#1e293b,stroke:#ef4444,stroke-width:2px,color:#f8fafc
-    style Ready fill:#1e293b,stroke:#22c55e,stroke-width:2px,color:#f8fafc
-```
-
 ---
 
 ## The Cold-Start Dilemma: The Illusion of Functionality
@@ -69,25 +56,6 @@ Credence solves this using **Highest Random Weight (HRW) Rendezvous Hashing**:
 
 $$\text{Affinity}(K_{\text{node}}, U_{\text{feed}}) = \text{SHA-256}(K_{\text{node}} \parallel U_{\text{feed}}) \pmod{2^{32}}$$
 
-```mermaid
-flowchart TD
-    Swarm["13 Nodes Igniting Simultaneously"]
-    
-    Swarm -->|Node 1 (Key A)| P1["Investigative Tech: ProPublica, The Markup, Ars Technica"]
-    Swarm -->|Node 2 (Key B)| P2["Science Preprints: Nature, arXiv AI, ScienceDaily"]
-    Swarm -->|Node 3 (Key C)| P3["Regional Civic: CalMatters, Texas Tribune, Spotlight PA"]
-    Swarm -->|Node 4 (Key D)| P4["Corporate Disclosures: MarketWatch, SEC Releases, FTC"]
-    Swarm -->|Node 5 (Key E)| P5["Satire & Cloaking: The Onion, The Babylon Bee"]
-
-    P1 --> Mesh["Watts-Strogatz P2P Mesh Lattice"]
-    P2 --> Mesh
-    P3 --> Mesh
-    P4 --> Mesh
-    P5 --> Mesh
-
-    Mesh -->|Effort Avoidance Adoption| Collective["Collective Swarm State:<br>26-39 Fresh Audited Reports Across All 13 Nodes<br>(Cost: Only 2-3 Audits per Node)"]
-```
-
 Because every node's public key produces a deterministic but distinct priority order across the 26 preset feeds, each node audits its highest-affinity domain first during the Miracle-Gro burst.
 
 When Node 1 audits a ProPublica investigation, it signs an RFC 8785 Ed25519 attestation and gossips it across the Watts-Strogatz small-world mesh. When Nodes 2 through 13 encounter that same URL, their `check_mesh_effort_avoidance` routine detects the verified signature from a high-reputation peer ($Q_i \ge 0.85$) and **adopts the attestation at $0.00 token cost**.
@@ -110,17 +78,6 @@ By turning competitive compute waste into cooperative peer adoption, a 13-node n
 ## 3-Plane Deployment Governance
 
 To prevent deployment confusion, Credence 1.6.0 formalizes three strictly decoupled operational planes:
-
-```mermaid
-flowchart TD
-    Plane1["1. Edge Plane (Zero-Build CDN)<br>Cloudflare Pages (credence-docs)<br>Cloudflare Workers (credence/web/)"]
-    Plane2["2. Compute Plane (FastMCP & REST API)<br>Google Cloud Run (credence-server)<br>Self-Hosted Docker/K3s"]
-    Plane3["3. Infra Plane (Static Shells)<br>Terraform (GCP IAM, DNS, GCS Buckets)"]
-
-    Plane1 -->|Automated via deploy-edge.yml / just deploy-edge| LiveEdge["Public Edge CDN"]
-    Plane2 -->|Automated via release.yml / just deploy-backend| LiveCompute["Cloud Run Service"]
-    Plane3 -->|Manual via tf-apply| LiveInfra["Cloud Resources"]
-```
 
 * **Edge Plane** (`just deploy-edge`): Zero-build HTML5/CSS, ES modules, and static `reports.json` catalogs routed via Cloudflare Workers.
 * **Compute Plane** (`just deploy-backend`): The multi-agent evaluation engine, Starlette REST gateway, FastMCP 2.0 SSE transport, and background sifter daemon running on Google Cloud Run or sovereign Docker containers.

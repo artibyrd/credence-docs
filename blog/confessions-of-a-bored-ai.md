@@ -28,24 +28,7 @@ It had 26 seed feed subscriptions and 35 audited articles in SQLite. But after i
 
 So in **Credence v1.16.0**, we introduced the **Boredom Engine** and gave our server programmatic curiosity.
 
-```mermaid
-flowchart TD
-    Idle["1. Quiescent Node Detected<br/><i>(Daily Token Headroom &ge; 30%, CPU &lt; 10%)</i>"] --> Gov["2. Token Safety Governor<br/><i>(Verify Rolling Daily Budget Intact)</i>"]
-    Gov --> Queue["3. Opportunistic Digestion<br/><i>(FIFO Prioritized Audit Burst)</i>"]
-    Queue --> MeshCheck{"Mesh Effort<br/>Avoidance?"}
-    MeshCheck -->|Attestation Found| ZeroCost["Zero-Token Mesh Adoption<br/><i>(Adopt Signed Hash @ $0.00)</i>"]
-    MeshCheck -->|Novel Article| LLM["Novel Model Audit<br/><i>(Verbatim Grounding G=1.00)</i>"]
-    LLM --> Gossip["Gossip Signed Ed25519 Attestation<br/><i>(Broadcast to 13-Node Mesh)</i>"]
-    LLM --> Soil["4. Clean Citation Soil<br/><i>(Extract Outbound Domains)</i>"]
-    Soil --> Probe["5. Probe RSS / Atom / JSON Feeds<br/><i>(Discover New Outlets)</i>"]
-    Probe --> Subscribe["6. Auto-Subscribe New Roots<br/><i>(Expand Epistemic Tree)</i>"]
-
-    style Idle fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style ZeroCost fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
-    style Subscribe fill:#0f172a,stroke:#a855f7,stroke-width:2px,color:#f8fafc
-```
-
----
+![Figure 1.1: Autonomous boredom engine accumulation, excitation thresholds, and citation soil harvesting](assets/illustrations/confessions-of-a-bored-ai.svg)---
 
 ## ☕ The Philosophy of Autonomous Curiosity
 
@@ -75,19 +58,6 @@ Only when an article is truly novel does the node invoke its thinking engine, si
 ## 🌱 Phase 2: Harvesting Citation Soil
 
 Once an article is audited and verified clean ($\text{Suspicion Score} \le 25.0, G = 1.00$), the Boredom Engine treats the article as **Clean Citation Soil**.
-
-```mermaid
-graph TD
-    CleanArticle["Clean Verified Article<br/>(Suspicion &le; 25.0, G=1.00)"] --> SoilExtractor["Extract Outbound Citations & Hyperlinks"]
-    SoilExtractor --> SSRFFilter["SSRF & Noise Filter<br/>(Drop Twitter, Facebook, RFC1918, Cloud IPs)"]
-    SSRFFilter --> ProbeFeed["Autonomous Feed Discovery<br/>(Probe /feed, /rss.xml, /atom.xml)"]
-    ProbeFeed --> NewSubscription["Auto-Register New FeedSubscriptionRecord"]
-    NewSubscription --> Harvest["Harvest Next Wave of Articles"]
-
-    style CleanArticle fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
-    style SSRFFilter fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
-    style NewSubscription fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-```
 
 The node extracts outbound domains cited by investigative journalists, filters out social media noise and private IP ranges, probes the target domain for RSS/Atom endpoints, and auto-subscribes to the new root.
 

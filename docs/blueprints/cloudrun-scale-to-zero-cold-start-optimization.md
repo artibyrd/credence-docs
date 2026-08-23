@@ -19,45 +19,11 @@ In modern sovereign decentralized networks and edge applications, operating comp
 
 However, scale-to-zero introduces container cold start latency:
 
-```mermaid
-flowchart TD
-    Req["Incoming HTTP / SSE Request"] --> Provision["1. MicroVM Allocation & Layer Pull<br/>(~1.0s)"]
-    Provision --> Exec["2. Entrypoint Binary Execution<br/>(~0.05s)"]
-    Exec --> CPython["3. CPython Bytecode & Import Graph<br/>(~0.6s with CPU Boost)"]
-    CPython --> Lifespan["4. Fast Non-Blocking Lifespan<br/>(~0.1s)"]
-    Lifespan --> Probe["5. Tuned HTTP Readiness Probe<br/>(~0.2s)"]
-    Probe --> Serve["🟢 Ready to Serve Traffic<br/>(Total: ~1.95s)"]
-```
-
----
+![Figure 1.1: Cloud Run scale-to-zero cold-start container optimization and sub-1.2s snapshot restore](assets/illustrations/cloudrun-scale-to-zero-cold-start-optimization.svg)---
 
 ## 2. The 5-Pillar Cold Start Optimization Framework
 
 To reduce cold starts from **~11.5s** down to **~1.9s**, Credence applies five complementary engineering interventions across container packaging, runtime execution, and cloud infrastructure:
-
-```mermaid
-graph TD
-    subgraph Pillar1 ["Pillar 1: Infrastructure Acceleration"]
-        Boost["Startup CPU Boost (2-4x vCPU)"]
-        Gen2["Execution Environment Gen 2"]
-    end
-
-    subgraph Pillar2 ["Pillar 2: Process Invocation"]
-        Direct["Direct Virtualenv Binary Execution<br/>(Bypass Poetry CLI wrapper)"]
-    end
-
-    subgraph Pillar3 ["Pillar 3: Bytecode Optimization"]
-        Compile["Build-time 'compileall'<br/>(Precompile .py to .pyc)"]
-    end
-
-    subgraph Pillar4 ["Pillar 4: Import Graph Deferral"]
-        Lazy["Lazy Handler-Level Loading<br/>(Trafilatura, Dateparser, Playwright)"]
-    end
-
-    subgraph Pillar5 ["Pillar 5: Fast Readiness Probing"]
-        HTTP["2s HTTP GET /health<br/>(1s initial delay)"]
-    end
-```
 
 ### Pillar 1: Google Cloud Run v2 Startup CPU Boost & Gen 2
 - **Startup CPU Boost (`startup_cpu_boost = true` / `--cpu-boost`)**: Temporarily multiplies instance CPU allocation by 2–4x during container boot until the first request completes. Because CPython import parsing is single-threaded and CPU-bound, this halves raw import latency at zero idle expense.
@@ -150,7 +116,6 @@ While further micro-optimizations exist (e.g. native C-extension compilation via
 - Moving Playwright to a sidecar introduces inter-process RPC latency and multi-container cold start synchronization overhead.
 - The 5-pillar framework captures **>85% of all theoretically achievable latency gains** while preserving 100% developer ergonomics and standard Python semantics.
 
-
 ---
 
 ## 5. The Scale-to-Zero vs. Autonomous Epistemic Action Dilemma
@@ -163,20 +128,24 @@ However, under a strict **scale-to-zero** serverless policy (`min_instance_count
 2. The node cannot tick or discover new claims during hours of zero user traffic.
 3. Attempting to "piggyback" background tasks onto user requests creates an architectural anti-pattern: curiosity only triggers when the node is already busy, defeating the philosophical purpose of boredom.
 
-```mermaid
-flowchart LR
-    subgraph AntiPattern ["❌ Anti-Pattern: Request Piggybacking"]
-        R[Incoming User Request] --> Busy[Node Busy Serving]
-        Busy --> Piggy[Spawns Heavy Background Tasks]
-        Piggy --> Degraded[Increases Latency for Humans]
-    end
-
-    subgraph DecoupledHeartbeat ["✅ Decoupled Epistemic Heartbeat"]
-        Cron[⏰ Cloud Scheduler (Every 10m)] --> Trigger[POST /cron/boredom]
-        Trigger --> ColdBoot[Boots with CPU Boost <1.2s]
-        ColdBoot --> VariableAudit[Excitement-Weighted Audit Burst]
-        VariableAudit --> ScaleZero[Scales Back to 0 Instances ($0.00 Idle Cost)]
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         SERVERLESS EPISTEMIC HEARTBEAT ARCHITECTURE                              │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ❌ ANTI-PATTERN: REQUEST PIGGYBACKING                                                            │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Inbound User Request ──▶ Triggers Heavy Background Crawl ──▶ High User Latency Lag Spill   │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+│                                                                                                  │
+│ ⚡ DECOUPLED SERVERLESS EPISTEMIC HEARTBEAT                                                       │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ ⏰ Cloud Scheduler (Every 10m) ──▶ POST `/cron/boredom`                                     │   │
+│ │    │                                                                                       │   │
+│ │    ├──▶ MicroVM Boots with CPU Boost (<1.2s)                                               │   │
+│ │    ├──▶ Executes Excitement-Weighted Curiosity Crawl & Attestation Burst                   │   │
+│ │    └──▶ Completes Work & Scales Back to 0 Instances ($0.00 Idle Infrastructure Cost)       │   │
+│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -185,7 +154,10 @@ flowchart LR
 
 To eliminate the need for costly 24/7 always-allocated compute while ensuring the node actively populates and maintains its knowledge base, Credence implements the **Adaptive Epistemic Excitement Index ($E$)**:
 
-$$	ext{Excitement Index } E = \left(rac{	ext{Headroom}_{	ext{daily}}\%}{100}ight) 	imes \left(1 - \min\left(0.80, rac{N_{	ext{audits}}}{250}ight)ight)$$
+$$	ext{Excitement Index } E = \left(rac{	ext{Headroom}_{	ext{daily}}\%}{100}
+ight) 	imes \left(1 - \min\left(0.80, rac{N_{	ext{audits}}}{250}
+ight)
+ight)$$
 
 | Operational State | Database Condition | Token Headroom | Heartbeat Behavior | Perceived Compute Cost |
 | :--- | :--- | :--- | :--- | :--- |

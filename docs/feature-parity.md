@@ -20,17 +20,7 @@ In accordance with **[Invariant 24](invariants.md#invariant-24) (Universal Prese
 
 ## 🏛️ Interface Architecture
 
-```mermaid
-graph TD
-    Core["Credence Core Epistemic Engine<br>(Dual-Capture, Grounding Gate, Scoring Math, Ed25519)"]
-    
-    Core --> CLI["🖥️ CLI Interface<br>credence check / evaluate / report / badge / merit"]
-    Core --> MCP["⚡ FastMCP 2.0 Server<br>stdio & SSE Streaming for AI Agents"]
-    Core --> TUI["📟 Textual TUI Workstation<br>9-Tab Interactive Terminal Workspace"]
-    Core --> Web["🌐 Zero-Build Web Suite<br>credence.run / .report / .nexus / .foundation / admin"]
-```
-
----
+![Figure 1.1: Universal 4-way feature parity across CLI, FastMCP, TUI, and Zero-Build Web UI](assets/illustrations/feature-parity.svg)---
 
 ## 1. Interface Capability Matrix
 

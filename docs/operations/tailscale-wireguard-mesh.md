@@ -17,25 +17,6 @@ This guide demonstrates how to peer Credence nodes across **Tailscale** or **Wir
 
 ## 1. Network Topology
 
-```mermaid
-graph LR
-    subgraph Newsroom Alpha (London)
-        NodeA["Node Alpha (100.64.0.10:8765)"]
-    end
-
-    subgraph Research Lab Beta (Berlin)
-        NodeB["Node Beta (100.64.0.20:8765)"]
-    end
-
-    subgraph Field Team Gamma (Geneva)
-        NodeC["Node Gamma (100.64.0.30:8765)"]
-    end
-
-    NodeA <-->|Encrypted WireGuard Tunnel| NodeB
-    NodeB <-->|Encrypted WireGuard Tunnel| NodeC
-    NodeA <-->|Encrypted WireGuard Tunnel| NodeC
-```
-
 ---
 
 ## 2. Setting Up Peering Over Tailscale

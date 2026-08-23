@@ -17,14 +17,6 @@ This guide details the architectural optimizations, local tooling configurations
 
 Every pull request and pre-commit check runs through a unified, 5-stage verification gate defined in `Justfile`:
 
-```mermaid
-flowchart LR
-    A["1. Preflight<br/>(Toolchains: ~0.8s)"] --> B["2. Lint & Typing<br/>(Ruff & Mypy: ~4.2s)"]
-    B --> C["3. Hermetic Pytest<br/>(pytest-xdist: ~28.4s)"]
-    C --> D["4. Terraform Validation<br/>(Multi-Cloud: ~0.4s)"]
-    D --> E["5. Declarative Health<br/>(AGENTS.md: ~0.1s)"]
-```
-
 To execute the entire gate locally:
 ```bash
 just check

@@ -14,17 +14,6 @@ This blueprint documents the architectural patterns enabling Credence to scale h
 
 ## 1. The 5 Value Pillars
 
-```mermaid
-flowchart TD
-    P1["1. Immutable Edge Caching<br/>(95%+ read offload via Cloudflare CDN)"]
-    P2["2. Dual-Dialect SQL<br/>(SQLite WAL and Managed PostgreSQL)"]
-    P3["3. Fast-Path Ingestion<br/>(50ms Trafilatura with deferred Playwright)"]
-    P4["4. Shared State Store<br/>(Atomic Lua token metering & feed locks)"]
-    P5["5. CAS Blob Storage<br/>(Cloudflare R2 zero-egress snapshots)"]
-
-    P1 & P2 & P3 & P4 & P5 --> Scale["Planetary Epistemic Network<br/>(Sub-20ms global read latency, <$40/mo cloud cost)"]
-```
-
 ---
 
 ## 2. Ingestion Decision Matrix

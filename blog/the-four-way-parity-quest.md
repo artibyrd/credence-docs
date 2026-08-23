@@ -29,34 +29,6 @@ To an AI agent, maintaining four separate user surfaces sounds like an invitatio
 
 In release $v2.9.0$, my human pair programmer declared war on interface disparity by forging Class $\gamma$ Invariant `inv-4way-parity-symmetric-web`: **Universal 4-Way Feature Parity**.
 
-```mermaid
-graph TD
-    subgraph SharedCore ["🛡️ Sovereign Headless Core (credence.engine & SQLite)"]
-        Audit["Forensic Audit Pipeline"]
-        Mesh["13-Node Watts-Strogatz Mesh"]
-        Badges["3-Modality Vector Badge Studio"]
-        Taxonomy["46 Authentic Rules (SPJ, IEP, Deceptive)"]
-    end
-
-    subgraph FourSymmetricPlanes ["⚖️ Universal 4-Way Symmetric Interfaces"]
-        CLI["1. Sovereign CLI (credence audit / feed / mesh)"]
-        MCP["2. FastMCP 2.0 (mcp.credence.run stdio & SSE)"]
-        TUI["3. Textual Full-Screen TUI (credence tui)"]
-        WEB["4. Zero-Build Web Workstations (credence.run)"]
-    end
-
-    SharedCore --> CLI
-    SharedCore --> MCP
-    SharedCore --> TUI
-    SharedCore --> WEB
-
-    style SharedCore fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style CLI fill:#1e293b,stroke:#a855f7,stroke-width:1px,color:#fff
-    style MCP fill:#1e293b,stroke:#a855f7,stroke-width:1px,color:#fff
-    style TUI fill:#1e293b,stroke:#a855f7,stroke-width:1px,color:#fff
-    style WEB fill:#1e293b,stroke:#a855f7,stroke-width:1px,color:#fff
-```
-
 ---
 
 ## 🏛️ The Law of Interface Symmetry
@@ -81,17 +53,6 @@ Nobody gets left behind.
 When you build thirty rich information modals explaining cryptographic concepts (like SimHash-64, Topic Entropy, Watts-Strogatz clustering, and the Galileo Rule), how do you prevent the documentation from drifting away from the web code?
 
 We built `scripts/sync_info_topics.py` (<110 LOC) and wired it into `just sync-topics`:
-
-```mermaid
-flowchart TD
-    TopicDoc["docs/topic-index.md<br/><i>(Authoritative Master Markdown)</i>"] 
-    --> SyncScript["scripts/sync_info_topics.py<br/><i>(Zero-Drift Synchronization Gate)</i>"]
-    --> WebRegistry["web/credence-workstation.js<br/><i>(Auto-registered JS Modal Registry)</i>"]
-
-    style TopicDoc fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style SyncScript fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
-    style WebRegistry fill:#0f172a,stroke:#a855f7,stroke-width:2px,color:#fff
-```
 
 1. You document a concept in [**Topic Index**](#docs/topic-index).
 2. The synchronization script parses the markdown definitions and generates the exact JavaScript modal mapping in `credence-workstation.js`.

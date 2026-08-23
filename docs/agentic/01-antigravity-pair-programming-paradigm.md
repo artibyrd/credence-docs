@@ -28,16 +28,6 @@ read_time: 7 min
 
 Explore the operational methodology developed during the creation of Credence using **Google Antigravity (AGY)**—combining rigorous planning mode, non-blocking asynchronous task orchestration, and human-in-the-loop review ("Mk1 Eyeball").
 
-```mermaid
-flowchart TD
-    User["Human Operator Request"] --> Research["1. Research Phase<br/>(Read-only tools & static analysis)"]
-    Research --> Plan["2. Planning Mode<br/>(implementation_plan.md artifact)"]
-    Plan --> Gate["3. 'Mk1 Eyeball' Human Review Gate<br/>(Explicit approval required)"]
-    Gate -->|Approved| Exec["4. Autonomous Parallel Execution<br/>(Subagents & background tasks)"]
-    Exec --> Verify["5. Hermetic Verification<br/>(Playwright, pytest, static audits)"]
-    Verify --> Walkthrough["6. Walkthrough Artifact<br/>(walkthrough.md + visual screenshots)"]
-```
-
 > [!IMPORTANT]
 > **[Invariant 6: Human Review Before Commits ("Mk1 Eyeball")](../invariants.md#invariant-6)**: Agents must never execute `git commit` or apply infrastructure changes autonomously without presenting live verification results for human approval first.
 
@@ -79,18 +69,22 @@ pytest tests/test_docs_rendering.py -v
 ```
 :::
 
-```mermaid
-sequenceDiagram
-    participant Agent as Antigravity Agent
-    participant Task as Background Worker
-    participant IDE as Developer IDE
-    
-    Agent->>Task: launch_command(pytest test_docs_rendering.py)
-    Task-->>Agent: Returns Task ID (task-610)
-    Agent-->>IDE: Update status (waiting asynchronously)
-    Task->>Task: Executes Playwright Chromium tests (18s)
-    Task-->>Agent: Reactive Wakeup Message (11 passed)
-    Agent->>IDE: Present Walkthrough & Screenshots
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         ASYNCHRONOUS TASK REACTIVE NOTIFICATION FLOW                             │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Antigravity Agent                  Background Worker                    Developer IDE            │
+│        │                                  │                                   │                  │
+│        │── launch_command(pytest...) ────▶│                                   │                  │
+│        │◀── Returns Task ID (task-610) ───│                                   │                  │
+│        │                                  │                                   │                  │
+│        │── Update UI status (asynchronous non-blocking turn) ────────────────▶│                  │
+│        │                                  │                                   │                  │
+│        │                                  │ [Executes in background (18s)]    │                  │
+│        │◀── High-Priority Wakeup (11 passed in 18.88s) ───────────────────────│                  │
+│        │                                  │                                   │                  │
+│        │── Present Walkthrough Artifact & Execution Results ─────────────────▶│                  │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -121,23 +115,19 @@ just agent-check
 
 To prevent high-risk monolithic commits and ensure verifiable step-by-step progress, Credence pair programming follows an **Incremental Commit & Branch-PR Staging Architecture**:
 
-```mermaid
-flowchart LR
-    subgraph FeatureWork ["1. Feature Branch"]
-        B["just branch feat/..."] --> C1["Milestone 1 Commit"]
-        C1 --> C2["Milestone 2 Commit"]
-    end
-
-    subgraph StagingPR ["2. Pull Request & Dev Cloud"]
-        C2 --> PR["just pr create<br/>(PR opened / pushed)"]
-        PR --> Dev["Auto-Deploy to Cloud Run DEV<br/>(credence-dev-495173)"]
-    end
-
-    subgraph Production ["3. PR Merge & Prod Cloud"]
-        PR --> Merge["just pr merge<br/>(Merge to main)"]
-        Merge --> Prod["Auto-Deploy to Cloud Run PROD<br/>(credence-prod-505902)"]
-        Merge --> Edge["Auto-Deploy Cloudflare Edge Router<br/>(credence.run)"]
-    end
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         INCREMENTAL ATOMIC COMMITS & BRANCH-PR STAGING TOPOLOGY                  │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
+│ │ 1. FEATURE BRANCH         │ 2. PULL REQUEST & DEV DEPLOY  │ 3. MAIN MERGE & PROD RELEASE   │   │
+│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
+│ │ • `just branch feat/...`  │ • `just pr create`            │ • Mk1 Human PR Approval Gate   │   │
+│ │ • Atomic Milestone Commits│ • GitHub Actions CI Validation│ • `just pr merge` to `main`    │   │
+│ │ • Fast local QA (<20s)    │ • Auto-Deploy to Cloud Run DEV│ • Auto-Deploy Cloud Run PROD   │   │
+│ │ • Zero-mock verified state│   (`credence-dev-495173`)     │ • Auto-Deploy Cloudflare Edge  │   │
+│ └───────────────────────────┴───────────────────────────────┴────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Core Release Rules:
@@ -148,5 +138,4 @@ flowchart LR
 
 > [!TIP]
 > Use read-only `epistemic-auditor` subagents when auditing large codebases to prevent polluting the main agent's working context memory.
-
 

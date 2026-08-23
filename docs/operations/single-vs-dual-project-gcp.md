@@ -16,32 +16,6 @@ Credence multi-cloud infrastructure natively supports both **Single-Project Serv
 
 ## 1. Architectural Comparison
 
-```mermaid
-graph TB
-    subgraph DualProj ["Topology A: Dual-Project Hard Isolation (Enterprise Standard)"]
-        subgraph DevProj ["GCP: credence-dev-XXXXXX"]
-            DevCR["Cloud Run: credence-dev<br/>(512Mi | Economy Profile)"]
-            DevSM["Secret Manager: credence-gemini-api-key"]
-            DevBudget["Budget: $5.00/mo Cap"]
-        end
-        subgraph ProdProj ["GCP: credence-prod-XXXXXX"]
-            ProdCR["Cloud Run: credence-server<br/>(1024Mi | Balanced Profile)"]
-            ProdSM["Secret Manager: credence-gemini-api-key"]
-            ProdBudget["Budget: $15.00/mo Cap"]
-        end
-    end
-
-    subgraph SingleProj ["Topology B: Single-Project Service Partitioning (Lean Standard)"]
-        subgraph SharedGCP ["GCP: credence-prod-XXXXXX"]
-            S_DevCR["Cloud Run: credence-dev"]
-            S_ProdCR["Cloud Run: credence-server"]
-            S_DevSM["Secret: credence-gemini-api-key-dev"]
-            S_ProdSM["Secret: credence-gemini-api-key"]
-            SharedBudget["Budget: Combined $15.00/mo Cap"]
-        end
-    end
-```
-
 ---
 
 ## 2. Comparison Matrix

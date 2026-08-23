@@ -17,15 +17,6 @@ This cookbook provides copy-paste integration recipes to give your agents an **e
 
 ## 1. The Epistemic Gate Pattern
 
-```mermaid
-graph TD
-    Agent["Autonomous AI Agent (LangGraph / CrewAI / Cursor)"] --> Retrieve["Web Search / URL Retrieval"]
-    Retrieve --> Audit["credence_check_url(url)"]
-    Audit --> Check{"Suspicion Score < 50.0 & Citation Grounding = 1.0?"}
-    Check -- "Yes (Grounded & Clean)" --> Ingest["Ingest Prose into Context Window"]
-    Check -- "No (Deceptive / Disinfo)" --> Quarantine["Quarantine URL & Signal Alternative Source"]
-```
-
 ### Agentic Verification Decision Policy
 
 | Suspicion Score ($S$) | Classification | Agent Behavior & Policy |

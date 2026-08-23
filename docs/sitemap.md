@@ -29,21 +29,6 @@ Welcome to the complete structural directory of the **Credence Epistemic Network
 
 ## 1. 🛡️ Sovereign Domains & Web Surfaces
 
-```mermaid
-graph TD
-  CR["credence.run<br/><b>Core Portal & CLI</b>"] --> DOCS["docs.credence.run<br/><b>Zero-Build Docs & Playgrounds</b>"]
-  CR --> BLOG["blog.credence.run<br/><b>Sovereign Forensic Essays</b>"]
-  CR --> REP["credence.report<br/><b>Public Audit Viewer & DEI</b>"]
-  CR --> NEX["credence.nexus<br/><b>P2P Mesh Seeds & Telemetry</b>"]
-  CR --> FND["credence.foundation<br/><b>Root Keys & Taxonomies</b>"]
-  CR --> MCP["mcp.credence.run<br/><b>FastMCP 2.0 Reverse Proxy</b>"]
-
-  classDef portal fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff;
-  classDef edge fill:#1e293b,stroke:#334155,stroke-width:1px,color:#94a3b8;
-  class CR portal;
-  class DOCS,BLOG,REP,NEX,FND,MCP edge;
-```
-
 - **[https://credence.run](https://credence.run)**: Core landing page, single-command installation (`curl -fsSL https://credence.run/install.sh | bash`), terminal quickstart, and feature overview.
 - **[https://credence.report](https://credence.report)**: Public report search by content SHA-256 or URL, live DEI rankings, and curated scenario benchmarks.
   - **[Interactive Report Viewer](https://credence.report/viewer.html)**: Multi-display mode audit viewer (Human Executive Briefing, Compact Density, Machine RFC 8785 JSON/ClaimReview).

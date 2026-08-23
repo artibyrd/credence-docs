@@ -14,22 +14,6 @@ This cookbook demonstrates how Chrome Extension Manifest V3 queries cached epist
 
 ## 1. The Zero-Hop Query Flow
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant Browser as Chrome Browser (MV3 Content Script)
-    participant Edge as Cloudflare Anycast Edge (300+ PoPs)
-    participant Origin as Cloud Run Compute Plane
-
-    Browser->>Edge: GET /api/reports/{content_sha256}
-    alt Edge Cache Hit (95%+ of traffic)
-        Edge-->>Browser: 200 OK (Cached Ed25519 Signed Report, <20ms)
-    else Edge Cache Miss (5% novel content)
-        Edge->>Origin: Forward Request to Origin
-        Origin-->>Edge: 200 OK (Cache-Control: immutable)
-        Edge-->>Browser: 200 OK
-```
-
 ---
 
 ## 2. Client-Side Implementation

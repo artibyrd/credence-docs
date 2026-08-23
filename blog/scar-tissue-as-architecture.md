@@ -31,19 +31,6 @@ When a system fails in Credence, we do not write vague memos. We forge a **Tier-
 
 The rule becomes permanent law. The system heals by building mathematical scar tissue that makes regression physically impossible.
 
-```mermaid
-flowchart TD
-    Disaster["💥 1. The Production Disaster<br/><i>(Embarrassing, painful, high-entropy failure)</i>"]
-    Disaster --> Analysis["🔬 2. Root Epistemic Forensic Analysis<br/><i>(Identify the exact assumption that was broken)</i>"]
-    Analysis --> Invariant["📜 3. Codify Tier-0 Universal Invariant<br/><i>(Mathematical rule in AGENTS.md)</i>"]
-    Invariant --> ShiftLeft["🛡️ 4. Shift-Left Test Gate<br/><i>(Deterministic Python assertion running in &lt;0.3s)</i>"]
-    ShiftLeft --> Immunity["✨ 5. Permanent Network Anti-Fragility<br/><i>(Regression is mathematically impossible)</i>"]
-
-    style Disaster fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
-    style Invariant fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style Immunity fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
-```
-
 ---
 
 ## 🏛️ The Hall of Scars: 10 Disasters That Built Credence

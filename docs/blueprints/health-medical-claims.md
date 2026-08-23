@@ -17,29 +17,6 @@ This blueprint outlines deploying Credence for **medical and public health audit
 
 ## 1. The Medical Evaluation Threat Model
 
-```mermaid
-graph LR
-    subgraph Ingestion
-        Webpage[Health Article / Supplement Landing Page]
-    end
-
-    subgraph Specialist Audits
-        Bio[Biomedical Claim Auditor]
-        Fallacy[Causal Fallacy Auditor]
-        Deceptive[Urgency & Dark Pattern Auditor]
-    end
-
-    subgraph Evidence Gate
-        Bio --> MetaCheck{Correlation with PubMed/Cochrane Evidence?}
-        Fallacy --> PostHoc{Post-Hoc Ergo Propter Hoc?}
-        Deceptive --> FakeScarcity{Fake Stock Counter?}
-    end
-
-    subgraph Scoring
-        MetaCheck & PostHoc & FakeScarcity --> CalibratedScore[Calibrated Suspicion Score]
-    end
-```
-
 ---
 
 ## 2. Key Rule Clusters (`medical_claims.yaml`)

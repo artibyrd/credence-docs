@@ -19,22 +19,6 @@ Candidate seed nodes are ranked by a composite quality metric ($Q_i \in [0.0, 1.
 
 $$Q_i = 0.25 U_i + 0.30 C_i + 0.25 G_i + 0.10 T_i + 0.10 K_i$$
 
-```mermaid
-graph TD
-    subgraph Factors ["5-Factor Quality Evaluation ($Q_i$)"]
-        F1["1. Uptime & Latency ($U_i$, 25%)<br/>(Heartbeat success rate & latency <300ms)"]
-        F2["2. Consensus Concordance ($C_i$, 30%)<br/>(Proximity to Robust Median Consensus)"]
-        F3["3. Quote Grounding Precision ($G_i$, 25%)<br/>(100% DOM/Text Grounded Excerpts)"]
-        F4["4. Taxonomy Currency ($T_i$, 10%)<br/>(Official SHA-256 catalog hashes)"]
-        F5["5. Key Longevity & Sybil Damping ($K_i$, 10%)<br/>(Ed25519 identity age)"]
-    end
-
-    Factors --> Composite["Composite Metric $Q_i$<br/>$Q_i = 0.25 U_i + 0.30 C_i + 0.25 G_i + 0.10 T_i + 0.10 K_i$"]
-    Composite --> Threshold{"$Q_i \ge 0.85$ & Top 20?"}
-    Threshold -- "Yes" --> SeedCandidate["Promoted to Signed Seed Manifest (peers.json)"]
-    Threshold -- "No" --> StandardPeer["Standard Mesh Peer"]
-```
-
 ---
 
 ## 2. 4-Tier Discovery Fallback Sequence

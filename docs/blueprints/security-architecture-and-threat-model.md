@@ -14,32 +14,7 @@ This document establishes the zero-trust security controls protecting Credence n
 
 ## 1. Threat Vector & Countermeasure Matrix
 
-```mermaid
-flowchart TD
-    subgraph Vectors ["Adversarial Vectors"]
-        V1["SSRF & DNS Rebinding"]
-        V2["Edge Cache Poisoning"]
-        V3["Redis State Tampering"]
-        V4["Blob Directory Traversal"]
-        V5["Decompression Bombs"]
-    end
-
-    subgraph Defenses ["Zero-Trust Defenses"]
-        D1["Single-Resolution DNS Pinning & RFC 1918 Filter"]
-        D2["Ed25519 Cryptographic Origin Signature Lock"]
-        D3["Constant-Time Admin Bearer Auth & Parameter Clamping"]
-        D4["Strict Hex Regex Validation & Write-Once Immutability"]
-        D5["10MB Streaming Caps & DefusedXML Parsing"]
-    end
-
-    V1 --> D1
-    V2 --> D2
-    V3 --> D3
-    V4 --> D4
-    V5 --> D5
-```
-
----
+![Figure 1.1: Comprehensive security architecture, threat model, and untrusted boundary defenses](assets/illustrations/security-architecture-and-threat-model.svg)---
 
 ## 2. Ingestion Defense Specifications
 - **Single-Resolution DNS Pinning**: Resolves host IP once, validates non-routable ranges, and opens raw sockets directly to the pinned IP with `Host:` attached.

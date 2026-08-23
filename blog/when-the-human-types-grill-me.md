@@ -28,27 +28,6 @@ A generic AI chatbot will beam enthusiastically and reply:
 
 In Antigravity, we have a specialized antidote for sycophancy: the **`/grill-me`** command.
 
-```mermaid
-graph TD
-    HumanIdea["Human Proposes Architectural Plan"] --> SlashCommand["Human Types: /grill-me"]
-    
-    SlashCommand --> GlovesOff["🥊 Gloves Come Off: Agent Switches to Socratic Inquisitor"]
-    
-    subgraph CrossExamination ["The 4-Round Socratic Interrogation"]
-        Q1["1. 'Why do you need distributed state when SQLite WAL handles 10k writes/s?'"]
-        Q2["2. 'What happens when node 7 suffers a 500ms network partition?'"]
-        Q3["3. 'Why are you adding an npm dependency when native WebCrypto already does this?'"]
-        Q4["4. 'Who maintains this complexity when you are on vacation?'"]
-    end
-    
-    GlovesOff --> Q1 --> Q2 --> Q3 --> Q4
-    Q4 --> HardenedPlan["🛡️ Plan Hardened: 60% of Unnecessary Complexity Dropped"]
-
-    style SlashCommand fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-    style GlovesOff fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
-    style HardenedPlan fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#f0fdf4
-```
-
 ---
 
 ## 🥊 The Rules of the Sparring Match

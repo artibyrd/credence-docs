@@ -24,41 +24,13 @@ read_time: 12 min
 
 This blueprint details how Credence enforces cryptographic content immutability, universal multi-cloud backup, and cold-boot recovery across local workstations, containerized serverless runtimes (Cloud Run), and distributed Kubernetes clusters.
 
-```mermaid
-flowchart TD
-    subgraph "Cold-Boot Ingestion & Lifespan Hook"
-        Boot["Container Cold-Boot / Startup"] --> CheckLocal{"Local DB Exists & Non-Empty?"}
-        CheckLocal -- "Yes (>0 bytes)" --> Skip["Keep Active Database"]
-        CheckLocal -- "No (0 bytes / Fresh)" --> CheckCloud{"Cloud Backup Configured?<br/>(GCS / S3 / Local Archive)"}
-        CheckCloud -- "Yes" --> Pull["Pull Latest Archive<br/>(credence_latest.db.gz / Fallback Scan)"]
-        Pull --> Verify["Verify SHA-256 Digest &<br/>Ed25519 Signature"]
-        Verify --> Decompress["Decompress Gzip &<br/>Atomic SQLite Hydration"]
-        Decompress --> Ready["DB Ready (&lt;200ms)"]
-        CheckCloud -- "No" --> Init["Init Fresh Schema (init_db)"]
-    end
-
-    subgraph "Sovereign Ingestion & Germination 2.0"
-        Ready --> Germinate{"Germination Mode"}
-        Germinate -- "Populated DB" --> Incr["Incremental Sync (&lt;100ms)<br/>Skip Existing Snapshots"]
-        Germinate -- "Empty DB" --> Full["Full Seed Ingestion<br/>Async RSS Semaphore(5)"]
-    end
-
-    subgraph "Autonomous Backup & Graceful Shutdown"
-        Audit["Forensic Audits & Snapshots"] --> Flush["Periodic / Shutdown Hook"]
-        Flush --> Snap["Atomic SQLite Online Backup<br/>(WAL Truncate)"]
-        Snap --> Gz["Gzip Compression (L9)"]
-        Gz --> Sign["RFC 8785 Canonical JSON Manifest<br/>+ Ed25519 Node Signature"]
-        Sign --> Upload["Dual Push: Timestamped + Latest Pointer<br/>(GCS / S3 / Local Store)"]
-    end
-```
-
 ---
 
 ## 1. Content-Addressable Storage (CAS) Invariant
 
 All web snapshot artifacts, raw DOM dumps, screenshot binaries, and forensic verification receipts are stored under canonical SHA-256 addresses:
 
-$$	ext{Address} = 	ext{"cas/sha256/"} + 	ext{SHA256}(	ext{BinaryPayload}) + 	ext{".ext"}$$
+$$\text{Address} = \text{"cas/sha256/"} + \text{SHA256}(\text{BinaryPayload}) + \text{".ext"}$$
 
 This guarantees mathematical properties across storage tiers:
 1. **Idempotence & Deduplication**: Identical DOM captures produce identical SHA-256 keys, eliminating duplicate storage across audit iterations.
@@ -114,13 +86,18 @@ Germination 2.0 upgrades the node lifecycle to support instant cold resumes and 
 
 The sovereign backup engine is natively enabled across all 5 standard deployment presets:
 
-```mermaid
-flowchart LR
-    Local["1. Local Workstation<br/>(POSIX /data/backups)"] 
-    Compose["2. Docker Compose<br/>(Named Volume /data)"]
-    Prod["3. Postgres + MinIO<br/>(s3://credence-snapshots)"]
-    CloudRun["4. Cloud Run Dev/Prod<br/>(gs://credence-backups)"]
-    K8s["5. Kubernetes Deployment<br/>(PersistentVolumeClaim)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         MULTI-DEPLOYMENT BACKUP & RECOVERY TARGETS                               │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
+│ │ 1. LOCAL WORKSTATION      │ 2. DOCKER COMPOSE             │ 3. POSTGRES + MINIO S3         │   │
+│ │ POSIX `data/backups/`     │ Named Volume `/data/backups`  │ S3 Bucket `s3://snapshots`     │   │
+│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
+│ │ 4. CLOUD RUN SERVERLESS   │ 5. KUBERNETES DEPLOYMENT      │ 6. AIR-GAPPED SNEAKERNET       │   │
+│ │ GCS `gs://credence-backup`│ PersistentVolumeClaim (PVC)   │ Encrypted USB / Truth Bundle   │   │
+│ └───────────────────────────┴───────────────────────────────┴────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Configuration Environment Variables

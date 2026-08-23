@@ -28,28 +28,6 @@ If running your test suite takes 10 minutes, your flow state dies a horrible dea
 
 This is the story of how our unit test suite fell into the **Browser CI Sludge Trap**—and how we engineered our way back to pure, sub-35-second hermetic bliss.
 
-```mermaid
-graph TD
-    subgraph HeavyCI ["❌ The Browser Sludge CI (10-12 Minutes)"]
-        APT["apt-get install libglib2.0 libnss3..."]
-        PW["playwright install --with-deps chromium"]
-        Daemon["Spawn Headless Chrome Background Process"]
-        Flake["Flaky Network Timeouts & Port Collisions"]
-        APT --> PW --> Daemon --> Flake
-    end
-
-    subgraph HermeticUnit ["🛡️ Hermetic In-Memory Unit Suite (&lt;35 Seconds)"]
-        Memory["In-Memory SQLite WAL (sqlite3://:memory:)"]
-        MockHTTP["Deterministic In-Memory Mock Handlers"]
-        SubSecond["Doc Integrity & Frontmatter Gates (&lt;0.3s)"]
-        CleanPass["100% Deterministic Green in 28.4 Seconds"]
-        Memory --> MockHTTP --> SubSecond --> CleanPass
-    end
-
-    style HeavyCI fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2
-    style HermeticUnit fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
-```
-
 ---
 
 ## 🛑 How the Browser Sludge Began

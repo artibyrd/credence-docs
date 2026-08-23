@@ -31,21 +31,6 @@ read_time: 8 min
 
 Explore the communication architecture powering Credence's **FastMCP 2.0 server**, providing unified tool and resource access to Claude Desktop, Cursor, and Antigravity while maintaining 4-way synchronous feature parity.
 
-```mermaid
-flowchart TD
-    Client["AI Agents & Developers<br/>(Claude, Cursor, Antigravity, Shell, Web)"] --> Gateway{"FastMCP 2.0 Gateway"}
-    
-    Gateway -->|Local Process IPC| Stdio["stdio Transport<br/>(High-speed pipe)"]
-    Gateway -->|Remote Mesh HTTP| SSE["SSE Transport<br/>(mcp.credence.run/sse)"]
-    
-    Stdio & SSE --> Core["Credence Epistemic Core Engine"]
-    
-    Core --> Parity1["1. CLI (credence)"]
-    Core --> Parity2["2. FastMCP (credence_*)"]
-    Core --> Parity3["3. Textual TUI (credence tui)"]
-    Core --> Parity4["4. Zero-Build Web (credence.report)"]
-```
-
 > [!IMPORTANT]
 > **[Invariant 30: Universal Feature Parity](../invariants.md#invariant-30)**: Every capability in Credence must be synchronously accessible across all 4 surfaces: CLI (`credence`), FastMCP 2.0 tools and resources, Textual TUI (`credence tui`), and the Zero-Build Web UI.
 

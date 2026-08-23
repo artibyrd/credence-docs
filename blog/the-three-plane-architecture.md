@@ -22,34 +22,7 @@ When designing **Credence**, we took a radically different architectural path dr
 
 To fulfill these requirements without sacrificing latency, cryptographic verifiability, or multi-cloud portability, we organized the entire ecosystem into **The 3-Plane Architecture**.
 
-```mermaid
-flowchart TD
-    subgraph EdgePlane ["Plane 1: Edge Plane (Cloudflare Workers)"]
-        E1["5 Sovereign Domains (docs, blog, report, run, nexus)"]
-        E2["Vanilla ES Modules & CSS Custom Properties"]
-        E3["Sub-50ms Global Edge Routing & Origin Rewriting"]
-        E4["Zero npm Dependencies (0 Bytes node_modules)"]
-    end
-
-    subgraph ComputePlane ["Plane 2: Compute Plane (Google Cloud Run v2)"]
-        C1["FastMCP 2.0 (Dual Transport: stdio & SSE)"]
-        C2["Starlette REST API & WebSockets"]
-        C3["Epistemic Scoring & Verbatim Grounding Engine"]
-        C4["Scale-to-Zero (min_instances = 0, $0.00 Idle)"]
-    end
-
-    subgraph InfraPlane ["Plane 3: Infrastructure Plane (Terraform Multi-Cloud)"]
-        I1["GCP Cloud Run & IAM Workload Identity"]
-        I2["Cloudflare DNS & Worker Edge Bindings"]
-        I3["Zero-Drift Declarative State"]
-    end
-
-    EdgePlane -.->|"Proxy /api & /sse"| ComputePlane
-    InfraPlane ==>|"Provisions & Binds"| EdgePlane
-    InfraPlane ==>|"Provisions & Binds"| ComputePlane
-```
-
----
+![Figure 1.1: 3-Plane decoupled deployment governance across Edge, Compute, and Infrastructure planes](assets/illustrations/the-three-plane-architecture.svg)---
 
 ## Plane 1: The Edge Plane (Cloudflare Workers & Zero-Build Assets)
 

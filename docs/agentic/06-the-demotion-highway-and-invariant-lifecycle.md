@@ -29,13 +29,6 @@ As autonomous agent ecosystems mature, system invariants must scale without succ
 
 When every bug fix or post-mortem appends a new rule to a flat `AGENTS.md`, prompt adherence degrades non-linearly. Critical security boundaries compete for attention with formatting preferences.
 
-```mermaid
-flowchart TD
-    FlatSprawl["Flat Invariant Sprawl<br/>(30+ Unordered Rules)"] --> Dilution["1. Attention Dilution<br/>(LLMs overlook critical security rules)"]
-    FlatSprawl --> Oatmeal["2. Cognitive Oatmeal<br/>(Formatting trivia given equal weight to SSRF security)"]
-    FlatSprawl --> Waste["3. Context Token Tax<br/>(Static rules burn reasoning token budget on every turn)"]
-```
-
 To prevent this, Credence establishes the **Constant-Ceiling Theorem**:
 - **Tier 0 Hard Budget**: Total Tier 0 rules in `AGENTS.md` must **never exceed 10–12 core axioms** and must remain strictly **$<800$ tokens**.
 - **Mechanics over Memory**: *If a machine can assert a rule deterministically in $<0.3\text{s}$, never waste LLM attention tokens prompting for it.*
@@ -57,21 +50,6 @@ Invariants in `AGENTS.md` are strictly organized into three ranked cognitive cla
 ## 3. Invariant Mutability & The 6-State Lifecycle
 
 Invariants are not divine dogmas; they represent the **strongest empirical truth validated at project epoch $t$**. Over time, new tooling, compiler capabilities, or test suites may revise, consolidate, or demote an invariant.
-
-```mermaid
-stateDiagram-v2
-    [*] --> Proposed: Post-Mortem / /learn
-    Proposed --> Active: Minted into Living Canon (vX.Y.0)
-    Active --> UnderReview: Milestone Audit (v2.X.0)
-    
-    UnderReview --> Active: Re-affirmed (Merit Holds)
-    UnderReview --> Amended: Scope Refined / Upgraded
-    UnderReview --> Demoted: Promoted to Automated Gate (Tier 2) or Skill (Tier 1)
-    UnderReview --> Retired: Obsolete (Constraint No Longer Exists)
-    
-    Demoted --> [*]
-    Retired --> [*]
-```
 
 ### The 6 Lifecycle States:
 1. **`Proposed`**: Synthesized during `/learn` retrospectives or post-mortems and documented in `learning_proposal.md`.
@@ -123,17 +101,24 @@ The scanner (`scripts/audit_demotions.py`):
 
 Invariants are not immutable dogma. During Phase 4 (`/learn`) retrospectives and milestone release boundaries, the team runs the **Invariant Challenger** to evaluate whether an existing rule remains necessary, requires amendment, has been demoted, or has been superseded.
 
-```mermaid
-flowchart TD
-    Trigger["Challenge Trigger: /learn retrospective, friction report, or test saturation"] --> Challenger["Invariant Challenger: just challenge-invariant <slug>"]
-    
-    Challenger --> Analyze["Analyze: Test Coverage + Prompt Token Cost + Sovereign Safety"]
-    Analyze --> Verdict{"Challenger Verdict"}
-    
-    Verdict -->|Still Essential & Empirical| Keep["Re-affirm Active (Class α/β/γ)"]
-    Verdict -->|Threshold / Mechanism Changed| Amend["Amend Invariant (Update Scope/Math)"]
-    Verdict -->|100% Deterministic Test Coverage| Demote["Demote to Tier 2 (Save Prompt Tokens)"]
-    Verdict -->|Obsolete or Superseded| Retire["Retire / Nullify (Archive to Invariant Bible)"]
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         INVARIANT CHALLENGER DECISION ENGINE                                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Challenge Trigger (`just challenge-invariant <slug>` / `/learn` / milestone boundary)            │
+│                                │                                                                 │
+│                                ▼ Analyze: Test Coverage + Token Budget + Sovereign Safety        │
+│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
+│ │ Challenger Evaluation Matrix:                                                              │   │
+│ ├──────────────────────────────┬───────────────────────────────┬─────────────────────────────┤   │
+│ │ Scrutiny Condition           │ Decision Verdict              │ Concrete Architecture Action│   │
+│ ├──────────────────────────────┼───────────────────────────────┼─────────────────────────────┤   │
+│ │ Still Essential & Empirical  │ Re-affirm Active Status       │ Retain in Class α/β/γ       │   │
+│ │ Threshold / Syntax Evolved   │ Amend Invariant Scope         │ Update proof / mathematical │   │
+│ │ 100% Deterministic Test Gate │ Demote to Tier 2 (Demotion)   │ Move to pytest & save tokens│   │
+│ │ Obsolete / Redundant         │ Retire / Nullify Invariant    │ Archive with historic reason│   │
+│ └──────────────────────────────┴───────────────────────────────┴─────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### The 4 Scrutiny Criteria:

@@ -28,18 +28,6 @@ read_time: 9 min
 
 Discover how Credence achieves institutional-grade epistemic accuracy at $0.0003 per audit by identifying the empirical **4k Thinking Token Pareto Frontier** and enforcing multi-tier adversarial prompt boundaries.
 
-```mermaid
-flowchart LR
-    Input["Untrusted Web Text"] --> Guard["Prompt Injection Guard<br/>(<untrusted_source_text>)"]
-    Guard --> Gov["Token Safety Governor<br/>(30% Headroom Circuit Breaker)"]
-    
-    Gov -->|Budget Healthy| Gemini["Gemini 3.7 Flash<br/>(4k Thinking · $0.075/1M)"]
-    Gov -->|Quota Exceeded| Offline["Offline Structural Heuristic<br/>(Invariant 23 · $0.00 cost)"]
-    
-    Gemini --> Grounding["G=1.00 Verbatim Grounding Gate"]
-    Offline --> Grounding
-```
-
 > [!NOTE]
 > **[Invariant 15: Empirical Thinking Budget Sweet Spot (4k Invariant)](../invariants.md#invariant-15)**: `gemini-3.7-flash` with a 4,096 thinking token budget represents the optimal Pareto frontier ($0.34–$0.68/1k audits, 2.4s–5.1s latency) achieving 100% verbatim grounding and Poe's Law satire neutralization without the 30x cost overhead of flagship Pro models.
 

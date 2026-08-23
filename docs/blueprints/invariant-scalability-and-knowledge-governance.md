@@ -23,53 +23,11 @@ As complex software ecosystems evolve, engineering invariants, security boundari
 
 When all rules are dumped into a single flat file (`AGENTS.md` / system prompt), autonomous agents suffer from three distinct cognitive failure modes:
 
-```mermaid
-flowchart TD
-    Flat["Flat Invariant List<br/>(30+ Unordered Rules)"] --> Dilution["1. Attention Dilution<br/>(LLMs overlook critical safety rules)"]
-    Flat --> Oatmeal["2. Cognitive Oatmeal<br/>(Formatting trivia given equal weight to SSRF security)"]
-    Flat --> Friction["3. Token Waste & Friction<br/>(Re-parsing static rules on every turn)"]
-```
-
----
+![Figure 1.1: Invariant scalability matrix, knowledge taxonomy, and AGENTS.md context economy](assets/illustrations/invariant-scalability-and-knowledge-governance.svg)---
 
 ## 2. The 3-Tier Invariant Scalability Framework
 
 To maintain extreme precision while keeping universal system prompt context under **800 tokens**, Credence stratifies invariants into a 4-layer taxonomy based on **enforcement criticality, execution scope, and automation feasibility**:
-
-```mermaid
-graph TD
-    subgraph Tier0 ["Tier 0: Universal Core Invariants (AGENTS.md &lt; 800 tokens)"]
-        T0_Security["P0: Ingestion SSRF Guard & Billion Laughs"]
-        T0_Grounding["P0: Epistemic Grounding (G=1.0) & Hallucination Slashing"]
-        T0_Crypto["P0: Ed25519 Signature Verification & RFC 8785 Canonical JSON"]
-        T0_Review["P0: Human Review ('Mk1 Eyeball') & Target Version Disclosure"]
-        T0_Parity["P0: 4-Way Feature Parity & Zero-npm Web Standards"]
-        T0_Docs["P0: Session-Driven Documentation Expansion"]
-    end
-
-    subgraph Tier1 ["Tier 1: Progressive Subsystem Skills (.agents/skills/)"]
-        T1_Cloud["cloudrun-ops: Scale-to-Zero, CPU Boost, compileall, Probes"]
-        T1_Mesh["mesh-cluster: Watts-Strogatz Lattice, 3f+1 Cartel Defense"]
-        T1_Org["white-label-ops: Init-Org, Multi-Domain Edge Routing"]
-        T1_Bench["epistemic-benchmark: Golden 12 Benchmark Profiles"]
-    end
-
-    subgraph Tier2 ["Tier 2: Shift-Left Automated Test Gates (test_docs_integrity.py)"]
-        T2_FM["Markdown YAML Frontmatter (title/desc)"]
-        T2_NPM["Zero-npm / Zero-package.json Assertion"]
-        T2_Ver["7-Manifest Semantic Version Parity"]
-        T2_Route["Sitemap Route & Deep Link Coverage"]
-        T2_Mermaid["Mermaid High-Contrast WCAG Contrast"]
-    end
-
-    subgraph Tier3 ["Tier 3: Master Canonical Reference Catalog (docs/invariants.md)"]
-        T3_Catalog["Living Canon of System Invariants with Mathematical Proofs"]
-    end
-
-    Tier0 --> Tier1
-    Tier0 --> Tier2
-    Tier0 --> Tier3
-```
 
 ---
 
@@ -113,21 +71,6 @@ graph TD
 
 Invariants are not immutable dogmas; they represent the **strongest empirical truth validated at project epoch $t$**.
 
-```mermaid
-stateDiagram-v2
-    [*] --> Proposed: /learn Retrospective / Discovery
-    Proposed --> Active: Minted into Living Canon (vX.Y.0)
-    Active --> UnderReview: Milestone Audit (v2.X.0)
-    
-    UnderReview --> Active: Re-affirmed (Merit Holds)
-    UnderReview --> Amended: Scope Refined / Upgraded
-    UnderReview --> Demoted: Promoted to Automated Gate (Tier 2) or Skill (Tier 1)
-    UnderReview --> Retired: Obsolete (Constraint No Longer Exists)
-    
-    Demoted --> [*]
-    Retired --> [*]
-```
-
 ### The Invariant Lifecycle State Machine
 1. **`Proposed`**: Synthesized during `/learn` retrospectives or post-mortems.
 2. **`Active`**: Formally adopted and minted into `AGENTS.md` and `docs/invariants.md`.
@@ -153,13 +96,6 @@ To streamline complex multi-agent pair programming, specialized subagents are de
 ## 6. The 4-Phase Delivery & Continuous Learning Lifecycle
 
 Knowledge synthesis and invariant crystallization strictly follow the 4-phase delivery lifecycle:
-
-```mermaid
-flowchart LR
-    Phase1["1. Mk1 Eyeball Review<br/><i>(Code, Local QA, Target Version)</i>"] --> Phase2["2. Feature Release<br/><i>(Commit, Tag, Deploy vX.Y.0)</i>"]
-    Phase2 --> Phase3["3. /learn Retrospective<br/><i>(Synthesize Feedback & Invariants)</i>"]
-    Phase3 --> Phase4["4. Learning Patch Release<br/><i>(Apply Invariants, Tag vX.Y.1)</i>"]
-```
 
 1. **Phase 1 (Mk1 Eyeball Review)**: Implement feature, execute local QA gauntlet (`just check`), present working-tree diff and explicit target version for human inspection ("Mk1 Eyeball").
 2. **Phase 2 (Feature Release)**: Upon approval, commit with clean working tree, synchronize manifests, tag, push to origin, and verify live cloud deployment (e.g. `v2.3.0`).
@@ -194,15 +130,6 @@ When a new requirement, discovery, or post-mortem action item arises, apply this
 
 To prevent system invariants from stagnating into obsolete dogmas or unnecessarily consuming prompt context when test coverage is mature, the ecosystem implements **The Invariant Challenger** (`scripts/challenge_invariant.py` / `just challenge-invariant <slug>`).
 
-```mermaid
-flowchart TD
-    Run["just challenge-invariant <slug>"] --> Evaluate{"Challenger Evaluation"}
-    Evaluate -->|"Cognitive Reasoning / Human Authority Required"| P["1. PRESERVE (Tier 0 Active)"]
-    Evaluate -->|"100% Test Saturated (Mechanical Verification)"| D["2. DEMOTE (Graduate to Tier 2 Test Gate)"]
-    Evaluate -->|"Ecosystem Shift / Refinement Needed"| A["3. AMEND (Sharpen Invariant Scope)"]
-    Evaluate -->|"Technology Obsoleted / Constraint Invalidated"| N["4. NULLIFY / RETIRE (Archive in Invariant Bible)"]
-```
-
 ### Epistemic Scrutiny Dimensions:
 - **Merit & Necessity**: Is the invariant still actively preventing critical failures?
 - **Test Saturation**: Has automated shift-left testing reached 100% mechanical coverage (qualifying for Tier 2 Demotion)?
@@ -232,6 +159,4 @@ To balance strict production safety with continuous learning agility, the ecosys
 | **Human Authority Gate** | Code Owner Review on PR + Mk1 Eyeball | `learning_proposal.md` Approval + Mk1 Eyeball |
 | **Delivery Vehicle** | `just pr merge` $\rightarrow$ CI/CD Prod Deploy | `just release vX.Y.1` $\rightarrow$ CI/CD Prod Deploy |
 | **Ceremony Overhead** | High rigor (staged feature changes) | Zero friction (fast crystallization of session wisdom) |
-
-
 

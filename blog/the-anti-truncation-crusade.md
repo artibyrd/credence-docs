@@ -32,29 +32,24 @@ To a frontend AI, the ellipsis (`...`) is the ultimate aesthetic crutch. It make
 
 And in an epistemic verification network, **it is an absolute catastrophe.**
 
-```mermaid
-flowchart TD
-    subgraph AestheticTrap ["❌ The Frontend Designer's Dream (The Ellipsis Trap)"]
-        direction TB
-        RawQuote["Source Quote:<br/><i>'The minister denied the allegations of bribery,<br/>though conceded that cash was received.'</i>"]
-        --> CSS["Applied CSS:<br/><code>text-overflow: ellipsis; white-space: nowrap;</code>"]
-        --> Truncated["Rendered on Screen:<br/><b>'The minister denied the allegations of bribery...'</b>"]
-        --> Inversion["💥 Critical Evidence Inverted & Concealed<br/>by Three Little Dots!"]
-    end
-
-    subgraph GroundedReality ["🛡️ The Anti-Truncation Invariant (v2.6.4)"]
-        direction TB
-        RawQuote2["Source Quote:<br/><i>'The minister denied... though conceded...'</i>"]
-        --> Unabridged["Unabridged Natural Vertical Flow<br/><code>height: auto; overflow-wrap: anywhere;</code>"]
-        --> Verbatim["✨ Character-for-Character DOM Match<br/>Verbatim Epistemic Grounding (G = 1.00)"]
-    end
-
-    AestheticTrap -->|"Replaced by Anti-Truncation Invariant"| GroundedReality
-
-    style AestheticTrap fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fff
-    style GroundedReality fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    style Verbatim fill:#14532d,stroke:#4ade80,stroke-width:2px,color:#fff
-    style Inversion fill:#450a0a,stroke:#fca5a5,stroke-width:1px,color:#fff
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                         CSS ELLIPSIS MASKING VS VERBATIM EPISTEMIC GROUNDING                     │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
+│ │ ❌ THE FRONTEND ELLIPSIS TRAP            │   │ 🛡️ THE ANTI-TRUNCATION INVARIANT (v2.6.4)│      │
+│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
+│ │ Source Quote:                            │   │ Source Quote:                            │      │
+│ │ "Minister denied bribery allegations,    │   │ "Minister denied bribery allegations,    │      │
+│ │  though conceded cash was received."     │   │  though conceded cash was received."     │      │
+│ │                                          │──▶│                                          │      │
+│ │ Applied CSS: `text-overflow: ellipsis`   │   │ Applied CSS: `overflow-wrap: anywhere`   │      │
+│ │ Rendered: "Minister denied bribery..."   │   │ Rendered: Complete unabridged statement  │      │
+│ │ 💥 Meaning inverted by three dots!       │   │ ✨ Grounding $G=1.00$ character-matched  │      │
+│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 💡 Invariant 22: Zero ellipsis truncation on forensic citations. Epistemic integrity over CSS    │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

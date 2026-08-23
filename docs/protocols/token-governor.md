@@ -25,22 +25,6 @@ When developing autonomous AI pipelines that make repeated LLM calls, sharing a 
 
 ## 2. 5-Layer Token Safety Architecture
 
-```mermaid
-graph TD
-    A["Incoming Audit Request"] --> B{"1. Local Cache Check"}
-    B -- "SHA-256 Hit" --> C["Instant 0-Token Attestation"]
-    B -- "Cache Miss" --> D{"2. Token Governor & Budget Check"}
-    D -- "Daily/Hourly Limit Reached" --> E["Trip Circuit Breaker (QUOTA_PRESERVED Mode)"]
-    D -- "Budget Available" --> F["3. Fast Triage & Satire Filter (Flash-Lite)"]
-    F -- "Is Authentic Satire" --> G["Short-Circuit Pipeline (Save 75% Tokens)"]
-    F -- "Requires Full Audit" --> H["4. Truncate Input Prose (Max 2.5k words)"]
-    H --> I["5. Dispatch Specialists (Gemini 3.7 Flash + Thinking)"]
-    I --> J{"6. Response Quality Gate"}
-    J -- "Citation Grounding < 75% / Ambiguous Margin" --> K["Dynamic Thinking Escalation"]
-    J -- "Passes" --> L["Record Token Usage in SQLite & Sign Attestation"]
-    K --> L
-```
-
 ---
 
 ## 3. Configuration Parameters (`.env`)

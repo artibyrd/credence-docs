@@ -15,33 +15,7 @@ This guide covers deploying the **Credence FastMCP Server** to **Google Cloud Pl
 
 ## 1. Architecture Overview
 
-```mermaid
-graph LR
-    subgraph Client ["Clients & Operators"]
-        Antigravity[Antigravity IDE / Agent] -->|HTTPS / SSE| CloudRun
-        TUI[Textual TUI / Terminal CLI] -->|Telemetry Loopback| CloudRun
-    end
-
-    subgraph GCP ["Google Cloud Platform (us-central1)"]
-        CloudRun["Cloud Run v2 Service<br/>(Scale-to-Zero | 1024Mi | 1 CPU)"]
-        SM["Secret Manager<br/>(credence-gemini-api-key)"]
-        Budget["Cloud Billing Budget<br/>($15.00/mo Ceiling)"]
-        Monitoring["Cloud Monitoring<br/>(Dual-Tier SRE & Uptime)"]
-        CloudRun --> SM
-        CloudRun --> Monitoring
-    end
-
-    subgraph Egress ["Alert Dispatch"]
-        Discord["Discord / Powercord Webhook"]
-        Email["Direct Admin Email"]
-        Monitoring --> Discord
-        Monitoring --> Email
-        Budget --> Discord
-        Budget --> Email
-    end
-```
-
----
+![Figure 1.1: Google Cloud Run serverless compute plane deployment with keyless WIF authentication](assets/illustrations/deployment-cloudrun.svg)---
 
 ## 2. Dual-Tier Monitoring Architecture
 
@@ -284,7 +258,6 @@ The repository provides a single canonical parameterized operator command family
 > [!WARNING]
 > **Local Production Deployment Safety Gate**:
 > Running local production deployments (`just deploy prod`, `just deploy backend prod`, `just deploy all`, or `just edge deploy`) triggers a safety confirmation prompt requiring the operator to explicitly type `DEPLOY-PROD`. Production releases should standardly be executed via GitHub Actions PR merges to `main`. For non-interactive troubleshooting scripts, pass `FORCE_PROD_DEPLOY=true`.
-
 
 ---
 

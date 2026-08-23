@@ -14,35 +14,7 @@ When technology ethicists debate digital misinformation, they reflexively point 
 
 Yet the most acute epistemic vulnerability in democratic society today does not occur in national media headlines or generative video models. It happens 30 miles outside metropolitan centers in **exurban news deserts**, where a single private digital publisher holds an absolute monopoly over local civic information.
 
-```mermaid
-flowchart TD
-    subgraph CityHall["Municipal Governance (City Council)"]
-        Council["City Council Dais"]
-        Decisions["Zoning, Police Budgets &amp; City Contracts"]
-        Official["Elected Councilmember / Vice Mayor"]
-    end
-
-    subgraph Media["Monopolistic Local News Outlet"]
-        Owner["Owner &amp; Advertising Director"]
-        Coverage["Civic News &amp; Election Coverage"]
-        AdSales["Advertorials &amp; Local Business Ads"]
-    end
-
-    Official <-->|"Dual Hat Identity Collision"| Owner
-    Council --> Decisions --> Coverage
-    Coverage -->|"Unanimous Civic Frame"| Public["Voters &amp; Community Residents"]
-
-    subgraph CredenceAudit["Credence Sovereign Audit Mesh"]
-        SPJ31["SPJ-3.1 Undisclosed COI"]
-        SPJ33["SPJ-3.3 Advertorial Camouflage"]
-        SPJ11["SPJ-1.1 Single-Source Sourcing"]
-        DCI["Domain Credence Index (DCI: 62.5 / MIXED)"]
-    end
-
-    Coverage -.->|"Empirical Audit Ingestion"| CredenceAudit
-```
-
-In Maricopa, Arizona—a high-growth desert suburb south of Phoenix—this structural tension came to life. For years, the city’s preeminent digital news outlet, `inmaricopa.com`, was co-owned and directed by Vincent Manfredi, an elected City Councilmember and former Vice Mayor.
+![Figure 1.1: Circular conflict feedback loop between municipal governance and newsroom monopoly, and Credence forensic audit layer](assets/illustrations/conflict-of-pun-terest.svg)In Maricopa, Arizona—a high-growth desert suburb south of Phoenix—this structural tension came to life. For years, the city’s preeminent digital news outlet, `inmaricopa.com`, was co-owned and directed by Vincent Manfredi, an elected City Councilmember and former Vice Mayor.
 
 When the publisher sits on the dais voting on municipal ordinances, property rezoning, police budgets, and public contracts, and then returns to the newsroom to direct the town's sole civic reporting apparatus, what happens to journalistic integrity?
 
@@ -637,6 +609,4 @@ Explore the underlying algorithms, mathematical proofs, and taxonomy specificati
 * **Commercial Camouflage**: [FTC Enforcement Policy Statement on Deceptively Formatted Advertorials](https://www.ftc.gov/business-guidance/resources/native-advertising-guide-businesses)
 * **Public Records Statutory Protections**: [Arizona Public Records Law (A.R.S. § 39-121)](https://www.azleg.gov/ars/39/00121.htm)
 * **Structured Claim Markup**: [Schema.org ClaimReview Specification](https://schema.org/ClaimReview)
-
-
 

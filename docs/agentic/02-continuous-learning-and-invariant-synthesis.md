@@ -27,13 +27,6 @@ read_time: 6 min
 
 Discover how Credence uses the `/learn` slash command to transform transient corrections and post-mortem findings into permanent, machine-verifiable invariants in `AGENTS.md`.
 
-```mermaid
-flowchart LR
-    Phase1["1. Mk1 Eyeball Review<br/><i>(Code, Local QA, Target Version)</i>"] --> Phase2["2. Feature Release<br/><i>(Commit, Tag, Deploy vX.Y.0)</i>"]
-    Phase2 --> Phase3["3. /learn Retrospective<br/><i>(Capture Feedback & Invariants)</i>"]
-    Phase3 --> Phase4["4. Learning Patch Release<br/><i>(Apply Invariants, Tag vX.Y.1)</i>"]
-```
-
 > [!NOTE]
 > **[Invariant 18: Context Governance & Progressive Disclosure](../invariants.md#invariant-18)**: Keep `AGENTS.md` lean (<800 tokens) in thematic categories. Place multi-step runbooks in `.agents/skills/` and complete specifications in `docs/`.
 
@@ -54,7 +47,7 @@ When delivering features and capturing edge cases during pair-programming, Crede
 
 | Incident / Edge Case | Immediate Fix | Codified Invariant Added via `/learn` | Automated Guardrail |
 | :--- | :--- | :--- | :--- |
-| **Mermaid Syntax Crashes** | Quoted node strings | **[Invariant 34: Universal Mermaid Syntax Guardrail](../invariants.md#invariant-34)** | `test_mermaid_diagram_syntax_integrity` |
+| **Mermaid Syntax Fragility** | Migrated to UTF-8 schematics | **[Invariant 34: Universal Technical Schematic Guardrail](../invariants.md#invariant-34)** | `test_schematic_box_diagram_integrity` |
 | **Wall-of-Text Fatigue** | Added flowcharts & tables | **[Invariant 35: Visual Density Invariant ($\ge 2.0$/500w)](../invariants.md#invariant-35)** | `scratch/audit_visual_density.py` |
 | **Multi-Repo Version Drift** | Updated `credence.run` | **[Invariant 3: Version Parity Governance](../invariants.md#invariant-3)** | `test_ecosystem_version_parity` |
 | **Unlinked Invariant Mentions** | Cross-linked markdown | **[Invariant 30: Invariant Linking Guardrail](../invariants.md#invariant-30)** | `test_all_invariant_references_are_linked` |

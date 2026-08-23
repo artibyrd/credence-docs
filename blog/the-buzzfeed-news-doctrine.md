@@ -18,31 +18,6 @@ This transformation presents a fundamental dilemma for automated verification en
 
 In **Credence v1.21.0**, we formalized **Invariant 40** and **EPEP-17** to solve this through **The BuzzFeed News Doctrine**.
 
-```mermaid
-graph TD
-    subgraph RedemptionPipeline["The BuzzFeed News Doctrine Architecture"]
-        BAD["Deceptive Outlet (Score &le; 20.0)"] --> QUARANTINE["QUARANTINED_PROBATION<br>(16x Polling Backoff)"]
-        
-        QUARANTINE --> LAZARUS["Lazarus Sampling Probe<br>(1 item / week @ &ge;50% Headroom)"]
-        
-        LAZARUS --> TEST{"Audit Verbatim Grounding<br>&amp; Suspicion Score"}
-        TEST -->|"Fails Audit (Score &ge; 50.0)"| RESET["Reset Backoff to 64x"]
-        
-        TEST -->|"Clean Audit (Score &le; 20.0, G=1.00)"| ACCUM["Accumulate Multi-Subject<br>Clean Streak (k &ge; 5)"]
-        
-        ACCUM -->|"Single Subject Only (Weather/Spam)"| BLOCKED["Blocked: Anti-Trojan Diversity Rule"]
-        ACCUM -->|"&ge;2 Distinct Namespaces"| GRADUATE["Graduate to PROBATIONARY_RECOVERY<br>(Restore Polling 1x, Reputation &ge; 40.0)"]
-    end
-    
-    classDef bad fill:#4c0519,stroke:#f43f5e,stroke-width:2px,color:#f8fafc;
-    classDef test fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#f8fafc;
-    classDef good fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#f8fafc;
-    
-    class BAD,QUARANTINE,RESET,BLOCKED bad;
-    class LAZARUS,TEST,ACCUM test;
-    class GRADUATE good;
-```
-
 ---
 
 ## 1. Soft Quarantine vs. Hard Deletion

@@ -2,11 +2,23 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.11.1
+verified_version: v2.12.0
 last_verified: 2026-08-23
 ---
 
 # Release Changelog
+
+## [2.12.0] - 2026-08-23
+
+### Added
+- **Ecosystem-Wide Diagram Modernization**: Audited all 83 documentation files and 49 blog posts, replacing 185 fragile/low-density Mermaid diagrams with 163+ responsive, high-contrast UTF-8 technical box schematics, RFC-style wire sequences, and mathematical spectrum bounds.
+- **Interactive Playground Math Engine Upgrade**: Upgraded `credence-docs/app.js` math parser to evaluate inline and display LaTeX expressions (`$...$`, `\(...\)`, `$$...$$`, `\[...\]`) across standard markdown and direct HTML widget elements, eliminating double parentheses, broken escapes, and raw LaTeX macro leaks.
+- **Automated Schematic & Math Integrity Test Gates**: Added `test_schematic_box_diagram_integrity` and `test_playground_and_docs_math_rendering_integrity` to `tests/governance/test_docs_integrity.py`, and added `test_schematic_and_diagram_rendering` and `test_playground_math_rendering_integrity` to `tests/governance/test_docs_rendering.py`.
+
+### Removed
+- **Mermaid Viewing Engine & Vendor Assets**: Removed obsolete 1.8 MB `mermaid.min.js` vendor bundles from `credence-docs/assets/` and `credence/web/assets/`, pruned ~500 LOC of zoom/pan/lightbox runtime code and CSS styling from `app.js` and `styles.css`, and codified `test_zero_legacy_mermaid_diagrams_invariant` to prevent future regressions.
+
+---
 
 ## [2.11.1] - 2026-08-23
 
@@ -301,7 +313,6 @@ All notable changes to the **Credence** network and documentation are documented
 
 ## [2.2.1] - 2026-08-20
 
-
 ### 🛡️ Learning Retrospective: Viewport Bounds & Edge Invariant Synthesis
 - **Dense Workstation Viewport Bounds (Invariant 45)**:
   - Enclosed high-density card grids (Curated Articles, Publisher Catalog) in `.ws-scroll-pane` containers (`max-height: 580px; overflow-y: auto;`) with 6px sleek custom dark scrollbars.
@@ -316,7 +327,6 @@ All notable changes to the **Credence** network and documentation are documented
 ---
 
 ## [2.2.0] - 2026-08-20
-
 
 ### 🚀 Major Highlights & Sovereign Architecture
 - **Sovereign Admin Domain (`admin.credence.run`)**: Standalone cyber-cockpit workstation, Keyless Secret Manager integration, timing-safe auth middleware, and dedicated edge routing, key bootstrapping, and operator tutorial.
@@ -343,7 +353,6 @@ All notable changes to the **Credence** network and documentation are documented
 
 ## [2.1.6] - 2026-08-20
 
-
 ### Critical Fix: Eliminate Maximum Call Stack Infinite Recursion in Web Component
 - **Eliminated Custom Element `cloneNode` Recursion**:
   - Replaced DOM tree cloning in `extractHostText()` with lightweight direct element text inspection, completely eliminating the infinite `cloneNode` element instantiation recursion that caused `Maximum call stack size exceeded` in browsers.
@@ -356,7 +365,6 @@ All notable changes to the **Credence** network and documentation are documented
 
 ## [2.1.5] - 2026-08-20
 
-
 ### CI/CD Verification Gate & Documentation Consolidation
 - **CI/CD Verification Gate Codification**:
   - Enforced mandatory verification step: after pushing release commits and tags (`just git-sync push`), agents must actively monitor and verify that GitHub Actions CI/CD workflows complete with success (`gh run watch` / `just pipeline watch`) before announcing release completion.
@@ -367,7 +375,6 @@ All notable changes to the **Credence** network and documentation are documented
 ---
 
 ## [2.1.4] - 2026-08-20
-
 
 ### Critical Fix: Parser Frontmatter Guard & Web Component Hardening
 - **Frontmatter Object Guard in `parseMarkdown()`**:
@@ -381,7 +388,6 @@ All notable changes to the **Credence** network and documentation are documented
 
 ## [2.1.3] - 2026-08-20
 
-
 ### Learning Retrospective: Push-and-Delegate CI/CD Governance
 - **Commit-Before-Deploy & Push-and-Delegate Invariant Codification**:
   - Codified the strict rule that in automated release lifecycles, once clean commits and version tags are pushed to GitHub (`just git-sync push`), agents must never execute redundant local deploy commands (`just deploy`, `wrangler deploy`, `gcloud run deploy`), delegating authoritative planetary continuous deployment to GitHub Actions.
@@ -393,7 +399,6 @@ All notable changes to the **Credence** network and documentation are documented
 ---
 
 ## [2.1.2] - 2026-08-20
-
 
 ### Live Embeddable Badge Header Wiring & Attestation Binding
 - **Document Metadata Header Injection**:
@@ -407,7 +412,6 @@ All notable changes to the **Credence** network and documentation are documented
 
 ## [2.1.1] - 2026-08-20
 
-
 ### Learning Retrospective, Empirical Testing Invariant & Query Typing Governance
 - **Invariant 40 Expansion (Tests Before Tales)**:
   - Codified the strict epistemic invariant that empirical tests, red team exercises, and benchmarks must strictly be executed and verified before drafting corresponding case studies, lab documentation, or walkthroughs.
@@ -420,7 +424,6 @@ All notable changes to the **Credence** network and documentation are documented
 ---
 
 ## [2.1.0] - 2026-08-20
-
 
 ### Epistemic Self-Auditing, Embeddable Badges, Temporal Trajectories & The Information Pyramid
 
@@ -508,7 +511,6 @@ All notable changes to the **Credence** network and documentation are documented
 
 ## [1.23.0] - 2026-08-20
 
-
 ### Dual-Environment Least-Privileged Workload Identity Federation (WIF) & CI/CD Automation
 - **Multi-Environment Continuous Deployment**:
   - Configured keyless Workload Identity Federation across both **Dev** (`credence-dev-495173`) and **Prod** (`credence-prod-505902`) Google Cloud projects with strict GitHub repository OIDC conditions (`assertion.repository == 'artibyrd/credence'`).
@@ -522,7 +524,6 @@ All notable changes to the **Credence** network and documentation are documented
 
 ## [1.22.1] - 2026-08-20
 
-
 ### Dynamic Live Swarm Telemetry & Playground Chaos Simulator Separation
 - **Dynamic Live Node Reality ($N \ge 1$)**:
   - Refactored live mesh telemetry (`credence.nexus/mesh.html`, CLI `credence stats --mesh`, TUI `[9] 🕸️ Mesh Swarm`, FastMCP `credence://mesh/network-health`) to query genuine local node identity and SQLite `PeerMetricRecord` rows.
@@ -535,7 +536,6 @@ All notable changes to the **Credence** network and documentation are documented
   - Codified the **Production Telemetry vs. Simulation Boundary** invariant across `AGENTS.md` and updated `.agents/skills/mesh-cluster/SKILL.md`.
 
 ## [1.22.0] - 2026-08-20
-
 
 ### Whole-Mesh Network Health Dashboard & Watts-Strogatz Topology Visualizer
 - **Whole-Mesh Network Health Dashboard (`credence.nexus/mesh.html`)**:
@@ -561,8 +561,6 @@ All notable changes to the **Credence** network and documentation are documented
   - Made memory pressure alert thresholds configurable (`CREDENCE_MEMORY_ALERT_MB`, default `1800.0` MB) in `ServerTelemetryTracker.get_snapshot()` to prevent local multi-test memory allocations from tripping false degraded alerts.
 - **7-Manifest Parity Sync**:
   - Synchronized canonical semantic version `v1.21.7` across all 7 ecosystem manifests.
-
-
 
 ## [1.21.6] - 2026-08-20
 

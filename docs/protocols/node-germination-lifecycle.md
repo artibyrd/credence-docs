@@ -12,28 +12,7 @@ last_verified: 2026-08-20
 
 This specification defines the protocol, data structures, mathematical formulas, and concurrency invariants governing **Autonomous Node Germination** and **Swarm Ignition** across the Credence ecosystem.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant Node as Credence Node
-    participant DB as SQLite WAL (credence.db)
-    participant Mesh as Peer Mesh / Genesis Seeds
-    participant LLM as Multi-Agent LLM Pipeline
-    participant Web as Web Viewer (reports.json)
-
-    Node->>DB: 1. Epistemic Genesis (Load/Gen Ed25519 Keypair)
-    Node->>Mesh: 2. Request Genesis Seed Attestations
-    Mesh-->>Node: Return signed Genesis Attestation Pack
-    Node->>DB: Inoculate Genesis Attestations ($0.00 token spend)
-    Node->>DB: 3. Sow 26 Categorized Feed Subscriptions
-    Node->>DB: 4. Sort Feeds via HRW Rendezvous Hashing
-    Node->>LLM: Miracle-Gro Burst: Audit Top N Novel Items
-    LLM-->>Node: Return signed AuditReport entities
-    Node->>Mesh: Broadcast Newly Signed Attestations
-    Node->>Web: 5. Export reports.json Static Catalog
-```
-
----
+![Figure 1.1: Zero-touch node germination lifecycle, seed initialization, and attestation persistence](assets/illustrations/node-germination-lifecycle.svg)---
 
 ## 1. The 5-Phase Germination Lifecycle
 

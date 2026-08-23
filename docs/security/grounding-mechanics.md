@@ -13,18 +13,6 @@ The fundamental vulnerability of LLM-based evaluation is **hallucination**: mode
 
 In Credence, an evaluation that cannot cite exact, verifiable substrings from the source document is mathematically invalid ($G < 1.0$).
 
-```mermaid
-flowchart TD
-    A["LLM Specialist Evaluation Output"] --> B["Extract Candidate Citation Quotes"]
-    B --> C["NFKC & Whitespace Collapse (s+ -> space)"]
-    C --> D{"Exact Substring in Source DOM?"}
-    D -- "Yes (G = 1.00)" --> E["Calculate Offsets [start : end]"]
-    E --> F["Sign RFC 8785 Ed25519 Attestation"]
-    F --> G["Gossip to 13-Node Mesh"]
-    D -- "No (Hallucinated Quote)" --> H["Grounding Rejection (G = 0.00)"]
-    H --> I["Escalate & Slash Node Quality by 50%"]
-```
-
 ### Grounding Precision & Reputation Matrix
 
 | Grounding Precision ($G_i$) | Attestation Status | Consensus Action | Reputation Impact |

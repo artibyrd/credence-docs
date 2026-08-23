@@ -25,14 +25,6 @@ This tutorial walks through configuring and verifying Credence's **Dual-Tier Mon
 
 Credence supports two primary monitoring tiers via Terraform:
 
-```mermaid
-graph TD
-    TierChoice{"monitoring_tier"}
-    TierChoice -->|"simple (Default)"| SimpleMode["Guy in His Basement Easy Mode<br/>• 3 Core Alerts (Outage, 5xx, RAM)<br/>• Discord Webhook & Email<br/>• 4-Tile SRE Dashboard<br/>• Zero False Positives"]
-    TierChoice -->|"advanced"| AdvancedMode["Advanced Production Tier<br/>• All Simple Mode Features<br/>• Log Error Surge Metric<br/>• P95 Latency Degradation<br/>• CPU Saturation Alert<br/>• Cloud Scheduler Failure"]
-    TierChoice -->|"disabled"| DisabledMode["Disabled Tier<br/>• Dashboard Only<br/>• Zero Alerts"]
-```
-
 ---
 
 ## 3. Step-by-Step Configuration

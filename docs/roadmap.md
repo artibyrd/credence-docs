@@ -28,38 +28,6 @@ read_time: 7 min
 
 This document serves as the **sovereign, in-repository source of truth** for verified architectural milestones, empirical test findings, and future development horizons across the Credence ecosystem.
 
-```mermaid
-flowchart TD
-    subgraph Foundation["Verified Stable Foundation (v2.3.0)"]
-        F1["Dual-Tier Bicameral Engine & Pre-Flight Gate"]
-        F2["Autonomous Boredom Engine & Epistemic Roots"]
-        F3["White-Label Sovereign Org Scaffolding (credence init-org)"]
-        F4["Dual-Project Cloud Run Scale-to-Zero & Anycast Edge"]
-        F5["Universal 4-Way Interface Parity (CLI, MCP, TUI, Web)"]
-        F6["Symmetric 4-Pillar Navigation & Card Containment (v1.21.5)"]
-        F7["18-Route Multi-Domain Edge Router & Zero-Cache Policy (v1.21.6)"]
-        F8["Whole-Mesh Network Health & Watts-Strogatz Visualizer (v1.22.0)"]
-        F9["Dynamic Live Swarm Telemetry & Playground Separation (v1.22.1)"]
-        F10["Dual-Environment Least-Privilege WIF CI/CD (v1.23.0)"]
-        F11["4-Phase Release & Learning Lifecycle Invariant (v1.23.1)"]
-        F12["Cognitive Hierarchy, Invariant Challenger & Staging PRs (v2.3.0)"]
-    end
-
-
-    subgraph Horizons["Future Architecture Horizons (v2.0.0 Road)"]
-        H1["<b>Horizon 1: Edge Traffic Shaping</b><br/><i>Autonomous Cascaded Gateway & ASTRO-GUARD</i>"]
-        H2["<b>Horizon 2: Protocol & Identity</b><br/><i>W3C did:key / did:web & Fediverse Bridge</i>"]
-        H3["<b>Horizon 3: Agentic Scale</b><br/><i>FastMCP 2.0 Async Batch SSE & Client-Side Wasm</i>"]
-    end
-
-    Foundation -.-> Horizons
-
-    classDef darkSlate fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff;
-    classDef highlight fill:#1e293b,stroke:#22c55e,stroke-width:2px,color:#fff;
-    class Foundation darkSlate;
-    class Horizons highlight;
-```
-
 ---
 
 ## 1. Verified Stable Foundation (`v2.2.0`)

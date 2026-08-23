@@ -34,17 +34,6 @@ In the real world:
 
 If an epistemic network relies on hardcoded seeds, the network is trivially vulnerable to **Covert Ingestion Capture**.
 
-```mermaid
-graph TD
-    StaticWhitelist["❌ Static Whitelist<br>(Blindly Trusts Domain Name)"] --> CorporateTakeover["Covert Acquisition /<br>Editorial Shift"]
-    CorporateTakeover --> DeceptiveIngestion["Blind Ingestion of Native Ads<br>& Commercial Astroturfing"]
-    
-    DynamicAudit["🛡️ Credence Zero-Trust Engine<br>(Continuous Metric Evaluation)"] --> PreFlight["Pre-Flight Forensic Audit"]
-    PreFlight --> TopicEntropy["Calculate Shannon Topic Entropy (H_topic)"]
-    TopicEntropy --> DynamicScore["Dynamic Quality Metric (F_j)"]
-    DynamicScore --> AutonomousEviction["Automatic Eviction & Quarantine<br>(Evicted when F_j < 0.40)"]
-```
-
 > [!IMPORTANT]
 > **Dynamic Trust Invariant**: Credence never relies on static domain whitelists. Every outlet is continuously re-evaluated on live topic entropy, verbatim citation grounding, and empirical suspicion metrics.
 

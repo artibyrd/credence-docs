@@ -17,20 +17,6 @@ Whether issued by Twitter, Meta, or Google, trust was treated as a property of *
 
 The generative AI revolution has shattered that paradigm permanently.
 
-```mermaid
-graph TD
-    subgraph OldModel["❌ Fragile Identity Model (The Blue Checkmark)"]
-        Authority["Centralized Platform / Corporate Badge"] --> Entity["Domain / Verified Author"]
-        Entity --> Claim1["Claim (Blind Trust, No Grounding Verification)"]
-    end
-
-    subgraph NewModel["✅ Content-Addressed Mathematical Model (Credence)"]
-        DOM["Exact Rendered Prose (SHA-256)"] --> Audit["4-Specialist Evaluation + G=1.0 Grounding"]
-        Audit --> Attestation["RFC 8785 Ed25519 Cryptographic Envelope"]
-        Attestation --> Swarm["P2P Watts-Strogatz Mesh Consensus"]
-    end
-```
-
 ### Trust Architecture Paradigm Shift
 
 | Dimension | Centralized Identity Badges | Credence Epistemic Consensus |
