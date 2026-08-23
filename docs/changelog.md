@@ -2,11 +2,23 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.9.1
+verified_version: v2.10.0
 last_verified: 2026-08-22
 ---
 
 # Release Changelog
+
+## [2.10.0] - 2026-08-22
+
+### Added
+- **Decoupled Multi-Model LLM Adapter Subsystem**: Integrated Google Gemini (3.7 Flash thinking), Anthropic Claude, OpenAI, and local Ollama inference providers into `credence.pipeline.adapters`.
+- **Truthful Attestation & Heuristic Structural Disclosure**: Multi-agent evaluation pipeline strictly marks offline executions as `evaluation_method: "offline_structural_heuristic"` with confidence capped at 0.50, eliminating attestation illusion.
+- **True Domain Authority Weighted Median Consensus**: Refactored Byzantine aggregator in `credence.mesh.consensus` to execute exact domain authority weighted median mathematics across non-outlier peers.
+- **Galileo Rule & Whistleblower Authority Protection**: Protected grounded evidentiary discoveries ($G \ge 0.85$) from swarm deviation penalties, resolving the conformity catch-22 and allowing whistleblowers to build sovereign domain authority.
+- **Zero-Build Clientside HTML Sanitizer**: Implemented strict zero-dependency `sanitizeHtml` in `credence-docs/app.js` stripping executable script and iframe tags while preserving safe markdown and SVG layouts.
+- **Strict RFC 8785 JSON Normalization**: Upgraded `canonical_json_bytes` in `credence.identity` to enforce UTF-16 code unit key sorting and integer-float normalization for bit-exact cross-platform Ed25519 envelopes.
+
+---
 
 ## [2.9.1] - 2026-08-22
 

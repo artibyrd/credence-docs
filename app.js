@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.9.1';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.10.0';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -1104,6 +1104,19 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
+export function sanitizeHtml(htmlStr) {
+  if (typeof htmlStr !== 'string') return '';
+  // 1. Strip dangerous tags entirely (script, iframe, object, embed, applet, base, form)
+  let clean = htmlStr.replace(/<\s*(script|iframe|object|embed|applet|base|form)\b[^>]*>[\s\S]*?<\/\s*\1\s*>/gi, '');
+  clean = clean.replace(/<\s*(script|iframe|object|embed|applet|base|form)\b[^>]*\/?>/gi, '');
+  // 2. Strip inline JavaScript event handlers (onerror, onload, onclick, etc.)
+  clean = clean.replace(/\s+on[a-zA-Z]+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '');
+  // 3. Neutralize javascript: and data:text/html URIs
+  clean = clean.replace(/\b(href|src|action)\s*=\s*(?:"\s*javascript:[^"]*"|'\s*javascript:[^']*'|javascript:[^\s>]+)/gi, '$1="#"');
+  clean = clean.replace(/\b(href|src|action)\s*=\s*(?:"\s*data:text\/html[^"]*"|'\s*data:text\/html[^']*'|data:text\/html[^\s>]+)/gi, '$1="#"');
+  return clean;
+}
+
 function computeSimHash(str) {
   const tokens = str.toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/).filter(Boolean);
   if (tokens.length === 0) return '0'.repeat(16);
@@ -1685,7 +1698,7 @@ export function parseMarkdown(md) {
         inAlertBox = false;
         alertBuffer = [];
       }
-      html.push(line);
+      html.push(sanitizeHtml(line));
       continue;
     }
 
