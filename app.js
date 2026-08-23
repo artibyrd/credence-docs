@@ -2083,17 +2083,20 @@ function getOrCreateDiagramLightbox() {
     }
   });
 
-  // Mouse drag panning
+  // Mouse drag panning for Lightbox
   stage.addEventListener('mousedown', (e) => {
     if (e.button !== 0) return;
+    if (e.target.closest('button') || e.target.closest('a')) return;
     lightboxState.isDragging = true;
     lightboxState.startX = e.clientX - lightboxState.translateX;
     lightboxState.startY = e.clientY - lightboxState.translateY;
     stage.classList.add('is-grabbing');
+    e.preventDefault();
   });
 
   window.addEventListener('mousemove', (e) => {
     if (!lightboxState.isDragging || !dialog.open) return;
+    e.preventDefault();
     lightboxState.translateX = e.clientX - lightboxState.startX;
     lightboxState.translateY = e.clientY - lightboxState.startY;
     updateLightboxTransform();
@@ -2104,6 +2107,27 @@ function getOrCreateDiagramLightbox() {
       lightboxState.isDragging = false;
       stage.classList.remove('is-grabbing');
     }
+  });
+
+  // Touch drag panning for Lightbox
+  stage.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      lightboxState.isDragging = true;
+      lightboxState.startX = e.touches[0].clientX - lightboxState.translateX;
+      lightboxState.startY = e.touches[0].clientY - lightboxState.translateY;
+    }
+  }, { passive: true });
+
+  stage.addEventListener('touchmove', (e) => {
+    if (lightboxState.isDragging && e.touches.length === 1) {
+      lightboxState.translateX = e.touches[0].clientX - lightboxState.startX;
+      lightboxState.translateY = e.touches[0].clientY - lightboxState.startY;
+      updateLightboxTransform();
+    }
+  }, { passive: true });
+
+  stage.addEventListener('touchend', () => {
+    lightboxState.isDragging = false;
   });
 
   // Wheel zoom
@@ -2204,6 +2228,67 @@ function setupDiagramControls(windowEl, renderedEl, svgContent) {
       openDiagramLightbox(svgContent, title);
     };
   }
+
+  // Inline Click-and-Drag Pan to Scroll
+  let isInlineDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let scrollLeft = 0;
+  let scrollTop = 0;
+
+  renderedEl.addEventListener('mousedown', (e) => {
+    if (e.button !== 0) return;
+    if (e.target.closest('button') || e.target.closest('a')) return;
+    isInlineDragging = true;
+    startX = e.pageX - renderedEl.offsetLeft;
+    startY = e.pageY - renderedEl.offsetTop;
+    scrollLeft = renderedEl.scrollLeft;
+    scrollTop = renderedEl.scrollTop;
+    renderedEl.classList.add('is-grabbing');
+    e.preventDefault();
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isInlineDragging) return;
+    e.preventDefault();
+    const x = e.pageX - renderedEl.offsetLeft;
+    const y = e.pageY - renderedEl.offsetTop;
+    const walkX = (x - startX);
+    const walkY = (y - startY);
+    renderedEl.scrollLeft = scrollLeft - walkX;
+    renderedEl.scrollTop = scrollTop - walkY;
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (isInlineDragging) {
+      isInlineDragging = false;
+      renderedEl.classList.remove('is-grabbing');
+    }
+  });
+
+  // Inline Touch Panning
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchScrollLeft = 0;
+  let touchScrollTop = 0;
+
+  renderedEl.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      touchStartX = e.touches[0].pageX - renderedEl.offsetLeft;
+      touchStartY = e.touches[0].pageY - renderedEl.offsetTop;
+      touchScrollLeft = renderedEl.scrollLeft;
+      touchScrollTop = renderedEl.scrollTop;
+    }
+  }, { passive: true });
+
+  renderedEl.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 1) {
+      const x = e.touches[0].pageX - renderedEl.offsetLeft;
+      const y = e.touches[0].pageY - renderedEl.offsetTop;
+      renderedEl.scrollLeft = touchScrollLeft - (x - touchStartX);
+      renderedEl.scrollTop = touchScrollTop - (y - touchStartY);
+    }
+  }, { passive: true });
 
   // Double click on diagram canvas to open lightbox
   renderedEl.addEventListener('dblclick', () => {

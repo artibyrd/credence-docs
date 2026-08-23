@@ -462,9 +462,11 @@ details.sidebar-group[open] > summary .sidebar-chevron {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto;
   position: relative;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
   scrollbar-width: thin;
   scrollbar-color: rgba(56, 189, 248, 0.35) rgba(15, 23, 42, 0.6);
 }
@@ -488,7 +490,7 @@ details.sidebar-group[open] > summary .sidebar-chevron {
 }
 
 .mermaid-rendered.is-grabbing {
-  cursor: grabbing;
+  cursor: grabbing !important;
 }
 
 .mermaid-viewport {
@@ -503,6 +505,9 @@ details.sidebar-group[open] > summary .sidebar-chevron {
   max-width: 100%;
   height: auto;
   min-width: min(100%, 520px);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* Anti-Light-on-Light SVG Typography Enforcement (WCAG 2.1 AA/AAA) */
@@ -634,12 +639,13 @@ details.sidebar-group[open] > summary .sidebar-chevron {
   position: relative;
   cursor: grab;
   user-select: none;
+  -webkit-user-select: none;
   scrollbar-width: thin;
   scrollbar-color: rgba(56, 189, 248, 0.4) rgba(15, 23, 42, 0.8);
 }
 
 .lightbox-stage.is-grabbing {
-  cursor: grabbing;
+  cursor: grabbing !important;
 }
 
 .lightbox-viewport {
@@ -653,6 +659,9 @@ details.sidebar-group[open] > summary .sidebar-chevron {
   display: block;
   max-width: none;
   height: auto;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
   filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
 }
 
