@@ -2,11 +2,32 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.16.4
+verified_version: v2.16.6
 last_verified: 2026-08-24
 ---
 
 # Release Changelog
+
+## [2.16.6] - 2026-08-24
+
+### Added
+- **Target Version & Scope Alignment Invariant (`knowledge-governance` skill)**:
+  - Codified Section 3.1 in `.agents/skills/knowledge-governance/SKILL.md` requiring explicit identification of the target release version (`vX.Y.0` feature branch vs `vX.Y.Z` patch on main) during implementation planning to lock down delivery boundaries before execution.
+- **Pure Forward-Looking Roadmap Standard (`knowledge-governance` & `invariant-audit` skills)**:
+  - Codified Section 4.1 in `.agents/skills/knowledge-governance/SKILL.md` and Section 6 in `.agents/skills/invariant-audit/SKILL.md` establishing that `docs/roadmap.md` exists exclusively as a forward-looking decision engine and strategic compass with zero retrospective duplication.
+
+## [2.16.5] - 2026-08-24
+
+### Added
+- **Pure Forward-Looking Roadmap Architecture (`docs/roadmap.md`)**:
+  - Overhauled the ecosystem roadmap into a pure, forward-looking strategic decision engine, permanently eliminating retrospective milestone lists and redundant architectural summaries.
+  - Embedded the **Comprehensive Horizon Decision Matrix** evaluating all 11 candidate initiatives across **Difficulty (Effort)**, **Impact / Value**, target subsystems, and strategic trade-offs.
+  - Embedded **3 Strategic Execution Pathways**: Pathway A (Low-Hanging Fruit Rapid Wins), Pathway B (High-Impact Structural Leap), and Pathway C (Balanced Hybrid).
+  - Streamlined the roadmap into 6 focused sections: Empirical Drivers (The Why), Decision Matrix (The Triage), Strategic Pathways (The Strategy), Detailed Horizons (The Deep Dives), Known Edge Cases (The Gaps), and Guiding Invariants (The Rules).
+- **Shift-Left Automated Integrity Gate 9 (`test_roadmap_pure_forward_looking_and_horizon_integrity`)**:
+  - Added automated test gate in `tests/governance/test_docs_integrity.py` asserting roadmap purity, prohibiting retrospective foundation sections, enforcing active horizon liveliness, and validating frontmatter parity.
+- **Pre-Release Sync Guardrail Enhancement (`just sync-version`)**:
+  - Updated `just/release.just` to run Gate 9 during version synchronization and enforce simultaneous alignment across both `docs/changelog.md` and `docs/roadmap.md`.
 
 ## [2.16.4] - 2026-08-24
 
