@@ -73,6 +73,9 @@ To ensure continuous compliance with system invariants, **Case Study Dual Tier F
 
 ```bash
 # Execute focused test gate for this subsystem
+
+![Figure 1.1: Bicameral LLM inference architecture and 98% cloud FinOps cost optimization](assets/illustrations/case-study-dual-tier-finops.svg)
+
 $ poetry run pytest tests/ -k "case_study_dual_tier_finops" -v
 ```
 

@@ -10,6 +10,9 @@ sidebar:
 
 # Technical Blueprint: Cloud Run Scale-to-Zero & Cold Start Optimization
 
+![Figure 1.1: Google Cloud Run scale-to-zero cold start optimization and container lifecycle profiling](assets/illustrations/cloudrun-scale-to-zero-cold-start-optimization.svg)
+
+
 This blueprint details the container engineering, lazy module initialization, and memory tuning techniques that enable Credence compute instances to achieve **sub-150ms cold starts** on Google Cloud Run v2 with **$0.00 idle cost**.
 
 ---

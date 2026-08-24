@@ -10,6 +10,9 @@ sidebar:
 
 # The 500 LOC Ceiling Law: Why Modularity is the Ultimate Antidote to Complexity
 
+![Figure 1.1: 500 LOC ceiling law modularity architecture and subpackage decoupling boundaries](assets/illustrations/the-500-loc-ceiling-law.svg)
+
+
 Every codebase starts clean. But as features accumulate, files quietly grow into thousand-line monolithic monsters.
 
 When a single file reaches 1,500 lines of code, nobody understands its full internal state. Functions develop hidden interdependencies, test isolation becomes impossible, and AI coding assistants struggle with context window degradation. Refactoring becomes an exercise in fear.

@@ -20,6 +20,8 @@ To operate safely in an adversarial web environment, autonomous agents require m
 
 ## 1. The Hallucination Pipeline: Why Scraping Fails
 
+![Figure 1.1: The Hallucination Pipeline vs FastMCP 2.0 Epistemic Brake architecture and prompt injection defense](assets/illustrations/giving-claude-and-cursor-an-epistemic-brake.svg)
+
 Consider what happens when a standard AI coding assistant searches the web without verification:
 
 | Pipeline Stage | Agent & System Interaction | Vulnerability & Failure Mode |

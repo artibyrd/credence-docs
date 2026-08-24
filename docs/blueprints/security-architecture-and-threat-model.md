@@ -10,6 +10,9 @@ sidebar:
 
 # Technical Blueprint: Security Architecture & Threat Model
 
+![Figure 1.1: Multi-layered security architecture and adversarial threat mitigation model](assets/illustrations/security-architecture-and-threat-model.svg)
+
+
 This document outlines the holistic **Security Architecture & STRIDE Threat Model** protecting the Credence Epistemic Network across compute, edge, and cryptographic layers.
 
 ---

@@ -22,6 +22,8 @@ Credence introduces **BitTorrent for Truth**: a decentralized peer-to-peer work-
 
 ## The Economics of Work-Sharing
 
+![Figure 1.1: BitTorrent P2P fact-checking work-sharing economics and cryptographic verification savings](assets/illustrations/bittorrent-economics-of-fact-checking.svg)
+
 | Architecture Model | Query Execution Flow | Total Invocations | Aggregate Cost | Redundancy & Waste |
 | :--- | :--- | :---: | :---: | :--- |
 | **Traditional Centralized API** | 10,000 Users $

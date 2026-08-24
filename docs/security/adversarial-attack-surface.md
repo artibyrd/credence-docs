@@ -46,7 +46,9 @@ This document details Credence's threat model and protocol defenses against adve
 - **Credence Defense**: The `SSRFGuard` rejects private IP ranges (RFC 1918), loopback, and cloud metadata. XML parsers explicitly prohibit DTD declarations (`resolve_entities=False`).
 
 ---
-## Adversarial Attack Surface & Defense Matrix
+## Adversarial Attack Surface
+
+![Figure 1.1: Adversarial attack surface taxonomy and defense-in-depth security matrix](assets/illustrations/security.svg) & Defense Matrix
 
 | Attack Vector | Attacker Objective | Credence Mitigation Mechanism |
 | :--- | :--- | :--- |

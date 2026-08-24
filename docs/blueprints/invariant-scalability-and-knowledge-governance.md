@@ -10,6 +10,9 @@ sidebar:
 
 # Technical Blueprint: Invariant Scalability & 4-Tier Knowledge Governance
 
+![Figure 1.1: Invariant scalability governance and 4-tier knowledge placement taxonomy](assets/illustrations/invariant-scalability-and-knowledge-governance.svg)
+
+
 This technical blueprint specifies the **4-Tier Knowledge Taxonomy**, context budget governance, and continuous learning lifecycle enforced by Credence to prevent context bloat across autonomous agent workflows.
 
 ---

@@ -10,6 +10,9 @@ sidebar:
 
 # Case Study: Unmasking Astroturfing Swarms with Lexical Topic Entropy
 
+![Figure 1.1: Shannon topic entropy collapse and SimHash mirror detection in astroturfing swarms](assets/illustrations/case-study-astroturfing-entropy.svg)
+
+
 In late 2025, an investigative journalist alerted our team to a suspicious cluster of 32 local news websites operating across the American Midwest.
 
 On the surface, each website appeared to be an authentic municipal newspaper with names like *The Canton Gazette*, *The Peoria Times*, and *The Fort Wayne Observer*. They featured professional mastheads, localized weather widgets, and bylines attributed to local reporters.

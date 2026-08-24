@@ -8,7 +8,9 @@ sidebar:
   order: 10
 ---
 
-# Node Germination Lifecycle & Identity Minting
+# Node Germination Lifecycle
+
+![Figure 1.1: 5-second zero-touch node germination lifecycle and cryptographic identity genesis](assets/illustrations/node-germination-lifecycle.svg) & Identity Minting
 
 This specification details the cryptographic state machine, local file permissions, and concurrency locks executed during **Node Germination** (`credence germinate`).
 
