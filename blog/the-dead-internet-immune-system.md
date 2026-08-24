@@ -60,21 +60,10 @@ $$\text{Crawl \& Compute Savings} = \frac{N - 1}{N} = \frac{13 - 1}{13} = 92.3\%
 
 When synthetic bot farms flood syndicated feeds, individual articles easily pass standard spelling and grammar checks. However, their collective distribution exhibits an unmistakable mathematical signature: **topic entropy collapse**.
 
-```text
-+--------------------------------------------------------------------------------------------------+
-|                       SHANNON ENTROPY DISTRIBUTION: CIVIC VS BOT ASTROTURFING                    |
-+--------------------------------------------------------------------------------------------------+
-|                                                                                                  |
-|  CIVIC NEWSROOM (Diverse Beat Reporting)                                                         |
-|  [Politics 22%] [City Budget 18%] [High School Sports 15%] [Transit 20%] [Obituaries 12%] [Arts]  |
-|  Entropy: H = 0.78  |  Top-3 Concentration: C_top3 = 0.18  --▶ STATUS: CLEARED (Dev Tier $0.00)  |
-|                                                                                                  |
-|  SYNTHETIC PR SLOP FARM (Programmatic Narrative Push)                                            |
-|  [Target Token 58%] [Target Token 21%] [Affiliate Token 14%] [Generic Filler 7%]                 |
-|  Entropy: H = 0.21  |  Top-3 Concentration: C_top3 = 0.58  --▶ STATUS: QUARANTINED (Prod Slash)  |
-|                                                                                                  |
-+--------------------------------------------------------------------------------------------------+
-```
+| Ingestion Source | Entity Distribution & Keyword Concentration | Entropy Metrics | Quarantine Status |
+| :--- | :--- | :--- | :--- |
+| **Civic Newsroom** *(Diverse Beat Reporting)* | Politics (22%), City Budget (18%), Sports (15%), Transit (20%), Obituaries (12%), Arts (13%) | $H = 0.78$, $C_{\text{top3}} = 0.18$ | `CLEARED` *(Dev Tier $0.00)* |
+| **Synthetic PR Slop Farm** *(Narrative Push)* | Target Token A (58%), Target Token B (21%), Affiliate Token (14%), Generic Filler (7%) | $H = 0.21$, $C_{\text{top3}} = 0.58$ | `QUARANTINED` *(Automatic Slash)* |
 
 Credence monitors rolling 24-hour ingestion windows using penalized Shannon entropy ([`inv-topic-entropy-defense`](#docs/invariants)):
 
@@ -115,44 +104,21 @@ A node's reputation weight ($W_i = 0.20 Q_i + 0.80 E_i$) cannot be bought or man
 ### 2. The Galileo Rule (Asymmetric Grounded Truth)
 Truth is empirical, not democratic. Under **The Galileo Rule** ([`inv-galileo-rule`](#docs/invariants)), if 1,000 synthetic nodes vote that an article has zero violations, but a single verified authority submits 100% character-for-character grounded citations proving factual deception, the minority report **cannot be discarded as an outlier**:
 
-```text
-+--------------------------------------------------------------------------------------------------+
-|                             THE GALILEO RULE CONSENSUS GUARANTEE                                 |
-+--------------------------------------------------------------------------------------------------+
-|                                                                                                  |
-|   1,000 Sybil Bot Nodes (Ungrounded): "Article is 100% True! Suspicion = 0.0"                   |
-|   VS                                                                                             |
-|   1 Verified Node (G=1.00 Grounded Quote): "Violates SPJ-1.1: Quote contradicts court record."  |
-|                                                                                                  |
-|   --▶ MEDIAN OUTCOME: Grounded evidence prevails; cartel consensus rejected.                     |
-|                                                                                                  |
-+--------------------------------------------------------------------------------------------------+
-```
+> [!IMPORTANT]
+> **The Galileo Rule Invariant Guarantee**:
+> - **1,000 Sybil Bot Nodes (Ungrounded)**: *"Article is 100% True! Suspicion = 0.0"*
+> - **1 Verified Node ($G = 1.00$ Grounded Quote)**: *"Violates SPJ-1.1: Quote contradicts court record."*
+> - **Consensus Verdict**: Grounded evidence prevails; majoritarian cartel consensus is rejected and slashed.
 
 ---
 
 ## 6. Summary: The Sovereign Citizenship Matrix
 
-```text
-+-----------------------------------------------------------------------------+
-|                    CREDENCE IN A DEAD INTERNET WORLD                        |
-+-----------------------------------------------------------------------------+
-|  Consuming the Web : BitTorrent work-sharing (92.3% fewer crawls)          |
-|                      Exponential backoff on slop (BuzzFeed Doctrine)         |
-|                      Citation Soil discovery (probes only clean sources)    |
-+-----------------------------------------------------------------------------+
-|  Evaluating Content: Shannon Topic Entropy filters out PR / LLM astroturfing|
-|                      Verbatim DOM grounding ($G=1.00$) anchors to reality   |
-|                      Multi-model sovereignty prevents monoculture collapse  |
-+-----------------------------------------------------------------------------+
-|  Serving the Web   : Zero-npm, ultra-fast static HTML for visiting crawlers |
-|                      Native FastMCP 2.0 & RFC 8785 Canonical JSON endpoints |
-|                      Scale-to-zero compute to minimize environmental burn   |
-+-----------------------------------------------------------------------------+
-|  Mesh Defense      : $3f+1$ Byzantine cartel isolation                     |
-|                      Anti-Diploma domain entropy requirement                |
-|                      The Galileo Rule preserves grounded minority truth     |
-+-----------------------------------------------------------------------------+
-```
+| Invariant Dimension | Credence Operational Policy in a Dead Internet World | Mathematical / Architectural Guardrail |
+| :--- | :--- | :--- |
+| **Consuming the Web** | BitTorrent work-sharing, exponential backoff on slop, citation soil discovery | 92.3% fewer crawls; $T_{\text{poll}} \times 2^{\min(\text{deceptions}, 6)}$; $G=1.00, \text{Susp} \le 25.0$ |
+| **Evaluating Content** | Shannon Topic Entropy filters, verbatim DOM grounding, multi-model sovereignty | $H_{\text{penalized}} \ge 0.30$; exact character matching; 5 decoupled adapters |
+| **Serving the Web** | Zero-npm static HTML, native FastMCP 2.0 & RFC 8785 canonical endpoints | Sub-millisecond TTFB; scale-to-zero compute cold boots |
+| **Mesh Defense** | $3f+1$ Byzantine cartel isolation, Anti-Diploma domain entropy, Galileo Rule | $W_i = 0.20 Q_i + 0.80 E_i$; $\ge 5$ distinct FQDNs; grounded minority override |
 
 Credence is engineered not merely to survive a crawler-dominant internet, but to serve as the **cryptographic bedrock of verified human reality**—ensuring that autonomous agents cooperate with restraint rather than drowning the digital commons in synthetic noise.
