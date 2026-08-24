@@ -3,7 +3,7 @@ title: Automated Morning Feed Sifter & Epistemic Digest
 description: Setting up zero-trust feed autodiscovery, dynamic quality governance,
   background sifting daemons, and automated executive intelligence briefings.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -54,19 +54,16 @@ View dynamic feed health rankings at any time:
 credence feed health
 ```
 
-```
-                Dynamic Feed Health & Epistemic Quality Rankings                
+Dynamic Feed Health & Epistemic Quality Rankings
 ┏━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┓
 ┃ ┃                        ┃ Quality ┃        Avg ┃       ┃  Entropy ┃         ┃
 ┃ ┃ Feed Title / Channel   ┃  (F_j)  ┃  Suspicion ┃ Grou… ┃      (H) ┃ Status  ┃
 ┡━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━┩
-│ │ ProPublica: Main Feeds │  0.89   │        4.2 │  100% │     0.88 │ ACTIVE  │
-│ │ The Markup: Investiga… │  0.87   │        6.1 │  100% │     0.84 │ ACTIVE  │
-│ │ Ars Technica: Lab      │  0.84   │        8.5 │   95% │     0.81 │ ACTIVE  │
-│ │ Krebs on Security      │  0.85   │        5.0 │  100% │     0.82 │ ACTIVE  │
-│ │ 404 Media              │  0.82   │        9.0 │   92% │     0.79 │ ACTIVE  │
-└─┴────────────────────────┴─────────┴────────────┴───────┴──────────┴─────────┘
-```
+| ProPublica: Main Feeds |  0.89   |        4.2 |  100% |     0.88 | ACTIVE
+| The Markup: Investiga… |  0.87   |        6.1 |  100% |     0.84 | ACTIVE
+| Ars Technica: Lab      |  0.84   |        8.5 |   95% |     0.81 | ACTIVE
+| Krebs on Security      |  0.85   |        5.0 |  100% |     0.82 | ACTIVE
+| 404 Media              |  0.82   |        9.0 |   92% |     0.79 | ACTIVE
 
 ---
 

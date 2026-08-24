@@ -3,7 +3,7 @@ title: Zero-Build Web Architecture
 description: Architectural decisions, W3C WebCrypto in-browser verification, and zero
   supply-chain attack surface.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -13,9 +13,9 @@ This document records the architectural decisions and invariants governing the p
 
 ---
 
-## 1. Architectural Invariant (Invariant 20)
+## 1. Architectural Invariant (The Invariant Bible)
 
-> **[Invariant 20](invariants.md#invariant-20): Web Frontend Zero-Build & Web Crypto Verification Invariant**
+> **[The Invariant Bible](invariants.md#invariant-20): Web Frontend Zero-Build & Web Crypto Verification Invariant**
 > - All public web frontends across the Credence ecosystem must be built strictly using **vanilla modern web standards** (Semantic HTML5, CSS Custom Properties, and native ES Modules) with **zero Node.js/npm build dependencies**.
 > - Client-side cryptographic verification of signed audit reports must strictly use the native W3C **Web Cryptography API** (`window.crypto.subtle`) rather than external JavaScript crypto libraries.
 
@@ -75,5 +75,4 @@ Across **`credence.report`**, **`credence.nexus`**, and **`credence.foundation`*
 * 🎮 [Interactive Zero-Build Playgrounds (12 Live WebCrypto Tools)](playground.md)
 * 🧩 [Vanilla Manifest V3 Browser Extension](integrations/browser-extension-mv3.md)
 * 🔬 [Case Study: Conflict of Pun-terest Forensics](../blog/conflict-of-pun-terest.md)
-* 🏛️ [System Invariant 20 & 21: Zero-npm & Multi-Domain Edge Routing](invariants.md)
-
+* 🏛️ [System The Invariant Bible & 21: Zero-npm & Multi-Domain Edge Routing](invariants.md)

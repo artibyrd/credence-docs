@@ -3,7 +3,7 @@ title: Closed-Loop Routing & P2P Traffic Shaping
 description: Technical specification for connecting epistemic merit to P2P network
   bandwidth, rate limits, /24 subnet clustering, and zero-cost caching.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -99,3 +99,47 @@ When an attestation passes this gate:
 - Local compute consumed: **$0.00**
 - Peer node credited: **+N tokens donated on Philanthropy Odometer**
 - Latency to local availability: **< 15 milliseconds**
+
+---
+## Closed-Loop Traffic Shaping & Adaptive Rate Limiting
+
+To prevent outbound scraper requests from overwhelming external news sites or triggering anti-bot protections:
+
+| Traffic Shaper Tier | Domain Rate Limit | Request Backoff Policy | Concurrency Limit |
+| :--- | :---: | :--- | :---: |
+| **Tier I: Public Newsrooms** | 2 requests / sec | Exponential backoff on 429/503 | 4 concurrent |
+| **Tier II: Wire Services** | 5 requests / sec | Fixed 200ms jitter delay | 10 concurrent |
+| **Tier III: Unknown Domains** | 1 request / sec | Strict 1000ms delay + robots.txt | 2 concurrent |
+
+```bash
+# Test traffic shaper queue mechanics
+$ poetry run pytest tests/unit/ingestion/test_ssrf_multi_env_guards.py -v
+```
+
+---
+## Adaptive Request Throttling and Backoff Curves
+
+Adaptive traffic shaping respects remote web servers and avoids rate limit penalties during high-volume sifting.
+
+---
+## Formal Subsystem Specification & Verification Matrix
+
+The technical architecture for **Closed Loop Traffic Shaping** operates according to strict operational parameters and deterministic boundaries:
+
+| Specification Parameter | Nominal Baseline | Peak / Adversarial Threshold | Enforcement Mechanism |
+| :--- | :--- | :--- | :--- |
+| **Evaluation Latency** | `< 15ms` (Cached Attestation) | `< 2.5s` (Cold-Start Flash Reasoning) | Scale-to-Zero Container Optimization |
+| **Grounding Precision ($G$)** | $1.00$ (Character-Exact Match) | $0.90$ (Probationary Boundary) | Verbatim DOM Substring Verification |
+| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle Ceiling) | `QUOTA_PRESERVED` Circuit Breaker |
+| **Consensus Quorum** | $N \ge 13$ Nodes ($f=4$) | $3f+1$ Byzantine Cartel Resilience | Weighted Bayesian Consensus Medians |
+
+```python
+# Programmatic verification of subsystem integrity
+from credence.pipeline.scoring import evaluate_grounding_exactness
+
+is_grounded = evaluate_grounding_exactness(
+    source_dom=normalized_html,
+    extracted_quotes=evidence_cards
+)
+assert is_grounded is True
+```

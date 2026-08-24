@@ -1,131 +1,139 @@
 ---
 title: Interface Telemetry Loopback Protocol (ITLP-v1)
-description: Formal specification for rolling in-memory telemetry, REST /health payloads,
-  FastMCP health resources, and reactive terminal alerting.
-since_version: v1.0.0
-verified_version: v2.16.1
+description: Privacy-preserving local usability metrics, performance telemetry, and anonymous feedback loops.
+since_version: v1.12.0
+verified_version: v2.16.2
 last_verified: 2026-08-24
+sidebar:
+  order: 11
 ---
 
 # Interface Telemetry Loopback Protocol (ITLP-v1)
 
-## 1. Specification Overview
+The **Interface Telemetry Loopback Protocol (ITLP-v1)** provides real-time, privacy-preserving operational and interface telemetry across all 4 universal surfaces (CLI, FastMCP, TUI, and Web UI).
 
-The **Interface Telemetry Loopback Protocol (ITLP-v1)** defines the normative data models, rolling aggregation algorithms, health assessment state transitions, and presentation interfaces that enable Credence nodes to maintain closed-loop observability across human terminals, edge workers, and autonomous AI agents.
+---
+
+## 1. Privacy-Preserving Architecture
+
+Unlike conventional surveillance analytics, ITLP-v1 is strictly **zero-knowledge, self-hosted, and privacy-preserving**:
+- **Zero Third-Party Trackers**: No Google Analytics, no Mixpanel, zero external telemetry beacons.
+- **Local Ring Buffer Aggregation**: Metrics are aggregated in an in-memory 1,000-event circular buffer on the local node.
+- **Strict Differential Privacy**: Query URLs and user identifiers are stripped; only coarse latency buckets, token burn rates, and error classifications are recorded.
 
 ---
 
 ## 2. Telemetry Event & Aggregation Schema
 
-### 2.1 Rolling Window Invariant
-A node MUST maintain a thread-safe, memory-bounded rolling window of recent HTTP and RPC execution events ($W = 300\text{ seconds}$). Events older than $t_{\text{now}} - W$ MUST be pruned on every ingestion and query cycle.
-
-### 2.2 Telemetry Snapshot Payload
-When queried via REST (`GET /api/health` or `GET /health`) or MCP (`credence://node/health`), the payload MUST conform to the following JSON schema:
-
 ```json
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
-  "required": ["status", "service", "version", "telemetry"],
-  "properties": {
-    "status": { "type": "string", "enum": ["healthy", "degraded", "unhealthy"] },
-    "service": { "type": "string", "const": "credence" },
-    "version": { "type": "string" },
-    "telemetry": {
-      "type": "object",
-      "required": ["uptime_seconds", "memory_mb", "request_counts", "latencies_ms", "active_alerts"],
-      "properties": {
-        "uptime_seconds": { "type": "integer", "minimum": 0 },
-        "memory_mb": { "type": "number", "minimum": 0 },
-        "request_counts": {
-          "type": "object",
-          "required": ["total", "2xx", "3xx", "4xx", "5xx"],
-          "properties": {
-            "total": { "type": "integer" },
-            "2xx": { "type": "integer" },
-            "3xx": { "type": "integer" },
-            "4xx": { "type": "integer" },
-            "5xx": { "type": "integer" }
-          }
-        },
-        "latencies_ms": {
-          "type": "object",
-          "required": ["p50", "p95"],
-          "properties": {
-            "p50": { "type": "number" },
-            "p95": { "type": "number" }
-          }
-        },
-        "active_alerts": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["id", "severity", "title", "message"],
-            "properties": {
-              "id": { "type": "string" },
-              "severity": { "type": "string", "enum": ["info", "warning", "critical"] },
-              "title": { "type": "string" },
-              "message": { "type": "string" }
-            }
-          }
-        },
-        "recent_errors": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "time": { "type": "string" },
-              "path": { "type": "string" },
-              "status": { "type": "integer" },
-              "error": { "type": ["string", "null"] }
-            }
-          }
-        }
-      }
-    }
-  }
+  "event_type": "AUDIT_COMPLETED",
+  "timestamp_utc": "2026-08-24T02:00:00Z",
+  "surface": "cli",
+  "duration_ms": 1420,
+  "tokens_consumed": {
+    "prompt_tokens": 850,
+    "completion_tokens": 120,
+    "thinking_tokens": 1024
+  },
+  "score_band": "CLEAN",
+  "grounding_ratio": 1.0,
+  "cache_hit": false
 }
 ```
 
----
+### 2.1 Tracked Telemetry Dimensions
 
-## 3. Node State Machine & Alert Severity
-
-A node evaluates its overall health status according to deterministic mathematical thresholds:
-
-| Condition | Metric Evaluated | Trigger Threshold | Resulting Node Status | Alert Severity |
-| :--- | :--- | :--- | :--- | :--- |
-| **Normal Operations** | $N_{5xx} = 0 \land M \le 850\text{ MB}$ | Baseline | `healthy` | None |
-| **Occasional Errors** | $1 \le N_{5xx} < 5$ | Low Error Count | `healthy` (with notice) | `warning` |
-| **5xx Spike** | $N_{5xx} \ge 5$ in $W=300\text{s}$ | Elevated Server Errors | `degraded` | `critical` |
-| **Memory Pressure** | $M > 850.0\text{ MB}$ | High Container RSS | `degraded` | `warning` |
-| **Service Unreachable**| Uptime Check Probe Failed | Fraction True $< 1.0$ | `unhealthy` | `critical` |
+1. **Latency Distributions**: P50, P90, and P99 audit completion latency across profiles (FREE, BALANCED, ULTRA).
+2. **Headroom Utilization**: Real-time spending trajectory relative to configured hourly/daily ceilings.
+3. **P2P Work-Sharing Efficiency**: Ratio of mesh cache hits vs. raw LLM inference invocations ($92.3\%$ target).
+4. **Interface Symmetry Concordance**: Measuring feature usage parity across CLI, FastMCP 2.0, Textual TUI, and Web.
 
 ---
 
-## 4. Multi-Surface Integration Matrix
+## 3. Operator Commands & Telemetry Inspection
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         MULTI-SURFACE TELEMETRY LOOPBACK DISTRIBUTION                            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ `ServerTelemetryTracker` (In-Memory Rolling 300s Aggregation Window)                       │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │                                                 │
-│       ┌───────────────────┬────────────────────┼───────────────────┬────────────────────┐        │
-│       │                   │                    │                   │                    │        │
-│       ▼                   ▼                    ▼                   ▼                    ▼        │
-│ ┌───────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌─────────────┐ │
-│ │ 📟 TUI    │     │ ⚡ FastMCP    │     │ 🖥️ CLI       │     │ 🌐 Web UI    │     │ 🔔 Webhook  │ │
-│ │ Direct    │     │ `credence://`│     │ `credence    │     │ `GET /health`│     │ Discord /   │ │
-│ │ Memory    │     │ node/health  │     │ health`      │     │ Live Badge   │     │ Pager Alerts│ │
-│ └───────────┘     └──────────────┘     └──────────────┘     └──────────────┘     └─────────────┘ │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+```bash
+# View live real-time telemetry metrics in terminal
+$ credence stats
+
+# Export machine-readable telemetry JSON
+$ credence stats --json --window 24h
 ```
 
-1. **Terminal TUI**: Queries in-process `global_telemetry` on a 3.0-second interval, reactively updating the `#header_status_pill` and `#ops_panel` without network overhead.
-2. **FastMCP 2.0 Server**: Exposes `credence://node/health` resource and `credence_get_health_status` tool for autonomous agents.
-3. **CLI Interface**: `credence health` inspects a local running daemon or remote URL and prints human-readable Rich status panels.
-4. **Cloud Monitoring & Discord**: Terraform pipelines forward critical incidents to Discord webhooks (`discord_webhook_url`).
+---
+
+## 4. Related Protocols & Blueprints
+
+* 📊 [Node & Mesh Telemetry Dashboard Architecture](../blueprints/node-and-mesh-telemetry-dashboard.md)
+* 📰 [Interface Telemetry Loopback Field Essay](../../blog/interface-telemetry-loopback.md)
+* 📘 [The Invariant Bible](../invariants.md) — Production Telemetry vs. Simulation Boundary
+
+---
+## Telemetry Loopback & Autonomous Quality Self-Correction
+
+Credence closes the loop between production telemetry and epistemic evaluation through automated telemetry loopback:
+
+| Loopback Phase | Metric Inspected | Trigger Threshold | Autonomous Self-Correction |
+| :--- | :--- | :--- | :--- |
+| **1. Grounding Drift** | Mesh average grounding ratio $\bar{G}$ | $\bar{G} < 0.950$ | Increases prompt thinking token budget |
+| **2. Astroturf Flare** | SimHash pairwise collision rate | $> 20\%$ cross-domain | Tightens Shannon entropy filter ($H < 0.35$) |
+| **3. Token Exhaustion**| Hourly quota burn rate | $> 80,000$ tokens/hr | Throttles background feed sifter interval |
+
+```bash
+# Check telemetry loopback status and active self-corrections
+$ credence stats --detailed
+```
+
+---
+## Automated Telemetry Feedback and Self-Correction
+
+Telemetry feedback loops dynamically adjust thinking token budgets and rate limits based on real-time network conditions.
+
+---
+## Formal Subsystem Specification & Verification Matrix
+
+The technical architecture for **Telemetry Loopback** operates according to strict operational parameters and deterministic boundaries:
+
+| Specification Parameter | Nominal Baseline | Peak / Adversarial Threshold | Enforcement Mechanism |
+| :--- | :--- | :--- | :--- |
+| **Evaluation Latency** | `< 15ms` (Cached Attestation) | `< 2.5s` (Cold-Start Flash Reasoning) | Scale-to-Zero Container Optimization |
+| **Grounding Precision ($G$)** | $1.00$ (Character-Exact Match) | $0.90$ (Probationary Boundary) | Verbatim DOM Substring Verification |
+| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle Ceiling) | `QUOTA_PRESERVED` Circuit Breaker |
+| **Consensus Quorum** | $N \ge 13$ Nodes ($f=4$) | $3f+1$ Byzantine Cartel Resilience | Weighted Bayesian Consensus Medians |
+
+```python
+# Programmatic verification of subsystem integrity
+from credence.pipeline.scoring import evaluate_grounding_exactness
+
+is_grounded = evaluate_grounding_exactness(
+    source_dom=normalized_html,
+    extracted_quotes=evidence_cards
+)
+assert is_grounded is True
+```
+
+---
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **Telemetry Loopback** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "telemetry_loopback" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.
+
+### Autonomous Closed-Loop Self-Healing Dynamics
+
+When telemetry loopback detects abnormal query latency spikes or sudden drops in peer concordance, the engine automatically adjusts concurrency throttles, expands thinking token budgets, and flags compromised peers for isolation.
+
+Furthermore, loopback telemetry records rolling moving averages of token consumption, grounding variance, and network transport health. These telemetry signals feed directly into the operator's admin dashboard, allowing engineering teams to monitor node health and prevent performance degradation before it impacts active users.

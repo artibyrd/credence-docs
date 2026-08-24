@@ -1,96 +1,118 @@
 ---
-title: 'Tutorial 01: Auditing Anonymous Clickbait'
-description: Learn how to use the Credence CLI to audit unverified web articles and
-  inspect grounded citations.
+title: 'Tutorial 01: Dissecting Sensationalized Headlines & Clickbait'
+description: Learn how Credence uses offline heuristic regexes and syllogistic reasoning to tear down hyperbolic headlines.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 sidebar:
   order: 1
 ---
 
-# Tutorial 01: Auditing Anonymous Clickbait
+# Tutorial 01: Dissecting Sensationalized Headlines & Clickbait
 
-Learn how to use the **Credence CLI** to audit an unverified, sensationalized web article, inspect its DOM extraction, verify grounded quote offsets ($G = 1.0$), and calculate suspicion scores.
-
----
-
-## What You'll Learn
-- How Credence captures web snapshots via Playwright headless Chromium.
-- How the Multi-Agent Pipeline checks claims against the **SPJ Code of Ethics** catalog.
-- How the Grounded Quote Validator eliminates hallucinations.
-- How to inspect findings in the CLI and view the cryptographic JSON envelope.
+In this hands-on tutorial, you will learn how Credence analyzes sensationalized headlines, detects emotional manipulation, and calculates the **Clickbait Severity Index (CSI)** using both offline heuristics and reasoning models.
 
 ---
 
-## 1. Running Your First Audit
+## 1. The Anatomy of Clickbait
 
-To evaluate an online URL:
+Clickbait relies on specific linguistic patterns designed to trigger dopamine responses and exploit curiosity gaps:
+1. **The Curiosity Gap**: Deliberately withholding the core subject (`"You won't believe what happened next..."`).
+2. **Superlative Saturation**: Excessive use of extreme adjectives (`"Shocking"`, `"Mind-blowing"`, `"Unbelievable"`).
+3. **Emotional Provocation**: Framing neutral events in high-arousal moral outrage terms.
+
+---
+
+## 2. Running Your First Clickbait Audit
+
+Execute an audit on a hyperbolic headline using the CLI:
 
 ```bash
-credence audit https://example.com/breaking-news --profile BALANCED
+# Basic audit using the default BALANCED profile (1,024 thinking tokens)
+$ credence audit "https://example-news-blog.com/shocking-breakthrough-revealed"
+
+# Run in FREE offline mode (0 tokens, 100% heuristic regexes)
+$ credence audit "https://example-news-blog.com/shocking-breakthrough-revealed" --profile free
 ```
 
-### What Happens Behind the Scenes:
-1. **DOM Ingestion**: Headless Chromium navigates to the page, strips tracking scripts and cookie banners, extracts clean prose text, and hashes the DOM.
-2. **Specialist Evaluation**: 4 specialist agents analyze sourcing attribution, sensationalized headlines, and logical fallacies.
-3. **Citation Verification**: Every reported violation is tested against the DOM text. If a quote cannot be found verbatim (accounting for collapsed whitespace sequences), it is discarded and the node's quality score is penalized.
+### Understanding the Terminal Output
 
----
-
-## 2. Reading the Terminal Output
-
-```text
-============================================================
-Credence Epistemic Audit Report
-Target URL: https://example.com/breaking-news
-Snapshot SHA-256: 7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069
-Evaluated At: 2026-08-17T16:00:00Z
-============================================================
-
-Overall Suspicion Score: 84.5 / 100 [HIGH SUSPICION]
-Violation Density: 4.2 violations / 1,000 words
-Grounded Quote Verification: 100% (G = 1.0)
-
-Detected Violations:
-  [SPJ-1.1] Anonymous Sourcing Violation (Severity: 4)
-    Quote: "Officials who spoke on condition of anonymity revealed secret plans..."
-    Rationale: Major factual assertion lacks named attribution or corroborating documents.
-
-  [FALLACY-3.2] Appeal to Fear / Sensationalism (Severity: 3)
-    Quote: "Total disaster is imminent unless drastic measures are taken immediately."
-    Rationale: Emotional hyperbolic language without supporting statistical evidence.
-============================================================
+```json
+{
+  "url": "https://example-news-blog.com/shocking-breakthrough",
+  "classification": "SUSPICIOUS",
+  "suspicion_score": 58.4,
+  "grounding_ratio": 0.42,
+  "verdict": "Low grounding ratio and unverified claims"
+}
 ```
 
 ---
 
+## 3. Dissecting the Forensic Evidence
+
+Credence compares the extracted headline against the core claim entities extracted from the article DOM:
+- **Headline Claim**: `"Scientists Reveal Miracle Cancer Cure!"`
+- **Article Body Reality**: Study conducted in petri dishes on isolated cell cultures with no clinical trials.
+- **Verdict**: Critical headline-body dissonance violation (`SPJ-1.1`), elevating suspicion by $+35.0$ points.
+
 ---
 
-## 3. Inspecting in the Textual TUI Workstation
+## 4. Next Steps
 
-You can also inspect clickbait and deceptive patterns interactively in the full-screen terminal workstation:
+* 🎓 [Tutorial 02: Poe's Law & Satire Cloaking](02-satire-vs-disinformation.md)
+* 🤖 [Tutorial 03: FastMCP 2.0 with Claude & Cursor](03-claude-cursor-fastmcp.md)
+
+---
+## Step-by-Step CLI Forensic Teardown
+
+To deconstruct sensationalist clickbait and unnamed sourcing using the Credence CLI, follow these sequential steps:
+
+### Step 1: Execute Heuristic & Claim Analysis
+```bash
+$ credence audit https://example.com/shocking-breakthrough --verbose
+```
+
+### Step 2: Interpret the Multi-Vector Forensic Output
+```json
+{
+  "url": "https://example.com/shocking-breakthrough",
+  "clickbait_index": 84.5,
+  "superlative_density": 0.12,
+  "verbatim_grounding_ratio": 0.42,
+  "suspicion_score": 58.4,
+  "classification": "SUSPICIOUS",
+  "violations": [
+    { "rule_id": "SPJ-1.1", "severity": "HIGH", "quote": "Scientists confirm miracle discovery that changes everything" },
+    { "rule_id": "IEP-SRC-3", "severity": "MEDIUM", "quote": "According to anonymous insiders close to the project" }
+  ]
+}
+```
+
+| Detection Vector | Metric Formula / Pattern | Measured Value | Threshold & Verdict |
+| :--- | :--- | :---: | :--- |
+| **Clickbait Title Index** | Superlatives / Total Title Tokens | `84.5 / 100` | Exceeds 60.0 (Flagged) |
+| **Verbatim Grounding ($G$)** | Cited DOM Text / Claim Text | `0.42` | Fails $G=1.00$ mandate |
+| **Unnamed Attribution** | `regex: anonymous (sources|insiders|officials)` | `2 occurrences` | Triggers SPJ-1.1 warning |
+
+---
+## Hands-On Clickbait Analysis and Claim Extraction
+
+Practical tutorial demonstrating how to extract assertions, identify unnamed sources, and interpret suspicion scores.
+
+---
+## Summary Verification Checklist & Command Reference
+
+Complete the following validation steps to confirm successful execution of **01 Clickbait Teardown**:
+
+| Verification Step | Target Output / State | Troubleshooting Action |
+| :--- | :--- | :--- |
+| **1. Identity Check** | Valid Ed25519 public key printed | Run `credence germinate` to mint identity |
+| **2. Storage Status** | SQLite WAL state store initialized | Verify directory write permissions (`chmod 0755 data/`) |
+| **3. Mesh Peering** | Connected to $\ge 3$ seed peers | Check firewall WebSocket ports (`8080/tcp`) |
+| **4. Attestation Proof**| RFC 8785 signed JSON receipt minted | Verify `assets/attestations.json` sync |
 
 ```bash
-credence tui
+# Execute end-to-end verification
+$ credence stats --json
 ```
-
-Press `/`, submit the URL, and examine the dual-pane inspector:
-
-![Credence TUI Workstation](../../assets/tui/01-inspector-rich.svg)
-
-* **Left Panel**: Filter violations by severity or domain (e.g. `SPJ-1.1`, `MED-1.2`, `DP-1.1`).
-* **Right Panel**: Full verbatim grounded quotes and specialist justifications.
-* Press `v` to toggle between **Rich Takeaway**, **Compact Digest**, and **Raw RFC 8785 JSON** modes.
-
----
-
-## 4. Exporting the Signed Attestation
-
-To export the signed RFC 8785 canonical JSON envelope:
-
-```bash
-credence export --url https://example.com/breaking-news --output breaking-news.credence.json
-```
-
-Inspect the exported file to view the Ed25519 public key, timestamp, content hash, and signed payload.

@@ -3,7 +3,7 @@ title: Featherweight Swarm Simulation & Low-Resource Testing
 description: How Credence runs 13-node Byzantine-resistant P2P mesh cluster simulations
   in under 150MB of RAM and 4.5 seconds on dual-core laptops and Raspberry Pis.
 since_version: v1.6.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -93,21 +93,16 @@ By mocking the outer HTTP boundary while preserving 100% real Ed25519 cryptograp
 
 Despite its ultra-low resource profile, the test gauntlet verifies deep distributed systems properties:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         13-NODE PATHOLOGICAL TEST GAUNTLET                                       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┬────────────────────────────────────────────────────────────────┐   │
-│ │ Gauntlet Stage            │ Invariant Tested & Expected Behavior                           │   │
-│ ├───────────────────────────┼────────────────────────────────────────────────────────────────┤   │
-│ │ 1. Epidemic Diffusion     │ Single attestation reaches 13 nodes in <450ms with storm guard │   │
-│ │ 2. Sybil Cartel (3f+1)    │ 4 collusive nodes isolated; Galileo Rule overrides false swarm │   │
-│ │ 3. Linear Daisy Chain     │ Strict TTL and hop-count exhaustion prevents infinite loops    │   │
-│ │ 4. Eclipse Partition      │ Ring-shattering recovery heals network partitions (<1.2s)      │   │
-│ │ 5. Swarm Germination      │ HRW feed partitioning achieves 92.3% compute savings at $0.00  │   │
-│ └───────────────────────────┴────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+13-NODE PATHOLOGICAL TEST GAUNTLET
+--------------------------------------------------------------------------------+
+| Gauntlet Stage            | Invariant Tested & Expected Behavior                           |
+--------------------------------------------------------------------------------+
+| 1. Epidemic Diffusion     | Single attestation reaches 13 nodes in <450ms with storm guard |
+| 2. Sybil Cartel (3f+1)    | 4 collusive nodes isolated; Galileo Rule overrides false swarm |
+| 3. Linear Daisy Chain     | Strict TTL and hop-count exhaustion prevents infinite loops    |
+| 4. Eclipse Partition      | Ring-shattering recovery heals network partitions (<1.2s)      |
+| 5. Swarm Germination      | HRW feed partitioning achieves 92.3% compute savings at $0.00  |
+--------------------------------------------------------------------------------+
 
 ### 1. Multi-Hop Epidemic Diffusion
 - Injects a single signed attestation at Node 1 and measures propagation time across 13 hops ($d=4$).

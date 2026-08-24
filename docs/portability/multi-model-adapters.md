@@ -3,7 +3,7 @@ title: The Multi-Model Provider Architecture
 description: Configuring Credence with Anthropic Claude 3.7 Sonnet, OpenAI GPT-4o
   / o3-mini, DeepSeek-R1, and Local Ollama / vLLM.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -102,3 +102,8 @@ class CustomEnterpriseLLMProvider(LLMProvider):
         # 3. Parse JSON violations and return structured AuditResult
         pass
 ```
+
+---
+## Multi-Model Provider Architecture and Fallbacks
+
+Pluggable model adapters support Gemini, Claude, GPT-4o, DeepSeek-R1, and local Ollama with automatic fallback capabilities.

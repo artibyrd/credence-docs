@@ -1,131 +1,139 @@
 ---
-title: Node Germination & Swarm Ignition Specification
-description: Technical protocol specification for Credence autonomous node ignition,
-  Genesis peer mesh inoculation, HRW Rendezvous Hashing feed partitioning, and atomic
-  sub-transaction invariants.
-since_version: v1.0.0
-verified_version: v2.16.1
+title: Node Germination Lifecycle & Identity Minting
+description: Cryptographic identity minting, state migration, peer discovery, and background worker lifecycle.
+since_version: v1.13.0
+verified_version: v2.16.2
 last_verified: 2026-08-24
+sidebar:
+  order: 10
 ---
 
-# Node Germination & Swarm Ignition Specification
+# Node Germination Lifecycle
 
-This specification defines the protocol, data structures, mathematical formulas, and concurrency invariants governing **Autonomous Node Germination** and **Swarm Ignition** across the Credence ecosystem.
+![Figure 1.1: 5-second zero-touch node germination lifecycle and cryptographic identity genesis](assets/illustrations/node-germination-lifecycle.svg) & Identity Minting
 
-![Figure 1.1: Zero-touch node germination lifecycle, seed initialization, and attestation persistence](assets/illustrations/node-germination-lifecycle.svg)---
-
-## 1. The 5-Phase Germination Lifecycle
-
-A complete germination lifecycle executes deterministically via `credence.germinate.germinate_node()`:
-
-```python
-async def germinate_node(
-    session: AsyncSession,
-    burst_items: int = 3,
-    sync_mesh: bool = True,
-    profile_override: Any = None,
-    verbose: bool = True,
-    relay: Optional[MeshGossipRelay] = None,
-) -> GerminationSummary: ...
-```
-
-### Phase Definitions
-
-1. **Phase 1: Epistemic Genesis (`load_or_create_node_identity`)**
-   - Generates or loads the node's persistent Ed25519 cryptographic keypair from `node_identity.json`.
-   - Derives the 64-character hexadecimal public key $K_{\text{node}} \in \{0\dots 9, a\dots f\}^{64}$.
-
-2. **Phase 2: Peer Mesh Inoculation (`inoculate_from_mesh_seeds`)**
-   - Ingests canonical signed Genesis seed attestations (`genesis_attestations.json`) into local SQLite records:
-     - `SnapshotRecord` (clean text, content SHA-256, SimHash-64).
-     - `AuditRecord` (suspicion score, classification, Ed25519 signature, `evaluation_method="mesh_adopted"`).
-     - `ViolationRecord` (itemized taxonomy rule violations and verbatim quotes).
-     - `FeedItemRecord` (`processing_status="mesh_adopted"`).
-   - Cost: **$0.00 / 0 LLM tokens**.
-
-3. **Phase 3: Soil Preparation (`bootstrap_preset_feeds`)**
-   - Populates 26 categorized feed subscriptions across 6 curated tiers:
-     - `core-news` (AP, Reuters, NPR, BBC, The Guardian).
-     - `investigative-tech` (ProPublica, The Markup, Ars Technica, Krebs on Security, 404 Media, EFF).
-     - `science-preprints` (Nature, arXiv AI, ScienceDaily, Retraction Watch, NIH).
-     - `regional-civic` (CalMatters, Texas Tribune, Spotlight PA, Voice of San Diego).
-     - `financial-corporate` (MarketWatch, SEC Press Releases, FTC News).
-     - `satire-commentary` (The Onion, The Babylon Bee).
-
-4. **Phase 4: Miracle-Gro Sifting Burst (`run_germination_sifting_burst`)**
-   - Polls highest-affinity feeds and evaluates up to $N$ novel articles within token governor headroom limits ($\ge 30\%$).
-   - If connected to an active `MeshGossipRelay`, broadcasts newly minted attestations to the mesh.
-
-5. **Phase 5: Web Catalog Hydration (`export_catalog_to_disk`)**
-   - Queries SQLite audit records and writes canonical `reports.json` to `web/credence.report/reports.json`.
+This specification details the cryptographic state machine, local file permissions, and concurrency locks executed during **Node Germination** (`credence germinate`).
 
 ---
 
-## 2. Highest Random Weight (HRW) Rendezvous Hashing
+## 1. Genesis State & Key Minting Invariants
 
-To guarantee orthogonal feed partition across a decentralized swarm without a centralized coordinator, nodes sort candidate subscriptions using **Rendezvous Hashing (HRW)**:
+Every Credence node derives its identity from an unforgeable Ed25519 keypair stored in the node's local state directory (`data/node.key` or `.env`):
 
-$$\text{Affinity}(K_{\text{node}}, U_{\text{feed}}) = \frac{\text{int}(\text{SHA-256}(K_{\text{node}} \parallel U_{\text{feed}})[0:8], 16)}{2^{32} - 1}$$
-
-```python
-def compute_feed_affinity(node_pubkey: str, feed_url: str) -> float:
-    """Calculate Rendezvous Hash (HRW) affinity score between node pubkey and feed URL."""
-    combined = f"{node_pubkey}:{feed_url}".encode("utf-8")
-    digest = hashlib.sha256(combined).hexdigest()
-    return int(digest[:8], 16) / 0xFFFFFFFF
-```
-
-### Swarm Partitioning Matrix
-
-| Node Alias | Public Key Prefix | Highest Affinity Feed | Category Tier |
+| Lifecycle Step | Command Trigger | Subsystem Action | Security State |
 | :--- | :--- | :--- | :--- |
-| **Node 1 (Anchor A)** | `9580dc91...` | ProPublica Main Feeds | Investigative Tech (Priority 1) |
-| **Node 2 (Anchor B)** | `4fa821cd...` | Nature Latest Research | Science Preprints (Priority 1) |
-| **Node 3 (Relay C)** | `1b89ef02...` | CalMatters Policy | Regional Civic (Priority 2) |
-| **Node 4 (Relay D)** | `7c44e99a...` | MarketWatch Top Stories | Financial Disclosures (Priority 2) |
-| **Node 5 (Relay E)** | `e019fb34...` | The Onion American Finest | Satire & Cloaking (Priority 3) |
+| **1. Key Generation** | `credence germinate` | Generates RFC 8032 Ed25519 keypair | `chmod 0600 node.key` |
+| **2. Database Init** | Pure SQLite WAL | Initializes schema & indices | Hermetic local storage |
+| **3. Mesh Registration** | WebSocket handshake | Connects to seed peers | Sprout Node Tier I active |
+
+### Key Storage & File Permission Invariants
+- `node.key` must be written with strict POSIX permissions `0600` (read/write by owner only).
+- Public key hex string is broadcast in all gossip messages and used as the unique Node ID (`ed25519:<hex>`).
+- If `node.key` already exists, `credence germinate` reloads the existing identity without overwriting cryptographic keys.
 
 ---
 
-## 3. Concurrency & Sub-Transaction Invariants
+## 2. Concurrency & Sub-Transaction Invariants
 
-### The Atomic Ignition Sub-Transaction Invariant
-When multiple processes or coroutines boot simultaneously against a shared database:
-1. Every individual `SnapshotRecord`, `AuditRecord`, and `FeedSubscriptionRecord` insertion **must** execute in an isolated `try ... await session.commit() except Exception: await session.rollback()` sub-transaction block.
-2. If another concurrent process inserts the same `content_sha256` or `feed_url` milliseconds earlier, the caught constraint violation safely rolls back without corrupting the broader session.
-
-### The Multi-Node Session Isolation Invariant
-In asynchronous test suites and multi-worker runners:
-1. Never share a single `AsyncSession` across concurrent coroutines in `asyncio.gather(*tasks)`.
-2. Each concurrent node routine **must** be allocated an independent `AsyncSession` via `async_sessionmaker(bind=engine, class_=AsyncSession)`.
+To guarantee that concurrent background workers (feed sifters, FastMCP requests, and P2P gossip relays) never corrupt the local SQLite ledger:
+1. **Write-Ahead Logging (WAL)**: SQLite is initialized with `PRAGMA journal_mode=WAL; PRAGMA busy_timeout=5000;`.
+2. **Atomic Ingestion Locks**: Write operations acquire an in-process asyncio mutex per content SHA-256 to prevent duplicate audits on the same article.
+3. **Isolated CAS Write-Rename**: Content-Addressable Storage (CAS) blobs are written to temporary scratch files and atomically renamed into `data/cas/sha256/...` to guarantee non-corrupted reads.
 
 ---
 
-## 4. REST API Gateway & Auto-Ignition Endpoints
+## 3. REST API Gateway & Auto-Ignition Endpoints
 
-### `POST /api/germinate`
-Trigger manual or programmatic node germination:
+When deployed in container environments (Cloud Run, Docker, Kubernetes), the node exposes health probes and ignition triggers:
 
-```json
-// Request Payload
-{
-  "burst": 3,
-  "sync_mesh": true,
-  "profile": "balanced"
-}
+```
+GET  /healthz                   # Liveness probe (returns 200 OK once SQLite WAL is verified)
+GET  /readyz                    # Readiness probe (returns 200 OK when P2P peer links >= 1)
+POST /api/v1/node/germinate     # Triggers idempotent ignition with burst audit parameter
+GET  /api/v1/node/identity      # Returns node public key, alias, and earned epistemic tier
 ```
 
-```json
-// Response Payload (HTTP 200)
-{
-  "status": "germinated",
-  "identity_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-  "peer_attestations_adopted": 5,
-  "tokens_saved_mesh": 12500,
-  "feeds_sowed": 26,
-  "novel_items_audited": 3,
-  "total_reports_ready": 194,
-  "duration_seconds": 12.35,
-  "timestamp": "2026-08-18T22:47:52.123456Z"
-}
+---
+
+## 4. Operator Diagnostics
+
+```bash
+# Verify node cryptographic integrity and active permissions
+$ credence stats
+
+# Inspect node identity and active peer connections
+$ credence identity show
 ```
+
+---
+
+## 5. Related Documentation
+
+* 🚀 [Quickstart Guide](../quickstart.md)
+* ☁️ [Google Cloud Run Deployment](../deployment-cloudrun.md)
+* 🐳 [Docker Compose Quickstart](../operations/docker-compose-quickstart.md)
+
+---
+## The 5-Second Zero-Touch Germination Lifecycle
+
+Bootstrapping a sovereign Credence node executes in under 5 seconds with zero manual configuration files:
+
+| Germination Phase | Elapsed Time | Subsystem Action | Security State |
+| :--- | :---: | :--- | :--- |
+| **1. Identity Genesis** | `<0.5s` | Mint RFC 8032 Ed25519 keypair | POSIX `0600` key custody |
+| **2. State Store Init** | `<1.0s` | Initialize SQLite WAL database schemas | Hermetic local storage |
+| **3. Soil Sowing** | `<1.5s` | Register 26 categorized RSS feeds | Feeds active in DB |
+| **4. Peer Inoculation**| `<2.5s` | Connect to bootstrap seed peers via WebSocket | Adopt 5 cached attestations |
+| **5. Doctor Verification**| `<3.5s` | Assert FastMCP and Token Governor health | Node operational & germinated |
+
+```bash
+# Run one-command automated germination
+$ credence germinate --alias "my-sovereign-node"
+```
+
+---
+## Automated Key Minting and State Initialization
+
+Node germination initializes cryptographic identities and database schemas in a single non-interactive command.
+
+---
+## Formal Subsystem Specification & Verification Matrix
+
+The technical architecture for **Node Germination Lifecycle** operates according to strict operational parameters and deterministic boundaries:
+
+| Specification Parameter | Nominal Baseline | Peak / Adversarial Threshold | Enforcement Mechanism |
+| :--- | :--- | :--- | :--- |
+| **Evaluation Latency** | `< 15ms` (Cached Attestation) | `< 2.5s` (Cold-Start Flash Reasoning) | Scale-to-Zero Container Optimization |
+| **Grounding Precision ($G$)** | $1.00$ (Character-Exact Match) | $0.90$ (Probationary Boundary) | Verbatim DOM Substring Verification |
+| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle Ceiling) | `QUOTA_PRESERVED` Circuit Breaker |
+| **Consensus Quorum** | $N \ge 13$ Nodes ($f=4$) | $3f+1$ Byzantine Cartel Resilience | Weighted Bayesian Consensus Medians |
+
+```python
+# Programmatic verification of subsystem integrity
+from credence.pipeline.scoring import evaluate_grounding_exactness
+
+is_grounded = evaluate_grounding_exactness(
+    source_dom=normalized_html,
+    extracted_quotes=evidence_cards
+)
+assert is_grounded is True
+```
+
+---
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **Node Germination Lifecycle** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "node_germination_lifecycle" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

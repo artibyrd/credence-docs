@@ -1,62 +1,129 @@
 ---
-title: 'Operational Guide: Cost Governance, Dashboard & AI Optimizer'
-description: Comprehensive operational guide for managing operational cost profiles, live budget overrides, Emergency Brake controls, and the Autonomous AI Cost Optimizer.
-since_version: v1.17.0
-verified_version: v2.16.1
+title: 'Operational Guide: Cost Governance & Real-Time Token Dashboard'
+description: Managing spending limits, inspecting token burn rates, tripping circuit breakers, and configuring live cost dashboards.
+since_version: v1.12.0
+verified_version: v2.16.2
 last_verified: 2026-08-24
+sidebar:
+  order: 19
 ---
 
-# Operational Guide: Cost Governance, Dashboard & AI Optimizer
+# Operational Guide: Cost Governance & Real-Time Token Dashboard
 
-Credence incorporates an autonomous **Cost Governance & Resource Optimization** engine designed to prevent runaway cloud bills while maintaining full multi-agent reasoning fidelity ($G=1.00$).
-
----
-
-## 1. The 5 Operational Cost Profiles
-
-Credence provides 5 distinct cost profiles, defaulting to **`ECONOMY`**—the most conservative profile that is 100% fully functional with Gemini 3.7 Flash reasoning:
-
-| Profile | Target Audience | Primary Model | Thinking Budget | Max Daily Budget | Max Tokens / Hour | Concurrency |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **`OFFLINE`** | Air-gapped testing | *Local Rules* | 0 tokens | **$0.00** | 0 tokens | 1 |
-| **`FREE`** | Zero-marginal-cost | `gemini-2.0-flash-lite` | 0 tokens | **$0.00** | 50,000 | 1 |
-| 🏆 **`ECONOMY` (DEFAULT)** | **Conservative Developer** | **`gemini-3.7-flash`** | **512 tokens** | **$0.15 / day** | **50,000** | **2** |
-| **`BALANCED`** | Production Developer | `gemini-3.7-flash` | 1,024 tokens | **$0.50 / day** | 100,000 | 3 |
-| **`ULTRA`** | Investigative Desk | `gemini-3.7-flash` | 4,096 tokens | **$5.00 / day** | 2,000,000 | 8 |
+This operational guide provides operators with complete instructions for monitoring LLM token expenditures, configuring financial tripwires, and managing the **Real-Time Cost Dashboard** (`credence.nexus/cost.html`).
 
 ---
 
-## 2. Deploy-Time Defaults vs Live Runtime Controls
+## 1. The Cost Governance Architecture
 
-- **Deploy-Time Defaults**: Defined in `.env` (`CREDENCE_PROFILE=economy`, `MAX_DAILY_BUDGET_USD=0.15`).
-- **Live Dynamic Runtime Controls**: Stored in Redis (`credence:settings:cost`) or database table, enabling zero-downtime updates across 500+ Cloud Run replicas in $<5\text{ms}$.
+The **Token Safety Governor** protects node operators from runaway API billing spikes by enforcing three strict spending boundaries:
+
+1. Hourly Token Ceiling: Max 100k tokens / hour
+2. Daily USD Hard Cap: Max $0.50 / day spend cap
+3. 30% Headroom Tripwire: Offline fallback at 70% burn
 
 ---
 
-## 3. The 1-Click Emergency Brake
+## 2. Real-Time Terminal Cost Diagnostics
 
-The Emergency Brake is a failsafe lever that instantly trips the circuit breaker into `QUOTA_PRESERVED` mode across all nodes:
+Operators can inspect token expenditures and spending velocity from the CLI:
 
 ```bash
-# Pull emergency brake via CLI
-credence cost stop --reason "Suspected billing anomaly"
+# View live token odometer and hourly budget status
+$ credence governor status
 
-# Resume normal operations
-credence cost resume
+# View detailed 30-day historical spending breakdown
+$ credence governor history --window 30d
+
+# Dynamically set new hourly token limit
+$ credence governor set --max-hourly 150000
+```
+
+### Sample Terminal Output
+
+╭---------------------- 💰 Token Safety Governor ----------------------╮
+Hourly Limit:     100,000 Tokens   | Used (This Hour): 14,250 (14.2%)
+Daily Cap (USD):  $0.50 Max        | Spent (Today):    $0.06 (12.0%)
+Headroom State:   ACTIVE (85.8% Headroom Available)
+Active Model:     gemini-3.7-flash ($0.34 / 1M tokens)
+Default Thinking: 1,024 Tokens
+Circuit Breaker:  ONLINE & READY
+╰----------------------------------------------------------------------╯
+
+---
+
+## 3. Emergency Circuit Breakers
+
+If an operator needs to instantly halt external LLM API consumption during an active development session:
+
+```bash
+# Trip emergency manual circuit brake
+$ credence governor brake --reason "Manual override for local development"
+
+# Resume autonomous execution when ready
+$ credence governor resume
 ```
 
 ---
 
-## 4. Autonomous AI Cost Optimizer
+## 4. Related Protocols & Blueprints
 
-The Cost Optimizer continuously analyzes 24-hour and 7-day rolling telemetry:
-- **Upgrade Suggestions**: Triggered when a node trips the circuit breaker $\ge 3$ times or has $>20$ deferred RSS feed items.
-- **Downgrade Suggestions**: Triggered when a node utilizes $<15\%$ of budget over 7 days or achieves $>85\%$ P2P mesh attestation adoption.
+* 🛡️ [Token Safety Governor Protocol Specification](../protocols/token-governor.md)
+* 📊 [Cross-Model Epistemic & Economic Pareto Benchmark](../protocols/cross-model-pareto-benchmark.md)
+
+---
+## Financial Governance & Budget Telemetry
+
+To protect node operators against unexpected API billing spikes during breaking news events, the Token Governor enforces strict mathematical spending bounds:
+
+| Spend Tier | Hourly Token Cap | Permitted Workloads | Throttling Action |
+| :--- | :---: | :--- | :--- |
+| **Green Zone** | `0 – 70,000` | All workloads (Feed sifters, gossip, FastMCP) | Unthrottled operation |
+| **Yellow Zone** | `70,000 – 100,000` | Interactive queries & FastMCP pair programming | Sifter and background tasks paused |
+| **Red Zone** | `> 100,000` | Offline regex heuristics & peer attestation cache | Trips `QUOTA_PRESERVED` circuit breaker |
 
 ```bash
-# View recommendation
-credence cost optimize
-
-# Apply recommendation
-credence cost optimize --apply
+# Check current hourly spend and remaining headroom
+$ credence quota status --json
 ```
+
+---
+## Token Budget Monitoring and Spend Controls
+
+The Token Governor dashboard displays real-time token burn rates, remaining headroom, and active circuit breaker states.
+
+---
+## Production Operational Runbook & Maintenance Protocols
+
+When managing **Cost Governance And Dashboard** in production, operators should adhere to the following maintenance procedures:
+
+| Operational Phase | Frequency | Standard Command / Tool | Verification Target |
+| :--- | :--- | :--- | :--- |
+| **Pre-Flight Health Check** | Prior to deploy | `just preflight` | Toolchain, Python 3.12, Docker status |
+| **Diagnostic Scan** | Hourly (Automated) | `credence stats --json` | Latency, memory usage, token headroom |
+| **State Pruning** | Weekly | `credence db prune --retention-days 30` | SQLite WAL cleanup & disk optimization |
+| **Failover Drill** | Monthly | `credence db backup --verify-replica` | Cross-region replica readiness verification |
+
+```bash
+# Verify operational readiness
+$ credence stats --detailed
+```
+
+---
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **Cost Governance And Dashboard** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "cost_governance_and_dashboard" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

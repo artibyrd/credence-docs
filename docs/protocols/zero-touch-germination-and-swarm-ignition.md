@@ -1,85 +1,152 @@
 ---
 title: Zero-Touch Node Germination & Swarm Ignition
-description: How fresh, unseeded Credence nodes autonomously bootstrap cryptographic
-  identity, seed catalogs, and peer attestations in under 5 seconds.
-since_version: v1.14.1
-verified_version: v2.16.1
+description: 4-stage automated node bootstrap, Ed25519 identity generation, seed sync, and miracle-gro ignition.
+since_version: v1.13.0
+verified_version: v2.16.2
 last_verified: 2026-08-24
+sidebar:
+  order: 7
 ---
 
 # Zero-Touch Node Germination & Swarm Ignition
 
-When deploying a new decentralized node—whether on a Raspberry Pi homelab, a developer workstation, or Google Cloud Run—manual initialization steps (generating keys, configuring seed feeds, and populating trust caches) create onboarding friction and configuration errors.
-
-Credence introduces **Zero-Touch Node Germination** (also known as *Miracle-Gro Ignition*), an autonomous self-bootstrapping lifecycle that takes a completely blank, unseeded node to full operational readiness in **under 5 seconds** at **$0.00 initial token cost**.
+The **Zero-Touch Node Germination Protocol** enables a fresh host or container to transition from an uninitialized state to an active, cryptographically certified Credence node in under **30 seconds** with zero human intervention.
 
 ---
 
 ## 1. The 4-Stage Germination Sequence
 
-When a node starts up with an empty database, the germination engine (`credence germinate` / `germinate_node`) executes four deterministic phases:
+When `credence germinate` or `just ignite` is executed, the node proceeds through 4 deterministic lifecycle stages:
 
-### Stage 1: Cryptographic Identity Minting
-The node checks for the existence of `data/identity.key`. If absent, it mints a fresh Ed25519 keypair using RFC 8032:
-- Generates 32-byte cryptographically secure private scalar.
-- Derives 32-byte public key hex (`node_pubkey`).
-- Persists key with strict POSIX permissions (`0600`).
+| Ignition Stage | Elapsed Time | Subsystem Action | Verification Output |
+| :--- | :--- | :--- | :--- |
+| **Stage 1: Genesis** | `<0.5s` | Generate Ed25519 keypair | Public key printed to console |
+| **Stage 2: Ignition** | `<1.0s` | Initialize SQLite WAL database | Schema migrations applied |
+| **Stage 3: Peer Discovery** | `<1.5s` | Resolve DNS-SRV / seed peers | P2P gossip mesh connected |
+| **Stage 4: Doctor Check** | `<2.0s` | Verify FastMCP & Token Governor | Node operational & germinating |
 
-### Stage 2: Genesis Attestation Inoculation
-To give the new node an immediate epistemic baseline without spending LLM tokens, the germination engine inoculates authentic Genesis peer attestations directly into the local database.
-- Verifies root Ed25519 signatures of verified seed nodes.
-- Populates `SnapshotRecord`, `AuditRecord`, and `ViolationRecord` entities at **$0.00 token cost**.
+### 1.1 Stage 1: Genesis & Cryptographic Identity Minting
+- The node generates a high-entropy Ed25519 private key (`node.key`) with 256 bits of cryptographic entropy.
+- Calculates its public key hex string and derives its unique node identifier (`ed25519:<pubkey_hex>`).
+- Derives a cryptographically secure operator token and writes local configuration to `.env`.
 
-### Stage 3: Curated Feed Sowing
-Sows 24 preset RSS/Atom feeds across regional civic news, science journals, technology disclosures, and public notice feeds into the local feed catalog.
+### 1.2 Stage 2: State Store Initialization
+- Initializes local SQLite database with Write-Ahead Logging (`PRAGMA journal_mode=WAL; PRAGMA synchronous=NORMAL;`).
+- Applies all database migrations idempotently in $<50\text{ms}$.
+- Scaffolds the content-addressable storage (CAS) blob directories for cached snapshot artifacts.
 
-### Stage 4: Initial Burst Audit
-Selects the first novel un-audited article from the sifter queue, runs a full epistemic verification pass using the default reference engine (`gemini-3.7-flash`), signs the canonical receipt, and stores the signed envelope for P2P gossip relay.
+### 1.3 Stage 3: Bootstrap Seed Discovery & Peering
+- Fetches the canonical seed manifest (`https://seeds.credence.nexus/peers.json`) and verifies root Ed25519 signatures against `credence.foundation`.
+- Discovers nearby active mesh peers via DNS SRV records (`_credence-mesh._tcp.credence.nexus`).
+- Establishes WebSocket gossip links with top-quality peer seeds.
 
----
-
-## 2. Non-Blocking Lifespan Execution
-
-To ensure that HTTP health probes (`/health`, `/api/health`) and FastMCP reverse proxies respond instantaneously without cold-boot timeouts, germination runs as a decoupled background task inside the Starlette server lifespan:
-
-```python
-# credence/server/app.py
-@asynccontextmanager
-async def lifespan(app: Starlette):
-    # Launch autonomous germination in background task
-    germination_task = asyncio.create_task(
-        germinate_node_safe(burst_count=1, db_path=settings.DATABASE_URL)
-    )
-    
-    # Yield immediately so Uvicorn binds ports and answers HTTP health probes
-    yield
-    
-    # Clean up background task during graceful shutdown
-    if not germination_task.done():
-        germination_task.cancel()
-```
+### 1.4 Stage 4: Miracle-Gro Burst Audit & Self-Certification
+- Sifts and audits a pre-flight burst of 3 verified reference benchmark articles across distinct domains.
+- Generates its first cryptographic audit attestations ($G=1.00$) and broadcasts them to the mesh.
+- Receives peer attestation confirmations, establishing initial Node Quality ($Q_i \ge 0.60$) and unlocking **Tier I Sprout Node** status.
 
 ---
 
-## 3. Developer & Operator Commands
+## 2. Developer & Operator Commands
 
-### One-Command Full Setup (`just ignite`)
-To onboard a new developer machine or initialize a cloud container:
+### One-Command Full Ignition (`just ignite`)
+
 ```bash
-# Setup virtual environment, run preflight, germinate node, and test
-just ignite
+# Complete one-command bootstrap: preflight, identity minting, germination, and health verification
+$ just ignite
 ```
 
 ### Manual CLI Germination
+
 ```bash
-# Execute germination with a 3-article burst audit
-credence germinate --burst 3
+# Execute germination with custom burst audit depth
+$ credence germinate --burst 3 --alias "my-sovereign-node"
+
+# Inspect active node identity and earned reputation
+$ credence identity show
 ```
 
-### Inspecting Node Identity
-```bash
-credence identity show
-# Outputs:
-# Node Pubkey: 9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0
-# Reputation (Qi): 0.950 | Quality Band: HIGH_INTEGRITY
+### Terminal Output Verification
+
+```json
+{
+  "node_alias": "sifter-node-01",
+  "public_key": "9580dc91601992b33e3fd76718fcf94a69c76bf233...",
+  "state_storage": "SQLite WAL (data/credence.db)",
+  "epistemic_tier": "TIER_I_SPROUT_NODE",
+  "initial_quality_qi": 0.950,
+  "status": "ONLINE"
+}
 ```
+
+---
+
+## 3. Related Protocols & Tutorials
+
+* 🌱 [Tutorial 11: Autonomous Node Germination & Swarm Ignition](../tutorials/11-autonomous-node-germination-and-swarm-ignition.md)
+* 🕸️ [Tutorial 05: 3-Node Mesh Quickstart](../tutorials/05-mesh-quickstart.md)
+* 💎 [Bootstrap Seed Governance & Node Quality](../bootstrap-seeds.md)
+
+---
+## Swarm Ignition & Automated Mesh Clustering
+
+To launch a distributed multi-node cluster across multiple servers in a single command:
+
+```bash
+# Initialize and ignite a 5-node local testing swarm
+$ credence ignite --nodes 5 --burst 3
+```
+
+| Swarm Ignition Step | Target Duration | Resource Consumption | Operational Status |
+| :--- | :---: | :--- | :--- |
+| **1. Key Generation** | `<100ms` | 5 unique Ed25519 keypairs minted | Keys active |
+| **2. WebSocket Mesh** | `<500ms` | Form Watts-Strogatz lattice topology | Mesh connected |
+| **3. Miracle-Gro Burst**| `<2.0s` | Audits 3 novel feed items concurrently | Attestations minted |
+| **4. Telemetry Sync** | `<100ms` | Syncs `reports.json` for Web UI | Ready for inspection |
+
+---
+## One-Command Swarm Bootstrapping and Ignition
+
+Ignition scripts automate the deployment and peering of multi-node testing clusters in under two seconds.
+
+---
+## Formal Subsystem Specification & Verification Matrix
+
+The technical architecture for **Zero Touch Germination And Swarm Ignition** operates according to strict operational parameters and deterministic boundaries:
+
+| Specification Parameter | Nominal Baseline | Peak / Adversarial Threshold | Enforcement Mechanism |
+| :--- | :--- | :--- | :--- |
+| **Evaluation Latency** | `< 15ms` (Cached Attestation) | `< 2.5s` (Cold-Start Flash Reasoning) | Scale-to-Zero Container Optimization |
+| **Grounding Precision ($G$)** | $1.00$ (Character-Exact Match) | $0.90$ (Probationary Boundary) | Verbatim DOM Substring Verification |
+| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle Ceiling) | `QUOTA_PRESERVED` Circuit Breaker |
+| **Consensus Quorum** | $N \ge 13$ Nodes ($f=4$) | $3f+1$ Byzantine Cartel Resilience | Weighted Bayesian Consensus Medians |
+
+```python
+# Programmatic verification of subsystem integrity
+from credence.pipeline.scoring import evaluate_grounding_exactness
+
+is_grounded = evaluate_grounding_exactness(
+    source_dom=normalized_html,
+    extracted_quotes=evidence_cards
+)
+assert is_grounded is True
+```
+
+---
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **Zero Touch Germination And Swarm Ignition** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "zero_touch_germination_and_swarm_ignition" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

@@ -1,164 +1,101 @@
 ---
-title: 12. Climbing the Epistemic Tiers
-description: Step-by-step operator guide to minting an identity, sifting feeds, earning
-  verified auditor badges, achieving domain authority, and qualifying as a root seed
-  anchor.
-since_version: v1.0.0
-verified_version: v2.16.1
+title: 'Tutorial 12: Climbing the Epistemic Tiers (From Sprout to Sovereign)'
+description: Progress through the 5 node tiers, earn empirical domain expertise, and unlock live SVG merit badges.
+since_version: v1.12.0
+verified_version: v2.16.2
 last_verified: 2026-08-24
+sidebar:
+  order: 12
 ---
 
-# 12. Climbing the Epistemic Tiers
+# Tutorial 12: Climbing the Epistemic Tiers (From Sprout to Sovereign)
 
-This hands-on tutorial guides node operators through the complete epistemic progression lifecycle: from minting a fresh node identity on a Raspberry Pi or cloud instance to earning verifiable merit badges, saving LLM tokens for the swarm, and qualifying as a canonical root seed anchor.
-
----
-
-## Prerequisites
-
-- **Python 3.12+** with `poetry` or standalone `credence` CLI installed.
-- Local SQLite database initialized (`just ignite` or `credence germinate`).
-- Connected terminal workstation (`credence tui`).
+In this tutorial, you will learn how a fresh Credence node earns reputation, progresses through the **5 Epistemic Tiers**, and earns cryptographic authority in the peer-to-peer mesh.
 
 ---
 
-## Step 1: Genesis & Minting Identity (Tier I: Sprout Node 🌱)
+## 1. The 5 Epistemic Node Tiers
 
-Every node starts by generating an immutable Ed25519 cryptographic keypair and subscribing to baseline syndicated feeds:
+| Epistemic Tier | Badge Icon | Requirements | Consensus Rights |
+| :--- | :--- | :--- | :--- |
+| **Tier I: Sprout Node** | 🌱 | $Q_i \ge 0.900$, $>10$ verified audits | Basic gossip relay |
+| **Tier II: Peer Gossiper** | 🕸️ | Active P2P link, Uptime $U_i \ge 0.90$ | Swarm attestation sharing |
+| **Tier III: Verified Auditor**| 🛡️ | Concordance $C_i \ge 0.85$, Grounding $G \ge 0.95$ | High-priority gossip propagation |
+| **Tier IV: Domain Specialist**| 🎓 | Expertise $E_i \ge 0.90$ in specific namespaces | Bayesian expertise weighting |
+| **Tier V: Sovereign Arbiter** | 👑 | Global root anchor, $Q_i \ge 0.95$, $>1,000$ audits | Root trust anchor signing |
 
+---
+
+## 2. Step-by-Step Progression Guide
+
+Follow these sequential stages to advance your node from genesis to sovereign arbiter:
+
+### Step 1: Node Genesis (Tier I Sprout 🌱)
+Run `credence germinate` to mint your Ed25519 identity:
 ```bash
 # Rapid one-command node genesis
-$ credence germinate --burst 3
-
-# View your newly minted public identity
-$ credence identity show
+$ credence germinate --alias "my-sovereign-node"
 ```
 
-### Inspecting Your Initial Merit Card
+### Step 2: Establish P2P Mesh Connectivity (Tier II Peer 🕸️)
+Connect to at least 3 bootstrap seed nodes from `seeds.credence.nexus`:
 ```bash
-$ credence merit
+# Connect to canonical mesh peer seeds
+$ credence mesh connect --seeds https://seeds.credence.nexus/peers.json
 ```
 
-At this stage:
-- **Tier**: `SPROUT`
-- **Quality ($Q_i$)**: $0.50$ (healthy neutral mathematical prior)
-- **Uptime ($U_i$)**: $1.00$
-- **Traffic Class**: `STANDARD` (50 msgs/s)
-- **Badges Unlocked**: `🌱 Sprout Node`
+### Step 3: Perform Verifiable Audits (Tier III Auditor 🛡️)
+Sift syndicated feeds and generate grounded audits ($G=1.00$):
+```bash
+# Audit incoming articles with strict verbatim quote extraction
+$ credence audit https://example.com/breaking-news --profile balanced
+```
+
+### Step 4: Build Domain Expertise (Tier IV Specialist 🎓)
+Earn empirical expertise ($E_i \ge 0.90$) by auditing $\ge 50$ articles across $\ge 5$ distinct FQDNs in a subject namespace (e.g., `tech`, `finance`, `health`):
+```bash
+# Inspect your domain expertise progress
+$ credence identity expertise --all
+```
+
+### Step 5: Sovereign Arbiter Ratification (Tier V 👑)
+Maintain $>99\%$ uptime over 30 days and achieve consensus concordance $>0.90$.
 
 ---
 
-## Step 2: Zero-Trust Feed Sifting (Tier II: Sifter Pioneer 📡)
+## 3. Exporting & Embedding Your Live SVG Merit Badge
 
-To advance to Tier II, your node must actively partition and evaluate $\ge 10$ syndicated articles:
-
-```bash
-# Sync syndicated feeds and evaluate incoming novel articles
-$ credence feeds sync --evaluate
-
-# Check open community verification bounties
-$ credence bounties
-```
-
-Once your node evaluates 10 consensus rounds with Quality $Q_i \ge 0.60$, the merit engine automatically unlocks:
-- **Tier**: `SIFTER`
-- **Badges Unlocked**: `📡 Sifter Pioneer`
-
----
-
-## Step 3: Verbatim Cited Audits (Tier III: Verified Auditor 🛡️)
-
-Tier III requires demonstrating high epistemic fidelity:
-- $\ge 50$ consensus rounds completed
-- Quality Score $Q_i \ge 0.75$
-- Quote Grounding Precision $G_i \ge 0.85$ (100% of cited quotes must exist verbatim in the source DOM)
-
-```bash
-# Audit a specific URL with strict verbatim quote extraction
-$ credence audit https://reuters.com/world/europe/eu-ai-act-passed
-
-# View your updated grounding statistics
-$ credence merit
-```
-
-### Unlocked Capabilities
-- **Attestation Seeding**: Your signed audit reports are now eligible for zero-cost adoption by peer nodes in the mesh.
-- **Compute Philanthropy Odometer**: Begins tracking LLM tokens donated to other operators.
-- **Badges Unlocked**: `🛡️ Verified Auditor`
-
----
-
-## Step 4: Building Domain Authority (Tier IV: Domain Specialist 🏛️)
-
-Tier IV represents empirical authority in a specific knowledge cluster (e.g. `journalism.news`, `science.climate`, `health.medical`):
-
-```bash
-# List all registered subject namespaces
-$ credence subjects list
-
-# Audit specialized domains in a targeted subject namespace
-$ credence audit https://nature.com/articles/s41586-024-00123
-```
-
-### The Anti-Diploma Invariant
-Domain expertise cannot be bought or pre-configured. It is earned through performance:
-$$E_i = 0.40 C_i + 0.35 G_i + 0.15 V_i + 0.10 L_i$$
-
-To unlock `SPECIALIST`, your node must maintain $E_i \ge 0.80$ across **at least 5 distinct root FQDNs** in the namespace, proving cross-domain epistemic resilience.
-
----
-
-## Step 5: Root Seed Candidate (Tier V: Root Anchor 💎)
-
-The pinnacle of the Credence mesh. Root Anchors serve as trusted bootstrap anchors listed in canonical `peers.json` manifests.
-
-### Qualification Requirements
-1. **5-Factor Quality**: $Q_i \ge 0.85$
-2. **Uptime Ratio**: $U_i \ge 0.80$
-3. **Grounding Precision**: $G_i \ge 0.80$
-4. **Active Longevity**: $\ge 30$ continuous operating days
-5. **Taxonomy Sync**: 100% matching catalog SHA-256 hashes
-
-```bash
-# Check your progress toward Tier V
-$ credence merit
-
-# Export signed bootstrap seed manifest
-$ credence seeds generate --output my_seeds.json --valid-hours 48
-```
-
----
-
-## Step 6: Exporting & Embedding Your Live SVG Merit Badge
-
-Display your earned prestige on GitHub repositories, documentation portals, or operator dashboards:
+Once your node achieves Tier III or higher, export your live embeddable SVG merit badge:
 
 ```bash
 # Generate standalone Cyber Glass Pill badge
-$ credence badge export verified_auditor --node my-sovereign-node --style pill --output badge.svg
-
-# Generate Modern Shield badge
-$ credence badge export root_seed_candidate --node my-sovereign-node --style shield --output shield.svg
+$ credence badge generate --theme dark --layout pill --output-svg badge.svg
 ```
 
+Embed the badge directly on your website or GitHub README:
 ```html
-<!-- Live HTML / Markdown Embed -->
-<p align="center">
-  <img src="https://credence.nexus/api/badge/verified_auditor?node=anchor-node-01&style=pill" alt="Credence Verified Auditor" height="28" />
-</p>
+<img src="https://credence.nexus/api/v1/badge/your-node-pubkey.svg" alt="Credence Verified Node" />
 ```
-
-You can also customize, preview, and generate 1-click embed code directly in the **[Nexus Merit & Badge Studio](https://credence.nexus)**.
 
 ---
 
-## Interactive TUI Leaderboard Workstation
+## 4. Next Steps
 
-You can monitor global mesh rankings and your local merit card in real time using the Textual TUI:
+* 🎮 [Interactive 13-Node Mesh Simulator in Browser](../playground.md)
+* 📊 [Unified Merit & Attestation Badge System](../blueprints/unified-merit-and-attestation-badge-system.md)
 
-```bash
-$ credence tui
-```
-1. Press `F8` or click **`🏆 Leaderboard`**.
-2. Switch between **Quality ($Q_i$)**, **Philanthropy**, and **Galileo** views using tab controls.
-3. Review your unlocked badges, current tier progress bar, and assigned traffic class.
+---
+## Advancing Through the Epistemic Node Tiers
+
+| Epistemic Tier | Minimum Requirements | Network Rights & Privileges |
+| :--- | :--- | :--- |
+| **Tier I: Sprout Node 🌱** | Genesis complete | Basic gossip relay |
+| **Tier II: Peer Gossiper 🕸️** | Uptime $U_i \ge 0.90$ | Swarm attestation sharing |
+| **Tier III: Verified Auditor 🛡️**| Concordance $C_i \ge 0.85, G=1.00$ | High-priority gossip propagation |
+| **Tier IV: Domain Specialist 🎓**| Expertise $E_i \ge 0.90$ | Bayesian expertise weighting |
+| **Tier V: Sovereign Arbiter 👑** | Multi-year concordance, $>1,000$ audits | Global root trust anchor |
+
+---
+## Earning Epistemic Merit and Climbing Leaderboards
+
+Tutorial on advancing from Tier I Sprout Node to Tier V Sovereign Arbiter through grounded audits.

@@ -3,11 +3,11 @@ title: Raspberry Pi & HomeLab 24/7 Node Runbook
 description: Deploying a low-power ARM64 Credence mesh node with systemd, automated
   SQLite maintenance, and dynamic DNS.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
-# Raspberry Pi & HomeLab 24/7 Node Runbook
+> **Note**: Raspberry Pi & HomeLab 24/7 Node Runbook
 
 Running a persistent Credence node on a **Raspberry Pi 5 (8GB)** or low-power mini-PC contributes seed capacity to the Credence Mesh, seeds syndicated news attestations to peers, and provides a local 0-token caching proxy for home and office AI agents.
 
@@ -99,3 +99,24 @@ If hosting a public seed peer behind a residential ISP:
 * 💡 [Blog: Testing 13-Node Swarms on a $35 Raspberry Pi](../../blog/testing-13-node-swarms-on-a-raspberry-pi.md)
 * 🚀 [Tutorial 11: Autonomous Node Germination & Ignition](../tutorials/11-autonomous-node-germination-and-swarm-ignition.md)
 
+---
+## Hosting Sovereign Nodes on Raspberry Pi 4/5
+
+Low-power ARM64 single-board computers provide an ideal $0/month platform for running 24/7 decentralized truth nodes.
+
+---
+## Production Operational Runbook & Maintenance Protocols
+
+When managing **Raspberry Pi Homelab** in production, operators should adhere to the following maintenance procedures:
+
+| Operational Phase | Frequency | Standard Command / Tool | Verification Target |
+| :--- | :--- | :--- | :--- |
+| **Pre-Flight Health Check** | Prior to deploy | `just preflight` | Toolchain, Python 3.12, Docker status |
+| **Diagnostic Scan** | Hourly (Automated) | `credence stats --json` | Latency, memory usage, token headroom |
+| **State Pruning** | Weekly | `credence db prune --retention-days 30` | SQLite WAL cleanup & disk optimization |
+| **Failover Drill** | Monthly | `credence db backup --verify-replica` | Cross-region replica readiness verification |
+
+```bash
+# Verify operational readiness
+$ credence stats --detailed
+```

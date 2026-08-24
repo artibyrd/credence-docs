@@ -2,7 +2,7 @@
 title: 'Gazing into the Abyss: Hunting Disinformation Without Drowning in Slop'
 description: Empirical findings from 13-node Watts-Strogatz mesh cluster simulations, solving the Swarm Stampede with HRW rendezvous hashing, and dialing in the optimal boredom ratio in Credence v1.21.0.
 since_version: v1.21.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -63,3 +63,18 @@ We implemented a **Zero-Token Slop Triage Gate** requiring:
 - **Token Reduction**: Cut adversarial discovery token overhead from $750,000$ to $42,000$ tokens (**17.8× efficiency gain**).
 
 In Credence `v1.21.0`, nodes can boldly gaze into the adversarial abyss without burning their budget in the dark.
+
+---
+## Key Architectural Takeaways & Future Directions
+
+The investigation documented in **Gazing Into The Abyss Adversarial Boredom** highlights several fundamental principles for building resilient, decentralized software systems:
+
+1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
+2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
+3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+
+| System Dimension | Conventional Approach | Credence Sovereign Architecture |
+| :--- | :--- | :--- |
+| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
+| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
+| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |

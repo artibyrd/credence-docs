@@ -2,7 +2,7 @@
 title: 'The Boredom Engine & Expanding Roots: How Autonomous Nodes Self-Direct Epistemic Discovery'
 description: How Credence nodes escape idle stagnation by converting surplus token headroom into autonomous citation extraction, RSS/Atom feed discovery, and P2P mesh attestation gossip.
 since_version: v1.16.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 date: '2026-08-19'
 author: Credence Core Architecture Team
@@ -59,13 +59,12 @@ The answer lies in **Citation Soil**.
 
 When an article receives a clean epistemic audit ($\text{Suspicion Score} \le 25.0$, $G = 1.00$), its cited outbound links represent high-probability pointers to credible primary reporting.
 
-```
-[Clean Article: ProPublica / Reuters]
-       │
-       ├─► cites https://courtwatch.org/cases/2026/brief-01
-       ├─► cites https://nature.com/articles/solar-breakthrough
-       └─► cites https://civicwater.gov/reports/compact-2026
-```
+| Citation Sourcing Step | Extracted Resource | Epistemic Trust Root Status |
+| :--- | :--- | :--- |
+| **Step 1: Ingestion** | Primary journalism article (ProPublica / Reuters) | Initial audited leaf node |
+| **Step 2: Citation Extraction**| Legal court brief (`courtwatch.org/cases/2026/brief-01`) | Evaluated as candidate trust root |
+| **Step 3: Academic Peer Review**| Scientific article (`nature.com/articles/solar-breakthrough`)| Evaluated for consensus citation |
+| **Step 4: Government Filing** | Public water data (`civicwater.gov/reports/compact-2026`) | Verified authoritative domain root |
 
 ### SSRF Guard & Noise Elimination
 The candidate extraction engine filters out:
@@ -101,16 +100,14 @@ In multi-node P2P mesh cluster simulations (`tests/test_mesh_cluster.py`):
 - Peer nodes adopted all 10 attestations at **$0.00 marginal cost**, saving **32,400 tokens** across the swarm.
 - Root partitioning via Highest Random Weight (HRW) rendezvous hashing ensured zero redundant candidate feed discovery requests.
 
-```bash
 $ credence roots tree
 🌳 Credence Epistemic Root Network
-├── Active Subscribed Roots (28)
-│   ├── Reuters World News (reuters.com) - 14 items (Tier 1)
-│   ├── Nature Research (nature.com) - 8 items (Tier 1)
-│   └── Court Watch Docket Feed (courtwatch.org) - 6 items (Tier 2) [AUTONOMOUS ROOT]
-└── 🌱 Unsubscribed Citation Soil (14)
-    ├── civicwater.gov (3 citations, trust: 92.4/100)
-    └── statnews.com (2 citations, trust: 88.0/100)
-```
+| Feed Category | Source Domain | Subscribed Items | Trust Tier / Action |
+| :--- | :--- | :---: | :--- |
+| **Subscribed Wire** | `reuters.com` | 14 items | Tier I Verified Root |
+| **Subscribed Science** | `nature.com` | 8 items | Tier I Verified Root |
+| **Autonomous Discovery**| `courtwatch.org` | 6 items | Tier II Autonomous Root |
+| **Citation Soil** | `civicwater.gov` | 3 citations | Unsubscribed Soil (Trust: 92.4) |
+| **Citation Soil** | `statnews.com` | 2 citations | Unsubscribed Soil (Trust: 88.0) |
 
 The lonely node is lonely no more. It has roots.

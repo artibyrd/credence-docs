@@ -3,7 +3,7 @@ title: 'Hermetic Testing & Zero-npm Guardrails: Engineering High-Longevity AI Sy
 description: Why zero external npm buildchains, in-memory SQLite fixtures, and Playwright
   DOM regression testing guarantee software longevity and eliminate supply-chain vulnerabilities.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 tags:
 - hermetic-testing
@@ -29,7 +29,7 @@ read_time: 8 min
 Learn the engineering principles behind Credence's 100% network-free hermetic testing architecture and **Zero-npm Invariant**, designed to ensure applications run reliably for decades without build toolchain rot.
 
 > [!IMPORTANT]
-> **[Invariant 31: Universal Zero-Build Standards (Zero-npm Invariant)](../invariants.md#invariant-31)**: All public web surfaces, documentation portals (`credence-docs`), and blogs strictly use vanilla HTML5, CSS Custom Properties, and native ES Modules with **zero npm dependencies, zero package.json, and zero build toolchains**.
+> **[The Invariant Bible: Universal Zero-Build Standards (Zero-npm Invariant)](../invariants.md#invariant-31)**: All public web surfaces, documentation portals (`credence-docs`), and blogs strictly use vanilla HTML5, CSS Custom Properties, and native ES Modules with **zero npm dependencies, zero package.json, and zero build toolchains**.
 
 ---
 
@@ -59,7 +59,7 @@ async def test_schematic_and_diagram_rendering(page: Page, docs_server: str) -> 
     assert len(schematics) >= 1
     for code_el in schematics:
         text = await code_el.inner_text()
-        if any(c in text for c in "┌─┐│└┘"):
+        if any(c in text for c in "+-+|++"):
             box = await code_el.bounding_box()
             assert box is not None and box["width"] > 200 and box["height"] > 40
 ```

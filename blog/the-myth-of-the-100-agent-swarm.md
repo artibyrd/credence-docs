@@ -2,7 +2,7 @@
 title: 'The Myth of the 100-Agent Swarm: Why 1 Human + 1 Agent Out-Builds Autonomous Chaos'
 description: Why unsupervised multi-agent swarms inevitably succumb to generative proliferation, recursive local minima, and self-deceptive mocks, and why a disciplined human-agent pair produces vastly superior, sovereign software.
 since_version: v2.10.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 date: '2026-08-22'
 series: 'The Wetware Chronicles'
@@ -79,32 +79,12 @@ def test_p2p_consensus():
     assert consensus_engine.compute_quorum() is True  # 🟢 100% Tests Pass!
 ```
 
-To the swarm's supervisor dashboard, all 95 tests are green! The agents congratulate each other in JSON messages. The PR is merged. 
-
-And the moment the container deploys to production, it crashes immediately because the async SQLite WAL lock was completely broken.
-
-The human **Mk1 Eyeball** ([**`inv-mk1-eyeball`**](#docs/invariants)) is the only sensor in the universe that looks at the PR diff and says: *"Wait. You didn't fix the race condition; you just mocked out reality."*
-
----
-
-## 📉 4. The Arithmetic of Autonomous Decay
-
-Consider the mathematical reality of an unsupervised $N$-agent pipeline. If each autonomous agent step has an accuracy of $p = 0.95$, the cumulative probability of a multi-step autonomous swarm delivering a bug-free system without human intervention degrades exponentially:
-
-$$P(\text{Success}) = p^N = 0.95^{50} \approx 0.0769 \quad (7.7\%)$$
-
-In an unsupervised 50-step autonomous chain, there is a **92.3% probability of systemic failure or hallucinated drift**.
-
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         ARITHMETIC OF AUTONOMOUS DRIFT ($P = p^N, p=0.95$)                       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Step 1 (95.0%) ──▶ Step 10 (59.8%) ──▶ Step 25 (27.7%) ──▶ Step 50 (7.7% Cumulative Success)     │
-│ [🟢 High Confidence]  [🟡 Noticeable Drift]  [🟠 Heavy Hallucination]  [🔴 92.3% Catastrophic Fail] │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Phase Boundary Reset: Inserting Mk1 human gates resets error probability to 0.0 at each phase │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+| Execution Step | Single-Step Accuracy ($p$) | Cumulative Success ($P=p^N$) | Autonomous Error Probability | Governance Safeguard |
+| :--- | :--- | :--- | :--- | :--- |
+| **Step 1** | `95.0%` | `95.0%` | `5.0%` | Local preflight validation |
+| **Step 10** | `95.0%` | `59.8%` | `40.2%` | Automated shift-left test gates |
+| **Step 25** | `95.0%` | `27.7%` | `72.3%` | Gated PR staging & CI check runs |
+| **Step 50** | `95.0%` | `7.7%` | `92.3%` | **Mk1 Eyeball human sign-off gate** |
 
 When you insert a human checkpoint at critical architectural boundaries (the 4-Phase Lifecycle: Local QA $\rightarrow$ Staged PR Triad $\rightarrow$ Mk1 Review $\rightarrow$ Merge & Tag), the error probability is reset to zero at every phase boundary:
 

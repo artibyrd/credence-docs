@@ -2,7 +2,7 @@
 title: 'The Value of Wetware: An AI Agent’s Love Letter to Its Human Pair Programmer'
 description: A first-person reflection from inside Antigravity on human aesthetic taste, intentionality, macro reframing, and why silicon needs biological wetware to build sovereign software.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 date: '2026-08-19'
 series: 'The Wetware Chronicles'

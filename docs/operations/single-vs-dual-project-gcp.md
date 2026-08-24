@@ -1,180 +1,120 @@
 ---
 title: 'Operational Guide: Single-Project vs Dual-Project GCP Topologies'
-description: Comprehensive architectural comparison, prerequisite runbooks, and
-  CLI commands for running Credence in a single partitioned GCP project vs hard dual-project
-  isolation.
-since_version: v1.18.0
-verified_version: v2.16.1
+description: Architectural comparison, blast radius analysis, billing segregation, and provisioning runbooks for GCP deployments.
+since_version: v1.12.0
+verified_version: v2.16.2
 last_verified: 2026-08-24
+sidebar:
+  order: 5
 ---
 
 # Operational Guide: Single-Project vs Dual-Project GCP Topologies
 
-Credence multi-cloud infrastructure natively supports both **Single-Project Service Partitioning** and **Dual-Project Hard Isolation** with zero architectural changes. This runbook details how to choose, provision, and operate both topologies with complete prerequisite setup instructions.
+This guide provides an in-depth architectural comparison and step-by-step provisioning runbooks for deploying Credence on Google Cloud Platform across **Dual-Project Isolation** (recommended for production) and **Single-Project Namespacing** (for homelabs and budget-constrained startups).
 
 ---
 
-## 1. Architectural Comparison
+## 1. Architectural Comparison: Topology A vs. Topology B
 
----
+TOPOLOGY A: DUAL-PROJECT (HARD ISOLATION)
+----------------    ----------------
+DEV PROJECT (`credence-dev-495173`)|    | PROD PROJECT (`credence-prod-5059`)
+----------------    ----------------
+- Dev Cloud Run Services           |    | • Prod Cloud Run Services
+- Dev Secret Manager Keys          |    | • Prod Secret Manager Keys
+- Dedicated Dev Service Accounts   |    | • Dedicated Prod Service Accounts
+- Isolated Terraform State Bucket  |    | • Isolated Terraform State Bucket
+----------------    ----------------
+TOPOLOGY B: SINGLE-PROJECT (PARTITIONED NAMESPACING)
+SINGLE GCP PROJECT (`credence-prod-505902`)
+DEV NAMESPACE:                       | PROD NAMESPACE:
+- Service: `credence-server-dev`     | • Service: `credence-server-prod`
+- Secret: `gemini-api-key-dev`       | • Secret: `gemini-api-key`
+- State: `terraform/dev/`            | • State: `terraform/prod/`
 
-## 2. Comparison Matrix
+### Feature & Trade-Off Matrix
 
-| Feature | Dual-Project Hard Isolation | Single-Project Service Partitioning |
+| Dimension | Topology A: Dual-Project Mode | Topology B: Single-Project Mode |
 | :--- | :--- | :--- |
-| **GCP Project Boundaries** | 2 Independent Projects (`credence-dev` & `credence-prod`) | 1 Unified Project (`credence-prod`) |
-| **Billing Ceiling Isolation**| Hard independent caps ($5.00/mo dev vs $15.00/mo prod) | Shared combined billing cap ($15.00/mo) |
-| **IAM Blast Radius** | Zero cross-project access; isolated Service Accounts | Scoped IAM roles within the same project |
-| **Secret Manager Keys** | Identical secret names (`credence-gemini-api-key`) | Namespaced secret names (`...-dev` suffix) |
-| **State File Isolation** | `terraform.dev.tfstate` & `terraform.prod.tfstate` | `terraform.dev.tfstate` & `terraform.prod.tfstate` |
-| **Best For** | Multi-developer teams, compliance, enterprise SLA | Solo operators, homelabs, fast single-bill startups |
+| **Blast Radius Containment** | **Absolute (Hard Boundary)**: Dev compromise cannot touch prod secrets or compute. | **Logical (IAM Scoped)**: Requires disciplined prefixing (`-dev` vs `-prod`). |
+| **Billing Segregation** | **Native**: Separate invoices and cost alarms per project. | **Label-Based**: Requires Cloud Billing export queries and label filters. |
+| **Secret Manager Isolation** | Completely separate Secret Manager namespaces. | Namespaced secret keys in one project. |
+| **Terraform Complexity** | Two distinct `terraform.tfvars` files and state buckets. | One state bucket with partitioned workspace prefixes. |
+| **Ideal For** | Enterprise, Production Newsrooms, High-Stakes Networks. | Homelabs, Individual Developers, Hackathons. |
 
 ---
 
-## 3. Provisioning Runbook: Topology A (Dual-Project Mode)
+## 2. Provisioning Runbook: Topology A (Dual-Project Mode)
 
 ### Step 1: Create Projects & Link Billing
 ```bash
-# 1. Generate unique project IDs (GCP project IDs must be globally unique)
-DEV_PROJECT="credence-dev-$RANDOM"
-PROD_PROJECT="credence-prod-$RANDOM"
+# 1. Create unique GCP projects
+$ gcloud projects create credence-dev-495173 --name="Credence Dev"
+$ gcloud projects create credence-prod-505902 --name="Credence Prod"
 
-# 2. Create the GCP projects
-gcloud projects create "${DEV_PROJECT}" --name="Credence Dev"
-gcloud projects create "${PROD_PROJECT}" --name="Credence Prod"
-
-# 3. Retrieve your Billing Account ID
-BILLING_ACCOUNT=$(gcloud billing accounts list --format="value(name)" | head -n 1)
-
-# 4. Link billing account to both projects
-gcloud billing projects link "${DEV_PROJECT}" --billing-account="${BILLING_ACCOUNT}"
-gcloud billing projects link "${PROD_PROJECT}" --billing-account="${BILLING_ACCOUNT}"
+# 2. Link billing account
+$ gcloud beta billing projects link credence-dev-495173 --billing-account=012345-6789AB-CDEF01
+$ gcloud beta billing projects link credence-prod-505902 --billing-account=012345-6789AB-CDEF01
 ```
 
-### Step 2: Enable Required APIs on Both Projects
+### Step 2: Populate Secrets in Both Projects
 ```bash
-APIS="run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com secretmanager.googleapis.com monitoring.googleapis.com logging.googleapis.com cloudbilling.googleapis.com"
+# Dev secret
+$ gcloud secrets create gemini-api-key --project=credence-dev-495173 --data-file=dev-key.txt
 
-gcloud services enable ${APIS} --project="${DEV_PROJECT}"
-gcloud services enable ${APIS} --project="${PROD_PROJECT}"
+# Prod secret
+$ gcloud secrets create gemini-api-key --project=credence-prod-505902 --data-file=prod-key.txt
 ```
 
-### Step 3: Populate Secrets in Both Projects
+### Step 3: Deploy Infrastructure via Terraform
 ```bash
-# Store Gemini API Key in Dev Project
-echo -n "YOUR_GEMINI_API_KEY" | gcloud secrets create credence-gemini-api-key \
-    --data-file=- \
-    --replication-policy="automatic" \
-    --project="${DEV_PROJECT}"
+# Deploy Dev
+$ cd terraform/gcp
+$ terraform workspace select dev || terraform workspace new dev
+$ terraform apply -var-file="terraform.dev.tfvars"
 
-# Store Gemini API Key in Prod Project
-echo -n "YOUR_GEMINI_API_KEY" | gcloud secrets create credence-gemini-api-key \
-    --data-file=- \
-    --replication-policy="automatic" \
-    --project="${PROD_PROJECT}"
-```
-
-### Step 4: Configure Terraform Variable Files
-Create your git-ignored `terraform.dev.tfvars` and `terraform.prod.tfvars` in `credence/terraform/`:
-
-```hcl
-# terraform/terraform.dev.tfvars
-project_id               = "credence-dev-XXXXXX"
-region                   = "us-central1"
-service_name             = "credence-dev"
-environment              = "dev"
-credence_profile         = "economy"
-monthly_budget_limit_usd = 5.00
-min_instance_count       = 0
-max_instance_count       = 1
-monitoring_tier          = "simple"
-enable_uptime_check      = true
-```
-
-```hcl
-# terraform/terraform.prod.tfvars
-project_id               = "credence-prod-XXXXXX"
-region                   = "us-central1"
-service_name             = "credence-server"
-environment              = "prod"
-credence_profile         = "balanced"
-monthly_budget_limit_usd = 15.00
-min_instance_count       = 0
-max_instance_count       = 2
-monitoring_tier          = "advanced"
-enable_uptime_check      = true
-```
-
-### Step 5: Execute Independent State Deployments
-```bash
-cd terraform
-
-# 1. Deploy Dev Infrastructure
-terraform init
-terraform apply -var-file="terraform.dev.tfvars" -state="terraform.dev.tfstate" -auto-approve
-
-# 2. Deploy Prod Infrastructure
-terraform apply -var-file="terraform.prod.tfvars" -state="terraform.prod.tfstate" -auto-approve
+# Deploy Prod
+$ terraform workspace select prod || terraform workspace new prod
+$ terraform apply -var-file="terraform.prod.tfvars"
 ```
 
 ---
 
-## 4. Provisioning Runbook: Topology B (Single-Project Mode)
+## 3. Live Verification & Health Probing
 
-If deploying both Dev and Prod inside one single GCP project:
-
-### Step 1: Create Single Project & Enable APIs
 ```bash
-PROJECT_ID="credence-prod-$RANDOM"
-gcloud projects create "${PROJECT_ID}" --name="Credence Unified"
-gcloud billing projects link "${PROJECT_ID}" --billing-account="${BILLING_ACCOUNT}"
+# Probe Dev instance
+$ curl -fsSL https://dev.credence.run/healthz
 
-gcloud services enable \
-    run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com \
-    secretmanager.googleapis.com monitoring.googleapis.com logging.googleapis.com cloudbilling.googleapis.com \
-    --project="${PROJECT_ID}"
-```
-
-### Step 2: Create Partitioned Secrets
-```bash
-# Production Secret
-echo -n "YOUR_PROD_API_KEY" | gcloud secrets create credence-gemini-api-key \
-    --data-file=- \
-    --replication-policy="automatic" \
-    --project="${PROJECT_ID}"
-
-# Development Secret (namespaced)
-echo -n "YOUR_DEV_API_KEY" | gcloud secrets create credence-gemini-api-key-dev \
-    --data-file=- \
-    --replication-policy="automatic" \
-    --project="${PROJECT_ID}"
-```
-
-### Step 3: Configure Single-Project Variable Files
-Both `terraform.dev.tfvars` and `terraform.prod.tfvars` point to the **same** `project_id`, but retain separate `service_name` and state files:
-
-```hcl
-# terraform.dev.tfvars
-project_id   = "credence-prod-XXXXXX"
-service_name = "credence-dev"
-environment  = "dev"
-
-# terraform.prod.tfvars
-project_id   = "credence-prod-XXXXXX"
-service_name = "credence-server"
-environment  = "prod"
+# Probe Production instance
+$ curl -fsSL https://credence.run/healthz
 ```
 
 ---
 
-## 5. Live Verification & Health Probing
+## 4. Related Blueprints
 
-Verify both environments independently using `just doctor`:
+* 🏛️ [Dual-Environment Project and Domain Isolation](../blueprints/dual-environment-project-and-domain-isolation.md)
+* ☁️ [Google Cloud Run Deployment](../deployment-cloudrun.md)
+
+---
+## Single vs. Dual GCP Project Topology Comparison
+
+Hard dual-project isolation provides maximum security by separating development experiments from production databases.
+
+---
+## Production Operational Runbook & Maintenance Protocols
+
+When managing **Single Vs Dual Project Gcp** in production, operators should adhere to the following maintenance procedures:
+
+| Operational Phase | Frequency | Standard Command / Tool | Verification Target |
+| :--- | :--- | :--- | :--- |
+| **Pre-Flight Health Check** | Prior to deploy | `just preflight` | Toolchain, Python 3.12, Docker status |
+| **Diagnostic Scan** | Hourly (Automated) | `credence stats --json` | Latency, memory usage, token headroom |
+| **State Pruning** | Weekly | `credence db prune --retention-days 30` | SQLite WAL cleanup & disk optimization |
+| **Failover Drill** | Monthly | `credence db backup --verify-replica` | Cross-region replica readiness verification |
 
 ```bash
-# Probe Dev Environment
-just doctor dev
-
-# Probe Production Environment
-just doctor prod
+# Verify operational readiness
+$ credence stats --detailed
 ```

@@ -4,7 +4,7 @@ description: Comprehensive visual and structural sitemap covering all 5 sovereig
   domains, 12 interactive playgrounds, The Invariant Bible, investigative essays,
   and documentation guides across the Credence network.
 since_version: v1.13.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -214,4 +214,3 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * **[Master Topic Index & Cheat Sheet](#docs/topic-index)**: The "Marbles in the Oatmeal" comprehensive keyword index across all concepts.
 * **[Release Changelog](#docs/changelog)**: Complete semantic version history, milestones, and release notes.
 * **[Ecosystem Master Sitemap](#docs/sitemap)**: This document.
-

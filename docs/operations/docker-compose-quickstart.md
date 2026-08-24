@@ -3,7 +3,7 @@ title: 'Operational Guide: Docker Compose 5-Minute Quickstart'
 description: Quickstart guide for launching a sovereign Credence node or full-stack
   cluster locally using Docker Compose in under 5 minutes.
 since_version: v1.18.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -75,4 +75,62 @@ docker compose down
 
 # Stop services and purge data volumes (clean reset)
 docker compose down -v
+```
+
+---
+## Docker Compose Multi-Container Orchestration
+
+For self-hosters deploying a complete production-grade Credence cluster on a single VPS or dedicated server:
+
+```yaml
+version: '3.8'
+services:
+  credence-server:
+    image: ghcr.io/artibyrd/credence:v2.16.2
+    container_name: credence-server
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - CREDENCE_ENV=production
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - DATABASE_URL=sqlite+aiosqlite:////data/credence.db
+    volumes:
+      - credence-data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  credence-data:
+```
+
+| Deployment Parameter | Value | Description |
+| :--- | :--- | :--- |
+| **Container Port** | `8080` | Starlette REST & FastMCP SSE endpoint |
+| **Persistent Volume** | `/data` | SQLite WAL state store and node Ed25519 identity |
+| **Healthcheck Interval**| `15s` | Docker daemon automatic restart on failure |
+
+---
+## Production-Ready Docker Compose Multi-Service Stack
+
+Deploying Credence with Docker Compose provides an instant, self-contained node stack with automatic restart policies.
+
+---
+## Production Operational Runbook & Maintenance Protocols
+
+When managing **Docker Compose Quickstart** in production, operators should adhere to the following maintenance procedures:
+
+| Operational Phase | Frequency | Standard Command / Tool | Verification Target |
+| :--- | :--- | :--- | :--- |
+| **Pre-Flight Health Check** | Prior to deploy | `just preflight` | Toolchain, Python 3.12, Docker status |
+| **Diagnostic Scan** | Hourly (Automated) | `credence stats --json` | Latency, memory usage, token headroom |
+| **State Pruning** | Weekly | `credence db prune --retention-days 30` | SQLite WAL cleanup & disk optimization |
+| **Failover Drill** | Monthly | `credence db backup --verify-replica` | Cross-region replica readiness verification |
+
+```bash
+# Verify operational readiness
+$ credence stats --detailed
 ```

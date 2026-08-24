@@ -4,11 +4,11 @@ title: 'Taming the 10-Second Cold Start: How We Cut Python Cloud Run Startup by 
 description: Forensic teardown of Python serverless boot bottlenecks, unmasking the
   silent Poetry tax, and unlocking sub-2.5s scale-to-zero cold starts.
 since_version: v1.15.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
-# Taming the 10-Second Cold Start: How We Cut Python Cloud Run Startup by 80% at $0.00 Idle Cost
+> **Note**: Taming the 10-Second Cold Start: How We Cut Python Cloud Run Startup by 80% at $0.00 Idle Cost
 
 *By the Credence Core Engineering Team*  
 *August 19, 2026*
@@ -76,23 +76,17 @@ If our application finished booting in 1.5 seconds, Cloud Run wouldn't re-check 
 
 ## 3. The 5-Pillar Optimization Solution
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         SUB-2.5S SCALE-TO-ZERO COLD-START ENGINE                                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ 1. STARTUP CPU BOOST      │ 2. DIRECT VENV EXEC           │ 3. BYTECODE PRECOMPILATION     │   │
-│ │ • 2-4x vCPU during boot   │ • Bypasses `poetry run` CLI   │ • `compileall` in Dockerfile   │   │
-│ │ • Cuts CPython AST import │ • Saves ~950ms process penalty│ • 0 runtime AST compilation    │   │
-│ ├───────────────────────────┴───┬───────────────────────────┴────────────────────────────────┤   │
-│ │ 4. LAZY IMPORT DEFERRAL       │ 5. AGGRESSIVE 2S HTTP PROBE                                │   │
-│ │ • Defer Trafilatura/Playwright│ • Polls in-memory `/health` endpoint in <5ms               │   │
-│ │ • Imports drop 2.8s ──▶ 0.6s  │ • Load balancer detects readiness in 1.5-2.0s              │   │
-│ └───────────────────────────────┴────────────────────────────────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🚀 Net Result: Total cold-start latency slashed from 11.5s down to 2.1s (-81.2%) @ $0.00 idle    │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+SUB-2.5S SCALE-TO-ZERO COLD-START ENGINE
+---------------------------------------------------------------
+| 1. STARTUP CPU BOOST      | 2. DIRECT VENV EXEC           | 3. BYTECODE PRECOMPILATION     |
+| • 2-4x vCPU during boot   | • Bypasses `poetry run` CLI   | • `compileall` in Dockerfile   |
+| • Cuts CPython AST import | • Saves ~950ms process penalty| • 0 runtime AST compilation    |
+-------------------------------------------------------------------+
+| 4. LAZY IMPORT DEFERRAL       | 5. AGGRESSIVE 2S HTTP PROBE                                |
+| • Defer Trafilatura/Playwright| • Polls in-memory `/health` endpoint in <5ms               |
+| • Imports drop 2.8s --▶ 0.6s  | • Load balancer detects readiness in 1.5-2.0s              |
+----------------------------------------------------------------------------+
+🚀 Net Result: Total cold-start latency slashed from 11.5s down to 2.1s (-81.2%) @ $0.00 idle
 
 ### 1. Unlocking Google Cloud Run v2 Startup CPU Boost
 Google Cloud Run v2 has a superpower: `startup_cpu_boost = true` (or `--cpu-boost` in CLI).
@@ -153,18 +147,11 @@ The `/health` endpoint responds with in-memory telemetry in $<5\text{ms}$ withou
 
 ## 4. The Results: 81.2% Latency Reduction
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         COLD START LATENCY REDUCTION (11.5s ──▶ 2.1s)                            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Before Optimization: [████████████████████████████████████████████████] 11.5s                    │
-│ After Optimization:  [████████] 2.1s (-81.2% Reduction)                                          │
-│                                                                                                  │
-│ ⚡ Slashed Overhead: 9,310ms eliminated across process wrapper, AST compile, imports & probes     │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Scale-to-Zero Efficiency: Full enterprise capability with instant wakeups and $0.00 idle bill │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+COLD START LATENCY REDUCTION (11.5s --▶ 2.1s)
+Before Optimization: [████████████████████████████████████████████████] 11.5s
+After Optimization:  [████████] 2.1s (-81.2% Reduction)
+⚡ Slashed Overhead: 9,310ms eliminated across process wrapper, AST compile, imports & probes
+💡 Scale-to-Zero Efficiency: Full enterprise capability with instant wakeups and $0.00 idle bill
 
 | Phase | Before Optimization | After Optimization | Delta |
 | :--- | :--- | :--- | :--- |

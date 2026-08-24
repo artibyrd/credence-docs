@@ -3,7 +3,7 @@ title: Decentralized Architecture
 description: Multi-tier architecture specification spanning ingestion, multi-agent
   evaluation, token governance, and P2P mesh.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -52,3 +52,19 @@ The evaluation pipeline dispatches 4 specialist agents:
 ## 3. Cryptographic Mesh & Bayesian Consensus
 
 Nodes sign audit reports using **Ed25519** over **RFC 8785 Canonical JSON**. Signed envelopes are gossiped across the 13-node Watts-Strogatz mesh, and consensus is aggregated using Domain Authority Weighted Medians with the Galileo Rule protection.
+
+---
+## Master 3-Plane Architectural Topology
+
+Credence is structured into three decoupled, sovereign architectural planes:
+
+| Architectural Plane | Subsystem Technology | Core Responsibilities | Invariant Guardrails |
+| :--- | :--- | :--- | :--- |
+| **1. Edge Plane** | Cloudflare Pages & Workers CDN | Zero-build Web UI, static assets, dynamic OpenGraph | Zero npm dependencies |
+| **2. Compute Plane** | Google Cloud Run / Docker | Epistemic pipeline, LLM adapters, FastMCP 2.0, scoring | Scale-to-zero container optimization |
+| **3. Infra & Data Plane** | Terraform, Cloud SQL, Ed25519 | State storage, Workload Identity Federation, CAS | Least-privilege keyless WIF |
+
+```bash
+# Verify all architecture boundaries and subpackage decoupling
+$ just check
+```

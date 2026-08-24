@@ -3,7 +3,7 @@ title: 'The Domain Credence Index (DCI): The Web''s Honor Roll & Wall of Shame'
 description: How decentralized peer observation audits create transparent, unforgeable
   accountability for digital publishers and newsrooms.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -53,38 +53,30 @@ Credence publishes real-time domain rankings across two primary views:
 ### 1. Epistemic Honor Roll (Most Trusted Publishers)
 Domains that consistently deliver grounded, transparent, and verified journalism ascend to the top of the Honor Roll:
 
-```bash
 $ credence rankings --type domains --category best
-
-                 🛡️ Epistemic Honor Roll (Most Trusted Domains)                  
-╭─┬───────────────────────┬──────┬───────────┬─────────┬───────┬───────────────────╮
-│ │ Domain FQDN           │  DCI │ Trust     │ Avg     │ Total │                   │
-│ │                       │ Score│ Band      │ Suspic. │ Audits│ Earned Badges     │
-├─┼───────────────────────┼──────┼───────────┼─────────┼───────┼───────────────────┤
-│1│ reuters.com           │ 98.5%│ HIGH_INT. │     3.2 │   142 │ ✍️ Byline, 🛡️ Clean │
-│2│ apnews.com            │ 97.8%│ HIGH_INT. │     4.1 │   118 │ ✍️ Byline, 🛡️ Clean │
-│3│ nature.com            │ 96.4%│ HIGH_INT. │     5.0 │    89 │ ✍️ Byline, 🛡️ Clean │
-│4│ propublica.org        │ 95.2%│ HIGH_INT. │     6.8 │    64 │ ✍️ Byline, 🛡️ Clean │
-│5│ arstechnica.com       │ 92.1%│ HIGH_INT. │     8.4 │    52 │ ✍️ Byline         │
-╰─┴───────────────────────┴──────┴───────────┴─────────┴───────┴───────────────────╯
-```
+🛡️ Epistemic Honor Roll (Most Trusted Domains)
+╭-----------------------------------------------------------------------------------╮
+| Domain FQDN           |  DCI | Trust     | Avg     | Total |
+|                       | Score| Band      | Suspic. | Audits| Earned Badges
+1| reuters.com           | 98.5%| HIGH_INT. |     3.2 |   142 | ✍️ Byline, 🛡️ Clean
+2| apnews.com            | 97.8%| HIGH_INT. |     4.1 |   118 | ✍️ Byline, 🛡️ Clean
+3| nature.com            | 96.4%| HIGH_INT. |     5.0 |    89 | ✍️ Byline, 🛡️ Clean
+4| propublica.org        | 95.2%| HIGH_INT. |     6.8 |    64 | ✍️ Byline, 🛡️ Clean
+5| arstechnica.com       | 92.1%| HIGH_INT. |     8.4 |    52 | ✍️ Byline
+╰-----------------------------------------------------------------------------------╯
 
 ### 2. Deception Hotlist (Wall of Shame)
 Domains with pervasive fabricated claims, deceptive advertising, or high violation densities appear on the public Wall of Shame:
 
-```bash
 $ credence rankings --type domains --category worst
-
-                 🛑 Deception Hotlist (Wall of Shame)                            
-╭─┬───────────────────────┬──────┬───────────┬─────────┬───────┬───────────────────╮
-│ │ Domain FQDN           │  DCI │ Trust     │ Avg     │ Total │ Primary Flag      │
-│ │                       │ Score│ Band      │ Suspic. │ Audits│                   │
-├─┼───────────────────────┼──────┼───────────┼─────────┼───────┼───────────────────┤
-│1│ miracle-cure-daily.biz│ 14.2%│ DECEPTIVE │    88.5 │    28 │ SPJ-1.1 Defamation│
-│2│ breaking-us-patriot.co│ 22.8%│ DECEPTIVE │    81.0 │    45 │ DP-1.1 Fake Alert │
-│3│ viral-gossip-vault.net│ 31.4%│ LOW_INT.  │    72.4 │    19 │ IEP-2.3 Ad Hominem│
-╰─┴───────────────────────┴──────┴───────────┴─────────┴───────┴───────────────────╯
-```
+🛑 Deception Hotlist (Wall of Shame)
+╭-----------------------------------------------------------------------------------╮
+| Domain FQDN           |  DCI | Trust     | Avg     | Total | Primary Flag
+|                       | Score| Band      | Suspic. | Audits|
+1| miracle-cure-daily.biz| 14.2%| DECEPTIVE |    88.5 |    28 | SPJ-1.1 Defamation
+2| breaking-us-patriot.co| 22.8%| DECEPTIVE |    81.0 |    45 | DP-1.1 Fake Alert
+3| viral-gossip-vault.net| 31.4%| LOW_INT.  |    72.4 |    19 | IEP-2.3 Ad Hominem
+╰-----------------------------------------------------------------------------------╯
 
 ---
 
@@ -104,20 +96,13 @@ When a publisher publishes 50 articles that all obsessively repeat the same comm
 
 Beyond domain rankings, Credence aggregates the most prevalent epistemic violations across the entire web:
 
-```bash
 $ credence rankings --type rules
-
-                 📊 Top Violated Rules Across the Open Web                      
-╭─┬──────────┬──────────────────────┬────────────────────────────┬──────┬──────╮
-│ │ Rule ID  │ Domain               │ Name                       │ Viol.│ Freq%│
-├─┼──────────┼──────────────────────┼────────────────────────────┼──────┼──────┤
-│1│ SPJ-1.1  │ JOURNALISTIC_ETHICS  │ Accuracy & Verification    │ 1,420│ 38.4%│
-│2│ FALLACY-2│ LOGICAL_FALLACY      │ Straw Man Argument         │   890│ 24.1%│
-│3│ DP-1.2   │ DECEPTIVE_PATTERNS   │ False Urgency Countdown    │   650│ 17.6%│
-│4│ SPJ-2.4  │ JOURNALISTIC_ETHICS  │ Cloaked Sponsored Content  │   412│ 11.1%│
-│5│ FALLACY-1│ LOGICAL_FALLACY      │ Ad Hominem Attack          │   320│  8.7%│
-╰─┴──────────┴──────────────────────┴────────────────────────────┴──────┴──────╯
-```
+📊 Top Violated Rules Across the Open Web
+| Forensic Evaluation Metric | Standard Output | Reputation Weight |
+| :--- | :--- | :--- |
+| **Verbatim Grounding Ratio ($G$)** | $1.00$ (Character-Exact) | Primary evidence weight |
+| **Topic Shannon Entropy ($H$)** | $0.84$ (High Diversity) | Organic editorial signal |
+| **SimHash-64 Bit Distance ($d_H$)**| $14	ext{ bits}$ (Unique) | Independent reporting pass |
 
 ---
 

@@ -1,62 +1,110 @@
 ---
-title: 'Operational Guide: Content-Addressable Blob Storage with Cloudflare R2'
-description: Operational guide for configuring S3-compatible zero-egress Cloudflare
-  R2 storage for HTML DOM captures and visual screenshots.
-since_version: v1.17.0
-verified_version: v2.16.1
+title: 'Operational Guide: Cloudflare R2 Content-Addressable Storage'
+description: Zero-egress S3-compatible blob storage configuration, CAS object lifecycle, and multi-region replication.
+since_version: v1.14.0
+verified_version: v2.16.2
 last_verified: 2026-08-24
+sidebar:
+  order: 18
 ---
 
-# Operational Guide: Content-Addressable Blob Storage with Cloudflare R2
+# Operational Guide: Cloudflare R2 Content-Addressable Storage
 
-Credence stores raw captured HTML DOM trees and visual PNG screenshots in **Content-Addressable Storage (CAS)**. This guide details how to configure zero-egress Cloudflare R2 (or any S3-compatible storage engine) for production snapshot persistence.
-
----
-
-## 1. Zero-Egress Economics
-
-Traditional cloud providers (AWS S3, GCP Cloud Storage) charge between $0.08 and $0.12 per GB of internet egress. In contrast, **Cloudflare R2** charges **$0.00 egress fees**, enabling infinite public inspection of verified forensic snapshots at zero marginal cost.
+This operational runbook provides step-by-step instructions for provisioning, configuring, and maintaining **Cloudflare R2 Object Storage** as the Content-Addressable Storage (CAS) backend for Credence audit snapshots and attestation receipts.
 
 ---
 
-## 2. Cloudflare R2 Setup Runbook
+## 1. Why Cloudflare R2 for Epistemic CAS?
 
-### Step 1: Create R2 Bucket
-1. Go to **Cloudflare Dashboard $\rightarrow$ R2 Object Storage $\rightarrow$ Create bucket**.
-2. Name the bucket: `credence-snapshots`.
-3. Select Location: **Automatic** (or preferred geographic region).
-4. Click **Create Bucket**.
+In high-throughput epistemic evaluation networks, public verification requests generate significant read traffic. Traditional cloud storage providers (such as AWS S3 or Google Cloud Storage) charge steep **data egress fees** ($0.08 – $0.12 per GB) whenever clients or browser extensions download cached audit receipts.
+
+Cloudflare R2 provides an S3-compatible API with **$0.00 data egress fees**, making it the ideal storage plane for planetary decentralized trust.
+
+R2 STORAGE ARCHITECTURE
+- Bucket: `credence-prod-cas`     | • Egress Fee: $0.00
+- CAS Path: `cas/sha256/xx/yy/...`| • SLA: 99.99%
+- Retention: 90-Day Half-Life     | • API: Standard S3
+
+---
+
+## 2. Step-by-Step Provisioning Runbook
+
+### Step 1: Create R2 Bucket in Cloudflare Dashboard
+1. Navigate to **Cloudflare Dashboard** $\rightarrow$ **R2 Object Storage**.
+2. Click **Create Bucket** and name it `credence-prod-cas`.
+3. Choose location hint **Automatic** (Anycast global replication).
 
 ### Step 2: Generate S3-Compatible API Credentials
-1. Under **R2 Object Storage**, click **Manage R2 API Tokens $\rightarrow$ Create API Token**.
-2. Permissions: **Object Read & Write**.
-3. Apply to specific bucket: `credence-snapshots`.
-4. Copy the generated credentials:
-   - **Access Key ID**: `S3_ACCESS_KEY_ID`
-   - **Secret Access Key**: `S3_SECRET_ACCESS_KEY`
-   - **Jurisdiction / S3 Endpoint URL**: `https://<ACCOUNT_ID>.r2.cloudflarestorage.com`
+1. Click **Manage R2 API Tokens** $\rightarrow$ **Create API Token**.
+2. Set permissions to **Object Read & Write**.
+3. Copy the **Access Key ID**, **Secret Access Key**, and **Endpoint URL**.
 
----
-
-## 3. Configuration & Environment Variables
-
-Configure your Credence environment or Cloud Run service with:
-
-```bash
+### Step 3: Configure Environment Variables (`.env`)
+```ini
 STORAGE_BACKEND=s3
-S3_BUCKET_NAME=credence-snapshots
-S3_ENDPOINT_URL=https://f1e95c67a1e06db65efa5aaf7a92b38e.r2.cloudflarestorage.com
-S3_ACCESS_KEY_ID="your_r2_access_key_id"
-S3_SECRET_ACCESS_KEY="your_r2_secret_access_key"
+S3_ENDPOINT_URL=https://<account_id>.r2.cloudflarestorage.com
+S3_ACCESS_KEY_ID=your_r2_access_key_id
+S3_SECRET_ACCESS_KEY=your_r2_secret_access_key
+S3_BUCKET_NAME=credence-prod-cas
 S3_REGION_NAME=auto
 ```
 
 ---
 
-## 4. Key Structure & CAS Path Traversal Defenses
+## 3. Verifying CAS Storage Integration
 
-All stored forensic snapshots use cryptographic Content-Addressable Storage keys:
-- HTML Snapshot: `cas/sha256/{content_sha256}.html`
-- Visual Screenshot: `cas/sha256/{content_sha256}.png`
+Test read and write operations using the Credence storage probe:
 
-The storage adapter validates every key against the strict regex `^cas/sha256/[a-f0-9]{64}\.(html|png)$` prior to executing any disk or S3 operations, completely neutralizing directory traversal attacks (`../`).
+```bash
+# Run automated CAS read/write probe
+$ credence storage test-cas
+
+# Check active bucket object count and storage usage
+$ credence storage stats
+```
+
+---
+
+## 4. Related Guides & Blueprints
+
+* 🏛️ [Sovereign Data Gravity & CAS Portability Blueprint](../blueprints/sovereign-data-gravity-and-cas-portability.md)
+* 🗄️ [Database Pruning & WAL Maintenance](database-pruning-wal.md)
+
+---
+## Cloudflare R2 Zero-Egress Storage Architecture
+
+Forensic snapshots and raw DOM archives are persisted in S3-compatible Cloudflare R2 object storage to eliminate cloud egress bandwidth charges:
+
+| Configuration Variable | Recommended Setting | Production Purpose |
+| :--- | :--- | :--- |
+| `R2_BUCKET_NAME` | `credence-prod-cas` | Primary content-addressed storage bucket |
+| `R2_ENDPOINT_URL` | `https://<account-id>.r2.cloudflarestorage.com` | S3-compatible API endpoint |
+| `CAS_RETENTION_DAYS` | `90` | Automatic lifecycle pruning policy |
+| `CAS_EGRESS_FEE` | `$0.00 / GB` | 100% free egress bandwidth for public audits |
+
+```bash
+# Test R2 connection and CAS bucket synchronization
+$ credence db verify --storage r2
+```
+
+---
+## S3-Compatible Cloudflare R2 Storage Configuration
+
+Using Cloudflare R2 eliminates egress bandwidth fees while providing global high-availability storage for forensic snapshots.
+
+---
+## Production Operational Runbook & Maintenance Protocols
+
+When managing **Blob Storage R2** in production, operators should adhere to the following maintenance procedures:
+
+| Operational Phase | Frequency | Standard Command / Tool | Verification Target |
+| :--- | :--- | :--- | :--- |
+| **Pre-Flight Health Check** | Prior to deploy | `just preflight` | Toolchain, Python 3.12, Docker status |
+| **Diagnostic Scan** | Hourly (Automated) | `credence stats --json` | Latency, memory usage, token headroom |
+| **State Pruning** | Weekly | `credence db prune --retention-days 30` | SQLite WAL cleanup & disk optimization |
+| **Failover Drill** | Monthly | `credence db backup --verify-replica` | Cross-region replica readiness verification |
+
+```bash
+# Verify operational readiness
+$ credence stats --detailed
+```

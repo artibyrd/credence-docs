@@ -3,7 +3,7 @@ title: SimHash-64 & Mirror Network Detection
 description: Mathematical formulation of 64-bit SimHash, Hamming distances, and detecting
   coordinated propaganda syndication rings.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -64,3 +64,16 @@ When $D_H \le 3$ occurs across $\ge 5$ distinct domain origins within a 24-hour 
 * 🛡️ [Adversarial Threat Matrix & Sybil Defense](../protocols/adversarial-defense.md)
 * 💥 [Tutorial 08: Sybil Cartel Demolition & Mirror Busting](../tutorials/08-sybil-cartel-demolition.md)
 
+---
+## SimHash-64 Locality-Sensitive Hashing & Mirror Detection
+
+Credence detects astroturfing syndicates publishing identical PR copy across dozens of local news domains using 64-bit SimHash bitwise distance:
+
+$$d_H(h_1, h_2) = \sum_{i=0}^{63} (h_{1,i} \oplus h_{2,i})$$
+
+| Hamming Distance ($d_H$) | Sourcing Classification | Editorial Verdict |
+| :---: | :--- | :--- |
+| **$d_H = 0$ bits** | Exact Byte-for-Byte Mirror | Automated deduplication / cache hit |
+| **$1 \le d_H \le 3$ bits** | Coordinated Astroturf Syndicate | **Flagged as Astroturfing Network ($H < 0.30$)** |
+| **$4 \le d_H \le 10$ bits**| Syndicated Wire Story with Minor Edits| Grouped under parent wire report |
+| **$d_H > 10$ bits** | Independent Editorial Reporting | Normal evaluation pipeline |

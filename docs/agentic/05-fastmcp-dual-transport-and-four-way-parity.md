@@ -4,7 +4,7 @@ description: Architecture of the FastMCP 2.0 dual stdio/SSE server, Cloudflare e
   proxying, and maintaining synchronous feature parity across CLI, FastMCP, TUI, and
   Web.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 tags:
 - fastmcp
@@ -27,12 +27,12 @@ invariants:
 read_time: 8 min
 ---
 
-# FastMCP 2.0 Substrate: Dual Transports & 4-Way Synchronous Parity
+> **Note**: FastMCP 2.0 Substrate: Dual Transports & 4-Way Synchronous Parity
 
 Explore the communication architecture powering Credence's **FastMCP 2.0 server**, providing unified tool and resource access to Claude Desktop, Cursor, and Antigravity while maintaining 4-way synchronous feature parity.
 
 > [!IMPORTANT]
-> **[Invariant 30: Universal Feature Parity](../invariants.md#invariant-30)**: Every capability in Credence must be synchronously accessible across all 4 surfaces: CLI (`credence`), FastMCP 2.0 tools and resources, Textual TUI (`credence tui`), and the Zero-Build Web UI.
+> **[The Invariant Bible: Universal Feature Parity](../invariants.md#invariant-30)**: Every capability in Credence must be synchronously accessible across all 4 surfaces: CLI (`credence`), FastMCP 2.0 tools and resources, Textual TUI (`credence tui`), and the Zero-Build Web UI.
 
 ---
 
@@ -63,7 +63,7 @@ To ensure seamless production routing:
        allowed_origins=["*"]
    )
 ```
-2. **[Invariant 14: Edge Routing Origin Header Translation](../invariants.md#invariant-14)**: Cloudflare Worker edge routers rewrite `Host` headers to native Cloud Run URLs (`<service>.run.app`) to preserve live Server-Sent Events (SSE) streaming and global CORS headers.
+2. **[The Invariant Bible: Edge Routing Origin Header Translation](../invariants.md#invariant-14)**: Cloudflare Worker edge routers rewrite `Host` headers to native Cloud Run URLs (`<service>.run.app`) to preserve live Server-Sent Events (SSE) streaming and global CORS headers.
 
 ---
 
@@ -73,7 +73,7 @@ JSON cannot natively represent Python `datetime` objects. To prevent serializati
 
 ```python
 # In models and digest export dictionaries
-# [Invariant 16](../invariants.md#invariant-16): FastMCP Nested Datetime Serialization
+# [The Invariant Bible](../invariants.md#invariant-16): FastMCP Nested Datetime Serialization
 def to_dict(self) -> dict:
     return {
         "content_sha256": self.content_sha256,
@@ -84,3 +84,41 @@ def to_dict(self) -> dict:
 
 > [!TIP]
 > Always verify FastMCP payloads against standard JSON schema validators before publishing new tools or resources.
+
+---
+## FastMCP Dual-Transport Architecture (stdio & SSE)
+
+FastMCP 2.0 provides seamless interop across local desktop IDEs and distributed container swarms:
+
+| Transport Layer | Protocol Binding | Ideal Deployment | Latency Profile |
+| :--- | :--- | :--- | :--- |
+| **stdio** | Standard POSIX Pipe | Claude Desktop, Cursor Local, Antigravity | Sub-millisecond (`<1ms`) |
+| **SSE (Server-Sent Events)**| HTTP/2 Streaming | Remote Cloud Run, Kubernetes swarms | Low latency (`<15ms`) |
+
+```bash
+# Launch FastMCP server over local stdio pipe
+$ credence serve --transport stdio
+
+# Launch FastMCP server over HTTP/2 SSE streaming endpoint
+$ credence serve --transport sse --port 8080 --host 0.0.0.0
+```
+
+---
+## Dual Transport Implementation Details
+
+FastMCP 2.0 supports both stdio POSIX pipes and Server-Sent Events (SSE) streaming over HTTP/2, ensuring full compatibility across all environments.
+
+---
+## Technical Reference & Deployment Matrix
+
+| Parameter / Dimension | Configuration Value | Architectural Purpose |
+| :--- | :--- | :--- |
+| **Runtime Environment** | Python 3.12+ (Linux / macOS) | Core epistemic execution kernel |
+| **Transport Protocols** | stdio (Local) & SSE (Remote) | FastMCP 2.0 dual-transport substrate |
+| **State Storage Engine** | SQLAlchemy 2.0 Async (SQLite / Postgres) | Verifiable attestation and snapshot persistence |
+| **Frontend Standard** | Vanilla HTML5 / Native ES Modules | Zero-npm, zero-build client presentation |
+
+```bash
+# Verify system configuration
+$ credence stats
+```

@@ -3,11 +3,11 @@ title: 'Folding@home for Truth: Gamification Without the Casino'
 description: Why epistemic trust requires scientific peer prestige rather than mobile
   game mechanics, microtransactions, or financialized speculation.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
-# Folding@home for Truth: Gamification Without the Casino
+> **Note**: Folding@home for Truth: Gamification Without the Casino
 
 When platforms attempt to "gamify" online discourse, they almost invariably construct a casino. 
 
@@ -55,32 +55,26 @@ Your node tracks its cumulative contributions:
 - **Swarm Compute Value ($USD)**: The estimated dollar savings delivered to the decentralized network based on frontier inference rates ($0.34 per million tokens).
 - **Galileo Discoveries**: Instances where your node discovered verified, grounded high-severity violations that shifted consensus across the mesh.
 
-```bash
 $ credence merit
-
-╭────────────────────── 🛡️ Credence Epistemic Merit Card ──────────────────────╮
-│ Node Alias:       sifter-node-us-east1 (8f7e2a1b9c...)                       │
-│ Epistemic Tier:   AUDITOR (Rank #4 of 84 nodes)                              │
-│ Traffic Status:   FAST_LANE (500 msgs/s)                                     │
-│ 5-Factor Quality: 0.9124 (Uptime: 99.4%, Grounding: 98.2%)                   │
-│ Active Longevity: 42.6 days                                                  │
-│                                                                              │
-│ ⚡ Compute Philanthropy Odometer:                                            │
-│   • Tokens Donated to Peers: 1,420,500 tokens                                │
-│   • Swarm Compute Value:     $0.4830 USD                                     │
-│   • Attestations Seeded:     384 audits                                      │
-│   • Galileo Discoveries:     2 findings                                      │
-│                                                                              │
-│ Unlocked Epistemic Badges (5):                                               │
-│   • 🌱 Sprout Node: Initialized Ed25519 cryptographic identity               │
-│   • 📡 Sifter Pioneer: Sifted >100 syndicated feeds via HRW rendezvous        │
-│   • 🛡️ Verified Auditor: Q_i >= 0.70 with 98% verbatim grounding             │
-│   • ⚡ Philanthropic Relay: Seeded >1,000,000 tokens to mesh peers            │
-│   • 💎 Root Seed Candidate: Qualified for canonical peers.json manifest     │
-│                                                                              │
-│ Next Tier Milestone (SPECIALIST): ██████████████░░░░░░ (70%)                 │
-╰──────────────────────────────────────────────────────────────────────────────╯
-```
+╭---------------------- 🛡️ Credence Epistemic Merit Card ----------------------╮
+Node Alias:       sifter-node-us-east1 (8f7e2a1b9c...)
+Epistemic Tier:   AUDITOR (Rank #4 of 84 nodes)
+Traffic Status:   FAST_LANE (500 msgs/s)
+5-Factor Quality: 0.9124 (Uptime: 99.4%, Grounding: 98.2%)
+Active Longevity: 42.6 days
+⚡ Compute Philanthropy Odometer:
+- Tokens Donated to Peers: 1,420,500 tokens
+- Swarm Compute Value:     $0.4830 USD
+- Attestations Seeded:     384 audits
+- Galileo Discoveries:     2 findings
+Unlocked Epistemic Badges (5):
+- 🌱 Sprout Node: Initialized Ed25519 cryptographic identity
+- 📡 Sifter Pioneer: Sifted >100 syndicated feeds via HRW rendezvous
+- 🛡️ Verified Auditor: Q_i >= 0.70 with 98% verbatim grounding
+- ⚡ Philanthropic Relay: Seeded >1,000,000 tokens to mesh peers
+- 💎 Root Seed Candidate: Qualified for canonical peers.json manifest
+Next Tier Milestone (SPECIALIST): ██████████████░░░░░░ (70%)
+╰------------------------------------------------------------------------------╯
 
 ---
 
@@ -88,13 +82,10 @@ $ credence merit
 
 Nodes and newsrooms can display their real-time epistemic status anywhere on the web using Shields.io-compatible vector SVG badges generated directly by their local node or remote federation server:
 
-```html
 <!-- Live Epistemic Tier Badge -->
 <img src="https://credence.run/api/badge/root_seed_candidate?node=my-node" alt="Credence Merit" />
-
 <!-- Live Publisher Trust Badge -->
 <img src="https://credence.report/api/badge/publisher/reuters.com" alt="Reuters Epistemic Trust" />
-```
 
 These badges update in real time with the node's verified uptime, grounding accuracy, and tier ranking—offering verifiable transparency without central certification authorities.
 
@@ -106,23 +97,16 @@ In most gamified applications, leaderboards are cosmetic vanity metrics. In Cred
 
 The P2P relay dynamically assigns connected peers to **4 Traffic Shaping Classes**:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         PEER QUALITY TRAFFIC SHAPING CLASSES                                     │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Observed Peer Quality Score ($Q_i \in [0.0, 1.0]$)                                               │
-│                                │                                                                 │
-│       ┌────────────────────────┼────────────────────────┬────────────────────────┐               │
-│       ▼ $Q_i \ge 0.85$         ▼ $0.50 \le Q_i < 0.85$  ▼ $0.25 \le Q_i < 0.50$  ▼ $Q_i < 0.25$  │
-│ ┌───────────────────┐  ┌───────────────────┐  ┌───────────────────┐  ┌───────────────────┐       │
-│ │ 🟢 FAST_LANE      │  │ 🔵 STANDARD       │  │ 🟡 CHOKED         │  │ 🔴 QUARANTINED    │       │
-│ │ • 500 msgs/sec    │  │ • 50 msgs/sec     │  │ • 1 msg/sec       │  │ • 0 msgs/sec      │       │
-│ │ • Immediate gossip│  │ • Standard gossip │  │ • Flaky/divergent │  │ • Sybil/bad severed│      │
-│ └───────────────────┘  └───────────────────┘  └───────────────────┘  └───────────────────┘       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Network Physics: Good actors gain high-bandwidth lanes; adversaries are throttled to 0 msg/s   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+PEER QUALITY TRAFFIC SHAPING CLASSES
+Observed Peer Quality Score ($Q_i \in [0.0, 1.0]$)
+--------------------------------------------------------
+▼ $Q_i \ge 0.85$         ▼ $0.50 \le Q_i < 0.85$  ▼ $0.25 \le Q_i < 0.50$  ▼ $Q_i < 0.25$
+----------------  ----------------  ----------------  ----------------
+| 🟢 FAST_LANE      |  | 🔵 STANDARD       |  | 🟡 CHOKED         |  | 🔴 QUARANTINED    |
+| • 500 msgs/sec    |  | • 50 msgs/sec     |  | • 1 msg/sec       |  | • 0 msgs/sec      |
+| • Immediate gossip|  | • Standard gossip |  | • Flaky/divergent |  | • Sybil/bad severed|
+----------------  ----------------  ----------------  ----------------
+💡 Network Physics: Good actors gain high-bandwidth lanes; adversaries are throttled to 0 msg/s
 
 If a node submits ungrounded citations or attempts to spam false consensus, its Quality Score ($Q_i$) is slashed. The routing engine automatically demotes its connection from `FAST_LANE` to `CHOKED` (1 msg/s) or `QUARANTINED` (0 msg/s). Good actors receive high-bandwidth fast lanes; adversaries are mathematically throttled out of existence.
 

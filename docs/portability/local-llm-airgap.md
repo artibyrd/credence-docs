@@ -3,7 +3,7 @@ title: 'Zero-Cloud Sovereign Operations: Local LLMs'
 description: Running a 100% private, offline Credence node using local open-weights
   models with Ollama or vLLM on Mac Studio / RTX 4090.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -73,3 +73,42 @@ When running in this mode:
 - **Zero Outbound LLM API Calls**: All embeddings, tokenization, and model inference occur in local GPU VRAM / Apple Unified Memory.
 - **Local Ed25519 Custody**: Private keys never leave the local encrypted SQLite keystore.
 - **100% Privacy Compliance**: Safe for GDPR, HIPAA, attorney-client privileged materials, and confidential journalist source protection.
+
+---
+## Sovereign Offline Evaluation with Ollama and vLLM
+
+Running local quantized models enables completely private, air-gapped evaluation with zero third-party API dependencies.
+
+---
+## Technical Reference & Deployment Matrix
+
+| Parameter / Dimension | Configuration Value | Architectural Purpose |
+| :--- | :--- | :--- |
+| **Runtime Environment** | Python 3.12+ (Linux / macOS) | Core epistemic execution kernel |
+| **Transport Protocols** | stdio (Local) & SSE (Remote) | FastMCP 2.0 dual-transport substrate |
+| **State Storage Engine** | SQLAlchemy 2.0 Async (SQLite / Postgres) | Verifiable attestation and snapshot persistence |
+| **Frontend Standard** | Vanilla HTML5 / Native ES Modules | Zero-npm, zero-build client presentation |
+
+```bash
+# Verify system configuration
+$ credence stats
+```
+
+---
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **Local Llm Airgap** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "local_llm_airgap" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

@@ -4,7 +4,7 @@ description: How Credence solves the Cold-Start Ghost Town problem in decentrali
   verification through 5-phase botanical germination, HRW Rendezvous Hashing, and
   zero-token mesh adoption.
 since_version: v1.6.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 date: '2026-08-18'
 author: Credence Core Architecture Team
@@ -31,15 +31,14 @@ To achieve genuine zero-touch autonomy, a fresh node must solve four distinct ch
 3. **Diverse Journalistic Soil**: Subscribe to a balanced, multi-tier corpus of RSS/Atom feeds spanning investigative journalism, science preprints, regional civic policy, financial disclosures, and satire cloaking.
 4. **Immediate Novel Auditing**: Audit real, live articles immediately so all four presentation surfaces (CLI, FastMCP 2.0, Textual TUI, and Zero-Build Web) are hot with real data.
 
-```
-🌱 Germination Lifecycle
-├── 🔑 Epistemic Genesis: Identity Active (9580dc91601992b3...)
-├── 💧 Peer Mesh Inoculation: 5 Attestations Adopted (0 tokens saved / $0.00 spent)
-├── 🌱 Epistemic Soil Sowed: 26 Categorized Preset Feeds (4 tiers)
-├── ⚡ Miracle-Gro Burst: 3 Novel Articles Audited
-├── 📦 Web Catalog Export: reports.json Synced
-└── 🌳 Node Fully Germinated: 194 Total Reports Ready (12.35s)
-```
+| Germination Stage | Subsystem Action | Resource Consumption | Operational Status |
+| :--- | :--- | :--- | :--- |
+| **1. Epistemic Genesis** | Generates Ed25519 node identity (`9580dc9160...`) | `<50ms` | Identity Active |
+| **2. Peer Inoculation** | Adopts 5 cached peer attestations from mesh | 0 tokens ($0.00) | Instant Mesh Sync |
+| **3. Epistemic Soil** | Registers 26 categorized RSS/Atom feeds | Hermetic SQLite WAL | Feeds Active |
+| **4. Miracle-Gro Burst** | Audits 3 novel un-evaluated feed items | Gemini 3.7 Flash Thinking | Receipts Minted |
+| **5. Catalog Export** | Syncs `reports.json` for zero-build web viewer | Static JSON artifact | Web Ready |
+| **6. Doctor Diagnostic** | Asserts database, governor, and MCP health | `<10ms` check | **100% Operational** |
 
 ---
 

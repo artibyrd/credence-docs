@@ -3,7 +3,7 @@ title: The Agentic Epistemic Brake Cookbook
 description: Integration patterns for LangGraph, CrewAI, Antigravity SDK, and Cursor
   to halt or flag unreliable web citations.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -109,7 +109,7 @@ async function verifyUrlBeforeIngestion(url: string): Promise<boolean> {
 
 ---
 
-## 4. Prompt Injection Defense Directive (Invariant 30)
+## 4. Prompt Injection Defense Directive (The Invariant Bible)
 
 Always inject this system directive when passing scraped web prose to your LLM:
 

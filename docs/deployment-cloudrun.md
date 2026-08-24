@@ -3,11 +3,11 @@ title: Cloud Run Deployment & Dual-Tier Monitoring Guide
 description: Deploying to Google Cloud Run with Terraform, $15/mo budget cap, scale-to-zero
   compute, Workload Identity Federation, and automated CI/CD.
 since_version: v1.8.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
-# Cloud Run Deployment & Dual-Tier Monitoring Guide
+> **Note**: Cloud Run Deployment & Dual-Tier Monitoring Guide
 
 This guide covers deploying the **Credence FastMCP Server** to **Google Cloud Platform (Cloud Run v2)** with strict cost controls ($15/month budget ceiling, scale-to-zero compute), automated **Cloud Build / GitHub Actions CI/CD**, **Workload Identity Federation (WIF)**, and **Dual-Tier SRE Observability** with **Discord & Email Alerting**.
 
@@ -33,6 +33,8 @@ Credence provisions observability according to two operational modes controlled 
 ---
 
 ## 3. Step-by-Step Deployment Runbook
+
+Follow these sequential deployment steps to provision and deploy the compute plane:
 
 ### Step 1: Initialize gcloud & Enable Required APIs
 ```bash
@@ -91,8 +93,6 @@ just deploy backend
 ```
 
 ---
-
-## 4. Workload Identity Federation (WIF) for GitHub Actions CI/CD
 
 ## 4. Workload Identity Federation & Least-Privileged CI/CD Setup
 

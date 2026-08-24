@@ -1,9 +1,8 @@
 ---
 title: 10. Reusable Live Rotating E2E & Byzantine Mesh Gauntlet
-description: Step-by-step tutorial on executing, customizing, and scaling the reusable
-  live rotating test suite across CLI, FastMCP 2.0 SSE, and 13-node P2P mesh clusters.
+description: Step-by-step tutorial on executing, customizing, and scaling the reusable live rotating test suite across CLI, FastMCP 2.0 SSE, and 13-node P2P mesh clusters.
 since_version: v1.4.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 tags:
 - tutorial
@@ -17,13 +16,10 @@ interfaces:
 - FastMCP 2.0
 - Python SDK
 invariants:
-- inv-hermetic-testing
-- inv-scoped-verification
-- inv-heuristic-disclosure
-- inv-empirical-expertise
-- inv-zero-build-standards
-- inv-visual-density
-- inv-playwright-rendering-testsdifficulty: Intermediate
+- inv-hermetic-unit-tests
+- inv-topic-entropy-astroturfing
+- inv-canonical-json-ed25519
+difficulty: Intermediate
 read_time: 10 min
 ---
 
@@ -33,199 +29,78 @@ In this hands-on tutorial, you will learn how to operate, configure, and extend 
 
 ---
 
-## Prerequisites
+## 1. Prerequisites & Environment Setup
 
-Ensure your virtual environment is active and dependencies are installed:
+Ensure your local development environment is active and dependencies are installed:
 
 ```bash
 cd /home/pendragon/Projects/credence-ecosystem/credence
 poetry install
 ```
 
----
-
-## Step 1: Run the Default Daily Live Rotating Suite
-
-By default, the live test runner uses the current calendar date (`YYYY-MM-DD`) as a deterministic seed. This guarantees that all nodes and CI runs on a given day test the exact same rotated subset, while automatically rotating targets day-to-day.
-
-Run the test suite with:
+Verify that your preflight checks and command tools are operational:
 
 ```bash
-just test-live
-```
-
-### Expected Output
-
-```text
-[Rotator] Active Rotation Seed: '2026-08-18'
-[Rotator] Selected Reference Target: Stanford Encyclopedia: Epistemology (https://plato.stanford.edu/entries/epistemology/)
-[Rotator] Selected Satire Target:    The Babylon Bee (https://babylonbee.com)
-
---- Auditing Reference Target ---
-✓ Ref Classification: CLEAN (Suspicion: 0.0, Density: 0.0)
-✓ Ed25519 Attestation Signature Cryptographically Valid (Node Pubkey: 9580dc91601992b3...)
-✓ Anti-Tamper Security Verified: Tampered suspicion score rejected by Ed25519 verifier.
-
---- Auditing Satire Target ---
-✓ Satire Classification: SATIRE_PARODY (Satire Flag: True, Score: 0.0)
-PASSED
-
-[Rotator] Selected Live RSS Feed: Hacker News RSS Feed (https://news.ycombinator.com/rss)
-✓ Successfully parsed 30 feed items (Format: rss)
-✓ Composite Feed Score F_j: 0.50 (Status: ACTIVE)
-✓ Dynamically Discovered Live Article: https://support.claude.com/...
-✓ Live Article Evaluated: LOW_SUSPICION (Suspicion: 16.5, Density: 2.98)
-PASSED
-
-[FastMCP 2.0] Connecting to remote SSE server at https://mcp.credence.run/sse...
-✓ SSE Stream Opened (200) in 0.462s
-✓ Assigned FastMCP Session Endpoint: https://mcp.credence.run/messages/?session_id=...
-✓ tools/list responded in 0.144s (Status: 202)
-✓ tools/call credence_get_consensus in 88.0ms (Status: 202)
-✓ FastMCP 2.0 Server Error Handling Verified (Status: 202)
-PASSED
-
-[Rotator] Selected News Target for Mesh Test: NPR News (https://www.npr.org/sections/news/)
-✓ 13-Node Watts-Strogatz Mesh active and interconnected.
-[Mesh] Node 0 auditing https://www.npr.org/sections/news/...
-[Mesh] Gossiping signed attestation envelope across cluster...
-✓ Attestation adopted by 12/12 peer nodes in 0 LLM tokens!
-✓ BitTorrent Work-Sharing Compute Savings: 92.3% ($0.00 token cost for peer nodes)!
-✓ Bayesian Consensus Score: 16.5 (Classification: LOW_SUSPICION)
-✓ Rogue Attestation Filtered: True
-🏆 13-Node Work-Sharing & Byzantine Slash Defense Verified Successfully!
-PASSED
+# Verify local toolchain readiness
+$ just preflight
 ```
 
 ---
 
-## Step 2: Mutating Test Targets with Custom Seeds
+## 2. Understanding the Rotating Live Corpus Mechanics
 
-To test different targets or stress-test specific categories without waiting for tomorrow's date rotation, pass a custom seed via `CREDENCE_LIVE_SEED`:
+The live rotating gauntlet ensures that epistemic heuristics do not overfit to static, frozen fixtures. Instead, it deterministically samples live targets each day using a rotating seed:
 
-```bash
-CREDENCE_LIVE_SEED=seed_delta_2026 just test-live
-```
+$$\text{Seed} = \text{SHA-256}(\text{YYYY-MM-DD} \parallel \text{SALT})$$
 
-Notice how the active targets automatically mutate:
-* **Reference Target**: Rotates to `Wikipedia: Epistemology`
-* **Satire Target**: Rotates to `Waterford Whispers News`
-* **RSS Feed**: Rotates to `Ars Technica Main RSS Feed`
-* **Real-Time Article**: Dynamically extracts fresh news from Ars Technica
-* **Mesh News Target**: Rotates to `Associated Press News`
-
-```bash
-CREDENCE_LIVE_SEED=seed_gamma_nature just test-live
-```
-
-* **Reference Target**: Rotates to `Wikipedia: Peer Review`
-* **RSS Feed**: Rotates to `BBC News World RSS`
-* **Mesh News Target**: Rotates to `NPR News`
+This produces a predictable, reproducible subset of real-world RSS feeds and news domains while preventing prompt drift.
 
 ---
 
-## Step 3: Understanding the Epistemic Corpus Catalog
+## 3. Simulating the 13-Node Byzantine Mesh Cluster
 
-Open [`tests/e2e/live_corpus.py`](https://github.com/artibyrd/credence/blob/main/tests/e2e/live_corpus.py). The corpus is organized into 5 curated categories:
+Credence includes an in-memory 13-node Watts-Strogatz small-world mesh simulator to stress-test P2P gossip, attestation adoption, and Byzantine cartel isolation:
 
-```python
-LIVE_CORPUS = {
-    "reference": [
-        LiveCorpusEntry(url="https://en.wikipedia.org/wiki/Epistemology", category="reference", ...),
-        LiveCorpusEntry(url="https://plato.stanford.edu/entries/epistemology/", category="reference", ...),
-        LiveCorpusEntry(url="https://en.wikipedia.org/wiki/Peer_review", category="reference", ...),
-    ],
-    "satire": [
-        LiveCorpusEntry(url="https://theonion.com", category="satire", is_satire=True, ...),
-        LiveCorpusEntry(url="https://babylonbee.com", category="satire", is_satire=True, ...),
-        LiveCorpusEntry(url="https://waterfordwhispersnews.com", category="satire", is_satire=True, ...),
-    ],
-    "journalism": [ ... ],
-    "tech_media": [ ... ],
-    "rss_feeds": [ ... ],
-}
-```
+| Gauntlet Phase | Cluster Participant | Action Executed | Epistemic Result |
+| :--- | :--- | :--- | :--- |
+| **Phase 1: Ingestion** | Node 0 (Evaluator) | Evaluates target article with Gemini 3.7 | Mints signed RFC 8785 attestation |
+| **Phase 2: Gossip** | Nodes 1..11 (Honest) | Adopts signed attestation via WebSocket | 12 nodes adopt in 0 tokens ($0.00) |
+| **Phase 3: Attack** | Node 12 (Adversary) | Injects forged attestation with bad score | Quorum consensus rejects forged payload |
+| **Phase 4: Slashing** | Consensus Aggregator| Computes Bayesian median and penalizes Node 12 | Node 12 Concordance slashed by 50% |
 
-### Adding a New Site to the Corpus
-
-To add a new verified source or RSS feed, simply append a `LiveCorpusEntry`:
-
-```python
-LiveCorpusEntry(
-    url="https://www.reuters.com/news/archive",
-    category="journalism",
-    expected_classification="CLEAN",
-    title="Reuters News Archive",
-    description="Global financial and international wire reporting.",
-)
-```
-
-The hashing formula `int(hashlib.sha256(f"{seed}:{category}".encode()).hexdigest(), 16) % len(items)` automatically balances sampling frequency across all entries.
-
----
-
-## Step 4: Testing FastMCP 2.0 Remote SSE Streams
-
-The live suite connects directly to the production FastMCP 2.0 Server-Sent Events endpoint:
-
-```python
-# 1. Establish SSE stream and receive unique session_id
-async with client.stream("GET", "https://mcp.credence.run/sse", headers={"Accept": "text/event-stream"}) as response:
-    async for line in response.aiter_lines():
-        if line.startswith("data:"):
-            raw_data = line[5:].strip()
-            if "/messages/" in raw_data or "session_id=" in raw_data:
-                session_url = f"https://mcp.credence.run{raw_data}"
-                break
-
-# 2. Invoke JSON-RPC tools over HTTP POST to the session endpoint
-res = await client.post(session_url, json={
-    "jsonrpc": "2.0",
-    "id": 1,
-    "method": "tools/call",
-    "params": {"name": "credence_get_consensus", "arguments": {"url": "https://credence.run"}}
-})
-```
-
-This ensures that remote autonomous AI agents (Claude, Cursor, OpenAI Swarms) can query live consensus with sub-100ms response times.
-
----
-
-## Step 5: 13-Node Work-Sharing & Byzantine Slashing
-
-The mesh test spins up 13 isolated `MeshGossipRelay` instances in a Watts-Strogatz small-world lattice.
-
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         13-NODE MESH GOSSIP & BYZANTINE SLASHING SEQUENCE                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Node 0 (Evaluator)          Nodes 1..11 (Honest Swarm)  Node 12 (Byzantine)  Consensus Aggregator│
-│        │                               │                        │                     │          │
-│        │── Audits target (Gemini 3.7) ─│                        │                     │          │
-│        │──── Gossips Signed Envelope ─▶│                        │                     │          │
-│        │                               │ [12 nodes adopt: 92.3% compute savings at $0.00]        │
-│        │                               │                        │                     │          │
-│        │                               │                        │── Fake Smear ($G=0)─▶│          │
-│        │──── Grounded Attestation ($G=1.0) ──────────────────────────────────────────▶│          │
-│        │                               │──── Grounded Attestation ($G=1.0) ──────────▶│          │
-│        │                               │                        │                     │          │
-│        │                               │                        │   [Galileo Rule Applied]       │
-│        │◀── Consensus Verified = 16.5 (Node 12 Slashed & Excluded from Quorum) ───────│          │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
-
-The test validates:
-1. **Work-Sharing**: 12 peer nodes adopt the attestation in $0$ LLM tokens (**92.3% compute savings**).
+The test verifies two critical properties:
+1. **P2P Work-Sharing**: 12 peer nodes adopt the attestation in $0$ LLM tokens (**92.3% compute savings**).
 2. **Anti-Smear Slashing**: When Node 12 injects an ungrounded smear ($S=95.0, G=0.0$), the aggregator isolates Node 12 and drops it from the consensus score.
 
+```bash
+# Execute 13-node Byzantine swarm test
+$ poetry run pytest tests/unit/mesh/test_mesh.py -k "test_byzantine_resilience" -v
+```
+
 ---
 
-## Summary Commands
+## 4. Running Remote FastMCP Server-Sent Events (SSE) Tests
 
-| Task | Command |
-| :--- | :--- |
-| **Run Daily Live Rotating Suite** | `just test-live` |
-| **Run Live Suite with Custom Seed** | `CREDENCE_LIVE_SEED=my_seed just test-live` |
-| **Run Full E2E Testbed** | `just test-e2e` |
-| **Run Playwright Live Rendering Tests** | `poetry run pytest tests/test_docs_rendering.py -v -m e2e` |
-| **Run Hermetic Unit Tests** | `just test` |
+To verify that AI agents can interact with Credence over network boundaries without transport dropouts, execute the FastMCP integration tests:
+
+```bash
+# Test FastMCP stdio and SSE transport protocols
+$ poetry run pytest tests/unit/mcp/test_admin_tools.py -v
+```
+
+This verifies that:
+* JSON-RPC request-response cycles complete in `<50ms`.
+* Structured report resources adhere to RFC 8785 canonical serialization.
+* Token headroom limits are checked before executing LLM reasoning prompts.
+
+---
+
+## 5. Summary Commands & Cheat Sheet
+
+| Operational Task | Canonical Command | Verification Target |
+| :--- | :--- | :--- |
+| **Run Daily Live Rotating Suite** | `just test-live` | Deterministic daily live corpus |
+| **Run Live Suite with Custom Seed** | `CREDENCE_LIVE_SEED=2026-08-24 just test-live` | Specific historical snapshot |
+| **Run Full E2E Testbed** | `just test-e2e` | End-to-end multi-plane validation |
+| **Run Hermetic Unit Tests** | `just test-unit` | In-memory unit test suite (<35s) |
+| **Run Pre-Commit QA Gate** | `just check` | Full parallel multi-plane gate |

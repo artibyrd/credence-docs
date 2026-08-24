@@ -3,7 +3,7 @@ title: Epistemic Merit & Sovereign Node Leaderboards
 description: Technical specification for 5-level node tiers, 8 verifiable merit badges,
   operator maintenance half-life decay, and deterministic tie-breaking.
 since_version: v1.9.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -77,17 +77,11 @@ U_{\text{raw}} & \text{if } \Delta t \le 2\text{ hours} \\
 U_{\text{raw}} \cdot \exp\left( - \frac{\ln(2) \cdot (\Delta t - 2)}{24} \right) & \text{if } \Delta t > 2\text{ hours}
 \end{cases}$$
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         OPERATOR MAINTENANCE GRACE PERIOD & DECAY CURVE                          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Offline Duration ($\Delta t$)               Uptime Calculation Formula       Operational Impact  │
-├─────────────────────────────────────────────┼────────────────────────────────┼───────────────────┤
-│ $\Delta t \le 2\text{ hours}$ (Grace Period)│ $U_i = U_{\text{raw}}$         │ 0 Penalty (Reboot)│
-│ $2\text{h} < \Delta t \le 26\text{ hours}$  │ $U_i = U_{\text{raw}} \cdot \exp(-\ln(2)(\Delta t-2)/24)$ │ Smooth 50% Decay  │
-│ $\Delta t > 7\text{ days}$ (Stale Node)     │ $U_i \to 0.00$                 │ Demoted to CHOKED │
-└─────────────────────────────────────────────┴────────────────────────────────┴───────────────────┘
-```
+| Offline Duration ($\Delta t$) | Uptime Calculation Formula | Governance & Leaderboard Impact |
+| :--- | :--- | :--- |
+| **$\Delta t \le 2\text{ hours}$ (Grace Period)** | $U_i = U_{\text{raw}}$ | Zero penalty; seamless reboot |
+| **$2\text{h} < \Delta t \le 26\text{ hours}$** | $U_i = U_{\text{raw}} \cdot \exp(-\ln(2)(\Delta t-2)/24)$ | Smooth exponential 50% decay |
+| **$\Delta t > 7\text{ days}$ (Stale Node)** | $U_i \to 0.00$ | Demoted to CHOKED status |
 
 This prevents transient network glitches from wrecking leaderboards while ensuring permanently dead nodes gracefully decay out of top ranks.
 

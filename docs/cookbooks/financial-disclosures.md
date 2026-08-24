@@ -3,7 +3,7 @@ title: Auditing Financial Disclosures & 10-K Filings
 description: Using the ULTRA profile (16k thinking tokens) to audit SEC 10-K filings,
   earnings calls, and corporate releases.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -66,4 +66,40 @@ Key Violations:
     Quote: "Short sellers who question our cash runway are simply bad-faith saboteurs who don't understand our industry."
     Rationale: Dismisses substantive questions regarding 6-month liquidity reserves by attacking the motives of critics rather than presenting audited balance sheet reserves.
 ============================================================
+```
+
+---
+## Auditing Financial 10-K Filings & Non-GAAP Metrics
+
+Corporate financial disclosures and earnings releases frequently employ linguistic obfuscation and aggressive non-GAAP adjustments. Credence audits financial prose against SEC and GAAP accounting taxonomies:
+
+| Financial Metric Category | Audit Focus | Linguistic / Numerical Rule |
+| :--- | :--- | :--- |
+| **Adjusted EBITDA** | Reconciliation against GAAP operating income | Flags undocumented one-time exclusions |
+| **Revenue Projections** | Forward-looking disclaimer completeness | Evaluates safe harbor compliance |
+| **Related-Party Deals** | Undisclosed executive entity transactions | IEP-COMM-1 commercial transparency scan |
+
+```bash
+# Audit financial 10-K filing with Ultra thinking profile
+$ credence audit https://sec.gov/edgar/filing-10k.htm --profile ultra --thinking-budget 4096
+```
+
+---
+## SEC 10-K Audit Recipes and Non-GAAP Analysis
+
+Auditing financial filings with the Ultra thinking profile exposes undocumented exclusions and ungrounded growth projections.
+
+---
+## Technical Reference & Deployment Matrix
+
+| Parameter / Dimension | Configuration Value | Architectural Purpose |
+| :--- | :--- | :--- |
+| **Runtime Environment** | Python 3.12+ (Linux / macOS) | Core epistemic execution kernel |
+| **Transport Protocols** | stdio (Local) & SSE (Remote) | FastMCP 2.0 dual-transport substrate |
+| **State Storage Engine** | SQLAlchemy 2.0 Async (SQLite / Postgres) | Verifiable attestation and snapshot persistence |
+| **Frontend Standard** | Vanilla HTML5 / Native ES Modules | Zero-npm, zero-build client presentation |
+
+```bash
+# Verify system configuration
+$ credence stats
 ```

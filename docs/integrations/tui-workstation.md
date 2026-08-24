@@ -3,11 +3,11 @@ title: Textual TUI Terminal Workstation Deep Dive
 description: Mastering the interactive terminal user interface, keybindings, 7 core
   panes, 3 multi-display view modes, and real-time epistemic inspection.
 since_version: v1.7.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
-# Textual TUI Terminal Workstation Deep Dive
+> **Note**: Textual TUI Terminal Workstation Deep Dive
 
 Credence includes an interactive terminal workstation powered by **Textual** (`credence tui`).
 
@@ -47,28 +47,23 @@ The workstation is entirely keyboard-driven with single-key shortcuts:
 
 ## 2. Workstation Layout Anatomy
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         TEXTUAL TUI TERMINAL WORKSTATION ARCHITECTURE                            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ 1. HEADER: Live UTC Clock • Model Profile Badge [ECONOMY / BALANCED / ULTRA] • Version     │   │
-│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ 2. STATUS PILL: Headroom Headroom % • Grounding Active ($G=1.00$) • Scale-to-Zero State    │   │
-│ ├────────────────────────────────────────────────────────────────────────────────────────────┤   │
-│ │ 3. 9-TAB NAVIGATION SUITE:                                                                 │   │
-│ │    [1] Inspector  [2] Taxonomies  [3] Subjects  [4] Feeds  [5] Dossiers                    │   │
-│ │    [6] Quota      [7] Identity    [8] Ops       [9] Mesh                                   │   │
-│ ├───────────────────────────────────────────────────────────┬────────────────────────────────┤   │
-│ │ 4. DUAL-PANE CONTEXT VIEW                                 │ 5. EPISTEMIC LENSING PANE      │   │
-│ │ • Active Audit Feed / Publisher Dossier Tree              │ • Surface (Score Gauge)        │   │
-│ │ • Real-Time SQLite WAL Log Stream                         │ • Focus (Grounded Evidence)    │   │
-│ │ • Fail-Closed Dynamic Mesh Telemetry                      │ • Deep Forensic (Ed25519 Sig)  │   │
-│ ├───────────────────────────────────────────────────────────┴────────────────────────────────┤   │
-│ │ 6. FOOTER: Interactive Keybinding Action Bar (`/` Audit, `l` Lens, `f` Filter, `q` Quit)   │   │
-│ └────────────────────────────────────────────────────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+TEXTUAL TUI TERMINAL WORKSTATION ARCHITECTURE
+----------------
+| 1. HEADER: Live UTC Clock • Model Profile Badge [ECONOMY / BALANCED / ULTRA] • Version     |
+----------------
+| 2. STATUS PILL: Headroom Headroom % • Grounding Active ($G=1.00$) • Scale-to-Zero State    |
+----------------
+| 3. 9-TAB NAVIGATION SUITE:                                                                 |
+|    [1] Inspector  [2] Taxonomies  [3] Subjects  [4] Feeds  [5] Dossiers                    |
+|    [6] Quota      [7] Identity    [8] Ops       [9] Mesh                                   |
+------------------------------------------------+
+| 4. DUAL-PANE CONTEXT VIEW                                 | 5. EPISTEMIC LENSING PANE      |
+| • Active Audit Feed / Publisher Dossier Tree              | • Surface (Score Gauge)        |
+| • Real-Time SQLite WAL Log Stream                         | • Focus (Grounded Evidence)    |
+| • Fail-Closed Dynamic Mesh Telemetry                      | • Deep Forensic (Ed25519 Sig)  |
+------------------------------------------------+
+| 6. FOOTER: Interactive Keybinding Action Bar (`/` Audit, `l` Lens, `f` Filter, `q` Quit)   |
+----------------
 
 ---
 
@@ -85,7 +80,7 @@ The primary analytical surface for inspecting multi-specialist findings. Select 
 ### Tab 2 (`2`): 📚 Registered Taxonomy Catalogs
 Browse all loaded taxonomy rulebooks (SPJ Journalistic Ethics, Informal Logical Fallacies, Deceptive UI Patterns).
 * Collapsible tree hierarchy showing catalogs, thematic clusters, rule IDs, and baseline severity ratings.
-* Pinned by SHA-256 catalog hashes in accordance with **[Invariant 5](../invariants.md#invariant-5)** (Namespaced Fixed Taxonomies).
+* Pinned by SHA-256 catalog hashes in accordance with **[The Invariant Bible](../invariants.md#invariant-5)** (Namespaced Fixed Taxonomies).
 
 ---
 
@@ -161,7 +156,7 @@ Review the automated 24-hour executive summary compiling articles sifted across 
 
 ## 4. Multi-Display View Modes
 
-In accordance with **[Invariant 25](../invariants.md#invariant-25)**, the TUI supports 3 distinct presentation modes toggled via `v`:
+In accordance with **[The Invariant Bible](../invariants.md#invariant-25)**, the TUI supports 3 distinct presentation modes toggled via `v`:
 
 | Mode | Key | Primary Use Case | Output Format |
 |:---|:---|:---|:---|
@@ -199,4 +194,3 @@ Pressing `f` focuses the filter input bar above the violations table. As you typ
 🔍 Filter: MED
 -> Filters table to show only MEDICAL_HEALTH (e.g. MED-1.2 Unsubstantiated Cure)
 ```
-

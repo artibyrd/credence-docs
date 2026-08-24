@@ -2,7 +2,7 @@
 title: '06. The Demotion Highway & Invariant Lifecycle Governance'
 description: How Credence re-evaluates system invariants, enforces Class Alpha/Beta/Gamma cognitive ranking, and graduates mechanical rules to automated test gates.
 since_version: v2.3.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 tags:
 - invariants
@@ -101,25 +101,19 @@ The scanner (`scripts/audit_demotions.py`):
 
 Invariants are not immutable dogma. During Phase 4 (`/learn`) retrospectives and milestone release boundaries, the team runs the **Invariant Challenger** to evaluate whether an existing rule remains necessary, requires amendment, has been demoted, or has been superseded.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         INVARIANT CHALLENGER DECISION ENGINE                                     │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Challenge Trigger (`just challenge-invariant <slug>` / `/learn` / milestone boundary)            │
-│                                │                                                                 │
-│                                ▼ Analyze: Test Coverage + Token Budget + Sovereign Safety        │
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ Challenger Evaluation Matrix:                                                              │   │
-│ ├──────────────────────────────┬───────────────────────────────┬─────────────────────────────┤   │
-│ │ Scrutiny Condition           │ Decision Verdict              │ Concrete Architecture Action│   │
-│ ├──────────────────────────────┼───────────────────────────────┼─────────────────────────────┤   │
-│ │ Still Essential & Empirical  │ Re-affirm Active Status       │ Retain in Class α/β/γ       │   │
-│ │ Threshold / Syntax Evolved   │ Amend Invariant Scope         │ Update proof / mathematical │   │
-│ │ 100% Deterministic Test Gate │ Demote to Tier 2 (Demotion)   │ Move to pytest & save tokens│   │
-│ │ Obsolete / Redundant         │ Retire / Nullify Invariant    │ Archive with historic reason│   │
-│ └──────────────────────────────┴───────────────────────────────┴─────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+INVARIANT CHALLENGER DECISION ENGINE
+Challenge Trigger (`just challenge-invariant <slug>` / `/learn` / milestone boundary)
+▼ Analyze: Test Coverage + Token Budget + Sovereign Safety
+----------------
+| Challenger Evaluation Matrix:                                                              |
+---------------------------------------------------------------
+| Scrutiny Condition           | Decision Verdict              | Concrete Architecture Action|
+---------------------------------------------------------------
+| Still Essential & Empirical  | Re-affirm Active Status       | Retain in Class α/β/γ       |
+| Threshold / Syntax Evolved   | Amend Invariant Scope         | Update proof / mathematical |
+| 100% Deterministic Test Gate | Demote to Tier 2 (Demotion)   | Move to pytest & save tokens|
+| Obsolete / Redundant         | Retire / Nullify Invariant    | Archive with historic reason|
+---------------------------------------------------------------
 
 ### The 4 Scrutiny Criteria:
 1. **Sovereign Safety (Class $\alpha$)**: Does this rule prevent epistemic hallucinations ($G < 1.00$), unauthorized git commits, or SSRF? $\to$ **Class $\alpha$ rules are never demoted.**

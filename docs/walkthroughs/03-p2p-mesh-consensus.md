@@ -3,7 +3,7 @@ title: 'Feature Walkthrough: P2P Mesh Gossip & Bayesian Consensus'
 description: End-to-end multi-interface walkthrough for node identity generation,
   Watts-Strogatz peering, and Bayesian consensus aggregation.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 sidebar:
   order: 3
@@ -149,10 +149,10 @@ credence mesh health
 
 | Consensus Property | Formula / Metric | Invariant Reference |
 | :--- | :--- | :--- |
-| **Composite Weight ($W_i$)** | $W_i = 0.20 Q_i + 0.80 E_{i, \text{domain}}$ | [Invariant 17](../invariants.md#invariant-17) (Anti-Diploma) |
-| **Galileo Override** | $G=1.00 \land W_i \ge 0.70 \implies \text{is\_outlier} = \text{False}$ | [Invariant 27](../invariants.md#invariant-27) (Galileo Rule) |
-| **Sybil Resistance** | Requires domain entropy across $\ge 5$ distinct FQDNs | [Invariant 28](../invariants.md#invariant-28) ($3f+1$ Cartel Defense) |
-| **Slashing Penalty** | $W_i \leftarrow 0.50 W_i$ on ungrounded findings | [Invariant 22](../invariants.md#invariant-22) (Hallucination Slash) |
+| **Composite Weight ($W_i$)** | $W_i = 0.20 Q_i + 0.80 E_{i, \text{domain}}$ | [The Invariant Bible](../invariants.md#invariant-17) (Anti-Diploma) |
+| **Galileo Override** | $G=1.00 \land W_i \ge 0.70 \implies \text{is\_outlier} = \text{False}$ | [The Invariant Bible](../invariants.md#invariant-27) (Galileo Rule) |
+| **Sybil Resistance** | Requires domain entropy across $\ge 5$ distinct FQDNs | [The Invariant Bible](../invariants.md#invariant-28) ($3f+1$ Cartel Defense) |
+| **Slashing Penalty** | $W_i \leftarrow 0.50 W_i$ on ungrounded findings | [The Invariant Bible](../invariants.md#invariant-22) (Hallucination Slash) |
 
 > [!IMPORTANT]
 > **The Galileo Rule Invariant**: Absence of evidence is not evidence of absence. Verified domain authorities submitting 100% grounded citations cannot be silenced by uninformed swarms.

@@ -3,7 +3,7 @@ title: 'Operational Guide: Kubernetes and Container Orchestration'
 description: Comprehensive operational guide for deploying Credence to vanilla Kubernetes,
   k3s, MicroK8s, AWS EKS, or GKE using standard declarative manifests.
 since_version: v1.18.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -124,4 +124,44 @@ spec:
         target:
           type: Utilization
           averageUtilization: 75
+```
+
+---
+## Kubernetes & Helm Deployment Architecture
+
+For enterprise Kubernetes clusters running across GKE, EKS, or Bare-Metal k8s:
+
+| Kubernetes Resource | Specification | Scalability Parameter |
+| :--- | :--- | :--- |
+| **Deployment** | `credence-compute` | Scaled via HPA (`min: 2, max: 20`) based on CPU $>70\%$ |
+| **StatefulSet** | `credence-mesh-node` | Fixed pod identity for P2P gossip peer discovery |
+| **ConfigMap / Secret** | `credence-config` | Injected via Secret Manager / HashiCorp Vault |
+| **Ingress** | NGINX / Cloudflare Tunnel | TLS termination and WebSocket protocol upgrade |
+
+```bash
+# Deploy Credence via official Helm chart
+$ helm repo add credence https://charts.credence.run
+$ helm install credence-node credence/credence --values production-values.yaml
+```
+
+---
+## Enterprise Kubernetes Manifests and Helm Charts
+
+Scalable Kubernetes deployments utilize Horizontal Pod Autoscalers and Secret Manager integration for enterprise deployments.
+
+---
+## Production Operational Runbook & Maintenance Protocols
+
+When managing **Kubernetes And Helm Deployment** in production, operators should adhere to the following maintenance procedures:
+
+| Operational Phase | Frequency | Standard Command / Tool | Verification Target |
+| :--- | :--- | :--- | :--- |
+| **Pre-Flight Health Check** | Prior to deploy | `just preflight` | Toolchain, Python 3.12, Docker status |
+| **Diagnostic Scan** | Hourly (Automated) | `credence stats --json` | Latency, memory usage, token headroom |
+| **State Pruning** | Weekly | `credence db prune --retention-days 30` | SQLite WAL cleanup & disk optimization |
+| **Failover Drill** | Monthly | `credence db backup --verify-replica` | Cross-region replica readiness verification |
+
+```bash
+# Verify operational readiness
+$ credence stats --detailed
 ```

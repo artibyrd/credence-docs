@@ -3,7 +3,7 @@ title: Taxonomy Rule Engineering 101
 description: Authoring custom namespaced YAML catalogs, calibrating numerical severities,
   and defining grounded citation requirements.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -81,7 +81,7 @@ When assigning `severity` ($1 \dots 5$), use the standardized Credence rubric:
 
 ---
 
-## 4. Deterministic Catalog Hashing (Invariant 5)
+## 4. Deterministic Catalog Hashing (The Invariant Bible)
 
 When a node loads a catalog, it computes its SHA-256 hash across canonical bytes. Peer nodes verify that evaluations cite pinned catalog hashes:
 
@@ -89,3 +89,27 @@ When a node loads a catalog, it computes its SHA-256 hash across canonical bytes
 credence taxonomy hash credence/taxonomies/financial_disclosures.yaml
 ```
 Output: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+
+---
+## Authoring Custom Taxonomy Rulebooks & Test Suites
+
+To define proprietary ethics, compliance, or editorial guidelines in namespaced YAML rulebooks:
+
+### Custom Taxonomy Rulebook (`custom-rules.yaml`)
+```yaml
+namespace: editorial-integrity
+version: 1.0.0
+rules:
+  - id: EDIT-01
+    name: Sourced Statistical Claims
+    severity: HIGH
+    description: All quantitative statistical claims must link directly to peer-reviewed data.
+    heuristic_regex: "(studies show|research proves|statistics demonstrate)"
+    grounding_required: true
+```
+
+| Taxonomy Field | Type | Validation Constraint |
+| :--- | :--- | :--- |
+| `namespace` | String | Lowercase alphanumeric (`[a-z0-9-]+`) |
+| `severity` | Enum | `LOW`, `MEDIUM`, `HIGH`, `CRITICAL` |
+| `grounding_required` | Boolean | If true, triggers $G=1.00$ verbatim DOM match |

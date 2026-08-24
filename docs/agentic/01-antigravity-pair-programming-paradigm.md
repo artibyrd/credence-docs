@@ -4,7 +4,7 @@ description: How human-agent pair programming with Google Antigravity accelerate
   complex software engineering through planning mode, asynchronous background tasks,
   and human gating.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 tags:
 - antigravity
@@ -29,7 +29,7 @@ read_time: 7 min
 Explore the operational methodology developed during the creation of Credence using **Google Antigravity (AGY)**—combining rigorous planning mode, non-blocking asynchronous task orchestration, and human-in-the-loop review ("Mk1 Eyeball").
 
 > [!IMPORTANT]
-> **[Invariant 6: Human Review Before Commits ("Mk1 Eyeball")](../invariants.md#invariant-6)**: Agents must never execute `git commit` or apply infrastructure changes autonomously without presenting live verification results for human approval first.
+> **[The Invariant Bible: Human Review Before Commits ("Mk1 Eyeball")](../invariants.md#invariant-6)**: Agents must never execute `git commit` or apply infrastructure changes autonomously without presenting live verification results for human approval first.
 
 ---
 
@@ -69,23 +69,18 @@ pytest tests/test_docs_rendering.py -v
 ```
 :::
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         ASYNCHRONOUS TASK REACTIVE NOTIFICATION FLOW                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Antigravity Agent                  Background Worker                    Developer IDE            │
-│        │                                  │                                   │                  │
-│        │── launch_command(pytest...) ────▶│                                   │                  │
-│        │◀── Returns Task ID (task-610) ───│                                   │                  │
-│        │                                  │                                   │                  │
-│        │── Update UI status (asynchronous non-blocking turn) ────────────────▶│                  │
-│        │                                  │                                   │                  │
-│        │                                  │ [Executes in background (18s)]    │                  │
-│        │◀── High-Priority Wakeup (11 passed in 18.88s) ───────────────────────│                  │
-│        │                                  │                                   │                  │
-│        │── Present Walkthrough Artifact & Execution Results ─────────────────▶│                  │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+ASYNCHRONOUS TASK REACTIVE NOTIFICATION FLOW
+Antigravity Agent                  Background Worker                    Developer IDE
+|                                  |                                   |
+|-- launch_command(pytest...) ----▶|                                   |
+|◀-- Returns Task ID (task-610) ---|                                   |
+|                                  |                                   |
+|-- Update UI status (asynchronous non-blocking turn) ----------------▶|
+|                                  |                                   |
+|                                  | [Executes in background (18s)]    |
+|◀-- High-Priority Wakeup (11 passed in 18.88s) -----------------------|
+|                                  |                                   |
+|-- Present Walkthrough Artifact & Execution Results -----------------▶|
 
 ---
 
@@ -115,20 +110,15 @@ just agent-check
 
 To prevent high-risk monolithic commits and ensure verifiable step-by-step progress, Credence pair programming follows an **Incremental Commit & Branch-PR Staging Architecture**:
 
-```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         INCREMENTAL ATOMIC COMMITS & BRANCH-PR STAGING TOPOLOGY                  │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ 1. FEATURE BRANCH         │ 2. PULL REQUEST & DEV DEPLOY  │ 3. MAIN MERGE & PROD RELEASE   │   │
-│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
-│ │ • `just branch feat/...`  │ • `just pr create`            │ • Mk1 Human PR Approval Gate   │   │
-│ │ • Atomic Milestone Commits│ • GitHub Actions CI Validation│ • `just pr merge` to `main`    │   │
-│ │ • Fast local QA (<20s)    │ • Auto-Deploy to Cloud Run DEV│ • Auto-Deploy Cloud Run PROD   │   │
-│ │ • Zero-mock verified state│   (`credence-dev-495173`)     │ • Auto-Deploy Cloudflare Edge  │   │
-│ └───────────────────────────┴───────────────────────────────┴────────────────────────────────┘   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+INCREMENTAL ATOMIC COMMITS & BRANCH-PR STAGING TOPOLOGY
+---------------------------------------------------------------
+| 1. FEATURE BRANCH         | 2. PULL REQUEST & DEV DEPLOY  | 3. MAIN MERGE & PROD RELEASE   |
+---------------------------------------------------------------
+| • `just branch feat/...`  | • `just pr create`            | • Mk1 Human PR Approval Gate   |
+| • Atomic Milestone Commits| • GitHub Actions CI Validation| • `just pr merge` to `main`    |
+| • Fast local QA (<20s)    | • Auto-Deploy to Cloud Run DEV| • Auto-Deploy Cloud Run PROD   |
+| • Zero-mock verified state|   (`credence-dev-495173`)     | • Auto-Deploy Cloudflare Edge  |
+---------------------------------------------------------------
 
 ### Core Release Rules:
 1. **Commit-as-You-Go**: Changes are committed as discrete, tested units (`just commit "<message>"`) throughout the session after each test gate passes, rather than batched into one massive release commit.
@@ -147,4 +137,3 @@ To maximize autonomous pair-programming velocity while safeguarding sovereign us
 
 > [!TIP]
 > Use read-only `epistemic-auditor` subagents when auditing large codebases to prevent polluting the main agent's working context memory.
-

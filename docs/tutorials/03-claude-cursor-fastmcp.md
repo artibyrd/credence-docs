@@ -1,38 +1,37 @@
 ---
-title: 'Tutorial 03: FastMCP 2.0 with Claude & Cursor'
-description: Give your AI coding assistant an epistemic brake by configuring FastMCP
-  2.0 for live web verification.
+title: 'Tutorial 03: Pairing with Claude Desktop & Cursor via FastMCP 2.0'
+description: Connect your favorite AI coding assistants directly to your local Credence node using the Model Context Protocol.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 sidebar:
   order: 3
 ---
 
-# Tutorial 03: FastMCP 2.0 with Claude & Cursor
+# Tutorial 03: Pairing with Claude Desktop & Cursor via FastMCP 2.0
 
-Give your AI coding assistant or autonomous research agent an epistemic brake. Learn how to configure **Credence FastMCP 2.0** so Claude Desktop and Cursor can verify web pages before ingesting text.
+In this tutorial, you will configure **Claude Desktop** and **Cursor IDE** to communicate with your local Credence node via **FastMCP 2.0**, enabling your AI coding assistant to audit external documentation, packages, and claims in real time.
 
 ---
 
-## 1. FastMCP Architecture for AI Agents
+## 1. Prerequisites & Installation
 
-:::tabs
-=== 🛠️ FastMCP 2.0 Tool & Resource Roster
-| FastMCP Endpoint | Type | Input Arguments | Output Description |
-| :--- | :--- | :--- | :--- |
-| **`credence_check_url`** | Tool | `url: str`, `profile: str` | Evaluates live URL across 4 dimensions; returns score, findings & Ed25519 signature |
-| **`credence_evaluate_text`** | Tool | `text: str`, `title: str` | Standalone forensic analysis of raw prose with SQLite persistence |
-| **`credence_get_audit`** | Tool | `identifier: str` | Instant 0-token retrieval of cached audit by URL or SHA-256 hash |
-| **`credence://reports/{id}`** | Resource | Canonical Resource URI | Complete RFC 8785 signed JSON audit record |
-| **`credence://reports/{id}/human`** | Resource | Human Summary URI | Formatted Markdown executive briefing with quoted findings |
-:::
+Ensure you have Credence installed locally:
+```bash
+# Verify FastMCP server is available
+$ credence serve --help
+```
 
 ---
 
 ## 2. Configuring Claude Desktop
 
-Edit your `claude_desktop_config.json`:
+Open your Claude Desktop configuration file:
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Linux**: `~/.config/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+Add the Credence MCP server definition:
 
 ```json
 {
@@ -45,32 +44,94 @@ Edit your `claude_desktop_config.json`:
 }
 ```
 
-Restart Claude Desktop. You will now see the `credence` hammer icon with tools available:
-- `credence_check_url`: Audits any live webpage.
-- `credence_evaluate_text`: Audits prose without web scraping.
-- `credence_discover_feeds`: Autonomously discovers RSS/Atom endpoints.
-- `credence_inspect_feed_health`: Runs pre-flight topic entropy forensic audits.
-- `credence_generate_digest`: Pulls 24-hour morning epistemic intelligence digests.
+Restart Claude Desktop. You will see a 🔨 icon indicating that Credence tools (`credence_check_url`, `credence_check_text`, `credence_get_quota_status`) are active.
 
 ---
 
-## 3. Remote SSE Server for Multi-Agent Swarms
+## 3. Configuring Cursor IDE
 
-For multi-agent clusters or remote services, launch FastMCP in Server-Sent Events mode:
+In Cursor, navigate to **Settings** $\rightarrow$ **Features** $\rightarrow$ **MCP Servers** $\rightarrow$ **Add New MCP Server**:
+- **Name**: `credence`
+- **Type**: `command`
+- **Command**: `credence serve --transport stdio`
 
-```bash
-# Start SSE server on port 8000
-credence serve --transport sse --port 8000
+---
+
+## 4. Prompting Your AI Pair Programmer
+
+Test the integration in Claude or Cursor chat:
+
+> *"Check the claims on https://example.com/new-framework using Credence before we decide whether to add it to our project."*
+
+Claude will autonomously call `credence_check_url`, review the epistemic suspicion score and grounding citations, and summarize findings with zero hallucinations.
+
+---
+
+## 5. Next Steps
+
+* 🏛️ [Tutorial 04: Sovereign Org Scaffolding](04-sovereign-org-scaffolding.md)
+* 🛑 [Giving Claude and Cursor an Epistemic Brake Essay](../../blog/giving-claude-and-cursor-an-epistemic-brake.md)
+
+---
+## FastMCP 2.0 Integration with Claude Desktop & Cursor IDE
+
+To equip your coding assistants with live epistemic verification, configure the FastMCP 2.0 server substrate:
+
+### Configuration Manifest (`claude_desktop_config.json`)
+```json
+{
+  "mcpServers": {
+    "credence": {
+      "command": "credence",
+      "args": ["serve", "--transport", "stdio"]
+    }
+  }
+}
 ```
 
-Connect your agents to `http://localhost:8000/sse` or `https://mcp.credence.run/sse`.
+| FastMCP Tool Name | Arguments | Execution Purpose | Return Type |
+| :--- | :--- | :--- | :--- |
+| `credence_check_url` | `url`, `profile`, `thinking_budget` | Audit webpage credibility | JSON Attestation Receipt |
+| `credence_audit_text` | `text`, `profile` | Audit raw text or clipboard snippet | Grounded Violation Cards |
+| `credence_get_quota_status`| *None* | Check token headroom & budget | Remaining Token Capacity |
 
 ---
+## Configuring AI Coding Assistants with Credence FastMCP
 
-## 4. Testing Live Tools in Claude
+Step-by-step setup guide for integrating Credence tools into Claude Desktop and Cursor IDE workflows.
 
-Ask Claude:
+---
+## Summary Verification Checklist & Command Reference
 
-> *"Audit https://arstechnica.com/feed using Credence and summarize the top clean investigative articles from the morning digest."*
+Complete the following validation steps to confirm successful execution of **03 Claude Cursor Fastmcp**:
 
-Claude will invoke `credence_generate_digest` and format a structured, zero-hallucination executive brief backed by cryptographic Ed25519 signatures.
+| Verification Step | Target Output / State | Troubleshooting Action |
+| :--- | :--- | :--- |
+| **1. Identity Check** | Valid Ed25519 public key printed | Run `credence germinate` to mint identity |
+| **2. Storage Status** | SQLite WAL state store initialized | Verify directory write permissions (`chmod 0755 data/`) |
+| **3. Mesh Peering** | Connected to $\ge 3$ seed peers | Check firewall WebSocket ports (`8080/tcp`) |
+| **4. Attestation Proof**| RFC 8785 signed JSON receipt minted | Verify `assets/attestations.json` sync |
+
+```bash
+# Execute end-to-end verification
+$ credence stats --json
+```
+
+---
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **03 Claude Cursor Fastmcp** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "03_claude_cursor_fastmcp" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

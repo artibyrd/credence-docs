@@ -4,7 +4,7 @@ title: 'Scaling System Invariants: How We Prevented Context Bloat and Attention 
 description: Why flat AGENTS.md rulebooks fail at scale, and how a 3-tier governance
   architecture with shift-left automated tests preserves LLM reasoning precision.
 since_version: v1.15.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -92,4 +92,3 @@ Invariants are not permanent dogma; they reflect the strongest empirical finding
 2. **Build a Demotion Highway**: Continuously graduate mechanical constraints from prompt text into unit tests.
 3. **Budget Skill Descriptions**: Keep skill metadata compact ($\le 280$ chars) so agent discovery remains lean.
 4. **Treat Invariants as Mutable Truths**: Re-evaluate invariants at every major milestone rather than treating them as unchangeable scripture.
-

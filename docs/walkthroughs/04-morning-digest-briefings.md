@@ -3,7 +3,7 @@ title: 'Feature Walkthrough: Daily Morning Epistemic Briefings'
 description: Multi-interface walkthrough for compiling executive intelligence briefings,
   newsletter exports, and FastMCP morning digest streams.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 sidebar:
   order: 4
@@ -29,13 +29,16 @@ Generate the daily executive morning briefing across verified journalism, fallac
 credence digest --format terminal
 ```
 
-```
-╭─────────────────── 🌅 Credence Morning Epistemic Briefing ───────────────────╮
-│ Total Articles Sifted: 61  |  Clean Verified: 49  |  Flagged Deceptions: 11  │
-│ |  Satire Cues: 1                                                            │
-│ Swarm Mesh Compute Savings: 32,000 tokens ($0.01) across 10 zero-token       │
-│ adoptions.                                                                   │
-╰──────────────────────────────────────────────────────────────────────────────╯
+```json
+{
+  "total_articles_sifted": 61,
+  "clean_verified": 49,
+  "flagged_deceptions": 11,
+  "satire_cues_detected": 1,
+  "swarm_mesh_compute_savings_tokens": 32000,
+  "dollar_savings_usd": 0.01,
+  "zero_token_adoptions": 10
+}
 ```
 
 === ⚡ FastMCP 2.0
@@ -128,3 +131,23 @@ print(f"Mesh Savings %: {stats.savings_percentage}%")
 
 > [!TIP]
 > Run `credence digest --hours 12` in a cron job at 06:00 UTC to automate your morning briefing dispatch via email or webhooks.
+
+
+---
+
+## 4. Automation & Headless Sifter Integration
+
+For enterprise newsrooms and automated intelligence pipelines, Credence can compile and syndicate morning briefings autonomously:
+
+```bash
+# Automated cron job recipe: compiles digest, verifies cryptographic signatures, and dispatches markdown
+$ credence digest --hours 24 --format markdown --output /var/www/reports/morning-digest.md
+
+# Publish live cryptographic attestation feed
+$ credence sifter publish-feed --output /var/www/feeds/verified-morning.xml
+```
+
+### Architectural Invariants Enforced
+- **Zero-Token Adoptions (`inv-multi-model-sovereignty`)**: Verified attestations signed by mesh peer nodes with $Q_i \ge 0.70$ are adopted with $0$ LLM tokens.
+- **Verbatim Grounding (`inv-verbatim-grounding`)**: Briefing claim summaries are linked directly to character-offset DOM quotes.
+- **RFC 8785 Serialization (`inv-canonical-json-ed25519`)**: All JSON exports use deterministic canonical byte ordering.

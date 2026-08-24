@@ -2,7 +2,7 @@
 title: 'The Four-Way Parity Quest: Zero Drift Across CLI, TUI, FastMCP, and Web'
 description: Why AI models love building one shiny web interface while letting terminal tools rot, and how we achieved universal 4-way feature parity and zero-drift modal synchronization.
 since_version: v2.9.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 date: '2026-08-22'
 series: 'The Wetware Chronicles'
@@ -69,3 +69,20 @@ When you force your architecture to support four interfaces with equal dignity, 
 You cannot write sloppy UI-coupled spaghetti when the exact same function must output a colorful ANSI terminal string, a structured JSON FastMCP response, a reactive Textual widget, and a vanilla HTML5 card.
 
 Parity is not extra work. **Parity is the ultimate architectural purifier.**
+
+---
+## Testing 4-Way Parity in Continuous Integration
+
+To prevent feature drift between the Web UI, CLI, TUI, and FastMCP interfaces, Tier 2 integration tests execute synchronous assertions against identical input payloads:
+
+| Verification Suite | Target Interface | Parity Assertion | Max Permitted Drift |
+| :--- | :--- | :--- | :---: |
+| `test_cli.py` | Command-Line Interface | `credence audit` outputs RFC 8785 JSON | $0\text{ bit diff}$ |
+| `test_fastmcp.py` | Model Context Protocol | `tools/call` returns matching schema | $0\text{ bit diff}$ |
+| `test_tui.py` | Textual Terminal UI | Screen widget renders identical scores | $0\text{ bit diff}$ |
+| `test_web_ui.py` | Vanilla Web Component | `<credence-badge>` matches CAS digest | $0\text{ bit diff}$ |
+
+```bash
+# Run interface isolation test gate
+$ poetry run pytest tests/test_interfaces_isolation.py -v
+```

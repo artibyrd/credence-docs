@@ -2,7 +2,7 @@
 title: 'The 35-Second Epiphany: How Browser-Free Hermetic Tests Saved Our Sanity'
 description: Why injecting browser runtimes into unit test CI destroys developer flow, and how in-memory hermetic testing brought our local pre-commit gate down to sub-35 seconds.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
@@ -84,3 +84,18 @@ By moving all browser-based tests to separate nightly integration suites and usi
 Fast failure beats slow perfection. When your tests run in 28 seconds, you test after every thought. You experiment fearlessly. You refactor with joyous abandon.
 
 Keep your browsers in end-to-end testing, keep your unit tests hermetic, and protect your 35-second flow state at all costs.
+
+---
+## Key Architectural Takeaways & Future Directions
+
+The investigation documented in **The 35 Second Epiphany** highlights several fundamental principles for building resilient, decentralized software systems:
+
+1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
+2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
+3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+
+| System Dimension | Conventional Approach | Credence Sovereign Architecture |
+| :--- | :--- | :--- |
+| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
+| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
+| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |

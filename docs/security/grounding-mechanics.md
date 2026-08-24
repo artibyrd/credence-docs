@@ -3,7 +3,7 @@ title: Verbatim Grounding Mechanics & Slashing
 description: How exact character substring offsets, whitespace collapsing, and 50%
   reputation slashes eliminate model hallucinations.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -35,7 +35,7 @@ Where:
 
 ---
 
-## 2. Whitespace-Insensitive Character Indexing (Invariant 24)
+## 2. Whitespace-Insensitive Character Indexing (The Invariant Bible)
 
 Web typography often contains inconsistent linebreaks, non-breaking spaces (`&nbsp;`), and variable indentation.
 
@@ -47,10 +47,43 @@ To ensure robust matching without fuzzy string degradation:
 
 ---
 
-## 3. The 50% Hallucination Slash (Invariant 17)
+## 3. The 50% Hallucination Slash (The Invariant Bible)
 
 If a node submits a single audit finding with a fabricated quote where $G_i < 0.75$:
 
 1. **Gate Rejection**: The finding is rejected by the local quality gate and never admitted into consensus.
 2. **Escalation**: Local evaluator nodes trigger a high-thinking re-evaluation with Gemini 3.7 Flash.
 3. **P2P Gossip Slashing**: Peer nodes tracking evaluator reputation slash that node's historical authority score ($W_i$) by **50% across all domains**.
+
+---
+## The Mathematics of $G=1.00$ Verbatim Grounding
+
+Every citation generated during an audit must match the normalized source DOM character-for-character:
+
+$$G = \frac{\sum_{i=1}^{m} \text{len}(\text{verbatim\_quote}_i)}{\sum_{i=1}^{m} \text{len}(\text{claimed\_assertion}_i)} = 1.00$$
+
+| Grounding Ratio ($G$) | Severity Assessment | System Action |
+| :---: | :--- | :--- |
+| **$G = 1.00$** | **Certified Pristine** | Mint signed Ed25519 attestation receipt |
+| **$0.90 \le G < 1.00$** | Minor Ellipsis / Paraphrase | Warning attached; node enters 14-day probation |
+| **$G < 0.90$** | **Hallucination / Fabrication**| **Autonomous 50% Concordance Slash Penalty** |
+
+---
+## Character-for-Character Citation Grounding Guarantees
+
+Mandatory $G=1.00$ grounding ensures every audit finding is directly supported by verbatim text in the source webpage.
+
+---
+## Technical Reference & Deployment Matrix
+
+| Parameter / Dimension | Configuration Value | Architectural Purpose |
+| :--- | :--- | :--- |
+| **Runtime Environment** | Python 3.12+ (Linux / macOS) | Core epistemic execution kernel |
+| **Transport Protocols** | stdio (Local) & SSE (Remote) | FastMCP 2.0 dual-transport substrate |
+| **State Storage Engine** | SQLAlchemy 2.0 Async (SQLite / Postgres) | Verifiable attestation and snapshot persistence |
+| **Frontend Standard** | Vanilla HTML5 / Native ES Modules | Zero-npm, zero-build client presentation |
+
+```bash
+# Verify system configuration
+$ credence stats
+```

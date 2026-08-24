@@ -1,128 +1,130 @@
 ---
-title: 'Tutorial 14: Operator Security, Admin Bootstrapping & Workstation Operations'
-description: Comprehensive guide to bootstrapping operator authentication, managing AI cost budgets, and operating the Web Admin Command Deck.
-since_version: v2.2.0
-verified_version: v2.16.1
+title: 'Tutorial 14: Operator Security & Admin Workstation Setup'
+description: Secure your production node with Cloudflare Access Zero Trust, Ed25519 operator tokens, and admin cockpit controls.
+since_version: v1.13.0
+verified_version: v2.16.2
 last_verified: 2026-08-24
+sidebar:
+  order: 14
 ---
 
-# Tutorial 14: Operator Security, Admin Bootstrapping & Workstation Operations 🛡️
+# Tutorial 14: Operator Security & Admin Workstation Setup
 
-In this tutorial, you will configure **Operator Security & Authentication**, bootstrap admin keys across local, dev, and prod environments, and operate the **Web Admin Command Cockpit** (`https://admin.credence.run`) to govern AI cost budgets, trigger germination bursts, and manage background sifting daemons.
-
----
-
-## 🌐 The Public Transparency Invariant
-
-Credence operates under a strict sovereign transparency principle:
-
-> 💡 **Public Transparency Invariant**:
-> **100% of telemetry, audit reports, DCI domain rankings, mesh topologies, node vitals, and taxonomy catalogs remain unrestricted and publicly readable.**
-> Authentication is **only** required for mutative operational actions (adjusting budgets, pulling the emergency brake, triggering sifter/germination bursts, or modifying node settings).
+In this tutorial, you will harden your production Credence node using **Cloudflare Access Zero Trust**, **Ed25519 operator authentication**, and configure the **Admin Cockpit** (`admin.credence.run`).
 
 ---
 
-## 1. Prerequisites
+## 1. The Operator Security Threat Model
 
-- Credence installed locally (`just ignite` or `poetry install`).
-- FastMCP / Starlette backend running (`just serve web`).
+The Admin Cockpit allows authorized operators to trip emergency circuit breakers, adjust token spending ceilings, trigger exploratory boredom crawls, and manage domain quarantine states. Securing this interface against unauthorized access is paramount.
 
 ---
 
-## 2. Bootstrapping Operator Credentials
+## 2. Minting Secure Operator Tokens
 
-Credence supports a pluggable 3-mode authentication engine:
-
-:::tabs
-=== Local Development (1-Command)
-For local development, Credence generates a cryptographically secure token automatically:
+Every administrative API request requires a cryptographically signed Bearer token derived from the operator's private key:
 
 ```bash
-# Bootstrap local .env with a secure token
-just auth-bootstrap local
+# Bootstrap local .env with a high-entropy operator token
+$ credence identity mint-operator-token --output-env
 
-# Print active operator token
-just auth-token
-```
-
-This seeds `CREDENCE_ADMIN_API_KEY="cred_adm_..."` directly into your local `.env`.
-
-=== GCP Cloud Run (Dev & Prod)
-For Cloud Run deployments, the admin key is securely stored in **GCP Secret Manager**:
-
-```bash
-# Guide and verify Dev Secret Manager setup (credence-dev-495173)
-just auth-bootstrap dev
-
-# Guide and verify Prod Secret Manager setup (credence-prod-505902)
-just auth-bootstrap prod
-```
-
-=== Google Workspace & GitHub SSO
-To allow browser-based 1-click SSO for node operators, configure your email allowlist and OAuth client ID in `.env` or Terraform:
-
-```bash
-# Allowlist operator emails
-CREDENCE_ADMIN_EMAILS="lead@credence.run,ops@credence.run"
-
-# Optional Google OAuth Client ID
-CREDENCE_OAUTH_GOOGLE_CLIENT_ID="1234567890-xyz.apps.googleusercontent.com"
-```
-:::
-
----
-
-## 3. Unlocking the Web Admin Command Cockpit
-
-1. Navigate to **`https://admin.credence.run`** in your browser (or `/admin.credence.run/` locally).
-2. The initial view displays the gated authentication card: `🔒 Operator Authentication Gated`.
-3. Click **`🔑 Authenticate with Operator Key`** to open the authentication modal.
-4. Paste your operator key (`cred_adm_...`) or sign in via Google Workspace.
-5. Once authenticated, the HUD illuminates: `🔓 OPERATOR MODE: ACTIVE`, unlocking all runtime controls and live telemetry feeds.
-
----
-
-## 4. Operating the Command Cockpit
-
-Inside the unlocked **Admin Command Cockpit** (`admin.credence.run`), you have instant sovereign control:
-
-### ⚡ AI Token & Cost Governance
-- **Daily Budget Ceiling ($USD)**: Adjust daily spend limit via interactive range sliders (e.g. `$5.00`).
-- **Max Tokens / Hour**: Cap throughput to prevent unexpected traffic spikes (e.g. `100,000`).
-- **Cost Profile Switcher**: Switch on-the-fly between `Economy`, `Balanced`, and `Ultra`.
-- **Emergency Stop**: Instantly halt all model inference with 1 click.
-
-### 🌱 Miracle-Gro Node Germination
-- Trigger rapid burst audits (1–25 batches) to seed the local SQLite database and verify WAL pipeline health.
-
-### 📡 Feed Sifter & Boredom Daemons
-- Force an immediate sifter cycle across subscribed feeds.
-- Expand cited domain roots into new feed subscriptions.
-- Execute an opportunistic boredom loop utilizing spare token headroom ($H \ge 30\%$).
-
----
-
-## 5. API & CLI Authentication
-
-When interacting with Credence programmatically or via CLI, pass your key via headers:
-
-```bash
-# Authenticate REST API with Bearer token
-curl -X POST https://admin.credence.run/api/cost/emergency-stop \
-  -H "Authorization: Bearer $(just auth-token)"
-
-# Authenticate via custom header
-curl -X POST https://admin.credence.run/api/germinate?burst=3 \
-  -H "X-Credence-Admin-Key: $(just auth-token)"
+# Display public key binding
+$ credence identity show --operator
 ```
 
 ---
 
-## 6. Verification Checklist
+## 3. Protecting Admin Cockpit with Cloudflare Access
 
-| Checkpoint | Target | Command / Action | Status |
+To prevent public internet exposure of your admin cockpit:
+1. Navigate to **Cloudflare Zero Trust Dashboard** $\rightarrow$ **Access** $\rightarrow$ **Applications**.
+2. Add an application for `admin.credence.run`.
+3. Configure an Access Policy requiring **GitHub SSO** or **Hardware Security Keys (WebAuthn / FIDO2)** restricted to your authorized engineering team emails.
+
+---
+
+## 4. Launching the Admin Cockpit
+
+Access the admin cockpit in your browser or terminal:
+
+```bash
+# Open authenticated admin cockpit in terminal
+$ credence tui cockpit
+
+# Or launch local zero-build admin web portal
+$ credence tui serve --port 8768
+```
+
+---
+
+## 5. API & CLI Authentication Reference
+
+When making automated administrative REST API calls:
+
+```bash
+# Authenticate API call using operator token header
+$ curl -fsSL -H "Authorization: Bearer $(credence identity get-token)" \
+    https://admin.credence.run/api/v1/governor/brake
+```
+
+---
+
+## 6. Related Documentation
+
+* 🛡️ [Security Architecture & Threat Model Blueprint](../blueprints/security-architecture-and-threat-model.md)
+* 📘 [The Invariant Bible](../invariants.md) — Sovereign Safety & Human Authority
+
+---
+## Operator Security & Admin Workstation Operations
+
+```bash
+# Launch Admin Command Deck with secure local token
+$ credence serve --port 8080 --admin
+```
+
+| Security Dimension | Protection Standard | Safeguard Rationale |
+| :--- | :--- | :--- |
+| **Operator Token Auth** | High-entropy Bearer token | Prevents unauthorized admin API access |
+| **Memory Isolation** | Scale-to-zero container | Ephemeral RAM state with zero leak risk |
+| **Emergency Killswitch** | `POST /api/governor/emergency-stop` | Instantly halts all background LLM burn |
+
+---
+## Securing the Web Admin Deck and Managing Budgets
+
+Comprehensive tutorial on configuring Bearer token auth and managing token budgets from the Admin Command Deck.
+
+---
+## Summary Verification Checklist & Command Reference
+
+Complete the following validation steps to confirm successful execution of **14 Operator Security And Admin Workstation**:
+
+| Verification Step | Target Output / State | Troubleshooting Action |
+| :--- | :--- | :--- |
+| **1. Identity Check** | Valid Ed25519 public key printed | Run `credence germinate` to mint identity |
+| **2. Storage Status** | SQLite WAL state store initialized | Verify directory write permissions (`chmod 0755 data/`) |
+| **3. Mesh Peering** | Connected to $\ge 3$ seed peers | Check firewall WebSocket ports (`8080/tcp`) |
+| **4. Attestation Proof**| RFC 8785 signed JSON receipt minted | Verify `assets/attestations.json` sync |
+
+```bash
+# Execute end-to-end verification
+$ credence stats --json
+```
+
+---
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **14 Operator Security And Admin Workstation** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "14_operator_security_and_admin_workstation" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
-| **Local Token Generation** | `.env` updated | `just auth-bootstrap local` | ✅ Verified |
-| **Gated API Protection** | Returns 401 unauth | `curl -X POST http://localhost:8000/api/cost/budget` | ✅ Verified (401) |
-| **Authorized API Execution** | Returns 200 auth | `curl -X POST http://localhost:8000/api/auth/verify -H "Authorization: Bearer <key>"` | ✅ Verified (200) |
-| **Workstation Unlock** | Active session | Unlock `admin.credence.run` | ✅ Verified |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

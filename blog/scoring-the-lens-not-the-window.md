@@ -2,7 +2,7 @@
 title: 'Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0 on Credence'
 description: How the Credence epistemic trust engine distinguishes between perpetrating disinformation and exposing it through discourse boundary isolation, SPJ-1.6 safe harbors, and verbatim grounding.
 since_version: v2.1.7
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -35,7 +35,8 @@ Under rule `SPJ-1.6` (*Transparency & Sourcing Disclosures*) and `LOG-2.1` (*Evi
 
 Credence enforces a mathematical **Grounding Index ($G$)** on every evaluation:
 
-$$G = rac{	ext{Verbatim Matched Quotes}}{	ext{Total Factual Assertions}}$$
+$$G = 
+rac{	ext{Verbatim Matched Quotes}}{	ext{Total Factual Assertions}}$$
 
 If an evaluator alleges that a public official or media publisher engaged in unethical conduct, Credence demands character-for-character DOM quote exactness. Any hallucination or quote fabrication incurs an autonomous **50% reputation slash** on the evaluating node.
 
