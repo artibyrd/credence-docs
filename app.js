@@ -1840,6 +1840,42 @@ export function parseMarkdown(md) {
   return resultHtml;
 }
 
+export function updateSearchPills(activeFilter = 'all') {
+  const isBlog = isBlogContext();
+  const pillsContainer = document.getElementById('search-filter-pills');
+  if (!pillsContainer) return;
+
+  if (isBlog) {
+    pillsContainer.innerHTML = `
+      <button type="button" class="filter-pill ${activeFilter === 'all' ? 'active' : ''}" data-filter="all">All</button>
+      <button type="button" class="filter-pill ${activeFilter === 'dead-internet' ? 'active' : ''}" data-filter="dead-internet">Dead Internet</button>
+      <button type="button" class="filter-pill ${activeFilter === 'wetware' ? 'active' : ''}" data-filter="wetware">Wetware</button>
+      <button type="button" class="filter-pill ${activeFilter === 'cases' ? 'active' : ''}" data-filter="cases">Case Studies</button>
+      <button type="button" class="filter-pill ${activeFilter === 'finops' ? 'active' : ''}" data-filter="finops">FinOps &amp; Math</button>
+    `;
+  } else {
+    pillsContainer.innerHTML = `
+      <button type="button" class="filter-pill ${activeFilter === 'all' ? 'active' : ''}" data-filter="all">All</button>
+      <button type="button" class="filter-pill ${activeFilter === 'playgrounds' ? 'active' : ''}" data-filter="playgrounds">Playgrounds</button>
+      <button type="button" class="filter-pill ${activeFilter === 'invariants' ? 'active' : ''}" data-filter="invariants">Invariants</button>
+      <button type="button" class="filter-pill ${activeFilter === 'agentic' ? 'active' : ''}" data-filter="agentic">Agentic</button>
+      <button type="button" class="filter-pill ${activeFilter === 'fastmcp' ? 'active' : ''}" data-filter="fastmcp">FastMCP</button>
+      <button type="button" class="filter-pill ${activeFilter === 'tutorials' ? 'active' : ''}" data-filter="tutorials">Tutorials</button>
+    `;
+  }
+
+  pillsContainer.querySelectorAll('.filter-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      pillsContainer.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const filter = pill.getAttribute('data-filter') || 'all';
+      if (typeof window.__applySearchFilter === 'function') {
+        window.__applySearchFilter(filter);
+      }
+    });
+  });
+}
+
 export function renderSidebar(activeId) {
   const container = document.getElementById('sidebar-nav');
   if (!container) return;
@@ -1990,6 +2026,7 @@ export function renderSidebar(activeId) {
   }
 
   container.innerHTML = renderedContent;
+  updateSearchPills();
 
   const planeToggleDocs = document.getElementById('plane-btn-docs');
   const planeToggleBlog = document.getElementById('plane-btn-blog');
@@ -4067,39 +4104,10 @@ export function setupSearch() {
 
   let activeFilter = 'all';
 
-  function updateSearchPills() {
-    const isBlog = isBlogContext();
-    const pillsContainer = document.getElementById('search-filter-pills');
-    if (!pillsContainer) return;
-
-    if (isBlog) {
-      pillsContainer.innerHTML = `
-        <button type="button" class="filter-pill active" data-filter="all">All</button>
-        <button type="button" class="filter-pill" data-filter="dead-internet">Dead Internet</button>
-        <button type="button" class="filter-pill" data-filter="wetware">Wetware</button>
-        <button type="button" class="filter-pill" data-filter="cases">Case Studies</button>
-        <button type="button" class="filter-pill" data-filter="finops">FinOps &amp; Math</button>
-      `;
-    } else {
-      pillsContainer.innerHTML = `
-        <button type="button" class="filter-pill active" data-filter="all">All</button>
-        <button type="button" class="filter-pill" data-filter="playgrounds">Playgrounds</button>
-        <button type="button" class="filter-pill" data-filter="invariants">Invariants</button>
-        <button type="button" class="filter-pill" data-filter="agentic">Agentic</button>
-        <button type="button" class="filter-pill" data-filter="fastmcp">FastMCP</button>
-        <button type="button" class="filter-pill" data-filter="tutorials">Tutorials</button>
-      `;
-    }
-
-    pillsContainer.querySelectorAll('.filter-pill').forEach(pill => {
-      pill.addEventListener('click', () => {
-        pillsContainer.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-        activeFilter = pill.getAttribute('data-filter') || 'all';
-        filterItems();
-      });
-    });
-  }
+  window.__applySearchFilter = (filter) => {
+    activeFilter = filter;
+    filterItems();
+  };
 
   // Setup Plane Switcher buttons
   const planeBtnDocs = document.getElementById('plane-btn-docs');
@@ -4124,7 +4132,7 @@ export function setupSearch() {
     const isInvSearch = q.startsWith('#inv') || q.startsWith('inv-') || q.startsWith('invariant-');
     const targetInv = isInvSearch ? q.replace(/^#/, '').replace(/-/g, '_').toLowerCase() : '';
 
-    const groups = document.querySelectorAll('.sidebar-group');
+    const groups = document.querySelectorAll('#sidebar-nav details.sidebar-group');
     groups.forEach(groupEl => {
       let visibleInGroup = 0;
       const items = groupEl.querySelectorAll('.sidebar-item');
@@ -4187,7 +4195,7 @@ export function setupSearch() {
     });
   }
 
-  updateSearchPills();
+  updateSearchPills(activeFilter);
   searchInput.addEventListener('input', filterItems);
 
   // Filter pills click
