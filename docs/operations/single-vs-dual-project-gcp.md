@@ -2,7 +2,7 @@
 title: 'Operational Guide: Single-Project vs Dual-Project GCP Topologies'
 description: Architectural comparison, blast radius analysis, billing segregation, and provisioning runbooks for GCP deployments.
 since_version: v1.12.0
-verified_version: v2.16.3
+verified_version: v2.16.4
 last_verified: 2026-08-24
 sidebar:
   order: 5
@@ -17,20 +17,12 @@ This guide provides an in-depth architectural comparison and step-by-step provis
 ## 1. Architectural Comparison: Topology A vs. Topology B
 
 TOPOLOGY A: DUAL-PROJECT (HARD ISOLATION)
-----------------    ----------------
-DEV PROJECT (`credence-dev-495173`)|    | PROD PROJECT (`credence-prod-5059`)
-----------------    ----------------
-- Dev Cloud Run Services           |    | • Prod Cloud Run Services
-- Dev Secret Manager Keys          |    | • Prod Secret Manager Keys
-- Dedicated Dev Service Accounts   |    | • Dedicated Prod Service Accounts
-- Isolated Terraform State Bucket  |    | • Isolated Terraform State Bucket
-----------------    ----------------
-TOPOLOGY B: SINGLE-PROJECT (PARTITIONED NAMESPACING)
-SINGLE GCP PROJECT (`credence-prod-505902`)
-DEV NAMESPACE:                       | PROD NAMESPACE:
-- Service: `credence-server-dev`     | • Service: `credence-server-prod`
-- Secret: `gemini-api-key-dev`       | • Secret: `gemini-api-key`
-- State: `terraform/dev/`            | • State: `terraform/prod/`
+![Figure 1.1: Single GCP project name-prefixing vs dual GCP project hard IAM boundary isolation](assets/illustrations/single-vs-dual-project-gcp.svg)
+
+| Architecture Model | GCP Projects | Cloud Run Services | Secret Manager | IAM & Blast Radius | Recommended Use Case |
+| :--- | :---: | :--- | :--- | :--- | :--- |
+| **Single-Project Unified** | `1` | `credence-server-dev`<br>`credence-server-prod` | `gemini-api-key-dev`<br>`gemini-api-key-prod` | Shared project IAM boundary | Solo developers & homelabs |
+| **Dual-Project Isolated** | `2` | `credence-dev-495173`<br>`credence-prod-505902` | Isolated Key Vaults per Project | Keyless WIF; Zero IAM bleed | Production sovereign orgs |
 
 ### Feature & Trade-Off Matrix
 

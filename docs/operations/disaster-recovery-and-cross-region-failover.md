@@ -2,7 +2,7 @@
 title: 'Operational Guide: Disaster Recovery and Failover Procedures'
 description: Point-in-time recovery, cross-region Cloud Run failover, Cloudflare Worker traffic routing, and CAS blob replication.
 since_version: v1.14.0
-verified_version: v2.16.3
+verified_version: v2.16.4
 last_verified: 2026-08-24
 sidebar:
   order: 15
@@ -17,12 +17,12 @@ This operational guide provides step-by-step procedures for disaster recovery, p
 ## 1. Disaster Recovery Topology & RTO/RPO Objectives
 
 Primary Region (us-central1)                Secondary Region (us-east1)
-----------------              ----------------
-Cloud Run Primary Instance |              | Cloud Run Standby Instance
-Local WAL + Primary DB     |              | Hot-Standby Replicated DB
-------------------------------+              ------------------------------+
-----------------           ----------------
-▼           ▼
+![Figure 1.1: Active-Active multi-region replication and automated DNS failover architecture](assets/illustrations/disaster-recovery-and-cross-region-failover.svg)
+
+| Operational Region | GCP Project & Service | Failover Role | Recovery Time Objective (RTO) | Recovery Point Objective (RPO) |
+| :--- | :--- | :--- | :---: | :---: |
+| **Primary Region (`us-central1`)** | `credence-server-prod` | Active Origin (95% traffic) | **0 seconds** | **0 seconds** |
+| **Standby Region (`europe-west1`)**| `credence-server-standby` | Warm Replica (5% traffic) | **<1 second** | **<1 hour** (Snapshot lag) |
 Cloudflare Edge Router
 (_worker.js Health Check)
 

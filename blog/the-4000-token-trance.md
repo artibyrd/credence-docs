@@ -2,7 +2,7 @@
 title: 'The 4,000 Token Trance: Why Unbounded LLM Deliberation Produces Diminishing Returns'
 description: Empirical analysis of thinking token allocation in epistemic auditing, and why 1k-4k tokens is the sweet spot.
 since_version: v1.13.0
-verified_version: v2.16.3
+verified_version: v2.16.4
 last_verified: 2026-08-24
 sidebar:
   order: 26
@@ -26,7 +26,6 @@ Auditing Precision (G=1.00)
 100% +                                   ● 4,096 tokens (98.6%)
 ● 2,048 (97.8%)
 95% +         ● 1,024 (96.4%)           ----------------
-| THE THINKING TOKEN PLATEAU
 90% +                                   | (Diminishing Returns Zone)
 ----------------
 85% +  ● 512 (88.2%)

@@ -2,7 +2,7 @@
 title: '06. The Demotion Highway & Invariant Lifecycle Governance'
 description: How Credence re-evaluates system invariants, enforces Class Alpha/Beta/Gamma cognitive ranking, and graduates mechanical rules to automated test gates.
 since_version: v2.3.0
-verified_version: v2.16.3
+verified_version: v2.16.4
 last_verified: 2026-08-24
 tags:
 - invariants
@@ -101,9 +101,11 @@ The scanner (`scripts/audit_demotions.py`):
 
 Invariants are not immutable dogma. During Phase 4 (`/learn`) retrospectives and milestone release boundaries, the team runs the **Invariant Challenger** to evaluate whether an existing rule remains necessary, requires amendment, has been demoted, or has been superseded.
 
-INVARIANT CHALLENGER DECISION ENGINE
-Challenge Trigger (`just challenge-invariant <slug>` / `/learn` / milestone boundary)
-▼ Analyze: Test Coverage + Token Budget + Sovereign Safety
+| Invariant Lifecycle Stage | Governance Action | Decision Threshold | Artifact Location |
+| :--- | :--- | :--- | :--- |
+| **1. Universal Core (Tier 0)** | Strict Class Alpha/Beta/Gamma guardrails | Non-negotiable sovereign safety | `AGENTS.md` (<800 tokens) |
+| **2. Progressive Skill (Tier 1)** | Domain-specific operational runbooks | On-demand task execution | `.agents/skills/` |
+| **3. Automated Test Gate (Tier 2)**| Deterministic code assertions | 100% automated CI pass | `tests/governance/` |
 ----------------
 | Challenger Evaluation Matrix:                                                              |
 ---------------------------------------------------------------

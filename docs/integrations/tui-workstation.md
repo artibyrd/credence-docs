@@ -3,7 +3,7 @@ title: Textual TUI Terminal Workstation Deep Dive
 description: Mastering the interactive terminal user interface, keybindings, 7 core
   panes, 3 multi-display view modes, and real-time epistemic inspection.
 since_version: v1.7.0
-verified_version: v2.16.3
+verified_version: v2.16.4
 last_verified: 2026-08-24
 ---
 
@@ -47,7 +47,8 @@ The workstation is entirely keyboard-driven with single-key shortcuts:
 
 ## 2. Workstation Layout Anatomy
 
-TEXTUAL TUI TERMINAL WORKSTATION ARCHITECTURE
+### Textual TUI Terminal Workstation Architecture
+
 ----------------
 | 1. HEADER: Live UTC Clock • Model Profile Badge [ECONOMY / BALANCED / ULTRA] • Version     |
 ----------------

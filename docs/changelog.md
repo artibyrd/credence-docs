@@ -2,11 +2,28 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.16.3
+verified_version: v2.16.4
 last_verified: 2026-08-24
 ---
 
 # Release Changelog
+
+## [2.16.4] - 2026-08-24
+
+### Added
+- **5 New Vector SVG Architecture Illustrations**:
+  - `testing-13-node-swarms-on-a-raspberry-pi.svg`: Visualizes hardware resource governor memory boundaries ($\ge 2\text{GB}$ 13-node swarm vs $<2\text{GB}$ 3-node triangle fallback).
+  - `gamifying-truth-without-the-casino.svg`: Visualizes 4-tier peer quality traffic shaping classes (`FAST_LANE`, `STANDARD`, `CHOKED`, `QUARANTINED`).
+  - `single-vs-dual-project-gcp.svg`: Compares single-project name-prefixing vs dual-project IAM/WIF boundary isolation.
+  - `disaster-recovery-and-cross-region-failover.svg`: Diagrams Active-Active multi-region replication and automated DNS failover.
+  - `the-anti-diploma-invariant.svg`: Illustrates credentialist bias vs character-exact verbatim grounding ($G=1.00$).
+- **Shift-Left Automated Integrity Gate 8 (`test_zero_pseudo_box_art_and_dashed_boundaries_invariant`)**:
+  - Enforces 100% eradication of dashed box lines, loose pipe pseudo-boxes, bare arrows, and unformatted ALL CAPS headers across all 194 documentation files.
+
+### Fixed
+- **Catalog-Wide Formatting & Truncation Remediation**:
+  - Fixed Section 2 broken dashed boxes and truncated text in `blog/testing-13-node-swarms-on-a-raspberry-pi.md`.
+  - Cleaned all residual pseudo-boxes and loose connector pipes across 14 documentation files.
 
 ## [2.16.3] - 2026-08-24
 

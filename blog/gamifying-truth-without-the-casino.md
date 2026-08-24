@@ -3,7 +3,7 @@ title: 'Folding@home for Truth: Gamification Without the Casino'
 description: Why epistemic trust requires scientific peer prestige rather than mobile
   game mechanics, microtransactions, or financialized speculation.
 since_version: v1.0.0
-verified_version: v2.16.3
+verified_version: v2.16.4
 last_verified: 2026-08-24
 ---
 
@@ -97,16 +97,15 @@ In most gamified applications, leaderboards are cosmetic vanity metrics. In Cred
 
 The P2P relay dynamically assigns connected peers to **4 Traffic Shaping Classes**:
 
-PEER QUALITY TRAFFIC SHAPING CLASSES
-Observed Peer Quality Score ($Q_i \in [0.0, 1.0]$)
---------------------------------------------------------
-▼ $Q_i \ge 0.85$         ▼ $0.50 \le Q_i < 0.85$  ▼ $0.25 \le Q_i < 0.50$  ▼ $Q_i < 0.25$
-----------------  ----------------  ----------------  ----------------
-| 🟢 FAST_LANE      |  | 🔵 STANDARD       |  | 🟡 CHOKED         |  | 🔴 QUARANTINED    |
-| • 500 msgs/sec    |  | • 50 msgs/sec     |  | • 1 msg/sec       |  | • 0 msgs/sec      |
-| • Immediate gossip|  | • Standard gossip |  | • Flaky/divergent |  | • Sybil/bad severed|
-----------------  ----------------  ----------------  ----------------
-💡 Network Physics: Good actors gain high-bandwidth lanes; adversaries are throttled to 0 msg/s
+![Figure 1.1: 4-tier peer quality traffic shaping classes and bandwidth allocation](assets/illustrations/gamifying-truth-without-the-casino.svg)
+
+| Quality Score Band ($Q_i$) | Peer Quality Class | Bandwidth & Rate Limit | Consensus Weight | Network Role |
+| :--- | :--- | :--- | :---: | :--- |
+| **$Q_i \ge 0.85$** | **FAST_LANE (Beacon)** | Unthrottled ($500\text{ msgs/sec}$) | $1.00$ | Preferred seed relay & attestation hub |
+| **$0.50 \le Q_i < 0.85$**| **STANDARD (Validator)**| Standard ($50\text{ msgs/sec}$) | $0.70$ | Standard gossip relay & validator |
+| **$0.25 \le Q_i < 0.50$**| **CHOKED (Candidate)** | Throttled ($1\text{ msg/sec}$) | $0.30$ | Restricted queue & probe candidate |
+| **$Q_i < 0.25$** | **QUARANTINED (Slashed)**| Severed ($0\text{ msgs/sec}$) | $0.00$ | Quarantined Sybil / cartel node |
+
 
 If a node submits ungrounded citations or attempts to spam false consensus, its Quality Score ($Q_i$) is slashed. The routing engine automatically demotes its connection from `FAST_LANE` to `CHOKED` (1 msg/s) or `QUARANTINED` (0 msg/s). Good actors receive high-bandwidth fast lanes; adversaries are mathematically throttled out of existence.
 

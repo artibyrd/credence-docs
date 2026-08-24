@@ -2,7 +2,7 @@
 title: 'Technical Blueprint: Operator Telemetry & Mesh Dashboard'
 description: Real-time operator metrics, WebSocket ring buffer aggregation, D3/SVG vector telemetry, and zero-mock production boundary.
 since_version: v1.12.0
-verified_version: v2.16.3
+verified_version: v2.16.4
 last_verified: 2026-08-24
 sidebar:
   order: 11
@@ -20,11 +20,10 @@ A critical invariant in Credence is the strict physical boundary between **Produ
 - **Operator Dashboard (`credence.nexus/dashboard.html`)**: Must report 100% genuine node reality. If the node is running in isolation ($N=1$), it must display `STANDALONE (0 Peers Connected)` with active local SQLite metrics. Zero synthetic or hardcoded peer graphs are permitted in production surfaces.
 - **Interactive Playground (`docs.credence.run/#playground`)**: Sandboxed educational simulators belong exclusively inside documentation playground routes, clearly marked with simulation badges.
 
-TELEMETRY OBSERVABILITY BOUNDARY
-Production Dashboards (`nexus/`)  | Interactive Playgrounds (`docs/`)
-- 100% Genuine Node Reality      |  • Educational Chaos Simulation
-- In-Memory Ring Buffer Streams  |  • Synthetic 13-Node Watts-Strogatz
-- Zero Mocked Peer Data          |  • Live Interactive Sliders
+| Observability Plane | Target Environment | Telemetry Source | Simulation Allowed |
+| :--- | :--- | :--- | :---: |
+| **Production Dashboards** | `credence.nexus` / `admin.credence.run` | 100% Genuine Node State ($N \ge 1$) | **NO** (Zero mock data) |
+| **Documentation Lab** | `docs.credence.run/#docs/playground` | Educational Chaos & Simulators | **YES** (Interactive playground) |
 
 ---
 
