@@ -3,7 +3,7 @@ title: The Multi-Model Provider Architecture
 description: Configuring Credence with Anthropic Claude 3.7 Sonnet, OpenAI GPT-4o
   / o3-mini, DeepSeek-R1, and Local Ollama / vLLM.
 since_version: v1.0.0
-verified_version: v2.15.0
+verified_version: v2.15.1
 last_verified: 2026-08-23
 ---
 

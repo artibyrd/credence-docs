@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.15.0';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.15.1';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -1063,9 +1063,32 @@ const MODELS_PRICING = [
   { name: "Anthropic Claude 3.7 Sonnet", inputPerM: 3.00, outputPerM: 15.00, ttft: "1200ms", badge: "HIGH-NUANCE THINKING", badgeClass: "suspicious", sovereignty: "Anthropic API" }
 ];
 
-function isBlogContext() {
-  const host = window.location.hostname;
-  return host === 'blog.credence.run' || window.location.hash.startsWith('#blog');
+export function getDomainContext() {
+  const host = typeof window !== 'undefined' ? window.location.hostname : '';
+  const isDev = host.startsWith('dev.') || host.startsWith('mcp.dev.');
+  const isDocsDomain = host === 'docs.credence.run' || host === 'dev.docs.credence.run';
+  const isBlogDomain = host === 'blog.credence.run' || host === 'dev.blog.credence.run';
+  const isMultiDomain = isDocsDomain || isBlogDomain || host.endsWith('credence.run');
+  return { host, isDev, isDocsDomain, isBlogDomain, isMultiDomain };
+}
+
+export function getDocsBaseUrl() {
+  const { isDev, isMultiDomain } = getDomainContext();
+  if (!isMultiDomain) return '';
+  return isDev ? 'https://dev.docs.credence.run' : 'https://docs.credence.run';
+}
+
+export function getBlogBaseUrl() {
+  const { isDev, isMultiDomain } = getDomainContext();
+  if (!isMultiDomain) return '';
+  return isDev ? 'https://dev.blog.credence.run' : 'https://blog.credence.run';
+}
+
+export function isBlogContext() {
+  const { isDocsDomain, isBlogDomain } = getDomainContext();
+  if (isBlogDomain) return true;
+  if (isDocsDomain) return false;
+  return typeof window !== 'undefined' && window.location.hash.startsWith('#blog');
 }
 
 function escapeHtml(str) {
@@ -1935,7 +1958,7 @@ export function renderSidebar(activeId) {
       </div>
       ${renderedGroups}
       <div class="sidebar-bridge-card">
-        <a href="#docs/intro" class="sidebar-bridge-link" data-plane="docs">
+        <a href="${getDocsBaseUrl() ? getDocsBaseUrl() + '/#docs/intro' : '#docs/intro'}" class="sidebar-bridge-link" data-plane="docs">
           <span class="bridge-icon">📘</span>
           <div class="bridge-text">
             <span class="bridge-title">Technical Documentation</span>
@@ -2023,7 +2046,7 @@ export function renderSidebar(activeId) {
       ${renderTierGroups(tier3Cats)}
 
       <div class="sidebar-bridge-card">
-        <a href="#blog/the-dead-internet-immune-system" class="sidebar-bridge-link" data-plane="blog">
+        <a href="${getBlogBaseUrl() ? getBlogBaseUrl() + '/#blog/the-dead-internet-immune-system' : '#blog/the-dead-internet-immune-system'}" class="sidebar-bridge-link" data-plane="blog">
           <span class="bridge-icon">✍️</span>
           <div class="bridge-text">
             <span class="bridge-title">Sovereign Blog &amp; Field Essays</span>
@@ -4122,15 +4145,23 @@ export function setupSearch() {
   const planeBtnDocs = document.getElementById('plane-btn-docs');
   const planeBtnBlog = document.getElementById('plane-btn-blog');
   if (planeBtnDocs) {
-    planeBtnDocs.addEventListener('click', () => {
-      if (isBlogContext()) {
+    planeBtnDocs.addEventListener('click', (e) => {
+      const { isBlogDomain } = getDomainContext();
+      if (isBlogDomain) {
+        e.preventDefault();
+        window.location.href = getDocsBaseUrl() + '/#docs/intro';
+      } else if (isBlogContext()) {
         window.location.hash = '#docs/intro';
       }
     });
   }
   if (planeBtnBlog) {
-    planeBtnBlog.addEventListener('click', () => {
-      if (!isBlogContext()) {
+    planeBtnBlog.addEventListener('click', (e) => {
+      const { isDocsDomain } = getDomainContext();
+      if (isDocsDomain) {
+        e.preventDefault();
+        window.location.href = getBlogBaseUrl() + '/#blog/the-dead-internet-immune-system';
+      } else if (!isBlogContext()) {
         window.location.hash = '#blog/the-dead-internet-immune-system';
       }
     });
@@ -4233,7 +4264,23 @@ export function setupSearch() {
 
 export function initRouter() {
   function normalizeLinks() {
-    const isDev = window.location.hostname.startsWith('dev.') || window.location.hostname.startsWith('mcp.dev.');
+    const { isDev, isDocsDomain, isBlogDomain } = getDomainContext();
+
+    // Adjust top navbar Docs link when on blog domain
+    const docsNavLinks = document.querySelectorAll('.nav-links a[href*="docs"], .nav-links a.active');
+    docsNavLinks.forEach(link => {
+      const text = (link.textContent || '').trim().toLowerCase();
+      if (text === 'docs') {
+        if (isBlogDomain) {
+          link.classList.remove('active');
+          link.setAttribute('href', getDocsBaseUrl() ? `${getDocsBaseUrl()}/#docs/intro` : '#docs/intro');
+        } else if (isDocsDomain) {
+          link.classList.add('active');
+          link.setAttribute('href', '#docs/intro');
+        }
+      }
+    });
+
     if (!isDev) return;
 
     const prodToDev = {
@@ -4242,8 +4289,8 @@ export function initRouter() {
       'https://credence.report': 'https://dev.credence.report',
       'https://credence.nexus': 'https://dev.credence.nexus',
       'https://credence.foundation': 'https://dev.credence.foundation',
-      'https://docs.credence.run': 'https://dev.credence.run/docs/',
-      'https://blog.credence.run': 'https://dev.credence.run/blog/',
+      'https://docs.credence.run': 'https://dev.docs.credence.run',
+      'https://blog.credence.run': 'https://dev.blog.credence.run',
       'https://mcp.credence.run': 'https://mcp.dev.credence.run',
     };
 
@@ -4251,7 +4298,7 @@ export function initRouter() {
       const href = a.getAttribute('href');
       if (!href) return;
       for (const [prod, dev] of Object.entries(prodToDev)) {
-        if (href === prod || href.startsWith(prod + '/')) {
+        if (href === prod || href.startsWith(prod + '/') || href.startsWith(prod + '#')) {
           const sub = href.substring(prod.length);
           if (dev.endsWith('/') && sub.startsWith('/')) {
             a.setAttribute('href', dev.slice(0, -1) + sub);
@@ -4264,58 +4311,89 @@ export function initRouter() {
   }
 
   function handleRoute() {
-    let fullHash = window.location.hash.slice(1);
-    if (!fullHash) {
-      fullHash = isBlogContext() ? 'blog/conflict-of-pun-terest' : 'docs/intro';
+    const { isDocsDomain, isBlogDomain } = getDomainContext();
+    const fullHash = window.location.hash.slice(1);
+
+    // 1. Cross-domain route boundary enforcement
+    if (isDocsDomain && fullHash.startsWith('blog/')) {
+      window.location.replace(getBlogBaseUrl() + '/#' + fullHash);
+      return;
+    }
+    if (isBlogDomain && fullHash && !fullHash.startsWith('blog/')) {
+      window.location.replace(getDocsBaseUrl() + '/#' + fullHash);
+      return;
     }
 
-    let docId = fullHash;
+    let activeHash = fullHash;
+    if (!activeHash) {
+      activeHash = isBlogContext() ? 'blog/the-dead-internet-immune-system' : 'docs/intro';
+    }
+
+    let docId = activeHash;
     let anchorId = '';
 
-    if (fullHash.includes('#')) {
-      const idx = fullHash.indexOf('#');
-      docId = fullHash.substring(0, idx);
-      anchorId = fullHash.substring(idx + 1);
-    } else if (fullHash.includes(':') && !fullHash.startsWith('http')) {
-      const idx = fullHash.indexOf(':');
-      docId = fullHash.substring(0, idx);
-      anchorId = fullHash.substring(idx + 1);
+    if (activeHash.includes('#')) {
+      const idx = activeHash.indexOf('#');
+      docId = activeHash.substring(0, idx);
+      anchorId = activeHash.substring(idx + 1);
+    } else if (activeHash.includes(':') && !activeHash.startsWith('http')) {
+      const idx = activeHash.indexOf(':');
+      docId = activeHash.substring(0, idx);
+      anchorId = activeHash.substring(idx + 1);
     }
 
     loadDocument(docId, anchorId);
     setTimeout(normalizeLinks, 100);
   }
 
-  // Top-level capture interceptor to guarantee zero escape from dev preview
+  // Top-level capture interceptor to guarantee clean cross-domain and dev routing
   document.addEventListener('click', (e) => {
     const anchor = e.target && e.target.closest && e.target.closest('a[href]');
     if (!anchor) return;
-    const isDev = window.location.hostname.startsWith('dev.') || window.location.hostname.startsWith('mcp.dev.');
-    if (!isDev) return;
     const href = anchor.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
+    if (!href || href.startsWith('javascript:')) return;
 
-    const prodToDev = {
-      'https://admin.credence.run': 'https://dev.admin.credence.run',
-      'https://credence.run': 'https://dev.credence.run',
-      'https://credence.report': 'https://dev.credence.report',
-      'https://credence.nexus': 'https://dev.credence.nexus',
-      'https://credence.foundation': 'https://dev.credence.foundation',
-      'https://docs.credence.run': 'https://dev.credence.run/docs/',
-      'https://blog.credence.run': 'https://dev.credence.run/blog/',
-      'https://mcp.credence.run': 'https://mcp.dev.credence.run',
-    };
+    const { isDev, isDocsDomain, isBlogDomain, isMultiDomain } = getDomainContext();
 
-    for (const [prod, dev] of Object.entries(prodToDev)) {
-      if (href === prod || href.startsWith(prod + '/')) {
+    // 1. Intercept relative hash links across domains (e.g. clicking #blog link on docs domain)
+    if (href.startsWith('#') && isMultiDomain) {
+      const targetId = href.slice(1);
+      if (isDocsDomain && targetId.startsWith('blog/')) {
         e.preventDefault();
-        const sub = href.substring(prod.length);
-        if (dev.endsWith('/') && sub.startsWith('/')) {
-          window.location.href = dev.slice(0, -1) + sub;
-        } else {
-          window.location.href = dev + sub;
-        }
+        window.location.href = getBlogBaseUrl() + '/' + href;
         return;
+      }
+      if (isBlogDomain && targetId && !targetId.startsWith('blog/')) {
+        e.preventDefault();
+        window.location.href = getDocsBaseUrl() + '/' + href;
+        return;
+      }
+    }
+
+    // 2. Dev preview host normalization
+    if (isDev) {
+      const prodToDev = {
+        'https://admin.credence.run': 'https://dev.admin.credence.run',
+        'https://credence.run': 'https://dev.credence.run',
+        'https://credence.report': 'https://dev.credence.report',
+        'https://credence.nexus': 'https://dev.credence.nexus',
+        'https://credence.foundation': 'https://dev.credence.foundation',
+        'https://docs.credence.run': 'https://dev.docs.credence.run',
+        'https://blog.credence.run': 'https://dev.blog.credence.run',
+        'https://mcp.credence.run': 'https://mcp.dev.credence.run',
+      };
+
+      for (const [prod, dev] of Object.entries(prodToDev)) {
+        if (href === prod || href.startsWith(prod + '/') || href.startsWith(prod + '#')) {
+          e.preventDefault();
+          const sub = href.substring(prod.length);
+          if (dev.endsWith('/') && sub.startsWith('/')) {
+            window.location.href = dev.slice(0, -1) + sub;
+          } else {
+            window.location.href = dev + sub;
+          }
+          return;
+        }
       }
     }
   }, true);

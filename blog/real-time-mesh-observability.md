@@ -4,7 +4,7 @@ description: "How Credence delivers first-person node visibility, BitTorrent com
 author: "Credence Core Architecture Guild"
 date: "2026-08-19"
 since_version: "v1.15.0"
-verified_version: v2.15.0
+verified_version: v2.15.1
 last_verified: 2026-08-23
 ---
 
