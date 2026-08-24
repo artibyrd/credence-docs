@@ -102,12 +102,12 @@ In multi-node P2P mesh cluster simulations (`tests/test_mesh_cluster.py`):
 
 $ credence roots tree
 🌳 Credence Epistemic Root Network
-+-- Active Subscribed Roots (28)
-+-- Reuters World News (reuters.com) - 14 items (Tier 1)
-+-- Nature Research (nature.com) - 8 items (Tier 1)
-+-- Court Watch Docket Feed (courtwatch.org) - 6 items (Tier 2) [AUTONOMOUS ROOT]
-+-- 🌱 Unsubscribed Citation Soil (14)
-+-- civicwater.gov (3 citations, trust: 92.4/100)
-+-- statnews.com (2 citations, trust: 88.0/100)
+| Feed Category | Source Domain | Subscribed Items | Trust Tier / Action |
+| :--- | :--- | :---: | :--- |
+| **Subscribed Wire** | `reuters.com` | 14 items | Tier I Verified Root |
+| **Subscribed Science** | `nature.com` | 8 items | Tier I Verified Root |
+| **Autonomous Discovery**| `courtwatch.org` | 6 items | Tier II Autonomous Root |
+| **Citation Soil** | `civicwater.gov` | 3 citations | Unsubscribed Soil (Trust: 92.4) |
+| **Citation Soil** | `statnews.com` | 2 citations | Unsubscribed Soil (Trust: 88.0) |
 
 The lonely node is lonely no more. It has roots.

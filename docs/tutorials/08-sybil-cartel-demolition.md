@@ -23,7 +23,6 @@ Suppose an adversary runs 4 colluding nodes in a 13-node mesh. When a fraudulent
 [Honest Node 1] --- [Honest Node 2]
 \                /
 ▼              ▼
-[Bayesian Weighted Consensus Median] ◄-- [Honest Specialist (G=1.00)]
 ▲              ▲
 /                \
 [Cartel Node 1] -------- [Cartel Node 2]   (Colluding False Scores)

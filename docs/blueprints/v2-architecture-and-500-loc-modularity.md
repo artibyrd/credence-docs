@@ -28,21 +28,14 @@ In Credence v1.x, the codebase grew organically into large files: `credence.py` 
 In v2.0, we decomposed the codebase into focused subpackages, enforcing **The 500 LOC Ceiling Law (`inv-architecture-governance`)**:
 
 credence/
-+-- cli/                          # CLI commands & argument parsing (<400 LOC)
-+-- commands/                 # Discrete command handlers (<300 LOC each)
-+-- main.py                   # Main CLI dispatch entry point
-+-- pipeline/                     # Scrubber, regex heuristics, and LLM adapters
-+-- scrubber.py               # DOM normalization & tag stripping (<250 LOC)
-+-- heuristics.py             # 46 offline regex rules (<300 LOC)
-+-- llm_adapter.py            # Frontier reasoning engine bridge (<350 LOC)
-+-- evaluator.py              # Calibrated scoring & saturation (<280 LOC)
-+-- mesh/                         # P2P gossip, consensus, and quality scoring
-+-- cluster.py                # WebSocket connection manager (<350 LOC)
-+-- consensus.py              # Bayesian weighted medians & Galileo Rule (<300 LOC)
-+-- quality.py                # 5-factor node quality & uptime (<250 LOC)
-+-- governor/                     # Token budget & circuit breakers (<350 LOC)
-+-- identity/                     # Ed25519 identity, root signing, & CAS (<300 LOC)
-+-- models/                       # SQLModel & Pydantic entity schemas (<350 LOC)
+| Subpackage Directory | Core Responsibilities | Line Budget Target |
+| :--- | :--- | :---: |
+| `cli/` | Command routing, argument parsing, subcommands | `< 400 LOC` |
+| `pipeline/` | Scrubber, regex heuristics, LLM adapters, evaluator | `< 300 LOC` |
+| `mesh/` | P2P gossip, consensus medians, quality scoring | `< 350 LOC` |
+| `governor/` | Token budget management & circuit breakers | `< 350 LOC` |
+| `identity/` | RFC 8032 Ed25519 keys, RFC 8785 canonical envelopes | `< 300 LOC` |
+| `models/` | SQLModel and Pydantic entity schemas | `< 350 LOC` |
 
 ---
 
@@ -122,3 +115,5 @@ When refactoring modules to comply with the 500 LOC Ceiling Law:
 - Isolate database connection pooling and query definitions in dedicated DAO repositories.
 - Keep FastMCP tool definitions separated from underlying pure calculation engines.
 - Ensure all business logic remains testable in-memory with zero external service dependencies.
+
+By maintaining strict single-responsibility boundaries, individual engineers and autonomous AI agents can modify, debug, and test specific subsystems in complete isolation without risk of unexpected cascade failures across unrelated application planes. Furthermore, this modular decoupling accelerates CI/CD pipelines by enabling granular, targeted test suites that execute in sub-millisecond in-memory runtimes with zero external mocking overhead.

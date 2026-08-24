@@ -98,14 +98,11 @@ Beyond domain rankings, Credence aggregates the most prevalent epistemic violati
 
 $ credence rankings --type rules
 📊 Top Violated Rules Across the Open Web
-╭-------------------------------------------------------------+------╮
-| Rule ID  | Domain               | Name                       | Viol.| Freq%
-1| SPJ-1.1  | JOURNALISTIC_ETHICS  | Accuracy & Verification    | 1,420| 38.4%
-2| FALLACY-2| LOGICAL_FALLACY      | Straw Man Argument         |   890| 24.1%
-3| DP-1.2   | DECEPTIVE_PATTERNS   | False Urgency Countdown    |   650| 17.6%
-4| SPJ-2.4  | JOURNALISTIC_ETHICS  | Cloaked Sponsored Content  |   412| 11.1%
-5| FALLACY-1| LOGICAL_FALLACY      | Ad Hominem Attack          |   320|  8.7%
-╰-------------------------------------------------------------+------╯
+| Forensic Evaluation Metric | Standard Output | Reputation Weight |
+| :--- | :--- | :--- |
+| **Verbatim Grounding Ratio ($G$)** | $1.00$ (Character-Exact) | Primary evidence weight |
+| **Topic Shannon Entropy ($H$)** | $0.84$ (High Diversity) | Organic editorial signal |
+| **SimHash-64 Bit Distance ($d_H$)**| $14	ext{ bits}$ (Unique) | Independent reporting pass |
 
 ---
 

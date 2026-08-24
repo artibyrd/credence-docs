@@ -33,16 +33,12 @@ Credence solves this with **The 4-Tier Knowledge Placement Taxonomy**.
 ## 2. The 4-Tier Knowledge Placement Taxonomy (`/remember`)
 
 Tier 0: UNIVERSAL CORE INVARIANTS (`AGENTS.md` - <800 Tokens)
-+-- Non-negotiable safety, cryptographic custody, and release gates
-+-- Strict P0 cognitive hierarchy (Class Alpha, Beta, Gamma)
-Tier 1: PROGRESSIVE SUBSYSTEM SKILLS (`.agents/skills/`)
-+-- Deep operational runbooks & specialized domain procedures
-+-- Loaded on-demand only when a specific task requires them
-Tier 2: AUTOMATED INTEGRITY TEST GATES (`tests/governance/`)
-+-- Shift-left assertions (Version parity, 500 LOC ceiling, zero-npm)
-+-- Hard code failures in CI rather than prose suggestions
-Tier 3: ARCHITECTURAL BLUEPRINTS & ESSAYS (`docs/` & `blog/`)
-+-- Deep rationale, mathematical proofs, and human documentation
+| Knowledge Placement Tier | Architectural Artifact | Governance Scope | Token Budget Rule |
+| :--- | :--- | :--- | :--- |
+| **Tier 0: Universal Core** | `AGENTS.md` | Non-negotiable safety, custody, and release gates | Strict `< 800` tokens total |
+| **Tier 1: Progressive Skills**| `.agents/skills/` | Deep operational runbooks & domain procedures | Loaded on-demand per task |
+| **Tier 2: Integrity Gates** | `tests/governance/` | Shift-left automated assertions (Parity, 500 LOC) | Hard failures in CI |
+| **Tier 3: Canonical Blueprints**| `docs/blueprints/` | Mathematical proofs, architecture specs | Full human documentation |
 
 ---
 

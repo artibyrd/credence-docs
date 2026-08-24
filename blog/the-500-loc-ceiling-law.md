@@ -48,11 +48,13 @@ The invariant is brutally simple:
 When `credence.pipeline` grew to 850 lines in v1.x, we did not raise the ceiling—we decomposed it into four focused modules:
 
 credence/pipeline/
-+-- __init__.py           # Unified entry point & facade (< 50 LOC)
-+-- scrubber.py           # DOM normalization & tag stripping (< 250 LOC)
-+-- heuristics.py         # 46 offline regex rules (< 300 LOC)
-+-- llm_adapter.py        # Frontier reasoning engine bridge (< 350 LOC)
-+-- evaluator.py          # Calibrated scoring & saturation (< 280 LOC)
+| Modular Subpackage File | Functional Responsibility | Max Permitted Lines |
+| :--- | :--- | :---: |
+| `__init__.py` | Unified public facade & clean exports | `< 50 LOC` |
+| `scrubber.py` | DOM normalization & entity stripping | `< 250 LOC` |
+| `heuristics.py` | 46 offline regex rules & entropy filters | `< 300 LOC` |
+| `llm_adapter.py` | Frontier reasoning engine bridge | `< 350 LOC` |
+| `evaluator.py` | Calibrated scoring & saturation metrics | `< 280 LOC` |
 
 Each module has a single responsibility, clear type hints, and independent unit tests.
 

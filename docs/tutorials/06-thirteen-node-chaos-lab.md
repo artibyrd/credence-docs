@@ -18,15 +18,13 @@ In this tutorial, you will execute a simulated **13-node Watts-Strogatz small-wo
 
 A Watts-Strogatz graph provides high clustering with short characteristic path lengths, allowing epidemic gossip to reach all nodes in $O(\log N)$ hops.
 
-```
-       [01] --- [02] --- [03]
-      /   \     /  \     /   \
-   [13]   [04] ---- [05]   [06]
-     |      |         |      |
-   [12]   [07] ---- [08]   [09]
-      \   /     \  /     \   /
-       [11] --- [10] --- [..]
-```
+![Figure 1.1: 13-node Watts-Strogatz peer mesh clustering and Byzantine Sybil cartel defense](assets/illustrations/mesh-network.svg)
+
+| Cluster Lattice Parameter | Value | Architectural Impact |
+| :--- | :---: | :--- |
+| **Total Cluster Nodes ($N$)** | `13` | Smallest complete cluster for $3f+1$ Byzantine safety |
+| **Mean Degree ($k$)** | `4` | Each node maintains 4 persistent WebSocket peer links |
+| **Rewiring Probability ($eta$)**| `0.20` | Creates short-range clustering with global shortcuts |
 
 ---
 

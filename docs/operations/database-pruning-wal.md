@@ -18,9 +18,13 @@ This operational guide details the automated maintenance jobs, Write-Ahead Log (
 
 Credence initializes SQLite with Write-Ahead Logging (`PRAGMA journal_mode=WAL;`), allowing concurrent readers to query audit attestations without locking write transactions from background feed sifters.
 
-Inbound Writes (Sifter / Attestation) --► Write-Ahead Log (`credence.db-wal`)
-▼ (Passive Checkpoint)
-Reader Transactions (FastMCP / Web)   --► Main Database (`credence.db`)
+![Figure 1.1: SQLite Write-Ahead Logging concurrency architecture and 90-day pruning lifecycle](assets/illustrations/database-pruning-wal.svg)
+
+| Database Plane | File Target | Concurrency Role | Maintenance Operation |
+| :--- | :--- | :--- | :--- |
+| **Write Plane** | `credence.db-wal` | Fast append-only write buffering | Sub-millisecond non-blocking writes |
+| **Checkpoint Engine**| Background daemon | Flushes WAL pages to main database | Periodic passive & TRUNCATE checkpoints |
+| **Read Plane** | `credence.db` | High-concurrency zero-lock reading | Serves Web UI & FastMCP queries |
 
 ---
 

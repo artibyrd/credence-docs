@@ -23,7 +23,12 @@ Using Tailscale or native WireGuard solves this:
 - Direct peer-to-peer encrypted WireGuard tunnels are established using DERP NAT traversal.
 - P2P gossip streams flow securely over private IP addresses (`ws://100.x.y.z:8765/gossip`).
 
-[Homelab Node (Behind NAT)] --► [WireGuard Encrypted Tunnel] ◄-- [Cloud Run Node]
+![Figure 1.1: Tailscale WireGuard encrypted point-to-point mesh network topology](assets/illustrations/tailscale-wireguard-mesh.svg)
+
+| Node Network Role | Network Environment | IP Subnet Binding | Encryption & Traversal |
+| :--- | :--- | :--- | :--- |
+| **Homelab Worker** | Behind symmetric residential NAT | `100.64.0.12/10` (Tailscale) | ChaCha20-Poly1305 / DERP NAT Traversal |
+| **Cloud Run Origin** | Serverless GCP Container | `100.64.0.88/10` (Tailscale) | Keyless WIF / Private Mesh Peering |
 
 ---
 

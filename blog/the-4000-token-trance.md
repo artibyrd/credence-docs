@@ -30,7 +30,13 @@ Auditing Precision (G=1.00)
 90% +                                   | (Diminishing Returns Zone)
 ----------------
 85% +  ● 512 (88.2%)
-80% +-----------------------------------------------------------------►
+![Figure 1.1: Token headroom budgeting zones and QUOTA_PRESERVED circuit breaker ceiling](assets/illustrations/the-4000-token-trance.svg)
+
+| Token Capacity Band | Headroom Percentage | Allowed Operational Workloads | Circuit Breaker State |
+| :--- | :---: | :--- | :--- |
+| **Autonomous Zone** | `0% – 70%` | Feed sifting, peer gossip, background audits | `NORMAL_OPERATION` |
+| **Interactive Reserve** | `70% – 100%` | Human CLI audits & FastMCP pair programming | `BACKGROUND_THROTTLED` |
+| **Quota Ceiling** | `>100%` | Zero-token heuristic fallback & cache hits | `QUOTA_PRESERVED` (Active) |
 0        1,024       2,048       4,096       8,192       16,384
 Thinking Token Budget
 

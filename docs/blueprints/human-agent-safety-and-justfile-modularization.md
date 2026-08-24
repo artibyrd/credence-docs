@@ -52,14 +52,15 @@ Credence resolves this via **Discrete Recipe Decoupling**:
 To enforce the **500 LOC Ceiling Law (The Invariant Bible)** and decouple open-source contributor workflows from maintainer-specific cloud deployment pipelines, the Justfile suite is partitioned into 6 focused modules:
 
 credence/
-+-- Justfile               # Root entrypoint with modern settings and module imports
-+-- just/
-+-- preflight.just     # Toolchain CLI verification (<120 LOC)
-+-- quality.just       # Parallel check, static analysis, discrete test suites (<110 LOC)
-+-- engine.just        # Local servers, web preview, feeds, seeds, mesh cluster (<220 LOC)
-+-- vcs.just           # Safe git inspection vs gated PR triad lifecycle (<140 LOC)
-+-- cloud.just         # Maintainer GCP Cloud Run, Cloudflare Edge & Terraform (<240 LOC)
-+-- release.just       # 7-Manifest version sync, parallel asset rendering & release (<60 LOC)
+| Modular Justfile Module | Purpose & Contained Recipes | Max Permitted Lines |
+| :--- | :--- | :---: |
+| `Justfile` | Root entrypoint with modern settings & imports | `< 30 LOC` |
+| `just/preflight.just` | Toolchain CLI verification & environment checks | `< 120 LOC` |
+| `just/quality.just` | Parallel check, static analysis, unit suites | `< 110 LOC` |
+| `just/engine.just` | Local servers, web preview, seeds, mesh cluster | `< 220 LOC` |
+| `just/vcs.just` | Safe git inspection & gated PR triad lifecycle | `< 140 LOC` |
+| `just/cloud.just` | Cloud Run compute, Cloudflare Edge, Terraform | `< 240 LOC` |
+| `just/release.just` | 7-Manifest version sync & atomic releases | `< 60 LOC` |
 
 Forks and open-source contributors can clone the repository, run `just check`, `just dev`, `just preview`, and `just test-unit` locally without requiring GCP or Cloudflare credentials.
 
@@ -175,9 +176,11 @@ The bootstrap catalog is not static; it evolves alongside developer patterns dur
 
 CONTINUOUS BOOTSTRAP COMMAND HARVEST CYCLE (/learn)
 [Session Workflows & Agent Operations]
-[/learn Session Trajectory Audit] --► Scan `transcript.jsonl` tool calls for manual approvals
-[Prefix-Safe Boundary Filter]     --► Verify commands are read-only & non-destructive
-[Catalog & Skill Synchronized]    --► Auto-graduated into `scripts/bootstrap_approvals.py`
+| Bootstrap Approval Phase | System Action | Safety Verification Rule |
+| :--- | :--- | :--- |
+| **1. Session Trajectory Audit** | Scans `transcript.jsonl` tool calls | Identifies required operator approval shapes |
+| **2. Prefix-Safe Filtering** | Validates binary command prefix | Verifies read-only & non-destructive scope |
+| **3. Catalog Synchronization** | Updates `scripts/bootstrap_approvals.py` | Auto-graduated for one-click operator priming |
 and `bootstrap-approvals/SKILL.md`
 
 During each `/learn` run, the agent audits its session trajectory for recurring safe inspection commands (e.g., `grep`, `head`, `wc`, selective `git checkout`) and graduates them into the primary bootstrapping catalog for future workspace velocity.

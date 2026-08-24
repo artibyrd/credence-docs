@@ -23,9 +23,13 @@ Here are the 4 primary attack vectors we attempted, how the system reacted, and 
 ### The Attack Vector
 An adversarial publisher submits a clean, high-integrity news article to Credence. The node audits the content, confirms character-for-character citation grounding ($G=1.00$), and signs an Ed25519 attestation containing the article's SHA-256 hash. The publisher embeds the badge. Five minutes later, the publisher silently edits the CMS database to replace the article text with a fraudulent cryptocurrency scam, hoping the badge will continue displaying `PRISTINE`.
 
-Step 1: Audit Clean Article ---► Receives Signed Receipt (Hash: 0xa1b2...) ---► Badge Renders Green (PRISTINE)
-Step 2: Publisher Edits CMS ---► Article Body Mutates to Scam (Hash: 0xf9e8...)
-Step 3: Reader Browser Loads --► WebCrypto Computes Hash: 0xf9e8 != 0xa1b2 ---► BADGE FLASHES RED (TAMPERED)
+![Figure 1.1: Red-teaming the truth badge and detecting bait-and-switch DOM mutations with WebCrypto](assets/illustrations/red-teaming-the-truth-badge.svg)
+
+| Attack Stage | Attacker / System Action | Cryptographic State | Visual Badge Indicator |
+| :--- | :--- | :--- | :--- |
+| **1. Baseline Audit** | Publisher audits clean factual article | SHA-256: `0xa1b2...` signed by Ed25519 root | **Emerald Pill (`PRISTINE`)** |
+| **2. Bait-and-Switch** | Publisher alters CMS body with ungrounded scam | DOM body changes; hash shifts to `0xf9e8...` | Target attestation invalidated |
+| **3. Client-Side Defense**| `<credence-badge>` recomputes DOM hash via WebCrypto | Local hash does not match signed envelope | **Purple Alert (`TAMPERED`)** |
 
 ### The Defense
 The `<credence-badge>` does not blindly trust the server receipt. Upon loading in the reader's browser, the component's client-side JavaScript extracts the live DOM text, runs the canonical DOM scrubber, and hashes the text using the native W3C WebCrypto API (`crypto.subtle.digest('SHA-256')`).
