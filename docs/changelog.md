@@ -2,11 +2,20 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.16.2
+verified_version: v2.16.3
 last_verified: 2026-08-24
 ---
 
 # Release Changelog
+
+## [2.16.3] - 2026-08-24
+
+### Added
+- **Vector SVG Illustration Architecture & Anti-Pseudo-Diagram Standard (`.agents/skills/`)**:
+  - Enhanced `architecture-governance` skill with Section 1.5 codifying dark-themed Vector SVG Illustration design tokens (`viewBox="0 0 880 380"`, drop shadows, directional vectors) and prohibiting the downgrading of diagrams to plain text.
+  - Enhanced `invariant-audit` skill with Gates 6 & 7 (`test_docs_minimum_meaningful_length`, `test_zero_empty_or_sparse_sections`), 100% SHA-256 illustration checksum parity assertions, and Mk1 Eyeball human verification requirements.
+- **Ecosystem Skills Synchronization (`.agents/skills/`)**:
+  - Synchronized updated progressive skills across `credence-agent`, `credence`, and `credence-docs` with identical governance parameters.
 
 ## [2.16.2] - 2026-08-24
 

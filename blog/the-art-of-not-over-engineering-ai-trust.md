@@ -2,7 +2,7 @@
 title: 'The Art of Not Over-Engineering AI Trust: Why Simple Heuristics Beat Complex Moats'
 description: Why combining 46 regex heuristics with calibrated reasoning models outperforms fragile, bloated AI architectures.
 since_version: v1.12.0
-verified_version: v2.16.2
+verified_version: v2.16.3
 last_verified: 2026-08-24
 sidebar:
   order: 20

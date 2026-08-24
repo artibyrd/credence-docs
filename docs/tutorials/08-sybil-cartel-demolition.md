@@ -2,7 +2,7 @@
 title: 'Tutorial 08: Sybil Cartel Demolition & Cartel Isolation'
 description: Launch a multi-node Byzantine cartel attack and watch the Credence consensus engine detect, isolate, and quarantine malicious nodes.
 since_version: v1.0.0
-verified_version: v2.16.2
+verified_version: v2.16.3
 last_verified: 2026-08-24
 sidebar:
   order: 8
