@@ -2,7 +2,7 @@
 title: 'The Art of Not Over-Engineering: Scaling a Decentralized Epistemic Network to 100M Queries at $0 Waste'
 description: Why cryptographic immutability flips distributed systems design on its head and lets simple edge caching beat multi-master SQL complexity.
 since_version: v1.17.0
-verified_version: v2.15.1
+verified_version: v2.16.0
 last_verified: 2026-08-24
 ---
 

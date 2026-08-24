@@ -2,7 +2,7 @@
 title: 'Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0 on Credence'
 description: How the Credence epistemic trust engine distinguishes between perpetrating disinformation and exposing it through discourse boundary isolation, SPJ-1.6 safe harbors, and verbatim grounding.
 since_version: v2.1.7
-verified_version: v2.15.1
+verified_version: v2.16.0
 last_verified: 2026-08-24
 ---
 

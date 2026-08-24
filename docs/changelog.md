@@ -2,11 +2,35 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.15.1
+verified_version: v2.16.0
 last_verified: 2026-08-24
 ---
 
 # Release Changelog
+
+## [2.16.0] - 2026-08-24
+
+### Added
+- **Autonomous RFC Standards Ratification & Evolution Pipeline (`credence/pipeline/rfc.py`)**:
+  - Implemented 3-Tier Standards Hierarchy: **Tier 0 Universal General** (SPJ Ethics, IEP Fallacies, Deceptive UI), **Tier 1 Domain Specialist** (SEC Financial Disclosures, Clinical Medicine), and **Tier 2 Sovereign Niche** (Enterprise Org & Municipal bylaws).
+  - Implemented 5-stage automated ratification state machine: `Draft` $\rightarrow$ `Proposed` (AST schema gate $<0.3\text{s}$) $\rightarrow$ `Candidate` (Adversarial Synthetic Gauntlet $\mathcal{F}_1 \ge 0.87, \text{FPR}=0.00\%, G=1.00$) $\rightarrow$ `Shadow Trial` (500-audit live mesh canary with $\ge 40\%$ headroom floor) $\rightarrow$ `Voting` (Deterministic Ed25519 node attestation quorum) $\rightarrow$ `Ratified` (Hot-reload CAS pinning).
+  - Added Golden Control Corpus (`credence/pipeline/golden_baseline.py`) asserting $FPR = 0.00\%$ to prevent Goodhart's Law gaming.
+  - Added RFC CLI subcommands (`credence rfc list`, `credence rfc show`, `credence rfc validate`, `credence rfc benchmark`, `credence rfc vote`, `credence rfc hash`).
+  - Added FastMCP 2.0 governance tools (`credence_list_rfcs`, `credence_get_rfc`, `credence_validate_standard`, `credence_benchmark_standard`) and resource endpoints (`credence://governance/rfcs`).
+  - Upgraded Textual TUI workstation (`credence/tui/widgets/taxonomy_tree.py`) with 3-tier taxonomy tree rendering and RFC stage badges.
+- **13-Node Local Mesh Red-Team Integration Test Suite (`tests/integration/test_mesh_rfc_redteam.py`)**:
+  - Verified 13-node consensus, 4-node Byzantine cartel attack resistance ($f=4, 3f+1$ tolerance), headroom floor circuit breakers, and temporal trajectory DAG immutability.
+- **Interactive Governance Web Workstation (`credence.foundation/#governance`)**:
+  - Overhauled Tab 5 with 3-tier standards cards, live RFC standards table, 5-stage pipeline architecture, and in-browser YAML catalog validator and synthetic gauntlet simulator.
+- **Comprehensive Documentation Handbook & Architectural Blueprint**:
+  - Authored [`defining-and-adopting-custom-standards.md`](cookbooks/defining-and-adopting-custom-standards.md) and [`autonomous-standards-ratification-and-governance.md`](blueprints/autonomous-standards-ratification-and-governance.md).
+
+### Fixed
+- **Zero-Mock Remediation & Dashboard Sanitization Across All Surfaces**:
+  - Purged fake `getDemoData()` and demo dropdown in `credence.nexus/dashboard.html`; implemented authentic Standalone Local Node Genesis state.
+  - Purged fake mock entries and zeroed SHA-256 hashes in `credence.report/history.html` and `credence.report/viewer.html`.
+  - Replaced fake `setTimeout` and swallow-all catch blocks in `admin.credence.run/index.html` with authentic API calls and error handling.
+  - Replaced dummy test vector in `credence.foundation/index.html` with verified WebCrypto Ed25519 attestation payload.
 
 ## [2.15.1] - 2026-08-23
 
