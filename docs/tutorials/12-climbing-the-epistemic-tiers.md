@@ -4,8 +4,8 @@ description: Step-by-step operator guide to minting an identity, sifting feeds, 
   verified auditor badges, achieving domain authority, and qualifying as a root seed
   anchor.
 since_version: v1.0.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.14.0
+last_verified: 2026-08-23
 ---
 
 # 12. Climbing the Epistemic Tiers

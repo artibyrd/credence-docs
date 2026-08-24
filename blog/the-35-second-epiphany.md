@@ -2,8 +2,8 @@
 title: 'The 35-Second Epiphany: How Browser-Free Hermetic Tests Saved Our Sanity'
 description: Why injecting browser runtimes into unit test CI destroys developer flow, and how in-memory hermetic testing brought our local pre-commit gate down to sub-35 seconds.
 since_version: v1.0.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.14.0
+last_verified: 2026-08-23
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'

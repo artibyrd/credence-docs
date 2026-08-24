@@ -2,8 +2,8 @@
 title: 'The Four-Way Parity Quest: Zero Drift Across CLI, TUI, FastMCP, and Web'
 description: Why AI models love building one shiny web interface while letting terminal tools rot, and how we achieved universal 4-way feature parity and zero-drift modal synchronization.
 since_version: v2.9.0
-verified_version: v2.10.1
-last_verified: 2026-08-22
+verified_version: v2.14.0
+last_verified: 2026-08-23
 date: '2026-08-22'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'

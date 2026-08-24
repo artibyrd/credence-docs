@@ -2,8 +2,8 @@
 title: 'The Myth of the 100-Agent Swarm: Why 1 Human + 1 Agent Out-Builds Autonomous Chaos'
 description: Why unsupervised multi-agent swarms inevitably succumb to generative proliferation, recursive local minima, and self-deceptive mocks, and why a disciplined human-agent pair produces vastly superior, sovereign software.
 since_version: v2.10.0
-verified_version: v2.10.1
-last_verified: 2026-08-22
+verified_version: v2.14.0
+last_verified: 2026-08-23
 date: '2026-08-22'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'

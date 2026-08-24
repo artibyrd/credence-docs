@@ -3,8 +3,8 @@ title: 10. Reusable Live Rotating E2E & Byzantine Mesh Gauntlet
 description: Step-by-step tutorial on executing, customizing, and scaling the reusable
   live rotating test suite across CLI, FastMCP 2.0 SSE, and 13-node P2P mesh clusters.
 since_version: v1.4.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.14.0
+last_verified: 2026-08-23
 tags:
 - tutorial
 - e2e

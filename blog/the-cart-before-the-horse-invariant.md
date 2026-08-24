@@ -3,8 +3,8 @@ title: "The Cart-Before-the-Horse Invariant: Why AI Agents Must Respect Topologi
 description: "Why autonomous pair programmers must never draft case studies before running tests, and never build downstream UIs before securing ingestion scrubbers and cryptographic data models."
 category: "Sovereign Essays"
 since_version: "v2.1.1"
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.14.0
+last_verified: 2026-08-23
 ---
 
 # The Cart-Before-the-Horse Invariant: Why AI Agents Must Respect Topological Dependency & Empirical Verification

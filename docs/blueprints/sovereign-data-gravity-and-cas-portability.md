@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Sovereign Data Gravity and CAS Portability'
 description: Architectural blueprint on Content-Addressable Storage (CAS) portability, universal multi-cloud backup and cold-boot recovery, and zero-loss state synchronization.
 since_version: v1.18.0
-verified_version: v2.4.0
-last_verified: 2026-08-21
+verified_version: v2.14.0
+last_verified: 2026-08-23
 tags:
 - storage
 - backup

@@ -2,8 +2,8 @@
 title: "Credence Ecosystem Terminology & Ontology Lexicon"
 description: "Canonical living dictionary of terminology, mathematical definitions, architectural metaphors, and ontology governance across Credence v2.0.0, organized across 5 cohesive thematic families and proportional complexity tiers."
 since_version: v2.0.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.14.0
+last_verified: 2026-08-23
 ---
 
 # Credence Ecosystem Terminology & Ontology Lexicon
