@@ -3,7 +3,7 @@ title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Release Changelog

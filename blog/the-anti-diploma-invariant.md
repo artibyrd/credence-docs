@@ -4,7 +4,7 @@ description: Why mathematical authority must be earned through empirical groundi
   and domain entropy, not static paper credentials.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 sidebar:
   order: 2
 ---

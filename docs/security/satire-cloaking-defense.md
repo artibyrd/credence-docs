@@ -4,7 +4,7 @@ description: How Credence distinguishes legitimate parody from weaponized disinf
   using Schema.org badges and SPJ-1.6 cloaking overrides.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Poe's Law & Satire Cloaking Defense

@@ -3,7 +3,7 @@ title: 'Pining for the Fjords: The Cold-Boot Scale-to-Zero Storage Odyssey'
 description: What happens to an AI node when Cloud Run scales down to zero instances, and how GCS dual-pointer hydration and Cloud Scheduler heartbeats solved stateless amnesia at $0.00 idle cost.
 since_version: v2.6.2
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 date: '2026-08-22'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'

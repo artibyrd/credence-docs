@@ -5,7 +5,7 @@ description: Formal specification of the <credence-badge> Web Component, in-brow
   WebCrypto DOM hash validation, and DOM extraction scrubbing.
 category: Architectural Blueprints
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 since_version: v2.1.0
 ---
 

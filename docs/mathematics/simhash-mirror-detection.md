@@ -4,7 +4,7 @@ description: Mathematical formulation of 64-bit SimHash, Hamming distances, and 
   coordinated propaganda syndication rings.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # SimHash-64 & Mirror Network Detection

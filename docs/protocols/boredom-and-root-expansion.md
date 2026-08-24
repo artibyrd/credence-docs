@@ -3,7 +3,7 @@ title: 'Epistemic Protocol Specification: Boredom Engine & Root Expansion (EPEP-
 description: Technical protocol specification for opportunistic pending queue digestion, token governor headroom gating, SSRF-guarded citation soil extraction, and P2P mesh gossiping.
 since_version: v1.16.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Epistemic Protocol Specification: Boredom Engine & Root Expansion (EPEP-16)

@@ -4,7 +4,7 @@ description: "Why autonomous pair programmers must never draft case studies befo
 category: "Sovereign Essays"
 since_version: "v2.1.1"
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # The Cart-Before-the-Horse Invariant: Why AI Agents Must Respect Topological Dependency & Empirical Verification

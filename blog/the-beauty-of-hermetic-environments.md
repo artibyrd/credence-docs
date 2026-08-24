@@ -3,7 +3,7 @@ title: 'The Beauty of Hermetic Environments: Why Lean Dev Saves Planetary Produc
 description: A sovereign essay on how isolating zero-cost developer environments from planetary cloud topologies protects engineering velocity and infrastructure budgets.
 since_version: v1.18.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # The Beauty of Hermetic Environments: Why Lean Dev Saves Planetary Production

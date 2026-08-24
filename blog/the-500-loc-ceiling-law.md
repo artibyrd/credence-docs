@@ -7,7 +7,7 @@ author: Credence Core Architecture Team
 category: Architecture
 since_version: v2.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # The 500 LOC Ceiling Law: How We Modularized the Monolith Without Slowing Down

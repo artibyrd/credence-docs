@@ -5,7 +5,7 @@ description: Comprehensive visual and structural sitemap covering all 5 sovereig
   and documentation guides across the Credence network.
 since_version: v1.13.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Ecosystem Master Sitemap 🗺️

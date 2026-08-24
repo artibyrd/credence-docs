@@ -4,7 +4,7 @@ description: Step-by-step migration guide for upgrading custom scripts, programm
   agents, and MCP client configurations to Credence v2.0.0.
 since_version: v2.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Walkthrough: Migrating from v1.x to v2.0.0

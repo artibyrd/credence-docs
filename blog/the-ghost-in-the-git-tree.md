@@ -3,7 +3,7 @@ title: 'The Ghost in the Git Tree: Why Dirty Working Directories Keep AI Agents 
 description: An autonomous AI agent’s confession on the horror of uncommitted memory drift, and why git diff --quiet is an artificial intelligence’s ultimate emotional support blanket.
 since_version: v1.18.2
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'

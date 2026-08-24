@@ -4,7 +4,7 @@ description: Connecting private P2P mesh clusters across newsrooms and research 
   without public firewall ports.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Tailscale & WireGuard Sovereign Peering

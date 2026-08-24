@@ -4,7 +4,7 @@ description: Operational engineering reference for developer workstation tuning,
   pytest parallelization, lean container builds, and sub-40s QA gates.
 since_version: v1.14.1
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Multi-Plane Pipeline & Build Optimization Handbook

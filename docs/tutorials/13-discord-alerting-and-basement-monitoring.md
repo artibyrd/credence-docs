@@ -4,7 +4,7 @@ description: Step-by-step tutorial for configuring Discord alert webhooks, Cloud
   SRE dashboards, and real-time TUI telemetry loopbacks.
 since_version: v1.10.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Tutorial 13: Dual-Tier Cloud Monitoring, Discord Webhooks & Interface Telemetry

@@ -4,7 +4,7 @@ description: Comprehensive 10-section operational runbook for multi-cloud deploy
   P2P mesh operations, and seed governance.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Bootstrap Operator Guide & Runbook

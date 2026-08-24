@@ -4,7 +4,7 @@ description: Interactive in-browser simulator demonstrating how Credence tracks 
 category: Interactive Playgrounds
 since_version: v2.1.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Playground 13: Content Evolution & Stealth Edit Forensic Lab 📝

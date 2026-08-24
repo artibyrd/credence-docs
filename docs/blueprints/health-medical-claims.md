@@ -4,7 +4,7 @@ description: Auditing health journalism, supplement landing pages, and clinical 
   reporting against peer-reviewed meta-analyses.
 since_version: v1.11.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Medical & Health Claim Auditing Blueprint

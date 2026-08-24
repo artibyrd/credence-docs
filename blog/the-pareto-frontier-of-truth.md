@@ -5,7 +5,7 @@ description: Why running $18/1k audit flagship models is not just cost-prohibiti
   Flash with 4k thinking is the Pareto sweet spot.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 slug: the-pareto-frontier-of-truth
 date: '2026-08-18'
 author: Credence Research & Architecture Team

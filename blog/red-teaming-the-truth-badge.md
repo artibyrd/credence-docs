@@ -5,7 +5,7 @@ description: "How adversarial publishers attempt to forge, steal, or bypass embe
   \ them."
 category: Sovereign Essays
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 since_version: v2.1.0
 ---
 

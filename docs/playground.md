@@ -4,7 +4,7 @@ description: In-browser WebCrypto verification, 13-node mesh gossip simulator, e
   text scanner, and consensus engine.
 since_version: v1.11.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Interactive Zero-Build Playgrounds 🎮

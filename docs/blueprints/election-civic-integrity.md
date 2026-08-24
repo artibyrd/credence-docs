@@ -4,7 +4,7 @@ description: Auditing polling methodology disclosures, voter registration deadli
   and candidate quote contexts for democratic institutions.
 since_version: v1.11.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Election & Civic Information Integrity Blueprint

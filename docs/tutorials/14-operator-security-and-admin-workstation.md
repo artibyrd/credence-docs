@@ -3,7 +3,7 @@ title: 'Tutorial 14: Operator Security, Admin Bootstrapping & Workstation Operat
 description: Comprehensive guide to bootstrapping operator authentication, managing AI cost budgets, and operating the Web Admin Command Deck.
 since_version: v2.2.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Tutorial 14: Operator Security, Admin Bootstrapping & Workstation Operations 🛡️

@@ -5,7 +5,7 @@ description: Hands-on tutorial for bootstrapping fresh Credence nodes in under 1
   sifting bursts.
 since_version: v1.6.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Tutorial 11: Autonomous Node Germination & Swarm Ignition

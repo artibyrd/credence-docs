@@ -4,7 +4,7 @@ description: How cooperative P2P feed pre-ingestion turns syndicated news auditi
   into a zero-token cooperative commons.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 sidebar:
   order: 3
 ---

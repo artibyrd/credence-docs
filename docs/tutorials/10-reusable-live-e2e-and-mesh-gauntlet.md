@@ -4,7 +4,7 @@ description: Step-by-step tutorial on executing, customizing, and scaling the re
   live rotating test suite across CLI, FastMCP 2.0 SSE, and 13-node P2P mesh clusters.
 since_version: v1.4.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 tags:
 - tutorial
 - e2e

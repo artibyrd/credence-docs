@@ -5,7 +5,7 @@ description: Step-by-step operator guide to minting an identity, sifting feeds, 
   anchor.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # 12. Climbing the Epistemic Tiers

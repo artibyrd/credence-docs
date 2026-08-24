@@ -5,7 +5,7 @@ description: Empirical case study of inmaricopa.com auditing the collision of mu
   governance, unlabelled commercial advertorials, and local news monopoly.
 since_version: v1.12.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Conflict of Pun-terest: 347 Reasons Why Maricopa's Publisher-Politician Problem Fails the Epistemic Smell Test

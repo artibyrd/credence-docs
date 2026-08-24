@@ -5,7 +5,7 @@ description: 'Comprehensive guide to Credence''s 6 testing tiers: hermetic unit 
   Playwright rendering, and live rotating E2E gauntlets.'
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 tags:
 - testing
 - e2e

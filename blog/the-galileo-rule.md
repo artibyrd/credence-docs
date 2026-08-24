@@ -4,7 +4,7 @@ description: Why 1,000 swarm nodes cannot dismiss a single verified, grounded ci
   in decentralized trust networks.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 sidebar:
   order: 4
 ---

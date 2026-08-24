@@ -3,7 +3,7 @@ title: 'Epistemic Protocol Specification: Domain Reputation, Soft Quarantine & R
 description: Technical protocol specification for domain reputation tracking, exponential polling backoff, HRW adversarial swarm coordination, and the BuzzFeed News Doctrine.
 since_version: v1.21.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Epistemic Protocol Specification: Domain Reputation, Soft Quarantine & Redemption (EPEP-17)

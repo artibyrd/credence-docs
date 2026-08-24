@@ -4,7 +4,7 @@ description: Running a 100% private, offline Credence node using local open-weig
   models with Ollama or vLLM on Mac Studio / RTX 4090.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Zero-Cloud Sovereign Operations: Local LLMs

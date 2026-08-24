@@ -4,7 +4,7 @@ description: Formal mathematical specifications, exponential saturation curves, 
   density indices used by Credence.
 since_version: v1.9.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 sidebar:
   order: 4
 ---

@@ -4,7 +4,7 @@ description: How autonomous coding agents can audit claims in real time to preve
   hallucinated dependencies and architectural flaws.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 sidebar:
   order: 5
 ---

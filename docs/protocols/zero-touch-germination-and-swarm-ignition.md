@@ -4,7 +4,7 @@ description: How fresh, unseeded Credence nodes autonomously bootstrap cryptogra
   identity, seed catalogs, and peer attestations in under 5 seconds.
 since_version: v1.14.1
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Zero-Touch Node Germination & Swarm Ignition

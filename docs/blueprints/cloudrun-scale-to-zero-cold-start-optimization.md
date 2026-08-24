@@ -4,7 +4,7 @@ description: The 5-pillar architectural framework for sub-2.5s serverless cold s
   on scale-to-zero Cloud Run containers.
 since_version: v1.15.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Technical Blueprint: Cloud Run Scale-to-Zero Cold Start Optimization

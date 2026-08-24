@@ -8,7 +8,7 @@ author: Credence Protocol Research
 category: Epistemology
 since_version: v2.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # The compute_* Ontology Revolution: Why Precision in Naming Eliminates Epistemic Ambiguity

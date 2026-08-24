@@ -4,7 +4,7 @@ description: Technical specification for 5-level node tiers, 8 verifiable merit 
   operator maintenance half-life decay, and deterministic tie-breaking.
 since_version: v1.9.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Epistemic Merit & Sovereign Node Leaderboards

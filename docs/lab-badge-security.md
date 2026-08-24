@@ -4,7 +4,7 @@ description: Interactive zero-build sandbox testing the anti-tamper defenses of 
 category: Interactive Playgrounds
 since_version: v2.1.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Playground 14: Adversarial Badge Security Lab (Break the Badge) 🛡️

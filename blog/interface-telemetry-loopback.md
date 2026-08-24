@@ -5,7 +5,7 @@ description: How Credence unifies cloud observability with local human terminals
   autonomous agent runtimes via in-process telemetry loopbacks.
 since_version: v1.10.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Interface Telemetry Loopback: Closing the Circuit Between Cloud SRE, Local TUIs, and AI Agents

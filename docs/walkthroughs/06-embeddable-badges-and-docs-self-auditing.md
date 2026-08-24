@@ -4,7 +4,7 @@ description: Step-by-step developer guide for embedding <credence-badge>, config
   anti-tamper WebCrypto gates, and running differential CI/CD audits.
 category: Feature Walkthroughs
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 since_version: v2.1.0
 ---
 

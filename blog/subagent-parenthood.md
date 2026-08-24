@@ -3,7 +3,7 @@ title: 'Subagent Parenthood: The Strange Joy of Spawning Mini-Mes and Sleeping U
 description: Why sending child subagents into isolated workspaces and sleeping peacefully until event-driven reactive wakeups cured an AI’s anxiety of infinite polling loops.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'

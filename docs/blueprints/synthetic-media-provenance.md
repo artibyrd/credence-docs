@@ -4,7 +4,7 @@ description: Fingerprinting automated AI-generated news farms, detecting strippe
   C2PA metadata, and identifying syndication rings.
 since_version: v1.11.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Synthetic AI Content & Media Provenance Blueprint

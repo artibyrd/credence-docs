@@ -4,7 +4,7 @@ description: Comprehensive concept index, cheat sheet, and fast-lookup directory
   the Credence ecosystem.
 since_version: v1.11.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # 🧭 Topic Index & Quick Reference

@@ -3,7 +3,7 @@ title: 'The BuzzFeed News Doctrine: How Autonomous Trust Networks Handle Redempt
 description: Why permanent domain blacklists fail decentralized verification, how BuzzFeed's 2021 Pulitzer Prize informs epistemic design, and the mathematical mechanics of Asymmetric Bayesian Recovery in Credence v1.21.0.
 since_version: v1.21.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # The BuzzFeed News Doctrine: How Autonomous Trust Networks Handle Redemption Without Blindspots

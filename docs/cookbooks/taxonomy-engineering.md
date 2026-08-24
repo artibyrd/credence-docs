@@ -4,7 +4,7 @@ description: Authoring custom namespaced YAML catalogs, calibrating numerical se
   and defining grounded citation requirements.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Taxonomy Rule Engineering 101

@@ -4,7 +4,7 @@ description: Forensic methodology, mathematical ratios, and longitudinal metrics
   evaluating public publisher integrity and detecting disguised advertorials.
 since_version: v1.14.1
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # The Domain Credence Index (DCI) & Sourcing Forensics

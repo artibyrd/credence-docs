@@ -4,7 +4,7 @@ description: Setting up zero-trust feed autodiscovery, dynamic quality governanc
   background sifting daemons, and automated executive intelligence briefings.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 Newsrooms, OSINT analysts, enterprise compliance teams, and executive researchers spend hours filtering through hundreds of RSS, Atom, and JSON feeds every morning.

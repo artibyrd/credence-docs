@@ -4,7 +4,7 @@ description: Give your AI coding assistant an epistemic brake by configuring Fas
   2.0 for live web verification.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 sidebar:
   order: 3
 ---

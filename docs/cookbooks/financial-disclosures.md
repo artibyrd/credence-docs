@@ -4,7 +4,7 @@ description: Using the ULTRA profile (16k thinking tokens) to audit SEC 10-K fil
   earnings calls, and corporate releases.
 since_version: v1.0.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 Corporate press releases and quarterly SEC filings often contain evasive phrasing, non-GAAP exclusions, ungrounded forward projections, and disguised conflicts of interest.

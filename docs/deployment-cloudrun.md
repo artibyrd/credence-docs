@@ -4,7 +4,7 @@ description: Deploying to Google Cloud Run with Terraform, $15/mo budget cap, sc
   compute, Workload Identity Federation, and automated CI/CD.
 since_version: v1.8.0
 verified_version: v2.15.1
-last_verified: 2026-08-23
+last_verified: 2026-08-24
 ---
 
 # Cloud Run Deployment & Dual-Tier Monitoring Guide
