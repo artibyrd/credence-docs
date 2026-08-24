@@ -58,7 +58,6 @@ When running our physical multi-container homelab cluster (`just mesh-cluster-up
 
 HARDWARE RESOURCE GOVERNOR DECISION ENGINE
 Host Environment Interrogation (`psutil.virtual_memory()`)
-|
 ----------------------------------------+
 ▼ RAM Available $\ge 2.0\text{GB}$                ▼ RAM Constrained ($< 2.0\text{GB}$)
 ----------------   ----------------

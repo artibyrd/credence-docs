@@ -23,18 +23,14 @@ Medical and wellness misinformation poses acute physical harm. Deceptive health 
 4. **Undisclosed Affiliate Commercial Camouflage**: Recommending proprietary wellness products with hidden affiliate commissions disguised as unbiased health advice.
 
 Inbound Health Article
-▼
 1. Biomedical Entity & Claim Extraction
-• Identifies disease entities, treatments, dosages
-▼
+- Identifies disease entities, treatments, dosages
 2. Clinical Trial & PubMed Grounding Verification
-• Cross-references PMID, Cochrane, FDA status
-▼
+- Cross-references PMID, Cochrane, FDA status
 3. Specialized IEP-MED Taxonomy Scoring
-• IEP-MED-1: Uncontrolled In-Vitro Extrapolation
-• IEP-MED-2: Unsubstantiated Therapeutic Claim
-• IEP-MED-3: Hidden Commercial Affiliate Conflict
-▼
+- IEP-MED-1: Uncontrolled In-Vitro Extrapolation
+- IEP-MED-2: Unsubstantiated Therapeutic Claim
+- IEP-MED-3: Hidden Commercial Affiliate Conflict
 4. Calibrated Epistemic Health Verdict & Attestation
 
 ---
@@ -80,46 +76,55 @@ For any document asserting therapeutic efficacy, Credence verifies that cited Pu
 * 📐 [Mathematical Scoring Calibration](../protocols/scoring.md)
 * 🏛️ [Autonomous Standards Ratification Blueprint](autonomous-standards-ratification-and-governance.md)
 
-## Architectural Invariants & Verification Mechanics
+---
+## Clinical Evidence Hierarchy & Medical Claim Verification
 
-The implementation of **Health Medical Claims** adheres strictly to the core invariants defined in **The Invariant Bible**:
+Medical disinformation and ungrounded health assertions pose immediate real-world dangers. Credence implements a specialized clinical evidence extraction engine aligned with peer-reviewed biomedical taxonomies:
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
+| Clinical Hierarchy Level | Evidence Quality Standard | Epistemic Weight ($E_i$) | Grounding Requirement |
+| :--- | :--- | :---: | :--- |
+| **Level 1: Meta-Analysis** | Cochrane Reviews, PRISMA Systematic Reviews | $1.00$ | Verbatim DOI citation & sample size |
+| **Level 2: RCTs** | Double-blind randomized controlled trials | $0.90$ | ClinicalTrials.gov registry ID match |
+| **Level 3: Observational** | Cohort and case-control studies | $0.60$ | Confounder disclosure & statistical power |
+| **Level 4: Anecdotal** | Testimonials, influencer marketing, preprints | $0.10$ | **Flagged as ungrounded medical claim** |
 
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
+```python
+from credence.subjects.taxonomy import MedicalTaxonomy
 
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **Health Medical Claims** using standard CLI commands and FastMCP 2.0 tools:
-
-```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "blueprints"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+# Inspect clinical claims against the WHO and Cochrane taxonomy registry
+tax = MedicalTaxonomy()
+violations = tax.evaluate_claims(
+    claims=["New berry extract cures diabetes in 48 hours"],
+    verbatim_text=raw_dom_text
+)
+assert len(violations) > 0
+assert violations[0].rule_id == "MED-UNSUBSTANTIATED-CURE"
 ```
 
-### Quantitative Operational Benchmarks
+---
+## Biomedical Evidence Grounding and Clinical Trial Verification
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+Evaluating medical prose requires validating clinical trial identifiers against PubMed and ClinicalTrials.gov registries with $G=1.00$ verbatim citations.
 
-### RFC Standards & Related Documentation
+---
+## Formal Subsystem Specification & Verification Matrix
 
-* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)
+The technical architecture for **Health Medical Claims** operates according to strict operational parameters and deterministic boundaries:
+
+| Specification Parameter | Nominal Baseline | Peak / Adversarial Threshold | Enforcement Mechanism |
+| :--- | :--- | :--- | :--- |
+| **Evaluation Latency** | `< 15ms` (Cached Attestation) | `< 2.5s` (Cold-Start Flash Reasoning) | Scale-to-Zero Container Optimization |
+| **Grounding Precision ($G$)** | $1.00$ (Character-Exact Match) | $0.90$ (Probationary Boundary) | Verbatim DOM Substring Verification |
+| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle Ceiling) | `QUOTA_PRESERVED` Circuit Breaker |
+| **Consensus Quorum** | $N \ge 13$ Nodes ($f=4$) | $3f+1$ Byzantine Cartel Resilience | Weighted Bayesian Consensus Medians |
+
+```python
+# Programmatic verification of subsystem integrity
+from credence.pipeline.scoring import evaluate_grounding_exactness
+
+is_grounded = evaluate_grounding_exactness(
+    source_dom=normalized_html,
+    extracted_quotes=evidence_cards
+)
+assert is_grounded is True
+```

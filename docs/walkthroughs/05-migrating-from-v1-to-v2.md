@@ -78,46 +78,59 @@ $ credence db check-integrity
 * 📘 [V2 Architecture & 500 LOC Modularity Blueprint](../blueprints/v2-architecture-and-500-loc-modularity.md)
 * 🚀 [Release Changelog](../changelog.md)
 
-## Architectural Invariants & Verification Mechanics
+---
+## Upgrading Custom Pipelines to Credence v2.0.0
 
-The implementation of **05 Migrating From V1 To V2** adheres strictly to the core invariants defined in **The Invariant Bible**:
+Upgrading from Credence v1.x to v2.0.0 introduces pure compute ontologies and FastMCP 2.0:
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
-
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
-
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **05 Migrating From V1 To V2** using standard CLI commands and FastMCP 2.0 tools:
+| Legacy v1.x Pattern | Modern v2.0.0 Replacement | Migration Rationale |
+| :--- | :--- | :--- |
+| `credence.evaluate(url)` | `credence.pipeline.evaluate_snapshot()` | Pure functional pipeline with CAS |
+| `FastMCP 1.0 stdio` | `FastMCP 2.0 dual transport (stdio + SSE)` | Remote cluster compatibility |
+| Hardcoded Invariants | Dynamic Living Canon references | Scalable invariant governance |
 
 ```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "walkthroughs"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+# Run automated v2 migration check
+$ credence migrate --check
 ```
 
-### Quantitative Operational Benchmarks
+---
+## Step-by-Step Upgrades to Credence v2.0.0
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+Detailed instructions for migrating legacy v1 scripts and configuration files to the modern v2 architecture.
 
-### RFC Standards & Related Documentation
+---
+## Summary Verification Checklist & Command Reference
 
-* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)
+Complete the following validation steps to confirm successful execution of **05 Migrating From V1 To V2**:
+
+| Verification Step | Target Output / State | Troubleshooting Action |
+| :--- | :--- | :--- |
+| **1. Identity Check** | Valid Ed25519 public key printed | Run `credence germinate` to mint identity |
+| **2. Storage Status** | SQLite WAL state store initialized | Verify directory write permissions (`chmod 0755 data/`) |
+| **3. Mesh Peering** | Connected to $\ge 3$ seed peers | Check firewall WebSocket ports (`8080/tcp`) |
+| **4. Attestation Proof**| RFC 8785 signed JSON receipt minted | Verify `assets/attestations.json` sync |
+
+```bash
+# Execute end-to-end verification
+$ credence stats --json
+```
+
+---
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **05 Migrating From V1 To V2** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "05_migrating_from_v1_to_v2" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

@@ -71,46 +71,59 @@ $ credence governor resume
 * 🛡️ [Token Safety Governor Protocol Specification](../protocols/token-governor.md)
 * 📊 [Cross-Model Epistemic & Economic Pareto Benchmark](../protocols/cross-model-pareto-benchmark.md)
 
-## Architectural Invariants & Verification Mechanics
+---
+## Financial Governance & Budget Telemetry
 
-The implementation of **Cost Governance And Dashboard** adheres strictly to the core invariants defined in **The Invariant Bible**:
+To protect node operators against unexpected API billing spikes during breaking news events, the Token Governor enforces strict mathematical spending bounds:
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
-
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
-
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **Cost Governance And Dashboard** using standard CLI commands and FastMCP 2.0 tools:
+| Spend Tier | Hourly Token Cap | Permitted Workloads | Throttling Action |
+| :--- | :---: | :--- | :--- |
+| **Green Zone** | `0 – 70,000` | All workloads (Feed sifters, gossip, FastMCP) | Unthrottled operation |
+| **Yellow Zone** | `70,000 – 100,000` | Interactive queries & FastMCP pair programming | Sifter and background tasks paused |
+| **Red Zone** | `> 100,000` | Offline regex heuristics & peer attestation cache | Trips `QUOTA_PRESERVED` circuit breaker |
 
 ```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "operations"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+# Check current hourly spend and remaining headroom
+$ credence quota status --json
 ```
 
-### Quantitative Operational Benchmarks
+---
+## Token Budget Monitoring and Spend Controls
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+The Token Governor dashboard displays real-time token burn rates, remaining headroom, and active circuit breaker states.
 
-### RFC Standards & Related Documentation
+---
+## Production Operational Runbook & Maintenance Protocols
 
-* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)
+When managing **Cost Governance And Dashboard** in production, operators should adhere to the following maintenance procedures:
+
+| Operational Phase | Frequency | Standard Command / Tool | Verification Target |
+| :--- | :--- | :--- | :--- |
+| **Pre-Flight Health Check** | Prior to deploy | `just preflight` | Toolchain, Python 3.12, Docker status |
+| **Diagnostic Scan** | Hourly (Automated) | `credence stats --json` | Latency, memory usage, token headroom |
+| **State Pruning** | Weekly | `credence db prune --retention-days 30` | SQLite WAL cleanup & disk optimization |
+| **Failover Drill** | Monthly | `credence db backup --verify-replica` | Cross-region replica readiness verification |
+
+```bash
+# Verify operational readiness
+$ credence stats --detailed
+```
+
+---
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **Cost Governance And Dashboard** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "cost_governance_and_dashboard" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

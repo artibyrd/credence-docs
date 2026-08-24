@@ -24,16 +24,13 @@ Credence was built on a radical philosophical principle: **The Anti-Diploma Inva
 
 CREDENTIALIST TRUST MODEL (The Legacy Paradigm)
 Author Pedigree / Institutional Brand
-|
 ▼ (Assumed Trust)
 Unverified Factual Claim Accepted Without Proof
 vs.
 THE ANTI-DIPLOMA INVARIANT (The Credence Paradigm)
 Raw Extracted Factual Assertion
-|
 ▼ (Evaluated Character-by-Character)
 Verbatim DOM Source Grounding ($G=1.00$)
-|
 ▼ (Empirical Verification)
 Cryptographic Attestation Signed Over RFC 8785 Bytes
 
@@ -52,46 +49,33 @@ Under the Anti-Diploma Invariant, Credence treats all incoming prose with identi
 
 Truth is not an aristocratic title bestowed by a university or a media conglomerate. Truth is a mathematical property of evidence: verifiable, reproducible, and grounded in observable reality.
 
-## Architectural Invariants & Verification Mechanics
+---
+## Why Empirical Performance Must Supersede Institutional Authority
 
-The implementation of **The Anti Diploma Invariant** adheres strictly to the core invariants defined in **The Invariant Bible**:
+In traditional credentialing systems, trust is conferred by institutional stamps: a university degree, a corporate job title, or a social media verification badge. In decentralized epistemic networks, institutional credentials are fundamentally ungrounded—they can be purchased, faked, or co-opted.
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
+Credence enforces the **Anti-Diploma Invariant (`inv-epistemic-merit`)**: trust is earned exclusively through measurable, character-grounded audit precision over time.
 
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
+| Epistemic Verification Model | Trust Anchor Source | Sybil / Forgery Vulnerability | Dynamic Accuracy Score |
+| :--- | :--- | :--- | :--- |
+| **Centralized Credentialing** | Institutional seal / Domain whitelist | High (Domain hijacking, purchased badges) | Static (Never decays after issue) |
+| **Empirical Epistemic Merit**| Verified verbatim citations ($G=1.00$) | Zero (Math & cryptographic proofs only) | Dynamic (Decays on ungrounded audits) |
 
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **The Anti Diploma Invariant** using standard CLI commands and FastMCP 2.0 tools:
-
-```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "blog"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+```python
+def compute_node_merit(grounding_ratio: float, concordance_score: float, audit_count: int) -> float:
+    """Compute empirical node quality merit without relying on institutional credentials."""
+    if grounding_ratio < 0.95:
+        return 0.0  # Zero merit for ungrounded citations
+    return round(concordance_score * (1.0 - (1.0 / (audit_count + 1))), 4)
 ```
 
-### Quantitative Operational Benchmarks
+By anchoring reputation in cryptographic receipts and mathematical grounding, the network creates a meritocratic truth lattice where a student running a $35 Raspberry Pi node has equal epistemic standing to a multi-billion-dollar media conglomerate.
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+---
+## Mathematical Proof of Empirical Reputation Convergence
 
-### RFC Standards & Related Documentation
+A node's reputation score converges asymptotically toward its true historical accuracy rate:
 
-* 📘 [The Invariant Bible](../docs/invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../docs/feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../docs/changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../docs/playground.md)
+$$\lim_{N \to \infty} Q_i = \frac{1}{N} \sum_{j=1}^{N} \mathbb{I}(G_j = 1.00 \land |S_j - S^*| \le 5.0)$$
+
+Where $S^*$ is the post-hoc consensus truth ground truth. Unlike static institutional credentials, empirical merit continuously updates with every evaluated block.

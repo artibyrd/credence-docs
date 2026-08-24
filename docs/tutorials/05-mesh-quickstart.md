@@ -69,46 +69,46 @@ Node 3 verifies Node 1's Ed25519 signature in **$0.4\text{ms}$** and adopts the 
 * 💥 [Tutorial 06: 13-Node Chaos Lab & Byzantine Cartel Defense](06-thirteen-node-chaos-lab.md)
 * 📐 [Mathematics of Robust Consensus & Galileo Rule Proof](../mathematics/robust-consensus-proofs.md)
 
-## Architectural Invariants & Verification Mechanics
+---
+## Bootstrapping a 3-Node Local P2P Mesh Cluster
 
-The implementation of **05 Mesh Quickstart** adheres strictly to the core invariants defined in **The Invariant Bible**:
-
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
-
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
-
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **05 Mesh Quickstart** using standard CLI commands and FastMCP 2.0 tools:
+To observe real-time gossip propagation, BitTorrent work-sharing, and attestation synchronization locally:
 
 ```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "tutorials"
+# Terminal 1: Seed Node Genesis
+$ credence germinate --alias "seed-01" --port 8001
 
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
+# Terminal 2: Peer Node 02 Connects
+$ credence germinate --alias "peer-02" --port 8002 --seeds ws://127.0.0.1:8001/ws
 
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+# Terminal 3: Peer Node 03 Connects
+$ credence germinate --alias "peer-03" --port 8003 --seeds ws://127.0.0.1:8001/ws
 ```
 
-### Quantitative Operational Benchmarks
+| Swarm Node Alias | Local Port | Role in Consensus | Compute Spend |
+| :--- | :---: | :--- | :--- |
+| **`seed-01`** | `8001` | Evaluates target article with Gemini 3.7 | 100% evaluation spend |
+| **`peer-02`** | `8002` | Adopts signed Ed25519 attestation via WebSocket | **0 tokens ($0.00 spent)** |
+| **`peer-03`** | `8003` | Adopts signed Ed25519 attestation via WebSocket | **0 tokens ($0.00 spent)** |
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+---
+## Running Local 3-Node P2P Gossip Clusters
 
-### RFC Standards & Related Documentation
+Tutorial on observing real-time attestation gossip and zero-token work-sharing across local nodes.
 
-* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)
+---
+## Summary Verification Checklist & Command Reference
+
+Complete the following validation steps to confirm successful execution of **05 Mesh Quickstart**:
+
+| Verification Step | Target Output / State | Troubleshooting Action |
+| :--- | :--- | :--- |
+| **1. Identity Check** | Valid Ed25519 public key printed | Run `credence germinate` to mint identity |
+| **2. Storage Status** | SQLite WAL state store initialized | Verify directory write permissions (`chmod 0755 data/`) |
+| **3. Mesh Peering** | Connected to $\ge 3$ seed peers | Check firewall WebSocket ports (`8080/tcp`) |
+| **4. Attestation Proof**| RFC 8785 signed JSON receipt minted | Verify `assets/attestations.json` sync |
+
+```bash
+# Execute end-to-end verification
+$ credence stats --json
+```

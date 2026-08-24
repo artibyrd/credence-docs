@@ -175,14 +175,8 @@ The bootstrap catalog is not static; it evolves alongside developer patterns dur
 
 CONTINUOUS BOOTSTRAP COMMAND HARVEST CYCLE (/learn)
 [Session Workflows & Agent Operations]
-|
-▼
 [/learn Session Trajectory Audit] --► Scan `transcript.jsonl` tool calls for manual approvals
-|
-▼
 [Prefix-Safe Boundary Filter]     --► Verify commands are read-only & non-destructive
-|
-▼
 [Catalog & Skill Synchronized]    --► Auto-graduated into `scripts/bootstrap_approvals.py`
 and `bootstrap-approvals/SKILL.md`
 

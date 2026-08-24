@@ -25,18 +25,15 @@ To prevent this failure mode, Credence embraces **Socratic Agent Alignment: The 
 When an engineer triggers `/grill-me`, the dynamic inverses: instead of the AI answering questions, the AI interviews the human engineer:
 
 Human: "We need to add a new domain quarantine protocol to Credence. /grill-me"
-▼
 AI Socratic Interviewer Mode Activated
-• Question 1: What is the failure mode if a domain
+- Question 1: What is the failure mode if a domain
 publishes authentic investigative news after being
 quarantined? (The BuzzFeed News dilemma)
-• Question 2: Should reputation decay follow a linear
+- Question 2: Should reputation decay follow a linear
 or exponential half-life curve?
-• Question 3: How do we prevent Sybil cartels from
+- Question 3: How do we prevent Sybil cartels from
 weaponizing quarantine reports against competitors?
-▼
 Human Answers & Clarifies Architectural Intent
-▼
 AI Drafts Implementation Plan with 100% Alignment
 
 ---
@@ -53,46 +50,31 @@ AI Drafts Implementation Plan with 100% Alignment
 
 Engineering excellence is not about typing code as fast as possible—it is about ensuring that every line of code written is solving the right problem. Socratic alignment transforms AI assistants from eager code generators into discerning architectural partners.
 
-## Architectural Invariants & Verification Mechanics
+---
+## The Power of Adversarial Pair-Programming Alignment
 
-The implementation of **When The Human Types Grill Me** adheres strictly to the core invariants defined in **The Invariant Bible**:
+In autonomous AI development, the most dangerous moment is not when the model fails with a blatant traceback; it is when the model succeeds with a plausible, aesthetically pleasing, but fundamentally flawed architectural decision.
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
+When an AI pair programmer works in isolation, it tends to optimize for local code completion rather than macro-systemic resilience. To break out of this generative trap, Credence incorporates the `/grill-me` interactive alignment protocol.
 
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
+### The 4-Stage `/grill-me` Dialogue Protocol
 
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **When The Human Types Grill Me** using standard CLI commands and FastMCP 2.0 tools:
-
-```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "blog"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+```
+1. Proposal Phase: Agent presents proposed architectural change and data schema.
+2. Inversion Phase: Human challenges assumptions with edge-case scenarios.
+3. Hardening Phase: Agent introduces explicit failure boundaries and test gates.
+4. Execution Phase: Implementation proceeds with 100% verified design consensus.
 ```
 
-### Quantitative Operational Benchmarks
+| Interrogation Phase | Human Architectural Probe | Agent Synthesis & Invariant Defense |
+| :--- | :--- | :--- |
+| **Data Boundary Probe** | *"What happens when a node goes offline during gossip?"* | Implement exponential half-life uptime decay curve |
+| **Token Economy Probe** | *"How do we prevent a rogue feed from burning all quota?"* | Enforce 100k token hourly ceiling with `QUOTA_PRESERVED` |
+| **Supply Chain Probe** | *"Can this feature be built without adding an npm dependency?"* | Refactor to native HTML5 Custom Elements and WebCrypto |
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+By actively inviting rigorous human scrutiny before touching code, autonomous engineering pairs produce sovereign, hardened systems that withstand adversarial real-world conditions.
 
-### RFC Standards & Related Documentation
+---
+## Human Wetware as the Ultimate Safety Brake
 
-* 📘 [The Invariant Bible](../docs/invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../docs/feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../docs/changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../docs/playground.md)
+Pair programming between AI agents and human architects provides the ideal balance between raw generation velocity and sovereign judgment.

@@ -68,46 +68,34 @@ def test_python_and_justfile_500_loc_ceiling():
 
 By enforcing modularity as an automated test invariant rather than a polite suggestion, Credence remains clean, maintainable, and agile across generations of contributors.
 
-## Architectural Invariants & Verification Mechanics
+---
+## Practical Modularization Strategy Under the 500 LOC Law
 
-The implementation of **The 500 Loc Ceiling Law** adheres strictly to the core invariants defined in **The Invariant Bible**:
+When refactoring a complex subsystem that approaches 500 lines of code, the architecture is decoupled into cohesive subpackages:
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
-
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
-
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **The 500 Loc Ceiling Law** using standard CLI commands and FastMCP 2.0 tools:
+| Subpackage Component | Responsibility | Max Permitted Lines |
+| :--- | :--- | :---: |
+| `__init__.py` | Public API surface & exports | 50 lines |
+| `models.py` | Pydantic & SQLModel schema definitions | 150 lines |
+| `engine.py` | Pure calculation & business logic (`compute_*`) | 300 lines |
+| `dispatch.py` | Protocol routing & CLI handler binding | 200 lines |
 
 ```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "blog"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+# Verify 500 LOC compliance across entire codebase
+$ poetry run pytest tests/governance/test_architecture_governance.py -k "test_500_loc" -v
 ```
 
-### Quantitative Operational Benchmarks
+---
+## Key Architectural Takeaways & Future Directions
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+The investigation documented in **The 500 Loc Ceiling Law** highlights several fundamental principles for building resilient, decentralized software systems:
 
-### RFC Standards & Related Documentation
+1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
+2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
+3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
 
-* 📘 [The Invariant Bible](../docs/invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../docs/feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../docs/changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../docs/playground.md)
+| System Dimension | Conventional Approach | Credence Sovereign Architecture |
+| :--- | :--- | :--- |
+| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
+| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
+| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |

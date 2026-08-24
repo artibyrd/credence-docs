@@ -103,7 +103,6 @@ Invariants are not immutable dogma. During Phase 4 (`/learn`) retrospectives and
 
 INVARIANT CHALLENGER DECISION ENGINE
 Challenge Trigger (`just challenge-invariant <slug>` / `/learn` / milestone boundary)
-|
 ▼ Analyze: Test Coverage + Token Budget + Sovereign Safety
 ----------------
 | Challenger Evaluation Matrix:                                                              |

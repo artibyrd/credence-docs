@@ -67,46 +67,47 @@ $ pytest tests/integration/test_mesh_cluster_gossip.py
 * ⚡ [BitTorrent for Truth: 92.3% Compute Savings](../../blog/bittorrent-for-truth.md)
 * 📘 [The Invariant Bible](../invariants.md) — Hermetic Unit Test Isolation
 
-## Architectural Invariants & Verification Mechanics
+---
+## High-Efficiency Horizontal Scaling & Disaster Resiliency
 
-The implementation of **High Efficiency Scaling And Resiliency** adheres strictly to the core invariants defined in **The Invariant Bible**:
+The Credence compute plane is designed to scale dynamically from zero to thousands of concurrent requests across global edge zones while maintaining sub-second epistemic evaluation:
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
-
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
-
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **High Efficiency Scaling And Resiliency** using standard CLI commands and FastMCP 2.0 tools:
+| System Layer | Normal Baseline | Peak Burst Workload | Resiliency Safeguard |
+| :--- | :--- | :--- | :--- |
+| **Edge Routing Plane** | 100% Cloudflare Workers CDN | Edge cache absorbs $98\%$ of read traffic | Zero origin load on cache hits |
+| **Compute Plane** | 0 instances (Scale-to-Zero) | Spawns up to 50 concurrent Cloud Run instances | 2.5s cold-start boost with 4 CPU |
+| **Storage Plane** | SQLite WAL (Local) / Cloud SQL | Async transaction pooling via PgBouncer | Automatic failover to secondary replica |
+| **LLM Inference** | Gemini 3.7 Flash Balanced | Offline regex heuristics on quota limit | `QUOTA_PRESERVED` circuit breaker |
 
 ```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "blueprints"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+# Benchmark local evaluation throughput under synthetic load
+$ poetry run pytest tests/unit/pipeline/test_pipeline.py -v
 ```
 
-### Quantitative Operational Benchmarks
+---
+## Multi-Plane Autoscaling & Disaster Recovery
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+The edge plane absorbs static traffic spikes, while stateless compute instances autoscale horizontally based on queue depth.
 
-### RFC Standards & Related Documentation
+---
+## Formal Subsystem Specification & Verification Matrix
 
-* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)
+The technical architecture for **High Efficiency Scaling And Resiliency** operates according to strict operational parameters and deterministic boundaries:
+
+| Specification Parameter | Nominal Baseline | Peak / Adversarial Threshold | Enforcement Mechanism |
+| :--- | :--- | :--- | :--- |
+| **Evaluation Latency** | `< 15ms` (Cached Attestation) | `< 2.5s` (Cold-Start Flash Reasoning) | Scale-to-Zero Container Optimization |
+| **Grounding Precision ($G$)** | $1.00$ (Character-Exact Match) | $0.90$ (Probationary Boundary) | Verbatim DOM Substring Verification |
+| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle Ceiling) | `QUOTA_PRESERVED` Circuit Breaker |
+| **Consensus Quorum** | $N \ge 13$ Nodes ($f=4$) | $3f+1$ Byzantine Cartel Resilience | Weighted Bayesian Consensus Medians |
+
+```python
+# Programmatic verification of subsystem integrity
+from credence.pipeline.scoring import evaluate_grounding_exactness
+
+is_grounded = evaluate_grounding_exactness(
+    source_dom=normalized_html,
+    extracted_quotes=evidence_cards
+)
+assert is_grounded is True
+```

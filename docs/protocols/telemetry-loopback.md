@@ -69,56 +69,71 @@ $ credence stats --json --window 24h
 * 📰 [Interface Telemetry Loopback Field Essay](../../blog/interface-telemetry-loopback.md)
 * 📘 [The Invariant Bible](../invariants.md) — Production Telemetry vs. Simulation Boundary
 
-## Architectural Invariants & Verification Mechanics
+---
+## Telemetry Loopback & Autonomous Quality Self-Correction
 
-The implementation of **Telemetry Loopback** adheres strictly to the core invariants defined in **The Invariant Bible**:
+Credence closes the loop between production telemetry and epistemic evaluation through automated telemetry loopback:
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
-
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
-
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **Telemetry Loopback** using standard CLI commands and FastMCP 2.0 tools:
+| Loopback Phase | Metric Inspected | Trigger Threshold | Autonomous Self-Correction |
+| :--- | :--- | :--- | :--- |
+| **1. Grounding Drift** | Mesh average grounding ratio $\bar{G}$ | $\bar{G} < 0.950$ | Increases prompt thinking token budget |
+| **2. Astroturf Flare** | SimHash pairwise collision rate | $> 20\%$ cross-domain | Tightens Shannon entropy filter ($H < 0.35$) |
+| **3. Token Exhaustion**| Hourly quota burn rate | $> 80,000$ tokens/hr | Throttles background feed sifter interval |
 
 ```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "protocols"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+# Check telemetry loopback status and active self-corrections
+$ credence stats --detailed
 ```
 
-### Quantitative Operational Benchmarks
+---
+## Automated Telemetry Feedback and Self-Correction
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
-
-### RFC Standards & Related Documentation
-
-* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)
-
+Telemetry feedback loops dynamically adjust thinking token budgets and rate limits based on real-time network conditions.
 
 ---
+## Formal Subsystem Specification & Verification Matrix
 
-## 5. Privacy-Preserving Cryptographic Aggregation
+The technical architecture for **Telemetry Loopback** operates according to strict operational parameters and deterministic boundaries:
 
-Under ITLP-v1, all telemetry metrics are processed locally using zero-knowledge ring buffers:
-1. **Differential Privacy Noise**: Coarse latency histograms add calibrated Laplacian noise before publishing network-wide averages.
-2. **Zero URL Logging**: Monitored URLs and domain targets are hashed into 64-bit truncated prefixes, preventing user reading habits from being tracked across mesh nodes.
-3. **Local Sovereignty**: Node operators retain absolute control over telemetry export policies, with one-click toggles to disable all outbound metric telemetry.
+| Specification Parameter | Nominal Baseline | Peak / Adversarial Threshold | Enforcement Mechanism |
+| :--- | :--- | :--- | :--- |
+| **Evaluation Latency** | `< 15ms` (Cached Attestation) | `< 2.5s` (Cold-Start Flash Reasoning) | Scale-to-Zero Container Optimization |
+| **Grounding Precision ($G$)** | $1.00$ (Character-Exact Match) | $0.90$ (Probationary Boundary) | Verbatim DOM Substring Verification |
+| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle Ceiling) | `QUOTA_PRESERVED` Circuit Breaker |
+| **Consensus Quorum** | $N \ge 13$ Nodes ($f=4$) | $3f+1$ Byzantine Cartel Resilience | Weighted Bayesian Consensus Medians |
+
+```python
+# Programmatic verification of subsystem integrity
+from credence.pipeline.scoring import evaluate_grounding_exactness
+
+is_grounded = evaluate_grounding_exactness(
+    source_dom=normalized_html,
+    extracted_quotes=evidence_cards
+)
+assert is_grounded is True
+```
+
+---
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **Telemetry Loopback** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "telemetry_loopback" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.
+
+### Autonomous Closed-Loop Self-Healing Dynamics
+
+When telemetry loopback detects abnormal query latency spikes or sudden drops in peer concordance, the engine automatically adjusts concurrency throttles, expands thinking token budgets, and flags compromised peers for isolation.
+
+Furthermore, loopback telemetry records rolling moving averages of token consumption, grounding variance, and network transport health. These telemetry signals feed directly into the operator's admin dashboard, allowing engineering teams to monitor node health and prevent performance degradation before it impacts active users.

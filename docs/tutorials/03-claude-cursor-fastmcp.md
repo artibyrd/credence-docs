@@ -72,46 +72,66 @@ Claude will autonomously call `credence_check_url`, review the epistemic suspici
 * 🏛️ [Tutorial 04: Sovereign Org Scaffolding](04-sovereign-org-scaffolding.md)
 * 🛑 [Giving Claude and Cursor an Epistemic Brake Essay](../../blog/giving-claude-and-cursor-an-epistemic-brake.md)
 
-## Architectural Invariants & Verification Mechanics
+---
+## FastMCP 2.0 Integration with Claude Desktop & Cursor IDE
 
-The implementation of **03 Claude Cursor Fastmcp** adheres strictly to the core invariants defined in **The Invariant Bible**:
+To equip your coding assistants with live epistemic verification, configure the FastMCP 2.0 server substrate:
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
-
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
-
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **03 Claude Cursor Fastmcp** using standard CLI commands and FastMCP 2.0 tools:
-
-```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "tutorials"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+### Configuration Manifest (`claude_desktop_config.json`)
+```json
+{
+  "mcpServers": {
+    "credence": {
+      "command": "credence",
+      "args": ["serve", "--transport", "stdio"]
+    }
+  }
+}
 ```
 
-### Quantitative Operational Benchmarks
+| FastMCP Tool Name | Arguments | Execution Purpose | Return Type |
+| :--- | :--- | :--- | :--- |
+| `credence_check_url` | `url`, `profile`, `thinking_budget` | Audit webpage credibility | JSON Attestation Receipt |
+| `credence_audit_text` | `text`, `profile` | Audit raw text or clipboard snippet | Grounded Violation Cards |
+| `credence_get_quota_status`| *None* | Check token headroom & budget | Remaining Token Capacity |
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+---
+## Configuring AI Coding Assistants with Credence FastMCP
 
-### RFC Standards & Related Documentation
+Step-by-step setup guide for integrating Credence tools into Claude Desktop and Cursor IDE workflows.
 
-* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)
+---
+## Summary Verification Checklist & Command Reference
+
+Complete the following validation steps to confirm successful execution of **03 Claude Cursor Fastmcp**:
+
+| Verification Step | Target Output / State | Troubleshooting Action |
+| :--- | :--- | :--- |
+| **1. Identity Check** | Valid Ed25519 public key printed | Run `credence germinate` to mint identity |
+| **2. Storage Status** | SQLite WAL state store initialized | Verify directory write permissions (`chmod 0755 data/`) |
+| **3. Mesh Peering** | Connected to $\ge 3$ seed peers | Check firewall WebSocket ports (`8080/tcp`) |
+| **4. Attestation Proof**| RFC 8785 signed JSON receipt minted | Verify `assets/attestations.json` sync |
+
+```bash
+# Execute end-to-end verification
+$ credence stats --json
+```
+
+---
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **03 Claude Cursor Fastmcp** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "03_claude_cursor_fastmcp" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

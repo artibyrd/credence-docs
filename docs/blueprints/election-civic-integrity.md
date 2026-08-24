@@ -66,46 +66,73 @@ Credence cross-references factual civic claims against authoritative sources:
 * 📰 [The Buzzfeed News Doctrine Essay](../../blog/the-buzzfeed-news-doctrine.md)
 * 🏛️ [Conflict of Pun-terest Case Study](../../blog/conflict-of-pun-terest.md)
 
-## Architectural Invariants & Verification Mechanics
+---
+## Civic Integrity & Real-Time Disinformation Containment
 
-The implementation of **Election Civic Integrity** adheres strictly to the core invariants defined in **The Invariant Bible**:
+During major democratic election cycles, syndicated bot networks deploy astroturfing farms and deceptive synthetic media to undermine voter confidence. Credence provides high-throughput forensic verification tailored to civic integrity monitoring:
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
+| Civic Threat Vector | Detection Mechanism | Grounding Requirement | Resolution Time Horizon |
+| :--- | :--- | :--- | :--- |
+| **Polling Place Smears** | Locality-sensitive SimHash bit clustering | Character-exact DOM matching against official board of elections | `<15\text{ seconds}` |
+| **Synthetic Audio/Video Claims**| Temporal diffing & provenance checking | C2PA cryptographic signature extraction | `<30\text{ seconds}` |
+| **Astroturfing Bot Farms** | Topic Shannon Entropy ($H < 0.30$) | Multi-domain noun phrase concentration analysis | `<10\text{ seconds}` |
+| **Bait-and-Switch Reporting**| CAS hash comparison across revisions | Flags alterations without editorial disclosure | Instant cache hit |
 
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
+```python
+from credence.pipeline.profiles import BalancedEvaluationProfile
+from credence.subjects.taxonomy import CivicIntegrityTaxonomy
 
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **Election Civic Integrity** using standard CLI commands and FastMCP 2.0 tools:
-
-```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "blueprints"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+# Configure civic integrity evaluation runner
+runner = BalancedEvaluationProfile(
+    taxonomies=[CivicIntegrityTaxonomy()],
+    grounding_enforcement=1.00,
+    entropy_threshold=0.30
+)
 ```
 
-### Quantitative Operational Benchmarks
+---
+## Rapid Civic Disinformation Response Protocols
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+During election polling hours, automated feed sifters monitor local election board feeds to verify polling station locations and ballot deadlines.
 
-### RFC Standards & Related Documentation
+---
+## Formal Subsystem Specification & Verification Matrix
 
-* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)
+The technical architecture for **Election Civic Integrity** operates according to strict operational parameters and deterministic boundaries:
+
+| Specification Parameter | Nominal Baseline | Peak / Adversarial Threshold | Enforcement Mechanism |
+| :--- | :--- | :--- | :--- |
+| **Evaluation Latency** | `< 15ms` (Cached Attestation) | `< 2.5s` (Cold-Start Flash Reasoning) | Scale-to-Zero Container Optimization |
+| **Grounding Precision ($G$)** | $1.00$ (Character-Exact Match) | $0.90$ (Probationary Boundary) | Verbatim DOM Substring Verification |
+| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle Ceiling) | `QUOTA_PRESERVED` Circuit Breaker |
+| **Consensus Quorum** | $N \ge 13$ Nodes ($f=4$) | $3f+1$ Byzantine Cartel Resilience | Weighted Bayesian Consensus Medians |
+
+```python
+# Programmatic verification of subsystem integrity
+from credence.pipeline.scoring import evaluate_grounding_exactness
+
+is_grounded = evaluate_grounding_exactness(
+    source_dom=normalized_html,
+    extracted_quotes=evidence_cards
+)
+assert is_grounded is True
+```
+
+---
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **Election Civic Integrity** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "election_civic_integrity" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

@@ -63,16 +63,16 @@ Traffic Status:   FAST_LANE (500 msgs/s)
 5-Factor Quality: 0.9124 (Uptime: 99.4%, Grounding: 98.2%)
 Active Longevity: 42.6 days
 ⚡ Compute Philanthropy Odometer:
-• Tokens Donated to Peers: 1,420,500 tokens
-• Swarm Compute Value:     $0.4830 USD
-• Attestations Seeded:     384 audits
-• Galileo Discoveries:     2 findings
+- Tokens Donated to Peers: 1,420,500 tokens
+- Swarm Compute Value:     $0.4830 USD
+- Attestations Seeded:     384 audits
+- Galileo Discoveries:     2 findings
 Unlocked Epistemic Badges (5):
-• 🌱 Sprout Node: Initialized Ed25519 cryptographic identity
-• 📡 Sifter Pioneer: Sifted >100 syndicated feeds via HRW rendezvous
-• 🛡️ Verified Auditor: Q_i >= 0.70 with 98% verbatim grounding
-• ⚡ Philanthropic Relay: Seeded >1,000,000 tokens to mesh peers
-• 💎 Root Seed Candidate: Qualified for canonical peers.json manifest
+- 🌱 Sprout Node: Initialized Ed25519 cryptographic identity
+- 📡 Sifter Pioneer: Sifted >100 syndicated feeds via HRW rendezvous
+- 🛡️ Verified Auditor: Q_i >= 0.70 with 98% verbatim grounding
+- ⚡ Philanthropic Relay: Seeded >1,000,000 tokens to mesh peers
+- 💎 Root Seed Candidate: Qualified for canonical peers.json manifest
 Next Tier Milestone (SPECIALIST): ██████████████░░░░░░ (70%)
 ╰------------------------------------------------------------------------------╯
 
@@ -99,7 +99,6 @@ The P2P relay dynamically assigns connected peers to **4 Traffic Shaping Classes
 
 PEER QUALITY TRAFFIC SHAPING CLASSES
 Observed Peer Quality Score ($Q_i \in [0.0, 1.0]$)
-|
 --------------------------------------------------------
 ▼ $Q_i \ge 0.85$         ▼ $0.50 \le Q_i < 0.85$  ▼ $0.25 \le Q_i < 0.50$  ▼ $Q_i < 0.25$
 ----------------  ----------------  ----------------  ----------------

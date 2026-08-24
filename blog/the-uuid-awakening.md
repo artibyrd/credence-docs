@@ -55,46 +55,33 @@ Credence replaces arbitrary UUIDs with **Content-Addressable SHA-256 Hashes**:
 
 By anchoring our database architecture in cryptographic content-addressability rather than random UUIDs, Credence transforms isolated database silos into a unified, self-verifying planetary ledger.
 
-## Architectural Invariants & Verification Mechanics
+---
+## The Critical Transition to Content-Addressed Epistemology
 
-The implementation of **The Uuid Awakening** adheres strictly to the core invariants defined in **The Invariant Bible**:
+In classical software architectures, state is identified by arbitrary, sequential integers or random UUIDs. A database assigns `id = 4289` or `uuid = "8f3b2c1a-..."` to an audit report regardless of what the audited document actually contained.
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
+This creates a fundamental epistemic vulnerability: if the author of the audited article edits a single paragraph, corrects a typo, or secretly deletes an unsubstantiated factual allegation, the database record continues pointing to the altered URL under the exact same identifier. The audit is silently detached from reality.
 
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
+### Content-Addressable Storage (CAS) Mechanics
 
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
+Credence resolves this vulnerability by treating content as its own immutable cryptographic identity:
 
-## Diagnostic Telemetry & Operational Reference
+$$\text{ContentID} = \text{SHA-256}(\text{NormalizedDOM}(\text{URL}))$$
 
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **The Uuid Awakening** using standard CLI commands and FastMCP 2.0 tools:
+```python
+import hashlib
+from credence.ingestion.scrubber import normalize_dom
 
-```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "blog"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+def compute_content_digest(raw_html: str) -> str:
+    """Compute deterministic SHA-256 content address over normalized DOM text."""
+    clean_text = normalize_dom(raw_html)
+    digest = hashlib.sha256(clean_text.encode("utf-8")).hexdigest()
+    return f"sha256:{digest}"
 ```
 
-### Quantitative Operational Benchmarks
+| Epistemic Storage Model | Identification Primitive | Resilience Against Stealth Edits | Cryptographic Portability |
+| :--- | :--- | :--- | :--- |
+| **Traditional RDBMS** | Autoincrement / UUIDv4 | ❌ Broken (Silent divergence on edit) | ❌ Locked to specific database vendor |
+| **Content-Addressed (CAS)** | SHA-256 / SimHash-64 | ✅ Resilient (Altered DOM mints new ID) | ✅ Verifiable across any node or backup |
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
-
-### RFC Standards & Related Documentation
-
-* 📘 [The Invariant Bible](../docs/invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../docs/feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../docs/changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../docs/playground.md)
+When every evaluation is bound to the exact cryptographic digest of the source text, audits become tamper-proof historical artifacts that can be independently re-verified across any node in the global peer-to-peer mesh.

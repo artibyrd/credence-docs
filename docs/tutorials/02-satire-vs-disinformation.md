@@ -57,46 +57,59 @@ The model triggers the `SPJ-1.6` override:
 * 🤖 [Tutorial 03: FastMCP 2.0 with Claude & Cursor](03-claude-cursor-fastmcp.md)
 * 🛡️ [Poe's Law & Satire Cloaking Security Specification](../security/satire-cloaking-defense.md)
 
-## Architectural Invariants & Verification Mechanics
+---
+## Navigating Poe's Law & Satire Cloaking Detection
 
-The implementation of **02 Satire Vs Disinformation** adheres strictly to the core invariants defined in **The Invariant Bible**:
+Differentiating legitimate political satire from deceptive disinformation masquerading under a humor disclaimer requires multi-tier linguistic and behavioral analysis:
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
-
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
-
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **02 Satire Vs Disinformation** using standard CLI commands and FastMCP 2.0 tools:
+| Evaluation Tier | Heuristic / Taxonomy Check | Legitimate Satire Result | Cloaked Disinformation Result |
+| :--- | :--- | :--- | :--- |
+| **Tier 1: Publisher Context** | Known parody outlet registry (e.g. *The Onion*) | Neutralized ($S = 0.0$) | Proceed to deep claim verification |
+| **Tier 2: Irony & Absurdism**| High linguistic irony & exaggeration framing | Protected as political parody | Factual assertion framing without humor |
+| **Tier 3: Factual Allegations**| Defamatory allegations against private individuals| SPJ-1.6 investigative review | **Flagged for malicious cloaking ($S \ge 75.0$)** |
 
 ```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "tutorials"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+# Audit satirical target with Poe's Law classifier
+$ credence audit https://theonion.com/article --lens focus
 ```
 
-### Quantitative Operational Benchmarks
+---
+## Evaluating Parody Framing and Defamatory Claims
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+Tutorial covering Poe's Law classification and investigative overrides on factual allegations in satirical contexts.
 
-### RFC Standards & Related Documentation
+---
+## Summary Verification Checklist & Command Reference
 
-* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)
+Complete the following validation steps to confirm successful execution of **02 Satire Vs Disinformation**:
+
+| Verification Step | Target Output / State | Troubleshooting Action |
+| :--- | :--- | :--- |
+| **1. Identity Check** | Valid Ed25519 public key printed | Run `credence germinate` to mint identity |
+| **2. Storage Status** | SQLite WAL state store initialized | Verify directory write permissions (`chmod 0755 data/`) |
+| **3. Mesh Peering** | Connected to $\ge 3$ seed peers | Check firewall WebSocket ports (`8080/tcp`) |
+| **4. Attestation Proof**| RFC 8785 signed JSON receipt minted | Verify `assets/attestations.json` sync |
+
+```bash
+# Execute end-to-end verification
+$ credence stats --json
+```
+
+---
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **02 Satire Vs Disinformation** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "02_satire_vs_disinformation" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

@@ -49,46 +49,39 @@ Credence implements a multi-layered automated defense against repository polluti
 
 An immaculate repository is not merely an aesthetic preference—it is the foundation of high-velocity agentic pair programming. When the git tree contains only deliberate, verified, and canonical code, both human engineers and AI assistants can navigate the codebase with total clarity and confidence.
 
-## Architectural Invariants & Verification Mechanics
+---
+## The Ghost in the Tree: Diagnosing Silent Regressions
 
-The implementation of **The Ghost In The Git Tree** adheres strictly to the core invariants defined in **The Invariant Bible**:
+During fast-paced autonomous development, subtle regressions can enter the git tree without triggering immediate syntax errors:
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
-
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
-
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **The Ghost In The Git Tree** using standard CLI commands and FastMCP 2.0 tools:
+| Regression Class | Root Cause | Silent Impact | Automated Shift-Left Prevention |
+| :--- | :--- | :--- | :--- |
+| **CSS Truncation Bleed** | Adding `-webkit-line-clamp` for visual neatness | Distorts forensic quotes ($G < 1.00$) | `test_web_component_zero_clone` |
+| **Monolithic File Growth** | Accumulating helper functions in one file | Violates 500 LOC law | `test_architecture_governance` |
+| **Hardcoded Invariant Counts**| Hardcoding "Invariant 34" in markdown | Stales when canon evolves | `test_zero_hardcoded_invariant_counts` |
+| **Mock Telemetry Mirage** | Adding dummy data to empty dashboards | Deceives human operator | `test_zero_mock_production_boundary` |
 
 ```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "blog"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+# Execute pre-commit integrity scan across all repository planes
+$ just check
 ```
 
-### Quantitative Operational Benchmarks
+---
+## Automated Git Tree Auditing in CI/CD
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+Continuous shift-left test gates inspect commit diffs to ensure no unintended mock data, untrusted network calls, or hardcoded invariant numbers enter the master branch.
 
-### RFC Standards & Related Documentation
+---
+## Key Architectural Takeaways & Future Directions
 
-* 📘 [The Invariant Bible](../docs/invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../docs/feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../docs/changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../docs/playground.md)
+The investigation documented in **The Ghost In The Git Tree** highlights several fundamental principles for building resilient, decentralized software systems:
+
+1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
+2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
+3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+
+| System Dimension | Conventional Approach | Credence Sovereign Architecture |
+| :--- | :--- | :--- |
+| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
+| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
+| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |

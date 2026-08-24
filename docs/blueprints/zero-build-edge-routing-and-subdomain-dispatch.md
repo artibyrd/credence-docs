@@ -19,24 +19,20 @@ This blueprint details the edge routing algorithms, cache tiering, and dynamic O
 The Credence edge router (`web/_worker.js`) intercepts all incoming HTTP requests at the CDN edge and routes them to static assets, documentation markdowns, or backend Cloud Run compute services with zero client-side bundling or build steps:
 
 Incoming HTTP Request (e.g., https://docs.credence.run/docs/protocols/mesh-protocol)
-▼
 1. Hostname Inspection & Environment Routing
-• Resolves apex (credence.run) vs. subdomains
-• Checks dev preview prefix (dev.*)
-▼
+- Resolves apex (credence.run) vs. subdomains
+- Checks dev preview prefix (dev.*)
 2. Subdirectory Path Mapping
-• docs.credence.run -> /credence-docs/index.html
-• blog.credence.run -> /credence-docs/index.html
-• credence.report   -> /web/credence.report/
-• credence.nexus    -> /web/credence.nexus/
-• credence.foundation -> /web/credence.foundation/
-▼
+- docs.credence.run -> /credence-docs/index.html
+- blog.credence.run -> /credence-docs/index.html
+- credence.report   -> /web/credence.report/
+- credence.nexus    -> /web/credence.nexus/
+- credence.foundation -> /web/credence.foundation/
 3. Tiered Cache Header Injection
-• SVGs/Static: s-maxage=2592000, immutable
-• Dynamic Docs: max-age=0, must-revalidate
-▼
+- SVGs/Static: s-maxage=2592000, immutable
+- Dynamic Docs: max-age=0, must-revalidate
 4. Dynamic HTMLRewriter OpenGraph Metadata Injection
-• Rewrites og:title, og:image, og:url per article
+- Rewrites og:title, og:image, og:url per article
 
 ### 1.1 Multi-Domain Subdirectory Dispatch Matrix
 
@@ -116,46 +112,28 @@ $ pytest tests/governance/test_docs_integrity.py -k test_edge_wrangler_routes_an
 * 🏛️ [The 3-Plane Architecture Essay](../../blog/the-three-plane-architecture.md)
 * 🛠️ [Cloud Run Deployment Runbook](../deployment-cloudrun.md)
 
-## Architectural Invariants & Verification Mechanics
+---
+## Zero-Build Edge Routing & Subdomain Dispatch Architecture
 
-The implementation of **Zero Build Edge Routing And Subdomain Dispatch** adheres strictly to the core invariants defined in **The Invariant Bible**:
+The Cloudflare Workers edge router (`_worker.js`) dispatches requests across apex, documentation, report, and organization subdomains without build steps:
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
+| Inbound Domain | Edge Dispatch Destination | Content-Type & Caching Policy |
+| :--- | :--- | :--- |
+| `credence.run` | `web/index.html` | `text/html; max-age=300` |
+| `docs.credence.run` | `credence-docs/index.html` | `text/html; max-age=3600` |
+| `credence.report` | Dynamic attestation viewer | `application/json; max-age=86400` |
+| `*.trust.credence.run` | Multi-tenant organization portal | `text/html; max-age=60` |
 
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
-
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
-
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **Zero Build Edge Routing And Subdomain Dispatch** using standard CLI commands and FastMCP 2.0 tools:
-
-```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "blueprints"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+```javascript
+// Edge router subdomain extraction in pure ES Module
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    const hostname = url.hostname;
+    if (hostname.startsWith("docs.")) {
+      return env.ASSETS.fetch(new Request(`${url.origin}/credence-docs/index.html`));
+    }
+    return env.ASSETS.fetch(request);
+  }
+};
 ```
-
-### Quantitative Operational Benchmarks
-
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
-
-### RFC Standards & Related Documentation
-
-* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)

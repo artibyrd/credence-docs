@@ -51,46 +51,36 @@ Here is how dual-tier FinOps made it possible.
 
 By treating compute efficiency as an epistemic invariant, Credence makes planetary-scale truth auditing accessible to any newsroom on Earth.
 
-## Architectural Invariants & Verification Mechanics
+---
+## Key Architectural Takeaways & Future Directions
 
-The implementation of **Case Study Dual Tier Finops** adheres strictly to the core invariants defined in **The Invariant Bible**:
+The investigation documented in **Case Study Dual Tier Finops** highlights several fundamental principles for building resilient, decentralized software systems:
 
-1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
-   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
+1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
+2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
+3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
 
-2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
-   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
+| System Dimension | Conventional Approach | Credence Sovereign Architecture |
+| :--- | :--- | :--- |
+| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
+| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
+| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |
 
-3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
-   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
+---
+## Diagnostic Verification & Invariant Enforcement
 
-## Diagnostic Telemetry & Operational Reference
-
-Operators can inspect the operational health, token burn rates, and cryptographic proofs for **Case Study Dual Tier Finops** using standard CLI commands and FastMCP 2.0 tools:
+To ensure continuous compliance with system invariants, **Case Study Dual Tier Finops** is verified using shift-left integration test gates in the continuous integration pipeline:
 
 ```bash
-# Verify subsystem diagnostic health and invariant compliance
-$ credence stats --subsystem "blog"
-
-# Inspect real-time execution metrics and Bayesian concordance
-$ credence stats --detailed --window 24h
-
-# Export canonical verification receipts for external compliance
-$ credence verify --json --audit-trail
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "case_study_dual_tier_finops" -v
 ```
 
-### Quantitative Operational Benchmarks
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
 
-| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
-| :--- | :---: | :---: | :--- |
-| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
-| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
-| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
-| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
-
-### RFC Standards & Related Documentation
-
-* 📘 [The Invariant Bible](../docs/invariants.md) — Universal System Invariants & Cognitive Hierarchy
-* 🌐 [Feature Parity & Interface Symmetry Matrix](../docs/feature-parity.md)
-* 🚀 [Release Changelog & Milestone Achievements](../docs/changelog.md)
-* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../docs/playground.md)
+By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.
