@@ -45,15 +45,11 @@ Where:
 - $S_k$ is the suspicion score evaluated by specialist node $k$ ($E_k \ge 0.90$).
 - $G_k \in [0.0, 1.0]$ is the specialist's **verifiable citation grounding ratio**.
 
-```
-              | 10 Generalist Nodes Vote: S = 0.0 (No Evidence)   |
-                                       |
-                                       ▼
- | Specialist Node 13 Votes: S = 88.0 (Verbatim Grounding G=1.0) |
-                               |
-                               ▼
- | The Galileo Override Fires: Final Network Score = 88.0        |
-```
+| Swarm Consensus Voter | Voter Expertise & Grounding | Submitted Score | Galileo Rule Resolution |
+| :--- | :--- | :--- | :--- |
+| **10 Generalist Nodes** | Generalist profile, 0 citations ($G=0.00$) | $S=0.0$ (Complacent Pass) | Majority vote ungrounded |
+| **1 Specialist Node** | Domain specialist, verbatim DOM quotes ($G=1.00$) | $S=88.0$ (Definitive Violation) | **Galileo Rule Overrides Majority** |
+| **Final Consensus Score** | Grounded evidence prevails over ungrounded consensus | **$S=88.0$ (PRISTINE Grounding)** | Prevents democratic hallucination |
 
 ---
 

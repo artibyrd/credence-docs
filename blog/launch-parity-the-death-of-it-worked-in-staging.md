@@ -22,24 +22,17 @@ In Credence, we eradicated staging drift by establishing the **Universal Launch 
 
 Credence replaces ad-hoc deploys with an unyielding 6-phase gated release pipeline:
 
-```
- Phase 1: Local Hermetic QA Gate (<3s: lint, types, unit, docs, tf)
-                          |
-                          ▼
- Phase 2: Mk1 Eyeball Review & Commit-Before-Deploy Gate
-                          |
-                          ▼
- Phase 3: Dev Deployment & Telemetry Verification (`credence-dev-495173`)
-                          |
-                          ▼
- Phase 4: Production Deployment Gate (`credence-prod-505902`)
-                          |
-                          ▼
- Phase 5: Edge Anycast Router Sync (Cloudflare Pages CDN)
-                          |
-                          ▼
- Phase 6: Autonomous Doctor Telemetry Diagnostics
-```
+Phase 1: Local Hermetic QA Gate (<3s: lint, types, unit, docs, tf)
+▼
+Phase 2: Mk1 Eyeball Review & Commit-Before-Deploy Gate
+▼
+Phase 3: Dev Deployment & Telemetry Verification (`credence-dev-495173`)
+▼
+Phase 4: Production Deployment Gate (`credence-prod-505902`)
+▼
+Phase 5: Edge Anycast Router Sync (Cloudflare Pages CDN)
+▼
+Phase 6: Autonomous Doctor Telemetry Diagnostics
 
 ---
 

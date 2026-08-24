@@ -27,24 +27,22 @@ In Credence v1.x, the codebase grew organically into large files: `credence.py` 
 
 In v2.0, we decomposed the codebase into focused subpackages, enforcing **The 500 LOC Ceiling Law (`inv-architecture-governance`)**:
 
-```
 credence/
 +-- cli/                          # CLI commands & argument parsing (<400 LOC)
-|   +-- commands/                 # Discrete command handlers (<300 LOC each)
-|   +-- main.py                   # Main CLI dispatch entry point
++-- commands/                 # Discrete command handlers (<300 LOC each)
++-- main.py                   # Main CLI dispatch entry point
 +-- pipeline/                     # Scrubber, regex heuristics, and LLM adapters
-|   +-- scrubber.py               # DOM normalization & tag stripping (<250 LOC)
-|   +-- heuristics.py             # 46 offline regex rules (<300 LOC)
-|   +-- llm_adapter.py            # Frontier reasoning engine bridge (<350 LOC)
-|   +-- evaluator.py              # Calibrated scoring & saturation (<280 LOC)
++-- scrubber.py               # DOM normalization & tag stripping (<250 LOC)
++-- heuristics.py             # 46 offline regex rules (<300 LOC)
++-- llm_adapter.py            # Frontier reasoning engine bridge (<350 LOC)
++-- evaluator.py              # Calibrated scoring & saturation (<280 LOC)
 +-- mesh/                         # P2P gossip, consensus, and quality scoring
-|   +-- cluster.py                # WebSocket connection manager (<350 LOC)
-|   +-- consensus.py              # Bayesian weighted medians & Galileo Rule (<300 LOC)
-|   +-- quality.py                # 5-factor node quality & uptime (<250 LOC)
++-- cluster.py                # WebSocket connection manager (<350 LOC)
++-- consensus.py              # Bayesian weighted medians & Galileo Rule (<300 LOC)
++-- quality.py                # 5-factor node quality & uptime (<250 LOC)
 +-- governor/                     # Token budget & circuit breakers (<350 LOC)
 +-- identity/                     # Ed25519 identity, root signing, & CAS (<300 LOC)
 +-- models/                       # SQLModel & Pydantic entity schemas (<350 LOC)
-```
 
 ---
 

@@ -22,15 +22,11 @@ To keep our git tree immaculate, Credence codified **The Commit-Before-Deploy & 
 
 ## The Anatomy of Repository Ghosts
 
-```
- Working Repository Root
- +-- credence/                  # Canonical source code
- +-- tests/                     # Automated test suites
- +-- 👻 test_temp_debug.py      # Orphaned scratch script (GHOST)
- +-- 👻 mock_data_v1.json       # Stale mock fixture (GHOST)
- +-- 👻 .env.backup             # Un-tracked secret leak risk (GHOST)
- +-- Justfile                   # Clean automation recipes
-```
+* 📁 **`credence/`**: Canonical production source code obeying the 500 LOC Ceiling Law
+* 📁 **`tests/`**: Shift-left hermetic unit and governance integrity test suites
+* 📁 **`credence-docs/`**: Zero-build vanilla Web UI and Living Invariant Canon
+* 📁 **`credence-agent/`**: Progressive subsystem skills and subagent configurations
+* 🚫 **`scratch/`**: Brain session artifacts and disposable test scripts isolated outside git tree
 
 These ghost files pollute `git status`, break automated build contexts in Docker, and increase container image payload sizes.
 

@@ -44,21 +44,18 @@ To maintain absolute symmetry without code duplication:
 
 Credence maintains strict physical separation between Development and Production:
 
-```
- Developer Workspace / PR Triad
-                |
-                ▼
-| Dev Environment (`credence-dev-495173`)                |
-|  • Edge: dev.credence.run (Cloudflare Pages branch)    |
-|  • Compute: Google Cloud Run Dev Instance              |
-|  • Keyless WIF: GitHub Actions OIDC (Least Privilege)  |
-                         | (Mk1 Eyeball Human Sign-Off)
-                         ▼
-| Production Environment (`credence-prod-505902`)        |
-|  • Edge: credence.run (Cloudflare Pages main)          |
-|  • Compute: Google Cloud Run Prod Instance             |
-|  • Sovereign Root Key Custody: credence.foundation     |
-```
+Developer Workspace / PR Triad
+▼
+Dev Environment (`credence-dev-495173`)
+• Edge: dev.credence.run (Cloudflare Pages branch)
+• Compute: Google Cloud Run Dev Instance
+• Keyless WIF: GitHub Actions OIDC (Least Privilege)
+(Mk1 Eyeball Human Sign-Off)
+▼
+Production Environment (`credence-prod-505902`)
+• Edge: credence.run (Cloudflare Pages main)
+• Compute: Google Cloud Run Prod Instance
+• Sovereign Root Key Custody: credence.foundation
 
 - **Zero Cross-Contamination**: Development builds use separate Ed25519 test keys and distinct Secret Manager namespaces.
 - **Keyless Workload Identity Federation (WIF)**: CI/CD pipelines authenticate using temporary Google Cloud OIDC tokens with zero long-lived service account keys stored in GitHub repository secrets.

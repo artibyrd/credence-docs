@@ -28,15 +28,13 @@ $$H_{\text{topic}} = -\sum_{i=1}^{V} p_i \log_2(p_i)$$
 
 When Credence calculated the token distribution across 200 articles published by the 32 suspect domains, the vocabulary distribution collapsed completely:
 
-```
- Authentic Regional Newsroom (H = 0.82)
- | Topics: Zoning (12%), Police (15%), Schools (18%),     |
- | Sports (22%), Business (14%), Weather (19%)            |
-                           vs.
- Astroturfing Content Farm (H = 0.22 - COLLAPSE)
- | Topics: Commercial Litigation PR (68%),                |
- | Generic AI Advice (24%), Repurposed Wire (8%)          |
-```
+Authentic Regional Newsroom (H = 0.82)
+Topics: Zoning (12%), Police (15%), Schools (18%),
+Sports (22%), Business (14%), Weather (19%)
+vs.
+Astroturfing Content Farm (H = 0.22 - COLLAPSE)
+Topics: Commercial Litigation PR (68%),
+Generic AI Advice (24%), Repurposed Wire (8%)
 
 The top 3 non-stopword tokens accounted for $>42\%$ of all noun phrases across the entire network, triggering `inv-topic-entropy-astroturfing`.
 
@@ -50,12 +48,10 @@ $$h(\text{doc}) = \sum_{w \in \text{tokens}} \text{sign}(v_w) \cdot \text{hash}_
 
 When we computed pairwise Hamming distances ($d_H$) across articles on different domains, we discovered that $85\%$ of published stories had a Hamming distance of $d_H \le 2$. The exact same underlying AI-generated PR copy was being republished with only the city names swapped out.
 
-```
- Domain A (Canton Gazette):    0b101100101101...0101 (Hash A)
- Domain B (Peoria Times):      0b101100101101...0111 (Hash B)
-                                 ||||||||||||   |||▲
- Hamming Distance: d_H = 1 bit differential! (Syndicate Mirror Confirmed)
-```
+| Domain Syndicate Outlet | 64-Bit SimHash Binary Fingerprint | Hamming Distance ($d_H$) | Classification Verdict |
+| :--- | :--- | :--- | :--- |
+| **Domain A (Canton Gazette)** | `0b101100101101...0101` | — | Base Fingerprint |
+| **Domain B (Peoria Times)** | `0b101100101101...0111` | $d_H = 1$ bit differential | **Syndicate Mirror Confirmed (Astroturfing Swarm)** |
 
 ---
 

@@ -22,22 +22,20 @@ Credence was built on a radical philosophical principle: **The Anti-Diploma Inva
 
 ## Pedigree vs. Verifiable Proof
 
-```
- CREDENTIALIST TRUST MODEL (The Legacy Paradigm)
- | Author Pedigree / Institutional Brand                  |
- |          |                                             |
- |          ▼ (Assumed Trust)                             |
- | Unverified Factual Claim Accepted Without Proof        |
-                           vs.
- THE ANTI-DIPLOMA INVARIANT (The Credence Paradigm)
- | Raw Extracted Factual Assertion                        |
- |          |                                             |
- |          ▼ (Evaluated Character-by-Character)          |
- | Verbatim DOM Source Grounding ($G=1.00$)               |
- |          |                                             |
- |          ▼ (Empirical Verification)                    |
- | Cryptographic Attestation Signed Over RFC 8785 Bytes   |
-```
+CREDENTIALIST TRUST MODEL (The Legacy Paradigm)
+Author Pedigree / Institutional Brand
+|
+▼ (Assumed Trust)
+Unverified Factual Claim Accepted Without Proof
+vs.
+THE ANTI-DIPLOMA INVARIANT (The Credence Paradigm)
+Raw Extracted Factual Assertion
+|
+▼ (Evaluated Character-by-Character)
+Verbatim DOM Source Grounding ($G=1.00$)
+|
+▼ (Empirical Verification)
+Cryptographic Attestation Signed Over RFC 8785 Bytes
 
 ---
 

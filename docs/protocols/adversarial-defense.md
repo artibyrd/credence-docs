@@ -18,13 +18,11 @@ The **Credence Adversarial Defense Protocol** specifies the mathematical defense
 
 Fact-checking and trust networks face persistent, asymmetric attacks from coordinated disinformation networks, bot swarms, and hostile nation-state actors. Credence classifies attacks into four primary vectors:
 
-```
-|                        ADVERSARIAL ATTACK VECTORS                      |
-| 1. Network Layer  | 2. Parsing Layer  | 3. LLM / Epistemic Layer       |
-| • Sybil Cartels   | • DOM Cloaking    | • Prompt Injection             |
-| • Eclipse Attacks | • Parser Smuggling| • Poe's Law Satire Cloaking    |
-| • Stampede Floods | • XML Bomb DoS    | • Model Hallucination Gaming   |
-```
+| Attack Layer | Vector Category | Threat Mechanism | Credence Invariant Defense |
+| :--- | :--- | :--- | :--- |
+| **1. Network Layer** | Sybil Cartels & Eclipse Attacks | Coordinated peer flooding | $3f+1$ Byzantine isolation & 50% slash |
+| **2. Parsing Layer** | DOM Cloaking & XML Bomb DoS | Malformed HTML / Entity injection | Entity escaping & zero-clone isolation |
+| **3. Epistemic Layer** | Satire Cloaking & Hallucination | Masquerading fake news as satire | SPJ-1.6 investigative overrides & $G=1.00$ |
 
 ---
 

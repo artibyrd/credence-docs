@@ -16,20 +16,16 @@ This operational guide details configuration parameters, connection pool tuning,
 
 ## 1. Connection Pool Sizing Architecture
 
-```
- 100x Concurrent FastMCP & Web Clients
-                  |
-                  ▼
-| PgBouncer Connection Pooler (Transaction Mode)         |
-|  • max_client_conn = 1000                              |
-|  • default_pool_size = 25                              |
-                         |
-                         ▼
-| Primary Cloud SQL PostgreSQL 16 Instance               |
-|  • max_connections = 100                               |
-|  • shared_buffers = 4GB                                |
-|  • work_mem = 64MB                                     |
-```
+100x Concurrent FastMCP & Web Clients
+▼
+PgBouncer Connection Pooler (Transaction Mode)
+• max_client_conn = 1000
+• default_pool_size = 25
+▼
+Primary Cloud SQL PostgreSQL 16 Instance
+• max_connections = 100
+• shared_buffers = 4GB
+• work_mem = 64MB
 
 ---
 

@@ -24,25 +24,12 @@ This historical lesson is codified in Credence as **The BuzzFeed News Doctrine (
 
 ## The Fatal Flaw of Binary Blacklists
 
-```
- TRADITIONAL FACT-CHECKING API (Binary Blacklist)
- | Domain Publishes Clickbait Listicles (2015)            |
- |          |                                             |
- |          ▼                                             |
- | Domain Added to Permanent Blacklist                    |
- |          |                                             |
- |          ▼ (Fatal Blindspot)                           |
- | Pulitzer-Winning Investigation (2021) BLOCKED / HIDDEN |
-                           vs.
- THE CREDENCE BUZZFEED DOCTRINE (Soft Quarantine & EPEP-17)
- | Domain Publishes Clickbait --► Placed in Soft Quarantine|
- |          |                                             |
- |          ▼ (Continuous Background Polling & Decay)     |
- | Node Audits Investigation --► Grounding G = 1.00       |
- |          |                                             |
- |          ▼ (The Galileo Rule Fired)                    |
- | Article Classified PRISTINE --► Domain Enters Probation|
-```
+| Domain Governance Model | Traditional Binary Blacklist | Credence Dynamic Domain Credence Index (DCI) |
+| :--- | :--- | :--- |
+| **Granularity** | Coarse-grained binary flag (`BLOCKED: true`) | Fine-grained sliding metric (0.00 – 1.00) |
+| **Historical Nuance** | Punishes serious reporting based on past listicles | Evaluates article-level prose with temporal decay weighting |
+| **Redemption Pathway** | Permanent opaque blacklist with zero recourse | Transparent mathematical probationary recovery window |
+| **Investigative Grounding**| Ignores primary evidence if domain is blacklisted | Awards $G=1.00$ grounding regardless of apex domain reputation |
 
 ---
 

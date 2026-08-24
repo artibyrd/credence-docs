@@ -41,13 +41,9 @@ $$\bar{S}_d = \frac{\sum_{i=1}^{M} w_i(t) \cdot S_i}{\sum_{i=1}^{M} w_i(t)}$$
 
 Credence constructs a directed citation graph linking publisher domains to cited sources:
 
-```
- [Investigative Article (Domain A)]
-                |
-                +--► [Primary Court Document (PACER)] ---► Grounding: G = 1.00 (High Integrity)
-                |
-                +--► [Commercial Affiliate Sponsor]   ---► IEP-COMM-1 (Conflict Flagged)
-```
+[Investigative Article (Domain A)]
++--► [Primary Court Document (PACER)] ---► Grounding: G = 1.00 (High Integrity)
++--► [Commercial Affiliate Sponsor]   ---► IEP-COMM-1 (Conflict Flagged)
 
 If $>40\%$ of citations on a domain resolve to commercial affiliate links or parent company subsidiaries without transparent disclosure, the system logs an automated `CONFLICT_OF_INTEREST` violation.
 

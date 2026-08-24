@@ -18,24 +18,21 @@ This blueprint specifies the forensic architecture used by Credence to detect au
 
 Synthetic AI content farms generate thousands of low-effort, keyword-stuffed articles per day to capture programmatic ad revenue. Credence detects these operations using three distinct mathematical and linguistic forensic layers:
 
-```
- Incoming Document Stream
-           |
-           ▼
-| Layer 1: Lexical Shannon Topic Entropy (H_topic)       |
-|    • Measures vocabulary distribution & n-gram spread  |
-                           | (Flagged if H < 0.30)
-                           ▼
-| Layer 2: Top-3 Token Concentration Penalty (C_top3)    |
-|    • Penalizes repetitive programmatic phrasing        |
-                           | (Flagged if C > 0.40)
-                           ▼
-| Layer 3: SimHash-64 Cluster Hamming Distance (d_H)     |
-|    • Detects coordinated narrative syndicate cloning   |
-                           | (Flagged if d_H <= 3)
-                           ▼
-| Automated Astroturfing Quarantine & Score Penalty      |
-```
+Incoming Document Stream
+▼
+Layer 1: Lexical Shannon Topic Entropy (H_topic)
+• Measures vocabulary distribution & n-gram spread
+(Flagged if H < 0.30)
+▼
+Layer 2: Top-3 Token Concentration Penalty (C_top3)
+• Penalizes repetitive programmatic phrasing
+(Flagged if C > 0.40)
+▼
+Layer 3: SimHash-64 Cluster Hamming Distance (d_H)
+• Detects coordinated narrative syndicate cloning
+(Flagged if d_H <= 3)
+▼
+Automated Astroturfing Quarantine & Score Penalty
 
 ---
 

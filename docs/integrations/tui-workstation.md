@@ -47,25 +47,23 @@ The workstation is entirely keyboard-driven with single-key shortcuts:
 
 ## 2. Workstation Layout Anatomy
 
-```text
-|                         TEXTUAL TUI TERMINAL WORKSTATION ARCHITECTURE                            |
-| ----------------   |
-| | 1. HEADER: Live UTC Clock • Model Profile Badge [ECONOMY / BALANCED / ULTRA] • Version     |   |
-| ----------------   |
-| | 2. STATUS PILL: Headroom Headroom % • Grounding Active ($G=1.00$) • Scale-to-Zero State    |   |
-| ----------------   |
-| | 3. 9-TAB NAVIGATION SUITE:                                                                 |   |
-| |    [1] Inspector  [2] Taxonomies  [3] Subjects  [4] Feeds  [5] Dossiers                    |   |
-| |    [6] Quota      [7] Identity    [8] Ops       [9] Mesh                                   |   |
-| ------------------------------------------------+   |
-| | 4. DUAL-PANE CONTEXT VIEW                                 | 5. EPISTEMIC LENSING PANE      |   |
-| | • Active Audit Feed / Publisher Dossier Tree              | • Surface (Score Gauge)        |   |
-| | • Real-Time SQLite WAL Log Stream                         | • Focus (Grounded Evidence)    |   |
-| | • Fail-Closed Dynamic Mesh Telemetry                      | • Deep Forensic (Ed25519 Sig)  |   |
-| ------------------------------------------------+   |
-| | 6. FOOTER: Interactive Keybinding Action Bar (`/` Audit, `l` Lens, `f` Filter, `q` Quit)   |   |
-| ----------------   |
-```
+TEXTUAL TUI TERMINAL WORKSTATION ARCHITECTURE
+----------------
+| 1. HEADER: Live UTC Clock • Model Profile Badge [ECONOMY / BALANCED / ULTRA] • Version     |
+----------------
+| 2. STATUS PILL: Headroom Headroom % • Grounding Active ($G=1.00$) • Scale-to-Zero State    |
+----------------
+| 3. 9-TAB NAVIGATION SUITE:                                                                 |
+|    [1] Inspector  [2] Taxonomies  [3] Subjects  [4] Feeds  [5] Dossiers                    |
+|    [6] Quota      [7] Identity    [8] Ops       [9] Mesh                                   |
+------------------------------------------------+
+| 4. DUAL-PANE CONTEXT VIEW                                 | 5. EPISTEMIC LENSING PANE      |
+| • Active Audit Feed / Publisher Dossier Tree              | • Surface (Score Gauge)        |
+| • Real-Time SQLite WAL Log Stream                         | • Focus (Grounded Evidence)    |
+| • Fail-Closed Dynamic Mesh Telemetry                      | • Deep Forensic (Ed25519 Sig)  |
+------------------------------------------------+
+| 6. FOOTER: Interactive Keybinding Action Bar (`/` Audit, `l` Lens, `f` Filter, `q` Quit)   |
+----------------
 
 ---
 

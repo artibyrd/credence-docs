@@ -29,25 +29,20 @@ Credence solves this with **The 4-Tier Knowledge Placement Taxonomy**.
 
 ## 2. The 4-Tier Knowledge Placement Taxonomy (`/remember`)
 
-```
- Tier 0: UNIVERSAL CORE INVARIANTS (`AGENTS.md` - <800 Tokens)
- +-- Non-negotiable safety, cryptographic custody, and release gates
- +-- Strict P0 cognitive hierarchy (Class Alpha, Beta, Gamma)
-         |
-         ▼
- Tier 1: PROGRESSIVE SUBSYSTEM SKILLS (`.agents/skills/`)
- +-- Deep operational runbooks & specialized domain procedures
- +-- Loaded on-demand only when a specific task requires them
-         |
-         ▼
- Tier 2: AUTOMATED INTEGRITY TEST GATES (`tests/governance/`)
- +-- Shift-left assertions (Version parity, 500 LOC ceiling, zero-npm)
- +-- Hard code failures in CI rather than prose suggestions
-         |
-         ▼
- Tier 3: ARCHITECTURAL BLUEPRINTS & ESSAYS (`docs/` & `blog/`)
- +-- Deep rationale, mathematical proofs, and human documentation
-```
+Tier 0: UNIVERSAL CORE INVARIANTS (`AGENTS.md` - <800 Tokens)
++-- Non-negotiable safety, cryptographic custody, and release gates
++-- Strict P0 cognitive hierarchy (Class Alpha, Beta, Gamma)
+▼
+Tier 1: PROGRESSIVE SUBSYSTEM SKILLS (`.agents/skills/`)
++-- Deep operational runbooks & specialized domain procedures
++-- Loaded on-demand only when a specific task requires them
+▼
+Tier 2: AUTOMATED INTEGRITY TEST GATES (`tests/governance/`)
++-- Shift-left assertions (Version parity, 500 LOC ceiling, zero-npm)
++-- Hard code failures in CI rather than prose suggestions
+▼
+Tier 3: ARCHITECTURAL BLUEPRINTS & ESSAYS (`docs/` & `blog/`)
++-- Deep rationale, mathematical proofs, and human documentation
 
 ---
 

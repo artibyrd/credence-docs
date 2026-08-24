@@ -22,21 +22,17 @@ When designing Credence, we engineered blast radius containment into every layer
 
 Credence enforces physical and logical separation across three decoupled architectural planes:
 
-```
-| 1. EDGE PLANE (Cloudflare Anycast CDN & Workers)                       |
-|    • Public routing, vector SVG caching, zero-npm static delivery      |
-|    • Blast Containment: Edge can never access database write credentials|
-                                   |
-                                   ▼
-| 2. COMPUTE PLANE (Google Cloud Run v2 Stateless Containers)             |
-|    • Epistemic evaluation pipelines, LLM adapters, FastMCP 2.0         |
-|    • Blast Containment: Scale-to-Zero isolation; ephemeral RAM state    |
-                                   |
-                                   ▼
-| 3. INFRASTRUCTURE & LEDGER PLANE (Sovereign Storage & Root Custody)   |
-|    • SQLite WAL / Cloud SQL, Ed25519 root keys (credence.foundation)   |
-|    • Blast Containment: Posix 0600 keys; keyless WIF authentication    |
-```
+1. EDGE PLANE (Cloudflare Anycast CDN & Workers)
+• Public routing, vector SVG caching, zero-npm static delivery
+• Blast Containment: Edge can never access database write credentials
+▼
+2. COMPUTE PLANE (Google Cloud Run v2 Stateless Containers)
+• Epistemic evaluation pipelines, LLM adapters, FastMCP 2.0
+• Blast Containment: Scale-to-Zero isolation; ephemeral RAM state
+▼
+3. INFRASTRUCTURE & LEDGER PLANE (Sovereign Storage & Root Custody)
+• SQLite WAL / Cloud SQL, Ed25519 root keys (credence.foundation)
+• Blast Containment: Posix 0600 keys; keyless WIF authentication
 
 ---
 

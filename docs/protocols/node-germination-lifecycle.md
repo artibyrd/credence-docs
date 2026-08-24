@@ -18,28 +18,11 @@ This specification details the cryptographic state machine, local file permissio
 
 Every Credence node derives its identity from an unforgeable Ed25519 keypair stored in the node's local state directory (`data/node.key` or `.env`):
 
-```
-                       |  Uninitialized Host    |
-                                   | credence germinate
-                                   ▼
-                       | 1. Mint Ed25519 Keypair |
-                       |    chmod 0600 node.key |
-                                   |
-                                   ▼
-                       | 2. Init SQLite WAL &   |
-                       |    Apply Migrations    |
-                                   |
-                                   ▼
-                       | 3. Bootstrap Discovery |
-                       |    & Peering Handshake |
-                                   |
-                                   ▼
-                       | 4. Miracle-Gro Burst   |
-                       |    Verification        |
-                                   |
-                                   ▼
-                       | ACTIVE NODE (Tier I)   |
-```
+| Lifecycle Step | Command Trigger | Subsystem Action | Security State |
+| :--- | :--- | :--- | :--- |
+| **1. Key Generation** | `credence germinate` | Generates RFC 8032 Ed25519 keypair | `chmod 0600 node.key` |
+| **2. Database Init** | Pure SQLite WAL | Initializes schema & indices | Hermetic local storage |
+| **3. Mesh Registration** | WebSocket handshake | Connects to seed peers | Sprout Node Tier I active |
 
 ### Key Storage & File Permission Invariants
 - `node.key` must be written with strict POSIX permissions `0600` (read/write by owner only).

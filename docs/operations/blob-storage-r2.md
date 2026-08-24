@@ -20,12 +20,10 @@ In high-throughput epistemic evaluation networks, public verification requests g
 
 Cloudflare R2 provides an S3-compatible API with **$0.00 data egress fees**, making it the ideal storage plane for planetary decentralized trust.
 
-```
-|                   R2 STORAGE ARCHITECTURE              |
-| • Bucket: `credence-prod-cas`     | • Egress Fee: $0.00|
-| • CAS Path: `cas/sha256/xx/yy/...`| • SLA: 99.99%      |
-| • Retention: 90-Day Half-Life     | • API: Standard S3 |
-```
+R2 STORAGE ARCHITECTURE
+• Bucket: `credence-prod-cas`     | • Egress Fee: $0.00
+• CAS Path: `cas/sha256/xx/yy/...`| • SLA: 99.99%
+• Retention: 90-Day Half-Life     | • API: Standard S3
 
 ---
 

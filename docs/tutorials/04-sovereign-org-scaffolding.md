@@ -29,19 +29,10 @@ $ credence init-org \
 
 ### Generated Repository Structure
 
-```
-cascade-sovereign-mesh/
-+-- config/
-|   +-- org.yaml                # Organization metadata & root key bindings
-|   +-- taxonomies/             # Namespaced taxonomy rules
-+-- keys/
-|   +-- root.pub                # Public Ed25519 root authority
-|   +-- peers.json              # Signed seed node directory
-+-- terraform/
-|   +-- gcp/                    # Google Cloud Run compute plane
-|   +-- cloudflare/             # Cloudflare Pages edge worker routing
-+-- Justfile                    # Sovereign task automation recipes
-```
+* 📁 **`config/`**: Organization settings (`org.yaml`) and custom domain taxonomy rules
+* 📁 **`keys/`**: Sovereign Ed25519 root authority public key (`root.pub`) and peer lists
+* 📁 **`terraform/`**: Multi-cloud deployment modules for GCP Cloud Run and Cloudflare
+* 📁 **`web/`**: Zero-build vanilla Web UI with custom branding and domain routing
 
 ---
 

@@ -40,16 +40,10 @@ $ credence bundle export \
 
 ### Inspected Bundle Structure
 
-```
-field-bundle-2026-08-24.credence.tar.gz
-+-- manifest.json              # Canonical RFC 8785 manifest signed by exporter
-+-- attestations/              # Array of signed Ed25519 audit JSON receipts
-|   +-- e3b0c442...json
-|   +-- 9f8b7c6a...json
-+-- snapshots/                 # Scrubber-normalized HTML DOM text files
-+-- keys/
-    +-- root.pub               # Ed25519 public root authority key
-```
+* 📄 **`manifest.json`**: Canonical RFC 8785 manifest signed by exporter Ed25519 key
+* 📁 **`attestations/`**: Array of signed Ed25519 audit JSON receipts
+* 📁 **`snapshots/`**: Scrubber-normalized HTML DOM text files
+* 📁 **`keys/`**: Public root authority key (`root.pub`) for offline verification
 
 ---
 

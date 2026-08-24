@@ -18,25 +18,21 @@ This blueprint specifies the architectural boundaries, Workload Identity Federat
 
 Credence enforces physical cloud project separation to contain blast radius and prevent cross-environment state pollution:
 
-```
-| DEV ENVIRONMENT (`credence-dev-495173`)                |
-| • Compute: Cloud Run Dev Service                       |
-| • Secrets: Secret Manager (Dev API Keys)               |
-| • Edge: dev.credence.run (Cloudflare Pages Preview)    |
-| • State: Ephemeral SQLite / Scratch CAS               |
-| • IAM: Least-Privilege GitHub Actions Dev WIF Pool     |
-                           |
-             (No Cross-Project IAM Grants)
-             (Zero Shared Encryption Keys)
-                           |
-                           ▼
-| PROD ENVIRONMENT (`credence-prod-505902`)              |
-| • Compute: Cloud Run Prod Service                      |
-| • Secrets: Secret Manager (Production API Keys)        |
-| • Edge: credence.run (Cloudflare Pages Main CDN)       |
-| • State: Persistent WAL / Cloudflare R2 CAS Storage    |
-| • IAM: Least-Privilege GitHub Actions Prod WIF Pool    |
-```
+DEV ENVIRONMENT (`credence-dev-495173`)
+• Compute: Cloud Run Dev Service
+• Secrets: Secret Manager (Dev API Keys)
+• Edge: dev.credence.run (Cloudflare Pages Preview)
+• State: Ephemeral SQLite / Scratch CAS
+• IAM: Least-Privilege GitHub Actions Dev WIF Pool
+(No Cross-Project IAM Grants)
+(Zero Shared Encryption Keys)
+▼
+PROD ENVIRONMENT (`credence-prod-505902`)
+• Compute: Cloud Run Prod Service
+• Secrets: Secret Manager (Production API Keys)
+• Edge: credence.run (Cloudflare Pages Main CDN)
+• State: Persistent WAL / Cloudflare R2 CAS Storage
+• IAM: Least-Privilege GitHub Actions Prod WIF Pool
 
 ---
 

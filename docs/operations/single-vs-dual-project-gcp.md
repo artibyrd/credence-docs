@@ -16,24 +16,21 @@ This guide provides an in-depth architectural comparison and step-by-step provis
 
 ## 1. Architectural Comparison: Topology A vs. Topology B
 
-```
- TOPOLOGY A: DUAL-PROJECT (HARD ISOLATION)
- ----------------    ----------------
- | DEV PROJECT (`credence-dev-495173`)|    | PROD PROJECT (`credence-prod-5059`)|
- ----------------    ----------------
- | • Dev Cloud Run Services           |    | • Prod Cloud Run Services          |
- | • Dev Secret Manager Keys          |    | • Prod Secret Manager Keys         |
- | • Dedicated Dev Service Accounts   |    | • Dedicated Prod Service Accounts  |
- | • Isolated Terraform State Bucket  |    | • Isolated Terraform State Bucket  |
- ----------------    ----------------
- 
- TOPOLOGY B: SINGLE-PROJECT (PARTITIONED NAMESPACING)
- | SINGLE GCP PROJECT (`credence-prod-505902`)                                  |
- | DEV NAMESPACE:                       | PROD NAMESPACE:                       |
- | • Service: `credence-server-dev`     | • Service: `credence-server-prod`     |
- | • Secret: `gemini-api-key-dev`       | • Secret: `gemini-api-key`            |
- | • State: `terraform/dev/`            | • State: `terraform/prod/`            |
-```
+TOPOLOGY A: DUAL-PROJECT (HARD ISOLATION)
+----------------    ----------------
+DEV PROJECT (`credence-dev-495173`)|    | PROD PROJECT (`credence-prod-5059`)
+----------------    ----------------
+• Dev Cloud Run Services           |    | • Prod Cloud Run Services
+• Dev Secret Manager Keys          |    | • Prod Secret Manager Keys
+• Dedicated Dev Service Accounts   |    | • Dedicated Prod Service Accounts
+• Isolated Terraform State Bucket  |    | • Isolated Terraform State Bucket
+----------------    ----------------
+TOPOLOGY B: SINGLE-PROJECT (PARTITIONED NAMESPACING)
+SINGLE GCP PROJECT (`credence-prod-505902`)
+DEV NAMESPACE:                       | PROD NAMESPACE:
+• Service: `credence-server-dev`     | • Service: `credence-server-prod`
+• Secret: `gemini-api-key-dev`       | • Secret: `gemini-api-key`
+• State: `terraform/dev/`            | • State: `terraform/prod/`
 
 ### Feature & Trade-Off Matrix
 

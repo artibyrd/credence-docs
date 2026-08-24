@@ -22,27 +22,19 @@ To eliminate speculative waste, Credence established **The Cart-Before-the-Horse
 
 Under `inv-cart-before-horse`, feature development must proceed through a strict sequential dependency ladder:
 
-```
- 1. Mathematical Formulas & Invariants (The Invariant Bible)
-                         |
-                         ▼
- 2. Pydantic Models & SQLModel Database Schemas
-                         |
-                         ▼
- 3. Pure Calculation Pipelines (compute_* functions)
-                         |
-                         ▼
- 4. Hermetic Unit Tests & Mathematical Proofs
-                         |
-                         ▼
- 5. FastMCP 2.0 Tools & REST API Endpoints
-                         |
-                         ▼
- 6. Presentation Layer: Textual TUI & Zero-Build Web Components
-                         |
-                         ▼
- 7. Technical Documentation & Forensic Case Studies
-```
+1. Mathematical Formulas & Invariants (The Invariant Bible)
+▼
+2. Pydantic Models & SQLModel Database Schemas
+▼
+3. Pure Calculation Pipelines (compute_* functions)
+▼
+4. Hermetic Unit Tests & Mathematical Proofs
+▼
+5. FastMCP 2.0 Tools & REST API Endpoints
+▼
+6. Presentation Layer: Textual TUI & Zero-Build Web Components
+▼
+7. Technical Documentation & Forensic Case Studies
 
 ---
 

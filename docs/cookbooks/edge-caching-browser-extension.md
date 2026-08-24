@@ -16,23 +16,19 @@ This cookbook demonstrates how to build a high-speed **Manifest V3 Chrome/Edge B
 
 ## 1. The Zero-Hop Query Flow
 
-```
- User Navigates to Webpage
-           |
-           ▼
-| 1. Content Script Computes DOM SHA-256                 |
-                           |
-                           ▼
-| 2. Check Local Extension IndexedDB Cache               |
-|    • Hit? (<1ms): Render cached verification badge     |
-                           | (Cache Miss)
-                           ▼
-| 3. Query Cloudflare Edge CDN Cache (`credence.report`) |
-|    • Hit? (<15ms): Adopt signed Ed25519 receipt        |
-                           | (Edge Miss)
-                           ▼
-| 4. Background Sifter Dispatches Asynchronous Audit     |
-```
+User Navigates to Webpage
+▼
+1. Content Script Computes DOM SHA-256
+▼
+2. Check Local Extension IndexedDB Cache
+• Hit? (<1ms): Render cached verification badge
+(Cache Miss)
+▼
+3. Query Cloudflare Edge CDN Cache (`credence.report`)
+• Hit? (<15ms): Adopt signed Ed25519 receipt
+(Edge Miss)
+▼
+4. Background Sifter Dispatches Asynchronous Audit
 
 ---
 

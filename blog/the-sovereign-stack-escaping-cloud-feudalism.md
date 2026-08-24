@@ -20,12 +20,12 @@ When we built Credence, we committed to a non-negotiable architectural invariant
 
 ## The 4 Sovereign Protocol Layers
 
-```
-| Presentation: Vanilla HTML5, CSS Variables, Native W3C WebCrypto (ESM) |
-| Application: Python 3.12, FastMCP 2.0, FastAPI, Textual TUI Workstation |
-| Storage: SQLAlchemy 2.0 Async (SQLite WAL / PostgreSQL 16)             |
-| Cryptography: IETF RFC 8785 (Canonical JSON) & Ed25519 (RFC 8032)       |
-```
+| Sovereign Stack Layer | Technology Selection | Architectural Purpose | Vendor Independence |
+| :--- | :--- | :--- | :--- |
+| **Presentation Plane** | Vanilla HTML5, CSS Variables, Native WebCrypto | Zero-build Web UI & Workstation | 100% portable across any static CDN |
+| **Application Plane** | Python 3.12, FastMCP 2.0, FastAPI | Pure epistemic computation | Runs anywhere (Docker, Cloud Run, VPS) |
+| **Storage Plane** | SQLAlchemy 2.0 Async (SQLite WAL / PostgreSQL 16) | Sovereign verifiable state storage | Single-file portability / self-hosting |
+| **Cryptographic Plane**| RFC 8785 Canonical JSON & Ed25519 (RFC 8032) | Tamper-proof decentralized trust | Zero reliance on centralized certificate CAs |
 
 ### 1. Storage Sovereignty: Async SQLite & SQLAlchemy 2.0
 Rather than tying the database layer to proprietary document stores, Credence uses **SQLAlchemy 2.0 Async**:

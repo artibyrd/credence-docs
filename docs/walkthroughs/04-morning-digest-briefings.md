@@ -29,13 +29,16 @@ Generate the daily executive morning briefing across verified journalism, fallac
 credence digest --format terminal
 ```
 
-```
-╭------------------- 🌅 Credence Morning Epistemic Briefing -------------------╮
-| Total Articles Sifted: 61  |  Clean Verified: 49  |  Flagged Deceptions: 11  |
-| |  Satire Cues: 1                                                            |
-| Swarm Mesh Compute Savings: 32,000 tokens ($0.01) across 10 zero-token       |
-| adoptions.                                                                   |
-╰------------------------------------------------------------------------------╯
+```json
+{
+  "total_articles_sifted": 61,
+  "clean_verified": 49,
+  "flagged_deceptions": 11,
+  "satire_cues_detected": 1,
+  "swarm_mesh_compute_savings_tokens": 32000,
+  "dollar_savings_usd": 0.01,
+  "zero_token_adoptions": 10
+}
 ```
 
 === ⚡ FastMCP 2.0

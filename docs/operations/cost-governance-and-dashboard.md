@@ -18,11 +18,9 @@ This operational guide provides operators with complete instructions for monitor
 
 The **Token Safety Governor** protects node operators from runaway API billing spikes by enforcing three strict spending boundaries:
 
-```
-| 1. Hourly Token Ceiling: Max 100k tokens / hour        |
-| 2. Daily USD Hard Cap: Max $0.50 / day spend cap       |
-| 3. 30% Headroom Tripwire: Offline fallback at 70% burn |
-```
+1. Hourly Token Ceiling: Max 100k tokens / hour
+2. Daily USD Hard Cap: Max $0.50 / day spend cap
+3. 30% Headroom Tripwire: Offline fallback at 70% burn
 
 ---
 
@@ -43,16 +41,14 @@ $ credence governor set --max-hourly 150000
 
 ### Sample Terminal Output
 
-```
 ╭---------------------- 💰 Token Safety Governor ----------------------╮
-| Hourly Limit:     100,000 Tokens   | Used (This Hour): 14,250 (14.2%) |
-| Daily Cap (USD):  $0.50 Max        | Spent (Today):    $0.06 (12.0%)  |
-| Headroom State:   ACTIVE (85.8% Headroom Available)                  |
-| Active Model:     gemini-3.7-flash ($0.34 / 1M tokens)               |
-| Default Thinking: 1,024 Tokens                                       |
-| Circuit Breaker:  ONLINE & READY                                     |
+Hourly Limit:     100,000 Tokens   | Used (This Hour): 14,250 (14.2%)
+Daily Cap (USD):  $0.50 Max        | Spent (Today):    $0.06 (12.0%)
+Headroom State:   ACTIVE (85.8% Headroom Available)
+Active Model:     gemini-3.7-flash ($0.34 / 1M tokens)
+Default Thinking: 1,024 Tokens
+Circuit Breaker:  ONLINE & READY
 ╰----------------------------------------------------------------------╯
-```
 
 ---
 

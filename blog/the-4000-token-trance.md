@@ -22,20 +22,17 @@ What they discovered instead was **The 4,000 Token Trance**: past a certain thre
 
 We evaluated 500 ambiguous digital news articles across varying thinking token allocations:
 
-```
- Auditing Precision (G=1.00)
-    100% +                                   ● 4,096 tokens (98.6%)
-         |                      ● 2,048 (97.8%)
-     95% +         ● 1,024 (96.4%)           ----------------
-         |                                   | THE THINKING TOKEN PLATEAU  |
-     90% +                                   | (Diminishing Returns Zone)  |
-         |                                   ----------------
-     85% +  ● 512 (88.2%)
-         |
-     80% +-----------------------------------------------------------------►
-         0        1,024       2,048       4,096       8,192       16,384
-                                Thinking Token Budget
-```
+Auditing Precision (G=1.00)
+100% +                                   ● 4,096 tokens (98.6%)
+● 2,048 (97.8%)
+95% +         ● 1,024 (96.4%)           ----------------
+| THE THINKING TOKEN PLATEAU
+90% +                                   | (Diminishing Returns Zone)
+----------------
+85% +  ● 512 (88.2%)
+80% +-----------------------------------------------------------------►
+0        1,024       2,048       4,096       8,192       16,384
+Thinking Token Budget
 
 ---
 

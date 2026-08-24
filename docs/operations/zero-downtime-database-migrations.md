@@ -18,23 +18,11 @@ This operational runbook details how Credence executes zero-downtime schema evol
 
 To ensure continuous availability across active nodes during deployment rollouts, all schema changes follow the **Expand/Contract Pattern**:
 
-```
- Phase 1: EXPAND
- +-- Add nullable columns or new tables
- +-- Old application code reads/writes legacy columns
- +-- New application code writes to both old and new columns
-         |
-         ▼
- Phase 2: MIGRATE & BACKFILL
- +-- Asynchronous background backfill of historical rows
- +-- Dual-writing active on all nodes
- +-- Zero read locks during backfill execution
-         |
-         ▼
- Phase 3: CONTRACT
- +-- All nodes running updated application code
- +-- Drop deprecated columns / tables safely
-```
+| Migration Phase | Schema State | Application Code State | Operational Safety |
+| :--- | :--- | :--- | :--- |
+| **Phase 1: Expand** | Add nullable column / new table | Writes to both old and new columns | Zero (backward compatible) |
+| **Phase 2: Backfill** | Asynchronously populate new schema | Reads from new column with fallback | Zero downtime |
+| **Phase 3: Contract**| Drop deprecated old column | Fully migrated application code | Verified stable |
 
 ---
 

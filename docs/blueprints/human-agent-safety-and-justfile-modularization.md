@@ -51,17 +51,15 @@ Credence resolves this via **Discrete Recipe Decoupling**:
 
 To enforce the **500 LOC Ceiling Law (The Invariant Bible)** and decouple open-source contributor workflows from maintainer-specific cloud deployment pipelines, the Justfile suite is partitioned into 6 focused modules:
 
-```
 credence/
 +-- Justfile               # Root entrypoint with modern settings and module imports
 +-- just/
-    +-- preflight.just     # Toolchain CLI verification (<120 LOC)
-    +-- quality.just       # Parallel check, static analysis, discrete test suites (<110 LOC)
-    +-- engine.just        # Local servers, web preview, feeds, seeds, mesh cluster (<220 LOC)
-    +-- vcs.just           # Safe git inspection vs gated PR triad lifecycle (<140 LOC)
-    +-- cloud.just         # Maintainer GCP Cloud Run, Cloudflare Edge & Terraform (<240 LOC)
-    +-- release.just       # 7-Manifest version sync, parallel asset rendering & release (<60 LOC)
-```
++-- preflight.just     # Toolchain CLI verification (<120 LOC)
++-- quality.just       # Parallel check, static analysis, discrete test suites (<110 LOC)
++-- engine.just        # Local servers, web preview, feeds, seeds, mesh cluster (<220 LOC)
++-- vcs.just           # Safe git inspection vs gated PR triad lifecycle (<140 LOC)
++-- cloud.just         # Maintainer GCP Cloud Run, Cloudflare Edge & Terraform (<240 LOC)
++-- release.just       # 7-Manifest version sync, parallel asset rendering & release (<60 LOC)
 
 Forks and open-source contributors can clone the repository, run `just check`, `just dev`, `just preview`, and `just test-unit` locally without requiring GCP or Cloudflare credentials.
 
@@ -175,22 +173,18 @@ If a broad prefix like `gcloud config` or `rm` is approved, the prefix match ina
 
 The bootstrap catalog is not static; it evolves alongside developer patterns during the **4-Phase Release & Lean Learning Lifecycle** (`/learn`).
 
-```text
-|                   CONTINUOUS BOOTSTRAP COMMAND HARVEST CYCLE (/learn)                            |
-|                                                                                                  |
-|   [Session Workflows & Agent Operations]                                                         |
-|                    |                                                                             |
-|                    ▼                                                                             |
-|   [/learn Session Trajectory Audit] --► Scan `transcript.jsonl` tool calls for manual approvals |
-|                    |                                                                             |
-|                    ▼                                                                             |
-|   [Prefix-Safe Boundary Filter]     --► Verify commands are read-only & non-destructive          |
-|                    |                                                                             |
-|                    ▼                                                                             |
-|   [Catalog & Skill Synchronized]    --► Auto-graduated into `scripts/bootstrap_approvals.py`      |
-|                                         and `bootstrap-approvals/SKILL.md`                       |
-|                                                                                                  |
-```
+CONTINUOUS BOOTSTRAP COMMAND HARVEST CYCLE (/learn)
+[Session Workflows & Agent Operations]
+|
+▼
+[/learn Session Trajectory Audit] --► Scan `transcript.jsonl` tool calls for manual approvals
+|
+▼
+[Prefix-Safe Boundary Filter]     --► Verify commands are read-only & non-destructive
+|
+▼
+[Catalog & Skill Synchronized]    --► Auto-graduated into `scripts/bootstrap_approvals.py`
+and `bootstrap-approvals/SKILL.md`
 
 During each `/learn` run, the agent audits its session trajectory for recurring safe inspection commands (e.g., `grep`, `head`, `wc`, selective `git checkout`) and graduates them into the primary bootstrapping catalog for future workspace velocity.
 

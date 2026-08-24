@@ -20,17 +20,11 @@ Credence exposes FastMCP 2.0 across two standard communication transports:
 1. **Standard I/O (`stdio`)**: Zero-network local process execution, ideal for local desktop clients (Claude Desktop, Cursor IDE).
 2. **Server-Sent Events (`sse` / HTTP)**: Asynchronous streaming over HTTP/TLS (`/sse` and `/messages`), ideal for multi-agent cloud swarms and remote workstations.
 
-```
- Claude Desktop / Cursor IDE
-             |
-   (stdio or SSE stream)
-             ▼
-|              FastMCP 2.0 Server Substrate               |
-| 🛠️ Dynamic Tools Catalog    | 📂 Structured Resources    |
-|  • credence_check_url      |  • credence://stats/live   |
-|  • credence_check_text     |  • credence://governance   |
-|  • credence_get_dossier    |  • credence://taxonomies   |
-```
+| Integration Layer | Transport | Communication Protocol | Epistemic Tool Access |
+| :--- | :--- | :--- | :--- |
+| **IDE Host** | Claude Desktop / Cursor | stdio / Server-Sent Events | Direct pair programming prompts |
+| **FastMCP Substrate**| FastMCP 2.0 Engine | RFC 8785 JSON-RPC | `credence_audit_text`, `credence_get_quota_status` |
+| **Execution Kernel** | Pure Python Subsystem | Hermetic In-Memory Pipeline | Verbatim source grounding ($G=1.00$) |
 
 ---
 

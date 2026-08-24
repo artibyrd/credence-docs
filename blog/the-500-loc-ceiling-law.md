@@ -23,12 +23,12 @@ To permanently prevent monolith creep, Credence established **The 500 LOC Ceilin
 The invariant is brutally simple:
 > **No single Python source file, Justfile, or UI component script may exceed 500 lines of code (including comments and docstrings).**
 
-```
-|                   THE 500 LOC CEILING                  |
-| • File <= 500 Lines: Allowed                           |
-| • File > 500 Lines: CI BUILD FAILURE (Gate 4)          |
-| • Remedy: Decompose into modular subpackage            |
-```
+| Subsystem Layer | Target File Ceiling | Decoupling Strategy | Architectural Invariant |
+| :--- | :--- | :--- | :--- |
+| **CLI & Commands** | `<350 LOC` per command | Subcommand files in `credence.cli.commands` | Invariant 1 (500 LOC Ceiling Law) |
+| **Pipeline & Scoring** | `<400 LOC` per module | Independent modules (`scoring`, `hasher`, `scrubber`) | Invariant 1 & Invariant 32 |
+| **Mesh & Consensus** | `<450 LOC` per module | Separation of `relay`, `gossip`, and `consensus` | Invariant 1 & Invariant 23 |
+| **Justfile Automation** | `<300 LOC` per module | Modular imports (`vcs.just`, `quality.just`, `cloud.just`) | Invariant 1 (Modular Justfile) |
 
 ---
 
@@ -44,14 +44,12 @@ The invariant is brutally simple:
 
 When `credence.pipeline` grew to 850 lines in v1.x, we did not raise the ceiling—we decomposed it into four focused modules:
 
-```
 credence/pipeline/
 +-- __init__.py           # Unified entry point & facade (< 50 LOC)
 +-- scrubber.py           # DOM normalization & tag stripping (< 250 LOC)
 +-- heuristics.py         # 46 offline regex rules (< 300 LOC)
 +-- llm_adapter.py        # Frontier reasoning engine bridge (< 350 LOC)
 +-- evaluator.py          # Calibrated scoring & saturation (< 280 LOC)
-```
 
 Each module has a single responsibility, clear type hints, and independent unit tests.
 

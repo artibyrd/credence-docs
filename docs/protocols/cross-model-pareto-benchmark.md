@@ -16,23 +16,12 @@ This specification publishes empirical benchmark data comparing frontier LLM rea
 
 ## 1. The Multi-Model Pareto Matrix
 
-```
-   Higher Accuracy (G=1.00)
-             ▲
-             |          ● Gemini 3.7 Flash Thinking (Optimal Pareto Sweet Spot)
-             |          ($0.34/M tokens, 1024 thinking tokens, 1.2s latency)
-             |
-             |     ● Claude 3.7 Sonnet Thinking
-             |     ($3.00/M tokens, 2.4s latency)
-             |
-             | ● DeepSeek-R1 (Local Ollama)
-             | ($0.00 token cost, high memory)
-             |
-             |                                ● GPT-4o Standard
-             |                                ($2.50/M tokens, no thinking)
-             +-------------------------------------------------------------►
-               Lower Cost / Lower Latency
-```
+| AI Model & Configuration | Input/Output Cost | Latency (P50) | Claim Grounding ($G$) | Pareto Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **Gemini 3.7 Flash (1024 Thinking)** | `$0.34` / 1k audits | `1.2s` | `98.7% ($G=1.00$)` | 🏆 **Optimal Pareto Sweet Spot** |
+| **Claude 3.7 Sonnet (2048 Thinking)**| `$3.00` / 1k audits | `2.4s` | `99.1% ($G=1.00$)` | High-Stakes Escalation Tier |
+| **DeepSeek-R1 (Local 4096 Thinking)**| `$0.00` / 1k audits | `8.5s` | `95.4% ($G=1.00$)` | Air-Gapped Sovereign Tier |
+| **GPT-4o (Zero Thinking)** | `$2.50` / 1k audits | `1.6s` | `96.2% ($G=0.92$)` | Baseline Comparison |
 
 ### Empirical Comparison Table
 

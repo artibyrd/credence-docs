@@ -18,17 +18,11 @@ The **Information Pyramid & Epistemic Lensing Invariant (`inv-epistemic-lensing`
 
 Digital prose auditing produces vast quantities of forensic data (DOM trees, token distributions, SimHash matrices, Ed25519 bytes). Dumping this data in a wall-of-text creates cognitive fatigue. Credence organizes presentation into **3 Decoupled Cognitive Lenses**:
 
-```
-            ▲
-           / \     Tier 1: SURFACE LENS (Glance)
-          /   \    Score gauge, classification badge, DCI rating (<1 second)
-         /-----\
-        /       \  Tier 2: FOCUS LENS (Explore)
-       /         \ Specific violated rules, verbatim quotes, and claim cards (<10 seconds)
-      /-----------\
-     /             \ Tier 3: DEEP SPECTRUM LENS (Forensic)
-    /               \ RFC 8785 JSON bytes, SimHash bit diffs, Ed25519 signatures (Deep Audit)
-```
+| Epistemic Lens Tier | Information Granularity | Target User Persona | Inspection Time Horizon | Cryptographic Proof Depth |
+| :--- | :--- | :--- | :--- | :--- |
+| **Tier 1: Surface Lens (Glance)** | Suspicion Score (0–100), DCI rating, classification pill badge | General readers & quick scanning | `<1 second` | Color-coded visual status |
+| **Tier 2: Focus Lens (Explore)** | Specific violated rules, verbatim DOM quotes, claim cards | Investigative journalists & researchers | `<10 seconds` | Character quote exactness ($G=1.00$) |
+| **Tier 3: Deep Spectrum Lens (Forensic)**| Canonical RFC 8785 JSON bytes, SimHash grids, Ed25519 signatures | Forensic auditors & autonomous agents | `<60 seconds` | Full mathematical proof |
 
 ---
 

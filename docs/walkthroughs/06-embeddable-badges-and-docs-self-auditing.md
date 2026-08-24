@@ -18,10 +18,8 @@ In this walkthrough, you will learn how to embed the zero-dependency `<credence-
 
 Add the zero-build script to your HTML `<head>`:
 
-```html
 <!-- Load zero-build Web Component -->
 <script type="module" src="https://credence.run/assets/credence-widget.js"></script>
-```
 
 Place the badge on your article or documentation page:
 

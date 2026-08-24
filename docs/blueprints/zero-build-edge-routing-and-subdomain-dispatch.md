@@ -18,31 +18,25 @@ This blueprint details the edge routing algorithms, cache tiering, and dynamic O
 
 The Credence edge router (`web/_worker.js`) intercepts all incoming HTTP requests at the CDN edge and routes them to static assets, documentation markdowns, or backend Cloud Run compute services with zero client-side bundling or build steps:
 
-```
- Incoming HTTP Request (e.g., https://docs.credence.run/docs/protocols/mesh-protocol)
-                         |
-                         ▼
-| 1. Hostname Inspection & Environment Routing           |
-|    • Resolves apex (credence.run) vs. subdomains       |
-|    • Checks dev preview prefix (dev.*)                 |
-                         |
-                         ▼
-| 2. Subdirectory Path Mapping                           |
-|    • docs.credence.run -> /credence-docs/index.html    |
-|    • blog.credence.run -> /credence-docs/index.html    |
-|    • credence.report   -> /web/credence.report/        |
-|    • credence.nexus    -> /web/credence.nexus/         |
-|    • credence.foundation -> /web/credence.foundation/  |
-                         |
-                         ▼
-| 3. Tiered Cache Header Injection                       |
-|    • SVGs/Static: s-maxage=2592000, immutable          |
-|    • Dynamic Docs: max-age=0, must-revalidate          |
-                         |
-                         ▼
-| 4. Dynamic HTMLRewriter OpenGraph Metadata Injection   |
-|    • Rewrites og:title, og:image, og:url per article   |
-```
+Incoming HTTP Request (e.g., https://docs.credence.run/docs/protocols/mesh-protocol)
+▼
+1. Hostname Inspection & Environment Routing
+• Resolves apex (credence.run) vs. subdomains
+• Checks dev preview prefix (dev.*)
+▼
+2. Subdirectory Path Mapping
+• docs.credence.run -> /credence-docs/index.html
+• blog.credence.run -> /credence-docs/index.html
+• credence.report   -> /web/credence.report/
+• credence.nexus    -> /web/credence.nexus/
+• credence.foundation -> /web/credence.foundation/
+▼
+3. Tiered Cache Header Injection
+• SVGs/Static: s-maxage=2592000, immutable
+• Dynamic Docs: max-age=0, must-revalidate
+▼
+4. Dynamic HTMLRewriter OpenGraph Metadata Injection
+• Rewrites og:title, og:image, og:url per article
 
 ### 1.1 Multi-Domain Subdirectory Dispatch Matrix
 

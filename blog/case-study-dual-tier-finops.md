@@ -24,12 +24,10 @@ Here is how dual-tier FinOps made it possible.
 
 ## The 4 Financial Levers of Credence FinOps
 
-```
-| 1. P2P Mesh Work-Sharing: 92.3% Cache Hit Rate ($0.00 / audit)         |
-| 2. Offline Regex Pre-Filter: 60% of misses resolved locally ($0.00)   |
-| 3. Gemini 3.7 Flash Thinking: $0.34/1M tokens (vs. $2.50/1M GPT-4o)    |
-| 4. Google Cloud Run v2 Scale-to-Zero: $0.00 idle compute               |
-```
+1. P2P Mesh Work-Sharing: 92.3% Cache Hit Rate ($0.00 / audit)
+2. Offline Regex Pre-Filter: 60% of misses resolved locally ($0.00)
+3. Gemini 3.7 Flash Thinking: $0.34/1M tokens (vs. $2.50/1M GPT-4o)
+4. Google Cloud Run v2 Scale-to-Zero: $0.00 idle compute
 
 ---
 

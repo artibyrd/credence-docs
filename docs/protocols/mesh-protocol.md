@@ -33,20 +33,16 @@ The Credence Gossip Protocol operates over bi-directional WebSocket transports (
 
 When Node $A$ establishes a peering session with Node $B$, the connection undergoes a strict 3-stage cryptographic handshake before any audit payloads are relayed:
 
-```
-Node A (Initiator)                                 Node B (Receiver)
-       |                                                  |
-       |  1. HANDSHAKE_INIT (Node ID, PubKey, Nonce_A)    |
-       |------------------------------------------------->|
-       |                                                  |
-       |  2. HANDSHAKE_CHALLENGE (Nonce_B, Sig_B(Nonce_A))|
-       |<-------------------------------------------------|
-       |                                                  |
-       |  3. HANDSHAKE_ACK (Sig_A(Nonce_B), Quality Qi)   |
-       |------------------------------------------------->|
-       |                                                  |
-       | <======== P2P GOSSIP STREAM ACTIVE ============> |
-```
+| Handshake Step | Sender $
+ightarrow$ Receiver | Wire Message Type | Cryptographic Proof & Payload |
+| :--- | :--- | :--- | :--- |
+| **Step 1: Init** | Node A $
+ightarrow$ Node B | `HANDSHAKE_INIT` | `{ node_id: "A", pubkey: "...", nonce_a: "..." }` |
+| **Step 2: Challenge**| Node B $
+ightarrow$ Node A | `HANDSHAKE_CHALLENGE` | `{ nonce_b: "...", sig_b: "Ed25519(nonce_a)" }` |
+| **Step 3: Ack** | Node A $
+ightarrow$ Node B | `HANDSHAKE_ACK` | `{ sig_a: "Ed25519(nonce_b)", session_id: "..." }` |
+| **Step 4: Gossip** | Bidirectional | `ATTESTATION_BROADCAST`| Canonical RFC 8785 JSON + Ed25519 signature |
 
 1. **`HANDSHAKE_INIT`**: Node $A$ transmits its canonical Ed25519 public key hex string, supported protocol version, and a 32-byte cryptographic random nonce.
 2. **`HANDSHAKE_CHALLENGE`**: Node $B$ verifies that Node $A$ is not quarantined or blacklisted, signs Node $A$'s nonce with its own private key, generates a fresh 32-byte nonce, and returns the challenge.

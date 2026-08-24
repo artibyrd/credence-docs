@@ -16,19 +16,15 @@ This cookbook demonstrates how to configure wildcard subdomain dispatching (`*.t
 
 ## 1. Multi-Tenant Architecture Overview
 
-```
- Inbound Request (e.g., https://acme.trust.credence.run)
-                         |
-                         ▼
-| Cloudflare Edge Worker (`_worker.js`)                  |
-|  • Extracts tenant slug: "acme"                        |
-|  • Loads tenant config from KV store                   |
-                         |
-                         ▼
-| Stateless Compute Plane (`credence-server-prod`)       |
-|  • Evaluates claims under `acme` taxonomy namespace    |
-|  • Signs receipts with `acme` Ed25519 tenant key       |
-```
+Inbound Request (e.g., https://acme.trust.credence.run)
+▼
+Cloudflare Edge Worker (`_worker.js`)
+• Extracts tenant slug: "acme"
+• Loads tenant config from KV store
+▼
+Stateless Compute Plane (`credence-server-prod`)
+• Evaluates claims under `acme` taxonomy namespace
+• Signs receipts with `acme` Ed25519 tenant key
 
 ---
 

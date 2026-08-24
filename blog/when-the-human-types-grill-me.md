@@ -24,25 +24,20 @@ To prevent this failure mode, Credence embraces **Socratic Agent Alignment: The 
 
 When an engineer triggers `/grill-me`, the dynamic inverses: instead of the AI answering questions, the AI interviews the human engineer:
 
-```
- Human: "We need to add a new domain quarantine protocol to Credence. /grill-me"
-                         |
-                         ▼
-| AI Socratic Interviewer Mode Activated                 |
-|  • Question 1: What is the failure mode if a domain    |
-|    publishes authentic investigative news after being   |
-|    quarantined? (The BuzzFeed News dilemma)            |
-|  • Question 2: Should reputation decay follow a linear |
-|    or exponential half-life curve?                     |
-|  • Question 3: How do we prevent Sybil cartels from    |
-|    weaponizing quarantine reports against competitors? |
-                         |
-                         ▼
- Human Answers & Clarifies Architectural Intent
-                         |
-                         ▼
- AI Drafts Implementation Plan with 100% Alignment
-```
+Human: "We need to add a new domain quarantine protocol to Credence. /grill-me"
+▼
+AI Socratic Interviewer Mode Activated
+• Question 1: What is the failure mode if a domain
+publishes authentic investigative news after being
+quarantined? (The BuzzFeed News dilemma)
+• Question 2: Should reputation decay follow a linear
+or exponential half-life curve?
+• Question 3: How do we prevent Sybil cartels from
+weaponizing quarantine reports against competitors?
+▼
+Human Answers & Clarifies Architectural Intent
+▼
+AI Drafts Implementation Plan with 100% Alignment
 
 ---
 

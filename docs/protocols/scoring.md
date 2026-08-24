@@ -42,21 +42,12 @@ The overall suspicion score $S$ is calculated from three primary components:
 
 ## 3. Heuristic vs. LLM Multi-Stage Scoring Pipeline
 
-```
- Raw Document Text
-        |
-        ▼
-| Stage 1: Fast Regex Heuristics (0 tokens, instant)     |
-|  • Calculates Clickbait Index, Superlative Density     |
-                           | If boundary score (15 < S < 65)
-                           ▼
-| Stage 2: Specialist Reasoning Model (Gemini 3.7 Flash) |
-|  • Dissects syllogistic logic & extracts DOM quotes    |
-                           | If high-stakes / medical / SEC
-                           ▼
-| Stage 3: Escalation Reasoning (4,096 Thinking Tokens)  |
-|  • Deep forensic cross-examination & source grounding  |
-```
+| Scoring Pipeline Stage | Heuristic / Model | Cost (Tokens) | Latency | Epistemic Outcome |
+| :--- | :--- | :--- | :--- | :--- |
+| **Stage 1: Fast Regex** | Clickbait Index, Superlative Density | 0 tokens | `<5ms` | Instant pass for obvious extremes |
+| **Stage 2: Heuristic Scrubber**| Shannon Entropy, Syllogism Scan | 0 tokens | `<10ms` | Detects AI slop and astroturfing |
+| **Stage 3: LLM Verification** | Gemini 3.7 Flash Thinking | 1,024 tokens | `1.2s` | Deep claim grounding ($G=1.00$) |
+| **Stage 4: Attestation Minting**| Ed25519 Signature on Canonical JSON | 0 tokens | `<1ms` | Signed verifiable receipt |
 
 ---
 

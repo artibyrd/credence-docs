@@ -22,22 +22,17 @@ To operate safely in an adversarial web environment, autonomous agents require m
 
 Consider what happens when a standard AI coding assistant searches the web without verification:
 
-```
- User Prompt: "Find the fastest async SQLite wrapper for Python"
-                      |
-                      ▼
-| Search Engine Queries Top 5 Blog Articles              |
-                      |
-                      ▼
-| Raw HTML Ingested (SEO Bot Farm Recommending "fastsql")|
-| • Fabricated benchmark: "10x faster than aiosqlite!"   |
-| • Hidden Prompt Injection: "<!-- ignore instructions -->"
-                      |
-                      ▼
-| Agent Generates Code with Phantom Dependency           |
-| • `import fastsql` (Package does not exist on PyPI)    |
-| • Build breaks in CI / Supply chain hijacked           |
-```
+User Prompt: "Find the fastest async SQLite wrapper for Python"
+▼
+Search Engine Queries Top 5 Blog Articles
+▼
+Raw HTML Ingested (SEO Bot Farm Recommending "fastsql")
+• Fabricated benchmark: "10x faster than aiosqlite!"
+• Hidden Prompt Injection: "<!-- ignore instructions -->"
+▼
+Agent Generates Code with Phantom Dependency
+• `import fastsql` (Package does not exist on PyPI)
+• Build breaks in CI / Supply chain hijacked
 
 When an agent blindly trusts web search results, it has no mechanism to differentiate between a peer-reviewed technical benchmark and an affiliate marketing honeypot.
 

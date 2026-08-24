@@ -16,21 +16,19 @@ This guide details the automated traffic-splitting, telemetry observation window
 
 ## 1. The 3-Stage Canary Traffic-Splitting Sequence
 
-```
- Stage 1: Deploy Revision B (0% Traffic)
- +-- Deploy new container revision to Cloud Run
- +-- Execute health check probe against direct revision URL
-         | (Health Check Passed)
-         ▼
- Stage 2: Canary Split (10% Traffic, 5-Minute Observation)
- +-- Route 10% of live traffic to Revision B
- +-- Monitor P95 latency, 5xx error rate, and memory consumption
-         | (Zero Errors, Latency < 250ms)
-         ▼
- Stage 3: Full Cutover (100% Traffic to Revision B)
- +-- Shift 100% of live traffic to Revision B
- +-- Keep Revision A alive for 15 minutes for instant rollback
-```
+Stage 1: Deploy Revision B (0% Traffic)
++-- Deploy new container revision to Cloud Run
++-- Execute health check probe against direct revision URL
+(Health Check Passed)
+▼
+Stage 2: Canary Split (10% Traffic, 5-Minute Observation)
++-- Route 10% of live traffic to Revision B
++-- Monitor P95 latency, 5xx error rate, and memory consumption
+(Zero Errors, Latency < 250ms)
+▼
+Stage 3: Full Cutover (100% Traffic to Revision B)
++-- Shift 100% of live traffic to Revision B
++-- Keep Revision A alive for 15 minutes for instant rollback
 
 ---
 

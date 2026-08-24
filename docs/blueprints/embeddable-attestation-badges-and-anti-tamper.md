@@ -18,24 +18,18 @@ This blueprint details the client-side cryptographic attestation and anti-tamper
 
 The `<credence-badge>` is a lightweight, zero-npm Custom Element that executes in any modern browser using the W3C WebCrypto API:
 
-```
- Webpage DOM Loaded
-         |
-         ▼
-| 1. Canonical DOM Scrubber Execution                    |
-|    • Strips dynamic widgets, badge tags, and ignore DOM|
-                           |
-                           ▼
-| 2. Client-Side SHA-256 Text Hashing                    |
-|    • Computes hash over normalized UTF-8 text          |
-                           |
-                           ▼
-| 3. In-Browser WebCrypto Ed25519 Signature Verification |
-|    • Verifies signature against embedded node pubkey   |
-                           |
-                           ▼
-| 4. Renders Vector Shield & Epistemic Trust Gauge       |
-```
+Webpage DOM Loaded
+▼
+1. Canonical DOM Scrubber Execution
+• Strips dynamic widgets, badge tags, and ignore DOM
+▼
+2. Client-Side SHA-256 Text Hashing
+• Computes hash over normalized UTF-8 text
+▼
+3. In-Browser WebCrypto Ed25519 Signature Verification
+• Verifies signature against embedded node pubkey
+▼
+4. Renders Vector Shield & Epistemic Trust Gauge
 
 ---
 
@@ -68,17 +62,14 @@ To ensure that the content SHA-256 calculated by the browser matches the hash au
 
 ## 4. Integration Recipes & Embed Code
 
-```html
 <!-- Include Zero-Build Web Component -->
 <script type="module" src="https://credence.run/assets/credence-widget.js"></script>
-
 <!-- Embed Live Article Attestation Badge -->
-<credence-badge 
-  src="https://credence.report/api/v1/receipt/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-  theme="dark"
-  layout="pill">
+<credence-badge
+src="https://credence.report/api/v1/receipt/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+theme="dark"
+layout="pill">
 </credence-badge>
-```
 
 ---
 

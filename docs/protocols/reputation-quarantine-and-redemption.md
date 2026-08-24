@@ -28,24 +28,12 @@ EPEP-17 solves both challenges using **Soft Quarantine** with continuous backgro
 
 Every tracked Fully Qualified Domain Name (FQDN) exists in one of four formal states:
 
-```
-                  |      1. PRISTINE     |
-                             | Suspicion > 35.0 (3 consecutive audits)
-                             ▼
-                  |    2. NOTABLE_FLAGS  |
-                             | Uncorrected high-severity violations
-                             ▼
-                  |  3. SOFT_QUARANTINE  |◄-----------------+
-                  ---------------------------+                  | Failed 50-article
-                             | Continuous clean audits      | clean probation
-                             | (Exponential polling)        |
-                             ▼                              |
-                  ----------------                  |
-                  | 4. PROBATION_REVIEW  ----------------
-                             | 50 audits, Grounding >= 0.90, Suspicion <= 15.0
-                             ▼
-                  |     1. PRISTINE      |
-```
+| Reputation State | Entry Threshold | Feed Impact | Redemption Protocol |
+| :--- | :--- | :--- | :--- |
+| **1. PRISTINE** | Suspicion $<20.0$, Grounding $G=1.00$ | Top feed ranking | Normal baseline |
+| **2. NOTABLE_FLAGS** | Suspicion $>35.0$ on 3 audits | Warning badge attached | Self-correction on subsequent audits |
+| **3. SOFT_QUARANTINE** | Uncorrected high-severity flags | Downranked in feeds | 14-day probation with $G=1.00$ grounding |
+| **4. HARD_QUARANTINE** | Coordinated Sybil cartel / malware | Circuit breaker rejection | Manual cryptographic appeal or re-keying |
 
 ### 2.1 State Definitions
 

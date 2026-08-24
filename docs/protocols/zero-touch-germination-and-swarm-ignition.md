@@ -18,18 +18,12 @@ The **Zero-Touch Node Germination Protocol** enables a fresh host or container t
 
 When `credence germinate` or `just ignite` is executed, the node proceeds through 4 deterministic lifecycle stages:
 
-```
- Stage 1: Genesis & Ed25519 Minting (<0.5s)
-         |
-         ▼
- Stage 2: SQLite WAL & CAS Store Ignition (<1.0s)
-         |
-         ▼
- Stage 3: Canonical Bootstrap Seed Sync (<2.0s)
-         |
-         ▼
- Stage 4: Miracle-Gro Burst Audit & Self-Certification (<15.0s)
-```
+| Ignition Stage | Elapsed Time | Subsystem Action | Verification Output |
+| :--- | :--- | :--- | :--- |
+| **Stage 1: Genesis** | `<0.5s` | Generate Ed25519 keypair | Public key printed to console |
+| **Stage 2: Ignition** | `<1.0s` | Initialize SQLite WAL database | Schema migrations applied |
+| **Stage 3: Peer Discovery** | `<1.5s` | Resolve DNS-SRV / seed peers | P2P gossip mesh connected |
+| **Stage 4: Doctor Check** | `<2.0s` | Verify FastMCP & Token Governor | Node operational & germinating |
 
 ### 1.1 Stage 1: Genesis & Cryptographic Identity Minting
 - The node generates a high-entropy Ed25519 private key (`node.key`) with 256 bits of cryptographic entropy.
@@ -74,15 +68,15 @@ $ credence identity show
 
 ### Terminal Output Verification
 
-```
-╭---------------------- 🌱 Credence Node Genesis ----------------------╮
-| Node Alias:       sifter-node-01 (9580dc9160...)                     |
-| Public Key:       9580dc91601992b33e3fd76718fcf94a69c76bf233...      |
-| State Storage:    SQLite WAL (data/credence.db)                      |
-| Epistemic Tier:   TIER I (Sprout Node 🌱)                             |
-| Initial Quality:  Q_i = 0.950 (High Integrity)                       |
-| P2P Connectivity: Connected to 4 peer seeds                          |
-╰----------------------------------------------------------------------╯
+```json
+{
+  "node_alias": "sifter-node-01",
+  "public_key": "9580dc91601992b33e3fd76718fcf94a69c76bf233...",
+  "state_storage": "SQLite WAL (data/credence.db)",
+  "epistemic_tier": "TIER_I_SPROUT_NODE",
+  "initial_quality_qi": 0.950,
+  "status": "ONLINE"
+}
 ```
 
 ---

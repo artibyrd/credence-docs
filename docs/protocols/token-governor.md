@@ -29,24 +29,12 @@ Credence solves this with the **Token Safety Governor Subsystem**, enforcing str
 
 The Token Safety Governor operates as a hierarchical 5-layer defensive funnel:
 
-```
- Incoming Audit Request
-         |
-         ▼
-| Layer 1: P2P Mesh Attestation Adoption (0 tokens, $0.00)|
-                            | (Cache Miss)
-                            ▼
-| Layer 2: In-Memory Heuristic Regex Filter (0 tokens)    |
-                            | (Heuristics Require AI)
-                            ▼
-| Layer 3: 30% Headroom Tripwire & Spending Ceiling       |
-                            | (Budget Approved)
-                            ▼
-| Layer 4: Progressive DOM Scrubber & Truncation Filter   |
-                            | (Optimized Context Window)
-                            ▼
-| Layer 5: Calibrated Thinking Engine (1k-4k tokens)      |
-```
+| Governor Layer | Subsystem Mechanism | Spend Impact | Headroom Action |
+| :--- | :--- | :--- | :--- |
+| **Layer 1: P2P Attestation** | Adopts cached Ed25519 receipt from mesh peers | 0 tokens ($0.00) | Instant cache hit |
+| **Layer 2: FREE Heuristics** | Regex patterns & Shannon entropy check | 0 tokens ($0.00) | Filters obvious spam |
+| **Layer 3: BALANCED Evaluation**| Gemini 3.7 Flash with 1,024 thinking tokens | ~$0.00034 | Normal audit execution |
+| **Layer 4: Circuit Breaker** | `QUOTA_PRESERVED` trips at 70% headroom | Blocks background spend | Preserves interactive quota |
 
 1. **Layer 1 (P2P Work-Sharing)**: When an article URL or content SHA-256 is received, the node checks its local cache and queries peer nodes. If a valid Ed25519 attestation exists from a peer with $Q_i \ge 0.70$, it adopts the signed result directly—**saving 100% of LLM inference tokens**.
 2. **Layer 2 (Offline Heuristic Pre-Filter)**: If no attestation exists, the document is evaluated against 46 offline regex rules (clickbait, superlative density, promotional links). If clearly clean or clearly spam, it terminates without calling frontier models.

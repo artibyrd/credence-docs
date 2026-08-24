@@ -22,19 +22,17 @@ The internet does not need more identity badges. It needs **verifiable epistemic
 
 ## Identity Theatre vs. Epistemic Receipts
 
-```
- IDENTITY THEATRE (The Blue Checkmark)
- | • Proves: User paid $8/month subscription fee          |
- | • Verifies: Zero factual claims or citations           |
- | • Cryptography: None (Centralized database boolean)    |
- | • Tamper Resistance: Zero                              |
-                           vs.
- EPISTEMIC RECEIPTS (Credence Attestations)
- | • Proves: Exact character-offset citation grounding    |
- | • Verifies: SPJ Ethics, IEP Taxonomies, Topic Entropy  |
- | • Cryptography: RFC 8785 Canonical Bytes + Ed25519     |
- | • Tamper Resistance: Client-Side WebCrypto SHA-256     |
-```
+IDENTITY THEATRE (The Blue Checkmark)
+• Proves: User paid $8/month subscription fee
+• Verifies: Zero factual claims or citations
+• Cryptography: None (Centralized database boolean)
+• Tamper Resistance: Zero
+vs.
+EPISTEMIC RECEIPTS (Credence Attestations)
+• Proves: Exact character-offset citation grounding
+• Verifies: SPJ Ethics, IEP Taxonomies, Topic Entropy
+• Cryptography: RFC 8785 Canonical Bytes + Ed25519
+• Tamper Resistance: Client-Side WebCrypto SHA-256
 
 ---
 

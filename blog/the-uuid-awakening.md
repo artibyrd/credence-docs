@@ -22,15 +22,12 @@ However, in a decentralized epistemic verification network where independent nod
 
 Consider what happens when Node A and Node B both audit the same breaking news article using random UUIDs:
 
-```
- Node A Audits Article --► Generates UUID: 9b1deb4d... --► Writes to Local DB
- Node B Audits Article --► Generates UUID: 4f8a2c1e... --► Writes to Local DB
-                                 |
-                                 ▼
- When Node A and Node B Peer Over WebSockets:
- • Database cannot detect that both records represent the exact same article!
- • Network suffers duplicate audits, wasted token budgets, and conflicting IDs.
-```
+| Content Addressing Dimension | Random UUID (Anti-Pattern) | Content SHA-256 (Credence Canon) |
+| :--- | :--- | :--- |
+| **Deterministic Identity** | `9b1deb4d...` vs `4f8a2c1e...` (Collision) | `sha256:e3b0c44...` (Globally identical) |
+| **Mesh Peer Deduplication** | Duplicate audits across all nodes | Instant cache hit across all connected peers |
+| **Tamper Detection** | Cannot verify payload from UUID | Bit-level payload change invalidates hash |
+| **Cryptographic Proof** | Requires central database coordination | Sovereign, decentralized Ed25519 verification |
 
 Because random UUIDs have zero mathematical relationship to the content being audited, peer nodes cannot deduplicate records or verify state without expensive, full-table scans.
 
@@ -40,15 +37,11 @@ Because random UUIDs have zero mathematical relationship to the content being au
 
 Credence replaces arbitrary UUIDs with **Content-Addressable SHA-256 Hashes**:
 
-```
- Raw Normalized Article Text
-             |
-             ▼
- SHA-256 Hash Function (crypto.subtle / hashlib)
-             |
-             ▼
- Deterministic Primary Key: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
-```
+1. **HTML Ingestion & Scrubbing**: Strip non-semantic scripts, styles, and tracking tags.
+2. **Text Normalization**: Normalize whitespace, Unicode characters, and line endings.
+3. **Cryptographic Hashing**: Compute deterministic `SHA-256` content digest.
+4. **Locality-Sensitive Hashing**: Compute 64-bit `SimHash` for near-duplicate and mirror tracking.
+5. **Ed25519 Attestation Minting**: Sign the canonical RFC 8785 JSON receipt with node private key.
 
 ### Why Content-Addressability Solves Everything
 

@@ -16,14 +16,14 @@ Credence enforces a **6-Tier Shift-Left Testing Architecture** designed to execu
 
 ## 1. The 6-Tier Shift-Left Testing Hierarchy
 
-```
-| Tier 1: Hermetic In-Memory Unit & Math Suite (<15s, 0 network, 0 LLM)   |
-| Tier 2: Universal Interface Isolation & 4-Way Parity (<5s)              |
-| Tier 3: 13-Node Watts-Strogatz P2P Mesh Cluster (<8s)                   |
-| Tier 4: Adversarial Red-Team & Protocol Defenses (<5s)                  |
-| Tier 5: Zero-Build Playwright & DOM Integrity (<20s)                    |
-| Tier 6: Reusable Live Rotating & Mutating E2E Gauntlet                  |
-```
+| Testing Tier | Scope & Focus | Target Duration | Dependencies |
+| :--- | :--- | :--- | :--- |
+| **Tier 1: Hermetic Unit Tests** | Core algorithms, scoring, and crypto | `<15s` | In-memory SQLite, 0 network |
+| **Tier 2: Universal Interface Isolation**| 4-way parity (CLI, FastMCP, TUI, Web) | `<5s` | Zero-npm vanilla modules |
+| **Tier 3: 13-Node Mesh Cluster** | Watts-Strogatz P2P consensus simulation | `<8s` | In-memory WebSocket gossip |
+| **Tier 4: Adversarial Protocol Defenses**| Byzantine Sybil cartel slashing | `<5s` | Mock adversarial nodes |
+| **Tier 5: Zero-Build DOM Integrity** | Interactive playground route mounting | `<5s` | Static AST and DOM handlers |
+| **Tier 6: Live Rotating E2E Gauntlet** | Full-stack end-to-end evaluation | `<30s` | Rotated deterministic seeds |
 
 ---
 

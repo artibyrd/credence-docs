@@ -20,14 +20,12 @@ To solve this shared resource tragedy, Credence established the **Epistemic Head
 
 ## The 30% Headroom Tripwire Architecture
 
-```
- Total Hourly Token Allocation (e.g., 100,000 Tokens/Hour)
- |             Autonomous Background Workloads               |  Interactive |
- |             (Feed Sifters, Boredom Crawls, Gossip)        |  Headroom    |
- |                        (0% – 70%)                         |  (70% – 100%)|
-                                                             ▲
-                                                Tripwire Trigger (70% Floor)
-```
+Total Hourly Token Allocation (e.g., 100,000 Tokens/Hour)
+Autonomous Background Workloads               |  Interactive
+(Feed Sifters, Boredom Crawls, Gossip)        |  Headroom
+(0% – 70%)                         |  (70% – 100%)
+▲
+Tripwire Trigger (70% Floor)
 
 The Token Safety Governor divides capacity into two distinct operational zones:
 1. **The Autonomous Sifting Zone ($0\% - 70\%$)**: Background feed sifters and exploratory boredom crawlers consume tokens normally, auditing new URLs and calculating Bayesian consensus.
@@ -39,20 +37,12 @@ The Token Safety Governor divides capacity into two distinct operational zones:
 
 When the 30% headroom tripwire fires, Credence does not crash or return errors. Instead, it seamlessly switches to **Tier 1 Offline Heuristic Evaluation**:
 
-```
- Incoming Audit Request (During QUOTA_PRESERVED State)
-                          |
-                          ▼
-| 1. P2P Mesh Attestation Adoption (0 tokens, $0.00)     |
-                          | (Cache Miss)
-                          ▼
-| 2. Offline Heuristic Regex Gauntlet (0 tokens, $0.00)  |
-|    • 46 offline SPJ & IEP regex rules                  |
-|    • Superlative density & Clickbait Severity Index    |
-                          |
-                          ▼
-| 3. Attestation Output Marked: [HEURISTIC_PREVIEW]      |
-```
+| Governor Layer | Subsystem Mechanism | Spend Impact | Headroom Action |
+| :--- | :--- | :--- | :--- |
+| **Layer 1: P2P Attestation** | Adopts cached Ed25519 receipt from mesh peers | 0 tokens ($0.00) | Instant cache hit |
+| **Layer 2: FREE Heuristics** | Regex patterns & Shannon entropy check | 0 tokens ($0.00) | Filters obvious spam |
+| **Layer 3: BALANCED Evaluation**| Gemini 3.7 Flash with 1,024 thinking tokens | ~$0.00034 | Normal audit execution |
+| **Layer 4: Circuit Breaker** | `QUOTA_PRESERVED` trips at 70% headroom | Blocks background spend | Preserves interactive quota |
 
 By substituting fast, offline regex calculations for expensive LLM inference during high-traffic bursts, the node maintains continuous service without burning emergency budget.
 

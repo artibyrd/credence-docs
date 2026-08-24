@@ -18,26 +18,11 @@ This security specification details how Credence differentiates authentic politi
 
 Poe's Law observes that without a clear indicator of intent, it is impossible to create a parody of extreme views so obviously exaggerated that it cannot be mistaken for genuine extremism. Credence resolves this with a **Two-Tier Evaluation Pipeline**:
 
-```
- Incoming Audited Prose
-           |
-           ▼
-| Tier 1: Linguistic Irony & Contextual Satire Detection |
-|  • Detects parody framing, absurdism, known publishers |
-                           |
-                           ▼
-| Tier 2: The SPJ-1.6 Factual Allegation Override Check  |
-|  • Does the text assert specific factual crimes against|
-|    real private individuals without parody disclaimer? |
-              |                               |
-    (No Factual Crimes)              (Factual Crime Allegation)
-              ▼                               ▼
-----------------    ----------------
-| SATIRE_NEUTRALIZED       |    | DISINFORMATION_FLAGGED       |
-| Suspicion = 0.0          |    | Suspicion >= 65.0            |
-| Clickbait penalty wiped  |    | SPJ-1.6 Defamation Override  |
-----------------    ----------------
-```
+| Security Evaluation Tier | Parody Cue / Grounding Test | Scoring Rule | Epistemic Resolution |
+| :--- | :--- | :--- | :--- |
+| **Tier 1: Linguistic Irony** | Parody framing, absurdism cues, publisher history | Neutralizes score ($S=0.00$) | Legitimate satire protected |
+| **Tier 2: Factual Allegation**| Verifiable real-world claims in parody context | Triggers SPJ-1.6 review | Inspects underlying defamation |
+| **Tier 3: Cloaking Detection**| Disinformation disguised under satire disclaimers | Flags deceptive masquerading | Assigns high suspicion score |
 
 ---
 

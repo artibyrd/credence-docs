@@ -22,26 +22,20 @@ Medical and wellness misinformation poses acute physical harm. Deceptive health 
 3. **Correlation-to-Causation Fallacies**: Presenting uncontrolled observational cohort correlations as causal medical treatment protocols.
 4. **Undisclosed Affiliate Commercial Camouflage**: Recommending proprietary wellness products with hidden affiliate commissions disguised as unbiased health advice.
 
-```
- Inbound Health Article
-           |
-           ▼
-| 1. Biomedical Entity & Claim Extraction                |
-|    • Identifies disease entities, treatments, dosages  |
-                           |
-                           ▼
-| 2. Clinical Trial & PubMed Grounding Verification      |
-|    • Cross-references PMID, Cochrane, FDA status       |
-                           |
-                           ▼
-| 3. Specialized IEP-MED Taxonomy Scoring                |
-|    • IEP-MED-1: Uncontrolled In-Vitro Extrapolation    |
-|    • IEP-MED-2: Unsubstantiated Therapeutic Claim     |
-|    • IEP-MED-3: Hidden Commercial Affiliate Conflict   |
-                           |
-                           ▼
-| 4. Calibrated Epistemic Health Verdict & Attestation   |
-```
+Inbound Health Article
+▼
+1. Biomedical Entity & Claim Extraction
+• Identifies disease entities, treatments, dosages
+▼
+2. Clinical Trial & PubMed Grounding Verification
+• Cross-references PMID, Cochrane, FDA status
+▼
+3. Specialized IEP-MED Taxonomy Scoring
+• IEP-MED-1: Uncontrolled In-Vitro Extrapolation
+• IEP-MED-2: Unsubstantiated Therapeutic Claim
+• IEP-MED-3: Hidden Commercial Affiliate Conflict
+▼
+4. Calibrated Epistemic Health Verdict & Attestation
 
 ---
 

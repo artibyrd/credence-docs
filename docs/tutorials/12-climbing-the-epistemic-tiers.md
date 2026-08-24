@@ -16,17 +16,13 @@ In this tutorial, you will learn how a fresh Credence node earns reputation, pro
 
 ## 1. The 5 Epistemic Node Tiers
 
-```
-  Tier V: SOVEREIGN ARBITER 👑  (Global Root Anchor, Q_i >= 0.95, >1,000 Audits)
-            ▲
-  Tier IV: DOMAIN SPECIALIST 🎓 (Expertise E_i >= 0.90 in specific namespaces)
-            ▲
-  Tier III: VERIFIED AUDITOR 🛡️ (Concordance C_i >= 0.85, Grounding G >= 0.95)
-            ▲
-  Tier II: PEER GOSSIPER 🕸️     (Active P2P link, Uptime U_i >= 0.90)
-            ▲
-  Tier I: SPROUT NODE 🌱        (Genesis complete, Ed25519 identity minted)
-```
+| Epistemic Tier | Badge Icon | Requirements | Consensus Rights |
+| :--- | :--- | :--- | :--- |
+| **Tier I: Sprout Node** | 🌱 | $Q_i \ge 0.900$, $>10$ verified audits | Basic gossip relay |
+| **Tier II: Peer Gossiper** | 🕸️ | Active P2P link, Uptime $U_i \ge 0.90$ | Swarm attestation sharing |
+| **Tier III: Verified Auditor**| 🛡️ | Concordance $C_i \ge 0.85$, Grounding $G \ge 0.95$ | High-priority gossip propagation |
+| **Tier IV: Domain Specialist**| 🎓 | Expertise $E_i \ge 0.90$ in specific namespaces | Bayesian expertise weighting |
+| **Tier V: Sovereign Arbiter** | 👑 | Global root anchor, $Q_i \ge 0.95$, $>1,000$ audits | Root trust anchor signing |
 
 ---
 

@@ -22,11 +22,12 @@ Building software that lasts requires sobering up and returning to foundational 
 
 ## The Lessons of the Hangover
 
-```
-|                   FOUR SOBER ENGINEERING PRINCIPLES                    |
-| 1. Determinism Before Probabilism | 2. Strict Financial Ceilings       |
-| 3. Hermetic Shift-Left Testing    | 4. Verifiable Cryptographic Proofs |
-```
+| Sober Engineering Principle | Architectural Invariant | Practical Implementation |
+| :--- | :--- | :--- |
+| **1. Determinism Before Probabilism**| Heuristics and regex precede LLMs | Instant zero-token pre-filtering |
+| **2. Strict Financial Ceilings** | Token Governor with offline circuit breakers | Prevents unbounded bill shock |
+| **3. Hermetic Shift-Left Testing** | In-memory unit tests in `<35s` | Zero browser or daemon CI bottlenecks |
+| **4. Verifiable Cryptography** | RFC 8785 Canonical JSON & Ed25519 signatures | Tamper-proof provenance proofs |
 
 ### 1. Use LLMs as Specialists, Not Generalist Oracles
 In Credence, frontier reasoning models are never used for tasks that can be performed deterministically:

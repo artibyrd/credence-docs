@@ -16,18 +16,15 @@ This operational guide provides step-by-step procedures for disaster recovery, p
 
 ## 1. Disaster Recovery Topology & RTO/RPO Objectives
 
-```
- Primary Region (us-central1)                Secondary Region (us-east1)
+Primary Region (us-central1)                Secondary Region (us-east1)
 ----------------              ----------------
-| Cloud Run Primary Instance |              | Cloud Run Standby Instance |
-| Local WAL + Primary DB     |              | Hot-Standby Replicated DB  |
+Cloud Run Primary Instance |              | Cloud Run Standby Instance
+Local WAL + Primary DB     |              | Hot-Standby Replicated DB
 ------------------------------+              ------------------------------+
-              |                                           |
-              ----------------           ----------------
-                              ▼           ▼
-                      | Cloudflare Edge Router    |
-                      | (_worker.js Health Check) |
-```
+----------------           ----------------
+▼           ▼
+Cloudflare Edge Router
+(_worker.js Health Check)
 
 ### Recovery Objectives
 - **Recovery Time Objective (RTO)**: $< 30\text{ seconds}$ (automated Cloudflare edge failover to standby region).

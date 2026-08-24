@@ -24,11 +24,12 @@ Credence rejected this paradigm by establishing `inv-hermetic-unit-tests`: **The
 
 A test suite is truly *hermetic* only when it adheres to four strict physical boundaries:
 
-```
-|                   THE 4 HERMETIC TESTING BOUNDARIES                    |
-| 1. Zero External Network I/O      | 2. Zero Browser Runtimes in Unit CI|
-| 3. Sub-35 Second Total Execution  | 4. In-Memory SQLite State Isolation|
-```
+| Test Suite Tier | Execution Isolation | Execution Time | External Dependencies |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Unit Tests** | Pure in-memory SQLite / mock clock | `<35s` for entire suite | 0 browser daemons, 0 external network |
+| **Governance Integrity Tests**| Static AST parser & manifest checker | `<5s` for 47 test gates | 0 network, 0 subprocesses |
+| **P2P Mesh Swarm Simulation** | In-memory Watts-Strogatz cluster | `<8s` for 13 nodes | 0 external WebSockets |
+| **E2E Rotating Gauntlet** | Shift-left sandboxed execution | `<30s` per rotating seed | Mocked external HTTP feeds |
 
 1. **Zero External Network Calls**: Unit tests (`@pytest.mark.unit`) never execute outbound HTTP requests. Network responses are provided by deterministic local fixtures or in-memory mock adapters.
 2. **Zero Browser Runtimes in Fast Pre-Commit Gates**: Full browser Playwright tests belong strictly in Tier 5 integration gauntlets. Pre-commit QA gates evaluate UI DOM trees, CSS tokens, and JavaScript ASTs statically.
@@ -41,19 +42,15 @@ A test suite is truly *hermetic* only when it adheres to four strict physical bo
 
 When your entire test suite executes in **2.8 seconds** (`just check`), the developer experience changes fundamentally:
 
-```bash
 $ just check
-
 ╭---------------------- 🛡️ Credence Shift-Left Pre-Commit Gate ----------------------╮
-| • Ruff Code Formatting & Linting:             PASSED (0.24s)                      |
-| • Mypy Static Type Verification:              PASSED (0.85s)                      |
-| • Hermetic In-Memory Unit Suite (74 tests):   PASSED (1.12s)                      |
-| • Documentation Frontmatter & Canon Parity:   PASSED (0.42s)                      |
-| • Terraform Multi-Cloud HCL Validation:       PASSED (0.18s)                      |
-|                                                                                   |
-| ✓ 100% PRE-COMMIT QA GATES SATISFIED IN 2.81 SECONDS                              |
+• Ruff Code Formatting & Linting:             PASSED (0.24s)
+• Mypy Static Type Verification:              PASSED (0.85s)
+• Hermetic In-Memory Unit Suite (74 tests):   PASSED (1.12s)
+• Documentation Frontmatter & Canon Parity:   PASSED (0.42s)
+• Terraform Multi-Cloud HCL Validation:       PASSED (0.18s)
+✓ 100% PRE-COMMIT QA GATES SATISFIED IN 2.81 SECONDS
 ╰-----------------------------------------------------------------------------------╯
-```
 
 Because verification is instantaneous, developers (and autonomous coding agents like Antigravity) run the full suite before every commit. Regressions are caught at the point of origin, before PR creation and before cloud deployment.
 

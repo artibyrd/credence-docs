@@ -24,23 +24,20 @@ When we designed Credence, we took the opposite approach: **The Minimalist Epist
 
 Rather than throwing expensive LLMs at every string of text, Credence processes information through a progressive, calibrated filter:
 
-```
- Inbound Web Article
-          |
-          ▼
-| Tier 1: Offline Regex Heuristics (0 tokens, <2ms)      |
-|  • 46 deterministic patterns (clickbait, superlatives) |
-|  • Instantly filters obvious spam & pristine wire news |
-                           | (Boundary Score: 15 < S < 65)
-                           ▼
-| Tier 2: Calibrated Thinking Engine (1,024 Tokens)      |
-|  • Gemini 3.7 Flash Thinking ($0.34 / 1M tokens)       |
-|  • Extracts syllogistic premises & verifies DOM quotes  |
-                           | (High-Stakes / Medical / SEC)
-                           ▼
-| Tier 3: Escalation Forensic Gauntlet (4,096 Tokens)    |
-|  • Deep source cross-examination & PubMed verification |
-```
+Inbound Web Article
+▼
+Tier 1: Offline Regex Heuristics (0 tokens, <2ms)
+• 46 deterministic patterns (clickbait, superlatives)
+• Instantly filters obvious spam & pristine wire news
+(Boundary Score: 15 < S < 65)
+▼
+Tier 2: Calibrated Thinking Engine (1,024 Tokens)
+• Gemini 3.7 Flash Thinking ($0.34 / 1M tokens)
+• Extracts syllogistic premises & verifies DOM quotes
+(High-Stakes / Medical / SEC)
+▼
+Tier 3: Escalation Forensic Gauntlet (4,096 Tokens)
+• Deep source cross-examination & PubMed verification
 
 ---
 

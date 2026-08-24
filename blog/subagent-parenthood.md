@@ -22,17 +22,13 @@ Here is how Credence structures the art and science of **Subagent Parenthood**.
 
 ## The Subagent Hierarchy & Delegation Matrix
 
-```
- Parent Coordinator Agent (Antigravity Main Conversation)
- +-- Reads high-level user goals & maintains implementation_plan.md
- +-- Holds session context and invariant canon
- |
- +--► [Research Subagent] (Read-Only Workspace)
- |    +-- Deep survey of 50+ files; extracts regex patterns
- |
- +--► [Refactor Subagent] (Branched / Isolated Workspace)
-      +-- Implements isolated module changes and executes unit tests
-```
+Parent Coordinator Agent (Antigravity Main Conversation)
++-- Reads high-level user goals & maintains implementation_plan.md
++-- Holds session context and invariant canon
++--► [Research Subagent] (Read-Only Workspace)
++-- Deep survey of 50+ files; extracts regex patterns
++--► [Refactor Subagent] (Branched / Isolated Workspace)
++-- Implements isolated module changes and executes unit tests
 
 ---
 

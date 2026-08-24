@@ -16,12 +16,10 @@ Credence is engineered under extreme efficiency constraints: delivering enterpri
 
 ## 1. The 5 Value Pillars of Credence Architecture
 
-```
-|                   THE 5 HIGH-EFFICIENCY VALUE PILLARS                  |
-| 1. Scale-to-Zero  | 2. 92.3% Work-    | 3. Zero-npm    | 4. Sub-35s    |
-|    Compute ($0/mo)|    Sharing Swarm  |    Edge Plane  |    Hermetic CI|
-| 5. WAL-Safe Sovereign Storage & BitTorrent Epistemic Economics         |
-```
+THE 5 HIGH-EFFICIENCY VALUE PILLARS
+1. Scale-to-Zero  | 2. 92.3% Work-    | 3. Zero-npm    | 4. Sub-35s
+Compute ($0/mo)|    Sharing Swarm  |    Edge Plane  |    Hermetic CI
+5. WAL-Safe Sovereign Storage & BitTorrent Epistemic Economics
 
 1. **Scale-to-Zero Compute Plane**: Google Cloud Run v2 container instances scale to exactly 0 instances when idle, incurring $0.00 cloud compute charges during quiet hours.
 2. **92.3% Work-Sharing Mesh Swarm**: P2P gossip distribution allows peer nodes to adopt Ed25519-signed audit receipts, cutting aggregate network LLM token consumption by 92.3%.

@@ -24,12 +24,11 @@ To eliminate this class of defects, Credence established **The Compute Naming On
 
 Under the Credence compute ontology, any function prefixed with `compute_*` must adhere to three non-negotiable mathematical properties:
 
-```
-|                   THE 3 COMPUTE ONTOLOGY INVARIANTS                    |
-| 1. 100% Pure &    | 2. Zero Network   | 3. Deterministic               |
-|    Side-Effect-   |    or Database    |    Same Input ->               |
-|    Free           |    I/O            |    Identical Output            |
-```
+| Compute Ontology Invariant | Definition & Rule | Forbidden Operations | Verification Test Gate |
+| :--- | :--- | :--- | :--- |
+| **1. 100% Pure Functions** | Mathematical transformations only | Zero global state mutations | Static AST analyzer |
+| **2. Zero Network or DB I/O** | `compute_*` functions never perform I/O | No `httpx`, `sqlite`, or async calls | `test_compute_naming_ontology_invariant` |
+| **3. Deterministic Repeatability**| Same inputs always yield identical outputs | No non-deterministic timestamps | Hermetic unit test assertions |
 
 1. **100% Pure Calculation**: A `compute_*` function takes inputs and returns calculated outputs without modifying its arguments or global state.
 2. **Zero Async / Zero I/O**: `compute_*` functions never execute `await`, query SQLite, or open network sockets.

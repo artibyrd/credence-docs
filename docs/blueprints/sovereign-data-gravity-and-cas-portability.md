@@ -28,22 +28,16 @@ Credence eliminates data gravity by establishing **Deterministic CAS Portability
 
 Every document snapshot, extracted DOM evidence tree, and attestation receipt is indexed strictly by its **SHA-256 cryptographic hash**:
 
-```
- Extracted Article DOM Text
-             |
-             ▼
- SHA-256 Content Digest: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
-             |
-             ▼
- S3 Standard CAS Key: `cas/sha256/e3/b0/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.json`
-```
+Extracted Article DOM Text
+▼
+SHA-256 Content Digest: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+▼
+S3 Standard CAS Key: `cas/sha256/e3/b0/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.json`
 
-```
-|                   SOVEREIGN CAS ADAPTER INTERFACE                      |
-| 1. Local Homelab  | 2. Self-Hosted    | 3. Planetary Cloud Production  |
-|    Direct POSIX   |    MinIO / S3 API |    Cloudflare R2 ($0.00 Egress)|
-|    `data/cas/`    |    `http://s3:...`|    `https://r2.cloudflare...`  |
-```
+SOVEREIGN CAS ADAPTER INTERFACE
+1. Local Homelab  | 2. Self-Hosted    | 3. Planetary Cloud Production
+Direct POSIX   |    MinIO / S3 API |    Cloudflare R2 ($0.00 Egress)
+`data/cas/`    |    `http://s3:...`|    `https://r2.cloudflare...`
 
 ---
 

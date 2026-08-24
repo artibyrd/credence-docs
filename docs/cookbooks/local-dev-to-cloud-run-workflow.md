@@ -16,18 +16,13 @@ This cookbook provides the definitive end-to-end workflow for writing code local
 
 ## 1. The 4-Stage Developer Flow
 
-```
- 1. Local Code & Unit Tests (`just check` < 3s)
-                      |
-                      ▼
- 2. Deploy to Cloud Run Dev Preview (`just deploy-dev`)
-                      |
-                      ▼
- 3. Mk1 Eyeball Human Sign-Off on Live Preview (`dev.credence.run`)
-                      |
-                      ▼
- 4. Merge to Main & Release (`just release vX.Y.Z`)
-```
+1. Local Code & Unit Tests (`just check` < 3s)
+▼
+2. Deploy to Cloud Run Dev Preview (`just deploy-dev`)
+▼
+3. Mk1 Eyeball Human Sign-Off on Live Preview (`dev.credence.run`)
+▼
+4. Merge to Main & Release (`just release vX.Y.Z`)
 
 ---
 

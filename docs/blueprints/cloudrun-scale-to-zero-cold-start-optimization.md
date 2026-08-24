@@ -31,12 +31,10 @@ Credence solves this with **The 140ms Lean Container Architecture**.
 
 ## 2. The 4 Layers of Cold Start Optimization
 
-```
-| 1. Lean Multi-Stage OCI Build: Multi-stage slim base (<45MB image)     |
-| 2. Deferred Heavy Imports: Lazy-load frontier LLM SDKs on demand       |
-| 3. Pre-Compiled Regex Heuristics: Cached AST bytecode at startup (<2ms)|
-| 4. Fast Liveness Probe Handshake: /healthz responds in <1ms            |
-```
+1. Lean Multi-Stage OCI Build: Multi-stage slim base (<45MB image)
+2. Deferred Heavy Imports: Lazy-load frontier LLM SDKs on demand
+3. Pre-Compiled Regex Heuristics: Cached AST bytecode at startup (<2ms)
+4. Fast Liveness Probe Handshake: /healthz responds in <1ms
 
 ---
 

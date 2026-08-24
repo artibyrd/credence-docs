@@ -20,16 +20,14 @@ In decentralized consensus networks, a **Sybil attack** occurs when a single adv
 
 Suppose an adversary runs 4 colluding nodes in a 13-node mesh. When a fraudulent article is published, all 4 colluding nodes broadcast falsified `PRISTINE (0.0)` audit receipts to whitewash the disinformation.
 
-```
-       [Honest Node 1] --- [Honest Node 2]
-              \                /
-               ▼              ▼
-     [Bayesian Weighted Consensus Median] ◄-- [Honest Specialist (G=1.00)]
-               ▲              ▲
-              /                \
- [Cartel Node 1] -------- [Cartel Node 2]   (Colluding False Scores)
- [Cartel Node 3] -------- [Cartel Node 4]
-```
+[Honest Node 1] --- [Honest Node 2]
+\                /
+▼              ▼
+[Bayesian Weighted Consensus Median] ◄-- [Honest Specialist (G=1.00)]
+▲              ▲
+/                \
+[Cartel Node 1] -------- [Cartel Node 2]   (Colluding False Scores)
+[Cartel Node 3] -------- [Cartel Node 4]
 
 ---
 
@@ -61,14 +59,16 @@ Verify that the malicious nodes are quarantined via CLI:
 $ credence mesh peers --quarantine
 ```
 
-```
-╭---------------------- 🚫 Quarantined Peer Nodes ----------------------╮
-| Node ID: ed25519:7a8b9c... (Cartel-01)  | Status: QUARANTINED (Slash: 50%) |
-| Node ID: ed25519:8b9c0d... (Cartel-02)  | Status: QUARANTINED (Slash: 50%) |
-| Node ID: ed25519:9c0d1e... (Cartel-03)  | Status: QUARANTINED (Slash: 50%) |
-| Node ID: ed25519:0d1e2f... (Cartel-04)  | Status: QUARANTINED (Slash: 50%) |
-| Reason: Coordinated score covariance without verifiable DOM grounding   |
-╰------------------------------------------------------------------------╯
+```json
+{
+  "quarantined_nodes": [
+    { "node_id": "ed25519:7a8b9c...", "status": "QUARANTINED", "slash_penalty": "50%" },
+    { "node_id": "ed25519:8b9c0d...", "status": "QUARANTINED", "slash_penalty": "50%" },
+    { "node_id": "ed25519:9c0d1e...", "status": "QUARANTINED", "slash_penalty": "50%" },
+    { "node_id": "ed25519:0d1e2f...", "status": "QUARANTINED", "slash_penalty": "50%" }
+  ],
+  "reason": "Coordinated score covariance without verifiable DOM grounding"
+}
 ```
 
 ---

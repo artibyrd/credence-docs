@@ -56,21 +56,19 @@ Because all 13 WebSocket servers run inside Python's native `asyncio` event loop
 
 When running our physical multi-container homelab cluster (`just mesh-cluster-up`), we enforce strict hardware boundaries via `credence/hardware_guard.py`.
 
-```text
-|                         HARDWARE RESOURCE GOVERNOR DECISION ENGINE                               |
-| Host Environment Interrogation (`psutil.virtual_memory()`)                                        |
-|                                |                                                                 |
-|       ----------------------------------------+                                        |
-|       ▼ RAM Available $\ge 2.0\text{GB}$                ▼ RAM Constrained ($< 2.0\text{GB}$)     |
-| ----------------   ----------------      |
-| | 🚀 FULL 13-NODE SWARM CLUSTER            |   | 🛡️ GRACEFUL 3-NODE FALLBACK TRIANGLE     |      |
-| ----------------   ----------------      |
-| | • 13 Active WebSocket Relays             |   | • 3 Node Triangle Cluster (Consumes <300M|      |
-| | • Full Watts-Strogatz Lattice ($N=13$)   |   | • Preserves Byzantine Quorum Math ($f=0$)|      |
-| | • 128MB Hard Cgroups (`mem_limit: 128m`) |   | • Emits Clear Educational Warning        |      |
-| ----------------   ----------------      |
-| 💡 Adaptive Scaling: Automatic graceful degradation prevents OOM panics on edge hardware        |
-```
+HARDWARE RESOURCE GOVERNOR DECISION ENGINE
+Host Environment Interrogation (`psutil.virtual_memory()`)
+|
+----------------------------------------+
+▼ RAM Available $\ge 2.0\text{GB}$                ▼ RAM Constrained ($< 2.0\text{GB}$)
+----------------   ----------------
+| 🚀 FULL 13-NODE SWARM CLUSTER            |   | 🛡️ GRACEFUL 3-NODE FALLBACK TRIANGLE     |
+----------------   ----------------
+| • 13 Active WebSocket Relays             |   | • 3 Node Triangle Cluster (Consumes <300M|
+| • Full Watts-Strogatz Lattice ($N=13$)   |   | • Preserves Byzantine Quorum Math ($f=0$)|
+| • 128MB Hard Cgroups (`mem_limit: 128m`) |   | • Emits Clear Educational Warning        |
+----------------   ----------------
+💡 Adaptive Scaling: Automatic graceful degradation prevents OOM panics on edge hardware
 
 1. **Pre-Flight Memory Probing**: Before launching containers, the governor interrogates `psutil.virtual_memory()`. If available RAM is $<2\text{GB}$, it throttles cluster size down to a 3-node triangle with a clear warning.
 2. **128MB Hard Cgroups**: Every Docker container is strictly capped with `mem_limit: 128m` and `cpus: "0.25"`. The entire 13-container cluster is physically prevented from consuming more than $1.6\text{GB}$ of host memory.

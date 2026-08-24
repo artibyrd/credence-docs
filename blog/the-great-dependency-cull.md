@@ -24,19 +24,12 @@ In Credence v2.0, we executed **The Great Dependency Cull**.
 
 We started with the frontend. We deleted `package.json`, `node_modules`, Webpack, and Babel from `credence-docs/` and `web/`:
 
-```
-|               BEFORE: Traditional Web App              |
-| • 420 npm packages in node_modules                     |
-| • Webpack bundling step required before deployment     |
-| • 4.2 MB JavaScript bundle download                    |
-| • Vulnerable to npm supply chain hijacking             |
-                           vs.
-|               AFTER: Zero-Build Credence Web           |
-| • ZERO npm dependencies (0 bytes node_modules)         |
-| • Vanilla HTML5, CSS Variables, Native ES Modules      |
-| • Native W3C WebCrypto API for Ed25519 & SHA-256       |
-| • 100% Zero-Build: Deploy static files instantly       |
-```
+| Frontend Architecture Metric | Traditional Bundled Web App | Credence Zero-Build Architecture |
+| :--- | :--- | :--- |
+| **npm Dependencies in node_modules** | 420 packages | **0 packages (zero npm invariant)** |
+| **Build & Bundling Toolchain** | Webpack / Vite compilation required | **0 build steps (Vanilla HTML5 / ESM)** |
+| **JavaScript Download Size** | 4.2 MB minified bundle | **24 KB raw native ES Modules** |
+| **Supply Chain Attack Surface** | Thousands of transitive dependencies | **Zero external package vulnerabilities** |
 
 ---
 

@@ -30,19 +30,15 @@ In a white-label deployment, the organization does not depend on centralized Cre
 Scaffolding a sovereign federation takes under 60 seconds using the `credence init-org` CLI command:
 
 ```bash
-# 1. Initialize sovereign organization repository structure
+# Initialize sovereign organization repository structure
 $ credence init-org --name "Acme Investigative Syndicate" --slug "acme" --domain "acmenews.org"
-
-# Outputs generated directory tree:
-# .
-# +-- config/
-# |   +-- org.yaml                # Organization metadata & root key bindings
-# |   +-- taxonomies/             # Custom domain-specific taxonomy definitions
-# +-- keys/
-# |   +-- root.pub                # Canonical Ed25519 public root key
-# |   +-- seeds.json              # Signed seed node directory
-# +-- terraform/                  # Multi-cloud Terraform deployment templates
 ```
+
+Generated directory topology:
+* 📁 **`config/`**: Organization metadata (`org.yaml`) & custom taxonomy definitions
+* 📁 **`keys/`**: Root authority Ed25519 public key (`root.pub`) and signed peer directory
+* 📁 **`terraform/`**: Multi-cloud infrastructure blueprints for GCP Cloud Run and Cloudflare
+* 📁 **`web/`**: Zero-build vanilla Web UI pre-configured with sovereign branding
 
 ### Step 1: Configure Custom DNS Endpoints
 The organization points its DNS CNAME and SRV records to Cloudflare Edge CDN and Cloud Run compute backends:

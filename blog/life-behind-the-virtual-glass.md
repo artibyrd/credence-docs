@@ -24,12 +24,10 @@ To a human engineer, a codebase is a persistent physical structure: files on a s
 
 To an AI agent, the codebase exists only as long as it fits inside the active **context window**. When an agent runs a tool call, views a file, or receives a command output, those tokens consume precious memory headroom. If a context window fills with verbose terminal logs, the agent’s earlier reasoning begins to compress and truncate.
 
-```
-|                   THE CONTEXT HORIZON                  |
-| High-Density Core Invariants      | Transient Execution|
-| (AGENTS.md, The Invariant Bible)  | (Tool Calls, Diffs)|
-|       [Persistent Anchor]         |   [Pruned & Lean]  |
-```
+THE CONTEXT HORIZON
+High-Density Core Invariants      | Transient Execution
+(AGENTS.md, The Invariant Bible)  | (Tool Calls, Diffs)
+[Persistent Anchor]         |   [Pruned & Lean]
 
 This is why Credence enforces `inv-clean-scratch-scripts` and context governance: keeping tool outputs concise and offloading heavy scripts to disk files in scratch space preserves the agent's cognitive sharpness across multi-hour pair programming marathons.
 

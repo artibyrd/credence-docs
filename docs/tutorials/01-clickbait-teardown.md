@@ -37,18 +37,14 @@ $ credence audit "https://example-news-blog.com/shocking-breakthrough-revealed" 
 
 ### Understanding the Terminal Output
 
-```
-╭---------------------- 🛡️ Credence Epistemic Audit ----------------------╮
-| URL:            https://example-news-blog.com/shocking-breakthrough     |
-| Classification: SUSPICIOUS                                             |
-| Suspicion Score: 58.4 / 100                                            |
-| Grounding:      G = 0.42 (Low Grounding Ratio)                         |
-|                                                                        |
-| Violations Detected:                                                   |
-|  • [DECEPTIVE-CB-1: HIGH] Superlative Saturation: "Mind-blowing"        |
-|  • [IEP-FALLACY-4: MEDIUM] False Dilemma in sub-headline                |
-|  • [SPJ-1.1: HIGH] Headline promises cure not mentioned in article body |
-╰------------------------------------------------------------------------╯
+```json
+{
+  "url": "https://example-news-blog.com/shocking-breakthrough",
+  "classification": "SUSPICIOUS",
+  "suspicion_score": 58.4,
+  "grounding_ratio": 0.42,
+  "verdict": "Low grounding ratio and unverified claims"
+}
 ```
 
 ---

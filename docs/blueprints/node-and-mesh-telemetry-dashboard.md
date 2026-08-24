@@ -20,13 +20,11 @@ A critical invariant in Credence is the strict physical boundary between **Produ
 - **Operator Dashboard (`credence.nexus/dashboard.html`)**: Must report 100% genuine node reality. If the node is running in isolation ($N=1$), it must display `STANDALONE (0 Peers Connected)` with active local SQLite metrics. Zero synthetic or hardcoded peer graphs are permitted in production surfaces.
 - **Interactive Playground (`docs.credence.run/#playground`)**: Sandboxed educational simulators belong exclusively inside documentation playground routes, clearly marked with simulation badges.
 
-```
-|                   TELEMETRY OBSERVABILITY BOUNDARY                     |
-| Production Dashboards (`nexus/`)  | Interactive Playgrounds (`docs/`)  |
-|  • 100% Genuine Node Reality      |  • Educational Chaos Simulation    |
-|  • In-Memory Ring Buffer Streams  |  • Synthetic 13-Node Watts-Strogatz|
-|  • Zero Mocked Peer Data          |  • Live Interactive Sliders        |
-```
+TELEMETRY OBSERVABILITY BOUNDARY
+Production Dashboards (`nexus/`)  | Interactive Playgrounds (`docs/`)
+• 100% Genuine Node Reality      |  • Educational Chaos Simulation
+• In-Memory Ring Buffer Streams  |  • Synthetic 13-Node Watts-Strogatz
+• Zero Mocked Peer Data          |  • Live Interactive Sliders
 
 ---
 
@@ -34,24 +32,19 @@ A critical invariant in Credence is the strict physical boundary between **Produ
 
 The telemetry pipeline aggregates metrics across four discrete operational dimensions using a lock-free in-memory ring buffer:
 
-```
- Node Subsystems (Auditor, P2P Mesh, Token Governor, FastMCP)
-                         |
-                         ▼
-| In-Memory 1,000-Event Circular Ring Buffer             |
-|  • Atomic timestamped metric events                    |
-|  • Zero disk I/O overhead on hot query paths           |
-                         |
-                         ▼
-| FastMCP SSE & REST API Gateway (`/api/v1/telemetry`)   |
-|  • Compresses event histograms into coarse buckets     |
-|  • Applies differential privacy transformations        |
-                         |
-                         ▼
-| Zero-Build Web Dashboard (`credence.nexus/mesh.html`)  |
-|  • Native SVG vector gauge rendering                   |
-|  • Real-time peer latency & Byzantine chord diagrams   |
-```
+Node Subsystems (Auditor, P2P Mesh, Token Governor, FastMCP)
+▼
+In-Memory 1,000-Event Circular Ring Buffer
+• Atomic timestamped metric events
+• Zero disk I/O overhead on hot query paths
+▼
+FastMCP SSE & REST API Gateway (`/api/v1/telemetry`)
+• Compresses event histograms into coarse buckets
+• Applies differential privacy transformations
+▼
+Zero-Build Web Dashboard (`credence.nexus/mesh.html`)
+• Native SVG vector gauge rendering
+• Real-time peer latency & Byzantine chord diagrams
 
 ---
 

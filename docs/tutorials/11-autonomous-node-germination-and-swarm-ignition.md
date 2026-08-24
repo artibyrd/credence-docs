@@ -57,16 +57,14 @@ Run the comprehensive health probe:
 $ credence stats
 ```
 
-```
-╭---------------------- 🩺 Credence Doctor Diagnostic ----------------------╮
-| SQLite WAL State Store:       HEALTHY (0.01ms query latency)             |
-| Ed25519 Node Identity:        VERIFIED (Pubkey: 9580dc9160...)            |
-| P2P Gossip Connectivity:      ACTIVE (4 Connected Peers)                  |
-| Token Safety Governor:        ONLINE (100k Hourly Ceiling, 85% Headroom)  |
-| FastMCP 2.0 Substrate:        READY (stdio & sse transports enabled)      |
-|                                                                           |
-| ✓ NODE IS 100% OPERATIONAL AND READY FOR PRODUCTION WORKLOADS             |
-╰---------------------------------------------------------------------------╯
+```json
+{
+  "sqlite_wal_state_store": { "status": "HEALTHY", "latency_ms": 0.01 },
+  "ed25519_node_identity": { "status": "VERIFIED", "pubkey": "9580dc9160..." },
+  "p2p_gossip_connectivity": { "status": "ACTIVE", "connected_peers": 4 },
+  "token_safety_governor": { "status": "ONLINE", "headroom_pct": 85.0 },
+  "fastmcp_substrate": { "status": "READY", "transports": ["stdio", "sse"] }
+}
 ```
 
 ---

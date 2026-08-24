@@ -22,18 +22,16 @@ Credence introduces **BitTorrent for Truth**: a decentralized peer-to-peer work-
 
 ## The Economics of Work-Sharing
 
-```
- Traditional Centralized API Architecture (10,000 Audits)
- | 10,000 Users --► Centralized LLM API --► 10,000 Calls  |
- | Cost: 10,000 × $0.0034 = $34.00 (100% Redundant Waste) |
-                           vs.
- Credence P2P Work-Sharing Mesh (10,000 Audits)
- | Node A Audits Article --► Signs Ed25519 Receipt ($0.0034)
- |           |                                            |
- |           ▼ (P2P Gossip over WebSockets)               |
- | Nodes B..Z Verify Signature & Adopt ($0.00, 0 tokens)  |
- | Total Cost: $0.0034 (99.99% Marginal Savings)          |
-```
+Traditional Centralized API Architecture (10,000 Audits)
+10,000 Users --► Centralized LLM API --► 10,000 Calls
+Cost: 10,000 × $0.0034 = $34.00 (100% Redundant Waste)
+vs.
+Credence P2P Work-Sharing Mesh (10,000 Audits)
+Node A Audits Article --► Signs Ed25519 Receipt ($0.0034)
+|
+▼ (P2P Gossip over WebSockets)
+Nodes B..Z Verify Signature & Adopt ($0.00, 0 tokens)
+Total Cost: $0.0034 (99.99% Marginal Savings)
 
 In a standard 13-node Watts-Strogatz cluster monitoring active syndicated wire feeds, empirical telemetry proves that **$92.3\%$ of incoming query URLs have already been audited and signed by a trusted peer**.
 

@@ -67,19 +67,14 @@ $ credence sifter digest --window 24h --format markdown --output morning-briefin
 
 ### Sample Briefing Output
 
-```
-╭---------------------- ☀️ Credence Morning Briefing ----------------------╮
-| Date: August 24, 2026 | Window: Last 24 Hours                           |
-| Articles Sifted: 48   | Approved (Pristine): 36 | Flagged (Suspicious): 12 |
-| Global Grounding: 96.4% | Network Weather: Pristine Sunlight ☀️          |
-|                                                                         |
-| Top Verified Investigations:                                            |
-|  1. [PRISTINE: 4.2] Deep Dive into Post-Quantum Lattice Cryptography    |
-|  2. [PRISTINE: 6.8] Municipal Water Infrastructure Audit Findings        |
-|                                                                         |
-| Flagged Deceptions Filtered Out:                                        |
-|  • [SUSPICIOUS: 74.5] "Revolutionary AI Miracle Device Replaces Doctors" |
-╰-------------------------------------------------------------------------╯
+```json
+{
+  "url": "https://example-news-blog.com/shocking-breakthrough",
+  "classification": "SUSPICIOUS",
+  "suspicion_score": 58.4,
+  "grounding_ratio": 0.42,
+  "verdict": "Low grounding ratio and unverified claims"
+}
 ```
 
 ---
