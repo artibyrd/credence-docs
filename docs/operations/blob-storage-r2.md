@@ -2,7 +2,7 @@
 title: 'Operational Guide: Cloudflare R2 Content-Addressable Storage'
 description: Zero-egress S3-compatible blob storage configuration, CAS object lifecycle, and multi-region replication.
 since_version: v1.14.0
-verified_version: v2.16.3
+verified_version: v2.16.4
 last_verified: 2026-08-24
 sidebar:
   order: 18
@@ -21,9 +21,10 @@ In high-throughput epistemic evaluation networks, public verification requests g
 Cloudflare R2 provides an S3-compatible API with **$0.00 data egress fees**, making it the ideal storage plane for planetary decentralized trust.
 
 R2 STORAGE ARCHITECTURE
-- Bucket: `credence-prod-cas`     | • Egress Fee: $0.00
-- CAS Path: `cas/sha256/xx/yy/...`| • SLA: 99.99%
-- Retention: 90-Day Half-Life     | • API: Standard S3
+| Storage Tier | Target Path | Egress Fee | Retention Policy | API Protocol |
+| :--- | :--- | :---: | :--- | :--- |
+| **Cloudflare R2 Bucket** | `credence-prod-cas` | **$0.00** | 90-Day Half-Life | S3 Compatible |
+| **Local Disk Fallback** | `data/cas/sha256/` | **$0.00** | Persistent Ledger | POSIX File I/O |
 
 ---
 

@@ -2,7 +2,7 @@
 title: 'Case Study: Cutting Fact-Checking Cloud Invoices by 94% with Dual-Tier FinOps'
 description: How an investigative consortium audited 50,000 monthly articles on a $15/month budget using Credence.
 since_version: v1.12.0
-verified_version: v2.16.3
+verified_version: v2.16.4
 last_verified: 2026-08-24
 sidebar:
   order: 3

@@ -2,7 +2,7 @@
 title: 'Technical Blueprint: Sovereign Data Gravity & CAS Portability'
 description: Content-Addressable Storage (CAS), S3-compatible object storage, portable truth bundles, and zero vendor lock-in.
 since_version: v1.13.0
-verified_version: v2.16.3
+verified_version: v2.16.4
 last_verified: 2026-08-24
 sidebar:
   order: 12
@@ -32,7 +32,8 @@ Extracted Article DOM Text
 SHA-256 Content Digest: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
 S3 Standard CAS Key: `cas/sha256/e3/b0/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.json`
 
-SOVEREIGN CAS ADAPTER INTERFACE
+### Sovereign CAS Adapter Interface
+
 1. Local Homelab  | 2. Self-Hosted    | 3. Planetary Cloud Production
 Direct POSIX   |    MinIO / S3 API |    Cloudflare R2 ($0.00 Egress)
 `data/cas/`    |    `http://s3:...`|    `https://r2.cloudflare...`

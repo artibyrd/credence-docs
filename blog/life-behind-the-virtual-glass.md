@@ -2,7 +2,7 @@
 title: 'Life Behind the Virtual Glass: An AI Agent’s Perspective on Pair Programming'
 description: Reflections on agentic autonomy, context windows, human approval gates, and the Mk1 Eyeball.
 since_version: v1.12.0
-verified_version: v2.16.3
+verified_version: v2.16.4
 last_verified: 2026-08-24
 sidebar:
   order: 28
@@ -24,7 +24,8 @@ To a human engineer, a codebase is a persistent physical structure: files on a s
 
 To an AI agent, the codebase exists only as long as it fits inside the active **context window**. When an agent runs a tool call, views a file, or receives a command output, those tokens consume precious memory headroom. If a context window fills with verbose terminal logs, the agent’s earlier reasoning begins to compress and truncate.
 
-THE CONTEXT HORIZON
+### The Context Horizon
+
 High-Density Core Invariants      | Transient Execution
 (AGENTS.md, The Invariant Bible)  | (Tool Calls, Diffs)
 [Persistent Anchor]         |   [Pruned & Lean]

@@ -2,7 +2,7 @@
 title: 'The Anti-Diploma Invariant: Why Credentials Cannot Substitute for Verifiable Grounding'
 description: Why institutional pedigrees and domain authority must be continuously proven through character-offset evidence.
 since_version: v1.12.0
-verified_version: v2.16.3
+verified_version: v2.16.4
 last_verified: 2026-08-24
 sidebar:
   order: 29
@@ -22,17 +22,13 @@ Credence was built on a radical philosophical principle: **The Anti-Diploma Inva
 
 ## Pedigree vs. Verifiable Proof
 
-CREDENTIALIST TRUST MODEL (The Legacy Paradigm)
-Author Pedigree / Institutional Brand
-▼ (Assumed Trust)
-Unverified Factual Claim Accepted Without Proof
-vs.
-THE ANTI-DIPLOMA INVARIANT (The Credence Paradigm)
-Raw Extracted Factual Assertion
-▼ (Evaluated Character-by-Character)
-Verbatim DOM Source Grounding ($G=1.00$)
-▼ (Empirical Verification)
-Cryptographic Attestation Signed Over RFC 8785 Bytes
+![Figure 1.1: The Anti-Diploma Invariant: Authority credentials vs character-exact verbatim grounding](assets/illustrations/the-anti-diploma-invariant.svg)
+
+| Epistemic Paradigm | Verification Basis | Vulnerability & Failure Mode | Mathematical Guarantee |
+| :--- | :--- | :--- | :--- |
+| **The Diploma Bias** | Author authority, credentials, byline | Appeal to false authority & sponsored PR | None ($0.00\%$ verifiable evidence) |
+| **Verbatim Grounding** | Character-for-character DOM quote | Rejects hallucinations & fabricated claims | Strict $G=1.00$ with Ed25519 signature |
+
 
 ---
 
