@@ -1065,23 +1065,24 @@ const MODELS_PRICING = [
 
 export function getDomainContext() {
   const host = typeof window !== 'undefined' ? window.location.hostname : '';
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
   const isDev = host.startsWith('dev.') || host.startsWith('mcp.dev.');
-  const isDocsDomain = host === 'docs.credence.run' || host === 'dev.docs.credence.run';
-  const isBlogDomain = host === 'blog.credence.run' || host === 'dev.blog.credence.run';
+  const isDocsDomain = host === 'docs.credence.run' || host === 'dev.docs.credence.run' || (isDev && (pathname === '/docs' || pathname.startsWith('/docs/')));
+  const isBlogDomain = host === 'blog.credence.run' || host === 'dev.blog.credence.run' || (isDev && (pathname === '/blog' || pathname.startsWith('/blog/')));
   const isMultiDomain = isDocsDomain || isBlogDomain || host.endsWith('credence.run');
-  return { host, isDev, isDocsDomain, isBlogDomain, isMultiDomain };
+  return { host, pathname, isDev, isDocsDomain, isBlogDomain, isMultiDomain };
 }
 
 export function getDocsBaseUrl() {
   const { isDev, isMultiDomain } = getDomainContext();
   if (!isMultiDomain) return '';
-  return isDev ? 'https://dev.docs.credence.run' : 'https://docs.credence.run';
+  return isDev ? 'https://dev.credence.run/docs' : 'https://docs.credence.run';
 }
 
 export function getBlogBaseUrl() {
   const { isDev, isMultiDomain } = getDomainContext();
   if (!isMultiDomain) return '';
-  return isDev ? 'https://dev.blog.credence.run' : 'https://blog.credence.run';
+  return isDev ? 'https://dev.credence.run/blog' : 'https://blog.credence.run';
 }
 
 export function isBlogContext() {
@@ -4289,8 +4290,8 @@ export function initRouter() {
       'https://credence.report': 'https://dev.credence.report',
       'https://credence.nexus': 'https://dev.credence.nexus',
       'https://credence.foundation': 'https://dev.credence.foundation',
-      'https://docs.credence.run': 'https://dev.docs.credence.run',
-      'https://blog.credence.run': 'https://dev.blog.credence.run',
+      'https://docs.credence.run': 'https://dev.credence.run/docs',
+      'https://blog.credence.run': 'https://dev.credence.run/blog',
       'https://mcp.credence.run': 'https://mcp.dev.credence.run',
     };
 
@@ -4378,8 +4379,8 @@ export function initRouter() {
         'https://credence.report': 'https://dev.credence.report',
         'https://credence.nexus': 'https://dev.credence.nexus',
         'https://credence.foundation': 'https://dev.credence.foundation',
-        'https://docs.credence.run': 'https://dev.docs.credence.run',
-        'https://blog.credence.run': 'https://dev.blog.credence.run',
+        'https://docs.credence.run': 'https://dev.credence.run/docs',
+        'https://blog.credence.run': 'https://dev.credence.run/blog',
         'https://mcp.credence.run': 'https://mcp.dev.credence.run',
       };
 
