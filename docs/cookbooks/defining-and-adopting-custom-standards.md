@@ -2,7 +2,7 @@
 title: Defining & Adopting Custom Standards in Credence
 description: Complete operator and researcher handbook for authoring epistemic rule catalogs, executing the synthetic benchmark gauntlet, and achieving autonomous decentralized mesh adoption.
 since_version: v2.16.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -140,15 +140,14 @@ credence rfc benchmark taxonomies/financial_disclosures.yaml --fixtures fixtures
 
 Scorecard:
 ```
-╭──────────────────────────── Synthetic Benchmark Gauntlet Scorecard ────────────────────────────╮
-│ Metric                │ Observed Value │ Required Threshold │ Status                           │
-├───────────────────────┼────────────────┼────────────────────┼──────────────────────────────────┤
-│ F1 Score              │ 1.0000         │ >= 0.8700          │ PASS                             │
-│ Precision             │ 1.0000         │ >= 0.9000          │ PASS                             │
-│ Recall                │ 1.0000         │ >= 0.8500          │ PASS                             │
-│ Golden Control FPR    │ 0.0000         │ == 0.0000          │ PASS                             │
-│ Verbatim Grounding (G)│ 1.00           │ == 1.00            │ PASS                             │
-╰───────────────────────┴────────────────┴────────────────────┴──────────────────────────────────╯
+╭---------------------------- Synthetic Benchmark Gauntlet Scorecard ----------------------------╮
+| Metric                | Observed Value | Required Threshold | Status                           |
+| F1 Score              | 1.0000         | >= 0.8700          | PASS                             |
+| Precision             | 1.0000         | >= 0.9000          | PASS                             |
+| Recall                | 1.0000         | >= 0.8500          | PASS                             |
+| Golden Control FPR    | 0.0000         | == 0.0000          | PASS                             |
+| Verbatim Grounding (G)| 1.00           | == 1.00            | PASS                             |
+╰-----------------------------------------------------------+----------------------------------╯
 ✓ Standard Passed Synthetic Benchmark Gauntlet
 ```
 

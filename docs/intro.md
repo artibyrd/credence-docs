@@ -3,7 +3,7 @@ title: Introduction & Overview
 description: 'Welcome to Credence: the open epistemic trust engine for AI and the
   web.'
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -57,6 +57,11 @@ Every evaluation produces an Ed25519-signed `.credence.json` envelope. Anyone ca
 ---
 
 ## 🏛️ How Credence Works
+
+Credence operates as a decoupled, 3-plane epistemic verification architecture:
+1. **Edge Plane**: Zero-build static dashboards, WebCrypto verification widgets, and Cloudflare Pages previews.
+2. **Compute Plane**: High-throughput FastAPI services, streaming FastMCP 2.0 servers, and multi-model LLM adapters.
+3. **P2P Mesh Plane**: 13-node Watts-Strogatz gossip networks, Bloom filter attestation exchange, and Bayesian consensus aggregation.
 
 ---
 

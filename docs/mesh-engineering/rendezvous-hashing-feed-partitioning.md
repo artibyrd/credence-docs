@@ -4,7 +4,7 @@ description: How Credence P2P mesh clusters use Highest Random Weight (HRW) Rend
   Hashing to partition syndicated feeds without central coordinators, saving 92.3%
   compute.
 since_version: v1.14.1
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -82,5 +82,5 @@ def is_primary_auditor(feed_url: str, local_pubkey: str, peer_pubkeys: list[str]
 
 ## 4. Invariants & Security Boundaries
 
-- **Atomic Inoculation (Invariant 18)**: Feed sifting and seed insertion must execute within atomic commit/rollback sub-transactions to prevent half-ingested feed state during network splits.
-- **Attestation Anti-Tampering (Invariant 19)**: Modifying any field in an adopted attestation (`suspicion_score`, `violations`, `content_sha256`) immediately breaks Ed25519 signature verification and triggers a 50% reputation slash against the relaying peer.
+- **Atomic Inoculation (The Invariant Bible)**: Feed sifting and seed insertion must execute within atomic commit/rollback sub-transactions to prevent half-ingested feed state during network splits.
+- **Attestation Anti-Tampering (The Invariant Bible)**: Modifying any field in an adopted attestation (`suspicion_score`, `violations`, `content_sha256`) immediately breaks Ed25519 signature verification and triggers a 50% reputation slash against the relaying peer.

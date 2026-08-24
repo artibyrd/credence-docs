@@ -4,7 +4,7 @@ description: How Credence solves the Cold-Start Ghost Town problem in decentrali
   verification through 5-phase botanical germination, HRW Rendezvous Hashing, and
   zero-token mesh adoption.
 since_version: v1.6.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 date: '2026-08-18'
 author: Credence Core Architecture Team
@@ -33,12 +33,12 @@ To achieve genuine zero-touch autonomy, a fresh node must solve four distinct ch
 
 ```
 🌱 Germination Lifecycle
-├── 🔑 Epistemic Genesis: Identity Active (9580dc91601992b3...)
-├── 💧 Peer Mesh Inoculation: 5 Attestations Adopted (0 tokens saved / $0.00 spent)
-├── 🌱 Epistemic Soil Sowed: 26 Categorized Preset Feeds (4 tiers)
-├── ⚡ Miracle-Gro Burst: 3 Novel Articles Audited
-├── 📦 Web Catalog Export: reports.json Synced
-└── 🌳 Node Fully Germinated: 194 Total Reports Ready (12.35s)
++-- 🔑 Epistemic Genesis: Identity Active (9580dc91601992b3...)
++-- 💧 Peer Mesh Inoculation: 5 Attestations Adopted (0 tokens saved / $0.00 spent)
++-- 🌱 Epistemic Soil Sowed: 26 Categorized Preset Feeds (4 tiers)
++-- ⚡ Miracle-Gro Burst: 3 Novel Articles Audited
++-- 📦 Web Catalog Export: reports.json Synced
++-- 🌳 Node Fully Germinated: 194 Total Reports Ready (12.35s)
 ```
 
 ---

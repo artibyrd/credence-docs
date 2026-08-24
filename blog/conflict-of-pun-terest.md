@@ -4,7 +4,7 @@ title: 'Conflict of Pun-terest: 347 Reasons Why Maricopa''s Publisher-Politician
 description: Empirical case study of inmaricopa.com auditing the collision of municipal
   governance, unlabelled commercial advertorials, and local news monopoly.
 since_version: v1.12.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -223,24 +223,24 @@ Aggregating all historical audits for `inmaricopa.com` yields the following cali
       <button type="button" class="widget-btn" id="btn-pub-copy-ascii" style="padding: 0.3rem 0.75rem; font-size: 0.75rem;">📋 Copy Raw Receipt</button>
     </div>
     <pre id="pub-ascii-content" style="background: #020617; border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 8px; padding: 1rem; color: #38bdf8; font-family: var(--font-mono, monospace); font-size: 0.78rem; line-height: 1.45; overflow-x: auto; margin: 0;">
-╭─────────────────────────────────────────────────────────────────────────────╮
-│                        Domain Credence Index (DCI)                         │
-│                                62.5 / 100.0                                 │
-│                            Trust Band: [ MIXED ]                            │
-╰─────────────────────────────────────────────────────────────────────────────╯
-╭────────────────────────────── Sourcing Ratios ──────────────────────────────╮
-│  Byline Transparency (R_byline):             54.0%                          │
-│  Single-Source Blotter Reliance (R_single):   7.7%                          │
-│  Conflict Disclosure Exposure (R_COI):      100.0% of analyzed civic op-eds │
-│  Advertorial Separation Index (ASI):         84.6 / 100                     │
-╰─────────────────────────────────────────────────────────────────────────────╯
-╭──────────────────────────── Top Violated Rules ─────────────────────────────╮
-│  • SPJ-3.3  (Distinguish News from Advertising)  — 15.4% of audits          │
-│  • AST-1.1  (Astroturfing & Commercial Payload)  — 15.4% of audits          │
-│  • SPJ-3.1  (Undisclosed Conflict of Interest)   —  7.7% of audits          │
-│  • DEC-1.4  (Deceptive Urgency Patterns)         —  7.7% of audits          │
-│  • SPJ-1.1  (Unsourced Law Enforcement Blotter)  —  7.7% of audits          │
-╰─────────────────────────────────────────────────────────────────────────────╯</pre>
+╭-----------------------------------------------------------------------------╮
+|                        Domain Credence Index (DCI)                         |
+|                                62.5 / 100.0                                 |
+|                            Trust Band: [ MIXED ]                            |
+╰-----------------------------------------------------------------------------╯
+╭------------------------------ Sourcing Ratios ------------------------------╮
+|  Byline Transparency (R_byline):             54.0%                          |
+|  Single-Source Blotter Reliance (R_single):   7.7%                          |
+|  Conflict Disclosure Exposure (R_COI):      100.0% of analyzed civic op-eds |
+|  Advertorial Separation Index (ASI):         84.6 / 100                     |
+╰-----------------------------------------------------------------------------╯
+╭---------------------------- Top Violated Rules -----------------------------╮
+|  • SPJ-3.3  (Distinguish News from Advertising)  — 15.4% of audits          |
+|  • AST-1.1  (Astroturfing & Commercial Payload)  — 15.4% of audits          |
+|  • SPJ-3.1  (Undisclosed Conflict of Interest)   —  7.7% of audits          |
+|  • DEC-1.4  (Deceptive Urgency Patterns)         —  7.7% of audits          |
+|  • SPJ-1.1  (Unsourced Law Enforcement Blotter)  —  7.7% of audits          |
+╰-----------------------------------------------------------------------------╯</pre>
   </div>
 </div>
 
@@ -609,4 +609,3 @@ Explore the underlying algorithms, mathematical proofs, and taxonomy specificati
 * **Commercial Camouflage**: [FTC Enforcement Policy Statement on Deceptively Formatted Advertorials](https://www.ftc.gov/business-guidance/resources/native-advertising-guide-businesses)
 * **Public Records Statutory Protections**: [Arizona Public Records Law (A.R.S. § 39-121)](https://www.azleg.gov/ars/39/00121.htm)
 * **Structured Claim Markup**: [Schema.org ClaimReview Specification](https://schema.org/ClaimReview)
-

@@ -3,11 +3,11 @@ title: Master Deployment Prerequisites & Setup Guide
 description: Complete prerequisite checklists, credential matrices, CLI commands,
   and decision trees across all Credence deployment topologies.
 since_version: v1.18.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
-# Master Deployment Prerequisites & Setup Guide
+> **Note**: Master Deployment Prerequisites & Setup Guide
 
 Credence is architected as a **platform-agnostic sovereign stack**. Whether you are deploying on Google Cloud Platform with scale-to-zero serverless compute, running a decentralized homelab node on a Raspberry Pi, or deploying a multi-container planetary stack on Kubernetes, this guide details the exact prerequisites, credentials, IAM permissions, and setup steps required for each deployment topology.
 

@@ -2,7 +2,7 @@
 title: Ecosystem Roadmap & Architecture Horizons
 description: Sovereign in-tree tracker for verified foundation milestones, operational edge cases, and future architecture horizons across the Credence ecosystem.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 tags:
 - roadmap
@@ -115,6 +115,6 @@ Our live dev/prod deployments, Golden 12 cross-profile benchmarks, and bicameral
 ## 5. Guiding Invariants for Roadmap Contributions
 
 All future roadmap implementations must preserve:
-1. **[Invariant 31: Zero-npm Standard](invariants.md#invariant-31)**: Never introduce Node.js or npm dependencies into public web portals.
-2. **[Invariant 4: Hermetic Testing](invariants.md#invariant-4)**: Default test suites (`@pytest.mark.unit`) must execute purely in-memory in <35s.
-3. **[Invariant 26: Universal Feature Parity](invariants.md#invariant-26)**: New features must be exposed symmetrically across CLI, FastMCP 2.0, Textual TUI, and Web UI.
+1. **[The Invariant Bible: Zero-npm Standard](invariants.md#invariant-31)**: Never introduce Node.js or npm dependencies into public web portals.
+2. **[The Invariant Bible: Hermetic Testing](invariants.md#invariant-4)**: Default test suites (`@pytest.mark.unit`) must execute purely in-memory in <35s.
+3. **[The Invariant Bible: Universal Feature Parity](invariants.md#invariant-26)**: New features must be exposed symmetrically across CLI, FastMCP 2.0, Textual TUI, and Web UI.

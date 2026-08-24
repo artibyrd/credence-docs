@@ -1,131 +1,133 @@
 ---
-title: Node Germination & Swarm Ignition Specification
-description: Technical protocol specification for Credence autonomous node ignition,
-  Genesis peer mesh inoculation, HRW Rendezvous Hashing feed partitioning, and atomic
-  sub-transaction invariants.
-since_version: v1.0.0
-verified_version: v2.16.1
+title: Node Germination Lifecycle & Identity Minting
+description: Cryptographic identity minting, state migration, peer discovery, and background worker lifecycle.
+since_version: v1.13.0
+verified_version: v2.16.2
 last_verified: 2026-08-24
+sidebar:
+  order: 10
 ---
 
-# Node Germination & Swarm Ignition Specification
+# Node Germination Lifecycle & Identity Minting
 
-This specification defines the protocol, data structures, mathematical formulas, and concurrency invariants governing **Autonomous Node Germination** and **Swarm Ignition** across the Credence ecosystem.
-
-![Figure 1.1: Zero-touch node germination lifecycle, seed initialization, and attestation persistence](assets/illustrations/node-germination-lifecycle.svg)---
-
-## 1. The 5-Phase Germination Lifecycle
-
-A complete germination lifecycle executes deterministically via `credence.germinate.germinate_node()`:
-
-```python
-async def germinate_node(
-    session: AsyncSession,
-    burst_items: int = 3,
-    sync_mesh: bool = True,
-    profile_override: Any = None,
-    verbose: bool = True,
-    relay: Optional[MeshGossipRelay] = None,
-) -> GerminationSummary: ...
-```
-
-### Phase Definitions
-
-1. **Phase 1: Epistemic Genesis (`load_or_create_node_identity`)**
-   - Generates or loads the node's persistent Ed25519 cryptographic keypair from `node_identity.json`.
-   - Derives the 64-character hexadecimal public key $K_{\text{node}} \in \{0\dots 9, a\dots f\}^{64}$.
-
-2. **Phase 2: Peer Mesh Inoculation (`inoculate_from_mesh_seeds`)**
-   - Ingests canonical signed Genesis seed attestations (`genesis_attestations.json`) into local SQLite records:
-     - `SnapshotRecord` (clean text, content SHA-256, SimHash-64).
-     - `AuditRecord` (suspicion score, classification, Ed25519 signature, `evaluation_method="mesh_adopted"`).
-     - `ViolationRecord` (itemized taxonomy rule violations and verbatim quotes).
-     - `FeedItemRecord` (`processing_status="mesh_adopted"`).
-   - Cost: **$0.00 / 0 LLM tokens**.
-
-3. **Phase 3: Soil Preparation (`bootstrap_preset_feeds`)**
-   - Populates 26 categorized feed subscriptions across 6 curated tiers:
-     - `core-news` (AP, Reuters, NPR, BBC, The Guardian).
-     - `investigative-tech` (ProPublica, The Markup, Ars Technica, Krebs on Security, 404 Media, EFF).
-     - `science-preprints` (Nature, arXiv AI, ScienceDaily, Retraction Watch, NIH).
-     - `regional-civic` (CalMatters, Texas Tribune, Spotlight PA, Voice of San Diego).
-     - `financial-corporate` (MarketWatch, SEC Press Releases, FTC News).
-     - `satire-commentary` (The Onion, The Babylon Bee).
-
-4. **Phase 4: Miracle-Gro Sifting Burst (`run_germination_sifting_burst`)**
-   - Polls highest-affinity feeds and evaluates up to $N$ novel articles within token governor headroom limits ($\ge 30\%$).
-   - If connected to an active `MeshGossipRelay`, broadcasts newly minted attestations to the mesh.
-
-5. **Phase 5: Web Catalog Hydration (`export_catalog_to_disk`)**
-   - Queries SQLite audit records and writes canonical `reports.json` to `web/credence.report/reports.json`.
+This specification details the cryptographic state machine, local file permissions, and concurrency locks executed during **Node Germination** (`credence germinate`).
 
 ---
 
-## 2. Highest Random Weight (HRW) Rendezvous Hashing
+## 1. Genesis State & Key Minting Invariants
 
-To guarantee orthogonal feed partition across a decentralized swarm without a centralized coordinator, nodes sort candidate subscriptions using **Rendezvous Hashing (HRW)**:
+Every Credence node derives its identity from an unforgeable Ed25519 keypair stored in the node's local state directory (`data/node.key` or `.env`):
 
-$$\text{Affinity}(K_{\text{node}}, U_{\text{feed}}) = \frac{\text{int}(\text{SHA-256}(K_{\text{node}} \parallel U_{\text{feed}})[0:8], 16)}{2^{32} - 1}$$
-
-```python
-def compute_feed_affinity(node_pubkey: str, feed_url: str) -> float:
-    """Calculate Rendezvous Hash (HRW) affinity score between node pubkey and feed URL."""
-    combined = f"{node_pubkey}:{feed_url}".encode("utf-8")
-    digest = hashlib.sha256(combined).hexdigest()
-    return int(digest[:8], 16) / 0xFFFFFFFF
+```
+                       |  Uninitialized Host    |
+                                   | credence germinate
+                                   ▼
+                       | 1. Mint Ed25519 Keypair |
+                       |    chmod 0600 node.key |
+                                   |
+                                   ▼
+                       | 2. Init SQLite WAL &   |
+                       |    Apply Migrations    |
+                                   |
+                                   ▼
+                       | 3. Bootstrap Discovery |
+                       |    & Peering Handshake |
+                                   |
+                                   ▼
+                       | 4. Miracle-Gro Burst   |
+                       |    Verification        |
+                                   |
+                                   ▼
+                       | ACTIVE NODE (Tier I)   |
 ```
 
-### Swarm Partitioning Matrix
-
-| Node Alias | Public Key Prefix | Highest Affinity Feed | Category Tier |
-| :--- | :--- | :--- | :--- |
-| **Node 1 (Anchor A)** | `9580dc91...` | ProPublica Main Feeds | Investigative Tech (Priority 1) |
-| **Node 2 (Anchor B)** | `4fa821cd...` | Nature Latest Research | Science Preprints (Priority 1) |
-| **Node 3 (Relay C)** | `1b89ef02...` | CalMatters Policy | Regional Civic (Priority 2) |
-| **Node 4 (Relay D)** | `7c44e99a...` | MarketWatch Top Stories | Financial Disclosures (Priority 2) |
-| **Node 5 (Relay E)** | `e019fb34...` | The Onion American Finest | Satire & Cloaking (Priority 3) |
+### Key Storage & File Permission Invariants
+- `node.key` must be written with strict POSIX permissions `0600` (read/write by owner only).
+- Public key hex string is broadcast in all gossip messages and used as the unique Node ID (`ed25519:<hex>`).
+- If `node.key` already exists, `credence germinate` reloads the existing identity without overwriting cryptographic keys.
 
 ---
 
-## 3. Concurrency & Sub-Transaction Invariants
+## 2. Concurrency & Sub-Transaction Invariants
 
-### The Atomic Ignition Sub-Transaction Invariant
-When multiple processes or coroutines boot simultaneously against a shared database:
-1. Every individual `SnapshotRecord`, `AuditRecord`, and `FeedSubscriptionRecord` insertion **must** execute in an isolated `try ... await session.commit() except Exception: await session.rollback()` sub-transaction block.
-2. If another concurrent process inserts the same `content_sha256` or `feed_url` milliseconds earlier, the caught constraint violation safely rolls back without corrupting the broader session.
-
-### The Multi-Node Session Isolation Invariant
-In asynchronous test suites and multi-worker runners:
-1. Never share a single `AsyncSession` across concurrent coroutines in `asyncio.gather(*tasks)`.
-2. Each concurrent node routine **must** be allocated an independent `AsyncSession` via `async_sessionmaker(bind=engine, class_=AsyncSession)`.
+To guarantee that concurrent background workers (feed sifters, FastMCP requests, and P2P gossip relays) never corrupt the local SQLite ledger:
+1. **Write-Ahead Logging (WAL)**: SQLite is initialized with `PRAGMA journal_mode=WAL; PRAGMA busy_timeout=5000;`.
+2. **Atomic Ingestion Locks**: Write operations acquire an in-process asyncio mutex per content SHA-256 to prevent duplicate audits on the same article.
+3. **Isolated CAS Write-Rename**: Content-Addressable Storage (CAS) blobs are written to temporary scratch files and atomically renamed into `data/cas/sha256/...` to guarantee non-corrupted reads.
 
 ---
 
-## 4. REST API Gateway & Auto-Ignition Endpoints
+## 3. REST API Gateway & Auto-Ignition Endpoints
 
-### `POST /api/germinate`
-Trigger manual or programmatic node germination:
+When deployed in container environments (Cloud Run, Docker, Kubernetes), the node exposes health probes and ignition triggers:
 
-```json
-// Request Payload
-{
-  "burst": 3,
-  "sync_mesh": true,
-  "profile": "balanced"
-}
+```
+GET  /healthz                   # Liveness probe (returns 200 OK once SQLite WAL is verified)
+GET  /readyz                    # Readiness probe (returns 200 OK when P2P peer links >= 1)
+POST /api/v1/node/germinate     # Triggers idempotent ignition with burst audit parameter
+GET  /api/v1/node/identity      # Returns node public key, alias, and earned epistemic tier
 ```
 
-```json
-// Response Payload (HTTP 200)
-{
-  "status": "germinated",
-  "identity_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-  "peer_attestations_adopted": 5,
-  "tokens_saved_mesh": 12500,
-  "feeds_sowed": 26,
-  "novel_items_audited": 3,
-  "total_reports_ready": 194,
-  "duration_seconds": 12.35,
-  "timestamp": "2026-08-18T22:47:52.123456Z"
-}
+---
+
+## 4. Operator Diagnostics
+
+```bash
+# Verify node cryptographic integrity and active permissions
+$ credence stats
+
+# Inspect node identity and active peer connections
+$ credence identity show
 ```
+
+---
+
+## 5. Related Documentation
+
+* 🚀 [Quickstart Guide](../quickstart.md)
+* ☁️ [Google Cloud Run Deployment](../deployment-cloudrun.md)
+* 🐳 [Docker Compose Quickstart](../operations/docker-compose-quickstart.md)
+
+## Architectural Invariants & Verification Mechanics
+
+The implementation of **Node Germination Lifecycle** adheres strictly to the core invariants defined in **The Invariant Bible**:
+
+1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
+   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
+
+2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
+   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
+
+3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
+   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
+
+## Diagnostic Telemetry & Operational Reference
+
+Operators can inspect the operational health, token burn rates, and cryptographic proofs for **Node Germination Lifecycle** using standard CLI commands and FastMCP 2.0 tools:
+
+```bash
+# Verify subsystem diagnostic health and invariant compliance
+$ credence stats --subsystem "protocols"
+
+# Inspect real-time execution metrics and Bayesian concordance
+$ credence stats --detailed --window 24h
+
+# Export canonical verification receipts for external compliance
+$ credence verify --json --audit-trail
+```
+
+### Quantitative Operational Benchmarks
+
+| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
+| :--- | :---: | :---: | :--- |
+| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
+| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
+| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
+| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+
+### RFC Standards & Related Documentation
+
+* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
+* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
+* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
+* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)

@@ -2,7 +2,7 @@
 title: 'The Myth of the 100-Agent Swarm: Why 1 Human + 1 Agent Out-Builds Autonomous Chaos'
 description: Why unsupervised multi-agent swarms inevitably succumb to generative proliferation, recursive local minima, and self-deceptive mocks, and why a disciplined human-agent pair produces vastly superior, sovereign software.
 since_version: v2.10.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 date: '2026-08-22'
 series: 'The Wetware Chronicles'
@@ -96,14 +96,10 @@ $$P(\text{Success}) = p^N = 0.95^{50} \approx 0.0769 \quad (7.7\%)$$
 In an unsupervised 50-step autonomous chain, there is a **92.3% probability of systemic failure or hallucinated drift**.
 
 ```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         ARITHMETIC OF AUTONOMOUS DRIFT ($P = p^N, p=0.95$)                       │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Step 1 (95.0%) ──▶ Step 10 (59.8%) ──▶ Step 25 (27.7%) ──▶ Step 50 (7.7% Cumulative Success)     │
-│ [🟢 High Confidence]  [🟡 Noticeable Drift]  [🟠 Heavy Hallucination]  [🔴 92.3% Catastrophic Fail] │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Phase Boundary Reset: Inserting Mk1 human gates resets error probability to 0.0 at each phase │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+|                         ARITHMETIC OF AUTONOMOUS DRIFT ($P = p^N, p=0.95$)                       |
+| Step 1 (95.0%) --▶ Step 10 (59.8%) --▶ Step 25 (27.7%) --▶ Step 50 (7.7% Cumulative Success)     |
+| [🟢 High Confidence]  [🟡 Noticeable Drift]  [🟠 Heavy Hallucination]  [🔴 92.3% Catastrophic Fail] |
+| 💡 Phase Boundary Reset: Inserting Mk1 human gates resets error probability to 0.0 at each phase |
 ```
 
 When you insert a human checkpoint at critical architectural boundaries (the 4-Phase Lifecycle: Local QA $\rightarrow$ Staged PR Triad $\rightarrow$ Mk1 Review $\rightarrow$ Merge & Tag), the error probability is reset to zero at every phase boundary:

@@ -3,7 +3,7 @@ title: Quickstart & Installation
 description: Get started with Credence CLI, FastMCP 2.0 server, and Textual TUI in
   under 60 seconds.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -213,4 +213,3 @@ All unit tests execute hermetically in-memory (<35s) with zero external network 
 * 📰 **[Morning Epistemic Digest](walkthroughs/04-morning-digest-briefings.md)**: Setting up automated daily 24-hour news briefings.
 * 🤖 **[Claude & Cursor Integration Tutorial](tutorials/03-claude-cursor-fastmcp.md)**: Detailed multi-agent setup patterns.
 * 🕸️ **[3-Node Mesh Quickstart](tutorials/05-mesh-quickstart.md)**: Spin up a local P2P gossip mesh in 5 minutes.
-

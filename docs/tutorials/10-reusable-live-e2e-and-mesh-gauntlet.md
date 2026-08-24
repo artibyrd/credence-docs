@@ -3,7 +3,7 @@ title: 10. Reusable Live Rotating E2E & Byzantine Mesh Gauntlet
 description: Step-by-step tutorial on executing, customizing, and scaling the reusable
   live rotating test suite across CLI, FastMCP 2.0 SSE, and 13-node P2P mesh clusters.
 since_version: v1.4.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 tags:
 - tutorial
@@ -196,22 +196,19 @@ This ensures that remote autonomous AI agents (Claude, Cursor, OpenAI Swarms) ca
 The mesh test spins up 13 isolated `MeshGossipRelay` instances in a Watts-Strogatz small-world lattice.
 
 ```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         13-NODE MESH GOSSIP & BYZANTINE SLASHING SEQUENCE                        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Node 0 (Evaluator)          Nodes 1..11 (Honest Swarm)  Node 12 (Byzantine)  Consensus Aggregator│
-│        │                               │                        │                     │          │
-│        │── Audits target (Gemini 3.7) ─│                        │                     │          │
-│        │──── Gossips Signed Envelope ─▶│                        │                     │          │
-│        │                               │ [12 nodes adopt: 92.3% compute savings at $0.00]        │
-│        │                               │                        │                     │          │
-│        │                               │                        │── Fake Smear ($G=0)─▶│          │
-│        │──── Grounded Attestation ($G=1.0) ──────────────────────────────────────────▶│          │
-│        │                               │──── Grounded Attestation ($G=1.0) ──────────▶│          │
-│        │                               │                        │                     │          │
-│        │                               │                        │   [Galileo Rule Applied]       │
-│        │◀── Consensus Verified = 16.5 (Node 12 Slashed & Excluded from Quorum) ───────│          │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+|                         13-NODE MESH GOSSIP & BYZANTINE SLASHING SEQUENCE                        |
+| Node 0 (Evaluator)          Nodes 1..11 (Honest Swarm)  Node 12 (Byzantine)  Consensus Aggregator|
+|        |                               |                        |                     |          |
+|        |-- Audits target (Gemini 3.7) -|                        |                     |          |
+|        |---- Gossips Signed Envelope -▶|                        |                     |          |
+|        |                               | [12 nodes adopt: 92.3% compute savings at $0.00]        |
+|        |                               |                        |                     |          |
+|        |                               |                        |-- Fake Smear ($G=0)-▶|          |
+|        |---- Grounded Attestation ($G=1.0) ------------------------------------------▶|          |
+|        |                               |---- Grounded Attestation ($G=1.0) ----------▶|          |
+|        |                               |                        |                     |          |
+|        |                               |                        |   [Galileo Rule Applied]       |
+|        |◀-- Consensus Verified = 16.5 (Node 12 Slashed & Excluded from Quorum) -------|          |
 ```
 
 The test validates:

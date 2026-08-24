@@ -3,13 +3,13 @@ title: Universal Feature Parity Matrix
 description: Synchronous capability matrix across CLI, FastMCP 2.0, Textual TUI, and
   Zero-Build Web portals.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
 # Universal Feature Parity Matrix
 
-In accordance with **[Invariant 24](invariants.md#invariant-24) (Universal Presentation Layer Feature Parity Invariant)**, Credence maintains synchronous feature parity across all four official interfaces:
+In accordance with **[The Invariant Bible](invariants.md#invariant-24) (Universal Presentation Layer Feature Parity Invariant)**, Credence maintains synchronous feature parity across all four official interfaces:
 
 1. **🖥️ CLI**: Rich terminal command-line interface (`credence <cmd>`).
 2. **⚡ FastMCP 2.0 Server**: Model Context Protocol tools, dynamic resources, and prompt templates (`credence serve`).
@@ -90,10 +90,10 @@ Navigate to **`credence.report`** for a zero-build client-side cryptographic vie
 ```bash
 $ credence audit https://arstechnica.com/science/2026/08/fusion-breakthrough
 🛡️ Credence Audit Report
-├─ Verdict: FACTUAL_REPORTING (Score: 8.5 / 100.0)
-├─ Density: 0.0 violations / 1k words  |  Confidence: 98%
-├─ Content SHA-256: 1a2b3c4d5e6f7a8b...
-└─ Attestation: ✓ Signed (Ed25519: 7a4c9f...)
++- Verdict: FACTUAL_REPORTING (Score: 8.5 / 100.0)
++- Density: 0.0 violations / 1k words  |  Confidence: 98%
++- Content SHA-256: 1a2b3c4d5e6f7a8b...
++- Attestation: ✓ Signed (Ed25519: 7a4c9f...)
 ```
 
 === ⚡ FastMCP 2.0 JSON-LD

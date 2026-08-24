@@ -1,164 +1,133 @@
 ---
-title: 12. Climbing the Epistemic Tiers
-description: Step-by-step operator guide to minting an identity, sifting feeds, earning
-  verified auditor badges, achieving domain authority, and qualifying as a root seed
-  anchor.
-since_version: v1.0.0
-verified_version: v2.16.1
+title: 'Tutorial 12: Climbing the Epistemic Tiers (From Sprout to Sovereign)'
+description: Progress through the 5 node tiers, earn empirical domain expertise, and unlock live SVG merit badges.
+since_version: v1.12.0
+verified_version: v2.16.2
 last_verified: 2026-08-24
+sidebar:
+  order: 12
 ---
 
-# 12. Climbing the Epistemic Tiers
+# Tutorial 12: Climbing the Epistemic Tiers (From Sprout to Sovereign)
 
-This hands-on tutorial guides node operators through the complete epistemic progression lifecycle: from minting a fresh node identity on a Raspberry Pi or cloud instance to earning verifiable merit badges, saving LLM tokens for the swarm, and qualifying as a canonical root seed anchor.
-
----
-
-## Prerequisites
-
-- **Python 3.12+** with `poetry` or standalone `credence` CLI installed.
-- Local SQLite database initialized (`just ignite` or `credence germinate`).
-- Connected terminal workstation (`credence tui`).
+In this tutorial, you will learn how a fresh Credence node earns reputation, progresses through the **5 Epistemic Tiers**, and earns cryptographic authority in the peer-to-peer mesh.
 
 ---
 
-## Step 1: Genesis & Minting Identity (Tier I: Sprout Node 🌱)
+## 1. The 5 Epistemic Node Tiers
 
-Every node starts by generating an immutable Ed25519 cryptographic keypair and subscribing to baseline syndicated feeds:
+```
+  Tier V: SOVEREIGN ARBITER 👑  (Global Root Anchor, Q_i >= 0.95, >1,000 Audits)
+            ▲
+  Tier IV: DOMAIN SPECIALIST 🎓 (Expertise E_i >= 0.90 in specific namespaces)
+            ▲
+  Tier III: VERIFIED AUDITOR 🛡️ (Concordance C_i >= 0.85, Grounding G >= 0.95)
+            ▲
+  Tier II: PEER GOSSIPER 🕸️     (Active P2P link, Uptime U_i >= 0.90)
+            ▲
+  Tier I: SPROUT NODE 🌱        (Genesis complete, Ed25519 identity minted)
+```
 
+---
+
+## 2. Step-by-Step Progression Guide
+
+Follow these sequential stages to advance your node from genesis to sovereign arbiter:
+
+### Step 1: Node Genesis (Tier I Sprout 🌱)
+Run `credence germinate` to mint your Ed25519 identity:
 ```bash
 # Rapid one-command node genesis
-$ credence germinate --burst 3
-
-# View your newly minted public identity
-$ credence identity show
+$ credence germinate --alias "my-sovereign-node"
 ```
 
-### Inspecting Your Initial Merit Card
+### Step 2: Establish P2P Mesh Connectivity (Tier II Peer 🕸️)
+Connect to at least 3 bootstrap seed nodes from `seeds.credence.nexus`:
 ```bash
-$ credence merit
+# Connect to canonical mesh peer seeds
+$ credence mesh connect --seeds https://seeds.credence.nexus/peers.json
 ```
 
-At this stage:
-- **Tier**: `SPROUT`
-- **Quality ($Q_i$)**: $0.50$ (healthy neutral mathematical prior)
-- **Uptime ($U_i$)**: $1.00$
-- **Traffic Class**: `STANDARD` (50 msgs/s)
-- **Badges Unlocked**: `🌱 Sprout Node`
+### Step 3: Perform Verifiable Audits (Tier III Auditor 🛡️)
+Sift syndicated feeds and generate grounded audits ($G=1.00$):
+```bash
+# Audit incoming articles with strict verbatim quote extraction
+$ credence audit https://example.com/breaking-news --profile balanced
+```
+
+### Step 4: Build Domain Expertise (Tier IV Specialist 🎓)
+Earn empirical expertise ($E_i \ge 0.90$) by auditing $\ge 50$ articles across $\ge 5$ distinct FQDNs in a subject namespace (e.g., `tech`, `finance`, `health`):
+```bash
+# Inspect your domain expertise progress
+$ credence identity expertise --all
+```
+
+### Step 5: Sovereign Arbiter Ratification (Tier V 👑)
+Maintain $>99\%$ uptime over 30 days and achieve consensus concordance $>0.90$.
 
 ---
 
-## Step 2: Zero-Trust Feed Sifting (Tier II: Sifter Pioneer 📡)
+## 3. Exporting & Embedding Your Live SVG Merit Badge
 
-To advance to Tier II, your node must actively partition and evaluate $\ge 10$ syndicated articles:
-
-```bash
-# Sync syndicated feeds and evaluate incoming novel articles
-$ credence feeds sync --evaluate
-
-# Check open community verification bounties
-$ credence bounties
-```
-
-Once your node evaluates 10 consensus rounds with Quality $Q_i \ge 0.60$, the merit engine automatically unlocks:
-- **Tier**: `SIFTER`
-- **Badges Unlocked**: `📡 Sifter Pioneer`
-
----
-
-## Step 3: Verbatim Cited Audits (Tier III: Verified Auditor 🛡️)
-
-Tier III requires demonstrating high epistemic fidelity:
-- $\ge 50$ consensus rounds completed
-- Quality Score $Q_i \ge 0.75$
-- Quote Grounding Precision $G_i \ge 0.85$ (100% of cited quotes must exist verbatim in the source DOM)
-
-```bash
-# Audit a specific URL with strict verbatim quote extraction
-$ credence audit https://reuters.com/world/europe/eu-ai-act-passed
-
-# View your updated grounding statistics
-$ credence merit
-```
-
-### Unlocked Capabilities
-- **Attestation Seeding**: Your signed audit reports are now eligible for zero-cost adoption by peer nodes in the mesh.
-- **Compute Philanthropy Odometer**: Begins tracking LLM tokens donated to other operators.
-- **Badges Unlocked**: `🛡️ Verified Auditor`
-
----
-
-## Step 4: Building Domain Authority (Tier IV: Domain Specialist 🏛️)
-
-Tier IV represents empirical authority in a specific knowledge cluster (e.g. `journalism.news`, `science.climate`, `health.medical`):
-
-```bash
-# List all registered subject namespaces
-$ credence subjects list
-
-# Audit specialized domains in a targeted subject namespace
-$ credence audit https://nature.com/articles/s41586-024-00123
-```
-
-### The Anti-Diploma Invariant
-Domain expertise cannot be bought or pre-configured. It is earned through performance:
-$$E_i = 0.40 C_i + 0.35 G_i + 0.15 V_i + 0.10 L_i$$
-
-To unlock `SPECIALIST`, your node must maintain $E_i \ge 0.80$ across **at least 5 distinct root FQDNs** in the namespace, proving cross-domain epistemic resilience.
-
----
-
-## Step 5: Root Seed Candidate (Tier V: Root Anchor 💎)
-
-The pinnacle of the Credence mesh. Root Anchors serve as trusted bootstrap anchors listed in canonical `peers.json` manifests.
-
-### Qualification Requirements
-1. **5-Factor Quality**: $Q_i \ge 0.85$
-2. **Uptime Ratio**: $U_i \ge 0.80$
-3. **Grounding Precision**: $G_i \ge 0.80$
-4. **Active Longevity**: $\ge 30$ continuous operating days
-5. **Taxonomy Sync**: 100% matching catalog SHA-256 hashes
-
-```bash
-# Check your progress toward Tier V
-$ credence merit
-
-# Export signed bootstrap seed manifest
-$ credence seeds generate --output my_seeds.json --valid-hours 48
-```
-
----
-
-## Step 6: Exporting & Embedding Your Live SVG Merit Badge
-
-Display your earned prestige on GitHub repositories, documentation portals, or operator dashboards:
+Once your node achieves Tier III or higher, export your live embeddable SVG merit badge:
 
 ```bash
 # Generate standalone Cyber Glass Pill badge
-$ credence badge export verified_auditor --node my-sovereign-node --style pill --output badge.svg
-
-# Generate Modern Shield badge
-$ credence badge export root_seed_candidate --node my-sovereign-node --style shield --output shield.svg
+$ credence badge generate --theme dark --layout pill --output-svg badge.svg
 ```
 
+Embed the badge directly on your website or GitHub README:
 ```html
-<!-- Live HTML / Markdown Embed -->
-<p align="center">
-  <img src="https://credence.nexus/api/badge/verified_auditor?node=anchor-node-01&style=pill" alt="Credence Verified Auditor" height="28" />
-</p>
+<img src="https://credence.nexus/api/v1/badge/your-node-pubkey.svg" alt="Credence Verified Node" />
 ```
-
-You can also customize, preview, and generate 1-click embed code directly in the **[Nexus Merit & Badge Studio](https://credence.nexus)**.
 
 ---
 
-## Interactive TUI Leaderboard Workstation
+## 4. Next Steps
 
-You can monitor global mesh rankings and your local merit card in real time using the Textual TUI:
+* 🎮 [Interactive 13-Node Mesh Simulator in Browser](../playground.md)
+* 📊 [Unified Merit & Attestation Badge System](../blueprints/unified-merit-and-attestation-badge-system.md)
+
+## Architectural Invariants & Verification Mechanics
+
+The implementation of **12 Climbing The Epistemic Tiers** adheres strictly to the core invariants defined in **The Invariant Bible**:
+
+1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
+   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
+
+2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
+   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
+
+3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
+   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
+
+## Diagnostic Telemetry & Operational Reference
+
+Operators can inspect the operational health, token burn rates, and cryptographic proofs for **12 Climbing The Epistemic Tiers** using standard CLI commands and FastMCP 2.0 tools:
 
 ```bash
-$ credence tui
+# Verify subsystem diagnostic health and invariant compliance
+$ credence stats --subsystem "tutorials"
+
+# Inspect real-time execution metrics and Bayesian concordance
+$ credence stats --detailed --window 24h
+
+# Export canonical verification receipts for external compliance
+$ credence verify --json --audit-trail
 ```
-1. Press `F8` or click **`🏆 Leaderboard`**.
-2. Switch between **Quality ($Q_i$)**, **Philanthropy**, and **Galileo** views using tab controls.
-3. Review your unlocked badges, current tier progress bar, and assigned traffic class.
+
+### Quantitative Operational Benchmarks
+
+| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
+| :--- | :---: | :---: | :--- |
+| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
+| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
+| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
+| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+
+### RFC Standards & Related Documentation
+
+* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
+* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
+* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
+* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)

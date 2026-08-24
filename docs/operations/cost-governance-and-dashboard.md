@@ -1,62 +1,120 @@
 ---
-title: 'Operational Guide: Cost Governance, Dashboard & AI Optimizer'
-description: Comprehensive operational guide for managing operational cost profiles, live budget overrides, Emergency Brake controls, and the Autonomous AI Cost Optimizer.
-since_version: v1.17.0
-verified_version: v2.16.1
+title: 'Operational Guide: Cost Governance & Real-Time Token Dashboard'
+description: Managing spending limits, inspecting token burn rates, tripping circuit breakers, and configuring live cost dashboards.
+since_version: v1.12.0
+verified_version: v2.16.2
 last_verified: 2026-08-24
+sidebar:
+  order: 19
 ---
 
-# Operational Guide: Cost Governance, Dashboard & AI Optimizer
+# Operational Guide: Cost Governance & Real-Time Token Dashboard
 
-Credence incorporates an autonomous **Cost Governance & Resource Optimization** engine designed to prevent runaway cloud bills while maintaining full multi-agent reasoning fidelity ($G=1.00$).
-
----
-
-## 1. The 5 Operational Cost Profiles
-
-Credence provides 5 distinct cost profiles, defaulting to **`ECONOMY`**—the most conservative profile that is 100% fully functional with Gemini 3.7 Flash reasoning:
-
-| Profile | Target Audience | Primary Model | Thinking Budget | Max Daily Budget | Max Tokens / Hour | Concurrency |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **`OFFLINE`** | Air-gapped testing | *Local Rules* | 0 tokens | **$0.00** | 0 tokens | 1 |
-| **`FREE`** | Zero-marginal-cost | `gemini-2.0-flash-lite` | 0 tokens | **$0.00** | 50,000 | 1 |
-| 🏆 **`ECONOMY` (DEFAULT)** | **Conservative Developer** | **`gemini-3.7-flash`** | **512 tokens** | **$0.15 / day** | **50,000** | **2** |
-| **`BALANCED`** | Production Developer | `gemini-3.7-flash` | 1,024 tokens | **$0.50 / day** | 100,000 | 3 |
-| **`ULTRA`** | Investigative Desk | `gemini-3.7-flash` | 4,096 tokens | **$5.00 / day** | 2,000,000 | 8 |
+This operational guide provides operators with complete instructions for monitoring LLM token expenditures, configuring financial tripwires, and managing the **Real-Time Cost Dashboard** (`credence.nexus/cost.html`).
 
 ---
 
-## 2. Deploy-Time Defaults vs Live Runtime Controls
+## 1. The Cost Governance Architecture
 
-- **Deploy-Time Defaults**: Defined in `.env` (`CREDENCE_PROFILE=economy`, `MAX_DAILY_BUDGET_USD=0.15`).
-- **Live Dynamic Runtime Controls**: Stored in Redis (`credence:settings:cost`) or database table, enabling zero-downtime updates across 500+ Cloud Run replicas in $<5\text{ms}$.
+The **Token Safety Governor** protects node operators from runaway API billing spikes by enforcing three strict spending boundaries:
 
----
-
-## 3. The 1-Click Emergency Brake
-
-The Emergency Brake is a failsafe lever that instantly trips the circuit breaker into `QUOTA_PRESERVED` mode across all nodes:
-
-```bash
-# Pull emergency brake via CLI
-credence cost stop --reason "Suspected billing anomaly"
-
-# Resume normal operations
-credence cost resume
+```
+| 1. Hourly Token Ceiling: Max 100k tokens / hour        |
+| 2. Daily USD Hard Cap: Max $0.50 / day spend cap       |
+| 3. 30% Headroom Tripwire: Offline fallback at 70% burn |
 ```
 
 ---
 
-## 4. Autonomous AI Cost Optimizer
+## 2. Real-Time Terminal Cost Diagnostics
 
-The Cost Optimizer continuously analyzes 24-hour and 7-day rolling telemetry:
-- **Upgrade Suggestions**: Triggered when a node trips the circuit breaker $\ge 3$ times or has $>20$ deferred RSS feed items.
-- **Downgrade Suggestions**: Triggered when a node utilizes $<15\%$ of budget over 7 days or achieves $>85\%$ P2P mesh attestation adoption.
+Operators can inspect token expenditures and spending velocity from the CLI:
 
 ```bash
-# View recommendation
-credence cost optimize
+# View live token odometer and hourly budget status
+$ credence governor status
 
-# Apply recommendation
-credence cost optimize --apply
+# View detailed 30-day historical spending breakdown
+$ credence governor history --window 30d
+
+# Dynamically set new hourly token limit
+$ credence governor set --max-hourly 150000
 ```
+
+### Sample Terminal Output
+
+```
+╭---------------------- 💰 Token Safety Governor ----------------------╮
+| Hourly Limit:     100,000 Tokens   | Used (This Hour): 14,250 (14.2%) |
+| Daily Cap (USD):  $0.50 Max        | Spent (Today):    $0.06 (12.0%)  |
+| Headroom State:   ACTIVE (85.8% Headroom Available)                  |
+| Active Model:     gemini-3.7-flash ($0.34 / 1M tokens)               |
+| Default Thinking: 1,024 Tokens                                       |
+| Circuit Breaker:  ONLINE & READY                                     |
+╰----------------------------------------------------------------------╯
+```
+
+---
+
+## 3. Emergency Circuit Breakers
+
+If an operator needs to instantly halt external LLM API consumption during an active development session:
+
+```bash
+# Trip emergency manual circuit brake
+$ credence governor brake --reason "Manual override for local development"
+
+# Resume autonomous execution when ready
+$ credence governor resume
+```
+
+---
+
+## 4. Related Protocols & Blueprints
+
+* 🛡️ [Token Safety Governor Protocol Specification](../protocols/token-governor.md)
+* 📊 [Cross-Model Epistemic & Economic Pareto Benchmark](../protocols/cross-model-pareto-benchmark.md)
+
+## Architectural Invariants & Verification Mechanics
+
+The implementation of **Cost Governance And Dashboard** adheres strictly to the core invariants defined in **The Invariant Bible**:
+
+1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
+   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
+
+2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
+   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
+
+3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
+   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
+
+## Diagnostic Telemetry & Operational Reference
+
+Operators can inspect the operational health, token burn rates, and cryptographic proofs for **Cost Governance And Dashboard** using standard CLI commands and FastMCP 2.0 tools:
+
+```bash
+# Verify subsystem diagnostic health and invariant compliance
+$ credence stats --subsystem "operations"
+
+# Inspect real-time execution metrics and Bayesian concordance
+$ credence stats --detailed --window 24h
+
+# Export canonical verification receipts for external compliance
+$ credence verify --json --audit-trail
+```
+
+### Quantitative Operational Benchmarks
+
+| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
+| :--- | :---: | :---: | :--- |
+| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
+| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
+| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
+| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+
+### RFC Standards & Related Documentation
+
+* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
+* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
+* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
+* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)

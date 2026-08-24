@@ -3,7 +3,7 @@ title: 'Multi-Cloud Deployment: AWS, Azure, Hetzner & K8s'
 description: Deploying the Credence FastMCP server and mesh relays to AWS ECS Fargate,
   Azure Container Apps, Hetzner, and Kubernetes.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -162,20 +162,16 @@ Credence is completely self-contained and does not require Google Cloud Platform
 Credence strictly isolates deployment concerns into three independent operational planes:
 
 ```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         3-PLANE DEPLOYMENT GOVERNANCE TOPOLOGY                                   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ 1. EDGE PLANE (Zero-Build)│ 2. COMPUTE PLANE (FastMCP 2.0)│ 3. INFRA PLANE (Static IaC)    │   │
-│ ├───────────────────────────┼───────────────────────────────┼────────────────────────────────┤   │
-│ │ • Cloudflare Pages & CDN  │ • Cloud Run / Docker Container│ • Terraform (GCP IAM, WIF)     │   │
-│ │ • `web/_worker.js` router │ • Starlette FastMCP SSE + REST│ • DNS Records & Cloudflare SSL │   │
-│ │ • Static `reports.json`   │ • Background Sifter Engine    │ • GCS / S3 Storage Buckets     │   │
-│ │ • Automated: `deploy-edge`│ • Automated: `release.yml`    │ • Manual: `just tf-apply`      │   │
-│ └───────────────────────────┴───────────────────────────────┴────────────────────────────────┘   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Strict Plane Decoupling: Zero state mixing between edge assets, compute containers, and IaC   │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+|                         3-PLANE DEPLOYMENT GOVERNANCE TOPOLOGY                                   |
+| ---------------------------------------------------------------   |
+| | 1. EDGE PLANE (Zero-Build)| 2. COMPUTE PLANE (FastMCP 2.0)| 3. INFRA PLANE (Static IaC)    |   |
+| ---------------------------------------------------------------   |
+| | • Cloudflare Pages & CDN  | • Cloud Run / Docker Container| • Terraform (GCP IAM, WIF)     |   |
+| | • `web/_worker.js` router | • Starlette FastMCP SSE + REST| • DNS Records & Cloudflare SSL |   |
+| | • Static `reports.json`   | • Background Sifter Engine    | • GCS / S3 Storage Buckets     |   |
+| | • Automated: `deploy-edge`| • Automated: `release.yml`    | • Manual: `just tf-apply`      |   |
+| ---------------------------------------------------------------   |
+| 🛡️ Strict Plane Decoupling: Zero state mixing between edge assets, compute containers, and IaC   |
 ```
 
 | Operational Plane | Managed Artifacts | Deployment Mechanism |
@@ -207,4 +203,3 @@ just deploy all
 * 🍓 [Raspberry Pi & Homelab Node Setup ($0.00/mo)](../operations/raspberry-pi-homelab.md)
 * 🤖 [Universal Agent Interoperability (Cursor, Windsurf, Cline)](universal-agent-interop.md)
 * 🏛️ [3-Plane Deployment Governance & System Invariants](../invariants.md)
-

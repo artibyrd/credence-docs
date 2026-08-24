@@ -3,7 +3,7 @@ title: 'Testing 13-Node Swarms on a $35 Pi: The Featherweight Mesh Architecture'
 description: How we run mathematically rigorous 13-node Byzantine P2P mesh cluster
   simulations in under 150MB of RAM and 4.5 seconds on edge hardware.
 since_version: v1.6.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 date: '2026-08-18'
 author: Credence Core Architecture Team
@@ -57,23 +57,19 @@ Because all 13 WebSocket servers run inside Python's native `asyncio` event loop
 When running our physical multi-container homelab cluster (`just mesh-cluster-up`), we enforce strict hardware boundaries via `credence/hardware_guard.py`.
 
 ```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         HARDWARE RESOURCE GOVERNOR DECISION ENGINE                               │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Host Environment Interrogation (`psutil.virtual_memory()`)                                        │
-│                                │                                                                 │
-│       ┌────────────────────────┴────────────────────────┐                                        │
-│       ▼ RAM Available $\ge 2.0\text{GB}$                ▼ RAM Constrained ($< 2.0\text{GB}$)     │
-│ ┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐      │
-│ │ 🚀 FULL 13-NODE SWARM CLUSTER            │   │ 🛡️ GRACEFUL 3-NODE FALLBACK TRIANGLE     │      │
-│ ├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤      │
-│ │ • 13 Active WebSocket Relays             │   │ • 3 Node Triangle Cluster (Consumes <300M│      │
-│ │ • Full Watts-Strogatz Lattice ($N=13$)   │   │ • Preserves Byzantine Quorum Math ($f=0$)│      │
-│ │ • 128MB Hard Cgroups (`mem_limit: 128m`) │   │ • Emits Clear Educational Warning        │      │
-│ └──────────────────────────────────────────┘   └──────────────────────────────────────────┘      │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Adaptive Scaling: Automatic graceful degradation prevents OOM panics on edge hardware        │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+|                         HARDWARE RESOURCE GOVERNOR DECISION ENGINE                               |
+| Host Environment Interrogation (`psutil.virtual_memory()`)                                        |
+|                                |                                                                 |
+|       ----------------------------------------+                                        |
+|       ▼ RAM Available $\ge 2.0\text{GB}$                ▼ RAM Constrained ($< 2.0\text{GB}$)     |
+| ----------------   ----------------      |
+| | 🚀 FULL 13-NODE SWARM CLUSTER            |   | 🛡️ GRACEFUL 3-NODE FALLBACK TRIANGLE     |      |
+| ----------------   ----------------      |
+| | • 13 Active WebSocket Relays             |   | • 3 Node Triangle Cluster (Consumes <300M|      |
+| | • Full Watts-Strogatz Lattice ($N=13$)   |   | • Preserves Byzantine Quorum Math ($f=0$)|      |
+| | • 128MB Hard Cgroups (`mem_limit: 128m`) |   | • Emits Clear Educational Warning        |      |
+| ----------------   ----------------      |
+| 💡 Adaptive Scaling: Automatic graceful degradation prevents OOM panics on edge hardware        |
 ```
 
 1. **Pre-Flight Memory Probing**: Before launching containers, the governor interrogates `psutil.virtual_memory()`. If available RAM is $<2\text{GB}$, it throttles cluster size down to a 3-node triangle with a clear warning.

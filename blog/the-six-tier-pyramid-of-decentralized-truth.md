@@ -5,7 +5,7 @@ description: 'Why static benchmarks fail in decentralized epistemic systems: How
   combines hermetic unit isolation with daily mutating live web gauntlets, zero-npm
   Playwright rendering, and 13-node Byzantine mesh chaos labs.'
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 tags:
 - testing
@@ -33,7 +33,7 @@ difficulty: Advanced
 read_time: 11 min
 ---
 
-# The 6-Tier Verification Pyramid: Why Fact-Checking AI Requires Mutating Gauntlets, Zero-npm Longevity, and Byzantine Simulations
+> **Note**: The 6-Tier Verification Pyramid: Why Fact-Checking AI Requires Mutating Gauntlets, Zero-npm Longevity, and Byzantine Simulations
 
 *By the Credence Engineering Collective · August 18, 2026*
 
@@ -75,20 +75,17 @@ def get_rotating_sample(category: str, seed: Optional[str] = None, count: int = 
 ```
 
 ```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         DETERMINISTIC SEED ROTATION & GAUNTLET DISPATCH                          │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Deterministic Seed (`YYYY-MM-DD` or env) ──▶ SHA-256 Hash Bucket Calculation                     │
-│                                                │                                                 │
-│                                                ▼ Rotated Stratified Master Corpus Sample         │
-│ ┌───────────────────────────┬───────────────────────────────┬────────────────────────────────┐   │
-│ │ 1. Reference & Philosophy │ 2. Investigative Wire News    │ 3. Verified Satire & Humor     │   │
-│ │ 4. Tech & Scientific Media│ 5. Syndicated RSS / Atom Feeds│ Real-Time Feed Discovery Pass  │   │
-│ └───────────────────────────┴───────────────┬───────────────┴────────────────────────────────┘   │
-│                                             │                                                    │
-│                                             ▼                                                    │
-│ 🚀 Live E2E Verification Gauntlet (`just test-live` · Same-Day Determinism across CI & Devs)      │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+|                         DETERMINISTIC SEED ROTATION & GAUNTLET DISPATCH                          |
+| Deterministic Seed (`YYYY-MM-DD` or env) --▶ SHA-256 Hash Bucket Calculation                     |
+|                                                |                                                 |
+|                                                ▼ Rotated Stratified Master Corpus Sample         |
+| ---------------------------------------------------------------   |
+| | 1. Reference & Philosophy | 2. Investigative Wire News    | 3. Verified Satire & Humor     |   |
+| | 4. Tech & Scientific Media| 5. Syndicated RSS / Atom Feeds| Real-Time Feed Discovery Pass  |   |
+| -------------------------------------------------------------------------------+   |
+|                                             |                                                    |
+|                                             ▼                                                    |
+| 🚀 Live E2E Verification Gauntlet (`just test-live` · Same-Day Determinism across CI & Devs)      |
 ```
 
 ### The Benefits
@@ -103,26 +100,22 @@ def get_rotating_sample(category: str, seed: Optional[str] = None, count: int = 
 
 In modern AI systems, interfaces frequently drift out of sync. A feature implemented in the CLI is missing in the MCP server; a bug fixed in the Web UI persists in the Python SDK.
 
-Credence enforces **Universal Presentation Layer Parity** (**[Invariant 26](../docs/invariants.md#invariant-26)**). All business logic is strictly isolated in `credence.pipeline` and `credence.mesh`, completely decoupled from presentation wrappers.
+Credence enforces **Universal Presentation Layer Parity** (**[The Invariant Bible](../docs/invariants.md#invariant-26)**). All business logic is strictly isolated in `credence.pipeline` and `credence.mesh`, completely decoupled from presentation wrappers.
 
 ```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         UNIVERSAL 4-WAY PRESENTATION LAYER PARITY                                │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ ┌────────────────────────────────────────────────────────────────────────────────────────────┐   │
-│ │ PURE EPISTEMIC PIPELINE & MESH KERNEL (`credence.pipeline` & `credence.mesh`)              │   │
-│ └──────────────────────────────────────────────┬─────────────────────────────────────────────┘   │
-│                                                │                                                 │
-│       ┌─────────────────────────┬──────────────┴──────────────┬─────────────────────────┐        │
-│       ▼                         ▼                             ▼                         ▼        │
-│ ┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐ ┌───────────────────┐ │
-│ │ 1. CLI ENGINE     │ │ 2. FASTMCP 2.0    │ │ 3. TEXTUAL TUI    │ │ 4. ZERO-BUILD WEB │ │
-│ │ • Terminal cmdline│ │ • JSON-RPC stdio  │ │ • 9-Tab Terminal  │ │ • WebCrypto Subt  │ │
-│ │ • Scripting pipe  │ │ • SSE Agent stream│ │ • 3-Tier Lensing  │ │ • Zero npm / Vite │ │
-│ └───────────────────┘ └───────────────────┘ └───────────────────┘ └───────────────────┘ │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 🛡️ Invariant 26: Calling `evaluate_snapshot()` returns identical RFC 8785 envelopes on all 4    │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+|                         UNIVERSAL 4-WAY PRESENTATION LAYER PARITY                                |
+| ----------------   |
+| | PURE EPISTEMIC PIPELINE & MESH KERNEL (`credence.pipeline` & `credence.mesh`)              |   |
+| -------------------------------------------------------------+   |
+|                                                |                                                 |
+|       -----------------------------------------------------------------------+        |
+|       ▼                         ▼                             ▼                         ▼        |
+| ---------------- ---------------- ---------------- ---------------- |
+| | 1. CLI ENGINE     | | 2. FASTMCP 2.0    | | 3. TEXTUAL TUI    | | 4. ZERO-BUILD WEB | |
+| | • Terminal cmdline| | • JSON-RPC stdio  | | • 9-Tab Terminal  | | • WebCrypto Subt  | |
+| | • Scripting pipe  | | • SSE Agent stream| | • 3-Tier Lensing  | | • Zero npm / Vite | |
+| ---------------- ---------------- ---------------- ---------------- |
+| 🛡️ The Invariant Bible: Calling `evaluate_snapshot()` returns identical RFC 8785 envelopes on all 4    |
 ```
 
 Tier 2 unit tests (`tests/test_interfaces_isolation.py`) assert that calling `evaluate_snapshot()` directly returns the exact same mathematical score, classification band, and RFC 8785 Ed25519 envelope as invoking it via the CLI or FastMCP 2.0 JSON-RPC.
@@ -134,31 +127,27 @@ Tier 2 unit tests (`tests/test_interfaces_isolation.py`) assert that calling `ev
 Decentralized consensus cannot be verified with simple mock functions. To prove that Credence Mesh resists colluding attackers, Tier 3 simulates a 13-node **Watts-Strogatz Small-World Lattice** ($N=13, k=4, p=0.15$) on ephemeral local WebSocket ports.
 
 ```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                         13-NODE BYZANTINE MESH SIMULATION & WORK-SHARING                         │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Node 0 (Evaluator)          Honest Peers 1..11              Node 12 (Byzantine)  Consensus Engine│
-│        │                            │                               │                   │        │
-│        │── Gossip Attestation ─────▶│                               │                   │        │
-│        │   (RFC 8785 Ed25519)       │ [12 nodes adopt in 0 tokens]  │                   │        │
-│        │                            │ [92.3% compute savings!]      │                   │        │
-│        │                                                            │                   │        │
-│        │── Grounded Attestation ($S=16.5, G=1.0$) ─────────────────────────────────────▶│        │
-│        │                            │── Grounded Attestations ($S=16.5, G=1.0$) ───────▶│        │
-│        │                                                            │── Fabricated ────▶│        │
-│        │                                                            │   ($S=95, G=0.0$) │        │
-│        │                                                            │                   │        │
-│        │                                                            │                   │ [Applies Galileo│
-│        │                                                            │                   │  & Outlier Slash]│
-│        │◀── Consensus Verdict = 16.5 (LOW_SUSPICION) · Rogue Node 12 Slashed ───────────│        │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 💡 Byzantine Defense: Grounded evidence triumphs over ungrounded majorities and Sybil cartels    │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+|                         13-NODE BYZANTINE MESH SIMULATION & WORK-SHARING                         |
+| Node 0 (Evaluator)          Honest Peers 1..11              Node 12 (Byzantine)  Consensus Engine|
+|        |                            |                               |                   |        |
+|        |-- Gossip Attestation -----▶|                               |                   |        |
+|        |   (RFC 8785 Ed25519)       | [12 nodes adopt in 0 tokens]  |                   |        |
+|        |                            | [92.3% compute savings!]      |                   |        |
+|        |                                                            |                   |        |
+|        |-- Grounded Attestation ($S=16.5, G=1.0$) -------------------------------------▶|        |
+|        |                            |-- Grounded Attestations ($S=16.5, G=1.0$) -------▶|        |
+|        |                                                            |-- Fabricated ----▶|        |
+|        |                                                            |   ($S=95, G=0.0$) |        |
+|        |                                                            |                   |        |
+|        |                                                            |                   | [Applies Galileo|
+|        |                                                            |                   |  & Outlier Slash]|
+|        |◀-- Consensus Verdict = 16.5 (LOW_SUSPICION) · Rogue Node 12 Slashed -----------|        |
+| 💡 Byzantine Defense: Grounded evidence triumphs over ungrounded majorities and Sybil cartels    |
 ```
 
 The simulation mathematically proves:
 1. **BitTorrent Work-Sharing**: 12 peer nodes adopt the attestation in $0$ LLM tokens (**92.3% compute savings** at $\$0.00$ token cost).
-2. **The Galileo Rule ([Invariant 23](../docs/invariants.md#invariant-23))**: Verified domain authorities with 100% grounded citations cannot be outlier-dismissed by ungrounded majorities.
+2. **The Galileo Rule ([The Invariant Bible](../docs/invariants.md#invariant-23))**: Verified domain authorities with 100% grounded citations cannot be outlier-dismissed by ungrounded majorities.
 3. **Byzantine Slashing**: Injected ungrounded smears ($S=95.0, G=0.0$) are filtered as outliers and dropped from the consensus score.
 
 ---
@@ -167,7 +156,7 @@ The simulation mathematically proves:
 
 Modern frontend test suites frequently require hundreds of megabytes of `node_modules`, Webpack/Vite build steps, and transitive dependencies that break after two years of neglected maintenance.
 
-Credence enforces the **Zero-npm Invariant** (**[Invariant 31](../docs/invariants.md#invariant-31)**). The entire documentation portal and web surfaces are built in vanilla HTML5, CSS Custom Properties, and native ES Modules with **zero npm dependencies and zero build chains**.
+Credence enforces the **Zero-npm Invariant** (**[The Invariant Bible](../docs/invariants.md#invariant-31)**). The entire documentation portal and web surfaces are built in vanilla HTML5, CSS Custom Properties, and native ES Modules with **zero npm dependencies and zero build chains**.
 
 Tier 5 verifies this using async Playwright in Python:
 * Spawns an ephemeral Python HTTP server on port 0.
@@ -196,11 +185,11 @@ async def test_mermaid_diagrams_render_to_svg(page: Page, docs_server: str) -> N
 
 | Tier | Focus Area | Command | Network? | Latency | Key Invariants Enforced |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Tier 1** | **Hermetic Unit & Math** | `just test` | ❌ No | `<65s` | Invariant 4 (Hermetic), Invariant 13 (Satire), Invariant 18 (Offline Fallback) |
-| **Tier 2** | **4-Way Interface Parity** | `pytest tests/test_interfaces_isolation.py` | ❌ No | `<3s` | Invariant 26 (Universal Feature Parity) |
-| **Tier 3** | **P2P Mesh Cluster** | `pytest tests/test_mesh_cluster.py` | ❌ No | `<25s` | Invariant 20 (Ed25519 Custody), Invariant 23 (The Galileo Rule), Invariant 25 (Work-Sharing) |
-| **Tier 4** | **Adversarial Red Team** | `pytest tests/test_red_team_cluster_attacks.py` | ❌ No | `<5s` | Invariant 7 (SSRF Guard), Invariant 8 (XML Safety & Prompt Containment) |
-| **Tier 5** | **Zero-Build Playwright** | `pytest tests/test_docs_rendering.py` | ❌ No | `<25s` | Invariant 31 (Zero-npm Standard), Invariant 36 (Playwright DOM Contracts) |
-| **Tier 6** | **Live Rotating E2E** | `just test-live` | 🌐 Yes | `<30s` | Invariant 26 (Live Universal Parity), Invariant 11 (FastMCP SSE Security) |
+| **Tier 1** | **Hermetic Unit & Math** | `just test` | ❌ No | `<65s` | The Invariant Bible (Hermetic), The Invariant Bible (Satire), The Invariant Bible (Offline Fallback) |
+| **Tier 2** | **4-Way Interface Parity** | `pytest tests/test_interfaces_isolation.py` | ❌ No | `<3s` | The Invariant Bible (Universal Feature Parity) |
+| **Tier 3** | **P2P Mesh Cluster** | `pytest tests/test_mesh_cluster.py` | ❌ No | `<25s` | The Invariant Bible (Ed25519 Custody), The Invariant Bible (The Galileo Rule), The Invariant Bible (Work-Sharing) |
+| **Tier 4** | **Adversarial Red Team** | `pytest tests/test_red_team_cluster_attacks.py` | ❌ No | `<5s` | The Invariant Bible (SSRF Guard), The Invariant Bible (XML Safety & Prompt Containment) |
+| **Tier 5** | **Zero-Build Playwright** | `pytest tests/test_docs_rendering.py` | ❌ No | `<25s` | The Invariant Bible (Zero-npm Standard), The Invariant Bible (Playwright DOM Contracts) |
+| **Tier 6** | **Live Rotating E2E** | `just test-live` | 🌐 Yes | `<30s` | The Invariant Bible (Live Universal Parity), The Invariant Bible (FastMCP SSE Security) |
 
 By structuring verification into these 6 complementary layers, Credence delivers sub-second developer feedback, total supply-chain longevity, and bulletproof confidence in real-world decentralized operation.

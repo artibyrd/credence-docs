@@ -2,7 +2,7 @@
 title: Human/Agent Workflow Safety & Justfile Modularization
 description: Architectural blueprint for safe autonomous agent pairing, discrete Justfile recipe topologies, parallel QA gates, and brain scratch script execution.
 since_version: v2.13.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -49,18 +49,18 @@ Credence resolves this via **Discrete Recipe Decoupling**:
 
 ## 3. Sub-300 LOC Modular Architecture
 
-To enforce the **500 LOC Ceiling Law (Invariant 1)** and decouple open-source contributor workflows from maintainer-specific cloud deployment pipelines, the Justfile suite is partitioned into 6 focused modules:
+To enforce the **500 LOC Ceiling Law (The Invariant Bible)** and decouple open-source contributor workflows from maintainer-specific cloud deployment pipelines, the Justfile suite is partitioned into 6 focused modules:
 
 ```
 credence/
-├── Justfile               # Root entrypoint with modern settings and module imports
-└── just/
-    ├── preflight.just     # Toolchain CLI verification (<120 LOC)
-    ├── quality.just       # Parallel check, static analysis, discrete test suites (<110 LOC)
-    ├── engine.just        # Local servers, web preview, feeds, seeds, mesh cluster (<220 LOC)
-    ├── vcs.just           # Safe git inspection vs gated PR triad lifecycle (<140 LOC)
-    ├── cloud.just         # Maintainer GCP Cloud Run, Cloudflare Edge & Terraform (<240 LOC)
-    └── release.just       # 7-Manifest version sync, parallel asset rendering & release (<60 LOC)
++-- Justfile               # Root entrypoint with modern settings and module imports
++-- just/
+    +-- preflight.just     # Toolchain CLI verification (<120 LOC)
+    +-- quality.just       # Parallel check, static analysis, discrete test suites (<110 LOC)
+    +-- engine.just        # Local servers, web preview, feeds, seeds, mesh cluster (<220 LOC)
+    +-- vcs.just           # Safe git inspection vs gated PR triad lifecycle (<140 LOC)
+    +-- cloud.just         # Maintainer GCP Cloud Run, Cloudflare Edge & Terraform (<240 LOC)
+    +-- release.just       # 7-Manifest version sync, parallel asset rendering & release (<60 LOC)
 ```
 
 Forks and open-source contributors can clone the repository, run `just check`, `just dev`, `just preview`, and `just test-unit` locally without requiring GCP or Cloudflare credentials.
@@ -176,23 +176,20 @@ If a broad prefix like `gcloud config` or `rm` is approved, the prefix match ina
 The bootstrap catalog is not static; it evolves alongside developer patterns during the **4-Phase Release & Lean Learning Lifecycle** (`/learn`).
 
 ```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                   CONTINUOUS BOOTSTRAP COMMAND HARVEST CYCLE (/learn)                            │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                                  │
-│   [Session Workflows & Agent Operations]                                                         │
-│                    │                                                                             │
-│                    ▼                                                                             │
-│   [/learn Session Trajectory Audit] ──► Scan `transcript.jsonl` tool calls for manual approvals │
-│                    │                                                                             │
-│                    ▼                                                                             │
-│   [Prefix-Safe Boundary Filter]     ──► Verify commands are read-only & non-destructive          │
-│                    │                                                                             │
-│                    ▼                                                                             │
-│   [Catalog & Skill Synchronized]    ──► Auto-graduated into `scripts/bootstrap_approvals.py`      │
-│                                         and `bootstrap-approvals/SKILL.md`                       │
-│                                                                                                  │
-└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+|                   CONTINUOUS BOOTSTRAP COMMAND HARVEST CYCLE (/learn)                            |
+|                                                                                                  |
+|   [Session Workflows & Agent Operations]                                                         |
+|                    |                                                                             |
+|                    ▼                                                                             |
+|   [/learn Session Trajectory Audit] --► Scan `transcript.jsonl` tool calls for manual approvals |
+|                    |                                                                             |
+|                    ▼                                                                             |
+|   [Prefix-Safe Boundary Filter]     --► Verify commands are read-only & non-destructive          |
+|                    |                                                                             |
+|                    ▼                                                                             |
+|   [Catalog & Skill Synchronized]    --► Auto-graduated into `scripts/bootstrap_approvals.py`      |
+|                                         and `bootstrap-approvals/SKILL.md`                       |
+|                                                                                                  |
 ```
 
 During each `/learn` run, the agent audits its session trajectory for recurring safe inspection commands (e.g., `grep`, `head`, `wc`, selective `git checkout`) and graduates them into the primary bootstrapping catalog for future workspace velocity.
@@ -208,5 +205,3 @@ Credence strictly isolates preview staging from production baselines across all 
 | **Compute Plane** | Cloud Run Dev (`credence-dev-495173`) | Cloud Run Prod (`credence-prod-505902`) | Least-privilege WIF service account isolation |
 | **Edge Plane** | `https://dev.credence.run` | `https://credence.run` | Cloudflare Worker dynamic origin routing |
 | **Documentation** | `https://dev.credence-docs.pages.dev` | `https://docs.credence.run` | Cloudflare Pages branch deployments (`--branch=dev` vs `main`) |
-
-

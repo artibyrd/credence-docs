@@ -2,7 +2,7 @@
 title: Bicameral Testing & Autonomous Experimentation Handbook
 description: Operational reference for executing dual-tier shadow auditing, environment configuration verification, and white-label mesh federation experiments.
 since_version: v1.19.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -87,3 +87,12 @@ just experiment federation-bridge \
 | **Simulate Sovereign Mesh Bridge** | `just experiment federation-bridge` |
 | **Run Hermetic Security Fuzzing** | `poetry run pytest tests/test_adversarial_fuzzing.py -m unit` |
 | **Full Pre-Commit QA Gate** | `just check` |
+
+
+---
+
+## 4. Experimentation Lifecycle & Statistical Significance
+
+When testing novel taxonomy rules or heuristic weights, Credence runs A/B evaluation experiments across live feeds in shadow mode.
+
+An experimental rule is promoted to canonical status only after demonstrating a statistically significant reduction in false positives across $\ge 500$ real-world news articles with zero increase in heuristic inference latency.

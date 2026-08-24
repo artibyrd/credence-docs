@@ -3,7 +3,7 @@ title: 'Continuous Learning with /learn: Codifying Edge Cases into Machine Invar
 description: How post-mortems and edge-case discoveries during Credence development
   are codified via /learn into permanent, machine-verifiable rules in AGENTS.md.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 tags:
 - antigravity
@@ -28,7 +28,7 @@ read_time: 6 min
 Discover how Credence uses the `/learn` slash command to transform transient corrections and post-mortem findings into permanent, machine-verifiable invariants in `AGENTS.md`.
 
 > [!NOTE]
-> **[Invariant 18: Context Governance & Progressive Disclosure](../invariants.md#invariant-18)**: Keep `AGENTS.md` lean (<800 tokens) in thematic categories. Place multi-step runbooks in `.agents/skills/` and complete specifications in `docs/`.
+> **[The Invariant Bible: Context Governance & Progressive Disclosure](../invariants.md#invariant-18)**: Keep `AGENTS.md` lean (<800 tokens) in thematic categories. Place multi-step runbooks in `.agents/skills/` and complete specifications in `docs/`.
 
 ---
 
@@ -47,10 +47,10 @@ When delivering features and capturing edge cases during pair-programming, Crede
 
 | Incident / Edge Case | Immediate Fix | Codified Invariant Added via `/learn` | Automated Guardrail |
 | :--- | :--- | :--- | :--- |
-| **Mermaid Syntax Fragility** | Migrated to UTF-8 schematics | **[Invariant 34: Universal Technical Schematic Guardrail](../invariants.md#invariant-34)** | `test_schematic_box_diagram_integrity` |
-| **Wall-of-Text Fatigue** | Added flowcharts & tables | **[Invariant 35: Visual Density Invariant ($\ge 2.0$/500w)](../invariants.md#invariant-35)** | `scratch/audit_visual_density.py` |
-| **Multi-Repo Version Drift** | Updated `credence.run` | **[Invariant 3: Version Parity Governance](../invariants.md#invariant-3)** | `test_ecosystem_version_parity` |
-| **Unlinked Invariant Mentions** | Cross-linked markdown | **[Invariant 30: Invariant Linking Guardrail](../invariants.md#invariant-30)** | `test_all_invariant_references_are_linked` |
+| **Mermaid Syntax Fragility** | Migrated to UTF-8 schematics | **[The Invariant Bible: Universal Technical Schematic Guardrail](../invariants.md#invariant-34)** | `test_schematic_box_diagram_integrity` |
+| **Wall-of-Text Fatigue** | Added flowcharts & tables | **[The Invariant Bible: Visual Density Invariant ($\ge 2.0$/500w)](../invariants.md#invariant-35)** | `scratch/audit_visual_density.py` |
+| **Multi-Repo Version Drift** | Updated `credence.run` | **[The Invariant Bible: Version Parity Governance](../invariants.md#invariant-3)** | `test_ecosystem_version_parity` |
+| **Unlinked Invariant Mentions** | Cross-linked markdown | **[The Invariant Bible: Invariant Linking Guardrail](../invariants.md#invariant-30)** | `test_all_invariant_references_are_linked` |
 
 ---
 
@@ -78,4 +78,3 @@ Newly synthesized invariants enter the **Invariant Lifecycle** and are categoriz
 
 > [!TIP]
 > Never let an agent repeat a mistake twice. Whenever a correction is made, trigger `/learn` to cement the behavior permanently.
-

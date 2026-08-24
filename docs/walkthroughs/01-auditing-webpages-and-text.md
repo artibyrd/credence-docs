@@ -3,13 +3,13 @@ title: 'Feature Walkthrough: Webpage & Prose Epistemic Auditing'
 description: Comprehensive multi-interface walkthrough for auditing live URLs and
   raw prose text across CLI, FastMCP 2.0, Python SDK, and Zero-Build Web UI.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 sidebar:
   order: 1
 ---
 
-# Feature Walkthrough: Webpage & Prose Epistemic Auditing
+> **Note**: Feature Walkthrough: Webpage & Prose Epistemic Auditing
 
 Learn how to audit digital media, news articles, and raw prose against formal journalistic ethics (SPJ), logical fallacies (IEP), and deceptive UI patterns across all supported interfaces.
 

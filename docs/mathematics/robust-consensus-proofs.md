@@ -3,7 +3,7 @@ title: The Mathematics of Robust Consensus
 description: Mathematical proofs of the Domain Authority Weighted Median, Byzantine
   3f+1 tolerance, and the Galileo Rule.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -50,7 +50,7 @@ In an arithmetic mean, a single compromised node submitting $S=100.0$ shifts the
 
 ---
 
-## 3. Mathematical Proof of The Galileo Rule (Invariant 27)
+## 3. Mathematical Proof of The Galileo Rule (The Invariant Bible)
 
 > **Theorem (Asymmetric Grounded Evidence)**:
 > If node $e$ satisfies $W_e \ge 0.70$ and provides grounded citations with precision $G_e = 1.0$, node $e$'s finding $S_e > 0$ cannot be discarded as an outlier by a swarm of $M$ ungrounded nodes reporting $S_m = 0.0$.
@@ -79,5 +79,4 @@ $$S_{\text{consensus}} \ge \min_{v \in V_e} (\text{severity}_v \times \text{conf
 * 💥 [Tutorial 08: Sybil Cartel Demolition & Weighted Medians](../tutorials/08-sybil-cartel-demolition.md)
 * ✍️ [Essay: The Galileo Rule & Asymmetric Evidence](../../blog/the-galileo-rule.md)
 * 🔬 [Case Study: Conflict of Pun-terest & Monopoly Forensics](../../blog/conflict-of-pun-terest.md)
-* 🏛️ [System Invariant 27 & 28: Grounding Slashing & The Galileo Rule](../invariants.md)
-
+* 🏛️ [System The Invariant Bible & 28: Grounding Slashing & The Galileo Rule](../invariants.md)

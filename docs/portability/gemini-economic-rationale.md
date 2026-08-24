@@ -3,7 +3,7 @@ title: 'ADR: Why Gemini 3.7 Flash as Default Engine'
 description: Architectural Decision Record explaining the technical, mathematical,
   and economic rationale behind choosing Gemini 3.7 Flash.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 ---
 
@@ -80,4 +80,3 @@ In accordance with our live empirical benchmarks across the Golden 12 fixture su
 * 🔌 [Multi-Model Provider Adapters Implementation Guide](multi-model-adapters.md)
 * 🔒 [Zero-Cloud Sovereign Local LLMs Guide](local-llm-airgap.md)
 * 💰 [Cost Profiles & Token Economics Matrix](../protocols/token-governor.md)
-

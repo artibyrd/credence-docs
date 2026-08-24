@@ -2,7 +2,7 @@
 title: 'The Boredom Engine & Expanding Roots: How Autonomous Nodes Self-Direct Epistemic Discovery'
 description: How Credence nodes escape idle stagnation by converting surplus token headroom into autonomous citation extraction, RSS/Atom feed discovery, and P2P mesh attestation gossip.
 since_version: v1.16.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 date: '2026-08-19'
 author: Credence Core Architecture Team
@@ -61,10 +61,10 @@ When an article receives a clean epistemic audit ($\text{Suspicion Score} \le 25
 
 ```
 [Clean Article: ProPublica / Reuters]
-       │
-       ├─► cites https://courtwatch.org/cases/2026/brief-01
-       ├─► cites https://nature.com/articles/solar-breakthrough
-       └─► cites https://civicwater.gov/reports/compact-2026
+       |
+       +-► cites https://courtwatch.org/cases/2026/brief-01
+       +-► cites https://nature.com/articles/solar-breakthrough
+       +-► cites https://civicwater.gov/reports/compact-2026
 ```
 
 ### SSRF Guard & Noise Elimination
@@ -104,13 +104,13 @@ In multi-node P2P mesh cluster simulations (`tests/test_mesh_cluster.py`):
 ```bash
 $ credence roots tree
 🌳 Credence Epistemic Root Network
-├── Active Subscribed Roots (28)
-│   ├── Reuters World News (reuters.com) - 14 items (Tier 1)
-│   ├── Nature Research (nature.com) - 8 items (Tier 1)
-│   └── Court Watch Docket Feed (courtwatch.org) - 6 items (Tier 2) [AUTONOMOUS ROOT]
-└── 🌱 Unsubscribed Citation Soil (14)
-    ├── civicwater.gov (3 citations, trust: 92.4/100)
-    └── statnews.com (2 citations, trust: 88.0/100)
++-- Active Subscribed Roots (28)
+|   +-- Reuters World News (reuters.com) - 14 items (Tier 1)
+|   +-- Nature Research (nature.com) - 8 items (Tier 1)
+|   +-- Court Watch Docket Feed (courtwatch.org) - 6 items (Tier 2) [AUTONOMOUS ROOT]
++-- 🌱 Unsubscribed Citation Soil (14)
+    +-- civicwater.gov (3 citations, trust: 92.4/100)
+    +-- statnews.com (2 citations, trust: 88.0/100)
 ```
 
 The lonely node is lonely no more. It has roots.

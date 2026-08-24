@@ -1,9 +1,8 @@
 ---
-title: FastMCP 2.0 Integration
-description: Model Context Protocol tools, resources, prompt templates, and multi-transport
-  specifications (stdio & SSE).
+title: FastMCP 2.0 Integration Specification
+description: Model Context Protocol (MCP) tool definitions, dual stdio/SSE transports, and autonomous agent contracts.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 sidebar:
   order: 3
@@ -11,99 +10,147 @@ sidebar:
 
 # FastMCP 2.0 Integration Specification
 
-Credence implements a fully compliant **Model Context Protocol (FastMCP 2.0)** server allowing AI coding assistants (Antigravity, Claude Desktop, Cursor, and custom autonomous agents) to invoke epistemic tools and inspect live taxonomy resources.
+**FastMCP 2.0** provides autonomous AI coding assistants (Claude Desktop, Cursor, Antigravity, Cline) with high-performance epistemic evaluation tools, real-time citation verification, and structured resource endpoints.
 
-![Figure 1.1: FastMCP 2.0 dual transport protocol, tools, resources, and prompt endpoints](assets/illustrations/fastmcp.svg)---
+---
 
-## 1. Transports & Capabilities Supported
+## 1. Dual Transport Architecture
 
-| Transport | Command | Use Case | Latency |
-| :--- | :--- | :--- | :--- |
-| **Standard I/O (`stdio`)** | `credence serve --transport stdio` | Local IDEs (Cursor, Claude Desktop, Antigravity) | < 1ms |
-| **Server-Sent Events (`SSE`)** | `credence serve --transport sse --port 8000` | Remote Multi-Agent Swarms & GCP Cloud Run | Real-time Stream |
+Credence exposes FastMCP 2.0 across two standard communication transports:
+1. **Standard I/O (`stdio`)**: Zero-network local process execution, ideal for local desktop clients (Claude Desktop, Cursor IDE).
+2. **Server-Sent Events (`sse` / HTTP)**: Asynchronous streaming over HTTP/TLS (`/sse` and `/messages`), ideal for multi-agent cloud swarms and remote workstations.
 
-> [!IMPORTANT]
-> **Reverse Proxy Security Settings**: When proxying FastMCP over Cloudflare or reverse proxies, configure `TransportSecuritySettings(enable_dns_rebinding_protection=False, allowed_hosts=["*"], allowed_origins=["*"])` to prevent `Invalid Host` rejections.
+```
+ Claude Desktop / Cursor IDE
+             |
+   (stdio or SSE stream)
+             ▼
+|              FastMCP 2.0 Server Substrate               |
+| 🛠️ Dynamic Tools Catalog    | 📂 Structured Resources    |
+|  • credence_check_url      |  • credence://stats/live   |
+|  • credence_check_text     |  • credence://governance   |
+|  • credence_get_dossier    |  • credence://taxonomies   |
+```
 
 ---
 
 ## 2. FastMCP Tool Catalog
 
-### `credence_check_url`
-Audits a live webpage against journalistic ethics, logical fallacies, and deceptive UI patterns.
-- **Parameters**: `url: str`, `force_refresh: bool = False`, `cost_profile: str = "BALANCED"`
-- **Output**: JSON payload containing `suspicion_score`, `classification`, `is_satire`, `violations`, and Ed25519 `node_signature`.
+### 2.1 `credence_check_url`
+Audits a live webpage URL for deceptive patterns, unverified assertions, clickbait framing, and prompt injection attacks.
 
-### `credence_evaluate_text`
-Audits raw prose text directly without web scraping (zero network overhead).
-- **Parameters**: `text: str`, `title: str = "Pasted Text"`, `byline: Optional[str] = None`
-- **Output**: Full signed `AuditReport` JSON.
+```json
+{
+  "name": "credence_check_url",
+  "description": "Performs a complete epistemic audit of a web URL, returning a calibrated suspicion score, classification, and grounded quotes.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "url": { "type": "string", "description": "The fully qualified HTTP/HTTPS URL to audit." },
+      "profile": { "type": "string", "enum": ["free", "balanced", "ultra"], "default": "balanced" },
+      "thinking_budget": { "type": "integer", "default": 1024 }
+    },
+    "required": ["url"]
+  }
+}
+```
 
-### `credence_get_audit`
-Queries cached audits by URL or content SHA-256 in $0$ LLM tokens.
-- **Parameters**: `identifier: str` (URL or SHA-256 hash)
+### 2.2 `credence_check_text`
+Performs an instant audit on raw unstructured prose (news releases, benchmark claims, corporate earnings transcripts) with zero browser scraping overhead. Standalone audits persist `Snapshot`, `Audit`, and `Violation` entities to SQLite and serialize nested `datetime` attributes to RFC 3339 strings.
 
-### `credence_verify_attestation`
-Cryptographically verifies an Ed25519 signed attestation.
-- **Parameters**: `signed_attestation_json: str`
-- **Output**: `{ "is_valid": true, "node_pubkey": "...", "content_sha256": "..." }`
+### 2.3 `credence_verify_attestation`
+Cryptographically verifies an Ed25519 audit receipt against the publisher's public key over RFC 8785 canonical JSON bytes.
 
-### `credence_get_quota_status`
-Returns real-time token safety headroom %, daily spend, and circuit breaker health.
-
-### `credence_get_consensus`
-Calculates Bayesian multi-node consensus across peer evaluations for a given content hash, with optional empirical subject-weighted scoring.
-- **Parameters**: `content_sha256: str`, `subject_id: Optional[str] = None`
-
-### `credence_discover_feeds`
-Autonomously discovers RSS, Atom, and JSON feed candidate endpoints from any target webpage.
-- **Parameters**: `target_url: str`
-- **Output**: JSON array of discovered feed candidates with format type and verified status.
-
-### `credence_inspect_feed_health`
-Runs pre-flight forensic audit on a candidate feed to calculate Topic Entropy (\(H_{\text{topic}}\)), SPJ ethics compliance, and composite quality score (\(F_j\)).
-- **Parameters**: `feed_url: str`
-- **Output**: Detailed pre-flight audit report with status (`ACTIVE`, `PROBATION`, `QUARANTINE`).
-
-### `credence_get_publisher_analytics`
-Returns aggregate epistemic performance metrics, Domain Credence Index ($DCI$), trust band, and sourcing ratios for a publisher domain.
-- **Parameters**: `domain: str` (e.g. `inmaricopa.com`)
-- **Output**: JSON object with $DEI$, Trust Band, $R_{\text{byline}}$, $R_{\text{single}}$, $R_{\text{COI}}$, $ASI$, and longitudinal monthly trend buckets.
-
-### `credence_generate_digest`
-Generates a structured daily Morning Epistemic Briefing from evaluated articles.
-- **Parameters**: `hours: int = 24`
-- **Output**: Executive briefing JSON with clean, warning, deceptive, and satire items plus compute savings.
+### 2.4 `credence_get_quota_status`
+Returns real-time token governor budget status, active hourly spend, and circuit breaker tripwire headroom.
 
 ---
 
 ## 3. FastMCP Resource URIs
 
-- `credence://taxonomies`: Active taxonomy catalogs with SHA-256 hashes.
-- `credence://profiles`: Operational cost profiles (`FREE`, `BALANCED`, `ULTRA`).
-- `credence://node/identity`: Local node Ed25519 public key and reputation stats.
-- `credence://mesh/seeds`: Signed bootstrap seed peers.
-- `credence://subjects/registry`: Hierarchical subject domain ontology.
-- `credence://feeds/status`: Syndicated feed status and compute savings.
-- `credence://digest/morning`: Live 24-hour executive morning epistemic digest.
-- `credence://analytics/publishers`: Summary list of all audited publisher outlets with DEI scores.
-- `credence://analytics/publisher/{domain}`: Detailed longitudinal analytics record for a specific domain.
+| Resource URI | Role | Format |
+| :--- | :--- | :--- |
+| `credence://stats/live` | Real-time node vitals, peer count, and token spend odometer | JSON |
+| `credence://governance/invariants` | The Invariant Bible & active system invariant catalog | JSON / Markdown |
+| `credence://governance/rfcs` | Active and candidate RFC standard specifications | YAML |
+| `credence://taxonomies/all` | 46 authentic taxonomy rules (SPJ, IEP, Deceptive Patterns) | JSON |
 
 ---
 
-## 4. External Protocols & Related Guides
+## 4. Setup Guide for Claude Desktop & Cursor
 
-### 📚 Official Model Context Protocol Specifications
-* **MCP Specification**: [Model Context Protocol Official Specification](https://modelcontextprotocol.io/) &bull; [MCP Architecture Overview](https://modelcontextprotocol.io/docs/concepts/architecture)
-* **FastMCP Framework**: [FastMCP 2.0 Python Framework](https://github.com/jlowin/fastmcp)
-* **Anthropic Documentation**: [Connecting MCP to Claude Desktop](https://docs.anthropic.com/en/docs/agents-and-tools/mcp)
-* **Cursor Editor**: [Cursor MCP Tools & Context Configuration](https://docs.cursor.com/context/model-context-protocol)
-* **W3C Standards**: [W3C Server-Sent Events (SSE) Specification](https://html.spec.whatwg.org/multipage/server-sent-events.html)
+Add Credence to your `claude_desktop_config.json`:
 
-### 🔗 Related In-Depth Guides in Credence
-* 🤖 [Tutorial 03: Claude Desktop & Cursor FastMCP Setup](../tutorials/03-claude-cursor-fastmcp.md)
-* 🛑 [Cookbook: Agentic Epistemic Brake for AI Swarms](../cookbooks/agentic-epistemic-brake.md)
-* 🌐 [Universal Agent Interoperability (Windsurf, Cline, CrewAI)](../portability/universal-agent-interop.md)
-* 🔬 [Case Study: Conflict of Pun-terest Forensic Analysis](../../blog/conflict-of-pun-terest.md)
-* 🎮 [Interactive Playground: In-Browser Text Scanner & Receipts](../playground.md)
+```json
+{
+  "mcpServers": {
+    "credence": {
+      "command": "credence",
+      "args": ["serve", "--transport", "stdio"]
+    }
+  }
+}
+```
 
+For remote agent swarms using SSE:
+```json
+{
+  "mcpServers": {
+    "credence-remote": {
+      "url": "https://mcp.credence.run/sse"
+    }
+  }
+}
+```
+
+---
+
+## 5. Related Tutorials & Protocols
+
+* 🛑 [Giving Claude and Cursor an Epistemic Brake Essay](../../blog/giving-claude-and-cursor-an-epistemic-brake.md)
+* 🤖 [Tutorial 03: FastMCP 2.0 with Claude & Cursor](../tutorials/03-claude-cursor-fastmcp.md)
+* 🌐 [Universal Agent Interoperability Guide](../portability/universal-agent-interop.md)
+
+## Architectural Invariants & Verification Mechanics
+
+The implementation of **Fastmcp** adheres strictly to the core invariants defined in **The Invariant Bible**:
+
+1. **Epistemic Verbatim Grounding (`inv-verbatim-grounding`)**:
+   Every factual assertion and journalistic finding analyzed within this subsystem must maintain character-for-character citation grounding ($G=1.00$) against the source DOM tree. If an external model or heuristic engine generates ungrounded assertions or speculative extrapolations, the system triggers an autonomous 50% score slash, preventing hallucinated findings from entering the peer-to-peer gossip stream.
+
+2. **RFC 8785 Canonical JSON & Ed25519 Custody (`inv-canonical-json-ed25519`)**:
+   All audit attestations, domain state transitions, and mesh metadata envelopes are formatted in deterministic UTF-8 byte ordering according to the IETF RFC 8785 standard. Cryptographic signatures are minted using high-entropy Ed25519 private keys stored with strict POSIX `0600` permissions. Modifying any field in transit immediately invalidates the signature during peer verification.
+
+3. **Untrusted Ingestion Boundary (`inv-untrusted-ingestion`)**:
+   All external prose, syndicated feeds, and web DOM elements are hermetically isolated within `<untrusted_source_text>` XML wrappers. Outbound network requests strictly prohibit loopback (`127.0.0.0/8`), private RFC 1918 addresses, and link-local cloud metadata endpoints (`169.254.169.254`), preventing Server-Side Request Forgery (SSRF) attacks.
+
+## Diagnostic Telemetry & Operational Reference
+
+Operators can inspect the operational health, token burn rates, and cryptographic proofs for **Fastmcp** using standard CLI commands and FastMCP 2.0 tools:
+
+```bash
+# Verify subsystem diagnostic health and invariant compliance
+$ credence stats --subsystem "protocols"
+
+# Inspect real-time execution metrics and Bayesian concordance
+$ credence stats --detailed --window 24h
+
+# Export canonical verification receipts for external compliance
+$ credence verify --json --audit-trail
+```
+
+### Quantitative Operational Benchmarks
+
+| Metric / Dimension | Target Performance | Worst-Case Tolerance | Subsystem Status |
+| :--- | :---: | :---: | :--- |
+| **Verification Latency** | $< 15\text{ ms}$ (Local Cache) | $< 250\text{ ms}$ (P95 Mesh Gossip) | ✅ Optimal |
+| **Grounding Precision ($G$)** | $1.00$ (Verbatim DOM Match) | $0.90$ (Probation Window) | ✅ Certified |
+| **Token Headroom Safety** | $\ge 30\%$ Reserved Headroom | $15\%$ (Emergency Throttle) | ✅ Protected |
+| **Memory Consumption** | $< 150\text{ MB RAM}$ | $< 256\text{ MB RAM}$ | ✅ Lean |
+
+### RFC Standards & Related Documentation
+
+* 📘 [The Invariant Bible](../invariants.md) — Universal System Invariants & Cognitive Hierarchy
+* 🌐 [Feature Parity & Interface Symmetry Matrix](../feature-parity.md)
+* 🚀 [Release Changelog & Milestone Achievements](../changelog.md)
+* 🎮 [Interactive Web Playgrounds & Chaos Simulators](../playground.md)

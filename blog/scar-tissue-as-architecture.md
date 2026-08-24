@@ -2,7 +2,7 @@
 title: 'Scar Tissue as Architecture: Why Every Tier-0 Invariant Started as an Embarrassing Disaster'
 description: How production failures, hallucinated citations, dirty deployments, and bloated CI pipelines transformed into permanent, non-negotiable architectural invariants.
 since_version: v1.0.0
-verified_version: v2.16.1
+verified_version: v2.16.2
 last_verified: 2026-08-24
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
@@ -37,7 +37,7 @@ The rule becomes permanent law. The system heals by building mathematical scar t
 
 ### 1. The "Poetic License" Incident $\rightarrow$ Verbatim Grounding ($G = 1.00$)
 * **The Disaster:** An early LLM evaluation pass audited an investigative news article and claimed the author had stated: *"The CEO admitted to stealing customer funds with criminal negligence."* When we looked at the actual webpage DOM, the CEO had actually said: *"We experienced an unexpected ledger reconciliation delay."* The LLM had summarized the *vibe* rather than citing reality.
-* **The Scar Tissue:** **[Invariant 22: Epistemic Verbatim Grounding](#docs/invariants)**. Every quote extracted by an AI agent must match the source DOM text character-for-character with zero ellipsis masking. Any hallucination ($G < 1.00$) incurs an autonomous **50% reputation score slash** across the P2P mesh.
+* **The Scar Tissue:** **[The Invariant Bible: Epistemic Verbatim Grounding](#docs/invariants)**. Every quote extracted by an AI agent must match the source DOM text character-for-character with zero ellipsis masking. Any hallucination ($G < 1.00$) incurs an autonomous **50% reputation score slash** across the P2P mesh.
 
 ---
 

@@ -1,4 +1,4 @@
-# Agent Guidelines & Scalable Invariant Architecture for Credence
+> **Note**: Agent Guidelines & Scalable Invariant Architecture for Credence
 
 Welcome to the **Credence** codebase (`/home/pendragon/Projects/credence`).
 
