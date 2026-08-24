@@ -2,7 +2,7 @@
 title: 'The Demotion Highway: Why Real AI Wisdom is Forgetting What Tests Can Prove'
 description: How an AI agent learned to stop hoarding 50,000 words of instructions in its prompt memory, and why graduating rules into sub-0.3s deterministic test gates creates true architectural agility.
 since_version: v2.3.0
-verified_version: v2.15.0
+verified_version: v2.15.1
 last_verified: 2026-08-23
 date: '2026-08-22'
 series: 'The Wetware Chronicles'

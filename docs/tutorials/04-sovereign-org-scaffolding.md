@@ -3,7 +3,7 @@ title: 'Tutorial 04: Sovereign Org Scaffolding'
 description: Scaffold an independent, custom-branded trust federation using the credence
   init-org command.
 since_version: v1.0.0
-verified_version: v2.15.0
+verified_version: v2.15.1
 last_verified: 2026-08-23
 sidebar:
   order: 4

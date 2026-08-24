@@ -2,11 +2,27 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.15.0
+verified_version: v2.15.1
 last_verified: 2026-08-23
 ---
 
 # Release Changelog
+
+## [2.15.1] - 2026-08-23
+
+### Fixed
+- **Decoupled Subdomain Routing & Cross-Plane Navigation (`web/_worker.js` & `app.js`)**:
+  - Bound `docs.credence.run` exclusively to technical documentation and `blog.credence.run` exclusively to sovereign editorial essays.
+  - Added HTTP 301/302 edge redirect gates in `web/_worker.js` for `/docs` and `/blog` paths on root and subdomains.
+  - Implemented domain-aware routing in `app.js` (`getDomainContext`, `getDocsBaseUrl`, `getBlogBaseUrl`) so clicking the plane toggle buttons (`[ Docs | Blog ]`), bridge cards, or cross-plane markdown links automatically transitions between `docs.credence.run` and `blog.credence.run` on production/dev while preserving unified single-host SPA behavior on local/preview endpoints.
+- **Shift-Left ASCII Box Art Prevention Gate**:
+  - Hardened `test_zero_ascii_box_art_invariant` in `tests/governance/test_docs_integrity.py` with regex checking for `+[-=]{4,}+` ASCII boundaries to prevent diagram regressions across documentation and blog articles.
+
+### Added
+- **Tier 1 Progressive Skill Learnings (`/learn`)**:
+  - Updated `invariant-audit` skill with vector SVG illustration specifications, dark-theme color tokens, checksum parity rules, and shift-left box art prevention.
+  - Updated `cloudrun-ops` skill with cross-repo secret centralization topology and `--retry 3 --retry-delay 2` Cloudflare API network resilience playbooks.
+  - Updated `architecture-governance` skill with minimal UI navigation label ergonomics and anti-overrun design rules.
 
 ## [2.15.0] - 2026-08-23
 

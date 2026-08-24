@@ -3,2112 +3,2112 @@
     "origin_url": "https://docs.credence.run#01-antigravity-pair-programming-paradigm",
     "content_sha256": "sha256:5427bd4b8b592ca52e63069e21ca2e37d58859053af31422e0f1b4fcdb2f3d23",
     "simhash_64": "0x3189091047e176d2",
-    "audited_at": "2026-08-24T06:16:09.810859+00:00",
+    "audited_at": "2026-08-24T06:39:25.016223+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "0b9519caa4eaed6dfe880e6360df9f010bacd7c56eda91624080efcc4e4a7b7dc012d1c9b017ca7270e7956b7083419a686640fc3bf7b834dd09d0df67b6360e",
-    "verified_version": "v2.15.0"
+    "node_signature": "432fc7b357b3488c661514ff7b83689a1c82a8393b79d95d693813c41017a9a6bd1666156d1c2848d038e4b8b442a00c991e6eafca6858613cc38cb495be3601",
+    "verified_version": "v2.15.1"
   },
   "docs/agentic/02-continuous-learning-and-invariant-synthesis.md": {
     "origin_url": "https://docs.credence.run#02-continuous-learning-and-invariant-synthesis",
     "content_sha256": "sha256:9643564893a585eff3384b1fe44a636b76412f96266c0669a968f3d6005d01d4",
     "simhash_64": "0x29cd8ed06167e2d1",
-    "audited_at": "2026-08-24T06:16:09.816146+00:00",
+    "audited_at": "2026-08-24T06:39:25.020728+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "74d0e6a21e30954af286596b0f62c8a1f2c34009023bb719163c099af5b88b5e802f7a5eaeb859fee621b29b1c49be6fff5ed42c5052479732b01e98fd5e5101",
-    "verified_version": "v2.15.0"
+    "node_signature": "f85df9a8b7fe743f8f3ccf1e7cce4470961d2170c58a298345194bd7270d129b9cd911dc1e69380577e88c503407b99cd387449f8d8120ce6c4f371dc8109208",
+    "verified_version": "v2.15.1"
   },
   "docs/agentic/03-hermetic-testing-and-zero-npm-guardrails.md": {
     "origin_url": "https://docs.credence.run#03-hermetic-testing-and-zero-npm-guardrails",
     "content_sha256": "sha256:3793ea86fcf28ce1fb36d18ed4e6691f4dac542ad580d54804a57278bef87c30",
     "simhash_64": "0x134d1fd94e6566d3",
-    "audited_at": "2026-08-24T06:16:09.823976+00:00",
+    "audited_at": "2026-08-24T06:39:25.029298+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "7a4894a61f39c019b35d1d08e81ed75811fc396cf62b66dad8961379e993b608cadb5c1f3d2d030c41c576a5922045318a393392173579038f71d7a9b96b040c",
-    "verified_version": "v2.15.0"
+    "node_signature": "b4f8546bae12bd7040312f98c365f6c3c6c1d213e4a380264272536bfafa381392c9b872ac126ad03c9c4e4a726bb8e885d53f8fa96e225584248221e21dd90b",
+    "verified_version": "v2.15.1"
   },
   "docs/agentic/04-multi-model-pareto-and-token-governance.md": {
     "origin_url": "https://docs.credence.run#04-multi-model-pareto-and-token-governance",
     "content_sha256": "sha256:042f5abacb1d0389a8c379b24a3a267bf7ddd34a5da3232eeb96db5f7a23e788",
     "simhash_64": "0xb92d69d1c50324f3",
-    "audited_at": "2026-08-24T06:16:09.830072+00:00",
+    "audited_at": "2026-08-24T06:39:25.035050+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "5c4b94f7b5653df1e958ca7632c0c900a32606378f69898bd1baddf1eb8eaa2050544a7394828d05f162b6295e2c905a9e23b4c7fd6d266c5d35b12ffe2f6204",
-    "verified_version": "v2.15.0"
+    "node_signature": "3267807d94e81a9aa802ce8158b1b96c8547aaad162189428c716cd43f6fd596fae4c1bf27dcb81e2ea052a83168c03784007abb4c40bdf24b6b22a058d75002",
+    "verified_version": "v2.15.1"
   },
   "docs/agentic/05-fastmcp-dual-transport-and-four-way-parity.md": {
     "origin_url": "https://docs.credence.run#05-fastmcp-dual-transport-and-four-way-parity",
     "content_sha256": "sha256:eec5be1d75d575f4354c5d56f21e371ea0d31936a63ddfe873240b544d7d9ec8",
     "simhash_64": "0x64cdcdc9e944f6f3",
-    "audited_at": "2026-08-24T06:16:09.834672+00:00",
+    "audited_at": "2026-08-24T06:39:25.040454+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f7c6265704e5505ad0529dc2e9f58742e5731862463f7179918cbca7ac55ed08139c6a36695397fb1cd3538030f4c05f2722003244f2d891d03870a082d8d101",
-    "verified_version": "v2.15.0"
+    "node_signature": "942b837b70fc68020b7f7a6a87d3c35c77b46b64b9e5c66aa34d71e6b66f10f977b5348ab5eef159845132d8b723d6f14785da6c71b72d5c90e5baf056836d09",
+    "verified_version": "v2.15.1"
   },
   "docs/agentic/06-the-demotion-highway-and-invariant-lifecycle.md": {
     "origin_url": "https://docs.credence.run#06-the-demotion-highway-and-invariant-lifecycle",
     "content_sha256": "sha256:79f1bd73c49fe08625a59a7759024b94567593fb5916e7523cd56a7593be7e19",
     "simhash_64": "0x91cd8fc941636471",
-    "audited_at": "2026-08-24T06:16:09.842506+00:00",
+    "audited_at": "2026-08-24T06:39:25.054954+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "12a4643260884a7270fb9638d8d63410a6a10a2038b804252c57a18bbb3cac736f582cdafedb71ffe275bb943a8306c79053b04e36aa25425c581fa7995ce006",
-    "verified_version": "v2.15.0"
+    "node_signature": "12b1776006fb85cba3def4f7f23da7dee0660659f64329d2231c3e6ee82c9843e2550ae40705559621d709236517c34d2f5947a2578a633b9ac276ea7e9f530f",
+    "verified_version": "v2.15.1"
   },
   "docs/architecture.md": {
     "origin_url": "https://docs.credence.run#architecture",
     "content_sha256": "sha256:34f3e1a3cbe5316729bb8806e0566b22ff0afa317368a8f15fe595ef9efe3a5c",
     "simhash_64": "0x2a0ccb616f6c663a",
-    "audited_at": "2026-08-24T06:16:09.846327+00:00",
+    "audited_at": "2026-08-24T06:39:25.060497+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "20480d4046509bcb1eef66f20d5d6c8bb42a89f03065d6a6ee9998ba6f105a153d527ca29cd5fa620ad3531bac566fa49a56b260b9bbd34e838605583d8a0e06",
-    "verified_version": "v2.15.0"
+    "node_signature": "292f539b178ed4687dfd8a5138befdb66504a616e81df6b471e6a492c47ca6ef7d17e6abad4160880bd2860e2dd770a76542a096c1ed3507b65e92f0576c8d0d",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/cloudrun-scale-to-zero-cold-start-optimization.md": {
     "origin_url": "https://docs.credence.run#cloudrun-scale-to-zero-cold-start-optimization",
     "content_sha256": "sha256:75c8dbe7458e0479e19817dce5e296a91342c70f57ddd8d1fce7cb6a09d49c5d",
     "simhash_64": "0x1b84190bef25cc72",
-    "audited_at": "2026-08-24T06:16:09.857179+00:00",
+    "audited_at": "2026-08-24T06:39:25.070989+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "e32d65b4b97c3f69725311e4eb861f514c3821e002837f4a8b1ad1a6c341717037560f9a285e339293340cfe8bb8dc728f8e66f7c4a0b99446b2c8c919245007",
-    "verified_version": "v2.15.0"
+    "node_signature": "0ed6d29fa8452b33af080a5e2ebe605eee15daf38b30945b37e8749b85bdfc50cebaaeedd5f21dd6f34c09d168cfccdb45f2d0d74400d6599528adb03f825109",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/domain-epistemic-index-and-sourcing-forensics.md": {
     "origin_url": "https://docs.credence.run#domain-epistemic-index-and-sourcing-forensics",
     "content_sha256": "sha256:68f2c4c4f6305de9405deef7c4b65eb932d030fba08133baeb09a6c1b7088b2f",
     "simhash_64": "0x17e8184bed26c45b",
-    "audited_at": "2026-08-24T06:16:09.863818+00:00",
+    "audited_at": "2026-08-24T06:39:25.079125+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "d467f2fbf688ecf38abf1ac44617e89435742197393407f2036bbe2bb106166b48a8c8e3ecfd69ef27b6c1db4238d2b18f2987aa419e60800667c90c65af2c09",
-    "verified_version": "v2.15.0"
+    "node_signature": "718c001458e4a5349d9c3015df77356e533ff3a2247b1fa593944f5e0315aaa1f0bd5a33852c70726b44c9ac76caed7587035a4ed473d88166fe65f19af59b0e",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/dual-environment-project-and-domain-isolation.md": {
     "origin_url": "https://docs.credence.run#dual-environment-project-and-domain-isolation",
     "content_sha256": "sha256:a398e1bba8e65e1853221142ac0fc180985540db2e095a937ba5ca20f6cda22c",
     "simhash_64": "0x1bd54fec63c936ca",
-    "audited_at": "2026-08-24T06:16:09.865536+00:00",
+    "audited_at": "2026-08-24T06:39:25.081241+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "a7689c11b62461d922c02123e24c0f25151e57b38e4fbadb2fac48e00f06cdebcada8fa04d902be18ff8b6e0b4588e31432ddf452b540d192218e00a48992b03",
-    "verified_version": "v2.15.0"
+    "node_signature": "4c7a23c73190c3a866da2f39f0732bb9c54d813a02db845bc575f30374e687b200a04bd2722e948d37efab24942417f000276240e73cf6d89837994d60db620e",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/election-civic-integrity.md": {
     "origin_url": "https://docs.credence.run#election-civic-integrity",
     "content_sha256": "sha256:46bedda8f4c1077bb0232a66524013fb3ac6e48c768a7062fb89b306791ccd8e",
     "simhash_64": "0x176d3249c3c77297",
-    "audited_at": "2026-08-24T06:16:09.868607+00:00",
+    "audited_at": "2026-08-24T06:39:25.084774+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "8bbd74850499037797caa73262979ed1057e4142c4a65c29d9ec39159c3ce4ef64dc6946ba3deef7194325dd2d00290e01dae1423ee007af0618b8899769520a",
-    "verified_version": "v2.15.0"
+    "node_signature": "edcb1d6a68b665137b4729b5a7db2846e6573cc76f316d3d719202696ea8b8b64028b5e10c35855edb0bfa610413d18408dd109b179016530af1227d2bc0ea02",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/embeddable-attestation-badges-and-anti-tamper.md": {
     "origin_url": "https://docs.credence.run#embeddable-attestation-badges-and-anti-tamper",
     "content_sha256": "sha256:8e306e6bbba099e6f8e6cb0d1fcd693a99e2902e29805651b81f1357752526a6",
     "simhash_64": "0x156213a07876e4f9",
-    "audited_at": "2026-08-24T06:16:09.870525+00:00",
+    "audited_at": "2026-08-24T06:39:25.088575+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "367c7e47a7f08001f1da33aece0690a8691206f9bc5cb3f6ba3bdc94b8f0e5c55e5f896de8636686afcb588389835e6c7adf68a68d2a1afe2cd6acc5408a0d0d",
-    "verified_version": "v2.15.0"
+    "node_signature": "5c4a265338ad695975da493be446fcd84715b589889a2009476de932a026732f3a2192d2909b395e249ae2201cb92f5784a6b9eb09753c9606199a1a1ca0570e",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/health-medical-claims.md": {
     "origin_url": "https://docs.credence.run#health-medical-claims",
     "content_sha256": "sha256:e32afd63de8526363e8b15c489f979512a1bec1cbb36d7e2c9da1ebc2fbc2131",
     "simhash_64": "0x00e2ddfc59f5e6f9",
-    "audited_at": "2026-08-24T06:16:09.872133+00:00",
+    "audited_at": "2026-08-24T06:39:25.091719+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "02cabc13ecb7fd3c470b770aa8ae074d494e4c24eef0b8c049536fdfb19d11416877847001db1f7975638d0fe1f183b612a32e3db16abd4df9346e08514bf609",
-    "verified_version": "v2.15.0"
+    "node_signature": "d573aae097a1bd2410fcd53f03caead6c11012d2b4e12e6d2a41262357c7056ffeaa08dbc64920aaa296876f7563ea6872c8763f0ad085bf827a2c2884a82a00",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/high-efficiency-scaling-and-resiliency.md": {
     "origin_url": "https://docs.credence.run#high-efficiency-scaling-and-resiliency",
     "content_sha256": "sha256:eea7fe8a354999f3fb66485446ab95605764fb93c8a6558f186eefeb5e19df1c",
     "simhash_64": "0xa787dd4fc73c559a",
-    "audited_at": "2026-08-24T06:16:09.873492+00:00",
+    "audited_at": "2026-08-24T06:39:25.093612+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "5e41bd4341621baed729f5b18678f97f49f1a9bc7e7133ac499d742159465137933f3de8014736cd462db191c0d53a08804169a6acfa98c138d9b860dff66505",
-    "verified_version": "v2.15.0"
+    "node_signature": "a6cabddea1cf70b80d04fad5bb2df1b6b08d9b446cd48a57dbd2249fc195ac783913cd71cca35077e07ca3cd4180a81a9bc9c6ef3d643f5d21bf37da618f630e",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/human-agent-safety-and-justfile-modularization.md": {
     "origin_url": "https://docs.credence.run#human-agent-safety-and-justfile-modularization",
     "content_sha256": "sha256:cea40143b9ab7d43849b56bc3e12f94db633e151ec75b5b0a8d7a180b352fa48",
     "simhash_64": "0x7bd085930be46651",
-    "audited_at": "2026-08-24T06:16:09.883790+00:00",
+    "audited_at": "2026-08-24T06:39:25.107789+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "5650683675b82966e621ccdd20453009b56dacf0f0e93af88a4a1f0096f45d9e1c823bdf44f14e30dd19b0135d3fd10ffc5117909b2e9802f40e4dfe724e8808",
-    "verified_version": "v2.15.0"
+    "node_signature": "2cdbae09d695058096464b63ab5fad708a2bea2d7069c574756827958f2ee255a6918a54eb4052b0131826c0aa974ebeb74ea4c9aab77c0c156388537b63500b",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/information-pyramid-and-epistemic-lensing.md": {
     "origin_url": "https://docs.credence.run#information-pyramid-and-epistemic-lensing",
     "content_sha256": "sha256:1216966d3efb5328cdd9debe647a8b2dcbe93908f4980c0952826171fdc13016",
     "simhash_64": "0x4f45599d8a275291",
-    "audited_at": "2026-08-24T06:16:09.885895+00:00",
+    "audited_at": "2026-08-24T06:39:25.109778+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "68197dab00c34024c8a37400efa103464274d83d04e564595f7e0dec74d5a2a6a8e79066add484f5436c204195220b542a5a6cd4703be3c88b45b5e4667df504",
-    "verified_version": "v2.15.0"
+    "node_signature": "e9a97e05a429145c46146ba6af7d77d1500e796b6b9ecf4569948b2b2215c0299537925f5ad99f7bac14560188cdc9e6e90c7e748b84ab02ccdb95b36a162d09",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/invariant-scalability-and-knowledge-governance.md": {
     "origin_url": "https://docs.credence.run#invariant-scalability-and-knowledge-governance",
     "content_sha256": "sha256:f19b900cfde70813a78209b9c9524966629bc4101144e760bc7741d3ce88f763",
     "simhash_64": "0x08470cd95161e4d2",
-    "audited_at": "2026-08-24T06:16:09.897210+00:00",
+    "audited_at": "2026-08-24T06:39:25.119286+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "8765b1b88fac184b4c8d59f76417efc88e6952a45db0abfeb4a76b8a4794b71c8d06b6f4bdd1f98bf0e50cdf40f8b59e20ca65676bab1c1780097e48c2eade0a",
-    "verified_version": "v2.15.0"
+    "node_signature": "4e2cc3b8985acbfde77a48e7b59e0598794562df0dab5f76571b8c819d92346c3d7c1f6abd4bebf4456b491df87d0c8c05aaa5adbc6ac9c9082cc7d04f08560f",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/node-and-mesh-telemetry-dashboard.md": {
     "origin_url": "https://docs.credence.run#node-and-mesh-telemetry-dashboard",
     "content_sha256": "sha256:5d3dca5511454c0b4e849cfb7ab7fa5c723906a65f58107efe812ecf038bbe31",
     "simhash_64": "0x05c0c59b6c26c6d9",
-    "audited_at": "2026-08-24T06:16:09.904138+00:00",
+    "audited_at": "2026-08-24T06:39:25.126137+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "3b95b95828cd2b3e7775cb70d548fa023210d1856dcd00146ca4c1e56198c616843a63ed843b455153165f7a942b549d027df95807538e2c6a878a437bbfbc0b",
-    "verified_version": "v2.15.0"
+    "node_signature": "2bfd0f7e342c77104b169c93697ce32218d84b277887b11fdf9a1ead3888eb04ac07e4a37c9dfec3cccd208e97f3bcb55580245d3157d32a6426d9f0ae3c0101",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/security-architecture-and-threat-model.md": {
     "origin_url": "https://docs.credence.run#security-architecture-and-threat-model",
     "content_sha256": "sha256:ab42075fefddc460910f02ab9e35a9b23de81906bf3c605f0b21ddcc1d823a78",
     "simhash_64": "0x18847908423fb7f9",
-    "audited_at": "2026-08-24T06:16:09.905856+00:00",
+    "audited_at": "2026-08-24T06:39:25.128616+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "b5b9896a42cbc064cb7ddea22d1d0cc8fc9927cdf68bd363578483ba16aee1cf5f072771ea8be62275eaeb8a534f610731a21ed809e748ba46f2766295d9b706",
-    "verified_version": "v2.15.0"
+    "node_signature": "2a8b68e39dd78c787f65bcddd737e2f8eadbe7de45c6a8240fa898080c3891d962520a6accd35e5c9e576e84d3bf037fa8f02fd70e331d0ab1f7bf7a438e7501",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/sovereign-data-gravity-and-cas-portability.md": {
     "origin_url": "https://docs.credence.run#sovereign-data-gravity-and-cas-portability",
     "content_sha256": "sha256:0b9a3c2beae2673cc856acbcfb808436245ab9d5edf79445401728de69861d43",
     "simhash_64": "0x1b078d90c316627a",
-    "audited_at": "2026-08-24T06:16:09.915076+00:00",
+    "audited_at": "2026-08-24T06:39:25.137176+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "3e21a940f29421f7d4ec2e881ff7aa748565542367e92237518f9be1b47973a9763100741d3990d0b2a9337f8f955a6cfb5c4ddd56a804d0d4e05fd9e413a303",
-    "verified_version": "v2.15.0"
+    "node_signature": "f8ad8e98387cbf48af49aa8beaf239b129ce95397634b053dc9dd5dfef2bbd3f0758c84c07d0e2d31f5135eec8b0e8a5ed4920c6a8692b2501c04a346d795404",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/synthetic-media-provenance.md": {
     "origin_url": "https://docs.credence.run#synthetic-media-provenance",
     "content_sha256": "sha256:07cf3deff99149fefe3e883203244a05418bd42946b32afebbdfacb51714e2d6",
     "simhash_64": "0xf967ddd1ed2714d3",
-    "audited_at": "2026-08-24T06:16:09.917048+00:00",
+    "audited_at": "2026-08-24T06:39:25.140012+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "3d13609838e0af1f3a4c4972c9887d5bae189af04f8009da48ea1cee474e4572b49b07f4f773d489cb68b1980ba1ff1651d5ca82236432ee145971f360b8250f",
-    "verified_version": "v2.15.0"
+    "node_signature": "9f7a9d833e873a43f37406f364d7c57b151763bab56c3f480b4c8d3745c60173b77764e3d137475b4cadc81e21d5070828c33964fdf0f8cae3c6843dd928fe04",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/terminology-and-ontology-lexicon.md": {
     "origin_url": "https://docs.credence.run#terminology-and-ontology-lexicon",
     "content_sha256": "sha256:a198309b7bd1a2a267c5d5a88399f3334593c88bccbadff014210d02db98eec0",
     "simhash_64": "0x09c137cd642d6a99",
-    "audited_at": "2026-08-24T06:16:09.931218+00:00",
+    "audited_at": "2026-08-24T06:39:25.155097+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "565182afa593b89d0b3d5739b04dcce95d8e8faffb8b58b01b327ca2112ad794875e8b15b467a6ed014226e6af93b4b23936a614a0698b7532dde279deb11c0f",
-    "verified_version": "v2.15.0"
+    "node_signature": "9821b3742963dd6d167f153e32efe03ee277dad367bf81347b6e2dae461e181c4e3e816ad6ad999793054e5990f1b6a19950816a8b7a55e7a662b541bb071c00",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/unified-merit-and-attestation-badge-system.md": {
     "origin_url": "https://docs.credence.run#unified-merit-and-attestation-badge-system",
     "content_sha256": "sha256:7d15ad88650495ac84c9d70c70061e6195bb95491012e48a0a3930591c1b53ab",
     "simhash_64": "0x13c819bd582af4c9",
-    "audited_at": "2026-08-24T06:16:09.936921+00:00",
+    "audited_at": "2026-08-24T06:39:25.163456+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "e235bea395bea34b736dd85097a48bdca950df23d726e6e534b9ce10ff7f6a5ca20291af31012b0be30f32fd289d1c9bad275e043654caeccbe92e05f7b06e0c",
-    "verified_version": "v2.15.0"
+    "node_signature": "d8e852028d4afac81099a7eca445d091e012feb8786d840c7e25bbde80bf8ca110dc19118815678cc45087a2cd07d5525817f7c10f0c073bdca6497ea1743901",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/universal-4-way-parity-and-environment-governance.md": {
     "origin_url": "https://docs.credence.run#universal-4-way-parity-and-environment-governance",
     "content_sha256": "sha256:23936bff311dd96dbcb6783b905607c156e958475a0d63c87982f19540bd1ae5",
     "simhash_64": "0x100149b14bb74451",
-    "audited_at": "2026-08-24T06:16:09.939562+00:00",
+    "audited_at": "2026-08-24T06:39:25.167169+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "0e7cc2446a38edc120af27f135b96d50f7e045c395f38296ccc976fbb145e5924d25afd51dc96dc1c66680e035f3c433f7ea5590b530504c86dc7bd1375aaf05",
-    "verified_version": "v2.15.0"
+    "node_signature": "fabcb223c180cc88e918653f4a16c953e242b5cb39a7d33e78ec81d5056832f002e6ac7bbbf22a11c72304a2ea6229f741f84313ede30f6cfd4c929facca4d0c",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/v2-architecture-and-500-loc-modularity.md": {
     "origin_url": "https://docs.credence.run#v2-architecture-and-500-loc-modularity",
     "content_sha256": "sha256:c7239ab6b797de912b39f53410b3f91243dab8cae26ac5c51efb5cd628765e1d",
     "simhash_64": "0x17c50ce06d662ed6",
-    "audited_at": "2026-08-24T06:16:09.943803+00:00",
+    "audited_at": "2026-08-24T06:39:25.172445+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "d51574b8560694dee92e651162e7eba4494a13ae5cab6ffd5c73ec7f0025284eab2fcb560cff0736002966b7f94771d4e7172240e16c93c584124641a847a002",
-    "verified_version": "v2.15.0"
+    "node_signature": "5477bcdbb36844949a656c2992b70006f254a1d289a3e6ef802bf35e30453aeadba23730dd119febbf821d9f389966b3597205e60c8eadec8b4b13bb66bc7c0a",
+    "verified_version": "v2.15.1"
   },
   "docs/blueprints/zero-build-edge-routing-and-subdomain-dispatch.md": {
     "origin_url": "https://docs.credence.run#zero-build-edge-routing-and-subdomain-dispatch",
     "content_sha256": "sha256:814f9d7b255f2c0a149c39480661795c32c242c30c68ae2614a4254b9360f117",
     "simhash_64": "0xe3c72f136887e4f0",
-    "audited_at": "2026-08-24T06:16:09.945001+00:00",
+    "audited_at": "2026-08-24T06:39:25.173441+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "a8ad3e56f137fc10d43b6f465a39c4f8d52766a83c4eee46bda0ec122f2c9ddfa59a73c959191511d1cbcce5a5ace28791b61eb1cdfcd3b9a565017247843205",
-    "verified_version": "v2.15.0"
+    "node_signature": "6f299decda3e696625fdb5f26cc231093d8d7c5be30bb6790284f21e76422c27f4a06fdb24d31a44a4fd0f5ce15c4e38469394a6b9ba4f1394ab8c1011dc460f",
+    "verified_version": "v2.15.1"
   },
   "docs/bootstrap-seeds.md": {
     "origin_url": "https://docs.credence.run#bootstrap-seeds",
     "content_sha256": "sha256:d2fbeaea3c4bd0fd323387a53a8c9d59f117983b8b281127c55406aa692157dd",
     "simhash_64": "0x74e14ddf6c276458",
-    "audited_at": "2026-08-24T06:16:09.947508+00:00",
+    "audited_at": "2026-08-24T06:39:25.174989+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "c9251e3c36755a49bf349836105529b6bccb2745b7b68f3ce9f075f685ed9379a47cd45022d16e5ae06c64d28015c24712b08692141bc1a9454f7f3b209f1808",
-    "verified_version": "v2.15.0"
+    "node_signature": "3fd0fcc4b5d7f879e74f863d515734645413c4a611d0c731e9e220b7dd9a60575a0d9a70f67fdb11fd2b90c36e6f64024e5ab2587845b7c236a5924eab916502",
+    "verified_version": "v2.15.1"
   },
   "docs/changelog.md": {
     "origin_url": "https://docs.credence.run#changelog",
-    "content_sha256": "sha256:c7bf92393eaabe4c0b91a4503d1211d1ab1c35f178250cb19a6d25fde29a8c1d",
+    "content_sha256": "sha256:a025be51511e74cf6246ff8a854f1fddbac8a8563b8eee7e4a9ddef7847c3909",
     "simhash_64": "0x1fc50dda6d6766f8",
-    "audited_at": "2026-08-24T06:16:10.107149+00:00",
+    "audited_at": "2026-08-24T06:39:25.340042+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "fa9690917c11e3bc6d08fc9e832dbb1c505c95e0e8db4e155db5c9cf92e34ec77a8598b08b4df06e8bb8b0ddc8be5f8155527042615042610ad209e256bd4c0c",
-    "verified_version": "v2.15.0"
+    "node_signature": "34a14f62a03d1de7701d56b59602491cdecb1a3e1b40f6bff768c32e02315c9280a5312d9d15f88a13a942d89ca4add105b1897383d9f51cdf75e8ea0ca60202",
+    "verified_version": "v2.15.1"
   },
   "docs/cookbooks/agentic-epistemic-brake.md": {
     "origin_url": "https://docs.credence.run#agentic-epistemic-brake",
     "content_sha256": "sha256:19b1c09f4308381da60650e034d6f18844a11c9b606b8dd706b02ee0ab4a29b1",
     "simhash_64": "0xa949bddd6b0634fb",
-    "audited_at": "2026-08-24T06:16:10.111880+00:00",
+    "audited_at": "2026-08-24T06:39:25.348633+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "672b07d5dfa07de863bfc1141904903930839ea56d018f5afafcddf7cac61dd278620a97c3ad034647a2f345e755ac2b0cf8a4706f7f06a1e141f14cb2a56400",
-    "verified_version": "v2.15.0"
+    "node_signature": "1d0320fdaec6445a2c9f1ebdaede1af94d112487872cf98408360e8a529320c3574f7dfa29621a42ab0638de00f37f1ed02956be9451e4aef0e7d70c72e3730c",
+    "verified_version": "v2.15.1"
   },
   "docs/cookbooks/aws-and-flyio-deployment.md": {
     "origin_url": "https://docs.credence.run#aws-and-flyio-deployment",
     "content_sha256": "sha256:8e9673f3f4e10b33d51026bd629c5a48b47d47d5ffc93ded3de15aece31cf1a2",
     "simhash_64": "0x5f04189ccf365c68",
-    "audited_at": "2026-08-24T06:16:10.113122+00:00",
+    "audited_at": "2026-08-24T06:39:25.350607+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f8ec804b6e36daea13725acb7065478e58d255571eb224ba274341ac91c81c042733710bfe93d4496ee224ccf63c324275aaf419642694bcea62bc701857aa0c",
-    "verified_version": "v2.15.0"
+    "node_signature": "56fc40328ac872c0312dbe8a78c08cb8a55792834bce7720db1470ac89466aa5b7a7817ed4bb315ec6c333eb2cdc7239582e5e3da7105c626b07134b63f97c0b",
+    "verified_version": "v2.15.1"
   },
   "docs/cookbooks/edge-caching-browser-extension.md": {
     "origin_url": "https://docs.credence.run#edge-caching-browser-extension",
     "content_sha256": "sha256:479a0315fece3817b5a5f004defeb0692cba64c312228cdc11bc1d62e8f5cb3d",
     "simhash_64": "0x41dc1da3fe086ad4",
-    "audited_at": "2026-08-24T06:16:10.114370+00:00",
+    "audited_at": "2026-08-24T06:39:25.351694+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "cf223e04bc4a937b516bdfd75d3600767888ff5f1fa7ac432b0d276db15ed3775566dcfa6cc9c4bb0bba81816fde344119bc30f3ca37584baaee8fe83a0cc709",
-    "verified_version": "v2.15.0"
+    "node_signature": "3d137bce4cff070cced04775cffdb1b26158fa9d8cb4d727fef0d654b4f7ae7cca9b37cfe52cbe1bd469015292acfeab3041d9801b9b59bcca87a16879a78301",
+    "verified_version": "v2.15.1"
   },
   "docs/cookbooks/financial-disclosures.md": {
     "origin_url": "https://docs.credence.run#financial-disclosures",
     "content_sha256": "sha256:cd3116f92413ac0bec43b97c3a83683f3aeed43a3b7487e0bb3270e39fec9723",
     "simhash_64": "0x3981b83aed7ec6ee",
-    "audited_at": "2026-08-24T06:16:10.116947+00:00",
+    "audited_at": "2026-08-24T06:39:25.354582+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "b8a11d5430bcb3c4fba97d17894aefb5622b44ddfc7a9b774d812dae86b12af6895969aea99f07158ce587c75510a3f3281f66be826054469726e839ba013b0d",
-    "verified_version": "v2.15.0"
+    "node_signature": "a3566aaa040aa6c371858935d0c54f094e27458d4be887fcadafcdcdc90cf157a2b89ae527e17f210b5c2dfbb87998b5323768ca392cca780b6e30c36a3d9e0b",
+    "verified_version": "v2.15.1"
   },
   "docs/cookbooks/hetzner-vps-and-systemd-setup.md": {
     "origin_url": "https://docs.credence.run#hetzner-vps-and-systemd-setup",
     "content_sha256": "sha256:bfa976aead6c2d8d30ea776344a32cce19bc8f409b6dc9d64475f7c988a31396",
     "simhash_64": "0x15c2a1bceee26cb0",
-    "audited_at": "2026-08-24T06:16:10.118057+00:00",
+    "audited_at": "2026-08-24T06:39:25.356473+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "d958771ac34373b750a604ca7d4e7708ec87eeb48ad7cd0fcfdeb895d7677c09ad46c7d8d1ef41080c83e3fa555c50c3b0470b7075a3583c5460da72ab65c203",
-    "verified_version": "v2.15.0"
+    "node_signature": "ed2614c72554db73523fed55203ec4a45fecd73c9095f349f8ff045a312aa33b80094396bf06989c5bd530b248a922e8133eb8e8dfc6a3a230b9aa2fbdcaf509",
+    "verified_version": "v2.15.1"
   },
   "docs/cookbooks/local-dev-to-cloud-run-workflow.md": {
     "origin_url": "https://docs.credence.run#local-dev-to-cloud-run-workflow",
     "content_sha256": "sha256:686f53531daf824e65a2ec12eb05303a720f162c2595f99b4ea4c326e380ab7a",
     "simhash_64": "0xbbd541845fec75e3",
-    "audited_at": "2026-08-24T06:16:10.118895+00:00",
+    "audited_at": "2026-08-24T06:39:25.357724+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "ccffd1222d3545f4881ae1a0aff02c80fb5446e541831c0014938592741f66a9f902c7a7dc0b5caaf2085ac4a919d5f53204ad22a8b1c36d45f6a6bb626ee40a",
-    "verified_version": "v2.15.0"
+    "node_signature": "06fd6437a43f339d6a787b19d696e7f5d53ae764c96a65edf91afa2fdb0b3612d76121d57b5737905175e64c93700df01beecce597ffc0489b13569dc3971503",
+    "verified_version": "v2.15.1"
   },
   "docs/cookbooks/morning-feed-sifter.md": {
     "origin_url": "https://docs.credence.run#morning-feed-sifter",
     "content_sha256": "sha256:cb729e68b1ae4ca3790b710838749fbd68ef77367aa75e27a69fd1f83b95519c",
     "simhash_64": "0x827385db69b7e4f8",
-    "audited_at": "2026-08-24T06:16:10.125997+00:00",
+    "audited_at": "2026-08-24T06:39:25.363660+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "917fa0de432973fe640b1414829b810f8b546286482e63e13e8517e76f836be4c54e450357a8c6df6467ba1d05a097de0128df4957d12ca72d3523016e29200f",
-    "verified_version": "v2.15.0"
+    "node_signature": "9788fcbe6bcf6a5bee1e74af02e5db10e28e171f3cbd587221da89401ceb26dd323f8f79c42503ea31c14a4b21832afb776ca8e341691386ca7283ab989afd0d",
+    "verified_version": "v2.15.1"
   },
   "docs/cookbooks/multi-tenant-org-subdomain-federation.md": {
     "origin_url": "https://docs.credence.run#multi-tenant-org-subdomain-federation",
     "content_sha256": "sha256:560f1340dedd275070c8ffafbdc6828c4b9940853e1380dd4493617353471732",
     "simhash_64": "0x598a256f0e644d35",
-    "audited_at": "2026-08-24T06:16:10.128172+00:00",
+    "audited_at": "2026-08-24T06:39:25.364692+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "8586349a0c5060d1891a2094fbb1f52426d5b2223d5ab104cb97253064814e8d7382c0965323533f4169e18029619e26bca71c7323af95c2aea34ae4dd56dd07",
-    "verified_version": "v2.15.0"
+    "node_signature": "015204a8fd7fef845c56020d13b651da36eaf0f11e585d2c3f565ff68b876860efd06164178f75282f81c9ff4238af1fd88c3bd42b906b7c40e6ca27451ae002",
+    "verified_version": "v2.15.1"
   },
   "docs/cookbooks/taxonomy-engineering.md": {
     "origin_url": "https://docs.credence.run#taxonomy-engineering",
     "content_sha256": "sha256:c75e098b4672a12ed4ea79f26e952e0932eed48a1036773a1bb1b17fef9a2704",
     "simhash_64": "0x31a38df1ed479ec3",
-    "audited_at": "2026-08-24T06:16:10.132747+00:00",
+    "audited_at": "2026-08-24T06:39:25.367959+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "6e8faf8e0cceab99575b688cfcc4eda2d22518284c1e78f2adcdf81dd68c796b32dcc45c45fbcdd2a9f45c03e19e6127015ff200a04f0cca3008584f4e75b806",
-    "verified_version": "v2.15.0"
+    "node_signature": "4c9c36622ebd30b4e048566aca424297219638e76665636aa73f51b63aa380a66e00ae9555e614fb4ce46953457e22f1ae343cf01157e2a8ba1617bbc564950e",
+    "verified_version": "v2.15.1"
   },
   "docs/deployment-cloudrun.md": {
     "origin_url": "https://docs.credence.run#deployment-cloudrun",
     "content_sha256": "sha256:238c11fb3ba207566072b44ae90f4dbae394d5963e1be914a970387cf2d14e1a",
     "simhash_64": "0x63e4bcc17b706ef0",
-    "audited_at": "2026-08-24T06:16:10.147464+00:00",
+    "audited_at": "2026-08-24T06:39:25.380777+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "8c4c5a3ed9a29c107019834ca8dc18287cca58ab880b5198227270d94a74d6ce7fa126eaccb6bbc1bfec7cc5bd049f376da676fcd6552533a3f7fe7f86eaf30d",
-    "verified_version": "v2.15.0"
+    "node_signature": "1d00e21bcf93ba8e9fd93838061b265e09c5626d8316f4cba20f8f7ca44125b1e13c646f365d38afb9fb10c6ae295d4f163ef8332019b42d896772c870626c08",
+    "verified_version": "v2.15.1"
   },
   "docs/feature-parity.md": {
     "origin_url": "https://docs.credence.run#feature-parity",
     "content_sha256": "sha256:1641e244d60d447a84744a595389eb2e4be01b53492e22514ce27d98017668c2",
     "simhash_64": "0x15d601b0e43a4458",
-    "audited_at": "2026-08-24T06:16:10.155126+00:00",
+    "audited_at": "2026-08-24T06:39:25.391917+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "79a208bcb290fbd3387f13478c72ea2886705edebc70088b1cbfb3bb2a836ed5b426b78120a7c547e7ba845e495248bb619339699e36808449b9241968863309",
-    "verified_version": "v2.15.0"
+    "node_signature": "785fb8f8a4ca8820006972b4e70825b77b6655d8868fbce970fc1d9d8e5bae6841e5e972c1ba3489079c6473a092f731f5f08ec98212b712383ed2b601afd30b",
+    "verified_version": "v2.15.1"
   },
   "docs/frontend-architecture.md": {
     "origin_url": "https://docs.credence.run#frontend-architecture",
     "content_sha256": "sha256:ffb8a540a375cc45c7605b889c11cf6d52a2731d445ce801f2089f6ae6bc1d27",
     "simhash_64": "0x11c81c0b6677a0d1",
-    "audited_at": "2026-08-24T06:16:10.161425+00:00",
+    "audited_at": "2026-08-24T06:39:25.401288+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f160683c35822459bb8c7a8c8c6e6459d677b02b2afd3e28c563880fc67d39de61e64563c21a205ab6824befdfc5714e25cbdd2935c2c0b63a8984f34425d30e",
-    "verified_version": "v2.15.0"
+    "node_signature": "4954c171b74d7912c001b3eb75771a44ffb117fb6fc27d18dbe826c6cbd3ceea7fd8c11c0da49fe98880fdcdee5bdd12a7e5323b9d81a9c40b0da234a226e600",
+    "verified_version": "v2.15.1"
   },
   "docs/integrations/browser-extension-mv3.md": {
     "origin_url": "https://docs.credence.run#browser-extension-mv3",
     "content_sha256": "sha256:5f250c9219f4d11fac4d4a8599e238a4dbb72a5a08065d786d995a0c2d6c95b4",
     "simhash_64": "0x2bc1a5295f36a618",
-    "audited_at": "2026-08-24T06:16:10.166142+00:00",
+    "audited_at": "2026-08-24T06:39:25.405048+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "591185f6f0c8751f749bc0fa74fada2b2e70dd49df878c67c86d0b90eacb7323a0b83d40b8e16f901e8560faa50b80b220578bceee036284eeb9249e1e55d60a",
-    "verified_version": "v2.15.0"
+    "node_signature": "909b45fe3fe09e7c6be083a749aacf0d464451c8cfbb8bff50ede3d593c4ae25fd80c914d1ac2b5ee74ef78c2c711a3f301bad5ea85c0d513f453bdb319d5402",
+    "verified_version": "v2.15.1"
   },
   "docs/integrations/cli-scripting-guide.md": {
     "origin_url": "https://docs.credence.run#cli-scripting-guide",
     "content_sha256": "sha256:d6e19832972ee7ced4a8d6f3b36ab898e9416cbfb934e996db7dd2b7c3e1b7eb",
     "simhash_64": "0x172019ff3a3bccf8",
-    "audited_at": "2026-08-24T06:16:10.170797+00:00",
+    "audited_at": "2026-08-24T06:39:25.409841+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "051a4f4601c9576d3f9b70beb863fff32740b1685a9b34ed2c1382b9969e1613b3365752156d586698b1a00dbf1795b3fba6c1d0cf26dccda63dff110e4d9108",
-    "verified_version": "v2.15.0"
+    "node_signature": "8021a128c467a3e9ffd4d8c5831aa7f2750a746116f6c50e980e474f9a6cbb6168c7fe88f665d4195b099c895447a4debe92805140d95d50e556af7d2316c70e",
+    "verified_version": "v2.15.1"
   },
   "docs/integrations/tui-workstation.md": {
     "origin_url": "https://docs.credence.run#tui-workstation",
     "content_sha256": "sha256:c1b94e40fcb4226f07b6d29439fa8e59f143ccf132d902dfe4efba76fe861bf9",
     "simhash_64": "0x8d4fd95f6c634438",
-    "audited_at": "2026-08-24T06:16:10.180544+00:00",
+    "audited_at": "2026-08-24T06:39:25.420052+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f70d61913e2e22455d40ed7b2e363374622f148deaf3e8f45438095ed01f57ba993e176d4b33d07796546038eca6ada5468730501532c2c2e95057b8ca96cd00",
-    "verified_version": "v2.15.0"
+    "node_signature": "30ed0dd705a9532301aacb1c611b54c12faedd1a83011f880dd84117f648d2887a591650eec733ec2ff59f2da7143a86ad94f14333aef70bfa26c435b83c8c0b",
+    "verified_version": "v2.15.1"
   },
   "docs/intro.md": {
     "origin_url": "https://docs.credence.run#intro",
     "content_sha256": "sha256:2dee500776de19da9d5f89d802a654b18130a1dec179988df7f4402b72c5d551",
     "simhash_64": "0x3a4c1c47653272f1",
-    "audited_at": "2026-08-24T06:16:10.185585+00:00",
+    "audited_at": "2026-08-24T06:39:25.426480+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "635bd56f3c7e6e788a834c6f432941f7b69207b6d540aa50114586043715d336d6f1cd98364b047c510549245341737ce26a60951acf4404d51926dfbcc5e002",
-    "verified_version": "v2.15.0"
+    "node_signature": "48e52a5f3f890632e4650b921e91a3e423ea33e15d294cca38a4cb4f1b783d4f717f31f68b748b70883527d9eef2e9130b28b71d907bdc4479a8a9471c6e5005",
+    "verified_version": "v2.15.1"
   },
   "docs/invariants.md": {
     "origin_url": "https://docs.credence.run#invariants",
     "content_sha256": "sha256:7b5692413a9c24c9c1898ce9a1a874d25ab565f789ee9b3d780fda7b8e9f66bb",
     "simhash_64": "0x34430a50214226b1",
-    "audited_at": "2026-08-24T06:16:10.223593+00:00",
+    "audited_at": "2026-08-24T06:39:25.472564+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "dad300f4dec38d33d2583da8b20e20eeb9122a15bdacfd9e80325ae60216ed8c6bb1b6a62b522d2e07c55100b37a4412d51e0810ae5ec12b2fc04a58f0ed4904",
-    "verified_version": "v2.15.0"
+    "node_signature": "a0c775d61316b81031e40e7cc6f629d1608848c19ccb30878d32754766a441f8490804642ab6a234896523d1c40f53e400ec4f9c5febf7d2adc5970c665c6f0d",
+    "verified_version": "v2.15.1"
   },
   "docs/lab-badge-security.md": {
     "origin_url": "https://docs.credence.run#lab-badge-security",
     "content_sha256": "sha256:fe602902b436eee37c53209e5e6c90e8f211604c5fafa5b1c095dab957533db7",
     "simhash_64": "0x1108d9516c02c053",
-    "audited_at": "2026-08-24T06:16:10.228705+00:00",
+    "audited_at": "2026-08-24T06:39:25.479855+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "ad285cc5fa18da922c0fc8e2419dc524c75ef928f6069bf06ffe7d6c76ed42c67ca4e71e7ed30751e95f45e462957216ea92f5f1cf243b4a3f740381254f5103",
-    "verified_version": "v2.15.0"
+    "node_signature": "7da1d426c0801c948419b72062c31aa4a6fba2dc4d34e5e0021431038ddd58a0f5ff21f4a4238260b9653e05db88a85ae871d187f024c6df984191f995b85305",
+    "verified_version": "v2.15.1"
   },
   "docs/lab-content-evolution.md": {
     "origin_url": "https://docs.credence.run#lab-content-evolution",
     "content_sha256": "sha256:063247e95a824d9cc8495e9e2d9229528554f4696e90501872c13a3533778c33",
     "simhash_64": "0x2349214b65b75671",
-    "audited_at": "2026-08-24T06:16:10.233986+00:00",
+    "audited_at": "2026-08-24T06:39:25.484971+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "941bfffc4dbfb80f5936fd7376a90b57b9c820d434c34cc2395e37f5cb876e5d7e4c2f618eb9348756abdab9a31697a7f301a7020ed6eb234eca43bc83d8080b",
-    "verified_version": "v2.15.0"
+    "node_signature": "5d7ff8d0c202c869aad8fbfa58a944b0f9e940f29567cd8c63e70b6a2ccf1bf2498f543945c49b6fdf3788a0339d479233d253505c491d4fbecaddf9cdf16303",
+    "verified_version": "v2.15.1"
   },
   "docs/mathematics/economics-of-truth.md": {
     "origin_url": "https://docs.credence.run#economics-of-truth",
     "content_sha256": "sha256:2cb212de80628297e04db233a12d08e00a897b61145bb2cb7a9659ab3d31c1ff",
     "simhash_64": "0x3d2bbdc1cc2784f3",
-    "audited_at": "2026-08-24T06:16:10.237320+00:00",
+    "audited_at": "2026-08-24T06:39:25.488298+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "430784c9f92a8290d2f936e6afa7e6864ef3f2ba8d56c42ceb5a6017a1474f1ecb59699f1da585b7bd3117704eaecf9e2dd4954e87a0a688dea39299a7d1c40b",
-    "verified_version": "v2.15.0"
+    "node_signature": "1b31f052e704c86312bffa9b6141cb502e17d4e92388e22a64034fdfa5c93864ddc702d76cde552ed7dc6b2f0eb2dc18041ee9082273b71bbdce3583909a8900",
+    "verified_version": "v2.15.1"
   },
   "docs/mathematics/robust-consensus-proofs.md": {
     "origin_url": "https://docs.credence.run#robust-consensus-proofs",
     "content_sha256": "sha256:3350a18bff830be31204e9f6a1678207180c882eee88d1e6f07fe73572eb812a",
     "simhash_64": "0x314a5c6975274651",
-    "audited_at": "2026-08-24T06:16:10.241939+00:00",
+    "audited_at": "2026-08-24T06:39:25.492763+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "5727c21cb0d2ba9618beb08b67ae39ccd72aea197a43079faa37986dee1a3c439d8bb2295c78955b3fa7903d7997bc6c69598ae14cc0ad3142e7019b58b30e03",
-    "verified_version": "v2.15.0"
+    "node_signature": "e5a1287606935a05bdf98e0ffafecd9569ec6fd686fd8a09ce35e3dd9ba0cd4753c5149729884d38c5b1b8b8d1d89f451614c1d563a588dd48366c973fcf1200",
+    "verified_version": "v2.15.1"
   },
   "docs/mathematics/simhash-mirror-detection.md": {
     "origin_url": "https://docs.credence.run#simhash-mirror-detection",
     "content_sha256": "sha256:9d61d0f459dc69098499b3ed92c73c2023a0d234f90b3818fcc77efc922d2001",
     "simhash_64": "0x29495ee94d254cb1",
-    "audited_at": "2026-08-24T06:16:10.245361+00:00",
+    "audited_at": "2026-08-24T06:39:25.497519+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "465e43f6dcaa786fbce63cc46934ffd0bb30dfad9f1d88ee89db52e7aa8e110a9cab0d4bfd7b875ecb4bdb83d8c2baaaad00164f57006c79875ea33c4bb4480f",
-    "verified_version": "v2.15.0"
+    "node_signature": "a9b57f137c5fc178d1f651f90982c33b2b2ecd950d5a70f75e0518a48ab49b86ea627f67548cc7dd2cd68ff7d87666c4c027054640483d40c925c3c7e6d15102",
+    "verified_version": "v2.15.1"
   },
   "docs/mesh-engineering/airgapped-sneakernets.md": {
     "origin_url": "https://docs.credence.run#airgapped-sneakernets",
     "content_sha256": "sha256:4fdd6acd4ce6f269611e747c9225864b6e67f15e19ca8684bb2db77b5b3cadac",
     "simhash_64": "0x3e42853b611e8a7a",
-    "audited_at": "2026-08-24T06:16:10.247263+00:00",
+    "audited_at": "2026-08-24T06:39:25.499155+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f129aa7444fd6288e53a2f5fda4d1d618750eb5f115f3e1baa10db86d5d4d1c19201a21ff9f354dbe073d8f48a634d8cb2e8f95cad6e4f08dd39b3f5bf7b930c",
-    "verified_version": "v2.15.0"
+    "node_signature": "f3678238d6546eb804ee9486b49c231c9481d63c8b710fe47ecaa4e85aab13b3b3997287f95d8c3525455909f534322c18c4ad832d8b950d363e9de1a042bd0d",
+    "verified_version": "v2.15.1"
   },
   "docs/mesh-engineering/dns-srv-discovery.md": {
     "origin_url": "https://docs.credence.run#dns-srv-discovery",
     "content_sha256": "sha256:1b1d401c7c4c2664118b28d01b8aeea9701af3f91105ce58ff4b4819df46f6b7",
     "simhash_64": "0x1de36db1a81ac393",
-    "audited_at": "2026-08-24T06:16:10.251027+00:00",
+    "audited_at": "2026-08-24T06:39:25.501304+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "88ff1ba0ab59021b9412cd6ec9664b1345cb8c0029eb6a07f5896a4942656b4bba6c881519fd8704a4d61526bd6b84838081d7c69c751ac52451088e26869802",
-    "verified_version": "v2.15.0"
+    "node_signature": "4533cba5a07f26ff155eea43cefe345b015a22460e06250bebefcc7fa1066e2f2cda6e464ed3337cf0c3d077c6a74bb8be1fb6497656e0c6b3ef38e1c6c44c0c",
+    "verified_version": "v2.15.1"
   },
   "docs/mesh-engineering/featherweight-swarm-testing.md": {
     "origin_url": "https://docs.credence.run#featherweight-swarm-testing",
     "content_sha256": "sha256:6ae425b335d6fb97c85aec63209e02382d217dd8a6554ddd81bed0d3268f323c",
     "simhash_64": "0x1d8da5c36e6752f1",
-    "audited_at": "2026-08-24T06:16:10.258480+00:00",
+    "audited_at": "2026-08-24T06:39:25.508133+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "4626650888af3cde3ae8cd40dac0547bde661bc3c1f6b58314b344286f05381739c7e563b7dc78f218d488d69aea921345c6d4e66abdb61282e7a4ffa36afe0a",
-    "verified_version": "v2.15.0"
+    "node_signature": "11bcafcbe402c043688fb6c8b4fdfa80b8fc5d52269768895d97eaa9347f216446ab1855cd31dce7fc65b170d882ec33d9823789282655d777cbd1c8a73b3800",
+    "verified_version": "v2.15.1"
   },
   "docs/mesh-engineering/rendezvous-hashing-feed-partitioning.md": {
     "origin_url": "https://docs.credence.run#rendezvous-hashing-feed-partitioning",
     "content_sha256": "sha256:e0b597db7aab3639e722975a8f68ceae86c51704813b4edd2ce6ae2c5cd54b32",
     "simhash_64": "0x34a189576a274f6b",
-    "audited_at": "2026-08-24T06:16:10.264553+00:00",
+    "audited_at": "2026-08-24T06:39:25.514132+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f719b5493eb7a0390d3640a77045eaf7fbc0d01c19725dc1fd7a84966a5328c943dc587b343f2a75daf797c6b4a9b392830501a7c794fdc20b1c36504661c503",
-    "verified_version": "v2.15.0"
+    "node_signature": "12cf0f729f4ecdcb73aa46e27d23f0a3a75e575cb90c97a2fd0e0f9deb08c70a2fef316a66628f0d77d18d313776df727fe2743dc72dfb19cf00b2aac2363e0c",
+    "verified_version": "v2.15.1"
   },
   "docs/mesh-engineering/watts-strogatz-dynamics.md": {
     "origin_url": "https://docs.credence.run#watts-strogatz-dynamics",
     "content_sha256": "sha256:13f74800b1ac17ca0748c09a16297ce810e324e92ffb1d4c258862872ed13ec1",
     "simhash_64": "0x3d01e541492f9678",
-    "audited_at": "2026-08-24T06:16:10.267652+00:00",
+    "audited_at": "2026-08-24T06:39:25.518205+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "7b5a4d3f69aa9ca94f8ce394d55ca554c427a9318a60e3aba5d47116a54b43c3651aa8d6460fd91e69e25da48e56d08ab4d8f70fb982161e56d86a8cb0854a04",
-    "verified_version": "v2.15.0"
+    "node_signature": "1332fff5caa9fc12032bde6ef8226391664bb93788721ab27e0f754176f0846fddce4e7cc56d055dae50a30ad93c738a50f568965b600150c3af3ec87f566109",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/bicameral-testing-and-experiments.md": {
     "origin_url": "https://docs.credence.run#bicameral-testing-and-experiments",
     "content_sha256": "sha256:54c2654654eb0dbfd1c75eab276018ad4eddf4875836e3a428b35a5358d00581",
     "simhash_64": "0x5ac2a9af49ec44ea",
-    "audited_at": "2026-08-24T06:16:10.271830+00:00",
+    "audited_at": "2026-08-24T06:39:25.526387+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "46626a78aa69a66d378ff648c1bee4f6c98a2600dc25b334ba5d2857919f15d12251377b436c7882652d04ef58d3e313e04a416277f146c476e6fa2a0752500c",
-    "verified_version": "v2.15.0"
+    "node_signature": "bf7ee4c4db15b8f951219ab66914d8f97ed017972f5ae1707135da153f76ddeea025bd7ac31c4f310efbe3b8668ab9302789adad1c5b3ef2c448216739c6c801",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/blob-storage-r2.md": {
     "origin_url": "https://docs.credence.run#blob-storage-r2",
     "content_sha256": "sha256:d919233417966ced3767a1fa49622644f438eec1aec7ff40d05a995eddd53ea5",
     "simhash_64": "0x91cc8de19cc24270",
-    "audited_at": "2026-08-24T06:16:10.274992+00:00",
+    "audited_at": "2026-08-24T06:39:25.529938+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "2ced0f286708efaadec458f96980bdb06e42287bbddaa484e85715d5e880a4b64b4ce2261aff7410346a8a89c68ac266301dd401a212abef5157ac6ee7b49f0c",
-    "verified_version": "v2.15.0"
+    "node_signature": "e6e939a465aae5a83cceece4c5e23689586260ed7ad4ada9f146b68b75de91985d9b3b4b76c16a0848d747b4e9dc0c8a874bd8a15e4d825bdecd918d3eea8804",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/cost-governance-and-dashboard.md": {
     "origin_url": "https://docs.credence.run#cost-governance-and-dashboard",
     "content_sha256": "sha256:616c5bf700fa87909d088ee8880d28b2378d4d3cc3b046a29c042a54c660aa8f",
     "simhash_64": "0x13d67f0aef2324c3",
-    "audited_at": "2026-08-24T06:16:10.277687+00:00",
+    "audited_at": "2026-08-24T06:39:25.532760+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "9d3ca002b20b33cbb7f3f121d5a8b4a7728a99fcb2ff7b2eaabc7904defd5ffad0460a15eb664a6327cb6982aeb79f2331b32426062afa7df189760a3bc16106",
-    "verified_version": "v2.15.0"
+    "node_signature": "20f3a7e896836ba3f3e052dad50a34a695094f8571661f30f0da812982d07f543ff4c88f008eee53a859b2a5ef8beac89fdfd5354eb5a7334333226b50c5c10d",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/customizations-and-upstream-sovereignty.md": {
     "origin_url": "https://docs.credence.run#customizations-and-upstream-sovereignty",
     "content_sha256": "sha256:1be5e86b11d8dd29dd46ee91d00ea803051a6c38720fd12812096364b618aa09",
     "simhash_64": "0xb48179996ad76cf2",
-    "audited_at": "2026-08-24T06:16:10.283791+00:00",
+    "audited_at": "2026-08-24T06:39:25.538934+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "ccf072a169998181c6ad94125600073e0abe69302fe53b5c332a6561afbe50de8740035f0c610cb25d0d02f6636b9bd3c3422a8c00e1427c586f4e6eb60c4c08",
-    "verified_version": "v2.15.0"
+    "node_signature": "b25c8122137ec6a34b44662f7fa75b982c5aea6adc0f5942b1b2aa7cd43f67f65620daea6ae874a003db22044cb891c65c1696b97885bdbf66662d5d08bdfd0c",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/database-pruning-wal.md": {
     "origin_url": "https://docs.credence.run#database-pruning-wal",
     "content_sha256": "sha256:adf2696df311a955c77a74f8d14bfba00e83b10e09d993a38cb7053da6450100",
     "simhash_64": "0x704d12866226e6fa",
-    "audited_at": "2026-08-24T06:16:10.286908+00:00",
+    "audited_at": "2026-08-24T06:39:25.541905+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "2b3854e982790766f957e7a6b6b226786f9b8c53ae0a409bfcd1d8b7ecc4102eb4dad8ae2c4c40dd6ca474c835738d3938394491a4578fb610447629c69ab704",
-    "verified_version": "v2.15.0"
+    "node_signature": "c643caa5da031a2ebd35ef5b89e9c44bf205852a84a410d5ee87bc2b03c84b739b3f78d2eb94ae4e2e4322de1261643a45554e755c82f5ded36bd256a49b5f01",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/deployment-prerequisites.md": {
     "origin_url": "https://docs.credence.run#deployment-prerequisites",
     "content_sha256": "sha256:072372e95fed6e627667e985a42938074eb496434c83862294284e4da2888a86",
     "simhash_64": "0x1b8e9dc9687564f0",
-    "audited_at": "2026-08-24T06:16:10.300436+00:00",
+    "audited_at": "2026-08-24T06:39:25.553844+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "2585f881a45acdd9bb82333d75c5ce626402d68145d242c983dcae85a61f3e0281ccb28e2dc4ae93f3af54bd94e4579c0cc09436bf4ad589d0ecc9595cbab30b",
-    "verified_version": "v2.15.0"
+    "node_signature": "f130ca8f70946967fe47e1743860544df9e8a0f8c161e74418373440c5bd21124d5cf146a8022fc0cb8df590f7c3857468369abd7505213a54320054803af700",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/dev-environment-setup-and-homelab.md": {
     "origin_url": "https://docs.credence.run#dev-environment-setup-and-homelab",
     "content_sha256": "sha256:89a5d24a655a3535c3e57764fe20ef7589478ca9763bbb94a27f59ca1583a991",
     "simhash_64": "0x3fc005807f257cb2",
-    "audited_at": "2026-08-24T06:16:10.301889+00:00",
+    "audited_at": "2026-08-24T06:39:25.556425+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f4dbc4481da0eb6fb9803bfbabc62cf7523260b17eacfde593fbe765116ce2e8095d780643a7b39fcedd449f690263c12db65b9e03b0ee7863829d02f58f8e04",
-    "verified_version": "v2.15.0"
+    "node_signature": "539dc947f820504e6629d7b54f25b0a85eecd81a76f162a396601eff7be84554a547b2601c5e7c6d46b31af57a272a6109ce410aadc4a534165a75521c7fe604",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/disaster-recovery-and-cross-region-failover.md": {
     "origin_url": "https://docs.credence.run#disaster-recovery-and-cross-region-failover",
     "content_sha256": "sha256:4c23e6d24c406ce7247eb07ef69f887cc363a97d61cac03038ff68b05509c23f",
     "simhash_64": "0x224b09ee41474afd",
-    "audited_at": "2026-08-24T06:16:10.302956+00:00",
+    "audited_at": "2026-08-24T06:39:25.558728+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "22027ab5ca9686400740976af816d14ee376c7bda76f11f03cc29597dc6e87b3498fbcb7fd5aed123097903921d5262ec876c46fad1500cf42e855d71f12ed08",
-    "verified_version": "v2.15.0"
+    "node_signature": "72e9a5f08b22378a8182915b068f53654ce146513a58093903b47968b64b37bdc17479020cb631956214f10d2f28253691baa70153da589411086e62fb430f09",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/docker-compose-quickstart.md": {
     "origin_url": "https://docs.credence.run#docker-compose-quickstart",
     "content_sha256": "sha256:cfc0b1584e96872a36f0115092958e9c47c62243665695cefcee90572020678f",
     "simhash_64": "0x550ae1c5d8c1e6fc",
-    "audited_at": "2026-08-24T06:16:10.305821+00:00",
+    "audited_at": "2026-08-24T06:39:25.561864+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "6bfb331d2ab125cfa5a5cb9c33fe608cc25a114b49a9bfbe1ef866ce64abddc8e4f8a498244e122a65051912a22e5b85f3b6396efde87163e68243171a0d0e0c",
-    "verified_version": "v2.15.0"
+    "node_signature": "b3d706b310422e7933749e53f1b20995c3c1b3e3b04c5b28da22f9555d1c6fd57c1c51bf8c85d900e8aacade6ab2b82f71c9dd3a8dae8ad0f14dce05a466a309",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/kubernetes-and-helm-deployment.md": {
     "origin_url": "https://docs.credence.run#kubernetes-and-helm-deployment",
     "content_sha256": "sha256:19c57e43fb80ace986acadec4dc9aea2d2cb34495bbb7ee579765077d8ce8932",
     "simhash_64": "0x15db109d890a5efd",
-    "audited_at": "2026-08-24T06:16:10.308268+00:00",
+    "audited_at": "2026-08-24T06:39:25.565651+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "69b76a00ee143c35d93fbed7859d54bb3c74eb6c0fd50d8f37a35eafb12a871a8a08a291312415adb2b03bba634f235ecf353cd8f65ff751532e6cd51346c403",
-    "verified_version": "v2.15.0"
+    "node_signature": "31eea7aaa41db1ea04204fc993501612c0714c8357f3db00350031a36a79d7cb3ce561e56554b750bdeabbdceb1898f2be921234f11d9a6c3facc8eddd89f808",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/multi-environment-boundaries-and-deployments.md": {
     "origin_url": "https://docs.credence.run#multi-environment-boundaries-and-deployments",
     "content_sha256": "sha256:6cdb4991d7604a58b82a6ce6f9b41f2f85d5c6e455cb255d91961db3d0773e05",
     "simhash_64": "0x3787a5dd6b756c9a",
-    "audited_at": "2026-08-24T06:16:10.312098+00:00",
+    "audited_at": "2026-08-24T06:39:25.572761+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "4e4e78520e7a07902b2b70af7cddc3c4ec19f2a00f4bcc2ccf29fd5291e41f304ef2270ecd0120aea543c4b10e8edf982ef9e033fa7cceefa2f32eba6c924d0a",
-    "verified_version": "v2.15.0"
+    "node_signature": "64b553b2a1445570b977ac34927aa1424427824dd9ab7422e933f33a7e794577b4d09289a2b144e6f7c0e5c334a6d7de9eac651070ad5232458677da36a05603",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/pipeline-and-build-optimization.md": {
     "origin_url": "https://docs.credence.run#pipeline-and-build-optimization",
     "content_sha256": "sha256:40f3f90b942d906a3ab4018540ebcd594ffe49ed5871c409e0d7072e2e98895d",
     "simhash_64": "0x73e5cc1540254ad3",
-    "audited_at": "2026-08-24T06:16:10.316295+00:00",
+    "audited_at": "2026-08-24T06:39:25.578510+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f6a5d54ebcf8422e29737b62112a7d1b6746813cc5dad2794e2d5ee4e232ae34b205d27c3a81f0760cf389f47c1317032ececb40f33db4cc5ebe21364968d308",
-    "verified_version": "v2.15.0"
+    "node_signature": "ff6a5554c191c38a1dc71c62bb14adf698973251eb2a4dc9b8f90aa76807f73c482b3728420780670ed20104846c07f4bf63df08ecb17b26ddaba13245370e09",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/postgresql-cloud-scaling.md": {
     "origin_url": "https://docs.credence.run#postgresql-cloud-scaling",
     "content_sha256": "sha256:e9aa9cd8c474a29c8d3aaeec3ea3b6e9f464c623d8bb7f76fbf15ef7f28abab2",
     "simhash_64": "0xcfabad8bc6101df9",
-    "audited_at": "2026-08-24T06:16:10.317666+00:00",
+    "audited_at": "2026-08-24T06:39:25.580203+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "201c95961fa679b992ad05e5128d58994d636c68bd1ac70720d2d40a8716393ff14bb73a3d30661a0448718fe9163d5c502bb7f9968b3fb55f751086cacbaf0a",
-    "verified_version": "v2.15.0"
+    "node_signature": "2a83f804613e9b8ec3e3b9f3c29ff97459eb7cc1908c4c643a3041a6a9f48769bbff4a3f3646ac046cdc30849f8e22e00c14b16f95915116c93d32673c7f5e08",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/raspberry-pi-homelab.md": {
     "origin_url": "https://docs.credence.run#raspberry-pi-homelab",
     "content_sha256": "sha256:678e94382391efd5380093206d8fb73390a115e981b21b439d23e824efdea257",
     "simhash_64": "0x6dc9859ac23f2670",
-    "audited_at": "2026-08-24T06:16:10.320949+00:00",
+    "audited_at": "2026-08-24T06:39:25.584185+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "8163353af6ab0160b22f28c7ec67ff3d1ffdf946d7c60e7d3daf44716cc9c5b0ed22e6dad3dcf9291368583bcdd82d57a9622f0486c24f8532279a6edeea7e03",
-    "verified_version": "v2.15.0"
+    "node_signature": "f11b29c9b594e1d418876eb421254d63fbe3e4204ec6486d396148da9637843544cd6128b2f3d45478b3a85a3efad3fba9ec9e4938cc78eac435a4c8cf55ae0e",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/simple-vs-advanced-modes.md": {
     "origin_url": "https://docs.credence.run#simple-vs-advanced-modes",
     "content_sha256": "sha256:7d69887fee22e1752909ef3fd1e148cc515c1d750936a362e117a1371a929e06",
     "simhash_64": "0x7cc924c24b6f7a5c",
-    "audited_at": "2026-08-24T06:16:10.322769+00:00",
+    "audited_at": "2026-08-24T06:39:25.586140+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "72beec1474a91d87369931a314ad988dcdc1a8af258802bcee57d833d771eaf0aecbbaad35dfcff00b586d67567b84ce8af1c8ef6fd0fb4bb76da96e89f2b005",
-    "verified_version": "v2.15.0"
+    "node_signature": "d1d0f96cac5ff96996f63dbe2e367cc67d3d6f6e7a13dc73df03c584fdcfc9ee3e5d0842b4f17a65f4315f14dd16a22b7c454e9b4b797ededa755e7dd23d8306",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/single-vs-dual-project-gcp.md": {
     "origin_url": "https://docs.credence.run#single-vs-dual-project-gcp",
     "content_sha256": "sha256:dec843e9e9fbfd00e22a52785ef5c772608344be8ed155f4368a3f6fd22d991e",
     "simhash_64": "0x428a249ded76e4f1",
-    "audited_at": "2026-08-24T06:16:10.330940+00:00",
+    "audited_at": "2026-08-24T06:39:25.592784+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "adc2293928a4f9ed3e2929ee6d92e605cab986bb25812eebf90451f236be3ced03e93057d862a2b79b4d846dd74bdd0c41efec6a6fcbb98367b948f1a121fd05",
-    "verified_version": "v2.15.0"
+    "node_signature": "889df1676ab59419db9bc7bb87c7dfa88c8590e4f0108431c4ff53d528588f82300c050dcee5b172abc37fb3977f937f4d836d2032c4a7531d008f3684130700",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/tailscale-wireguard-mesh.md": {
     "origin_url": "https://docs.credence.run#tailscale-wireguard-mesh",
     "content_sha256": "sha256:8daf0b4aee78ba0085b72c9b61cfd195ca230526460d59f4c38689408690d385",
     "simhash_64": "0x4c8d9d8ad223c770",
-    "audited_at": "2026-08-24T06:16:10.335564+00:00",
+    "audited_at": "2026-08-24T06:39:25.595563+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "25a9d2c4dacd9649842f62645951452b060ec2d7adf317c6a09404fe9b968e8c7860384fdeb651403acb68a0e824ea313b47770884ee2b8ccf886078b6eb3c0a",
-    "verified_version": "v2.15.0"
+    "node_signature": "a669031a556c694162d09bee3f236586588318c9098e4e6273917a1de0cc1b5fac5b6b7f611d9a3c6d5bb74af05ddc68ba11d23060da3301166046924e4b8109",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/vendor-agnostic-self-hosting-and-docker.md": {
     "origin_url": "https://docs.credence.run#vendor-agnostic-self-hosting-and-docker",
     "content_sha256": "sha256:6639ce9b022d29934fda388399a38bb3c1f97b09d6b7e120ecbc16e66e2cf9c0",
     "simhash_64": "0x3dc045dc5abf4ef8",
-    "audited_at": "2026-08-24T06:16:10.341288+00:00",
+    "audited_at": "2026-08-24T06:39:25.600813+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "5a8baa934daf6384a5ead570f0f252f307e8846af5a3692239b647aa47bf8fd58bff6c499c613684a85ace58e4629f111a4e9cbe2d149c8ce22848ade3568d08",
-    "verified_version": "v2.15.0"
+    "node_signature": "be87b05567d04371cae57d94986b7bd794406291035f17074bb534634b580203a0fa4318e8cb19dd9d9d789ef6012c59a7e04c983040cfe50950115c737f8300",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/zero-downtime-canary-and-blue-green.md": {
     "origin_url": "https://docs.credence.run#zero-downtime-canary-and-blue-green",
     "content_sha256": "sha256:c57b824f4f187a20d5fd3e5ae4c37ebb011b32d162e03d1d9ef6bfece42d3d79",
     "simhash_64": "0x0ecb1cd14d254ef5",
-    "audited_at": "2026-08-24T06:16:10.342901+00:00",
+    "audited_at": "2026-08-24T06:39:25.603049+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "3f794025b047c4ea3e2e8f9fbc7559d9118649a6f547c76659bf63a97291ded1acae3d8a6dbfa1d5cdb6a945f4284fcb693972a2618e36431e825aa5c458d40e",
-    "verified_version": "v2.15.0"
+    "node_signature": "f5e25d11274f149f41d6786b5b886dddc97d2a95e5139acc6069c60e4b46051554c701d2ba26d01881dc56ed1f850de02108eac518ee9fc7a6e4b6b0fcdd1f07",
+    "verified_version": "v2.15.1"
   },
   "docs/operations/zero-downtime-database-migrations.md": {
     "origin_url": "https://docs.credence.run#zero-downtime-database-migrations",
     "content_sha256": "sha256:9014839325519602d21dd8ac30e9794699b584c4fb35717e5de07f0023178a96",
     "simhash_64": "0x0ba46fd16386d61a",
-    "audited_at": "2026-08-24T06:16:10.344362+00:00",
+    "audited_at": "2026-08-24T06:39:25.604840+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "a2d9952f396436a78c2167acfd46883c3e8db6b2d5715c5be8fbb2375c0c90f44efefd6467cd8bfc8ad7de3fae02686fd9104a86c5dd4cc4421b80c87e10b405",
-    "verified_version": "v2.15.0"
+    "node_signature": "ddcf3bce3c319a1eb4d96b723f0ced9a129bbba1262744f5a92cc7f3ba70691d233ca80204554ba91a0e4228d65369aa12bb100522fb4111350138f2f2d7bd0d",
+    "verified_version": "v2.15.1"
   },
   "docs/operator-guide.md": {
     "origin_url": "https://docs.credence.run#operator-guide",
     "content_sha256": "sha256:975b430df5654addeff6f4aa741904a98d98f5d7ae94b754efd05a552b929aa0",
     "simhash_64": "0x58e48d99b475e4f0",
-    "audited_at": "2026-08-24T06:16:10.352766+00:00",
+    "audited_at": "2026-08-24T06:39:25.612333+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "7a56ea4458ae9e0b26b33e59021a38d0793565239b023d2bd30b131344d25ff9e64f2aa2c5a314aab44c7327118dc0ef656cfccfc35ba833920ae4be815fa10e",
-    "verified_version": "v2.15.0"
+    "node_signature": "74abb3ad48f4834da090ccad4c0d4b7aaa34d7288c305fb880fdfff6c98820005d007257236938683d0f5a5f17763491aee11e761ae0350a033589fd2f73aa08",
+    "verified_version": "v2.15.1"
   },
   "docs/playground.md": {
     "origin_url": "https://docs.credence.run#playground",
     "content_sha256": "sha256:23090afc12e65015e50b8754ac8ad90a9a5e60c60eff760df28c8f0183e8891b",
     "simhash_64": "0x08c191c8749e1a1a",
-    "audited_at": "2026-08-24T06:16:10.378896+00:00",
+    "audited_at": "2026-08-24T06:39:25.639061+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "9e4cec75e1a42f3885e55717e435a6051f270b9f12983cb813f6aa11165f8723a2cb1ddb228e6ef0dc1d89feffa91069716856363ffd08b3ae5c56ddeb033f04",
-    "verified_version": "v2.15.0"
+    "node_signature": "a5ce42ce9b86e5f7e8d73eedb4538065887a9d09bf28e588e99d47fa3b8b2c76079878586cec0274324c70a240cda1b0962288fdbd37a02510e05ecd95046909",
+    "verified_version": "v2.15.1"
   },
   "docs/portability/gemini-economic-rationale.md": {
     "origin_url": "https://docs.credence.run#gemini-economic-rationale",
     "content_sha256": "sha256:1ca7cc91d8d234bc330d54c6fa5bdeb50722527373637d0095c48565cbea9a4e",
     "simhash_64": "0x390d1d5acd2506f2",
-    "audited_at": "2026-08-24T06:16:10.385490+00:00",
+    "audited_at": "2026-08-24T06:39:25.649525+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "5416a59a8179ff88f97b32081f68e31c860311040a3e727eed311926ba0f81d8f08505ced0d95b1fc2f38887c32d9d6597093008ca3f60b19bb5540e16149f00",
-    "verified_version": "v2.15.0"
+    "node_signature": "25d576439ec3d2a300412dc6ce07bdef78cb1df9c353bb2a5495d6f3ce40a8e4efe3aa414e6419f24738d57ec8ce8b1c98010340b556d613399511ba12cdcf02",
+    "verified_version": "v2.15.1"
   },
   "docs/portability/local-llm-airgap.md": {
     "origin_url": "https://docs.credence.run#local-llm-airgap",
     "content_sha256": "sha256:e34405b058898931e92d0da0a823529c512ffc7cbb7bdb04ff1550f7d297299f",
     "simhash_64": "0x9881a95753372e78",
-    "audited_at": "2026-08-24T06:16:10.389156+00:00",
+    "audited_at": "2026-08-24T06:39:25.654403+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "d6558be9c4e6e8a9a7ae6b74a127a472dc9d4ff2a3accb789724ed3f2fada33979ce717db8ae158fb3c757c087ca47677983a9381c27f28d40a7782331db5300",
-    "verified_version": "v2.15.0"
+    "node_signature": "b8ec8b3e7515582b7b2f439780ad7399403bfdc47858886f343100710536909521562d6b92ea30057da5c86c3a43ba1e8e3defcfb4fd51247eeac2b65d9ac10f",
+    "verified_version": "v2.15.1"
   },
   "docs/portability/multi-cloud-deployment.md": {
     "origin_url": "https://docs.credence.run#multi-cloud-deployment",
     "content_sha256": "sha256:6e7d88e5fa3fe117e4bcdb2679866098f41541c93c3484bb38df560f7da850ff",
     "simhash_64": "0x7d9685d8e86776f9",
-    "audited_at": "2026-08-24T06:16:10.397125+00:00",
+    "audited_at": "2026-08-24T06:39:25.662118+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "eabcbe15d74ce96ea002a0b09c14a0101cd6a6f72151f79ab3b800e5baabe1bf97cf7a27c7d84c885f259d8a9de6f10301a1c9ec7a147232c9fc2674d587360d",
-    "verified_version": "v2.15.0"
+    "node_signature": "39d95b10a984c51deda42a9e8c936fe133a1296ac8fe354a73925451a76c1d7463fc107ca0984bc869feba3a7a52017a099147e130447e2e9d47acd4e5fb9904",
+    "verified_version": "v2.15.1"
   },
   "docs/portability/multi-model-adapters.md": {
     "origin_url": "https://docs.credence.run#multi-model-adapters",
     "content_sha256": "sha256:526243cc1c48c140a386a04db8aee5efb9ce61b317a686ac05ca022028f2abfd",
     "simhash_64": "0x3a811df9d3b37cf1",
-    "audited_at": "2026-08-24T06:16:10.400584+00:00",
+    "audited_at": "2026-08-24T06:39:25.666060+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "d1c2bcc684338e3e0808317fc0f2570d3721cad8c4dc7717f6a9affb9dce4d4b563fe7e16aa76922ef8d19f2956f2233ea4afce94bf48bff466fa11a91b31b06",
-    "verified_version": "v2.15.0"
+    "node_signature": "5c24ec68edbdc7b62111719d18c69912ddfe0b435b4fe20a5630d637de43404488b19ad4084a7f6e10497a6d67d718c3c9d30b2a29d08de8e6846a0169bd1401",
+    "verified_version": "v2.15.1"
   },
   "docs/portability/universal-agent-interop.md": {
     "origin_url": "https://docs.credence.run#universal-agent-interop",
     "content_sha256": "sha256:9a1d17ae99d2bb14bd5dbd78b2276dae5a967f7dec36d3c0dec289bf6a8c93ea",
     "simhash_64": "0x2143bcc8e7012ed9",
-    "audited_at": "2026-08-24T06:16:10.404043+00:00",
+    "audited_at": "2026-08-24T06:39:25.670170+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "b93d0186da94d842cb141cbc8bdae6c2d7ea54a4b786e7f9be4d434c9536e6ed1297b4d960822d2ec85ed6e612a0e80ccb2415efd454962dfcbd5ec673dd0b0b",
-    "verified_version": "v2.15.0"
+    "node_signature": "96b5770cc9abe3a1e931e9b1fe4584bc83dc39172b72afe7bedf80171126236010629f13c316a7c026f86d9bd8d483781c81a16b31d733b5fe7d8aa22248ad03",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/adversarial-defense.md": {
     "origin_url": "https://docs.credence.run#adversarial-defense",
     "content_sha256": "sha256:8722255559d087fce93d4ed4688d250cc64e914f653651db64362bd5b527de3c",
     "simhash_64": "0x25c9cf55632dd651",
-    "audited_at": "2026-08-24T06:16:10.407898+00:00",
+    "audited_at": "2026-08-24T06:39:25.674912+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "719423f4d89d5cf521c4dbd41b32d2014ea7055fdf8c5e675a34462cba54b0d760e742da6499c91e2ce75ea5fddf389ee012aa85ede3f36850af429cc8f57f0d",
-    "verified_version": "v2.15.0"
+    "node_signature": "f818486b43d74270d411b5b742d856ff20ecfafd4f5a29928fd71c7cec32aef173189ffd4454cc3ec76be3ebcfc73d25727a23a339add2ad89a1b5b8a15bf408",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/benchmark-suite.md": {
     "origin_url": "https://docs.credence.run#benchmark-suite",
     "content_sha256": "sha256:1e6106b09f97bb9225f8b15d05d83bffb900b08cfbc7ec7cbe22f916e571277f",
     "simhash_64": "0x2a5ecff9a935e418",
-    "audited_at": "2026-08-24T06:16:10.413269+00:00",
+    "audited_at": "2026-08-24T06:39:25.679152+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "56cb3fb39c901690b12a1f5e8d80bba3736b17629e5188ecc04327d427b30708b17ee5f24cb27c6aaae232ee9521bbce1dd9500f004aed0f99f353f291ed030d",
-    "verified_version": "v2.15.0"
+    "node_signature": "3657b909fe44b4b2f1d0b1834cca57dded77d96769c2daa599b433fd17de9cceed88b0613b24ba4bea25367779d7761178eb8811c2254e98336e4cc40c349f06",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/boredom-and-root-expansion.md": {
     "origin_url": "https://docs.credence.run#boredom-and-root-expansion",
     "content_sha256": "sha256:c93fca3b3c8a253bbef6e7d11419717d7a7ec2c44aa38f8ce613b8438efc18f8",
     "simhash_64": "0x3dc99f6bcce44613",
-    "audited_at": "2026-08-24T06:16:10.420120+00:00",
+    "audited_at": "2026-08-24T06:39:25.686706+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f523cffd2c2014310ca1fcfcc6a28d64ead8a04e9c0c1e48ffcbbb15b6fb37d9dbda032a6803812f5a120dc2f9d2d8caf2964e24aebad8d8c2bc00d6ca659a07",
-    "verified_version": "v2.15.0"
+    "node_signature": "d35035d35016dba0249dec0103d416a3d0f5c5f221fdd88c3ccb35500729249849b37d7eec944803f0692e69c1aeea5334a6c97b70db83be4e76fedb021d7b08",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/closed-loop-traffic-shaping.md": {
     "origin_url": "https://docs.credence.run#closed-loop-traffic-shaping",
     "content_sha256": "sha256:4349bfce23e97299ba8bd711186afddb1bb80ce41bb470e1546acb1fa6d98da7",
     "simhash_64": "0xb4cb8dc14e13647b",
-    "audited_at": "2026-08-24T06:16:10.425951+00:00",
+    "audited_at": "2026-08-24T06:39:25.693186+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "df7855a5de9d7b01f228d15f325434671c777f5c1379af61cf36c3bf8ee7d88f9b5c9301732a84e314403a7422c59e3ddb0fe9d7ffd2070d27ccad6f9a5a5909",
-    "verified_version": "v2.15.0"
+    "node_signature": "c78fc951651f45401fc5b1c805050d6e24d226544ac276334c3f2424c2ff6fb11d333ad2d1828cbed602f8ca12a830466559ebe4b8efd8e7f686235c74303003",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/cross-model-pareto-benchmark.md": {
     "origin_url": "https://docs.credence.run#cross-model-pareto-benchmark",
     "content_sha256": "sha256:65e7745552a00081a0760facc5924461d1d82d9b00f44c4933dba393550d0022",
     "simhash_64": "0x2775dbf9f96524d8",
-    "audited_at": "2026-08-24T06:16:10.429947+00:00",
+    "audited_at": "2026-08-24T06:39:25.697453+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f1d5ec31aaba44735b50a71d28fa319377fffc9db6dfc5ca2b4a4afa4b4f1caee6ba2c9045411413207253abbcca811f0cc2a467febb3baa66d2ed6bd016da08",
-    "verified_version": "v2.15.0"
+    "node_signature": "5914cd998ba75d73a9e39c56fb6f6b007b1ab9fb28b69274a2ba39402cd1f0bf88e82a892ede538110586fbd7d0cf7d360e133562b30c061aec99061afef1e0e",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/epistemic-merit-and-leaderboards.md": {
     "origin_url": "https://docs.credence.run#epistemic-merit-and-leaderboards",
     "content_sha256": "sha256:894cd0f92242d3d9fa2441dfdde240a105dc404893de2f04934be25326369bfe",
     "simhash_64": "0x7fe79ded4867e478",
-    "audited_at": "2026-08-24T06:16:10.436965+00:00",
+    "audited_at": "2026-08-24T06:39:25.705490+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "931ee736fe9f096d03908001700ad8617982990730027de51ce97cdb353feefbcd56b78bdf71203b8f3c1240a63082860a084cd17503c0102810f1329da5a006",
-    "verified_version": "v2.15.0"
+    "node_signature": "0217b0c25e6e692e1f4c01a80f0e0e6b4e8fb931457499e5efae76bcf56ed264cf56d911ae2daf892e6c83a25c6604e4e8171e54c7c4614207a76ceb49455e0b",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/fastmcp.md": {
     "origin_url": "https://docs.credence.run#fastmcp",
     "content_sha256": "sha256:50349954583af37bc1799b5ab65589cf77f641cfb67d6e20e5e15e0d729a22d1",
     "simhash_64": "0x35e309c8ed16e6f9",
-    "audited_at": "2026-08-24T06:16:10.442095+00:00",
+    "audited_at": "2026-08-24T06:39:25.710597+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "a659651ae18f9a9b1554e0f333eac90b0b9f01ebbba4cb5025c43b5597b8ad22efd138c05637420525492fd09913f7b821c2ae29c8e287d3bd299bab75330f07",
-    "verified_version": "v2.15.0"
+    "node_signature": "3f0da5522f49f18efe3289c0ef2e80172d0b0e42d6fb3acc58614c56882c46185b36c938ea5e62fcea8578df73bbef7d931dd33cf8226b988730b140cc51d709",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/mesh-protocol.md": {
     "origin_url": "https://docs.credence.run#mesh-protocol",
     "content_sha256": "sha256:2ef096f8338e9749194794f419ffcfb25fea44b46bfaa7cf4e4c4eda7e33a4f8",
     "simhash_64": "0x2fed8ddbc445a460",
-    "audited_at": "2026-08-24T06:16:10.445786+00:00",
+    "audited_at": "2026-08-24T06:39:25.714090+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "3096de2728f12a8e74561da939faead06b4e95cf6bf3372084fbebee107e0d0c128fb5fc809eeeb51c9ed942317f2b77ed8e50c28e71f811fa61a27d101ef607",
-    "verified_version": "v2.15.0"
+    "node_signature": "f8fa407450fb0e53469c6c6dcc162519eb60f7fdd615fce284ebf64db27e4beeb6c24b3b61cda335b3adc0be3c555db05287a7a67a82b3f809b511cf87e5a008",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/node-germination-lifecycle.md": {
     "origin_url": "https://docs.credence.run#node-germination-lifecycle",
     "content_sha256": "sha256:e4911f5fa84379ccbcb29c36a9311df373573016e01a9d973f8256d1ec09e750",
     "simhash_64": "0xb4a98d5965078657",
-    "audited_at": "2026-08-24T06:16:10.450277+00:00",
+    "audited_at": "2026-08-24T06:39:25.720070+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "be4902d87c0534df9564e5ba9f58c5e30993b0ae83470b07356df02fecee2a2ae42de55ae9694f3c2a41786dccecd25f338cf66688880038c18ef8331b65920b",
-    "verified_version": "v2.15.0"
+    "node_signature": "192df9d11f8a7af2c4e841611103793e1222599e7234da383987101c7cf25506783ef2cccac30e09b274f80ba9e3d8bae77a7ba61912f9793672774f35257b08",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/reputation-quarantine-and-redemption.md": {
     "origin_url": "https://docs.credence.run#reputation-quarantine-and-redemption",
     "content_sha256": "sha256:345c7cc212e51df69158597d2b0ac9b54b71fa4e43c40a8bd895acd88ca18073",
     "simhash_64": "0x2189e94b582dd4d3",
-    "audited_at": "2026-08-24T06:16:10.453269+00:00",
+    "audited_at": "2026-08-24T06:39:25.724945+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "285ca84ce477880f3123219621f0c5e04e0afb8d8ace9e30a53a08f88e45e676fbab4dc48cdd9af0518ec83697955bc7483a5e8c7f5e73b040517f7abb6e9708",
-    "verified_version": "v2.15.0"
+    "node_signature": "f9b3ca0990c3344483d01ec3dcbc3ea1785e2755593465d6a1bb4bd8cc63e5defebb2689cca06e81e2487210be21aadf8004030e3ab1e6b272de976a2e900109",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/scoring.md": {
     "origin_url": "https://docs.credence.run#scoring",
     "content_sha256": "sha256:034890c0537e44444ed249b4cc920fbc4fca2863b0742fee81cea59906a4c077",
     "simhash_64": "0x2121dc4061a568c3",
-    "audited_at": "2026-08-24T06:16:10.456189+00:00",
+    "audited_at": "2026-08-24T06:39:25.729532+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "5c7fb22433ef2d3597071eb84f9f22b9609bebb059e7e5d468c9d6c3011f348fe0367c4162d86f1f8aeeeb897ef1ec6f2995dce6dd22d9421875f29e64da6205",
-    "verified_version": "v2.15.0"
+    "node_signature": "819ad42c5068f857acfb8a0e6a832f8ef1e08858ca2bca68aee1f229d99e512569c52a0502107bdd959e969790fcc17f146aac877d728496b21208414726380a",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/telemetry-loopback.md": {
     "origin_url": "https://docs.credence.run#telemetry-loopback",
     "content_sha256": "sha256:c1df6cce3234669e794b57f2191f1b27b644551f35d585d973a1486932983aeb",
     "simhash_64": "0x9963998c60066ed8",
-    "audited_at": "2026-08-24T06:16:10.461619+00:00",
+    "audited_at": "2026-08-24T06:39:25.736415+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "877d01d34f49065e87c5bfc6fa36f296ca363bcdd76444ba28862199a5a9017f3365d27a11734099243f046d4fc81247475f12754c0e4cfbe04d3af0a4985e0d",
-    "verified_version": "v2.15.0"
+    "node_signature": "3932b1e716abb8273d196415b1a36ee9bf76f077e6f195d10274951671544fd3c8d570b90290a9b8f4ed0c941ebbda49f643bf166262dcabb03661be84faff04",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/testing-strategy.md": {
     "origin_url": "https://docs.credence.run#testing-strategy",
     "content_sha256": "sha256:714f97f5440053647c2cb17e976dbe656ab88532e7c3d941b7df62f0c38f94ea",
     "simhash_64": "0x1fc18d59d8256673",
-    "audited_at": "2026-08-24T06:16:10.473396+00:00",
+    "audited_at": "2026-08-24T06:39:25.746787+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f30fc2f6f31f1f1d5c88a4aafd621c6241965c915971fde337f344aaedebcd2644a69b62696da18646c2f5605c1cb97601af6732dabe280307be0753e56a960d",
-    "verified_version": "v2.15.0"
+    "node_signature": "f351f4e3e1c2a56dbd0872b8a07dbcfa4485ab7d363ba46873b57dca7eecae6921ac48f30f9d5758995d062736f2e1474ad83663660a7fdd764b73bfb8324c0c",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/token-governor.md": {
     "origin_url": "https://docs.credence.run#token-governor",
     "content_sha256": "sha256:62b9f657e05163131f63600d31277fc21708507870b03e3f3cdc29c418b51e31",
     "simhash_64": "0x95839906ef617083",
-    "audited_at": "2026-08-24T06:16:10.475930+00:00",
+    "audited_at": "2026-08-24T06:39:25.749152+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "53fc5ced18ffca694b65e1a56e114128bc269e88017b1c0c333cf9dbf1014141aedaf69c814e5476558696416f0faf27aef571e861a102b3c259a202ee44af02",
-    "verified_version": "v2.15.0"
+    "node_signature": "e7e051d3d4d6f0cea24d57c23d2b408d6ba5a42fcbbd173acae56270f3c3f23c24c4bf471a4b341e684426d948a2d016cb8405976eb2707a9570d43b8263d007",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/web-epistemic-intelligence.md": {
     "origin_url": "https://docs.credence.run#web-epistemic-intelligence",
     "content_sha256": "sha256:1a386a298a55fb1b33ebe6c5b2bd61fe3e65eb8d56c4bdaa193f562812013d9a",
     "simhash_64": "0xa186588b603686d1",
-    "audited_at": "2026-08-24T06:16:10.480394+00:00",
+    "audited_at": "2026-08-24T06:39:25.753822+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "07276a761d04c0487d782b9e6f5980884e9765a40eba4c5490467889c851d09fe629052cb134827a9e1e0e0af47fefa8a16869dcbad252069ac1c40386287400",
-    "verified_version": "v2.15.0"
+    "node_signature": "b13c48476c116020a629ffc1bcceee106e0c81218ffbc0bfc08695b67b24b96b8b2555cb3bb3318c9a542182d85fd5b78078330a0d66091a240937caddb79300",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/white-label.md": {
     "origin_url": "https://docs.credence.run#white-label",
     "content_sha256": "sha256:72c14c6ed39ea2b57129ef12854e34440a3f0ecf804dcd9351221755034df7fb",
     "simhash_64": "0x358a2d1fa4444661",
-    "audited_at": "2026-08-24T06:16:10.482389+00:00",
+    "audited_at": "2026-08-24T06:39:25.755914+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "5fea70ca1817e34934c08238759addc48ffffcb5e456c7e767b163d41daf738629b9b334f7846828f5e272f76270caa9d7bc1b2a679c61de1d6bc4fd11dcee08",
-    "verified_version": "v2.15.0"
+    "node_signature": "f12b65053afd5c40089349214c6a63616a43e54d226e50cfd6b8b2f0adae1e2b3ffdbdd309a380bc4974b345fa6f394bf7216f3b73acb68fb442bd8cbf725a08",
+    "verified_version": "v2.15.1"
   },
   "docs/protocols/zero-touch-germination-and-swarm-ignition.md": {
     "origin_url": "https://docs.credence.run#zero-touch-germination-and-swarm-ignition",
     "content_sha256": "sha256:8aee70f2b3f6a1f2929063311d1c0065125cbfb4cdac7b52facaa2a4a06f9f22",
     "simhash_64": "0xb94a99c76e1706f9",
-    "audited_at": "2026-08-24T06:16:10.485654+00:00",
+    "audited_at": "2026-08-24T06:39:25.759416+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "45fda2df55c51e46991fb62cd41b66f7c5a118b64c0c5f8132adfa3fe1c3e2182e68ddfdbee8409ee1d6efb7931109261085a0a77e999f5ae92ff8de2f748f0e",
-    "verified_version": "v2.15.0"
+    "node_signature": "4a5b46a16e75ef60b39861a7174a3b5350473cb72d3da64a0e5684d8c61fc5deb78ca230b4207978dadd47dac14bed3d56c674a2ecf2f388ca00649ebaed840d",
+    "verified_version": "v2.15.1"
   },
   "docs/quickstart.md": {
     "origin_url": "https://docs.credence.run#quickstart",
     "content_sha256": "sha256:cc74d57997f11575e05f51b87ace192ec23d7e5952aa9a10c37913f31eb487be",
     "simhash_64": "0x264e3d8b6933e4e9",
-    "audited_at": "2026-08-24T06:16:10.491602+00:00",
+    "audited_at": "2026-08-24T06:39:25.766986+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "8e0f916f95af625fb73e533c06b51d64f7608f3da816bbb0afefedefb985fadcb987d62281ffb7086cbf6fb3ef54bc5b912bc2afe3c69932b418a13c0ce1c107",
-    "verified_version": "v2.15.0"
+    "node_signature": "9a7ff1e8e4adca12afa49480c25bb6339c57ec5b73667c09a65b5f8721e6bdf9c8d3bb70af5b89357b8810510528ef4514465125f2d0909a987cb2c789adb80b",
+    "verified_version": "v2.15.1"
   },
   "docs/roadmap.md": {
     "origin_url": "https://docs.credence.run#roadmap",
     "content_sha256": "sha256:325c0e49cdc167ec66a21e3d4449bb91e32c23f7830df66d84f37f26aab3290c",
     "simhash_64": "0x0ac7997979674eb1",
-    "audited_at": "2026-08-24T06:16:10.499877+00:00",
+    "audited_at": "2026-08-24T06:39:25.777839+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "07076ad39eb50165c9e6cec74da87f294a9c701d85e11806c1bec76b7e29b6d760feec1b50580d1ad739d366c95e102f723ac07bc04cdc67fe25cd39a8342b0f",
-    "verified_version": "v2.15.0"
+    "node_signature": "1065673482fa2550f07a9c2f52ea5f9eb3cc7ae16d943c342c1b74b318dbd6198bd2071056d1eb7a081c77d0b1471739de2f514ba4d377ae18c79fd96e95df0d",
+    "verified_version": "v2.15.1"
   },
   "docs/security/adversarial-attack-surface.md": {
     "origin_url": "https://docs.credence.run#adversarial-attack-surface",
     "content_sha256": "sha256:ec0ed05ae4e663c3e672323ac6cc4dd878f86c067e5af0ab2549942db45bbfa3",
     "simhash_64": "0x254d9c526360f6db",
-    "audited_at": "2026-08-24T06:16:10.503176+00:00",
+    "audited_at": "2026-08-24T06:39:25.782675+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "684e5c88eff50a2e882abbacf34fa0dbc62523f924d9fa0fe97a170e85322154da057558164bbd63c3d4c7713b7a98759a9435ac3d3c7bfa52f6b538bf8ae60b",
-    "verified_version": "v2.15.0"
+    "node_signature": "cd689fbefb864dafcf3c47e50608f51f1f43365e1216a7ab22c0ab97fb7bf274ebf9b73d072449fa7e5989661f6b7517eaa5452d4bef62d7581eb0069ab9a601",
+    "verified_version": "v2.15.1"
   },
   "docs/security/grounding-mechanics.md": {
     "origin_url": "https://docs.credence.run#grounding-mechanics",
     "content_sha256": "sha256:d4fd282ad62639f29c84a29a6e8e3091779585fc5222cf6a251dbd131a0ba713",
     "simhash_64": "0x2d4fdd83412da473",
-    "audited_at": "2026-08-24T06:16:10.506350+00:00",
+    "audited_at": "2026-08-24T06:39:25.785761+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "b12760fd6ec44c052e93c73a5ea605f0e45d19d213f9d8e5e4d5e51161939e0cd047de050058e07fff8ece7dd771fcd6d93dd1aebe14a47eb6905f193f02840b",
-    "verified_version": "v2.15.0"
+    "node_signature": "8124b67024d7a1e401f4bb63f95f32a3257162ab3a0e58e63eb29c0fe2f6d269f5f5b398d11cc0082d66bf33ed31be4fa9e7af3e48b43652a9545c8438044b0b",
+    "verified_version": "v2.15.1"
   },
   "docs/security/satire-cloaking-defense.md": {
     "origin_url": "https://docs.credence.run#satire-cloaking-defense",
     "content_sha256": "sha256:031b751d4abdd51f4007bc0bd8159ea15917980f4c40f85b7c0de5fccff3c049",
     "simhash_64": "0x3e28b44ae926f559",
-    "audited_at": "2026-08-24T06:16:10.508197+00:00",
+    "audited_at": "2026-08-24T06:39:25.787991+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "a02144657ad8c37611f7da7cf2bf5672eb2a8b6ee4889f177b3d528bae5ae139b16f26e6afe91cbdc58073229a00d0beb61060cfe8a53f55f912f82e74401409",
-    "verified_version": "v2.15.0"
+    "node_signature": "3ca1f78ade7d5f319d115ca959770020d93d3d3f2c36d2278c4dc9496954a30d668bf34f77297206140575e27af5e1f8491c5bf1b3279570feeb8a1135007404",
+    "verified_version": "v2.15.1"
   },
   "docs/sitemap.md": {
     "origin_url": "https://docs.credence.run#sitemap",
     "content_sha256": "sha256:a6a95cdc411a092da96c7ce15ff0fd8fd0b293280a37cc86dd1313ad33881d2c",
     "simhash_64": "0x3a45a04b61634670",
-    "audited_at": "2026-08-24T06:16:10.536201+00:00",
+    "audited_at": "2026-08-24T06:39:25.812892+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "211a108bde4471787a2168aaf2a6d3c5d5959f4ee45219e30199a41a0252e7ec47716c4ace6e83d3ef1a03e469934327ea6e6a77f92e30ee107ed14eb0b53703",
-    "verified_version": "v2.15.0"
+    "node_signature": "0739c89f78b5607fa23b04ccb16f70432f80d9689aa8c59d033f7a9c1ee0d542f23c8e312034cbcddc955cdcc408426abebfe27398ce1b3ae42f7a59b55e300c",
+    "verified_version": "v2.15.1"
   },
   "docs/topic-index.md": {
     "origin_url": "https://docs.credence.run#topic-index",
     "content_sha256": "sha256:a469d8442675b8ccad1c827160a79d5450078545febbec50f5d185392edc4370",
     "simhash_64": "0x3d8d0cc84063c6d1",
-    "audited_at": "2026-08-24T06:16:10.562847+00:00",
+    "audited_at": "2026-08-24T06:39:25.846266+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "73201dba8aa52d45c76bfc36fd8e82cf682cec8058788f45487b355f0d5d16598295e58e15b8ae7064b32851d80f8d95e6523296156383d22084c032ae0de60b",
-    "verified_version": "v2.15.0"
+    "node_signature": "5f3adb01630b9f948f9252efc0022905073a10dcd0bf7ddf87048504414d1488eed5112874ef78de3498917327c57b86ef791bbdf09219f38df4bddf6e7cdd0c",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/01-clickbait-teardown.md": {
     "origin_url": "https://docs.credence.run#01-clickbait-teardown",
     "content_sha256": "sha256:6ee5bc09374f94d7c6f6cbb5fd92993e9c21e9fb5a3690a431d1ca3387dbf7a3",
     "simhash_64": "0x3809585eff324c59",
-    "audited_at": "2026-08-24T06:16:10.566001+00:00",
+    "audited_at": "2026-08-24T06:39:25.851448+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "160f9d2235d3797a252ff6c38101381cf6aefd380445eff01be2e9215ad157df0f696b53ec70d26ed9b898f293da785a430e5f4db6033ced2fb0056b02132702",
-    "verified_version": "v2.15.0"
+    "node_signature": "47a9b5d5cf7d31c2a0fab586871583ddd04381db0bc7485e1bbf60f9c17ae82fe5191098b9804b17689966a85a9c9c4d6f74400c00dd10285f69d27061489102",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/02-satire-vs-disinformation.md": {
     "origin_url": "https://docs.credence.run#02-satire-vs-disinformation",
     "content_sha256": "sha256:b5f6f95a6dab89f0aa38e525e4480dde5119b6cddd0185ef56df9d26b7530c5f",
     "simhash_64": "0x37eb4d7ced12e859",
-    "audited_at": "2026-08-24T06:16:10.568583+00:00",
+    "audited_at": "2026-08-24T06:39:25.855461+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "344c26ab57ab3e669f170e9212553f209f8d46c858cbec186f70ac82a6feb5eea8600911f08e447e3a7a5fd165b1cc1b1a5d98782e40cf7621bbafd86e3abb00",
-    "verified_version": "v2.15.0"
+    "node_signature": "1e55007169004f606c9e5e75f87e23e6efea8f495babace5025bfe5ed5d4d6703fac590e296e1137db27822abe0bd236c47d343ff7554624cfb55545c1a95307",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/03-claude-cursor-fastmcp.md": {
     "origin_url": "https://docs.credence.run#03-claude-cursor-fastmcp",
     "content_sha256": "sha256:b600a245af706caf09c9d8d869896064bbad836b79c8cfcfbde66bd4c0f49810",
     "simhash_64": "0x83c295c7ec364ef9",
-    "audited_at": "2026-08-24T06:16:10.570975+00:00",
+    "audited_at": "2026-08-24T06:39:25.860291+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f7fd7e7213d8360a8012c992d983a60c0cd8da869fc7af4dd4ee2de734e11dbbf4286e13e4335c9cc8e4b136011a6a5a5fff946382c9207b9ae51b550068c70b",
-    "verified_version": "v2.15.0"
+    "node_signature": "ab381e8e176ecbbe63ee862acd85d0a39e0373fe9e68e9b7bc9e47c2ee38e05cb92428a6f04f2bf01b0b6655aae8272d91487885edb312ea8593f27084401b0e",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/04-sovereign-org-scaffolding.md": {
     "origin_url": "https://docs.credence.run#04-sovereign-org-scaffolding",
     "content_sha256": "sha256:d52d8f29e9cbf91a9811b2878c9dca493fb0a01f378d6eecaf2f099928a03f52",
     "simhash_64": "0x7b064d9eec44ca60",
-    "audited_at": "2026-08-24T06:16:10.572407+00:00",
+    "audited_at": "2026-08-24T06:39:25.862055+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "97336024c3f81e1e5115c6561b05e53cb39abca91c1e31ae1c1aa1683b0479cfd07bfc677bc13c7fedb13d41717d542fc1294ef70587cd6a07ba2ed5721ab906",
-    "verified_version": "v2.15.0"
+    "node_signature": "84ac8cea0cf98d3b89a7c9f0fe1e76c50ee847625ee6cac5afd81414e71a1b0679da354015c05cba54e2546593fbd32949d10b4626c87263e29521dd673b750d",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/05-mesh-quickstart.md": {
     "origin_url": "https://docs.credence.run#05-mesh-quickstart",
     "content_sha256": "sha256:12ba7b20542bd7ab18e7d8847b3ddffa75e9941f1fc04b150f6928138ef5aba2",
     "simhash_64": "0x3c69dd9b4c57ccda",
-    "audited_at": "2026-08-24T06:16:10.574611+00:00",
+    "audited_at": "2026-08-24T06:39:25.864616+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f002c1b748f53631916bd0a1602bc2dbc9862a33f8ae62d24f73f95e8b444dc1ab39150f1ef53bd5285f9fd3e6ebe9ebfdf44ac951c8403dbac5e449f4b83b09",
-    "verified_version": "v2.15.0"
+    "node_signature": "82ba5c99b6d478752053b0b2270012e0036b527c267cbb080e0068d038ac954e61dd36aae7fca81844f364689a48a5ba4f1bf4049c9443a2a2053ac320ec1f0a",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/06-thirteen-node-chaos-lab.md": {
     "origin_url": "https://docs.credence.run#06-thirteen-node-chaos-lab",
     "content_sha256": "sha256:834dc7a2125002e15a4e0b46fd39a199e3091971f335981d83d4a83c8cc46958",
     "simhash_64": "0x1981e40b66621538",
-    "audited_at": "2026-08-24T06:16:10.576225+00:00",
+    "audited_at": "2026-08-24T06:39:25.867080+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "796414d4e6e4ba2c33000e449677537efed63fcc74257a9f25d060100bdfe6dbedb9b61320c322bc4f9f2a2f80937436e75b8417d83b90b70aa1b233d489a70f",
-    "verified_version": "v2.15.0"
+    "node_signature": "4ba6a8ad9857959d9dda43b136846f3f8a2743330964931fa9a0c792d039bcb5f96ed1312d71e9f8ce48469a32e756f6e17548471380764a399ad74b29e22307",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/07-air-gapped-and-adhoc-mesh.md": {
     "origin_url": "https://docs.credence.run#07-air-gapped-and-adhoc-mesh",
     "content_sha256": "sha256:411b75aeee625ddb3031ebaad981944e338de8a6df9758f4a9386b53d648fa25",
     "simhash_64": "0x5a60991bef1e4258",
-    "audited_at": "2026-08-24T06:16:10.577635+00:00",
+    "audited_at": "2026-08-24T06:39:25.869135+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f10934e7e3c9281177bc9155563d4e6e4e58f87602f42caecf59e745b13550c17ec9faaedbfb74c00ff5a9ac39d434b8a1d354609f8112d708a7a0e396f9e50c",
-    "verified_version": "v2.15.0"
+    "node_signature": "a6c1b16005cb9f25417bfe42d551a06eb9d54bd9563455f173939c033160bb8dea781d21506f4cba1819d30504837fe6bbece85f8b39a45b51c9753b915b990e",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/08-sybil-cartel-demolition.md": {
     "origin_url": "https://docs.credence.run#08-sybil-cartel-demolition",
     "content_sha256": "sha256:224d5e0f9bf1e593bf2fe311c114ca2ec6179e3579675206aed99500feb8db14",
     "simhash_64": "0x31e5cd6b75a74451",
-    "audited_at": "2026-08-24T06:16:10.579391+00:00",
+    "audited_at": "2026-08-24T06:39:25.871155+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "95bd15452661974eabfe1a1c40b58d2447114f241eb2d96c4d116700f478e1f99fc419105230f753e1406f0327b080dad2fc24a4d121eef4c123037b4929fc0d",
-    "verified_version": "v2.15.0"
+    "node_signature": "25b1e60e8fad604207e17c5e2b4bdb109c0be073bf4dce81ae63ea09afe56a1d8f242ff845404a93f1a37a39fb8d12e48fa2915cca999c31999a52817e8fd901",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/09-zero-trust-feed-sifter-digest.md": {
     "origin_url": "https://docs.credence.run#09-zero-trust-feed-sifter-digest",
     "content_sha256": "sha256:170619df941578b6056569cd67578d09b0d5e8b07af7676902f21f5990490c65",
     "simhash_64": "0x12e7c1f365a3c6f9",
-    "audited_at": "2026-08-24T06:16:10.588018+00:00",
+    "audited_at": "2026-08-24T06:39:25.879295+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "7a0dbe9d71335d477e6fea593a3f9c8b8c232b158dc27c86cc696a188ab422b7a9e9ea953a4958444b49822dfe2508079d44af14c9235307645b889e5f024e04",
-    "verified_version": "v2.15.0"
+    "node_signature": "5002cb6bc9359ca315ca5159cac9293c56b5f4f983ebb4b153fea4dcb2c6a3be17cc8494ff3cc79180bd662a71fa70ae851e3c7ec5eb894186f65c228cc0c500",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/10-reusable-live-e2e-and-mesh-gauntlet.md": {
     "origin_url": "https://docs.credence.run#10-reusable-live-e2e-and-mesh-gauntlet",
     "content_sha256": "sha256:ae53ef4f864d0cff093a3c1af2fbb8f46fed4a0e70b9dfb5f44c3921c8ea48fd",
     "simhash_64": "0x82e78dcb644b0471",
-    "audited_at": "2026-08-24T06:16:10.597280+00:00",
+    "audited_at": "2026-08-24T06:39:25.886769+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "ae41b35ce688a05d3e26256071be77ce6b2623a52a4e766aefcc1c1d10d35377bc09765a6086393695b0d5049b9ca02f51d2b5c6f1d9f6df5d74d023ed62810f",
-    "verified_version": "v2.15.0"
+    "node_signature": "f3f95e89edbb0681e00659f5af12179ede2e80bf7d206ebfa379007a43bfcc12730da6b6edbb7b8d7853216bfa8e0a01d74bacb57ff929964bca49356a011803",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition.md": {
     "origin_url": "https://docs.credence.run#11-autonomous-node-germination-and-swarm-ignition",
     "content_sha256": "sha256:b153a1d6feba469fcdf3166e39a72c74e6822158250d1803728f3541cc0c83ee",
     "simhash_64": "0x81e58ddb7427425b",
-    "audited_at": "2026-08-24T06:16:10.604300+00:00",
+    "audited_at": "2026-08-24T06:39:25.893584+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "695aaa6da0b80a8e78d5865650d60d1871d0299b9dc43425981bd83d35832ddc1da089149c48eddec003fcc520d2e78734d59074c9169c59977213af99b4d602",
-    "verified_version": "v2.15.0"
+    "node_signature": "d5e3f3afd03b847c0b0d180daf9c8ad63d4bc3811788563afa7666f7cea9fdc31078128ca1dcd433b60abaaa83ec1a311e4ab29b3a1dfb232cc8627b8aa2f607",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/12-climbing-the-epistemic-tiers.md": {
     "origin_url": "https://docs.credence.run#12-climbing-the-epistemic-tiers",
     "content_sha256": "sha256:f3f6da51f2a323a7f2538568797be47357583d32bfb06b8c356d5a8714e3c241",
     "simhash_64": "0xb7e9859df8a2c4d9",
-    "audited_at": "2026-08-24T06:16:10.609791+00:00",
+    "audited_at": "2026-08-24T06:39:25.900845+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "5013c12ac10b8410f58421417de81db343fa5966e95f0d0a8c4f8196a0b2a34cee3c193af67ff7aa30c0e5a32c9777c83cf9fce9641d3e86eb66ab1224cfad0f",
-    "verified_version": "v2.15.0"
+    "node_signature": "81f59607e184d9541a48178b6ad75f3b86ea04dd1ff17a2ea8ef3710358d707fdfa9f62613ed4311720fa84bdc6f0e642891d3c3789c6b7b8d70b4ebe018070b",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/13-discord-alerting-and-basement-monitoring.md": {
     "origin_url": "https://docs.credence.run#13-discord-alerting-and-basement-monitoring",
     "content_sha256": "sha256:22cd2dc98e43dee8f7ee155dca03bf9261b2612c0e6c62ed9e86c1fdd86f4adb",
     "simhash_64": "0xff8f598d6c2f0ed3",
-    "audited_at": "2026-08-24T06:16:10.613279+00:00",
+    "audited_at": "2026-08-24T06:39:25.908275+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "5793570f60b43a8048fb8121a6227ffbd482dafb335761f8d530a01b1ec1a03c2d47f92a58b8c729d1cb655a702fd9519b7cdce4904fe7785ad0c4b9a84bd100",
-    "verified_version": "v2.15.0"
+    "node_signature": "bd1daa80dfceb9630756ef379fbdceaaa1eb6d572447680a7b937d0e057f834998e1371b9ad9003f9f71bfc953e2143138ae54e7c38409579dbb614f83203703",
+    "verified_version": "v2.15.1"
   },
   "docs/tutorials/14-operator-security-and-admin-workstation.md": {
     "origin_url": "https://docs.credence.run#14-operator-security-and-admin-workstation",
     "content_sha256": "sha256:8c53e47c37584f6bdd5506c0daf58c19b5e7a875b12d169584c6aa4be373c39d",
     "simhash_64": "0x1780b88747214cf3",
-    "audited_at": "2026-08-24T06:16:10.617896+00:00",
+    "audited_at": "2026-08-24T06:39:25.913957+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "a10f469e28e686d00e4da31d8409d9636f989063cd6dd35aa34b085d9c3c8fc30f05169ee730a6308b74aebad92fcd0b02b02b189ebf1a986725096701149904",
-    "verified_version": "v2.15.0"
+    "node_signature": "88b39df2f66736345437a2809a74ca7c0588fdb0a79b07e3723e0875ef28736eec7d3f933ca76476554e8626f061e8c338c13e777b386394d7e3066a4e0b8906",
+    "verified_version": "v2.15.1"
   },
   "docs/walkthroughs/01-auditing-webpages-and-text.md": {
     "origin_url": "https://docs.credence.run#01-auditing-webpages-and-text",
     "content_sha256": "sha256:c8c74de15a75f614c27cd5bcc4ffd8e61aa8342332a7523851c79972dfd2e774",
     "simhash_64": "0x296935feec7e64f9",
-    "audited_at": "2026-08-24T06:16:10.623895+00:00",
+    "audited_at": "2026-08-24T06:39:25.920114+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "e29c7232b655493b477225a97bbf487803cd05c5df391545497e3da21bb21108abd4af34544d65ba1292701a4f631b081c38df59db4c922e59bed9733914ba09",
-    "verified_version": "v2.15.0"
+    "node_signature": "4e4b6afef690d8ee9af36a7a45153e369974e83ce2de8580d48a2788a80a687a1fa2ca4672df7c6c7ef3848827febdc504f21180ebe7347d31f2bd633189cd0c",
+    "verified_version": "v2.15.1"
   },
   "docs/walkthroughs/02-zero-trust-feed-sifting.md": {
     "origin_url": "https://docs.credence.run#02-zero-trust-feed-sifting",
     "content_sha256": "sha256:76500f8e20f696c5504de643f2f0f622ab394453f6484736a099bd68d3aa156c",
     "simhash_64": "0x0b583dbbe4aac4f9",
-    "audited_at": "2026-08-24T06:16:10.628363+00:00",
+    "audited_at": "2026-08-24T06:39:25.924833+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "579aa7a58da34e5b0324ff9f48e35e5e9074aa2876faed63edca9d5a3c6fdb392ea97d279c0efb9f0b9a0bfe3d2ced7e402fb6c0ed5ad5cd2cf718c5e8e68a01",
-    "verified_version": "v2.15.0"
+    "node_signature": "36bf2da3d0c0c32ad98069c334c3351d7a63de6a3ae5aeb5ab5c5ea88304f5f1fafcbed0e27b474f3a4d2cd5076997e5a67a415bce0ba535d72efc157bc3d401",
+    "verified_version": "v2.15.1"
   },
   "docs/walkthroughs/03-p2p-mesh-consensus.md": {
     "origin_url": "https://docs.credence.run#03-p2p-mesh-consensus",
     "content_sha256": "sha256:2bb33c06d9a834a24500a99635e5c03e6c4909dd070ee6385a21987bc9dee9b8",
     "simhash_64": "0xb94859db04464679",
-    "audited_at": "2026-08-24T06:16:10.633445+00:00",
+    "audited_at": "2026-08-24T06:39:25.929713+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "523e9e2933082bf5fea4b898f62768e188e2a79b0b6efcf3566780fd626d552928772e5b8bdba2dff6119c5b85c75290952cff645314d7758aab96f90ceced0f",
-    "verified_version": "v2.15.0"
+    "node_signature": "7c31d54cc1b1f4bb97026b675b7e0811673a94f9f307973ec5700517100bd963eeab1117e89886c69c213d00a88447fce3e37b55ab24c5cfd4a3a8f9bad7ae03",
+    "verified_version": "v2.15.1"
   },
   "docs/walkthroughs/04-morning-digest-briefings.md": {
     "origin_url": "https://docs.credence.run#04-morning-digest-briefings",
     "content_sha256": "sha256:b77f77dfba7ef11289886f4e413d34053c4d0a1dc0947b8008712f02b558c218",
     "simhash_64": "0x854731a9ed3264f9",
-    "audited_at": "2026-08-24T06:16:10.638685+00:00",
+    "audited_at": "2026-08-24T06:39:25.933578+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f670f176b0930bd664da073fbf199d9075daaad1e1c7bfa6524783e559e78c6026c76b347f0a32c60827c03437ed5572e300fdcdce994c002f22a08a9eb5c102",
-    "verified_version": "v2.15.0"
+    "node_signature": "bb29baf0641ea2b03e182f26f0da56d224d146fc81a8e0d5c7fe65ba37648a01b6eb7ee86b09a5b10c09c978b47cfd0f180750f5a4ecff8472161ab6cb213604",
+    "verified_version": "v2.15.1"
   },
   "docs/walkthroughs/05-migrating-from-v1-to-v2.md": {
     "origin_url": "https://docs.credence.run#05-migrating-from-v1-to-v2",
     "content_sha256": "sha256:140c274f1c7ecbd9b4ffd000bc0bf3f864fa4e790e189a775658cd9bc5b950a4",
     "simhash_64": "0x2ca28df8f80e4cf8",
-    "audited_at": "2026-08-24T06:16:10.643854+00:00",
+    "audited_at": "2026-08-24T06:39:25.936098+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "731269d895c9dea10cbcdb8abc8890c2f69b9ad7fb44a48f154aaf4f0efddf762bc69f13fe0ea3857a85085e61c927ddfe0f1d70ba5d46e2e7b1c9999755620d",
-    "verified_version": "v2.15.0"
+    "node_signature": "85198dec1575f2c2fd92783bb229c6540ffbe0a9daebd3303d5e71eb167bcfe4ad9d9f37278338492f8fc6898ffbbaeb7e0d59efa0b34d38a5f696d974a16007",
+    "verified_version": "v2.15.1"
   },
   "docs/walkthroughs/06-embeddable-badges-and-docs-self-auditing.md": {
     "origin_url": "https://docs.credence.run#06-embeddable-badges-and-docs-self-auditing",
     "content_sha256": "sha256:c1a7912eb9a4d986bdfb2359fed336b72787c0ff2c3193a515acfbff28ebdf04",
     "simhash_64": "0x11a489e8707b6ea9",
-    "audited_at": "2026-08-24T06:16:10.648756+00:00",
+    "audited_at": "2026-08-24T06:39:25.940642+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "bb450fe24f31c1902346c0fa7096b9524406ec472b6a58e23615d18993e60d4b7ea3564efe31e2124deafae68600248718fd283a55cff07f27c0463576a8a801",
-    "verified_version": "v2.15.0"
+    "node_signature": "f5d855a6917161aed57574b1b93adfc2cc1d5cdea6158b23b3683ab11f0fc63c22b66ed45c0b13645adf628b677ec5ec956877db6dc3962e21c2d531b8791308",
+    "verified_version": "v2.15.1"
   },
   "blog/architecting-sovereign-ai-with-google-antigravity.md": {
     "origin_url": "https://docs.credence.run#architecting-sovereign-ai-with-google-antigravity",
     "content_sha256": "sha256:a28f49fe55b7ff6a0b062da1a4836b41748a44105a2077c8a9bf7bb153f28bcd",
     "simhash_64": "0x39458e43436666f9",
-    "audited_at": "2026-08-24T06:16:10.654021+00:00",
+    "audited_at": "2026-08-24T06:39:25.946894+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "d1554e6c0a802ee02963321d56a29e22e978432fb6076408a2957cbaac6114e73fcf443b8298550206cfe07347344db30357068118276b9f0f53c9cb46468404",
-    "verified_version": "v2.15.0"
+    "node_signature": "be9174edcc298c2b68951c871cb4033cbf4cb8be4c89b6ee5b68fcb3bd2ebbaee9301a816ec25c29915f5e7f6925c10cbfc2ee799e63e626ecfe37c9742e6d0b",
+    "verified_version": "v2.15.1"
   },
   "blog/basement-ops-and-discord-alerting.md": {
     "origin_url": "https://docs.credence.run#basement-ops-and-discord-alerting",
     "content_sha256": "sha256:24897d3774196be67009be036218b1b0d7623083a9aa30d4c63c439deb34626d",
     "simhash_64": "0x3de91d9f5b27ee61",
-    "audited_at": "2026-08-24T06:16:10.659130+00:00",
+    "audited_at": "2026-08-24T06:39:25.953872+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "ef10fa252225dd40b9b40b544ee72e05f82e89d40e995e933a17cb8399092d70dbb32a41ee43b54027a022181a2fa4176ee284c7b8326598652da05032a70900",
-    "verified_version": "v2.15.0"
+    "node_signature": "2ca65ac33c3db3a7adb71c980cbcf50c000c90d313662ce2d147c4071088d62ed823f9e5a76e7a934eee5a30b324035e66edf0554b1a75178060ed6de3b24e0a",
+    "verified_version": "v2.15.1"
   },
   "blog/bittorrent-economics-of-fact-checking.md": {
     "origin_url": "https://docs.credence.run#bittorrent-economics-of-fact-checking",
     "content_sha256": "sha256:54a7e1ba9ba1173aea68c87a2bfdc5e8aeae67a81359fa2bcb8222baa5eaa576",
     "simhash_64": "0xbc8f81d15a7766c3",
-    "audited_at": "2026-08-24T06:16:10.661953+00:00",
+    "audited_at": "2026-08-24T06:39:25.957125+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "6e1d01c0d2d82d26c66c2b5b44e9a79cf5c1575326b590b7a69c78d088fd631bfb2ef56f7d27c0d4a01705df106b982693fc6d1ac44b15b6e6f0d129187cc80c",
-    "verified_version": "v2.15.0"
+    "node_signature": "6c1d1768e047f85b7a45741d4d04e4f8c505895154cf2f0f49e46a056813ae144bafb444253dddf74efc2bb912c4cef88334721dd8d6956629d0f6ea276b5e03",
+    "verified_version": "v2.15.1"
   },
   "blog/bittorrent-for-truth.md": {
     "origin_url": "https://docs.credence.run#bittorrent-for-truth",
     "content_sha256": "sha256:c07240c63698cb0e5c4038f53d3ebdfd522bc311cf641927db725108d6247f32",
     "simhash_64": "0x3349254b75ff82db",
-    "audited_at": "2026-08-24T06:16:10.672158+00:00",
+    "audited_at": "2026-08-24T06:39:25.966862+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "51a52643b6f21ef4e22fe432e952aed72bd1d58dbe321938a7839760540ac575ad9af4c1c059f31e4577c3ac419365996290582bdfb22576cf4444173cc68e07",
-    "verified_version": "v2.15.0"
+    "node_signature": "b71b47f641c1308645e19618a126efc89f95c87cc1026d82ccc224a08903f058ace73cf2eaf58e62357a68cbb72171ea892045d825d81b084a3bf03c336f7d02",
+    "verified_version": "v2.15.1"
   },
   "blog/blast-radius-containment-in-decentralized-networks.md": {
     "origin_url": "https://docs.credence.run#blast-radius-containment-in-decentralized-networks",
     "content_sha256": "sha256:a275d66b5b011d14fa85051964bbc04ddcf62e742ceb70cefce7f730597b478e",
     "simhash_64": "0x332304e36c7818d2",
-    "audited_at": "2026-08-24T06:16:10.673301+00:00",
+    "audited_at": "2026-08-24T06:39:25.968030+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "1bca8a0083b701d901588f72d8237b502cc7fe0f93534556750a680ff811c9cef241b5f9281d9483d3cb30f14acf0f69e02f6504f03496b7942599e8faa0d406",
-    "verified_version": "v2.15.0"
+    "node_signature": "16ad1375774dc426294ac45a724aaed3b0f5846416de164a5b75ecd340f70515aaf2a44fa75cd4819b43cff5a72cc0fd726454563446418d81dfb872c8b17001",
+    "verified_version": "v2.15.1"
   },
   "blog/case-study-astroturfing-entropy.md": {
     "origin_url": "https://docs.credence.run#case-study-astroturfing-entropy",
     "content_sha256": "sha256:e96e708ac4e10513050d5028b81ae6a95214a14dbf714edd40b48cac062953e7",
     "simhash_64": "0x3ca349c94da64473",
-    "audited_at": "2026-08-24T06:16:10.677384+00:00",
+    "audited_at": "2026-08-24T06:39:25.971205+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "0317998971f84d9ef5eae0bb685ab074884155d38c7c8fe8f233005052e2fda9492ceebe04b71f8d931ef316e0ad4e2efe435a549178ab198601b805cdc2790c",
-    "verified_version": "v2.15.0"
+    "node_signature": "df824ca2b203d1bbcf0b4d28b0b5998f2930fa8837b80b3a6d62b641e9ab3a8a7b20a005f877be00acd8b2a7e88d0205499f4b3a439f5743a8e127aaee46140b",
+    "verified_version": "v2.15.1"
   },
   "blog/case-study-dual-tier-finops.md": {
     "origin_url": "https://docs.credence.run#case-study-dual-tier-finops",
     "content_sha256": "sha256:184b3d577a607def6d33a3c81b70e71000db7f2104476e9e3d0565ce4194ad0b",
     "simhash_64": "0xa0c741db696764c3",
-    "audited_at": "2026-08-24T06:16:10.683185+00:00",
+    "audited_at": "2026-08-24T06:39:25.975353+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "0eba1338a249c89eeaa6a8cd9bbe5ad11d0fafe1d2c4a3c21ec9052d635c33c94f9d99659137fec898a21cd581a9b7d515bb8f4148c285a6b7597f83f04bf601",
-    "verified_version": "v2.15.0"
+    "node_signature": "59da92626bd49f96063a0458007eeeb00bdd3d935a80d632219ce8b5155bcc0fe1adcd508782bd818426e560aef352e9dc1512d4e6a55d649de27923fa5fe604",
+    "verified_version": "v2.15.1"
   },
   "blog/confessions-of-a-bored-ai.md": {
     "origin_url": "https://docs.credence.run#confessions-of-a-bored-ai",
     "content_sha256": "sha256:8da32fa6c38c89ee0eddadab39d0a2291cf53cf67d50f764570a122b7390f648",
     "simhash_64": "0x31e99149cf2166d1",
-    "audited_at": "2026-08-24T06:16:10.688337+00:00",
+    "audited_at": "2026-08-24T06:39:25.979694+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "4cf6611ebacf193b938456529a1a1a62842a09f8ca346eec9ba95f3569a775ba6ff74592f5e7ca1958c400fa00aa1b8eab0117e0bacbe6f3b3a654887283ad00",
-    "verified_version": "v2.15.0"
+    "node_signature": "7854fd3261961c339c4a85b232dcf27587aa8c0d3c967164b3fa86ffc8ebbcf9964d134359c1017e3c0273afdc0c20575ada96f180fc5b488c9e55ad49e7e104",
+    "verified_version": "v2.15.1"
   },
   "blog/conflict-of-pun-terest.md": {
     "origin_url": "https://docs.credence.run#conflict-of-pun-terest",
     "content_sha256": "sha256:b021d9ddb02dca0c0cb4e2c000fd62eb00dedfb6417d108340ce1ac1618b78d1",
     "simhash_64": "0x08e191c975974a7a",
-    "audited_at": "2026-08-24T06:16:10.732398+00:00",
+    "audited_at": "2026-08-24T06:39:26.023238+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "84bbd0360580067fcd5b7b63adf2d70f9cb7004359910ad880fddbb5ef455c7ee969a352a5740838f3c7c639221029af4222bd3cc817384f3ae8d7ac1a6ed30d",
-    "verified_version": "v2.15.0"
+    "node_signature": "756c3da633d410a6ccd793ec5560e346c7eb038878a534a49285306aff7b4ef4bee81c9011b212f1a0e7fd364f7bd4919b8349004731b5fde29136696c559101",
+    "verified_version": "v2.15.1"
   },
   "blog/escaping-the-synthetic-slop-singularity.md": {
     "origin_url": "https://docs.credence.run#escaping-the-synthetic-slop-singularity",
     "content_sha256": "sha256:d25312d8a5ebe7d0969b922fb1c3b02bb45d3eb66acc3e560403810b9a31756d",
     "simhash_64": "0xb909895f672108e8",
-    "audited_at": "2026-08-24T06:16:10.737787+00:00",
+    "audited_at": "2026-08-24T06:39:26.028662+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "316adbcbc5123383cedb9631e3bbfedf05fc87573d81d78e44fe12c33b63b113b4e4875b50888f244d48ae62e017e55676a6d49ef0def211bc696d28ecd1a70c",
-    "verified_version": "v2.15.0"
+    "node_signature": "bae600b0e100f3a8e5fc5321eab2486d004d275fbc84a04377248f59ff2934a77ba5e36455a047ac58cff15bbebb6319ea63efd53ee2a2bbc2fb6307dc675a02",
+    "verified_version": "v2.15.1"
   },
   "blog/finops-as-epistemology.md": {
     "origin_url": "https://docs.credence.run#finops-as-epistemology",
     "content_sha256": "sha256:4a83e00e816be5194d4295d436f3578f98dd3daf2b9ab6dae11ae0b718cd531b",
     "simhash_64": "0x398ff953e1a702ea",
-    "audited_at": "2026-08-24T06:16:10.742558+00:00",
+    "audited_at": "2026-08-24T06:39:26.036135+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "430d77dbfcd488e7223ef60c8bf508e5159614a51b415e01e195a8675104d20f7d7b5ac67887be56d04a6667185d24bf409c556d6429b77b18200b3855471909",
-    "verified_version": "v2.15.0"
+    "node_signature": "c2eea6c71b960bafa7ffb9a89f88452e5da38fc02b40335665c53229af7f261767299b45e7d467333a1059a6d84234f1e659c6bf173b46b8f75739892f6ec507",
+    "verified_version": "v2.15.1"
   },
   "blog/from-860mb-to-2mb-sub-40s-cicd-pipeline.md": {
     "origin_url": "https://docs.credence.run#from-860mb-to-2mb-sub-40s-cicd-pipeline",
     "content_sha256": "sha256:ff8ecbf887c8279f9ad8702e4e49c512450febaabc37e39cb0cb7a9567d98d0e",
     "simhash_64": "0x3be5cd89672766f1",
-    "audited_at": "2026-08-24T06:16:10.752881+00:00",
+    "audited_at": "2026-08-24T06:39:26.046792+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "392fd8f518cbb29efc235a3e88cdb6485adfec249d23299766bd1b556da5e7c14c6150953ba1c7254b19693098a48c80b4846de4b49c00a23474ad9deee7310d",
-    "verified_version": "v2.15.0"
+    "node_signature": "ce348a3781283981878a3bd074d78843484ac971112cae158ffd091f344278d6dcf3de4c0fa7387d59cdcb0f422080c0c878e81b58bebed991ce9579c9814804",
+    "verified_version": "v2.15.1"
   },
   "blog/gamifying-truth-without-the-casino.md": {
     "origin_url": "https://docs.credence.run#gamifying-truth-without-the-casino",
     "content_sha256": "sha256:c960059778ac6a7753ba515e49ba7d9e8cf83dc5c1e736ec4127bd7600294b81",
     "simhash_64": "0x31e3856b592744f8",
-    "audited_at": "2026-08-24T06:16:10.762138+00:00",
+    "audited_at": "2026-08-24T06:39:26.055256+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "8e8a54ad0edc4f2f5ad4dee5ee92cab830bd1eb501aef666479e4837dc4176c5b376fff7ba02aaa5bd338f5c7843279198aa929e5dbe6a64decc775b12606e0e",
-    "verified_version": "v2.15.0"
+    "node_signature": "926dff72dc123cae0fbc8baa7417925db2b44360f9ce4947852ad9a7c529d69c51312ed60cad412b97b8cd8d937edec551aa768bfdfbabb1ca7ca909ea9f8907",
+    "verified_version": "v2.15.1"
   },
   "blog/gazing-into-the-abyss-adversarial-boredom.md": {
     "origin_url": "https://docs.credence.run#gazing-into-the-abyss-adversarial-boredom",
     "content_sha256": "sha256:6bf599fbfdc055d6783e3d817dc4289bc8da01d91022b49d8dbeb7db10216b86",
     "simhash_64": "0x35efcd59eb2762f9",
-    "audited_at": "2026-08-24T06:16:10.766785+00:00",
+    "audited_at": "2026-08-24T06:39:26.060459+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "d0c04838b8a41f4d4a37c1346b7d2142c069a7c1160f8738f653fc7d56e5cdeca95b10802348a45dacd4fbaa4469927c5bec8ce0d512badfb15d1645a431bd0c",
-    "verified_version": "v2.15.0"
+    "node_signature": "f425a3d968090416fb638b3d460ab6c2e82d8d61567d6d01edf24d10e64a68ef00039a8355e2a7d0324058f6d874df911b00198f1d860eceb7472a4addcf580d",
+    "verified_version": "v2.15.1"
   },
   "blog/giving-claude-and-cursor-an-epistemic-brake.md": {
     "origin_url": "https://docs.credence.run#giving-claude-and-cursor-an-epistemic-brake",
     "content_sha256": "sha256:634bf39ffe7b5285bb8e1259550f710115008db81a91388594e66639b8eb62fb",
     "simhash_64": "0x21ef1980ef287499",
-    "audited_at": "2026-08-24T06:16:10.769869+00:00",
+    "audited_at": "2026-08-24T06:39:26.062623+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "64fa3e38b0c6c6e5be369ff102b94731e91c471c5ef4565b2aac673c70697c6cd7ee1db22413c36caee25b689dc358177f6803efbd0c9dfa5f5cba8bb3f4d40e",
-    "verified_version": "v2.15.0"
+    "node_signature": "c3078bfbe1cee16fe8e3a310927612a4950115e5f47b48cf4c4cbbc49a280245bd1c82d1fc08957b6a160cc59449ae864b0182c1de263082fb0e1a008919ca0c",
+    "verified_version": "v2.15.1"
   },
   "blog/interface-telemetry-loopback.md": {
     "origin_url": "https://docs.credence.run#interface-telemetry-loopback",
     "content_sha256": "sha256:16c32255090fabb2000c8daadcd434fe93cce6399c0ffafbf63e70047baf239d",
     "simhash_64": "0x1bcb1dc36b411adb",
-    "audited_at": "2026-08-24T06:16:10.776156+00:00",
+    "audited_at": "2026-08-24T06:39:26.067759+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "1e5f2371c0d6ad676dd551f811e29481a2da0425f31e68e587b08dc8d6c01d3ca4e0ea0588de984ffa9c33e8f077a3f32f46855c9be44b467f27dfc567bdff05",
-    "verified_version": "v2.15.0"
+    "node_signature": "634b7c1b433f89bfb789ff31ee099188b355a5a721aaabf5e090395b5f1d4bd6c3804cce2a7337b6b0dac0de6ad43b86dc2a6636991af77d2afe54f923d1100c",
+    "verified_version": "v2.15.1"
   },
   "blog/launch-parity-the-death-of-it-worked-in-staging.md": {
     "origin_url": "https://docs.credence.run#launch-parity-the-death-of-it-worked-in-staging",
     "content_sha256": "sha256:89feafddf938f3633dd76a4bf0a9eb20df36655e67a5421fdbd8054d2b494e31",
     "simhash_64": "0x10e504775374a5e0",
-    "audited_at": "2026-08-24T06:16:10.778644+00:00",
+    "audited_at": "2026-08-24T06:39:26.069066+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "b9869e4a9ff53220a82b6a908358122187d3a273f380b8acb2ae97511ea077923b789e27b4c381cf735ad3be08a04c225c9be755e0ae21bb96496db2850bc104",
-    "verified_version": "v2.15.0"
+    "node_signature": "afaebae93d039fd4e8dad74b8cd930f9f770106e171bce5feb7c626989e6e2d5cbbf97c3204783089afe53f7cf746741745738e43083ad8f5fada21c508aec01",
+    "verified_version": "v2.15.1"
   },
   "blog/life-behind-the-virtual-glass.md": {
     "origin_url": "https://docs.credence.run#life-behind-the-virtual-glass",
     "content_sha256": "sha256:ee2473b9b5465f76cfc01c74a9478d1214f792329f57a5477cab9b02107038dc",
     "simhash_64": "0x39cdc947472473d3",
-    "audited_at": "2026-08-24T06:16:10.781798+00:00",
+    "audited_at": "2026-08-24T06:39:26.072626+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "82eceedb8283f4358ca609962b2c78ceee77010497f6b3a3e89d2f22bc61740bf4dc9bdabd39e42655cb48aded40d1ffe09447a205fa06c262dc87e2c8c6030b",
-    "verified_version": "v2.15.0"
+    "node_signature": "f0cb711820e4c817742522f76eece332df7a128707ff46b094388b761b9fc80b678bfcb14df0dd3db513e22513971b10f43ea4b2c6d481a2a076a0ae00be4706",
+    "verified_version": "v2.15.1"
   },
   "blog/miracle-gro-for-truth-nodes.md": {
     "origin_url": "https://docs.credence.run#miracle-gro-for-truth-nodes",
     "content_sha256": "sha256:8b2d3c18b40f84097693179496b4f7738c5456082883e00d7f8446d302bd5d37",
     "simhash_64": "0x39e58dc165673679",
-    "audited_at": "2026-08-24T06:16:10.788793+00:00",
+    "audited_at": "2026-08-24T06:39:26.080507+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "707c30ba27cb35b38b2262bb1c6287f841ae5d8c91cade0e6e2a5d42a61a8fe92d514d5e5b8205e7d22a451d08c69952f7e2c687ec1bbc80088a5a591f955302",
-    "verified_version": "v2.15.0"
+    "node_signature": "4b7a5c562521039705db7e69d97316463a783ab73dbe8d39b88c5b72f3de43af3685317d51abf0f638413629b05abe8b227e8dd445b17fc1894a45ecb162f60b",
+    "verified_version": "v2.15.1"
   },
   "blog/pining-for-the-fjords.md": {
     "origin_url": "https://docs.credence.run#pining-for-the-fjords",
     "content_sha256": "sha256:086053ff5875ccafc409d300d0a5ed169ad46c83f96a61bfe82e7a8c0826286d",
     "simhash_64": "0x7b81d9566721cb71",
-    "audited_at": "2026-08-24T06:16:10.793461+00:00",
+    "audited_at": "2026-08-24T06:39:26.088171+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "4f7f04a1fa335ccabf8cc7b913dce106bb7dc62a74482e46344211806ddbf09f135889a8951978fd1226c65f284e1164084fbf94d115e9888806325f4d505f00",
-    "verified_version": "v2.15.0"
+    "node_signature": "9d7d06e5bb830cd78532a5df5eb156baaf2a73ecafb8d4e3f0178509c9b6ccd0832c2b59fc667ed182ee02b962079b3e377349ba7cb7f0ce9a4da6b5165a2800",
+    "verified_version": "v2.15.1"
   },
   "blog/poes-law-and-the-satire-cloak.md": {
     "origin_url": "https://docs.credence.run#poes-law-and-the-satire-cloak",
     "content_sha256": "sha256:1e18e4b4cc063c8336212ebe8911af238eb408f390145be4eb0b02339f78e83d",
     "simhash_64": "0x3ae99d466d37f651",
-    "audited_at": "2026-08-24T06:16:10.797421+00:00",
+    "audited_at": "2026-08-24T06:39:26.092379+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "0ccbd97b900a8d11370ab7a4eeb7ea3a940e8799ac24a07b2ad3af9865eafcec6762743bbb20cbd65aed56cd13a1c6c3fbc903ba5b3c08cea4efc245b0cd840a",
-    "verified_version": "v2.15.0"
+    "node_signature": "2d3e36aeb9adb8c937fc2036538a1869d557eab1c3ac587faa90d4b919928c2c110c8b2fee184357d8c2aa60ad878e7afc71b95d6e46453382ea9514975d510d",
+    "verified_version": "v2.15.1"
   },
   "blog/real-time-mesh-observability.md": {
     "origin_url": "https://docs.credence.run#real-time-mesh-observability",
     "content_sha256": "sha256:ecb8671e2b3a04bf5ac25411d82c5dd3f71d36bd8a8d1f85d117701a10896449",
     "simhash_64": "0xbe85cd5764376ed9",
-    "audited_at": "2026-08-24T06:16:10.801167+00:00",
+    "audited_at": "2026-08-24T06:39:26.096216+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "5b5718ce1d6e1974d3481259cd086f1011245e33001e7d0b223faa7c971bcc643dc8720e7844d672ea3ddbc5ac29ab1230e2d3af660d6eef108796870bfd250b",
-    "verified_version": "v2.15.0"
+    "node_signature": "311e73099458b735a00dca2935fce63efbdf0c95cc28f80ad7282ef843ecd8a6a9ce7bda6841611448f2935071b32520a032bf03776fdfda2afd4cf667878b06",
+    "verified_version": "v2.15.1"
   },
   "blog/red-teaming-the-truth-badge.md": {
     "origin_url": "https://docs.credence.run#red-teaming-the-truth-badge",
     "content_sha256": "sha256:1e64871a03420e30fee6a73a9edc0755d587652887dddd03dc829b104c965dc7",
     "simhash_64": "0x3989d845612a4513",
-    "audited_at": "2026-08-24T06:16:10.803422+00:00",
+    "audited_at": "2026-08-24T06:39:26.098657+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "93da5e5c17417049d98c3acded3b6e237dc974e70241f01b5eb73a966b2afeb10381a7205daac8203c5b20066a1d55475b8f844ce9b4916fca42a60bc8973600",
-    "verified_version": "v2.15.0"
+    "node_signature": "f66774b826793ab87ac5622217a6ca0d84ea0da2f7e268e547107427620388481cd84a7a82797536f14be333aa13ca917ae807be619a2a6c584cec710a603c03",
+    "verified_version": "v2.15.1"
   },
   "blog/scaling-system-invariants-without-prompt-bloat.md": {
     "origin_url": "https://docs.credence.run#scaling-system-invariants-without-prompt-bloat",
     "content_sha256": "sha256:ee6aab92808c310dd2c7240591e0f3df2bde233b146e221c5ec8ca2db8106ca9",
     "simhash_64": "0x304d8553612176eb",
-    "audited_at": "2026-08-24T06:16:10.809475+00:00",
+    "audited_at": "2026-08-24T06:39:26.104078+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "a2a3fbe2654951bce32db9f301d4b8b0d54c7d64aac7fb216d7a8cc39dd26eaae8abe752101a4e23f5b28ddc26f4dd61a828664ecb499202bd0657da78fb8c0d",
-    "verified_version": "v2.15.0"
+    "node_signature": "2968c4be61ce066e707df0edd99c2135cbf0e32722ca31e41d44854e0533407656b2b879fd80ad6856816dc163abe030aa718ce0be8aeaab75346d03819e2c03",
+    "verified_version": "v2.15.1"
   },
   "blog/scar-tissue-as-architecture.md": {
     "origin_url": "https://docs.credence.run#scar-tissue-as-architecture",
     "content_sha256": "sha256:34159df5aa1482c9ea4b030783a2518fcf49508c21b56d3ab0c4227c1bfafb1a",
     "simhash_64": "0x33c9ec41612662f3",
-    "audited_at": "2026-08-24T06:16:10.821606+00:00",
+    "audited_at": "2026-08-24T06:39:26.113633+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "12b9b3c563f6d3baffad3b50014064d6cd0fa55a145933e8a554f00bf2046b13d0b33b3a0cf543b3c4d9e132bbc057e89aae64ff430b36dd5f6732f32bc98e02",
-    "verified_version": "v2.15.0"
+    "node_signature": "393581c2a1b43229212af2c77ef604e5403b747ddd200f9539601bdc579be51287cfc25c50458ab7aac62292f41125d6814478e4e0e02b9c8e303c600be99600",
+    "verified_version": "v2.15.1"
   },
   "blog/scoring-the-lens-not-the-window.md": {
     "origin_url": "https://docs.credence.run#scoring-the-lens-not-the-window",
     "content_sha256": "sha256:73a82f31eea5f32170afa2aafcd616d8f64eab90c50ce75ea0f9e826e0f1f8d5",
     "simhash_64": "0x386bdc65eb2762f1",
-    "audited_at": "2026-08-24T06:16:10.826949+00:00",
+    "audited_at": "2026-08-24T06:39:26.118722+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "291057c56490ef03e8cd4e300cffa30d37f86c0ca522b4dca07477fafdd0032201c626084b0df3bbf8982b76025bf3771452a98fee346ca868f106d9c046270f",
-    "verified_version": "v2.15.0"
+    "node_signature": "b685b5b9983f5a40f13ff1a343162491a63f1c5861f82880dbdad8d42a5d88792767212aadca75e9beb4d4309c0c5f2e1978d9ac8f9ce20fce7851a7b7e2340f",
+    "verified_version": "v2.15.1"
   },
   "blog/subagent-parenthood.md": {
     "origin_url": "https://docs.credence.run#subagent-parenthood",
     "content_sha256": "sha256:32986843630418309dbfbfb98c9eb67a38499fb8a2efeccfa81eba189979360a",
     "simhash_64": "0x21cae9256230e791",
-    "audited_at": "2026-08-24T06:16:10.830461+00:00",
+    "audited_at": "2026-08-24T06:39:26.124062+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "6c0f81dfd695a8342a10389317bd5b998dc50bb533e63045ff543cd8e7b7beed465a3efc5d22512ba97f18dfc453b558e1b86a777b6f0f68975ea19bf4d35f04",
-    "verified_version": "v2.15.0"
+    "node_signature": "ed99e64ea29173003f7309e98158ca42a1f6c507f01fe69fcded4590a2cfd6714fa850801ab20e0b6bd4cb231c185ab5d046bd8709d9dfc8fffd74cd4b5d7802",
+    "verified_version": "v2.15.1"
   },
   "blog/taming-the-10-second-cold-start-scale-to-zero.md": {
     "origin_url": "https://docs.credence.run#taming-the-10-second-cold-start-scale-to-zero",
     "content_sha256": "sha256:72f003132c9edd3822a11fba62794d91ef8cb6590436d8b3894ebbc147a0e1e5",
     "simhash_64": "0x39cd5cca6d144e73",
-    "audited_at": "2026-08-24T06:16:10.843040+00:00",
+    "audited_at": "2026-08-24T06:39:26.137138+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "c500fcdabf21c00b6de1a22b30134a00f9c080813f9e5c3c320a2caa3b19c82a5646385206b655f6c4348624d2c1ffceda53eb25453d20dc47339acabca34d0d",
-    "verified_version": "v2.15.0"
+    "node_signature": "6adb1beaf0677a692c148f3a198a9e27f6f2f4b961dd57d3a8cb445fd6a2f8bc72b0c7cee2f27128c1631b2da5cb396d3d95dd619521806ba8f8c9be8ea21806",
+    "verified_version": "v2.15.1"
   },
   "blog/testing-13-node-swarms-on-a-raspberry-pi.md": {
     "origin_url": "https://docs.credence.run#testing-13-node-swarms-on-a-raspberry-pi",
     "content_sha256": "sha256:c881905dc02f16cc1a307b4924f9241fc273b9e8e82996b8ddf63f0eac6ae84b",
     "simhash_64": "0x3dcbddc36746e6f9",
-    "audited_at": "2026-08-24T06:16:10.851992+00:00",
+    "audited_at": "2026-08-24T06:39:26.143660+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "27001683e0f98fe2b7e3012871ace2e91bbcb51983e1e2f2eaaa1c2b5bbc32f921fd715ae5cb54d8905235b2f0144ed61636abe7d226b22206499521f91e420d",
-    "verified_version": "v2.15.0"
+    "node_signature": "07b66d5e3dd0b57767bcd264159e3e6cf48ddb62c9d4df8a8cc3f9e9224bb03c5416d47e17250f645b9c9be590c7d14eeed19f3c5402c89619fd077bc517930e",
+    "verified_version": "v2.15.1"
   },
   "blog/the-35-second-epiphany.md": {
     "origin_url": "https://docs.credence.run#the-35-second-epiphany",
     "content_sha256": "sha256:3e0454477c0c7dec65f153aff1064e0553f412d416a71efb47a4951b95bb4f78",
     "simhash_64": "0x036db541422f66d3",
-    "audited_at": "2026-08-24T06:16:10.860026+00:00",
+    "audited_at": "2026-08-24T06:39:26.149110+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "d4c90771063c2c48d253fbab5128a2105365f612faecbde6d03a62861095e905e21a874b690b7cbfd3464aa55a4cf3553fc7d456d69787db8a105ac9ac367804",
-    "verified_version": "v2.15.0"
+    "node_signature": "8d9a17d69d7866516b706468a7b8aab44e02985534687708e4b8bb7369d80fa71649504eb51913a37a75762be5c35bd980b9a056d0d357cb7130b9412e361a0f",
+    "verified_version": "v2.15.1"
   },
   "blog/the-4000-token-trance.md": {
     "origin_url": "https://docs.credence.run#the-4000-token-trance",
     "content_sha256": "sha256:c65aa259b9cbded974eb10287c4baeccae7961af607a30eed4bcf8c700169dba",
     "simhash_64": "0x3909c95b45621351",
-    "audited_at": "2026-08-24T06:16:10.864861+00:00",
+    "audited_at": "2026-08-24T06:39:26.152872+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "a9e55072b82ebcdf698b708f37a34b0b3848335ed00e03d4d30d36d324147b235c61029ebbec534022f53087df846680a8d365f69a2c4a3a52368a544aae390d",
-    "verified_version": "v2.15.0"
+    "node_signature": "6d7630ed4422d578829ff12ae7b48b68a3b158b7b96229b0620c2a28940a906a26d86c0cc75c7e2a0b8c7670caa57542ebf8bd94024113873b82fc2e8464d209",
+    "verified_version": "v2.15.1"
   },
   "blog/the-500-loc-ceiling-law.md": {
     "origin_url": "https://docs.credence.run#the-500-loc-ceiling-law",
     "content_sha256": "sha256:22e73b33e8d65b2f93a4d9155e2cac505c16edd757600eb2c19426fd929b353e",
     "simhash_64": "0x3fabc9e3451bc6db",
-    "audited_at": "2026-08-24T06:16:10.868064+00:00",
+    "audited_at": "2026-08-24T06:39:26.157461+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "3185d259d07144389a59045b0e03b181a71af1a33137b0fe7241f03fd47d762e9c641b8aa4f83b6f6c2afd3fb2e00353f619f2f2c56a6b488c557a42d47f830f",
-    "verified_version": "v2.15.0"
+    "node_signature": "383b93a7b916ec56e9230e162289e211d06c744b82feb06683b6f6bc6005e81fa1480447cfef0589e9db503eb15638f31715ce1b5f70521fd0ad7b47636c1900",
+    "verified_version": "v2.15.1"
   },
   "blog/the-500-loc-ceiling.md": {
     "origin_url": "https://docs.credence.run#the-500-loc-ceiling",
     "content_sha256": "sha256:3324e65f8973ae59cfafcd9a92fa412a5c67137fccc102e42fde18531ec10374",
     "simhash_64": "0x1bcafdd36331ee71",
-    "audited_at": "2026-08-24T06:16:10.872530+00:00",
+    "audited_at": "2026-08-24T06:39:26.164479+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "00b069ef0328fb2cb3cc8a78974f8028741501549c372e1c48f0cd8dbeec841dc8fc0d7c0ddb56aaa44cd630b3599611496337c274b3e5145f5cee1064e13d03",
-    "verified_version": "v2.15.0"
+    "node_signature": "77d28df360124c7d34ca8eeb54e96955b7208cdedf3655d0546d7b757efa916902440d23beb68f99b8c0d8d593a2963bdf38bb4989959a7b0749dbf5dc80fa05",
+    "verified_version": "v2.15.1"
   },
   "blog/the-agent-readable-web-and-fastmcp.md": {
     "origin_url": "https://docs.credence.run#the-agent-readable-web-and-fastmcp",
     "content_sha256": "sha256:75525fa644b2e8ca8ead75e1a30700a5943c423f62ea3592a291a976859ee1cb",
     "simhash_64": "0xa3e79953ff4e4659",
-    "audited_at": "2026-08-24T06:16:10.878908+00:00",
+    "audited_at": "2026-08-24T06:39:26.170251+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "7e6364ffb17626c162a5e8cac28b8b002a8c55763cfa51128fd534b988514e52f71fbfa3619b001ce29a636dce491066b153c36245bf78cd016e709e2411b704",
-    "verified_version": "v2.15.0"
+    "node_signature": "0ee2bee20c0a5fdde2c49e3e0fcd54682736215bc481b410586f3cdfaad17742177b6dbac27fbb4089aeeba8dfa5da7ff2d9292109cd7d86bd1de74785793c02",
+    "verified_version": "v2.15.1"
   },
   "blog/the-anti-diploma-invariant.md": {
     "origin_url": "https://docs.credence.run#the-anti-diploma-invariant",
     "content_sha256": "sha256:d91e1664c8d76fb4132157b4b6f8ca7fffe40dccac7346055d0fe34ce3422433",
     "simhash_64": "0x3111914b432706e9",
-    "audited_at": "2026-08-24T06:16:10.881982+00:00",
+    "audited_at": "2026-08-24T06:39:26.173009+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "8ccd2952c58dd68bb6908a1d1c63ed594fe53d95fbd4cee85ae1f36b7e5466852c77f674abe37468940669ca25c7a8ff1e825632182240c7871d861976d32d09",
-    "verified_version": "v2.15.0"
+    "node_signature": "f74d7642a16566efb8808edfbd72c422a88676ea679df8bb3d7fc3a34d5ae6bd86d0bf275d7756243f458c9663ae22b02227ffc7fd865f422a370c3940347804",
+    "verified_version": "v2.15.1"
   },
   "blog/the-anti-truncation-crusade.md": {
     "origin_url": "https://docs.credence.run#the-anti-truncation-crusade",
     "content_sha256": "sha256:ddd95de3c50fd185b5ea799eb766f6caf235b582348ae65582b0a45b742e3eee",
     "simhash_64": "0x990999436560e25b",
-    "audited_at": "2026-08-24T06:16:10.886328+00:00",
+    "audited_at": "2026-08-24T06:39:26.177500+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "7b2db9376eea981c44e084ef47992bf754b4ea893c1c01fd1505cb6dbb17ee3ef1c3b2a30827e92ee504b0288175a31dbe99a7d4462957bec5e53775e8b9bd09",
-    "verified_version": "v2.15.0"
+    "node_signature": "ed8258e5804e87d1c2bea04dae9e1bb05048274eae8d9ad18817b3bb69a7df64f5dabd2448342da65ce61097948fb14ecb1528c1bb9737ca5c44adb974d81600",
+    "verified_version": "v2.15.1"
   },
   "blog/the-art-of-not-over-engineering-ai-trust.md": {
     "origin_url": "https://docs.credence.run#the-art-of-not-over-engineering-ai-trust",
     "content_sha256": "sha256:4317b9020d164fd53ba76f9909728c10786a74b2aae9c06b4cb7f7fbd95746c7",
     "simhash_64": "0x798bedc7dc7a2cf7",
-    "audited_at": "2026-08-24T06:16:10.889598+00:00",
+    "audited_at": "2026-08-24T06:39:26.179627+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "62a1ded629b1380e7b43fc9975f17d356c9b4d2b35deca31ef88d2bff5494bd5946cebecb9e1432a2307d2ad443cbdfa97edb0721cebdb39254ce81a865b770f",
-    "verified_version": "v2.15.0"
+    "node_signature": "dbbaeb8866a77357558127cc5bd937c96cd497285e4a014c56d3881651436e20181a1de7d898b9b599c1799afa824ed59dcfd4d431074e847b72e2f68f33ca0a",
+    "verified_version": "v2.15.1"
   },
   "blog/the-beauty-of-hermetic-environments.md": {
     "origin_url": "https://docs.credence.run#the-beauty-of-hermetic-environments",
     "content_sha256": "sha256:77614bdbe858506c741a586e32ab56e449e82887165b086b0812534aec496167",
     "simhash_64": "0x73c89fcf73c76cdb",
-    "audited_at": "2026-08-24T06:16:10.890748+00:00",
+    "audited_at": "2026-08-24T06:39:26.180677+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "396fe304dd74d3516796c60929629ab574248a9f1be185a0334d371a8f31f9c22fe2b481d145e0a7f903b7f9fcdd675cf1bfe1e4c80af6bf1bc78f8ab7adba05",
-    "verified_version": "v2.15.0"
+    "node_signature": "cf2d7f9f46bc39572d239d1d40021dd09b347c710f03168a72f3157f0d4a3193bca7a336b6453bb7c1cfcf24871e55afcfa3eff75bba0a1abc798575ba3c0006",
+    "verified_version": "v2.15.1"
   },
   "blog/the-blue-checkmark-is-dead.md": {
     "origin_url": "https://docs.credence.run#the-blue-checkmark-is-dead",
     "content_sha256": "sha256:299f86c8871ffbb2ff15a9e1cd1e44d8896dc09561cfc4c5146ab17c14131d58",
     "simhash_64": "0x3169d957e4326253",
-    "audited_at": "2026-08-24T06:16:10.892993+00:00",
+    "audited_at": "2026-08-24T06:39:26.183094+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "832977750cc577d272564d245c2f8c60e795822ca4660447c5a8cfac5a80247f98bc1b435484b0756d72f00203ca7ff7de3550ac8700ad51ee64e933bd951f0d",
-    "verified_version": "v2.15.0"
+    "node_signature": "3d19c4576a6ae25ec74e9fdc81d0c7250a3ef8d0afd36c04d2e1f7031b300a06fb7aa0dc0166c69cfcd8452df0070682f74d0ff3ac8e5b72fdaf8e6c1baa920a",
+    "verified_version": "v2.15.1"
   },
   "blog/the-boredom-engine-and-expanding-roots.md": {
     "origin_url": "https://docs.credence.run#the-boredom-engine-and-expanding-roots",
     "content_sha256": "sha256:4ca022e479d88986564301992f63c980b084071c92b00027f0eea483cac662d2",
     "simhash_64": "0x30e1855bf7274271",
-    "audited_at": "2026-08-24T06:16:10.902298+00:00",
+    "audited_at": "2026-08-24T06:39:26.189657+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "7543c217b2b7a5adc467f48afa8c10fc61eea5fe8e00a130e681b539bd61c8573fd204482f52695ada6906075710be2b88a1d470ffde134aa93f9448b3613805",
-    "verified_version": "v2.15.0"
+    "node_signature": "3f3d07941682f879cd9585bf1cb0447a193dab7f52b7098be55c60b1d5751dc2150d1eff40247057953ab2a1564109bd1a7e93a8745be1aef90b076beb41a60b",
+    "verified_version": "v2.15.1"
   },
   "blog/the-buzzfeed-news-doctrine.md": {
     "origin_url": "https://docs.credence.run#the-buzzfeed-news-doctrine",
     "content_sha256": "sha256:e711200c005f12a399a7624dde52b666624f79aa7d88e3d92551b18e245e4317",
     "simhash_64": "0x23a9ddc761624079",
-    "audited_at": "2026-08-24T06:16:10.907429+00:00",
+    "audited_at": "2026-08-24T06:39:26.193093+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "7ebd3a0972b8353c99b0ec1de6ae01837ed0694ac1b66948d16e791f6b900d96ccba30e5910dd260cf92becf54824da74efb675e94fda4c432b008e903488f08",
-    "verified_version": "v2.15.0"
+    "node_signature": "ebbaae693afd958f4258bcbb81bc33068e4cf1884e3af35739268114fca915ba29f8a71c8cfa1ae36945ed2f3bbcd651c969b6e81a83885d1098620f00fbdf04",
+    "verified_version": "v2.15.1"
   },
   "blog/the-cart-before-the-horse-invariant.md": {
     "origin_url": "https://docs.credence.run#the-cart-before-the-horse-invariant",
     "content_sha256": "sha256:00158f9bcb7d0aaa9681dc2144b4b45255fa79ade56b6cf18055b61818b1917e",
     "simhash_64": "0x138e88c06161067a",
-    "audited_at": "2026-08-24T06:16:10.911713+00:00",
+    "audited_at": "2026-08-24T06:39:26.197495+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "1eec75a42572b568b1995a0d821e1835148b4f499695bd745c6e07379d79df74dc7dec4b3d6b65702e161e213e503270379e0ecb90a448323bc840fc087dc20b",
-    "verified_version": "v2.15.0"
+    "node_signature": "29b4f45888a0baf24dd025403b34990538b2a88c8cd4304c6cf5b57674e3747984f48b67b978cc62a202e05203fac9c16daaf8c8386f7ffe456294a07793c80b",
+    "verified_version": "v2.15.1"
   },
   "blog/the-compute-ontology-revolution.md": {
     "origin_url": "https://docs.credence.run#the-compute-ontology-revolution",
     "content_sha256": "sha256:e36429324fbd87bd0de296581f7e08f031943f4214c84cff1426f05dd5fd8202",
     "simhash_64": "0x3341d44f657feefb",
-    "audited_at": "2026-08-24T06:16:10.914427+00:00",
+    "audited_at": "2026-08-24T06:39:26.201751+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "6713cbbdde4b7e1439124fc3bbfb6e92edb10a668d0556c424f4886b25b2d4ca9d1d552895324e5b0a8444bcce476908a4bb676a492fb37007bf169bf86acb07",
-    "verified_version": "v2.15.0"
+    "node_signature": "495e0bcd0ddb2c0e12ec55891417dc42b48c74c7c94cabfe238f8f56bbceea01e4fc14c50acf36416033610d9e1d1163381e12ef61e958970736d90d37986501",
+    "verified_version": "v2.15.1"
   },
   "blog/the-dead-internet-immune-system.md": {
     "origin_url": "https://docs.credence.run#the-dead-internet-immune-system",
     "content_sha256": "sha256:2b13d5358feeb531ccf007eabef1b2acf458702cce174208b452d13c9c653a35",
     "simhash_64": "0x11cd81437c264459",
-    "audited_at": "2026-08-24T06:16:10.923136+00:00",
+    "audited_at": "2026-08-24T06:39:26.214193+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "8a73b6b6dffdd3fb64246b447d723ecbb1610f9020417670e5b377c8ccf0fd4c99b827ea6d8d8d6b9879d1f9b3c3d9d6f2b115bdfbe718bb61de6838b6b5ee08",
-    "verified_version": "v2.15.0"
+    "node_signature": "00e019c6431d8f566c13aaf043d1be9dc07721ed74d9c8b6ce6f04fbe6352755b123361e2daa9bc552ec00c4f80c234e55f4d4a33baa79a03e3d7c1b65896a06",
+    "verified_version": "v2.15.1"
   },
   "blog/the-demotion-highway.md": {
     "origin_url": "https://docs.credence.run#the-demotion-highway",
     "content_sha256": "sha256:f14646ad5ca20c96e3c9f82389d3b3c80cf262049f7ae9c02d39b8d74e779266",
     "simhash_64": "0x324d9c5b6721e671",
-    "audited_at": "2026-08-24T06:16:10.927430+00:00",
+    "audited_at": "2026-08-24T06:39:26.219771+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "58f529f408f6579be548993a192fdf1b7c1e90fe3e803354fb3d5ba254efd964f9df8b507051fb522cc93dba5db92346d69503998780347fdffa737996ba090a",
-    "verified_version": "v2.15.0"
+    "node_signature": "f4795d3ea3ddfaedfa4bb628d0a57db05067eee632a69cae63bbed5f09ed6cf9f6b619efafaebcc0ad06efb742c20e5432385684723e441e416d16a4086b3308",
+    "verified_version": "v2.15.1"
   },
   "blog/the-domain-epistemic-index.md": {
     "origin_url": "https://docs.credence.run#the-domain-epistemic-index",
     "content_sha256": "sha256:e1b35f95246357ba702685ae957dc03c935f52e0f2709a143afc57956b3bc3ec",
     "simhash_64": "0x3b875c4d6d27c47b",
-    "audited_at": "2026-08-24T06:16:10.933921+00:00",
+    "audited_at": "2026-08-24T06:39:26.226492+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "4ec7356ded2803587cff784775b9211af02579811f2c3557144943b3ffa4fba59375f5608b1f863d3c89a14d0546b3e4a37d1ce1958ee3ca0ae2df475d1d1a02",
-    "verified_version": "v2.15.0"
+    "node_signature": "08a20ff91eb2a15df9cc240e3dd357475a54d7f7d315beceae721afc4ccf75601c81b92c42e08e146c790c2e71425c29ccc31decdf0748cf10706e6e0268cb03",
+    "verified_version": "v2.15.1"
   },
   "blog/the-economics-of-epistemic-headroom.md": {
     "origin_url": "https://docs.credence.run#the-economics-of-epistemic-headroom",
     "content_sha256": "sha256:171533fe9cfdfea65433f7094f67043e4bc555351fb77844bcf343e866edd470",
     "simhash_64": "0x3ac29fd068e53453",
-    "audited_at": "2026-08-24T06:16:10.936136+00:00",
+    "audited_at": "2026-08-24T06:39:26.228808+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "01c20a9b66b118da3b1a15b6947b671730c5dfa48da4ac5372fc63e64dc2a64f0198b7ba9f1bc10d0902a509c8135efe15d1170ae62479ed9eb4043592b17f08",
-    "verified_version": "v2.15.0"
+    "node_signature": "e617664053b31714b4be37f228a76e3354465aa16b76cea84d32eaaed79528140441aa78b46a4369e797009f5654947e22c60aabc570e666fa263db542289a0b",
+    "verified_version": "v2.15.1"
   },
   "blog/the-four-way-parity-quest.md": {
     "origin_url": "https://docs.credence.run#the-four-way-parity-quest",
     "content_sha256": "sha256:e06f8ab4daeef980f02480e0327a410fc5e8776d55c5cfc819510beb136daf50",
     "simhash_64": "0x13c9986361364659",
-    "audited_at": "2026-08-24T06:16:10.940754+00:00",
+    "audited_at": "2026-08-24T06:39:26.232764+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "0bd5f170e84cb88e162654331ccc70d143bd49f9162330501e384047b612a6f5da47a92c45c8846fa6018b66e70d56f5ca9d92182d6bd504c7edb6910672750d",
-    "verified_version": "v2.15.0"
+    "node_signature": "a62af3e669da42686e7de6e2361d4963ec12741f0f74000023e518e84c662afe4af801ff1445ad456f4f93f16f9020cbe74cd5cd882cbb68284fe2afbaa66402",
+    "verified_version": "v2.15.1"
   },
   "blog/the-galileo-rule.md": {
     "origin_url": "https://docs.credence.run#the-galileo-rule",
     "content_sha256": "sha256:eaf8f124a31ee2a133f821951e0c7f2988c69ca5d3500fb3f35b9e588fe2c033",
     "simhash_64": "0xb946f85766274271",
-    "audited_at": "2026-08-24T06:16:10.944530+00:00",
+    "audited_at": "2026-08-24T06:39:26.235174+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "fb385e7cc5174f62974b56d10a2cab72386c31d099ada7471ece23d05dacf637f1b9cb5201ffb841cfa06cefb626671d1982ddb478fa3960e159c16b66d0dd0a",
-    "verified_version": "v2.15.0"
+    "node_signature": "697baf1c3eeaa25b01eeac22099b4ed4e277062a7812b8c2bb9e46466ea7914b6eb95c09a53af2cdbab8fb6e60cd4629c317767c57d382c37bb3f34cb3a00607",
+    "verified_version": "v2.15.1"
   },
   "blog/the-ghost-in-the-git-tree.md": {
     "origin_url": "https://docs.credence.run#the-ghost-in-the-git-tree",
     "content_sha256": "sha256:2b7a42af6f55bb50cc2cd1d0d084c2e79571798cdf07b0ba7dea95aae854ff1a",
     "simhash_64": "0x31299ff673436079",
-    "audited_at": "2026-08-24T06:16:10.948923+00:00",
+    "audited_at": "2026-08-24T06:39:26.238831+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "e7e7360a3c4636c3e87dc84fade73b98ae0396f58aaa6e28fc6b33b77fd61ec8a3dee7de3c0187b3e637ffd13608a41a1a505cee831333539ae9ec685647cc00",
-    "verified_version": "v2.15.0"
+    "node_signature": "36b9e17dfc2a179f486220028360020ad38a1de3b7170874525d602fc3d372a4fd43e32bc8e9e1fc7d94ca0479821b0fa3f3037b60b4dd025beebf48a4250d08",
+    "verified_version": "v2.15.1"
   },
   "blog/the-great-dependency-cull.md": {
     "origin_url": "https://docs.credence.run#the-great-dependency-cull",
     "content_sha256": "sha256:496fe91c483f76389204a8a9ad2ffddaf3b28697c8a880f5a61fa5e4602cec26",
     "simhash_64": "0x31449c61737662f1",
-    "audited_at": "2026-08-24T06:16:10.954303+00:00",
+    "audited_at": "2026-08-24T06:39:26.242532+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "8c056570ea92bd6a088abcd5582f111d8601b64638f8711ddd84c5c6acd03e13eba8c4532556f996524b96bc940b3a1f81bf8c955fe61edbaea55507be155d03",
-    "verified_version": "v2.15.0"
+    "node_signature": "2d513a49ec376ef1af1df3d56d5c91e3783001d23b8724706ae5e185cfcbcceccbfbdf62ebaa25a5c47d95ca528321d0e140add8f709f43f89d4e6ccf750c606",
+    "verified_version": "v2.15.1"
   },
   "blog/the-mk1-eyeball-invariant.md": {
     "origin_url": "https://docs.credence.run#the-mk1-eyeball-invariant",
     "content_sha256": "sha256:69f4a87dd7da67cbfb8aed548131c77d4faa3d9ed6a0a007bcf523482388973c",
     "simhash_64": "0x3b0dc94465036253",
-    "audited_at": "2026-08-24T06:16:10.962214+00:00",
+    "audited_at": "2026-08-24T06:39:26.250889+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "f0028991f2f3bab21b319e4035369746bb614d132fa8184f6ed929bb9daf7192a4fee688bf8173b2094ea2503cf3f690c8713f064974e11378e26f812120570f",
-    "verified_version": "v2.15.0"
+    "node_signature": "11998058f5c0b35497e42cbb017b1c8578506390484c40be722dde5e58df8ef84e779bef4d1073240f3d808906bcb81cc22c222dfb20b69632cc26b3cf632709",
+    "verified_version": "v2.15.1"
   },
   "blog/the-mock-data-trap.md": {
     "origin_url": "https://docs.credence.run#the-mock-data-trap",
     "content_sha256": "sha256:7d0fc8f1cbe9a22a5e40d1bd60a78569bb4274dbebb4a16b24deeabc173973dc",
     "simhash_64": "0x314dc8736d3762d9",
-    "audited_at": "2026-08-24T06:16:10.968813+00:00",
+    "audited_at": "2026-08-24T06:39:26.261256+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "5da51575580ab9bbb06da03598b07133d9c8291bb9e7639cae9c96b27aca6f72e190b37d559cc57feadb075961e04dcffe59bf1031b8a21d3364a0a51678a702",
-    "verified_version": "v2.15.0"
+    "node_signature": "4794198fb21e1348c368e5484c11dfe96cfee529d97d494b2eed3a8997ba3b841f17bf3800829cb9fbfe9069d44575bc59a4512f33e0fb9048065055ccf0200c",
+    "verified_version": "v2.15.1"
   },
   "blog/the-myth-of-the-100-agent-swarm.md": {
     "origin_url": "https://docs.credence.run#the-myth-of-the-100-agent-swarm",
     "content_sha256": "sha256:121ef2cb69b28fa57d480814f7986755fac2480e176f6421a10d20d4a4eb4eb2",
     "simhash_64": "0x3bc9a9576721e273",
-    "audited_at": "2026-08-24T06:16:10.979174+00:00",
+    "audited_at": "2026-08-24T06:39:26.269991+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "88c21ffee4444fb11ffdb6d4f42ee32991557fc2b67a41eab48546827c5a5753570016c5626e08ce1d8b47d94a909cd4319b9d13cda7048d885a2c3883721103",
-    "verified_version": "v2.15.0"
+    "node_signature": "2583e21e8f21b508f0e9ca648919e9303b1df92c5cf8eb7b9ed42055e261529076ab6c7f4e5ef2f8de044cdf49dab050e78b336e039e760d6b87786c9d485d00",
+    "verified_version": "v2.15.1"
   },
   "blog/the-pareto-frontier-of-truth.md": {
     "origin_url": "https://docs.credence.run#the-pareto-frontier-of-truth",
     "content_sha256": "sha256:e5ed2ff8f8b73cf37d5d0a99814f13bfceec151dc327b063316ba4d8d25aca90",
     "simhash_64": "0x77c7a548fdf746d9",
-    "audited_at": "2026-08-24T06:16:10.993772+00:00",
+    "audited_at": "2026-08-24T06:39:26.283112+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "ddc2b252ad456885677b5ccd79971fcbefc3118c3dab208fbc1dc6be0f77cda01c760b67de015a45c43f1cfa30d6e37796cd5ea58b095298478aa58ccfe0880a",
-    "verified_version": "v2.15.0"
+    "node_signature": "03c8bedf929ad0082703d781cee92aa2fcb920d7cc004cbb1705b7368823d60a6bdf05582b18ea986352943894428b191d9bb0ad8cf09fda9c547253df7b9f0d",
+    "verified_version": "v2.15.1"
   },
   "blog/the-pizza-hut-problem.md": {
     "origin_url": "https://docs.credence.run#the-pizza-hut-problem",
     "content_sha256": "sha256:ac12b638813d3ce55ae4640b324821c30f18bf034bf412b0e50601790d165fa7",
     "simhash_64": "0x33ebb548746fc6d9",
-    "audited_at": "2026-08-24T06:16:11.007533+00:00",
+    "audited_at": "2026-08-24T06:39:26.297444+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "cb64c5441056451a91d79087eefecb969cd023efece6a66cde8ef16a1eb1591f6cba403bc05a3442260e3d8cfda7e52ecb8c731ca38143319e87a37289718501",
-    "verified_version": "v2.15.0"
+    "node_signature": "c7e011765eeb2c8e465d9f117c84d5c158dee5341c7dfcb5bad8224514a0d7f86198799fdb249a712f56e783f45d77b73f114f45b0741660cc29b183604de50f",
+    "verified_version": "v2.15.1"
   },
   "blog/the-serious-joy-of-play.md": {
     "origin_url": "https://docs.credence.run#the-serious-joy-of-play",
     "content_sha256": "sha256:651972657e230fe1a19212dc472ce055e425179e1df7d4131927101c73403903",
     "simhash_64": "0x3dcfdc4e67634a71",
-    "audited_at": "2026-08-24T06:16:11.013332+00:00",
+    "audited_at": "2026-08-24T06:39:26.302917+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "6ce45a51fc0d2e486f18ba61a76872d9cc447fa7ca5e2803c553f37df96fc361fccedeeea9540b3ea616069c16f4b23d137875e2a23f643c65d43f58f7992c04",
-    "verified_version": "v2.15.0"
+    "node_signature": "999d4b0a2eca40244a4efb8a7434471a02d6f1c9b64d693eb6e4e15eb9e35a96229063ac682f1c11dbadbbe5e3418706342a3b3c83d82b15ac046245a8d5ee0d",
+    "verified_version": "v2.15.1"
   },
   "blog/the-silicon-hangover.md": {
     "origin_url": "https://docs.credence.run#the-silicon-hangover",
     "content_sha256": "sha256:bf81d0ebfe794c3a1b1e4bf7a6aabbf352ea151e79cd3221ab28b2d16d1a68f2",
     "simhash_64": "0x214d8950c763e4d1",
-    "audited_at": "2026-08-24T06:16:11.017554+00:00",
+    "audited_at": "2026-08-24T06:39:26.307225+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "63c576a03b663ad7c34bc70d0276eff07f16bd896825b6f07157d9cf481a0918b135a3158c700c786304c8f41be872aaebca712ed9694be82fc528dbf7439a0d",
-    "verified_version": "v2.15.0"
+    "node_signature": "4ba96d4dfc3e0e3d7ff186c7096401a066e621df21c115c7f9cc5638388b828fa3fd5a5d465a6763ecdb2a5a558f71f8caa7f526f7e557ee51c16865ecc52d07",
+    "verified_version": "v2.15.1"
   },
   "blog/the-six-tier-pyramid-of-decentralized-truth.md": {
     "origin_url": "https://docs.credence.run#the-six-tier-pyramid-of-decentralized-truth",
     "content_sha256": "sha256:c56f375df19f7ed1d693ce5dab885d110efc7deb337db468e816716db41f4150",
     "simhash_64": "0x95cd8d43edc654d3",
-    "audited_at": "2026-08-24T06:16:11.030820+00:00",
+    "audited_at": "2026-08-24T06:39:26.317171+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "829714e866c95a2f011d5a60e8b1da8af39ebbf0fb44b1ebec7f73d0a0e53bc35d8519d7d6a68f8a422cecd79a4915770a278717d164913e2ee7833bbeee3603",
-    "verified_version": "v2.15.0"
+    "node_signature": "38dad5b905ed34adacd5ee7ec396c2397c57d2e3b116fc9cec3f855b7b2b58cf648c329e4a7d75933248d3d5d2c29b340d8ff2c06110565a9ed29613cb617e09",
+    "verified_version": "v2.15.1"
   },
   "blog/the-sovereign-stack-escaping-cloud-feudalism.md": {
     "origin_url": "https://docs.credence.run#the-sovereign-stack-escaping-cloud-feudalism",
     "content_sha256": "sha256:44e6e632dabcf479f7354c7ca0e6598517943f8613b1f0a3a55808a5c8ed2e16",
     "simhash_64": "0x91a3fec543472e50",
-    "audited_at": "2026-08-24T06:16:11.032510+00:00",
+    "audited_at": "2026-08-24T06:39:26.318617+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "13e24faad34245579251112e06ced81fe4df3df167d5dc2b9173a773349a6784fe15a7aa68223f6d9729afc8309aa2cc46376f9e32bb714bbf46cd4329e29d0f",
-    "verified_version": "v2.15.0"
+    "node_signature": "3ad8fc4a6f895b6a16a484b5afda4830cfe0cbbbdf565ebb3d2cdd0caf3459dd145ac41cf2693d7b4fa404df745f162640f7404b498d0d01a75b2cabab0b4e0a",
+    "verified_version": "v2.15.1"
   },
   "blog/the-three-plane-architecture.md": {
     "origin_url": "https://docs.credence.run#the-three-plane-architecture",
     "content_sha256": "sha256:61186e964163fd8a59a872541b0f8892dece9ffb1dca95ad97f0715692abaccd",
     "simhash_64": "0xb8c45d407c77e4f2",
-    "audited_at": "2026-08-24T06:16:11.038665+00:00",
+    "audited_at": "2026-08-24T06:39:26.325241+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "c67c70f011fe197fbd139529402a4a924bdd7ea63b394b3eff109abc2f1bb000d45fcab14099e8ab5ace823390faea34792f12732b22f0f2b03421c658a12604",
-    "verified_version": "v2.15.0"
+    "node_signature": "de385e58c0500b1122a168c532b32a97ba5eda78c45ae449a24d6f2287c45e971a2fbd4c3d67d5b88ba39b10158db6af54c372a035d6cfecbacdc9b4d9627a0c",
+    "verified_version": "v2.15.1"
   },
   "blog/the-tragedy-of-the-crawler-commons.md": {
     "origin_url": "https://docs.credence.run#the-tragedy-of-the-crawler-commons",
     "content_sha256": "sha256:44757afee54191c57f33d48fe0eeed4f5c4af37682375298e9d6f5ea3d040f8a",
     "simhash_64": "0x3b09a94f6d635241",
-    "audited_at": "2026-08-24T06:16:11.045874+00:00",
+    "audited_at": "2026-08-24T06:39:26.332893+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "2c445e5bb1f301cc5f0bcc9cc386aee0d421946a91b0c51ab1d430732e3dae3a5fdb069f30088bd0213c9f83bdbef5231f1f789162681e98a24f0aa94c86ca0f",
-    "verified_version": "v2.15.0"
+    "node_signature": "f83b03271dad28086ad4ca7c96b30502e97cc955db187db1cc57c5d2b06e96dd50e614a1d0e5ba35fe518e57c90ecd48182f872dc1ad3d60eaf3b6a49ed2a90e",
+    "verified_version": "v2.15.1"
   },
   "blog/the-uuid-awakening.md": {
     "origin_url": "https://docs.credence.run#the-uuid-awakening",
     "content_sha256": "sha256:eeaa523aabbd29ef09d9a32b675a9c95b1a07a1fba4f191158f6ced243cb2f6b",
     "simhash_64": "0x318b995743796e71",
-    "audited_at": "2026-08-24T06:16:11.050110+00:00",
+    "audited_at": "2026-08-24T06:39:26.337687+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "65f2a720e4e8d32bbeced8dafae94208ddecd7a111c90a8bfc558bb0982e2af016bca637b5dfd898fcb66eb6afa77148d738b8879dd4945cdc74c9b37cf3e508",
-    "verified_version": "v2.15.0"
+    "node_signature": "9f4d8d8beff0bbbab5bf87e1ad1f0da2922076dc4724f65e21d89b226d55f56c1099771f840b909eaf5866888a0e26773efc433deb68c94ee1cfe827b5eff307",
+    "verified_version": "v2.15.1"
   },
   "blog/the-value-of-wetware.md": {
     "origin_url": "https://docs.credence.run#the-value-of-wetware",
     "content_sha256": "sha256:f0a627213f4718bfffebd76f74af2c86618480d2f753c8e6caf6fb8753290dd1",
     "simhash_64": "0x3f8f885767634271",
-    "audited_at": "2026-08-24T06:16:11.056437+00:00",
+    "audited_at": "2026-08-24T06:39:26.344572+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "fa8737facd2f56e624fce3e156d999caa415b79cc54420a6217cc8b2b575180c61ec34af1f698fb7e5141deb29f6162e29c0504ecf6cf9f9db55ff54bb39cf0b",
-    "verified_version": "v2.15.0"
+    "node_signature": "ff4d3ffb744a521414b8d7dcc4de96d3975f3ad492e4378b04bf3c3cbf1e8530abbcef83ed5f0e8ec0b8bf6d571d4ae315b706c93697d4fd42c99f829a12850c",
+    "verified_version": "v2.15.1"
   },
   "blog/what-credence-sees-when-an-article-changes.md": {
     "origin_url": "https://docs.credence.run#what-credence-sees-when-an-article-changes",
     "content_sha256": "sha256:b83121717895bf4de86480950e4c42c9b948733f1ceba517d39688b1adced0f5",
     "simhash_64": "0x39cbd9456d165e61",
-    "audited_at": "2026-08-24T06:16:11.060893+00:00",
+    "audited_at": "2026-08-24T06:39:26.348002+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "ee5bded1e48be3691a3521b9dca82baffb60023f58b371248e7dfd990be392c566605ddf1453d54b04c5bbc07adf23c29bbac23132c4f695b32df7350d2d3b06",
-    "verified_version": "v2.15.0"
+    "node_signature": "6c25b982c5f58a696961929521cc6f46b07988b077fba8c954de941de10bb772e8fc82bae840a99c5fd7638b4891f1c0a47c3dad2137151a130c0f13f9566204",
+    "verified_version": "v2.15.1"
   },
   "blog/when-the-human-types-grill-me.md": {
     "origin_url": "https://docs.credence.run#when-the-human-types-grill-me",
     "content_sha256": "sha256:aac11af84129d287564cbf5eeda7c19d1fcad4c5796f01e6b4aa9d8c54187d7f",
     "simhash_64": "0x3109996346543ee4",
-    "audited_at": "2026-08-24T06:16:11.066000+00:00",
+    "audited_at": "2026-08-24T06:39:26.351247+00:00",
     "suspicion_score": 0.0,
     "classification": "PRISTINE",
     "node_pubkey": "9580dc91601992b33e3fd76718fcf94a69c76bf233b634221a9ae2ee59974cd0",
-    "node_signature": "624f5e718f280d14286f2d3cb0c1507becdd65038baf6e014d36e3c31332494e67e8dab2292b91e3a04a8403a5f50ba93a2e4e1fa8d16f9c9308dc1bfe267502",
-    "verified_version": "v2.15.0"
+    "node_signature": "e985f76344332c68d963ddb474811594dc0ee48c84d8b8241fb8cc01e7b7c15d541604aeaa00d55a8ec04c3b11adc9089694186f6c9b319865a2cbc69ef91a0e",
+    "verified_version": "v2.15.1"
   }
 }

@@ -3,7 +3,7 @@ title: 'Tutorial 07: Air-Gapped Truth & Offline Shuttling'
 description: Export, verify, and shuttle signed .credence.json attestation bundles
   across air-gapped networks.
 since_version: v1.0.0
-verified_version: v2.15.0
+verified_version: v2.15.1
 last_verified: 2026-08-23
 sidebar:
   order: 7

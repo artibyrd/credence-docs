@@ -3,7 +3,7 @@ title: 'Playground 13: Content Evolution & Stealth Edit Forensic Lab'
 description: Interactive in-browser simulator demonstrating how Credence tracks text modifications over time, computing diffs and score trajectories in real time.
 category: Interactive Playgrounds
 since_version: v2.1.0
-verified_version: v2.15.0
+verified_version: v2.15.1
 last_verified: 2026-08-23
 ---
 

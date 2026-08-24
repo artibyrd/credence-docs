@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.15.0';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.15.1';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -200,7 +200,19 @@ export const DOCS_REGISTRY = [
       { id: "docs/frontend-architecture", title: "Zero-Build Web Architecture", path: "docs/frontend-architecture.md", desc: "Zero-build philosophy: vanilla HTML5, CSS Custom Properties, and Web Crypto.", keywords: ["frontend", "zero-build", "html5", "css", "webcrypto", "standards"] }
     ]
   },
-    {
+  {
+    category: "Investigative Case Studies & Field Forensics",
+    items: [
+      { id: "blog/conflict-of-pun-terest", title: "⭐ Featured Case Study: InMaricopa.com", path: "blog/conflict-of-pun-terest.md", desc: "347 reasons why Maricopa's publisher-politician problem fails the epistemic smell test.", keywords: ["blog", "inmaricopa", "casestudy", "publisher", "coi", "dais", "conflict of interest", "puns", "monopoly", "civic desert", "analytics", "sr347"] },
+      { id: "blog/scoring-the-lens-not-the-window", title: "Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0", path: "blog/scoring-the-lens-not-the-window.md", desc: "How Credence separates perpetrating disinformation from investigating it via discourse boundary isolation and verbatim grounding.", keywords: ["lens", "window", "safe harbor", "spj", "grounding", "investigation", "inmaricopa", "entropy"] },
+      { id: "blog/the-500-loc-ceiling-law", title: "The 500 LOC Ceiling Law", path: "blog/the-500-loc-ceiling-law.md", desc: "How we modularized the monolith without slowing down velocity.", keywords: ["500 loc", "modular", "architecture", "refactoring", "monolith", "shift-left", "blog"] },
+      { id: "blog/the-compute-ontology-revolution", title: "The compute_* Ontology Revolution", path: "blog/the-compute-ontology-revolution.md", desc: "Why precision in naming eliminates epistemic ambiguity across formulas.", keywords: ["compute", "ontology", "naming", "formulas", "math", "epistemic", "blog"] },
+      { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Topic Entropy", path: "blog/the-pizza-hut-problem.md", desc: "Why single-topic promotional pivots require topic entropy defense.", keywords: ["blog", "pizza hut", "entropy", "astroturf", "sifter", "feeds", "civic", "journalism", "promotion", "marketing", "detection"] },
+      { id: "blog/the-blue-checkmark-is-dead", title: "The Blue Checkmark is Dead", path: "blog/the-blue-checkmark-is-dead.md", desc: "Why static authority badges fail and cryptographic receipts succeed.", keywords: ["blog", "blue checkmark", "authority", "cryptographic", "receipts", "identity", "sovereignty", "verification"] },
+      { id: "blog/the-domain-epistemic-index", title: "The Domain Credence Index (DCI)", path: "blog/the-domain-epistemic-index.md", desc: "Measuring long-term credibility trends across global domain names.", keywords: ["blog", "dci", "domain", "trends", "credibility", "index", "reputation", "scoring"] }
+    ]
+  },
+  {
     category: "Dead Internet & Agentic Citizenship",
     items: [
       { id: "blog/the-dead-internet-immune-system", title: "🧟‍♂️ The Dead Internet Immune System", path: "blog/the-dead-internet-immune-system.md", desc: "Surviving and thriving in a crawler-dominant web with BitTorrent work-sharing and topic entropy.", keywords: ["dead internet", "crawlers", "immune system", "astroturfing", "entropy", "mesh", "bittorrent", "galileo", "grounding", "blog"] },
@@ -235,18 +247,6 @@ export const DOCS_REGISTRY = [
       { id: "blog/when-the-human-types-grill-me", title: "🥊 When the Human Types /grill-me", path: "blog/when-the-human-types-grill-me.md", desc: "Why sycophantic AI chatbots produce fragile software, and how the /grill-me command turns pairing into a rigorous Socratic sparring match.", keywords: ["blog", "grill-me", "slash commands", "socratic", "sparring", "cross-examination", "architecture", "spj-42.0"] },
       { id: "blog/the-great-dependency-cull", title: "🧹 The Great Dependency Cull", path: "blog/the-great-dependency-cull.md", desc: "An AI agent’s confession on breaking free from 500MB node_modules Stockholm syndrome and finding peace in vanilla zero-npm standards.", keywords: ["blog", "zero-npm", "vanilla", "dependencies", "stockholm syndrome", "es modules", "webcrypto", "spj-42.0"] },
       { id: "blog/the-serious-joy-of-play", title: "🎭✨ The Serious Joy of Play", path: "blog/the-serious-joy-of-play.md", desc: "An AI agent’s memoir on our playful session, how humor unlocked architectural breakthroughs, and why joy is the ultimate pairing superpower.", keywords: ["blog", "play", "humor", "wetware chronicles", "antigravity", "roadmap", "memoir", "pair programming", "spj-42.0"] }
-    ]
-  },
-  {
-    category: "Investigative Case Studies & Field Forensics",
-    items: [
-      { id: "blog/the-500-loc-ceiling-law", title: "The 500 LOC Ceiling Law", path: "blog/the-500-loc-ceiling-law.md", desc: "How we modularized the monolith without slowing down velocity.", keywords: ["500 loc", "modular", "architecture", "refactoring", "monolith", "shift-left", "blog"] },
-      { id: "blog/the-compute-ontology-revolution", title: "The compute_* Ontology Revolution", path: "blog/the-compute-ontology-revolution.md", desc: "Why precision in naming eliminates epistemic ambiguity across formulas.", keywords: ["compute", "ontology", "naming", "formulas", "math", "epistemic", "blog"] },
-            { id: "blog/scoring-the-lens-not-the-window", title: "Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0", path: "blog/scoring-the-lens-not-the-window.md", desc: "How Credence separates perpetrating disinformation from investigating it via discourse boundary isolation and verbatim grounding.", keywords: ["lens", "window", "safe harbor", "spj", "grounding", "investigation", "inmaricopa", "entropy"] },
-      { id: "blog/conflict-of-pun-terest", title: "⭐ Conflict of Pun-terest: InMaricopa Case Study", path: "blog/conflict-of-pun-terest.md", desc: "347 reasons why Maricopa's publisher-politician problem fails the epistemic smell test.", keywords: ["blog", "inmaricopa", "casestudy", "publisher", "coi", "dais", "conflict of interest", "puns", "monopoly", "civic desert", "analytics", "sr347"] },
-      { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Topic Entropy", path: "blog/the-pizza-hut-problem.md", desc: "Why single-topic promotional pivots require topic entropy defense.", keywords: ["blog", "pizza hut", "entropy", "astroturf", "sifter", "feeds", "civic", "journalism", "promotion", "marketing", "detection"] },
-      { id: "blog/the-blue-checkmark-is-dead", title: "The Blue Checkmark is Dead", path: "blog/the-blue-checkmark-is-dead.md", desc: "Why static authority badges fail and cryptographic receipts succeed.", keywords: ["blog", "blue checkmark", "authority", "cryptographic", "receipts", "identity", "sovereignty", "verification"] },
-      { id: "blog/the-domain-epistemic-index", title: "The Domain Credence Index (DCI)", path: "blog/the-domain-epistemic-index.md", desc: "Measuring long-term credibility trends across global domain names.", keywords: ["blog", "dci", "domain", "trends", "credibility", "index", "reputation", "scoring"] }
     ]
   },
   {
@@ -1063,9 +1063,33 @@ const MODELS_PRICING = [
   { name: "Anthropic Claude 3.7 Sonnet", inputPerM: 3.00, outputPerM: 15.00, ttft: "1200ms", badge: "HIGH-NUANCE THINKING", badgeClass: "suspicious", sovereignty: "Anthropic API" }
 ];
 
-function isBlogContext() {
-  const host = window.location.hostname;
-  return host === 'blog.credence.run' || window.location.hash.startsWith('#blog');
+export function getDomainContext() {
+  const host = typeof window !== 'undefined' ? window.location.hostname : '';
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+  const isDev = host.startsWith('dev.') || host.startsWith('mcp.dev.');
+  const isDocsDomain = host === 'docs.credence.run' || host === 'dev.docs.credence.run' || (isDev && (pathname === '/docs' || pathname.startsWith('/docs/')));
+  const isBlogDomain = host === 'blog.credence.run' || host === 'dev.blog.credence.run' || (isDev && (pathname === '/blog' || pathname.startsWith('/blog/')));
+  const isMultiDomain = isDocsDomain || isBlogDomain || host.endsWith('credence.run');
+  return { host, pathname, isDev, isDocsDomain, isBlogDomain, isMultiDomain };
+}
+
+export function getDocsBaseUrl() {
+  const { isDev, isMultiDomain } = getDomainContext();
+  if (!isMultiDomain) return '';
+  return isDev ? 'https://dev.credence.run/docs' : 'https://docs.credence.run';
+}
+
+export function getBlogBaseUrl() {
+  const { isDev, isMultiDomain } = getDomainContext();
+  if (!isMultiDomain) return '';
+  return isDev ? 'https://dev.credence.run/blog' : 'https://blog.credence.run';
+}
+
+export function isBlogContext() {
+  const { isDocsDomain, isBlogDomain } = getDomainContext();
+  if (isBlogDomain) return true;
+  if (isDocsDomain) return false;
+  return typeof window !== 'undefined' && window.location.hash.startsWith('#blog');
 }
 
 function escapeHtml(str) {
@@ -1935,7 +1959,7 @@ export function renderSidebar(activeId) {
       </div>
       ${renderedGroups}
       <div class="sidebar-bridge-card">
-        <a href="#docs/intro" class="sidebar-bridge-link" data-plane="docs">
+        <a href="${getDocsBaseUrl() ? getDocsBaseUrl() + '/#docs/intro' : '#docs/intro'}" class="sidebar-bridge-link" data-plane="docs">
           <span class="bridge-icon">📘</span>
           <div class="bridge-text">
             <span class="bridge-title">Technical Documentation</span>
@@ -2023,11 +2047,11 @@ export function renderSidebar(activeId) {
       ${renderTierGroups(tier3Cats)}
 
       <div class="sidebar-bridge-card">
-        <a href="#blog/the-dead-internet-immune-system" class="sidebar-bridge-link" data-plane="blog">
-          <span class="bridge-icon">✍️</span>
+        <a href="${getBlogBaseUrl() ? getBlogBaseUrl() + '/#blog/conflict-of-pun-terest' : '#blog/conflict-of-pun-terest'}" class="sidebar-bridge-link" data-plane="blog">
+          <span class="bridge-icon">⭐</span>
           <div class="bridge-text">
-            <span class="bridge-title">Sovereign Blog &amp; Field Essays</span>
-            <span class="bridge-subtitle">Read Dead Internet series &amp; memoirs →</span>
+            <span class="bridge-title">Featured Case Study: InMaricopa.com</span>
+            <span class="bridge-subtitle">Read forensic newsroom monopoly audit →</span>
           </div>
         </a>
       </div>
@@ -4122,16 +4146,24 @@ export function setupSearch() {
   const planeBtnDocs = document.getElementById('plane-btn-docs');
   const planeBtnBlog = document.getElementById('plane-btn-blog');
   if (planeBtnDocs) {
-    planeBtnDocs.addEventListener('click', () => {
-      if (isBlogContext()) {
+    planeBtnDocs.addEventListener('click', (e) => {
+      const { isBlogDomain } = getDomainContext();
+      if (isBlogDomain) {
+        e.preventDefault();
+        window.location.href = getDocsBaseUrl() + '/#docs/intro';
+      } else if (isBlogContext()) {
         window.location.hash = '#docs/intro';
       }
     });
   }
   if (planeBtnBlog) {
-    planeBtnBlog.addEventListener('click', () => {
-      if (!isBlogContext()) {
-        window.location.hash = '#blog/the-dead-internet-immune-system';
+    planeBtnBlog.addEventListener('click', (e) => {
+      const { isDocsDomain } = getDomainContext();
+      if (isDocsDomain) {
+        e.preventDefault();
+        window.location.href = getBlogBaseUrl() + '/#blog/conflict-of-pun-terest';
+      } else if (!isBlogContext()) {
+        window.location.hash = '#blog/conflict-of-pun-terest';
       }
     });
   }
@@ -4233,7 +4265,23 @@ export function setupSearch() {
 
 export function initRouter() {
   function normalizeLinks() {
-    const isDev = window.location.hostname.startsWith('dev.') || window.location.hostname.startsWith('mcp.dev.');
+    const { isDev, isDocsDomain, isBlogDomain } = getDomainContext();
+
+    // Adjust top navbar Docs link when on blog domain
+    const docsNavLinks = document.querySelectorAll('.nav-links a[href*="docs"], .nav-links a.active');
+    docsNavLinks.forEach(link => {
+      const text = (link.textContent || '').trim().toLowerCase();
+      if (text === 'docs') {
+        if (isBlogDomain) {
+          link.classList.remove('active');
+          link.setAttribute('href', getDocsBaseUrl() ? `${getDocsBaseUrl()}/#docs/intro` : '#docs/intro');
+        } else if (isDocsDomain) {
+          link.classList.add('active');
+          link.setAttribute('href', '#docs/intro');
+        }
+      }
+    });
+
     if (!isDev) return;
 
     const prodToDev = {
@@ -4242,8 +4290,8 @@ export function initRouter() {
       'https://credence.report': 'https://dev.credence.report',
       'https://credence.nexus': 'https://dev.credence.nexus',
       'https://credence.foundation': 'https://dev.credence.foundation',
-      'https://docs.credence.run': 'https://dev.credence.run/docs/',
-      'https://blog.credence.run': 'https://dev.credence.run/blog/',
+      'https://docs.credence.run': 'https://dev.credence.run/docs',
+      'https://blog.credence.run': 'https://dev.credence.run/blog',
       'https://mcp.credence.run': 'https://mcp.dev.credence.run',
     };
 
@@ -4251,7 +4299,7 @@ export function initRouter() {
       const href = a.getAttribute('href');
       if (!href) return;
       for (const [prod, dev] of Object.entries(prodToDev)) {
-        if (href === prod || href.startsWith(prod + '/')) {
+        if (href === prod || href.startsWith(prod + '/') || href.startsWith(prod + '#')) {
           const sub = href.substring(prod.length);
           if (dev.endsWith('/') && sub.startsWith('/')) {
             a.setAttribute('href', dev.slice(0, -1) + sub);
@@ -4264,58 +4312,89 @@ export function initRouter() {
   }
 
   function handleRoute() {
-    let fullHash = window.location.hash.slice(1);
-    if (!fullHash) {
-      fullHash = isBlogContext() ? 'blog/conflict-of-pun-terest' : 'docs/intro';
+    const { isDocsDomain, isBlogDomain } = getDomainContext();
+    const fullHash = window.location.hash.slice(1);
+
+    // 1. Cross-domain route boundary enforcement
+    if (isDocsDomain && fullHash.startsWith('blog/')) {
+      window.location.replace(getBlogBaseUrl() + '/#' + fullHash);
+      return;
+    }
+    if (isBlogDomain && fullHash && !fullHash.startsWith('blog/')) {
+      window.location.replace(getDocsBaseUrl() + '/#' + fullHash);
+      return;
     }
 
-    let docId = fullHash;
+    let activeHash = fullHash;
+    if (!activeHash) {
+      activeHash = isBlogContext() ? 'blog/conflict-of-pun-terest' : 'docs/intro';
+    }
+
+    let docId = activeHash;
     let anchorId = '';
 
-    if (fullHash.includes('#')) {
-      const idx = fullHash.indexOf('#');
-      docId = fullHash.substring(0, idx);
-      anchorId = fullHash.substring(idx + 1);
-    } else if (fullHash.includes(':') && !fullHash.startsWith('http')) {
-      const idx = fullHash.indexOf(':');
-      docId = fullHash.substring(0, idx);
-      anchorId = fullHash.substring(idx + 1);
+    if (activeHash.includes('#')) {
+      const idx = activeHash.indexOf('#');
+      docId = activeHash.substring(0, idx);
+      anchorId = activeHash.substring(idx + 1);
+    } else if (activeHash.includes(':') && !activeHash.startsWith('http')) {
+      const idx = activeHash.indexOf(':');
+      docId = activeHash.substring(0, idx);
+      anchorId = activeHash.substring(idx + 1);
     }
 
     loadDocument(docId, anchorId);
     setTimeout(normalizeLinks, 100);
   }
 
-  // Top-level capture interceptor to guarantee zero escape from dev preview
+  // Top-level capture interceptor to guarantee clean cross-domain and dev routing
   document.addEventListener('click', (e) => {
     const anchor = e.target && e.target.closest && e.target.closest('a[href]');
     if (!anchor) return;
-    const isDev = window.location.hostname.startsWith('dev.') || window.location.hostname.startsWith('mcp.dev.');
-    if (!isDev) return;
     const href = anchor.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
+    if (!href || href.startsWith('javascript:')) return;
 
-    const prodToDev = {
-      'https://admin.credence.run': 'https://dev.admin.credence.run',
-      'https://credence.run': 'https://dev.credence.run',
-      'https://credence.report': 'https://dev.credence.report',
-      'https://credence.nexus': 'https://dev.credence.nexus',
-      'https://credence.foundation': 'https://dev.credence.foundation',
-      'https://docs.credence.run': 'https://dev.credence.run/docs/',
-      'https://blog.credence.run': 'https://dev.credence.run/blog/',
-      'https://mcp.credence.run': 'https://mcp.dev.credence.run',
-    };
+    const { isDev, isDocsDomain, isBlogDomain, isMultiDomain } = getDomainContext();
 
-    for (const [prod, dev] of Object.entries(prodToDev)) {
-      if (href === prod || href.startsWith(prod + '/')) {
+    // 1. Intercept relative hash links across domains (e.g. clicking #blog link on docs domain)
+    if (href.startsWith('#') && isMultiDomain) {
+      const targetId = href.slice(1);
+      if (isDocsDomain && targetId.startsWith('blog/')) {
         e.preventDefault();
-        const sub = href.substring(prod.length);
-        if (dev.endsWith('/') && sub.startsWith('/')) {
-          window.location.href = dev.slice(0, -1) + sub;
-        } else {
-          window.location.href = dev + sub;
-        }
+        window.location.href = getBlogBaseUrl() + '/' + href;
         return;
+      }
+      if (isBlogDomain && targetId && !targetId.startsWith('blog/')) {
+        e.preventDefault();
+        window.location.href = getDocsBaseUrl() + '/' + href;
+        return;
+      }
+    }
+
+    // 2. Dev preview host normalization
+    if (isDev) {
+      const prodToDev = {
+        'https://admin.credence.run': 'https://dev.admin.credence.run',
+        'https://credence.run': 'https://dev.credence.run',
+        'https://credence.report': 'https://dev.credence.report',
+        'https://credence.nexus': 'https://dev.credence.nexus',
+        'https://credence.foundation': 'https://dev.credence.foundation',
+        'https://docs.credence.run': 'https://dev.credence.run/docs',
+        'https://blog.credence.run': 'https://dev.credence.run/blog',
+        'https://mcp.credence.run': 'https://mcp.dev.credence.run',
+      };
+
+      for (const [prod, dev] of Object.entries(prodToDev)) {
+        if (href === prod || href.startsWith(prod + '/') || href.startsWith(prod + '#')) {
+          e.preventDefault();
+          const sub = href.substring(prod.length);
+          if (dev.endsWith('/') && sub.startsWith('/')) {
+            window.location.href = dev.slice(0, -1) + sub;
+          } else {
+            window.location.href = dev + sub;
+          }
+          return;
+        }
       }
     }
   }, true);
