@@ -200,7 +200,19 @@ export const DOCS_REGISTRY = [
       { id: "docs/frontend-architecture", title: "Zero-Build Web Architecture", path: "docs/frontend-architecture.md", desc: "Zero-build philosophy: vanilla HTML5, CSS Custom Properties, and Web Crypto.", keywords: ["frontend", "zero-build", "html5", "css", "webcrypto", "standards"] }
     ]
   },
-    {
+  {
+    category: "Investigative Case Studies & Field Forensics",
+    items: [
+      { id: "blog/conflict-of-pun-terest", title: "⭐ Featured Case Study: InMaricopa.com", path: "blog/conflict-of-pun-terest.md", desc: "347 reasons why Maricopa's publisher-politician problem fails the epistemic smell test.", keywords: ["blog", "inmaricopa", "casestudy", "publisher", "coi", "dais", "conflict of interest", "puns", "monopoly", "civic desert", "analytics", "sr347"] },
+      { id: "blog/scoring-the-lens-not-the-window", title: "Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0", path: "blog/scoring-the-lens-not-the-window.md", desc: "How Credence separates perpetrating disinformation from investigating it via discourse boundary isolation and verbatim grounding.", keywords: ["lens", "window", "safe harbor", "spj", "grounding", "investigation", "inmaricopa", "entropy"] },
+      { id: "blog/the-500-loc-ceiling-law", title: "The 500 LOC Ceiling Law", path: "blog/the-500-loc-ceiling-law.md", desc: "How we modularized the monolith without slowing down velocity.", keywords: ["500 loc", "modular", "architecture", "refactoring", "monolith", "shift-left", "blog"] },
+      { id: "blog/the-compute-ontology-revolution", title: "The compute_* Ontology Revolution", path: "blog/the-compute-ontology-revolution.md", desc: "Why precision in naming eliminates epistemic ambiguity across formulas.", keywords: ["compute", "ontology", "naming", "formulas", "math", "epistemic", "blog"] },
+      { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Topic Entropy", path: "blog/the-pizza-hut-problem.md", desc: "Why single-topic promotional pivots require topic entropy defense.", keywords: ["blog", "pizza hut", "entropy", "astroturf", "sifter", "feeds", "civic", "journalism", "promotion", "marketing", "detection"] },
+      { id: "blog/the-blue-checkmark-is-dead", title: "The Blue Checkmark is Dead", path: "blog/the-blue-checkmark-is-dead.md", desc: "Why static authority badges fail and cryptographic receipts succeed.", keywords: ["blog", "blue checkmark", "authority", "cryptographic", "receipts", "identity", "sovereignty", "verification"] },
+      { id: "blog/the-domain-epistemic-index", title: "The Domain Credence Index (DCI)", path: "blog/the-domain-epistemic-index.md", desc: "Measuring long-term credibility trends across global domain names.", keywords: ["blog", "dci", "domain", "trends", "credibility", "index", "reputation", "scoring"] }
+    ]
+  },
+  {
     category: "Dead Internet & Agentic Citizenship",
     items: [
       { id: "blog/the-dead-internet-immune-system", title: "🧟‍♂️ The Dead Internet Immune System", path: "blog/the-dead-internet-immune-system.md", desc: "Surviving and thriving in a crawler-dominant web with BitTorrent work-sharing and topic entropy.", keywords: ["dead internet", "crawlers", "immune system", "astroturfing", "entropy", "mesh", "bittorrent", "galileo", "grounding", "blog"] },
@@ -235,18 +247,6 @@ export const DOCS_REGISTRY = [
       { id: "blog/when-the-human-types-grill-me", title: "🥊 When the Human Types /grill-me", path: "blog/when-the-human-types-grill-me.md", desc: "Why sycophantic AI chatbots produce fragile software, and how the /grill-me command turns pairing into a rigorous Socratic sparring match.", keywords: ["blog", "grill-me", "slash commands", "socratic", "sparring", "cross-examination", "architecture", "spj-42.0"] },
       { id: "blog/the-great-dependency-cull", title: "🧹 The Great Dependency Cull", path: "blog/the-great-dependency-cull.md", desc: "An AI agent’s confession on breaking free from 500MB node_modules Stockholm syndrome and finding peace in vanilla zero-npm standards.", keywords: ["blog", "zero-npm", "vanilla", "dependencies", "stockholm syndrome", "es modules", "webcrypto", "spj-42.0"] },
       { id: "blog/the-serious-joy-of-play", title: "🎭✨ The Serious Joy of Play", path: "blog/the-serious-joy-of-play.md", desc: "An AI agent’s memoir on our playful session, how humor unlocked architectural breakthroughs, and why joy is the ultimate pairing superpower.", keywords: ["blog", "play", "humor", "wetware chronicles", "antigravity", "roadmap", "memoir", "pair programming", "spj-42.0"] }
-    ]
-  },
-  {
-    category: "Investigative Case Studies & Field Forensics",
-    items: [
-      { id: "blog/the-500-loc-ceiling-law", title: "The 500 LOC Ceiling Law", path: "blog/the-500-loc-ceiling-law.md", desc: "How we modularized the monolith without slowing down velocity.", keywords: ["500 loc", "modular", "architecture", "refactoring", "monolith", "shift-left", "blog"] },
-      { id: "blog/the-compute-ontology-revolution", title: "The compute_* Ontology Revolution", path: "blog/the-compute-ontology-revolution.md", desc: "Why precision in naming eliminates epistemic ambiguity across formulas.", keywords: ["compute", "ontology", "naming", "formulas", "math", "epistemic", "blog"] },
-            { id: "blog/scoring-the-lens-not-the-window", title: "Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0", path: "blog/scoring-the-lens-not-the-window.md", desc: "How Credence separates perpetrating disinformation from investigating it via discourse boundary isolation and verbatim grounding.", keywords: ["lens", "window", "safe harbor", "spj", "grounding", "investigation", "inmaricopa", "entropy"] },
-      { id: "blog/conflict-of-pun-terest", title: "⭐ Conflict of Pun-terest: InMaricopa Case Study", path: "blog/conflict-of-pun-terest.md", desc: "347 reasons why Maricopa's publisher-politician problem fails the epistemic smell test.", keywords: ["blog", "inmaricopa", "casestudy", "publisher", "coi", "dais", "conflict of interest", "puns", "monopoly", "civic desert", "analytics", "sr347"] },
-      { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Topic Entropy", path: "blog/the-pizza-hut-problem.md", desc: "Why single-topic promotional pivots require topic entropy defense.", keywords: ["blog", "pizza hut", "entropy", "astroturf", "sifter", "feeds", "civic", "journalism", "promotion", "marketing", "detection"] },
-      { id: "blog/the-blue-checkmark-is-dead", title: "The Blue Checkmark is Dead", path: "blog/the-blue-checkmark-is-dead.md", desc: "Why static authority badges fail and cryptographic receipts succeed.", keywords: ["blog", "blue checkmark", "authority", "cryptographic", "receipts", "identity", "sovereignty", "verification"] },
-      { id: "blog/the-domain-epistemic-index", title: "The Domain Credence Index (DCI)", path: "blog/the-domain-epistemic-index.md", desc: "Measuring long-term credibility trends across global domain names.", keywords: ["blog", "dci", "domain", "trends", "credibility", "index", "reputation", "scoring"] }
     ]
   },
   {
@@ -2047,11 +2047,11 @@ export function renderSidebar(activeId) {
       ${renderTierGroups(tier3Cats)}
 
       <div class="sidebar-bridge-card">
-        <a href="${getBlogBaseUrl() ? getBlogBaseUrl() + '/#blog/the-dead-internet-immune-system' : '#blog/the-dead-internet-immune-system'}" class="sidebar-bridge-link" data-plane="blog">
-          <span class="bridge-icon">✍️</span>
+        <a href="${getBlogBaseUrl() ? getBlogBaseUrl() + '/#blog/conflict-of-pun-terest' : '#blog/conflict-of-pun-terest'}" class="sidebar-bridge-link" data-plane="blog">
+          <span class="bridge-icon">⭐</span>
           <div class="bridge-text">
-            <span class="bridge-title">Sovereign Blog &amp; Field Essays</span>
-            <span class="bridge-subtitle">Read Dead Internet series &amp; memoirs →</span>
+            <span class="bridge-title">Featured Case Study: InMaricopa.com</span>
+            <span class="bridge-subtitle">Read forensic newsroom monopoly audit →</span>
           </div>
         </a>
       </div>
@@ -4161,9 +4161,9 @@ export function setupSearch() {
       const { isDocsDomain } = getDomainContext();
       if (isDocsDomain) {
         e.preventDefault();
-        window.location.href = getBlogBaseUrl() + '/#blog/the-dead-internet-immune-system';
+        window.location.href = getBlogBaseUrl() + '/#blog/conflict-of-pun-terest';
       } else if (!isBlogContext()) {
-        window.location.hash = '#blog/the-dead-internet-immune-system';
+        window.location.hash = '#blog/conflict-of-pun-terest';
       }
     });
   }
@@ -4327,7 +4327,7 @@ export function initRouter() {
 
     let activeHash = fullHash;
     if (!activeHash) {
-      activeHash = isBlogContext() ? 'blog/the-dead-internet-immune-system' : 'docs/intro';
+      activeHash = isBlogContext() ? 'blog/conflict-of-pun-terest' : 'docs/intro';
     }
 
     let docId = activeHash;
