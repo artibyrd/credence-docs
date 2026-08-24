@@ -31,7 +31,7 @@
   display: flex;
   gap: 0.35rem;
   background: rgba(15, 23, 42, 0.85);
-  padding: 0.25rem;
+  padding: 0.3rem;
   border-radius: 9px;
   border: 1px solid rgba(56, 189, 248, 0.2);
   margin-bottom: 0.85rem;
@@ -43,9 +43,9 @@
   background: transparent;
   border: none;
   color: var(--text-muted, #94a3b8);
-  font-size: 0.76rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  padding: 0.45rem 0.35rem;
+  padding: 0.45rem 0.6rem;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -54,19 +54,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
-  letter-spacing: -0.01em;
+  gap: 0.45rem;
 }
 
 .plane-toggle-btn .plane-icon {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   flex-shrink: 0;
 }
 
 .plane-toggle-btn .plane-text {
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-weight: 600;
 }
 
 .plane-toggle-btn:hover {
@@ -79,6 +77,7 @@
   background: rgba(56, 189, 248, 0.18);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(56, 189, 248, 0.3);
+  font-weight: 700;
 }
 
 /* 3-Tier Pyramid Lensing Section Headers */
