@@ -3,8 +3,8 @@ title: Cross-Model Epistemic & Economic Pareto Benchmark
 description: Empirical performance, latency, and cost comparison of LLM architectures
   and thinking budgets across the Golden 12 benchmark fixtures.
 since_version: v1.0.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.14.0
+last_verified: 2026-08-23
 category: Protocol Specifications
 order: 8
 ---

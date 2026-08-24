@@ -3,8 +3,8 @@ title: Interactive Zero-Build Playgrounds
 description: In-browser WebCrypto verification, 13-node mesh gossip simulator, epistemic
   text scanner, and consensus engine.
 since_version: v1.11.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.14.0
+last_verified: 2026-08-23
 ---
 
 # Interactive Zero-Build Playgrounds 🎮
@@ -38,6 +38,8 @@ Experience Credence's core mathematical models, cryptographic verification, epis
 | **10. Epistemic Text Scanner** | Live clickbait, fallacy & urgency auditor | Client-Side Regex Pattern Tokenizer |
 | **11. ClaimReview & RFC 8785** | Google Fact-Check JSON-LD & envelope builder | Schema.org JSON & Canonical RFC 8785 |
 | **12. Token Governor & Circuit Breaker** | 30% Headroom quota preservation meter | Real-time Headroom Gauge & Circuit Breaker |
+| **13. [Content Evolution Lab](#docs/lab-content-evolution)** | Live token drift, SimHash-64 Hamming distance ($d_H$) & SPJ revision shifts | Real-time Text Diff & Score Trajectory |
+| **14. [Adversarial Badge Lab](#docs/lab-badge-security)** | Break the Badge: live DOM tampering, Ed25519 forgery & scrubber cloaking | W3C WebCrypto DOM Digest & Anti-Tamper |
 
 > ⚡ **Looking for the Live Swarm Dashboard?** Visit the zero-build **[Credence Nexus Live Dashboard](https://credence.nexus/dashboard.html)** to inspect first-person node health, BitTorrent work-sharing compute savings, and category score breakdowns across the peer-to-peer network.
 

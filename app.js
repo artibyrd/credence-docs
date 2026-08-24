@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.13.1';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.14.0';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -3848,6 +3848,14 @@ export async function loadDocument(docId, anchorId = '') {
       setupPlaygroundWidgets();
     }
 
+    if (target.id === 'docs/lab-content-evolution' || document.getElementById('content-evolution-lab-container')) {
+      mountContentEvolutionLab();
+    }
+
+    if (target.id === 'docs/lab-badge-security' || document.getElementById('badge-security-lab-container')) {
+      mountBadgeSecurityLab();
+    }
+
     if (target.id.includes('conflict-of-pun-terest') || target.id.includes('the-publisher-on-the-dais') || document.getElementById('inmaricopa-forensics-workbench')) {
       setupInMaricopaCaseStudyWidget();
     }
@@ -4136,10 +4144,10 @@ export function initRouter() {
 
 
 // ==============================================================================
-// Playground 13 & 14 Interactive Lab Simulators (v2.1.0)
+// Playground 13 & 14 Interactive Lab Simulators
 // ==============================================================================
 
-function mountContentEvolutionLab() {
+export function mountContentEvolutionLab() {
   const container = document.getElementById("content-evolution-lab-container");
   if (!container) return;
 
@@ -4237,7 +4245,7 @@ function mountContentEvolutionLab() {
   };
 }
 
-function mountBadgeSecurityLab() {
+export function mountBadgeSecurityLab() {
   const container = document.getElementById("badge-security-lab-container");
   if (!container) return;
 
@@ -4245,7 +4253,7 @@ function mountBadgeSecurityLab() {
     <div style="background: #0f172a; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 20px; color: #f8fafc;">
       <h3 style="margin-top: 0; color: #38bdf8; display: flex; justify-content: space-between; align-items: center;">
         <span>🛡️ Adversarial Badge Security Sandbox ("Break the Badge")</span>
-        <credence-badge id="sandboxBadge" score="98.5" version="v2.1.0"></credence-badge>
+        <credence-badge id="sandboxBadge" score="98.5" version="${CURRENT_ECOSYSTEM_VERSION}"></credence-badge>
       </h3>
       <p style="color: #94a3b8; font-size: 13px;">Execute live adversarial attacks against the &lt;credence-badge&gt; Web Component to verify that WebCrypto DOM hashing and Ed25519 signature checks neutralize tampering.</p>
 

@@ -3,8 +3,8 @@ title: 'The Invariant Bible: Living Canon of System-Wide Invariants & Protocols'
 description: Canonical reference for all mathematical rules, runtime safety guardrails,
   cryptographic protocols, and presentation invariants governing Credence.
 since_version: v1.0.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.14.0
+last_verified: 2026-08-23
 tags:
 - invariants
 - architecture

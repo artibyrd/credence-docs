@@ -2,8 +2,8 @@
 title: 'Operational Guide: Zero-Downtime Canary and Blue-Green Deployments'
 description: Operational procedures for performing gradual canary traffic shifting and instantaneous blue-green rollbacks on Google Cloud Run.
 since_version: v1.18.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.14.0
+last_verified: 2026-08-23
 ---
 
 # Operational Guide: Zero-Downtime Canary and Blue-Green Deployments

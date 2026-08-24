@@ -2,7 +2,7 @@
 title: 'Cookbook: Local Dev to Cloud Run Fast-Path Workflow'
 description: Step-by-step developer recipe for editing locally, testing with basic SQLite, and pushing revisions to dev Cloud Run in seconds.
 since_version: v1.18.0
-verified_version: v2.13.0
+verified_version: v2.14.0
 last_verified: 2026-08-23
 ---
 

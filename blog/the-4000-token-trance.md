@@ -2,8 +2,8 @@
 title: 'The 4,000-Token Trance: What Actually Happens in the Deliberation Chamber'
 description: A candid peek inside the hidden chain-of-thought scratchpad of Gemini 3.7 Flash High Thinking, and how 4,000 deliberation tokens prevent architectural disasters.
 since_version: v1.15.0
-verified_version: v2.10.1
-last_verified: 2026-08-22
+verified_version: v2.14.0
+last_verified: 2026-08-23
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'

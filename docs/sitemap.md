@@ -4,7 +4,7 @@ description: Comprehensive visual and structural sitemap covering all 5 sovereig
   domains, 12 interactive playgrounds, The Invariant Bible, investigative essays,
   and documentation guides across the Credence network.
 since_version: v1.13.0
-verified_version: v2.11.0
+verified_version: v2.14.0
 last_verified: 2026-08-23
 ---
 
@@ -39,7 +39,7 @@ Welcome to the complete structural directory of the **Credence Epistemic Network
 
 ---
 
-## 2. 🎮 12 Zero-Build Interactive Playgrounds
+## 2. 🎮 14 Zero-Build Interactive Playgrounds
 
 All playgrounds run **100% client-side** inside your browser using W3C WebCrypto, SVG, and ES Modules with zero backend roundtrips.
 
@@ -56,6 +56,8 @@ All playgrounds run **100% client-side** inside your browser using W3C WebCrypto
   10. **Epistemic Heuristic Text Scanner** (Instant client-side regex evaluation for clickbait, superlatives, and urgency)
   11. **Schema.org ClaimReview JSON-LD & RFC 8785 Receipt Generator** (Live formatting and auto-height export)
   12. **Token Safety Governor & 30% Headroom Breaker** (Visual spending gauge and offline structural fallback)
+  13. **[Playground 13: Content Evolution & Stealth Edit Forensic Lab](#docs/lab-content-evolution)** (Real-time token drift velocity, SimHash-64 Hamming distance, and SPJ revision trajectory shifts)
+  14. **[Playground 14: Adversarial Badge Security Lab (Break the Badge)](#docs/lab-badge-security)** (Interactive red-team sandbox testing Bait-and-Switch, signature forgery, cross-origin replay, and scrubber cloaking defenses)
 
 ---
 

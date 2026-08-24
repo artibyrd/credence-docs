@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Dual-Environment Project and Domain Isolation'
 description: Deep security architecture blueprint specifying blast radius containment, IAM least-privilege policies, and cryptographic isolation between dev and prod.
 since_version: v1.18.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.14.0
+last_verified: 2026-08-23
 ---
 
 # Technical Blueprint: Dual-Environment Project and Domain Isolation

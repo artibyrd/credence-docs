@@ -3,8 +3,8 @@ title: 'Multi-Cloud Deployment: AWS, Azure, Hetzner & K8s'
 description: Deploying the Credence FastMCP server and mesh relays to AWS ECS Fargate,
   Azure Container Apps, Hetzner, and Kubernetes.
 since_version: v1.0.0
-verified_version: v2.1.1
-last_verified: 2026-08-20
+verified_version: v2.14.0
+last_verified: 2026-08-23
 ---
 
 # Multi-Cloud Deployment: AWS, Azure, Hetzner & K8s
