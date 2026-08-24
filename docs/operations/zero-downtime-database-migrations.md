@@ -2,7 +2,7 @@
 title: 'Operational Guide: Zero-Downtime Database Migrations'
 description: SRE runbook for executing backward-compatible database schema migrations with zero downtime on Cloud Run.
 since_version: v1.17.0
-verified_version: v2.16.0
+verified_version: v2.16.1
 last_verified: 2026-08-24
 ---
 

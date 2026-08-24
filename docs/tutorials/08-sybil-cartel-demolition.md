@@ -3,7 +3,7 @@ title: 'Tutorial 08: Sybil Cartel Demolition'
 description: How Credence mathematically detects and neutralizes colluding Sybil cartels
   via 5-factor quality and domain entropy.
 since_version: v1.0.0
-verified_version: v2.16.0
+verified_version: v2.16.1
 last_verified: 2026-08-24
 sidebar:
   order: 8

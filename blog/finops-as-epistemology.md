@@ -2,7 +2,7 @@
 title: 'FinOps as Epistemology: Why Frugal Prompts Produce Sharper Truths'
 description: How over-thinking trivial content causes pedantic hallucinations, the bicameral shadow audit engine, and how tiered inference delivers an 83.3% cost reduction.
 since_version: v1.18.0
-verified_version: v2.16.0
+verified_version: v2.16.1
 last_verified: 2026-08-24
 date: '2026-08-19'
 series: 'The Wetware Chronicles'

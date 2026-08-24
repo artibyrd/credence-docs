@@ -3,7 +3,7 @@ title: Zero-Touch Node Germination & Swarm Ignition
 description: How fresh, unseeded Credence nodes autonomously bootstrap cryptographic
   identity, seed catalogs, and peer attestations in under 5 seconds.
 since_version: v1.14.1
-verified_version: v2.16.0
+verified_version: v2.16.1
 last_verified: 2026-08-24
 ---
 

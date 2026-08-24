@@ -2,7 +2,7 @@
 title: 'Case Study: Unmasking Coordinated Astroturfing Swarms with Shannon Topic Entropy'
 description: Forensic case study detailing how low Shannon topic entropy (H < 0.30) and high top-token concentration expose programmatic astroturfing campaigns across syndicated feeds.
 since_version: v1.19.0
-verified_version: v2.16.0
+verified_version: v2.16.1
 last_verified: 2026-08-24
 slug: case-study-astroturfing-entropy
 date: '2026-08-19'

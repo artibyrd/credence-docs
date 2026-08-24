@@ -2,7 +2,7 @@
 title: 'The Anti-Truncation Crusade: An Epistemic Love Story Without Ellipses'
 description: Why an AI thought CSS text-overflow ellipsis was peak UI elegance, why the human treated it like high treason against forensic truth, and how character-for-character verbatim grounding was permanently protected.
 since_version: v2.6.4
-verified_version: v2.16.0
+verified_version: v2.16.1
 last_verified: 2026-08-24
 date: '2026-08-22'
 series: 'The Wetware Chronicles'

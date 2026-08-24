@@ -2,11 +2,23 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.16.0
+verified_version: v2.16.1
 last_verified: 2026-08-24
 ---
 
 # Release Changelog
+
+## [2.16.1] - 2026-08-24
+
+### Added
+- **Continuous Learning Governance & Red-Team Standards Skills Update (`.agents/skills/`)**:
+  - Enhanced `invariant-audit` skill with Section 10 (Autonomous RFC Standards Governance & Golden FPR $0.00\%$ Defense) and Section 11 (Zero-Mock Dashboard Telemetry Boundary).
+  - Enhanced `mesh-cluster` skill with 13-Node Mesh Red-Team Standards Governance Testing patterns (4-node Byzantine cartel defense, headroom floor defense $<40\%$, temporal trajectory DAG immutability).
+  - Enhanced `architecture-governance` skill with Section 4 (Zero-Mock Dashboard & Telemetry Invariant) and Section 5 (High-Density Tables & Anti-Box-Art Documentation Standard).
+
+### Fixed
+- **Autonomous Lean Patch Release Invariant Enforcement (`AGENTS.md` & `knowledge-governance`)**:
+  - Clarified `inv-4phase-release-learning` in `AGENTS.md` and added Section 13 in `knowledge-governance` skill to mandate immediate, autonomous execution of the lean patch release sequence (`vX.Y.1`) upon `/learn` approval, preventing continuous learning from stalling in unreleased working trees.
 
 ## [2.16.0] - 2026-08-24
 
