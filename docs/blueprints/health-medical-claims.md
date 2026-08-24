@@ -3,7 +3,7 @@ title: Medical & Health Claim Auditing Blueprint
 description: Auditing health journalism, supplement landing pages, and clinical trial
   reporting against peer-reviewed meta-analyses.
 since_version: v1.11.0
-verified_version: v2.14.1
+verified_version: v2.15.0
 last_verified: 2026-08-23
 ---
 

@@ -4,7 +4,7 @@ title: 'Architectural Blueprint: Embeddable Badges, WebCrypto Hashing & Anti-Tam
 description: Formal specification of the <credence-badge> Web Component, in-browser
   WebCrypto DOM hash validation, and DOM extraction scrubbing.
 category: Architectural Blueprints
-verified_version: v2.14.1
+verified_version: v2.15.0
 last_verified: 2026-08-23
 since_version: v2.1.0
 ---

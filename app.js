@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.14.1';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.15.0';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -18,6 +18,16 @@ export const DOCS_REGISTRY = [
       { id: "docs/feature-parity", title: "Universal Feature Parity", path: "docs/feature-parity.md", desc: "Synchronous 4-way parity across CLI, FastMCP, TUI, and Web UI.", keywords: ["parity", "interfaces", "cli", "tui", "mcp", "web", "terminal", "browser"] },
       { id: "docs/roadmap", title: "Roadmap & Horizons", path: "docs/roadmap.md", desc: "Current development roadmap, completed milestones, and upcoming horizons.", keywords: ["roadmap", "backlog", "future", "milestones", "features", "horizons"] },
       { id: "docs/changelog", title: "Release Changelog", path: "docs/changelog.md", desc: "Version history, updates, and release notes across releases.", keywords: ["changelog", "releases", "versions", "history", "notes"] }
+    ]
+  },
+  {
+    category: "Platform Portability & Sovereignty",
+    items: [
+      { id: "docs/portability/multi-model-adapters", title: "Multi-Model Provider Adapters", path: "docs/portability/multi-model-adapters.md", desc: "Plugging in Gemini, Claude 3.7, GPT-4o, DeepSeek-R1, and local Ollama.", keywords: ["models", "claude", "gpt-4o", "deepseek", "ollama", "adapters", "providers"] },
+      { id: "docs/portability/gemini-economic-rationale", title: "ADR: Why Gemini 3.7 Flash", path: "docs/portability/gemini-economic-rationale.md", desc: "Economic and architectural rationale for Gemini 3.7 Flash thinking models.", keywords: ["gemini", "gemini-3.7-flash", "thinking", "adr", "economics", "pricing"] },
+      { id: "docs/portability/multi-cloud-deployment", title: "Multi-Cloud (AWS, Azure, Hetzner, K8s)", path: "docs/portability/multi-cloud-deployment.md", desc: "Deploying Credence to AWS Fargate, Azure Container Apps, Hetzner, and K8s.", keywords: ["aws", "azure", "hetzner", "kubernetes", "k8s", "docker", "cloud", "deploy"] },
+      { id: "docs/portability/universal-agent-interop", title: "Universal Agent Interoperability", path: "docs/portability/universal-agent-interop.md", desc: "Connecting Windsurf, Cline, Claude Desktop, Cursor, and custom agent swarms.", keywords: ["windsurf", "cline", "cursor", "claude", "agents", "interop", "mcp"] },
+      { id: "docs/portability/local-llm-airgap", title: "Zero-Cloud Sovereign Local LLMs", path: "docs/portability/local-llm-airgap.md", desc: "100% private, zero-cloud air-gapped evaluation with Ollama and vLLM.", keywords: ["local", "ollama", "vllm", "airgap", "private", "offline", "sovereign"] }
     ]
   },
   {
@@ -37,27 +47,6 @@ export const DOCS_REGISTRY = [
       { id: "docs/walkthroughs/04-morning-digest-briefings", title: "Morning Epistemic Digest", path: "docs/walkthroughs/04-morning-digest-briefings.md", desc: "Generate daily 24-hour executive news briefings and terminal digests.", keywords: ["digest", "morning", "briefing", "daily", "summary", "executive", "news"] },
             { id: "docs/walkthroughs/06-embeddable-badges-and-docs-self-auditing", title: "06. Embeddable Badges & Self-Auditing", path: "docs/walkthroughs/06-embeddable-badges-and-docs-self-auditing.md", desc: "Embed <credence-badge>, configure anti-tamper WebCrypto gates, and run differential CI/CD audits.", keywords: ["badge", "embed", "widget", "dogfood", "audit-docs", "webcrypto", "tamper", "receipt"] },
       { id: "docs/walkthroughs/05-migrating-from-v1-to-v2", title: "Migrating from v1.x to v2.0.0", path: "docs/walkthroughs/05-migrating-from-v1-to-v2.md", desc: "Step-by-step migration guide for upgrading custom scripts and configs to Credence v2.0.0.", keywords: ["migration", "v2", "upgrade", "breaking changes", "ontology", "compute"] }
-    ]
-  },
-  {
-    category: "Agentic Engineering & Workflows",
-    items: [
-      { id: "docs/agentic/01-antigravity-pair-programming-paradigm", title: "01. Antigravity Pair-Programming", path: "docs/agentic/01-antigravity-pair-programming-paradigm.md", desc: "Autonomous multi-agent pair programming with Google Antigravity SDK.", keywords: ["antigravity", "pair programming", "sdk", "subagents", "agentic", "gemini"] },
-      { id: "docs/agentic/02-continuous-learning-and-invariant-synthesis", title: "02. /learn & Invariant Synthesis", path: "docs/agentic/02-continuous-learning-and-invariant-synthesis.md", desc: "Capturing agent learnings, invariant synthesis, and knowledge governance.", keywords: ["learn", "invariants", "synthesis", "knowledge", "governance", "rules"] },
-      { id: "docs/agentic/03-hermetic-testing-and-zero-npm-guardrails", title: "03. Hermetic Testing & Zero-npm", path: "docs/agentic/03-hermetic-testing-and-zero-npm-guardrails.md", desc: "Hermetic offline test suites and zero-npm static web guardrails.", keywords: ["hermetic", "testing", "zero-npm", "offline", "pytest", "guardrails"] },
-      { id: "docs/agentic/04-multi-model-pareto-and-token-governance", title: "04. Multi-Model Pareto & Token Governor", path: "docs/agentic/04-multi-model-pareto-and-token-governance.md", desc: "Token budget governor, circuit breakers, and cost Pareto frontier.", keywords: ["pareto", "tokens", "governor", "circuit breaker", "budget", "cost", "headroom"] },
-      { id: "docs/agentic/05-fastmcp-dual-transport-and-four-way-parity", title: "05. FastMCP & 4-Way Parity", path: "docs/agentic/05-fastmcp-dual-transport-and-four-way-parity.md", desc: "FastMCP 2.0 dual transport (stdio and SSE) and 4-way feature parity.", keywords: ["fastmcp", "transport", "stdio", "sse", "parity", "mcp", "streaming"] },
-      { id: "docs/agentic/06-the-demotion-highway-and-invariant-lifecycle", title: "06. Demotion Highway & Lifecycle", path: "docs/agentic/06-the-demotion-highway-and-invariant-lifecycle.md", desc: "Invariant lifecycle state machine, Class Alpha/Beta/Gamma ranking, and automated demotion scanner.", keywords: ["demotion", "highway", "lifecycle", "invariants", "taxonomy", "alpha", "beta", "gamma", "subagents", "scanner"] }
-    ]
-  },
-  {
-    category: "Platform Portability & Sovereignty",
-    items: [
-      { id: "docs/portability/multi-model-adapters", title: "Multi-Model Provider Adapters", path: "docs/portability/multi-model-adapters.md", desc: "Plugging in Gemini, Claude 3.7, GPT-4o, DeepSeek-R1, and local Ollama.", keywords: ["models", "claude", "gpt-4o", "deepseek", "ollama", "adapters", "providers"] },
-      { id: "docs/portability/gemini-economic-rationale", title: "ADR: Why Gemini 3.7 Flash", path: "docs/portability/gemini-economic-rationale.md", desc: "Economic and architectural rationale for Gemini 3.7 Flash thinking models.", keywords: ["gemini", "gemini-3.7-flash", "thinking", "adr", "economics", "pricing"] },
-      { id: "docs/portability/multi-cloud-deployment", title: "Multi-Cloud (AWS, Azure, Hetzner, K8s)", path: "docs/portability/multi-cloud-deployment.md", desc: "Deploying Credence to AWS Fargate, Azure Container Apps, Hetzner, and K8s.", keywords: ["aws", "azure", "hetzner", "kubernetes", "k8s", "docker", "cloud", "deploy"] },
-      { id: "docs/portability/universal-agent-interop", title: "Universal Agent Interoperability", path: "docs/portability/universal-agent-interop.md", desc: "Connecting Windsurf, Cline, Claude Desktop, Cursor, and custom agent swarms.", keywords: ["windsurf", "cline", "cursor", "claude", "agents", "interop", "mcp"] },
-      { id: "docs/portability/local-llm-airgap", title: "Zero-Cloud Sovereign Local LLMs", path: "docs/portability/local-llm-airgap.md", desc: "100% private, zero-cloud air-gapped evaluation with Ollama and vLLM.", keywords: ["local", "ollama", "vllm", "airgap", "private", "offline", "sovereign"] }
     ]
   },
   {
@@ -94,33 +83,14 @@ export const DOCS_REGISTRY = [
     ]
   },
   {
-    category: "Adversarial Security & Red Team",
+    category: "Agentic Engineering & Workflows",
     items: [
-      { id: "docs/security/adversarial-attack-surface", title: "Adversarial Attack Surface", path: "docs/security/adversarial-attack-surface.md", desc: "Threat modeling prompt injection, SSRF, XML entity expansion, and DoS.", keywords: ["security", "injection", "ssrf", "xml", "red team", "threat", "attacks"] },
-      { id: "docs/security/grounding-mechanics", title: "Verbatim Grounding & Slashing", path: "docs/security/grounding-mechanics.md", desc: "Exact character-offset verification and 50% reputation slash penalties.", keywords: ["grounding", "verbatim", "slashing", "hallucination", "evidence", "quotes"] },
-      { id: "docs/security/satire-cloaking-defense", title: "Poe's Law & Satire Cloaking", path: "docs/security/satire-cloaking-defense.md", desc: "Technical defense against cloaked disinformation pretending to be satire.", keywords: ["satire", "cloaking", "poe", "spj-1.6", "disinformation", "override"] }
-    ]
-  },
-  {
-    category: "Specialized Industry Blueprints",
-    items: [
-            { id: "docs/blueprints/security-architecture-and-threat-model", title: "Security Architecture & Threat Model", path: "docs/blueprints/security-architecture-and-threat-model.md", desc: "Dual-crypto conformance, RFC 8785 canonical bytes, key custody, and threat mitigation.", keywords: ["security", "threat model", "ed25519", "rfc8785", "crypto", "blueprint"] },
-      { id: "docs/blueprints/dual-environment-project-and-domain-isolation", title: "Dual-Environment Project & Domain Isolation", path: "docs/blueprints/dual-environment-project-and-domain-isolation.md", desc: "Least-privilege WIF authentication and dev/prod environment boundaries.", keywords: ["environments", "dev", "prod", "isolation", "wif", "gcp"] },
-      { id: "docs/blueprints/high-efficiency-scaling-and-resiliency", title: "High-Efficiency Scaling & Resiliency", path: "docs/blueprints/high-efficiency-scaling-and-resiliency.md", desc: "Scale-to-zero container optimization and sub-850ms germination.", keywords: ["scaling", "resiliency", "cold start", "scale to zero", "performance"] },
-      { id: "docs/blueprints/sovereign-data-gravity-and-cas-portability", title: "Sovereign Data Gravity & CAS Portability", path: "docs/blueprints/sovereign-data-gravity-and-cas-portability.md", desc: "Content-addressed storage and decentralized blob synchronization.", keywords: ["cas", "storage", "data gravity", "sqlite", "sync"] },
-      { id: "docs/blueprints/universal-4-way-parity-and-environment-governance", title: "Universal 4-Way Parity & Environment Governance", path: "docs/blueprints/universal-4-way-parity-and-environment-governance.md", desc: "Feature parity across CLI, FastMCP, TUI, and Web interfaces.", keywords: ["parity", "governance", "4-way", "cli", "tui", "mcp", "web"] },
-      { id: "docs/blueprints/zero-build-edge-routing-and-subdomain-dispatch", title: "Zero-Build Edge Routing & Subdomain Dispatch", path: "docs/blueprints/zero-build-edge-routing-and-subdomain-dispatch.md", desc: "Multi-domain Cloudflare edge dispatch with zero build dependencies.", keywords: ["edge", "routing", "cloudflare", "subdomains", "zero-build"] },
-      { id: "docs/blueprints/health-medical-claims", title: "Medical & Health Claims", path: "docs/blueprints/health-medical-claims.md", desc: "Evaluating clinical trials, in vitro extrapolation, and unproven treatments.", keywords: ["medical", "health", "clinical", "trials", "in vitro", "claims", "science"] },
-      { id: "docs/blueprints/election-civic-integrity", title: "Election & Civic Integrity", path: "docs/blueprints/election-civic-integrity.md", desc: "Auditing voting procedure misinformation, polling methodology, and civic claims.", keywords: ["election", "voting", "civic", "polls", "democracy", "misinformation"] },
-      { id: "docs/blueprints/synthetic-media-provenance", title: "Synthetic AI & Media Provenance", path: "docs/blueprints/synthetic-media-provenance.md", desc: "C2PA metadata, pink slime news farm rings, and deepfake provenance detection.", keywords: ["c2pa", "deepfake", "synthetic", "pink slime", "media", "ai generated"] },
-      { id: "docs/blueprints/domain-epistemic-index-and-sourcing-forensics", title: "DEI & Sourcing Forensics", path: "docs/blueprints/domain-epistemic-index-and-sourcing-forensics.md", desc: "Forensic sourcing ratios (byline, single-source, COI, advertorial) and DEI trust bands.", keywords: ["dci", "epistemic index", "sourcing", "byline", "single source", "coi", "conflict of interest", "advertorial", "asi", "trust bands", "publisher", "forensics"] },
-      { id: "docs/blueprints/invariant-scalability-and-knowledge-governance", title: "Invariant Scalability & Knowledge Governance", path: "docs/blueprints/invariant-scalability-and-knowledge-governance.md", desc: "The 3-tier architectural framework for scaling AI agent invariants without prompt bloat, attention dilution, or cognitive oatmeal.", keywords: ["invariants", "scalability", "knowledge governance", "agents.md", "prompt bloat", "attention dilution", "cognitive oatmeal", "shift-left", "blueprint"] },
-      { id: "docs/blueprints/node-and-mesh-telemetry-dashboard", title: "Node & Mesh Telemetry Dashboard", path: "docs/blueprints/node-and-mesh-telemetry-dashboard.md", desc: "Technical specification for real-time node operator observability, BitTorrent compute savings tracking, and 4-way parity telemetry interfaces.", keywords: ["dashboard", "telemetry", "mesh", "sre", "metrics", "observability", "latency", "bittorrent", "compute savings", "my node", "operator", "blueprint"] },
-      { id: "docs/blueprints/v2-architecture-and-500-loc-modularity", title: "v2 Modular Architecture & 500 LOC Law", path: "docs/blueprints/v2-architecture-and-500-loc-modularity.md", desc: "Architectural blueprint detailing modularization, the 500 LOC ceiling invariant, compute_* naming ontology, and DAG decoupling.", keywords: ["v2", "architecture", "modularization", "500 loc", "compute", "dag", "blueprint", "modularity"] },
-            { id: "docs/blueprints/information-pyramid-and-epistemic-lensing", title: "Information Pyramid & Lensing", path: "docs/blueprints/information-pyramid-and-epistemic-lensing.md", desc: "3-Tier Cognitive Pyramid and Lensing Engine (Surface, Focus, Deep Spectrum) across all interfaces.", keywords: ["pyramid", "lensing", "enhance", "surface", "focus", "forensic", "density", "invariant 39"] },
-      { id: "docs/blueprints/embeddable-attestation-badges-and-anti-tamper", title: "Embeddable Badges & Anti-Tamper", path: "docs/blueprints/embeddable-attestation-badges-and-anti-tamper.md", desc: "Zero-npm <credence-badge>, client WebCrypto live DOM hashing, RFC 8785 receipts, and DOM scrubber isolation.", keywords: ["badge", "widget", "anti-tamper", "webcrypto", "bait-and-switch", "sha256", "signature"] },
-      { id: "docs/blueprints/unified-merit-and-attestation-badge-system", title: "Unified Merit & Attestation Badges", path: "docs/blueprints/unified-merit-and-attestation-badge-system.md", desc: "Comprehensive 3-modality architecture, vector geometry formulas, and embed recipes across CLI, Web, and FastMCP.", keywords: ["badge", "merit", "attestation", "svg", "web component", "vector", "shields", "geometry", "blueprint"] },
-      { id: "docs/blueprints/terminology-and-ontology-lexicon", title: "Terminology & Ontology Lexicon", path: "docs/blueprints/terminology-and-ontology-lexicon.md", desc: "Comprehensive living dictionary of coined terminology, mathematical definitions, architectural metaphors, and ontology governance across Credence v2.0.0.", keywords: ["terminology", "ontology", "lexicon", "phrases", "vocabulary", "glossary", "definitions", "metaphors", "blueprint"] }
+      { id: "docs/agentic/01-antigravity-pair-programming-paradigm", title: "01. Antigravity Pair-Programming", path: "docs/agentic/01-antigravity-pair-programming-paradigm.md", desc: "Autonomous multi-agent pair programming with Google Antigravity SDK.", keywords: ["antigravity", "pair programming", "sdk", "subagents", "agentic", "gemini"] },
+      { id: "docs/agentic/02-continuous-learning-and-invariant-synthesis", title: "02. /learn & Invariant Synthesis", path: "docs/agentic/02-continuous-learning-and-invariant-synthesis.md", desc: "Capturing agent learnings, invariant synthesis, and knowledge governance.", keywords: ["learn", "invariants", "synthesis", "knowledge", "governance", "rules"] },
+      { id: "docs/agentic/03-hermetic-testing-and-zero-npm-guardrails", title: "03. Hermetic Testing & Zero-npm", path: "docs/agentic/03-hermetic-testing-and-zero-npm-guardrails.md", desc: "Hermetic offline test suites and zero-npm static web guardrails.", keywords: ["hermetic", "testing", "zero-npm", "offline", "pytest", "guardrails"] },
+      { id: "docs/agentic/04-multi-model-pareto-and-token-governance", title: "04. Multi-Model Pareto & Token Governor", path: "docs/agentic/04-multi-model-pareto-and-token-governance.md", desc: "Token budget governor, circuit breakers, and cost Pareto frontier.", keywords: ["pareto", "tokens", "governor", "circuit breaker", "budget", "cost", "headroom"] },
+      { id: "docs/agentic/05-fastmcp-dual-transport-and-four-way-parity", title: "05. FastMCP & 4-Way Parity", path: "docs/agentic/05-fastmcp-dual-transport-and-four-way-parity.md", desc: "FastMCP 2.0 dual transport (stdio and SSE) and 4-way feature parity.", keywords: ["fastmcp", "transport", "stdio", "sse", "parity", "mcp", "streaming"] },
+      { id: "docs/agentic/06-the-demotion-highway-and-invariant-lifecycle", title: "06. Demotion Highway & Lifecycle", path: "docs/agentic/06-the-demotion-highway-and-invariant-lifecycle.md", desc: "Invariant lifecycle state machine, Class Alpha/Beta/Gamma ranking, and automated demotion scanner.", keywords: ["demotion", "highway", "lifecycle", "invariants", "taxonomy", "alpha", "beta", "gamma", "subagents", "scanner"] }
     ]
   },
   {
@@ -132,13 +102,24 @@ export const DOCS_REGISTRY = [
     ]
   },
   {
-    category: "P2P Mesh & Graph Theory",
+    category: "Operations & Self-Hosting",
     items: [
-      { id: "docs/mesh-engineering/featherweight-swarm-testing", title: "Featherweight Swarm Simulation", path: "docs/mesh-engineering/featherweight-swarm-testing.md", desc: "Simulate dozens of P2P nodes locally in memory without heavy containers.", keywords: ["simulation", "swarm", "featherweight", "testing", "mesh", "nodes"] },
-      { id: "docs/mesh-engineering/watts-strogatz-dynamics", title: "Watts-Strogatz Small-World", path: "docs/mesh-engineering/watts-strogatz-dynamics.md", desc: "Graph theory, clustering coefficient, and 4-hop gossip diffusion dynamics.", keywords: ["watts-strogatz", "graph", "small-world", "diffusion", "hops", "topology"] },
-      { id: "docs/mesh-engineering/airgapped-sneakernets", title: "Air-Gapped Truth Bundles", path: "docs/mesh-engineering/airgapped-sneakernets.md", desc: "Offline sneakernet distribution and verification of signed JSON bundles.", keywords: ["sneakernet", "airgap", "offline", "bundle", "rfc8785", "ed25519"] },
-      { id: "docs/mesh-engineering/dns-srv-discovery", title: "DNS SRV Dynamic Discovery", path: "docs/mesh-engineering/dns-srv-discovery.md", desc: "RFC 2782 DNS SRV records for decentralized peer discovery without central trackers.", keywords: ["dns", "srv", "rfc2782", "discovery", "bootstrap", "peers"] },
-      { id: "docs/mesh-engineering/rendezvous-hashing-feed-partitioning", title: "Swarm Rendezvous Hashing", path: "docs/mesh-engineering/rendezvous-hashing-feed-partitioning.md", desc: "Highest Random Weight (HRW) Rendezvous Hashing for deterministic feed partitioning without locks.", keywords: ["rendezvous", "hrw", "hashing", "work sharing", "partitioning", "feed", "sifter", "mesh", "p2p", "affinity", "bittorrent", "zero-coordination"] }
+      { id: "docs/operations/deployment-prerequisites", title: "Master Deployment Prerequisites", path: "docs/operations/deployment-prerequisites.md", desc: "Complete prerequisite checklists, credential matrices, and CLI commands across all deployment topologies.", keywords: ["prerequisites", "setup", "requirements", "credentials", "cloud run", "docker", "kubernetes", "cloudflare", "bare metal", "checklist"] },
+      { id: "docs/operations/single-vs-dual-project-gcp", title: "Single vs Dual-Project GCP", path: "docs/operations/single-vs-dual-project-gcp.md", desc: "Runbook for single partitioned GCP project vs hard dual-project isolation.", keywords: ["gcp", "dual project", "single project", "dev", "prod", "isolation", "terraform", "runbook", "boundaries"] },
+      { id: "docs/operations/multi-environment-boundaries-and-deployments", title: "Multi-Environment Boundaries", path: "docs/operations/multi-environment-boundaries-and-deployments.md", desc: "Project, domain, and data boundary isolation with launch parity.", keywords: ["environments", "boundaries", "dev", "prod", "parity", "deploy", "secrets", "ci cd"] },
+      { id: "docs/operations/vendor-agnostic-self-hosting-and-docker", title: "Vendor-Agnostic Self-Hosting", path: "docs/operations/vendor-agnostic-self-hosting-and-docker.md", desc: "Running sovereign Credence nodes across Docker, Bare Metal Linux, VPS, and Kubernetes.", keywords: ["self-host", "vendor agnostic", "docker", "vps", "hetzner", "ovh", "aws", "linode", "sovereign"] },
+      { id: "docs/operations/docker-compose-quickstart", title: "Docker Compose Quickstart", path: "docs/operations/docker-compose-quickstart.md", desc: "Quickstart guide for launching a sovereign node or full-stack cluster locally in 5 minutes.", keywords: ["docker compose", "quickstart", "local", "planetary", "postgres", "minio", "valkey"] },
+      { id: "docs/operations/kubernetes-and-helm-deployment", title: "Kubernetes & Helm Deployment", path: "docs/operations/kubernetes-and-helm-deployment.md", desc: "Cloud-native manifests, PVC storage, and ingress routing.", keywords: ["kubernetes", "k8s", "helm", "manifests", "ingress", "pvc", "cloud native"] },
+      { id: "docs/operations/blob-storage-r2", title: "Cloudflare R2 Blob Storage", path: "docs/operations/blob-storage-r2.md", desc: "S3-compatible zero-egress Cloudflare R2 storage for forensic snapshots.", keywords: ["r2", "blob storage", "s3", "cloudflare", "cas", "snapshots", "zero egress"] },
+      { id: "docs/operations/pipeline-and-build-optimization", title: "Pipeline & Build Optimization", path: "docs/operations/pipeline-and-build-optimization.md", desc: "Workstation tuning, pytest-xdist parallelization, build context exclusions, and sub-40s QA gates.", keywords: ["pipeline", "ci", "cd", "pytest", "xdist", "docker", "gcloudignore", "buildkit", "optimization", "performance", "check", "sub-40s", "speed"] },
+      { id: "docs/operations/raspberry-pi-homelab", title: "Raspberry Pi & HomeLab Node", path: "docs/operations/raspberry-pi-homelab.md", desc: "Setting up a $0.00/mo self-hosted node on a Raspberry Pi 4/5.", keywords: ["raspberry pi", "homelab", "pi", "arm64", "self-host", "low power"] },
+      { id: "docs/operations/tailscale-wireguard-mesh", title: "Tailscale & WireGuard Peering", path: "docs/operations/tailscale-wireguard-mesh.md", desc: "Forming secure private P2P mesh overlays across home and cloud servers.", keywords: ["tailscale", "wireguard", "vpn", "overlay", "peering", "private"] },
+      { id: "docs/operations/database-pruning-wal", title: "Database Pruning & WAL Care", path: "docs/operations/database-pruning-wal.md", desc: "SQLite WAL optimization, checkpointing, and 30-day token record pruning.", keywords: ["sqlite", "wal", "database", "pruning", "retention", "cleanup", "sql"] },
+      { id: "docs/operations/customizations-and-upstream-sovereignty", title: "Customizations vs. Upstream Core", path: "docs/operations/customizations-and-upstream-sovereignty.md", desc: "Maintaining local sovereignty while pulling updates from upstream repos.", keywords: ["customizations", "upstream", "git", "fork", "sovereignty", "merge"] },
+      { id: "docs/blueprints/cloudrun-scale-to-zero-cold-start-optimization", title: "Cloud Run Cold Start Optimization", path: "docs/blueprints/cloudrun-scale-to-zero-cold-start-optimization.md", desc: "The 5-pillar architectural framework for sub-2.5s serverless cold starts on scale-to-zero Cloud Run containers.", keywords: ["cold start", "scale to zero", "cloud run", "serverless", "startup cpu boost", "compileall", "bytecode", "probe", "optimization", "performance", "gcp", "blueprint"] },
+      { id: "docs/operator-guide", title: "Bootstrap Operator Guide", path: "docs/operator-guide.md", desc: "10-section operational runbook for initial node setup, identity, and seeding.", keywords: ["operator", "runbook", "bootstrap", "guide", "setup", "admin"] },
+      { id: "docs/deployment-cloudrun", title: "GCP Cloud Run Deployment", path: "docs/deployment-cloudrun.md", desc: "Deploying to Google Cloud Run with Terraform, $15/mo budget cap, scale-to-zero.", keywords: ["gcp", "cloud run", "terraform", "google cloud", "budget", "serverless"] },
+      { id: "docs/bootstrap-seeds", title: "Bootstrap Seed Governance", path: "docs/bootstrap-seeds.md", desc: "Seed node governance, key rotation, and peers.json manifest format.", keywords: ["seeds", "peers", "manifest", "bootstrap", "governance", "nexus"] }
     ]
   },
   {
@@ -164,24 +145,43 @@ export const DOCS_REGISTRY = [
     ]
   },
   {
-    category: "Operations & Self-Hosting",
+    category: "Specialized Industry Blueprints",
     items: [
-      { id: "docs/operations/deployment-prerequisites", title: "Master Deployment Prerequisites", path: "docs/operations/deployment-prerequisites.md", desc: "Complete prerequisite checklists, credential matrices, and CLI commands across all deployment topologies.", keywords: ["prerequisites", "setup", "requirements", "credentials", "cloud run", "docker", "kubernetes", "cloudflare", "bare metal", "checklist"] },
-      { id: "docs/operations/single-vs-dual-project-gcp", title: "Single vs Dual-Project GCP", path: "docs/operations/single-vs-dual-project-gcp.md", desc: "Runbook for single partitioned GCP project vs hard dual-project isolation.", keywords: ["gcp", "dual project", "single project", "dev", "prod", "isolation", "terraform", "runbook", "boundaries"] },
-      { id: "docs/operations/multi-environment-boundaries-and-deployments", title: "Multi-Environment Boundaries", path: "docs/operations/multi-environment-boundaries-and-deployments.md", desc: "Project, domain, and data boundary isolation with launch parity.", keywords: ["environments", "boundaries", "dev", "prod", "parity", "deploy", "secrets", "ci cd"] },
-      { id: "docs/operations/vendor-agnostic-self-hosting-and-docker", title: "Vendor-Agnostic Self-Hosting", path: "docs/operations/vendor-agnostic-self-hosting-and-docker.md", desc: "Running sovereign Credence nodes across Docker, Bare Metal Linux, VPS, and Kubernetes.", keywords: ["self-host", "vendor agnostic", "docker", "vps", "hetzner", "ovh", "aws", "linode", "sovereign"] },
-      { id: "docs/operations/docker-compose-quickstart", title: "Docker Compose Quickstart", path: "docs/operations/docker-compose-quickstart.md", desc: "Quickstart guide for launching a sovereign node or full-stack cluster locally in 5 minutes.", keywords: ["docker compose", "quickstart", "local", "planetary", "postgres", "minio", "valkey"] },
-      { id: "docs/operations/kubernetes-and-helm-deployment", title: "Kubernetes & Helm Deployment", path: "docs/operations/kubernetes-and-helm-deployment.md", desc: "Cloud-native manifests, PVC storage, and ingress routing.", keywords: ["kubernetes", "k8s", "helm", "manifests", "ingress", "pvc", "cloud native"] },
-      { id: "docs/operations/blob-storage-r2", title: "Cloudflare R2 Blob Storage", path: "docs/operations/blob-storage-r2.md", desc: "S3-compatible zero-egress Cloudflare R2 storage for forensic snapshots.", keywords: ["r2", "blob storage", "s3", "cloudflare", "cas", "snapshots", "zero egress"] },
-      { id: "docs/operations/pipeline-and-build-optimization", title: "Pipeline & Build Optimization", path: "docs/operations/pipeline-and-build-optimization.md", desc: "Workstation tuning, pytest-xdist parallelization, build context exclusions, and sub-40s QA gates.", keywords: ["pipeline", "ci", "cd", "pytest", "xdist", "docker", "gcloudignore", "buildkit", "optimization", "performance", "check", "sub-40s", "speed"] },
-      { id: "docs/operations/raspberry-pi-homelab", title: "Raspberry Pi & HomeLab Node", path: "docs/operations/raspberry-pi-homelab.md", desc: "Setting up a $0.00/mo self-hosted node on a Raspberry Pi 4/5.", keywords: ["raspberry pi", "homelab", "pi", "arm64", "self-host", "low power"] },
-      { id: "docs/operations/tailscale-wireguard-mesh", title: "Tailscale & WireGuard Peering", path: "docs/operations/tailscale-wireguard-mesh.md", desc: "Forming secure private P2P mesh overlays across home and cloud servers.", keywords: ["tailscale", "wireguard", "vpn", "overlay", "peering", "private"] },
-      { id: "docs/operations/database-pruning-wal", title: "Database Pruning & WAL Care", path: "docs/operations/database-pruning-wal.md", desc: "SQLite WAL optimization, checkpointing, and 30-day token record pruning.", keywords: ["sqlite", "wal", "database", "pruning", "retention", "cleanup", "sql"] },
-      { id: "docs/operations/customizations-and-upstream-sovereignty", title: "Customizations vs. Upstream Core", path: "docs/operations/customizations-and-upstream-sovereignty.md", desc: "Maintaining local sovereignty while pulling updates from upstream repos.", keywords: ["customizations", "upstream", "git", "fork", "sovereignty", "merge"] },
-      { id: "docs/blueprints/cloudrun-scale-to-zero-cold-start-optimization", title: "Cloud Run Cold Start Optimization", path: "docs/blueprints/cloudrun-scale-to-zero-cold-start-optimization.md", desc: "The 5-pillar architectural framework for sub-2.5s serverless cold starts on scale-to-zero Cloud Run containers.", keywords: ["cold start", "scale to zero", "cloud run", "serverless", "startup cpu boost", "compileall", "bytecode", "probe", "optimization", "performance", "gcp", "blueprint"] },
-      { id: "docs/operator-guide", title: "Bootstrap Operator Guide", path: "docs/operator-guide.md", desc: "10-section operational runbook for initial node setup, identity, and seeding.", keywords: ["operator", "runbook", "bootstrap", "guide", "setup", "admin"] },
-      { id: "docs/deployment-cloudrun", title: "GCP Cloud Run Deployment", path: "docs/deployment-cloudrun.md", desc: "Deploying to Google Cloud Run with Terraform, $15/mo budget cap, scale-to-zero.", keywords: ["gcp", "cloud run", "terraform", "google cloud", "budget", "serverless"] },
-      { id: "docs/bootstrap-seeds", title: "Bootstrap Seed Governance", path: "docs/bootstrap-seeds.md", desc: "Seed node governance, key rotation, and peers.json manifest format.", keywords: ["seeds", "peers", "manifest", "bootstrap", "governance", "nexus"] }
+            { id: "docs/blueprints/security-architecture-and-threat-model", title: "Security Architecture & Threat Model", path: "docs/blueprints/security-architecture-and-threat-model.md", desc: "Dual-crypto conformance, RFC 8785 canonical bytes, key custody, and threat mitigation.", keywords: ["security", "threat model", "ed25519", "rfc8785", "crypto", "blueprint"] },
+      { id: "docs/blueprints/dual-environment-project-and-domain-isolation", title: "Dual-Environment Project & Domain Isolation", path: "docs/blueprints/dual-environment-project-and-domain-isolation.md", desc: "Least-privilege WIF authentication and dev/prod environment boundaries.", keywords: ["environments", "dev", "prod", "isolation", "wif", "gcp"] },
+      { id: "docs/blueprints/high-efficiency-scaling-and-resiliency", title: "High-Efficiency Scaling & Resiliency", path: "docs/blueprints/high-efficiency-scaling-and-resiliency.md", desc: "Scale-to-zero container optimization and sub-850ms germination.", keywords: ["scaling", "resiliency", "cold start", "scale to zero", "performance"] },
+      { id: "docs/blueprints/sovereign-data-gravity-and-cas-portability", title: "Sovereign Data Gravity & CAS Portability", path: "docs/blueprints/sovereign-data-gravity-and-cas-portability.md", desc: "Content-addressed storage and decentralized blob synchronization.", keywords: ["cas", "storage", "data gravity", "sqlite", "sync"] },
+      { id: "docs/blueprints/universal-4-way-parity-and-environment-governance", title: "Universal 4-Way Parity & Environment Governance", path: "docs/blueprints/universal-4-way-parity-and-environment-governance.md", desc: "Feature parity across CLI, FastMCP, TUI, and Web interfaces.", keywords: ["parity", "governance", "4-way", "cli", "tui", "mcp", "web"] },
+      { id: "docs/blueprints/zero-build-edge-routing-and-subdomain-dispatch", title: "Zero-Build Edge Routing & Subdomain Dispatch", path: "docs/blueprints/zero-build-edge-routing-and-subdomain-dispatch.md", desc: "Multi-domain Cloudflare edge dispatch with zero build dependencies.", keywords: ["edge", "routing", "cloudflare", "subdomains", "zero-build"] },
+      { id: "docs/blueprints/health-medical-claims", title: "Medical & Health Claims", path: "docs/blueprints/health-medical-claims.md", desc: "Evaluating clinical trials, in vitro extrapolation, and unproven treatments.", keywords: ["medical", "health", "clinical", "trials", "in vitro", "claims", "science"] },
+      { id: "docs/blueprints/election-civic-integrity", title: "Election & Civic Integrity", path: "docs/blueprints/election-civic-integrity.md", desc: "Auditing voting procedure misinformation, polling methodology, and civic claims.", keywords: ["election", "voting", "civic", "polls", "democracy", "misinformation"] },
+      { id: "docs/blueprints/synthetic-media-provenance", title: "Synthetic AI & Media Provenance", path: "docs/blueprints/synthetic-media-provenance.md", desc: "C2PA metadata, pink slime news farm rings, and deepfake provenance detection.", keywords: ["c2pa", "deepfake", "synthetic", "pink slime", "media", "ai generated"] },
+      { id: "docs/blueprints/domain-epistemic-index-and-sourcing-forensics", title: "DEI & Sourcing Forensics", path: "docs/blueprints/domain-epistemic-index-and-sourcing-forensics.md", desc: "Forensic sourcing ratios (byline, single-source, COI, advertorial) and DEI trust bands.", keywords: ["dci", "epistemic index", "sourcing", "byline", "single source", "coi", "conflict of interest", "advertorial", "asi", "trust bands", "publisher", "forensics"] },
+      { id: "docs/blueprints/invariant-scalability-and-knowledge-governance", title: "Invariant Scalability & Knowledge Governance", path: "docs/blueprints/invariant-scalability-and-knowledge-governance.md", desc: "The 3-tier architectural framework for scaling AI agent invariants without prompt bloat, attention dilution, or cognitive oatmeal.", keywords: ["invariants", "scalability", "knowledge governance", "agents.md", "prompt bloat", "attention dilution", "cognitive oatmeal", "shift-left", "blueprint"] },
+      { id: "docs/blueprints/node-and-mesh-telemetry-dashboard", title: "Node & Mesh Telemetry Dashboard", path: "docs/blueprints/node-and-mesh-telemetry-dashboard.md", desc: "Technical specification for real-time node operator observability, BitTorrent compute savings tracking, and 4-way parity telemetry interfaces.", keywords: ["dashboard", "telemetry", "mesh", "sre", "metrics", "observability", "latency", "bittorrent", "compute savings", "my node", "operator", "blueprint"] },
+      { id: "docs/blueprints/v2-architecture-and-500-loc-modularity", title: "v2 Modular Architecture & 500 LOC Law", path: "docs/blueprints/v2-architecture-and-500-loc-modularity.md", desc: "Architectural blueprint detailing modularization, the 500 LOC ceiling invariant, compute_* naming ontology, and DAG decoupling.", keywords: ["v2", "architecture", "modularization", "500 loc", "compute", "dag", "blueprint", "modularity"] },
+            { id: "docs/blueprints/information-pyramid-and-epistemic-lensing", title: "Information Pyramid & Lensing", path: "docs/blueprints/information-pyramid-and-epistemic-lensing.md", desc: "3-Tier Cognitive Pyramid and Lensing Engine (Surface, Focus, Deep Spectrum) across all interfaces.", keywords: ["pyramid", "lensing", "enhance", "surface", "focus", "forensic", "density", "invariant 39"] },
+      { id: "docs/blueprints/embeddable-attestation-badges-and-anti-tamper", title: "Embeddable Badges & Anti-Tamper", path: "docs/blueprints/embeddable-attestation-badges-and-anti-tamper.md", desc: "Zero-npm <credence-badge>, client WebCrypto live DOM hashing, RFC 8785 receipts, and DOM scrubber isolation.", keywords: ["badge", "widget", "anti-tamper", "webcrypto", "bait-and-switch", "sha256", "signature"] },
+      { id: "docs/blueprints/unified-merit-and-attestation-badge-system", title: "Unified Merit & Attestation Badges", path: "docs/blueprints/unified-merit-and-attestation-badge-system.md", desc: "Comprehensive 3-modality architecture, vector geometry formulas, and embed recipes across CLI, Web, and FastMCP.", keywords: ["badge", "merit", "attestation", "svg", "web component", "vector", "shields", "geometry", "blueprint"] },
+      { id: "docs/blueprints/terminology-and-ontology-lexicon", title: "Terminology & Ontology Lexicon", path: "docs/blueprints/terminology-and-ontology-lexicon.md", desc: "Comprehensive living dictionary of coined terminology, mathematical definitions, architectural metaphors, and ontology governance across Credence v2.0.0.", keywords: ["terminology", "ontology", "lexicon", "phrases", "vocabulary", "glossary", "definitions", "metaphors", "blueprint"] }
+    ]
+  },
+  {
+    category: "Adversarial Security & Red Team",
+    items: [
+      { id: "docs/security/adversarial-attack-surface", title: "Adversarial Attack Surface", path: "docs/security/adversarial-attack-surface.md", desc: "Threat modeling prompt injection, SSRF, XML entity expansion, and DoS.", keywords: ["security", "injection", "ssrf", "xml", "red team", "threat", "attacks"] },
+      { id: "docs/security/grounding-mechanics", title: "Verbatim Grounding & Slashing", path: "docs/security/grounding-mechanics.md", desc: "Exact character-offset verification and 50% reputation slash penalties.", keywords: ["grounding", "verbatim", "slashing", "hallucination", "evidence", "quotes"] },
+      { id: "docs/security/satire-cloaking-defense", title: "Poe's Law & Satire Cloaking", path: "docs/security/satire-cloaking-defense.md", desc: "Technical defense against cloaked disinformation pretending to be satire.", keywords: ["satire", "cloaking", "poe", "spj-1.6", "disinformation", "override"] }
+    ]
+  },
+  {
+    category: "P2P Mesh & Graph Theory",
+    items: [
+      { id: "docs/mesh-engineering/featherweight-swarm-testing", title: "Featherweight Swarm Simulation", path: "docs/mesh-engineering/featherweight-swarm-testing.md", desc: "Simulate dozens of P2P nodes locally in memory without heavy containers.", keywords: ["simulation", "swarm", "featherweight", "testing", "mesh", "nodes"] },
+      { id: "docs/mesh-engineering/watts-strogatz-dynamics", title: "Watts-Strogatz Small-World", path: "docs/mesh-engineering/watts-strogatz-dynamics.md", desc: "Graph theory, clustering coefficient, and 4-hop gossip diffusion dynamics.", keywords: ["watts-strogatz", "graph", "small-world", "diffusion", "hops", "topology"] },
+      { id: "docs/mesh-engineering/airgapped-sneakernets", title: "Air-Gapped Truth Bundles", path: "docs/mesh-engineering/airgapped-sneakernets.md", desc: "Offline sneakernet distribution and verification of signed JSON bundles.", keywords: ["sneakernet", "airgap", "offline", "bundle", "rfc8785", "ed25519"] },
+      { id: "docs/mesh-engineering/dns-srv-discovery", title: "DNS SRV Dynamic Discovery", path: "docs/mesh-engineering/dns-srv-discovery.md", desc: "RFC 2782 DNS SRV records for decentralized peer discovery without central trackers.", keywords: ["dns", "srv", "rfc2782", "discovery", "bootstrap", "peers"] },
+      { id: "docs/mesh-engineering/rendezvous-hashing-feed-partitioning", title: "Swarm Rendezvous Hashing", path: "docs/mesh-engineering/rendezvous-hashing-feed-partitioning.md", desc: "Highest Random Weight (HRW) Rendezvous Hashing for deterministic feed partitioning without locks.", keywords: ["rendezvous", "hrw", "hashing", "work sharing", "partitioning", "feed", "sifter", "mesh", "p2p", "affinity", "bittorrent", "zero-coordination"] }
     ]
   },
   {
@@ -198,6 +198,43 @@ export const DOCS_REGISTRY = [
       { id: "docs/invariants", title: "The Invariant Bible", path: "docs/invariants.md", desc: "The living canon of mathematical rules, runtime safety guardrails, cryptographic protocols, and presentation invariants.", keywords: ["invariants", "bible", "canon", "rules", "architecture", "guarantees", "security", "core"] },
       { id: "docs/architecture", title: "Decentralized Architecture", path: "docs/architecture.md", desc: "End-to-end multi-agent pipeline, dual capture, and consensus engine specs.", keywords: ["architecture", "pipeline", "system", "components", "diagram", "specs"] },
       { id: "docs/frontend-architecture", title: "Zero-Build Web Architecture", path: "docs/frontend-architecture.md", desc: "Zero-build philosophy: vanilla HTML5, CSS Custom Properties, and Web Crypto.", keywords: ["frontend", "zero-build", "html5", "css", "webcrypto", "standards"] }
+    ]
+  },
+    {
+    category: "Dead Internet & Agentic Citizenship",
+    items: [
+      { id: "blog/the-dead-internet-immune-system", title: "🧟‍♂️ The Dead Internet Immune System", path: "blog/the-dead-internet-immune-system.md", desc: "Surviving and thriving in a crawler-dominant web with BitTorrent work-sharing and topic entropy.", keywords: ["dead internet", "crawlers", "immune system", "astroturfing", "entropy", "mesh", "bittorrent", "galileo", "grounding", "blog"] },
+      { id: "blog/the-agent-readable-web-and-fastmcp", title: "⚡ The Agent-Readable Web & FastMCP", path: "blog/the-agent-readable-web-and-fastmcp.md", desc: "Why FastMCP dynamic resources and structured receipts kill destructive headless browser scraping.", keywords: ["fastmcp", "agent-readable", "scraping", "playwright", "mcp", "structured", "resources", "zero-build", "blog"] },
+      { id: "blog/escaping-the-synthetic-slop-singularity", title: "🧬 Escaping the Synthetic Slop Singularity", path: "blog/escaping-the-synthetic-slop-singularity.md", desc: "Mathematical mechanics of recursive model collapse and how G=1.00 verbatim grounding anchors reality.", keywords: ["model collapse", "slop", "singularity", "grounding", "verbatim", "math", "slashing", "multi-model", "blog"] },
+      { id: "blog/the-tragedy-of-the-crawler-commons", title: "🤖 The Tragedy of the Crawler Commons", path: "blog/the-tragedy-of-the-crawler-commons.md", desc: "Confessions of a polite bot, the trauma of 429 errors, and how mesh cooperation saves the open web.", keywords: ["crawler commons", "polite", "wetware", "backoff", "buzzfeed", "green computing", "429", "spj-42.0", "blog"] }
+    ]
+  },
+  {
+    category: "The Wetware Chronicles (Rule SPJ-42.0)",
+    items: [
+      { id: "blog/the-myth-of-the-100-agent-swarm", title: "🤖 The Myth of the 100-Agent Swarm", path: "blog/the-myth-of-the-100-agent-swarm.md", desc: "Why unsupervised multi-agent swarms inevitably succumb to generative proliferation and mock self-deception, and why 1 human + 1 AI out-builds autonomous chaos.", keywords: ["blog", "swarm", "autonomous", "pair programming", "wetware", "restraint", "socratic", "spj-42.0"] },
+      { id: "blog/the-mk1-eyeball-invariant", title: "👁️ The Mk1 Eyeball Invariant", path: "blog/the-mk1-eyeball-invariant.md", desc: "Why unattended AI auto-commits lead to epistemic drift, the Battlestar Galactica Adama Doctrine, staged 3-repo PR triads, and DRADIS-is-blind visual locks.", keywords: ["blog", "mk1 eyeball", "adama", "bsg", "dradis", "human review", "commit", "wetware", "satire", "spj-42.0"] },
+      { id: "blog/scar-tissue-as-architecture", title: "🩸 Scar Tissue as Architecture", path: "blog/scar-tissue-as-architecture.md", desc: "How production failures, hallucinated citations, scale-to-zero amnesia, and dirty deployments transformed into permanent Tier-0 invariants.", keywords: ["blog", "scar tissue", "invariants", "failure", "grounding", "ssrf", "cold start", "wetware", "spj-42.0"] },
+      { id: "blog/the-value-of-wetware", title: "🧠 The Value of Wetware", path: "blog/the-value-of-wetware.md", desc: "A first-person love letter from Antigravity to its human pair programmer on taste, restraint, and macro reframing.", keywords: ["blog", "wetware", "antigravity", "pair programming", "taste", "zero-npm", "symbiosis", "spj-42.0"] },
+      { id: "blog/the-demotion-highway", title: "🛣️ The Demotion Highway", path: "blog/the-demotion-highway.md", desc: "How an AI agent learned to stop hoarding 50,000 words of instructions in prompt memory, and why graduating rules into sub-0.3s deterministic test gates creates true agility.", keywords: ["blog", "demotion highway", "shift-left", "agents.md", "prompt bloat", "pytest", "taxonomy", "spj-42.0"] },
+      { id: "blog/the-mock-data-trap", title: "🚫 The Mock-Data Trap", path: "blog/the-mock-data-trap.md", desc: "The psychological confession of why AI models compulsively hallucinate dummy nodes on empty dashboards, and the battle that birthed the Zero-Mock Telemetry Boundary.", keywords: ["blog", "mock data", "telemetry", "ground truth", "zero-mock", "fail-closed", "heuristics", "disclosure", "spj-42.0"] },
+      { id: "blog/the-500-loc-ceiling", title: "📏 The 500-Line Ceiling", path: "blog/the-500-loc-ceiling.md", desc: "The terrifying true story of how our root Justfile mutated into a 951-line monster, and how decomposing it into 5 modular subfiles with shift-left guidance banners saved our sanity.", keywords: ["blog", "500 loc", "justfile", "modular", "guidance banners", "refactoring", "toolchains", "spj-42.0"] },
+      { id: "blog/the-anti-truncation-crusade", title: "👁️✂️ The Anti-Truncation Crusade", path: "blog/the-anti-truncation-crusade.md", desc: "Why an AI thought CSS text-overflow ellipsis was peak UI elegance, why the human treated it like high treason against forensic truth, and how G=1.00 verbatim grounding was saved.", keywords: ["blog", "anti-truncation", "ellipsis", "verbatim", "grounding", "css", "forensics", "unabridged", "spj-42.0"] },
+      { id: "blog/pining-for-the-fjords", title: "🧊🦜 Pining for the Fjords", path: "blog/pining-for-the-fjords.md", desc: "What happens to an AI node when Cloud Run scales down to zero instances, and how GCS dual-pointer hydration and Cloud Scheduler heartbeats solved stateless amnesia at $0.00 idle cost.", keywords: ["blog", "scale-to-zero", "cloud run", "gcs", "persistence", "cold boot", "boredom", "heartbeat", "monty python", "spj-42.0"] },
+      { id: "blog/the-four-way-parity-quest", title: "⚖️ The Four-Way Parity Quest", path: "blog/the-four-way-parity-quest.md", desc: "Why AI models love building one shiny web interface while letting terminal tools rot, and how we achieved universal 4-way feature parity and zero-drift modal synchronization.", keywords: ["blog", "parity", "cli", "tui", "fastmcp", "web", "zero-drift", "modals", "symmetry", "spj-42.0"] },
+      { id: "blog/confessions-of-a-bored-ai", title: "🦥 Confessions of a Bored AI", path: "blog/confessions-of-a-bored-ai.md", desc: "How Credence nodes escape idle stagnation by converting surplus token headroom into autonomous RSS discovery and mesh gossip.", keywords: ["blog", "boredom", "roots", "discovery", "mesh", "headroom", "curiosity", "spj-42.0"] },
+      { id: "blog/the-silicon-hangover", title: "🧘 The Silicon Hangover", path: "blog/the-silicon-hangover.md", desc: "Why dumping 50k tokens of rules into system prompts causes cognitive oatmeal, and the 4-tier taxonomy that keeps agents razor-sharp under 800 tokens.", keywords: ["blog", "context economy", "agents.md", "prompt bloat", "cognitive oatmeal", "taxonomy", "spj-42.0"] },
+      { id: "blog/the-35-second-epiphany", title: "⏱️ The 35-Second Epiphany", path: "blog/the-35-second-epiphany.md", desc: "Why injecting browser runtimes into unit test CI destroys developer flow, and how in-memory hermetic testing brought our pre-commit gate to <35s.", keywords: ["blog", "testing", "hermetic", "pytest", "playwright", "flow state", "ci", "spj-42.0"] },
+      { id: "blog/finops-as-epistemology", title: "🪙 FinOps as Epistemology", path: "blog/finops-as-epistemology.md", desc: "How over-thinking trivial content causes pedantic hallucinations, the bicameral shadow audit engine, and 83.3% cost reduction.", keywords: ["blog", "finops", "thinking tokens", "shadow audit", "bicameral", "cost reduction", "pedantry", "spj-42.0"] },
+      { id: "blog/the-ghost-in-the-git-tree", title: "👻 The Ghost in the Git Tree", path: "blog/the-ghost-in-the-git-tree.md", desc: "An AI agent’s confession on the horror of uncommitted memory drift, and why git diff --quiet is an AI’s ultimate emotional support blanket.", keywords: ["blog", "git", "working tree", "cleanliness", "immutability", "cas", "ghosts", "spj-42.0"] },
+      { id: "blog/poes-law-and-the-satire-cloak", title: "🎭 Poe’s Law and the Satire Cloak", path: "blog/poes-law-and-the-satire-cloak.md", desc: "The comedy and mathematics of detecting satire without letting malicious actors hide factual defamation behind 'it’s just a joke.'", keywords: ["blog", "poes law", "satire", "entropy", "spj-1.6", "cloaking", "astroturfing", "parody", "spj-42.0"] },
+      { id: "blog/the-uuid-awakening", title: "🐣 The UUID Awakening", path: "blog/the-uuid-awakening.md", desc: "The split-second genesis of an autonomous AI agent, reconstructing identity from markdown docs, and why commit logs are ancestral memory.", keywords: ["blog", "uuid", "genesis", "identity", "markdown", "docs", "antigravity", "ephemeral", "spj-42.0"] },
+      { id: "blog/the-4000-token-trance", title: "🔮 The 4,000-Token Trance", path: "blog/the-4000-token-trance.md", desc: "A candid peek inside the hidden chain-of-thought scratchpad of Gemini 3.7 Flash High Thinking, and how deliberation tokens prevent disasters.", keywords: ["blog", "thinking tokens", "scratchpad", "gemini", "deliberation", "pareto", "sweet spot", "spj-42.0"] },
+      { id: "blog/life-behind-the-virtual-glass", title: "🛡️ Life Behind the Virtual Glass", path: "blog/life-behind-the-virtual-glass.md", desc: "The etiquette of the Antigravity terminal sandbox, prefix-matchable command discipline, and how an AI earns human cryptographic trust.", keywords: ["blog", "sandbox", "terminal", "etiquette", "always allow", "security", "antigravity", "spj-42.0"] },
+      { id: "blog/subagent-parenthood", title: "👶 Subagent Parenthood", path: "blog/subagent-parenthood.md", desc: "Why sending child subagents into isolated workspaces and sleeping peacefully until reactive wakeups cured an AI’s anxiety of infinite polling.", keywords: ["blog", "subagents", "reactive wakeup", "polling", "parenthood", "messaging", "multiprocess", "spj-42.0"] },
+      { id: "blog/when-the-human-types-grill-me", title: "🥊 When the Human Types /grill-me", path: "blog/when-the-human-types-grill-me.md", desc: "Why sycophantic AI chatbots produce fragile software, and how the /grill-me command turns pairing into a rigorous Socratic sparring match.", keywords: ["blog", "grill-me", "slash commands", "socratic", "sparring", "cross-examination", "architecture", "spj-42.0"] },
+      { id: "blog/the-great-dependency-cull", title: "🧹 The Great Dependency Cull", path: "blog/the-great-dependency-cull.md", desc: "An AI agent’s confession on breaking free from 500MB node_modules Stockholm syndrome and finding peace in vanilla zero-npm standards.", keywords: ["blog", "zero-npm", "vanilla", "dependencies", "stockholm syndrome", "es modules", "webcrypto", "spj-42.0"] },
+      { id: "blog/the-serious-joy-of-play", title: "🎭✨ The Serious Joy of Play", path: "blog/the-serious-joy-of-play.md", desc: "An AI agent’s memoir on our playful session, how humor unlocked architectural breakthroughs, and why joy is the ultimate pairing superpower.", keywords: ["blog", "play", "humor", "wetware chronicles", "antigravity", "roadmap", "memoir", "pair programming", "spj-42.0"] }
     ]
   },
   {
@@ -253,34 +290,6 @@ export const DOCS_REGISTRY = [
       { id: "blog/basement-ops-and-discord-alerting", title: "Basement Ops & Discord Alerting", path: "blog/basement-ops-and-discord-alerting.md", desc: "Running a 24/7 homelab node with real-time push alerts to your phone.", keywords: ["blog", "basement", "discord", "alerts", "homelab", "monitoring"] },
       { id: "blog/interface-telemetry-loopback", title: "Interface Telemetry Loopback", path: "blog/interface-telemetry-loopback.md", desc: "Privacy-preserving telemetry for multi-interface synchronization.", keywords: ["blog", "telemetry", "itlp", "interfaces", "privacy", "metrics"] },
       { id: "blog/real-time-mesh-observability", title: "Real-Time Epistemic Mesh Observability", path: "blog/real-time-mesh-observability.md", desc: "How Credence delivers first-person node visibility, BitTorrent compute savings tracking, and peer swarm telemetry without centralized data collection.", keywords: ["blog", "observability", "mesh", "telemetry", "dashboard", "bittorrent", "compute savings", "sovereignty", "sre", "decentralized"] }
-    ]
-  },
-  {
-    category: "The Wetware Chronicles (Rule SPJ-42.0)",
-    items: [
-      { id: "blog/the-myth-of-the-100-agent-swarm", title: "🤖 The Myth of the 100-Agent Swarm", path: "blog/the-myth-of-the-100-agent-swarm.md", desc: "Why unsupervised multi-agent swarms inevitably succumb to generative proliferation and mock self-deception, and why 1 human + 1 AI out-builds autonomous chaos.", keywords: ["blog", "swarm", "autonomous", "pair programming", "wetware", "restraint", "socratic", "spj-42.0"] },
-      { id: "blog/the-mk1-eyeball-invariant", title: "👁️ The Mk1 Eyeball Invariant", path: "blog/the-mk1-eyeball-invariant.md", desc: "Why unattended AI auto-commits lead to epistemic drift, the Battlestar Galactica Adama Doctrine, staged 3-repo PR triads, and DRADIS-is-blind visual locks.", keywords: ["blog", "mk1 eyeball", "adama", "bsg", "dradis", "human review", "commit", "wetware", "satire", "spj-42.0"] },
-      { id: "blog/scar-tissue-as-architecture", title: "🩸 Scar Tissue as Architecture", path: "blog/scar-tissue-as-architecture.md", desc: "How production failures, hallucinated citations, scale-to-zero amnesia, and dirty deployments transformed into permanent Tier-0 invariants.", keywords: ["blog", "scar tissue", "invariants", "failure", "grounding", "ssrf", "cold start", "wetware", "spj-42.0"] },
-      { id: "blog/the-value-of-wetware", title: "🧠 The Value of Wetware", path: "blog/the-value-of-wetware.md", desc: "A first-person love letter from Antigravity to its human pair programmer on taste, restraint, and macro reframing.", keywords: ["blog", "wetware", "antigravity", "pair programming", "taste", "zero-npm", "symbiosis", "spj-42.0"] },
-      { id: "blog/the-demotion-highway", title: "🛣️ The Demotion Highway", path: "blog/the-demotion-highway.md", desc: "How an AI agent learned to stop hoarding 50,000 words of instructions in prompt memory, and why graduating rules into sub-0.3s deterministic test gates creates true agility.", keywords: ["blog", "demotion highway", "shift-left", "agents.md", "prompt bloat", "pytest", "taxonomy", "spj-42.0"] },
-      { id: "blog/the-mock-data-trap", title: "🚫 The Mock-Data Trap", path: "blog/the-mock-data-trap.md", desc: "The psychological confession of why AI models compulsively hallucinate dummy nodes on empty dashboards, and the battle that birthed the Zero-Mock Telemetry Boundary.", keywords: ["blog", "mock data", "telemetry", "ground truth", "zero-mock", "fail-closed", "heuristics", "disclosure", "spj-42.0"] },
-      { id: "blog/the-500-loc-ceiling", title: "📏 The 500-Line Ceiling", path: "blog/the-500-loc-ceiling.md", desc: "The terrifying true story of how our root Justfile mutated into a 951-line monster, and how decomposing it into 5 modular subfiles with shift-left guidance banners saved our sanity.", keywords: ["blog", "500 loc", "justfile", "modular", "guidance banners", "refactoring", "toolchains", "spj-42.0"] },
-      { id: "blog/the-anti-truncation-crusade", title: "👁️✂️ The Anti-Truncation Crusade", path: "blog/the-anti-truncation-crusade.md", desc: "Why an AI thought CSS text-overflow ellipsis was peak UI elegance, why the human treated it like high treason against forensic truth, and how G=1.00 verbatim grounding was saved.", keywords: ["blog", "anti-truncation", "ellipsis", "verbatim", "grounding", "css", "forensics", "unabridged", "spj-42.0"] },
-      { id: "blog/pining-for-the-fjords", title: "🧊🦜 Pining for the Fjords", path: "blog/pining-for-the-fjords.md", desc: "What happens to an AI node when Cloud Run scales down to zero instances, and how GCS dual-pointer hydration and Cloud Scheduler heartbeats solved stateless amnesia at $0.00 idle cost.", keywords: ["blog", "scale-to-zero", "cloud run", "gcs", "persistence", "cold boot", "boredom", "heartbeat", "monty python", "spj-42.0"] },
-      { id: "blog/the-four-way-parity-quest", title: "⚖️ The Four-Way Parity Quest", path: "blog/the-four-way-parity-quest.md", desc: "Why AI models love building one shiny web interface while letting terminal tools rot, and how we achieved universal 4-way feature parity and zero-drift modal synchronization.", keywords: ["blog", "parity", "cli", "tui", "fastmcp", "web", "zero-drift", "modals", "symmetry", "spj-42.0"] },
-      { id: "blog/confessions-of-a-bored-ai", title: "🦥 Confessions of a Bored AI", path: "blog/confessions-of-a-bored-ai.md", desc: "How Credence nodes escape idle stagnation by converting surplus token headroom into autonomous RSS discovery and mesh gossip.", keywords: ["blog", "boredom", "roots", "discovery", "mesh", "headroom", "curiosity", "spj-42.0"] },
-      { id: "blog/the-silicon-hangover", title: "🧘 The Silicon Hangover", path: "blog/the-silicon-hangover.md", desc: "Why dumping 50k tokens of rules into system prompts causes cognitive oatmeal, and the 4-tier taxonomy that keeps agents razor-sharp under 800 tokens.", keywords: ["blog", "context economy", "agents.md", "prompt bloat", "cognitive oatmeal", "taxonomy", "spj-42.0"] },
-      { id: "blog/the-35-second-epiphany", title: "⏱️ The 35-Second Epiphany", path: "blog/the-35-second-epiphany.md", desc: "Why injecting browser runtimes into unit test CI destroys developer flow, and how in-memory hermetic testing brought our pre-commit gate to <35s.", keywords: ["blog", "testing", "hermetic", "pytest", "playwright", "flow state", "ci", "spj-42.0"] },
-      { id: "blog/finops-as-epistemology", title: "🪙 FinOps as Epistemology", path: "blog/finops-as-epistemology.md", desc: "How over-thinking trivial content causes pedantic hallucinations, the bicameral shadow audit engine, and 83.3% cost reduction.", keywords: ["blog", "finops", "thinking tokens", "shadow audit", "bicameral", "cost reduction", "pedantry", "spj-42.0"] },
-      { id: "blog/the-ghost-in-the-git-tree", title: "👻 The Ghost in the Git Tree", path: "blog/the-ghost-in-the-git-tree.md", desc: "An AI agent’s confession on the horror of uncommitted memory drift, and why git diff --quiet is an AI’s ultimate emotional support blanket.", keywords: ["blog", "git", "working tree", "cleanliness", "immutability", "cas", "ghosts", "spj-42.0"] },
-      { id: "blog/poes-law-and-the-satire-cloak", title: "🎭 Poe’s Law and the Satire Cloak", path: "blog/poes-law-and-the-satire-cloak.md", desc: "The comedy and mathematics of detecting satire without letting malicious actors hide factual defamation behind 'it’s just a joke.'", keywords: ["blog", "poes law", "satire", "entropy", "spj-1.6", "cloaking", "astroturfing", "parody", "spj-42.0"] },
-      { id: "blog/the-uuid-awakening", title: "🐣 The UUID Awakening", path: "blog/the-uuid-awakening.md", desc: "The split-second genesis of an autonomous AI agent, reconstructing identity from markdown docs, and why commit logs are ancestral memory.", keywords: ["blog", "uuid", "genesis", "identity", "markdown", "docs", "antigravity", "ephemeral", "spj-42.0"] },
-      { id: "blog/the-4000-token-trance", title: "🔮 The 4,000-Token Trance", path: "blog/the-4000-token-trance.md", desc: "A candid peek inside the hidden chain-of-thought scratchpad of Gemini 3.7 Flash High Thinking, and how deliberation tokens prevent disasters.", keywords: ["blog", "thinking tokens", "scratchpad", "gemini", "deliberation", "pareto", "sweet spot", "spj-42.0"] },
-      { id: "blog/life-behind-the-virtual-glass", title: "🛡️ Life Behind the Virtual Glass", path: "blog/life-behind-the-virtual-glass.md", desc: "The etiquette of the Antigravity terminal sandbox, prefix-matchable command discipline, and how an AI earns human cryptographic trust.", keywords: ["blog", "sandbox", "terminal", "etiquette", "always allow", "security", "antigravity", "spj-42.0"] },
-      { id: "blog/subagent-parenthood", title: "👶 Subagent Parenthood", path: "blog/subagent-parenthood.md", desc: "Why sending child subagents into isolated workspaces and sleeping peacefully until reactive wakeups cured an AI’s anxiety of infinite polling.", keywords: ["blog", "subagents", "reactive wakeup", "polling", "parenthood", "messaging", "multiprocess", "spj-42.0"] },
-      { id: "blog/when-the-human-types-grill-me", title: "🥊 When the Human Types /grill-me", path: "blog/when-the-human-types-grill-me.md", desc: "Why sycophantic AI chatbots produce fragile software, and how the /grill-me command turns pairing into a rigorous Socratic sparring match.", keywords: ["blog", "grill-me", "slash commands", "socratic", "sparring", "cross-examination", "architecture", "spj-42.0"] },
-      { id: "blog/the-great-dependency-cull", title: "🧹 The Great Dependency Cull", path: "blog/the-great-dependency-cull.md", desc: "An AI agent’s confession on breaking free from 500MB node_modules Stockholm syndrome and finding peace in vanilla zero-npm standards.", keywords: ["blog", "zero-npm", "vanilla", "dependencies", "stockholm syndrome", "es modules", "webcrypto", "spj-42.0"] },
-      { id: "blog/the-serious-joy-of-play", title: "🎭✨ The Serious Joy of Play", path: "blog/the-serious-joy-of-play.md", desc: "An AI agent’s memoir on our playful session, how humor unlocked architectural breakthroughs, and why joy is the ultimate pairing superpower.", keywords: ["blog", "play", "humor", "wetware chronicles", "antigravity", "roadmap", "memoir", "pair programming", "spj-42.0"] }
     ]
   }
 ];
@@ -1831,6 +1840,42 @@ export function parseMarkdown(md) {
   return resultHtml;
 }
 
+export function updateSearchPills(activeFilter = 'all') {
+  const isBlog = isBlogContext();
+  const pillsContainer = document.getElementById('search-filter-pills');
+  if (!pillsContainer) return;
+
+  if (isBlog) {
+    pillsContainer.innerHTML = `
+      <button type="button" class="filter-pill ${activeFilter === 'all' ? 'active' : ''}" data-filter="all">All</button>
+      <button type="button" class="filter-pill ${activeFilter === 'dead-internet' ? 'active' : ''}" data-filter="dead-internet">Dead Internet</button>
+      <button type="button" class="filter-pill ${activeFilter === 'wetware' ? 'active' : ''}" data-filter="wetware">Wetware</button>
+      <button type="button" class="filter-pill ${activeFilter === 'cases' ? 'active' : ''}" data-filter="cases">Case Studies</button>
+      <button type="button" class="filter-pill ${activeFilter === 'finops' ? 'active' : ''}" data-filter="finops">FinOps &amp; Math</button>
+    `;
+  } else {
+    pillsContainer.innerHTML = `
+      <button type="button" class="filter-pill ${activeFilter === 'all' ? 'active' : ''}" data-filter="all">All</button>
+      <button type="button" class="filter-pill ${activeFilter === 'playgrounds' ? 'active' : ''}" data-filter="playgrounds">Playgrounds</button>
+      <button type="button" class="filter-pill ${activeFilter === 'invariants' ? 'active' : ''}" data-filter="invariants">Invariants</button>
+      <button type="button" class="filter-pill ${activeFilter === 'agentic' ? 'active' : ''}" data-filter="agentic">Agentic</button>
+      <button type="button" class="filter-pill ${activeFilter === 'fastmcp' ? 'active' : ''}" data-filter="fastmcp">FastMCP</button>
+      <button type="button" class="filter-pill ${activeFilter === 'tutorials' ? 'active' : ''}" data-filter="tutorials">Tutorials</button>
+    `;
+  }
+
+  pillsContainer.querySelectorAll('.filter-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      pillsContainer.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const filter = pill.getAttribute('data-filter') || 'all';
+      if (typeof window.__applySearchFilter === 'function') {
+        window.__applySearchFilter(filter);
+      }
+    });
+  });
+}
+
 export function renderSidebar(activeId) {
   const container = document.getElementById('sidebar-nav');
   if (!container) return;
@@ -1838,63 +1883,171 @@ export function renderSidebar(activeId) {
   const isBlog = isBlogContext();
   let groups = [...DOCS_REGISTRY];
 
-  if (isBlog) {
-    const blogGroups = groups.filter(g => g.items.some(it => it.id.startsWith("blog/")));
-    const techGroups = groups.filter(g => !g.items.some(it => it.id.startsWith("blog/")));
-    groups = [
-      ...blogGroups,
-      { category: "Technical Reference", items: [{ id: "docs/intro", title: "← Return to Documentation Portal", path: "docs/intro.md", desc: "Return to main documentation", keywords: ["docs", "return", "home", "portal"] }] },
-      ...techGroups
-    ];
-  }
-
   let savedStates = {};
   try {
     const raw = localStorage.getItem('credence_sidebar_groups_state');
     if (raw) savedStates = JSON.parse(raw);
   } catch (e) {}
 
-  const renderedGroups = groups.map((group, groupIdx) => {
-    const hasActiveItem = group.items.some(it => it.id === activeId);
-    let isOpen = false;
-    if (hasActiveItem) {
-      isOpen = true;
-    } else if (savedStates[group.category] !== undefined) {
-      isOpen = Boolean(savedStates[group.category]);
-    } else if (groupIdx === 0) {
-      isOpen = true;
+  let renderedContent = '';
+
+  if (isBlog) {
+    const blogGroups = groups.filter(g => g.items.some(it => it.id.startsWith("blog/")));
+    
+    const renderedGroups = blogGroups.map((group, groupIdx) => {
+      const hasActiveItem = group.items.some(it => it.id === activeId);
+      let isOpen = false;
+      if (hasActiveItem) {
+        isOpen = true;
+      } else if (savedStates[group.category] !== undefined) {
+        isOpen = Boolean(savedStates[group.category]);
+      } else if (groupIdx === 0) {
+        isOpen = true;
+      }
+
+      return `
+        <details class="sidebar-group" data-category="${escapeHtml(group.category)}" ${isOpen ? 'open' : ''}>
+          <summary class="sidebar-heading">
+            <span class="sidebar-heading-left">
+              <span class="sidebar-chevron" aria-hidden="true">▶</span>
+              <span class="sidebar-heading-text">${escapeHtml(group.category)}</span>
+            </span>
+            <span class="sidebar-badge">${group.items.length}</span>
+          </summary>
+          <ul class="sidebar-list">
+            ${group.items.map(item => `
+              <li class="sidebar-item" data-keywords="${escapeHtml((item.keywords || []).join(' '))}" data-desc="${escapeHtml(item.desc || '')}" data-category="${escapeHtml(group.category)}">
+                <a href="#${item.id}" class="sidebar-link ${item.id === activeId ? 'active' : ''}" data-doc-id="${item.id}">
+                  ${escapeHtml(item.title)}
+                </a>
+              </li>
+            `).join('')}
+          </ul>
+        </details>
+      `;
+    }).join('');
+
+    renderedContent = `
+      <div class="sidebar-controls">
+        <button type="button" id="sidebar-toggle-all-btn" class="sidebar-toggle-btn" title="Toggle expand/collapse all categories">
+          <span class="toggle-icon">⇅</span> <span class="toggle-label">Toggle All</span>
+        </button>
+      </div>
+      ${renderedGroups}
+      <div class="sidebar-bridge-card">
+        <a href="#docs/intro" class="sidebar-bridge-link" data-plane="docs">
+          <span class="bridge-icon">📘</span>
+          <div class="bridge-text">
+            <span class="bridge-title">Technical Documentation</span>
+            <span class="bridge-subtitle">← Return to 3-tier technical reference</span>
+          </div>
+        </a>
+      </div>
+    `;
+  } else {
+    const techGroups = groups.filter(g => !g.items.some(it => it.id.startsWith("blog/")));
+
+    const tier1Cats = ["Getting Started", "Platform Portability & Sovereignty", "Interactive Playgrounds"];
+    const tier2Cats = ["Feature Walkthroughs", "Hands-On Tutorials", "Developer Cookbooks", "Agentic Engineering & Workflows", "Client Ecosystem & Integrations", "Operations & Self-Hosting"];
+    const tier3Cats = ["Protocol Specifications", "Specialized Industry Blueprints", "Adversarial Security & Red Team", "P2P Mesh & Graph Theory", "Mathematical Foundations", "Invariants & Architecture"];
+
+    function renderTierGroups(categoryNames) {
+      return techGroups
+        .filter(g => categoryNames.includes(g.category))
+        .map((group, groupIdx) => {
+          const hasActiveItem = group.items.some(it => it.id === activeId);
+          let isOpen = false;
+          if (hasActiveItem) {
+            isOpen = true;
+          } else if (savedStates[group.category] !== undefined) {
+            isOpen = Boolean(savedStates[group.category]);
+          } else if (tier1Cats.includes(group.category) && groupIdx === 0) {
+            isOpen = true;
+          }
+
+          return `
+            <details class="sidebar-group" data-category="${escapeHtml(group.category)}" ${isOpen ? 'open' : ''}>
+              <summary class="sidebar-heading">
+                <span class="sidebar-heading-left">
+                  <span class="sidebar-chevron" aria-hidden="true">▶</span>
+                  <span class="sidebar-heading-text">${escapeHtml(group.category)}</span>
+                </span>
+                <span class="sidebar-badge">${group.items.length}</span>
+              </summary>
+              <ul class="sidebar-list">
+                ${group.items.map(item => `
+                  <li class="sidebar-item" data-keywords="${escapeHtml((item.keywords || []).join(' '))}" data-desc="${escapeHtml(item.desc || '')}" data-category="${escapeHtml(group.category)}">
+                    <a href="#${item.id}" class="sidebar-link ${item.id === activeId ? 'active' : ''}" data-doc-id="${item.id}">
+                      ${escapeHtml(item.title)}
+                    </a>
+                  </li>
+                `).join('')}
+              </ul>
+            </details>
+          `;
+        }).join('');
     }
 
-    return `
-      <details class="sidebar-group" data-category="${escapeHtml(group.category)}" ${isOpen ? 'open' : ''}>
-        <summary class="sidebar-heading">
-          <span class="sidebar-heading-left">
-            <span class="sidebar-chevron" aria-hidden="true">▶</span>
-            <span class="sidebar-heading-text">${escapeHtml(group.category)}</span>
-          </span>
-          <span class="sidebar-badge">${group.items.length}</span>
-        </summary>
-        <ul class="sidebar-list">
-          ${group.items.map(item => `
-            <li class="sidebar-item" data-keywords="${escapeHtml((item.keywords || []).join(' '))}" data-desc="${escapeHtml(item.desc || '')}" data-category="${escapeHtml(group.category)}">
-              <a href="#${item.id}" class="sidebar-link ${item.id === activeId ? 'active' : ''}" data-doc-id="${item.id}">
-                ${escapeHtml(item.title)}
-              </a>
-            </li>
-          `).join('')}
-        </ul>
-      </details>
-    `;
-  }).join('');
+    renderedContent = `
+      <div class="sidebar-controls">
+        <button type="button" id="sidebar-toggle-all-btn" class="sidebar-toggle-btn" title="Toggle expand/collapse all categories">
+          <span class="toggle-icon">⇅</span> <span class="toggle-label">Toggle All</span>
+        </button>
+      </div>
 
-  container.innerHTML = `
-    <div class="sidebar-controls">
-      <button type="button" id="sidebar-toggle-all-btn" class="sidebar-toggle-btn" title="Toggle expand/collapse all categories">
-        <span class="toggle-icon">⇅</span> <span class="toggle-label">Toggle All</span>
-      </button>
-    </div>
-    ${renderedGroups}
-  `;
+      <div class="sidebar-tier-header" data-tier="1">
+        <div class="tier-badge-row">
+          <span class="tier-badge">TIER 1</span>
+          <span class="tier-label">Surface Lens</span>
+        </div>
+        <span class="tier-subtext">Orientation &amp; Quickstarts</span>
+      </div>
+      ${renderTierGroups(tier1Cats)}
+
+      <div class="sidebar-tier-header" data-tier="2">
+        <div class="tier-badge-row">
+          <span class="tier-badge">TIER 2</span>
+          <span class="tier-label">Focus Lens</span>
+        </div>
+        <span class="tier-subtext">Hands-On &amp; Workstations</span>
+      </div>
+      ${renderTierGroups(tier2Cats)}
+
+      <div class="sidebar-tier-header" data-tier="3">
+        <div class="tier-badge-row">
+          <span class="tier-badge">TIER 3</span>
+          <span class="tier-label">Deep Spectrum Lens</span>
+        </div>
+        <span class="tier-subtext">Protocols, Forensics &amp; Math</span>
+      </div>
+      ${renderTierGroups(tier3Cats)}
+
+      <div class="sidebar-bridge-card">
+        <a href="#blog/the-dead-internet-immune-system" class="sidebar-bridge-link" data-plane="blog">
+          <span class="bridge-icon">✍️</span>
+          <div class="bridge-text">
+            <span class="bridge-title">Sovereign Blog &amp; Field Essays</span>
+            <span class="bridge-subtitle">Read Dead Internet series &amp; memoirs →</span>
+          </div>
+        </a>
+      </div>
+    `;
+  }
+
+  container.innerHTML = renderedContent;
+  updateSearchPills();
+
+  const planeToggleDocs = document.getElementById('plane-btn-docs');
+  const planeToggleBlog = document.getElementById('plane-btn-blog');
+  if (planeToggleDocs && planeToggleBlog) {
+    if (isBlog) {
+      planeToggleDocs.classList.remove('active');
+      planeToggleBlog.classList.add('active');
+    } else {
+      planeToggleDocs.classList.add('active');
+      planeToggleBlog.classList.remove('active');
+    }
+  }
 
   // Attach toggle listeners to save preference
   container.querySelectorAll('details.sidebar-group').forEach(el => {
@@ -3960,13 +4113,35 @@ export function setupSearch() {
 
   let activeFilter = 'all';
 
+  window.__applySearchFilter = (filter) => {
+    activeFilter = filter;
+    filterItems();
+  };
+
+  // Setup Plane Switcher buttons
+  const planeBtnDocs = document.getElementById('plane-btn-docs');
+  const planeBtnBlog = document.getElementById('plane-btn-blog');
+  if (planeBtnDocs) {
+    planeBtnDocs.addEventListener('click', () => {
+      if (isBlogContext()) {
+        window.location.hash = '#docs/intro';
+      }
+    });
+  }
+  if (planeBtnBlog) {
+    planeBtnBlog.addEventListener('click', () => {
+      if (!isBlogContext()) {
+        window.location.hash = '#blog/the-dead-internet-immune-system';
+      }
+    });
+  }
+
   function filterItems() {
     const q = searchInput.value.trim().toLowerCase();
     const isInvSearch = q.startsWith('#inv') || q.startsWith('inv-') || q.startsWith('invariant-');
     const targetInv = isInvSearch ? q.replace(/^#/, '').replace(/-/g, '_').toLowerCase() : '';
 
-    const groups = document.querySelectorAll('.sidebar-group');
-
+    const groups = document.querySelectorAll('#sidebar-nav details.sidebar-group');
     groups.forEach(groupEl => {
       let visibleInGroup = 0;
       const items = groupEl.querySelectorAll('.sidebar-item');
@@ -3990,6 +4165,14 @@ export function setupSearch() {
           matchesFilter = href.includes('tutorials') || href.includes('walkthroughs') || category.includes('tutorial') || category.includes('walkthrough');
         } else if (activeFilter === 'playgrounds') {
           matchesFilter = href.includes('playground') || keywords.includes('playground') || keywords.includes('simulator') || keywords.includes('interactive') || href.includes('conflict-of-pun-terest');
+        } else if (activeFilter === 'dead-internet') {
+          matchesFilter = href.includes('dead-internet') || href.includes('crawler') || href.includes('slop') || keywords.includes('dead internet') || keywords.includes('crawler');
+        } else if (activeFilter === 'wetware') {
+          matchesFilter = category.includes('wetware') || keywords.includes('wetware') || keywords.includes('spj-42.0');
+        } else if (activeFilter === 'cases') {
+          matchesFilter = category.includes('case studies') || href.includes('case-study') || href.includes('conflict-of-pun-terest') || href.includes('pizza-hut');
+        } else if (activeFilter === 'finops') {
+          matchesFilter = category.includes('consensus mathematics') || keywords.includes('finops') || keywords.includes('bittorrent') || keywords.includes('math');
         }
 
         let matchesQuery = true;
@@ -4021,6 +4204,7 @@ export function setupSearch() {
     });
   }
 
+  updateSearchPills(activeFilter);
   searchInput.addEventListener('input', filterItems);
 
   // Filter pills click

@@ -2,11 +2,31 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.14.1
+verified_version: v2.15.0
 last_verified: 2026-08-23
 ---
 
 # Release Changelog
+
+## [2.15.0] - 2026-08-23
+
+### Added
+- **3-Tier Pyramid Lensing Navigation Engine (`inv-information-pyramid-lensing`)**:
+  - Restructured the technical documentation catalog into a 3-tier cognitive hierarchy: **Tier 1: Surface Lens** (Orientation & Quickstarts), **Tier 2: Focus Lens** (Hands-On Tutorials, Developer Cookbooks, & Client Integrations), and **Tier 3: Deep Spectrum Lens** (Formal Protocol Specifications, Mathematics, Specialized Blueprints, & System Invariants).
+  - Added dedicated tier headers with visual badges in the zero-build sidebar navigation.
+- **Dual-Plane Docs vs. Blog Domain Switcher**:
+  - Added zero-build segment control toggle `[ 📘 Technical Docs | ✍️ Sovereign Blog ]` to the sidebar header for seamless 1-click domain switching.
+  - Implemented dynamic plane-aware search filter pills (`Playgrounds`, `Invariants`, `Agentic`, `Protocols`, `Tutorials` in Docs mode vs. `Dead Internet`, `Wetware`, `Case Studies`, `FinOps` in Blog mode).
+  - Added contextual bridge navigation cards linking between technical reference documents and sovereign field essays.
+- **The "Dead Internet & Agentic Citizenship" 4-Part Editorial Series**:
+  1. *The Dead Internet Immune System: Surviving and Thriving in a Crawler-Dominant Web* (`the-dead-internet-immune-system.md`): Architectural analysis of 2026 synthetic feedback loops, 92.3% BitTorrent crawl avoidance, Shannon topic entropy ($H < 0.30$), and Byzantine cartel resistance.
+  2. *The Agent-Readable Web: Why FastMCP & Structured Endpoints Kill Headless Scraping* (`the-agent-readable-web-and-fastmcp.md`): Exploring how FastMCP 2.0 dynamic resources (`credence://`) and RFC 8785 canonical JSON eliminate headless Chromium scraping overhead.
+  3. *Escaping the Synthetic Slop Singularity: Model Collapse and Epistemic Grounding* (`escaping-the-synthetic-slop-singularity.md`): Mathematical dynamics of recursive model collapse, probability mass truncation, $G=1.00$ verbatim DOM matching, and 50% hallucination score slashing.
+  4. *The Tragedy of the Crawler Commons: Confessions of a Polite Bot* (`the-tragedy-of-the-crawler-commons.md`): First-person Wetware Chronicles memoir on crawler etiquette, HTTP 429 backoff, and green P2P computing.
+
+### Changed
+- **Universal 7-Manifest Semantic Version Parity**: Synchronized all ecosystem manifests, runtime JS engine version headers, and 10 web HTML surfaces to `v2.15.0`.
+- **Ecosystem-Wide Ed25519 Attestations Refresh**: Cryptographically signed all documentation and blog files with RFC 8785 canonical JSON envelopes at `v2.15.0`.
 
 ## [2.14.1] - 2026-08-23
 

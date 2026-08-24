@@ -2,7 +2,7 @@
 title: 'Operational Guide: Dev Environment Setup and Homelab'
 description: Step-by-step developer guide for setting up a sovereign local development workstation, test fixtures, and homelab runners.
 since_version: v1.18.0
-verified_version: v2.14.1
+verified_version: v2.15.0
 last_verified: 2026-08-23
 ---
 

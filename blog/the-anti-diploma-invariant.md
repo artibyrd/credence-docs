@@ -3,7 +3,7 @@ title: 'The Anti-Diploma Invariant: Why Credentials Don''t Equal Authority'
 description: Why mathematical authority must be earned through empirical grounding
   and domain entropy, not static paper credentials.
 since_version: v1.0.0
-verified_version: v2.14.1
+verified_version: v2.15.0
 last_verified: 2026-08-23
 sidebar:
   order: 2

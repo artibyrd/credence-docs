@@ -4,7 +4,7 @@ description: "How adversarial publishers attempt to forge, steal, or bypass embe
   \ credibility badges\u2014and how client-side WebCrypto DOM hash gates neutralize\
   \ them."
 category: Sovereign Essays
-verified_version: v2.14.1
+verified_version: v2.15.0
 last_verified: 2026-08-23
 since_version: v2.1.0
 ---
