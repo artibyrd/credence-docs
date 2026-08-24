@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.14.0';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.14.1';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -3822,7 +3822,7 @@ export async function loadDocument(docId, anchorId = '') {
     // Automatically bind cryptographic attestation receipt to the page's <credence-badge>
     try {
       if (!window._credenceAttestations) {
-        const attRes = await fetch('assets/attestations.json');
+        const attRes = await fetch(`assets/attestations.json?v=${encodeURIComponent(CURRENT_ECOSYSTEM_VERSION)}`, { cache: 'no-cache' });
         if (attRes.ok) {
           window._credenceAttestations = await attRes.json();
         }

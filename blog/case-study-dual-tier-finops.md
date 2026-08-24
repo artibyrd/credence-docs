@@ -2,7 +2,7 @@
 title: 'Case Study: Slashing LLM Fact-Checking Costs by 83% with Bicameral Architecture'
 description: Empirical case study proving how a two-stage cascaded architecture (Dev heuristic triage + Prod 4k thinking) cuts AI fact-checking bills by 83% while preserving G=1.00 verbatim grounding.
 since_version: v1.19.0
-verified_version: v2.14.0
+verified_version: v2.14.1
 last_verified: 2026-08-23
 slug: case-study-dual-tier-finops
 date: '2026-08-19'

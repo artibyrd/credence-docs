@@ -3,7 +3,7 @@ title: White-Label Federation
 description: Scaffold sovereign, independent mesh organizations with custom root keys
   and multi-cloud Terraform templates.
 since_version: v1.0.0
-verified_version: v2.14.0
+verified_version: v2.14.1
 last_verified: 2026-08-23
 sidebar:
   order: 6

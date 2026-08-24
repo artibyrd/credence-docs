@@ -3,7 +3,7 @@ title: Global Web Intelligence, DCI & Epistemic Weather
 description: Technical specification for Domain Credence Index (DCI), Top 10 Violated
   Rules Aggregator, Macro Epistemic Weather, and Community Bounties.
 since_version: v1.0.0
-verified_version: v2.14.0
+verified_version: v2.14.1
 last_verified: 2026-08-23
 ---
 
