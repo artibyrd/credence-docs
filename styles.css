@@ -43,28 +43,15 @@
   background: transparent;
   border: none;
   color: var(--text-muted, #94a3b8);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  padding: 0.45rem 0.6rem;
+  padding: 0.45rem 0.5rem;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.15s ease;
   font-family: inherit;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-}
-
-.plane-toggle-btn .plane-icon {
-  font-size: 0.95rem;
-  flex-shrink: 0;
-}
-
-.plane-toggle-btn .plane-text {
   white-space: nowrap;
-  font-weight: 600;
 }
 
 .plane-toggle-btn:hover {
