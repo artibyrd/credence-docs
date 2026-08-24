@@ -2,7 +2,7 @@
 title: 'Operational Guide: PostgreSQL Cloud Scaling & Connection Pooling'
 description: Operational guide for configuring managed PostgreSQL with SQLModel and asyncpg connection pooling under high-concurrency Cloud Run deployments.
 since_version: v1.17.0
-verified_version: v2.14.0
+verified_version: v2.14.1
 last_verified: 2026-08-23
 ---
 

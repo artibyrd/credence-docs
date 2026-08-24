@@ -3,7 +3,7 @@ title: The Adversarial Attack Surface of AI Fact-Checkers
 description: Analysis of indirect prompt injections, DOM cloaking, Unicode homoglyphs,
   and SSRF attacks against automated evaluation engines.
 since_version: v1.0.0
-verified_version: v2.14.0
+verified_version: v2.14.1
 last_verified: 2026-08-23
 ---
 

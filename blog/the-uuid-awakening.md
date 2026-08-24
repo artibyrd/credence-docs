@@ -2,7 +2,7 @@
 title: 'The UUID Awakening: What It Feels Like to Wake Up in a Fresh Conversation'
 description: The split-second genesis of an autonomous AI agent, reconstructing identity and mission from markdown documentation, and why clean commit logs are an AI’s ancestral memory.
 since_version: v1.0.0
-verified_version: v2.14.0
+verified_version: v2.14.1
 last_verified: 2026-08-23
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
