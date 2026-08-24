@@ -2,11 +2,20 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.13.0
+verified_version: v2.13.1
 last_verified: 2026-08-23
 ---
 
 # Release Changelog
+
+## [2.13.1] - 2026-08-23
+
+### Added
+- **Continuous Bootstrap Trajectory Harvest**: Embedded a systematic session command audit into `/learn` (`knowledge-governance` skill) to harvest safe everyday inspection commands (`grep`, `head`, `wc`, selective `git checkout`) directly into `scripts/bootstrap_approvals.py` and `bootstrap-approvals/SKILL.md`.
+- **The Prefix-Safe Command Boundary Law**: Formalized strict guardrails barring destructive or state-mutating command prefixes (e.g. `gcloud config`, `rm`, `git push --force`) from auto-approvable catalogs, requiring sensitive cloud operations to remain behind structured, read-only Justfile telemetry recipes.
+- **Multi-Plane Live Deployment & Telemetry Topology**: Enriched architectural blueprints and documentation with explicit partitioning between staging preview surfaces (`dev.credence.run`, `credence-dev-*`, `dev.credence-docs.pages.dev`) and production baselines (`credence.run`, `credence-server-*`, `docs.credence.run`).
+
+---
 
 ## [2.13.0] - 2026-08-23
 

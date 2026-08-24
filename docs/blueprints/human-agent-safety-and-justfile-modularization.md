@@ -155,3 +155,58 @@ Downstream mutating recipes declare their exact authentication prerequisites as 
 * `edge-deploy`: `(preflight "wrangler") (auth-check "wrangler")`
 * `release`: `(auth-check "gh")`
 
+---
+
+## 8. The Prefix-Safe Command Boundary Law ("No Spicy Prefixes")
+
+The Antigravity IDE approval gate evaluates agent commands by **`binary subcommand` prefix matching**. When a user selects *"Always Allow"* for `blaze build`, the engine auto-approves all subsequent invocations matching the `blaze build` prefix.
+
+### The Spicy Prefix Hazard
+If a broad prefix like `gcloud config` or `rm` is approved, the prefix match inadvertently authorizes destructive or state-mutating subcommands (such as `gcloud config set project <prod>` or `rm -rf <path>`).
+
+### Architectural Safeguard
+1. **Zero Raw Cloud Mutators**: Raw cloud management commands are strictly barred from auto-approvable catalogs.
+2. **Encapsulation in Read-Only Recipes**: Cloud telemetry and auth inspections must be encapsulated inside structured, read-only Justfile recipes (e.g. `just auth-check gcloud` or `just cloud-status`) that cannot be hijacked to run arbitrary cloud mutations.
+3. **Hermetic Command Shapes**: All cataloged shapes outside `just` must be pure read operations (`git status -s`, `git diff --stat`, `grep -i ...`, `poetry version`).
+
+---
+
+## 9. Continuous Bootstrap Trajectory Harvest in the Learning Lifecycle
+
+The bootstrap catalog is not static; it evolves alongside developer patterns during the **4-Phase Release & Lean Learning Lifecycle** (`/learn`).
+
+```text
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                   CONTINUOUS BOOTSTRAP COMMAND HARVEST CYCLE (/learn)                            │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                                  │
+│   [Session Workflows & Agent Operations]                                                         │
+│                    │                                                                             │
+│                    ▼                                                                             │
+│   [/learn Session Trajectory Audit] ──► Scan `transcript.jsonl` tool calls for manual approvals │
+│                    │                                                                             │
+│                    ▼                                                                             │
+│   [Prefix-Safe Boundary Filter]     ──► Verify commands are read-only & non-destructive          │
+│                    │                                                                             │
+│                    ▼                                                                             │
+│   [Catalog & Skill Synchronized]    ──► Auto-graduated into `scripts/bootstrap_approvals.py`      │
+│                                         and `bootstrap-approvals/SKILL.md`                       │
+│                                                                                                  │
+└──────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+During each `/learn` run, the agent audits its session trajectory for recurring safe inspection commands (e.g., `grep`, `head`, `wc`, selective `git checkout`) and graduates them into the primary bootstrapping catalog for future workspace velocity.
+
+---
+
+## 10. Multi-Plane Live Deployment & Telemetry Topology
+
+Credence strictly isolates preview staging from production baselines across all three planes:
+
+| Plane / Layer | Dev Preview Surface | Production Baseline Surface | Governance Contract |
+| :--- | :--- | :--- | :--- |
+| **Compute Plane** | Cloud Run Dev (`credence-dev-495173`) | Cloud Run Prod (`credence-prod-505902`) | Least-privilege WIF service account isolation |
+| **Edge Plane** | `https://dev.credence.run` | `https://credence.run` | Cloudflare Worker dynamic origin routing |
+| **Documentation** | `https://dev.credence-docs.pages.dev` | `https://docs.credence.run` | Cloudflare Pages branch deployments (`--branch=dev` vs `main`) |
+
+
