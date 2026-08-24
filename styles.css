@@ -24,6 +24,136 @@
   margin-bottom: 1.5rem;
 }
 
+/* Sidebar Plane Toggle */
+.sidebar-plane-toggle {
+  display: flex;
+  gap: 0.35rem;
+  background: rgba(15, 23, 42, 0.7);
+  padding: 0.25rem;
+  border-radius: 8px;
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  margin-bottom: 0.75rem;
+}
+
+.plane-toggle-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.plane-toggle-btn:hover {
+  color: var(--text-light, #f8fafc);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.plane-toggle-btn.active {
+  color: var(--accent-cyan, #38bdf8);
+  background: rgba(56, 189, 248, 0.18);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* 3-Tier Pyramid Lensing Section Headers */
+.sidebar-tier-header {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 1.25rem 0 0.5rem 0;
+  padding: 0.25rem 0.4rem;
+  border-bottom: 1px dashed rgba(56, 189, 248, 0.2);
+}
+
+.sidebar-tier-header:first-of-type {
+  margin-top: 0.25rem;
+}
+
+.tier-badge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.sidebar-tier-header[data-tier="1"] .tier-badge {
+  background: rgba(56, 189, 248, 0.2);
+  color: var(--accent-cyan, #38bdf8);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.sidebar-tier-header[data-tier="2"] .tier-badge {
+  background: rgba(52, 211, 153, 0.2);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.4);
+}
+
+.sidebar-tier-header[data-tier="3"] .tier-badge {
+  background: rgba(168, 85, 247, 0.2);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+}
+
+.tier-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted, #94a3b8);
+}
+
+/* Sidebar Bridge Card */
+.sidebar-bridge-card {
+  margin: 1.5rem 0 1rem 0;
+  padding: 0.6rem;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  transition: all 0.2s ease;
+}
+
+.sidebar-bridge-card:hover {
+  border-color: var(--accent-cyan, #38bdf8);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.sidebar-bridge-link {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.bridge-icon {
+  font-size: 1.1rem;
+}
+
+.bridge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.bridge-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-cyan, #38bdf8);
+}
+
+.bridge-subtitle {
+  font-size: 0.68rem;
+  color: var(--text-muted, #94a3b8);
+  line-height: 1.25;
+}
+
 .search-input {
   width: 100%;
   padding: 0.65rem 0.85rem;
