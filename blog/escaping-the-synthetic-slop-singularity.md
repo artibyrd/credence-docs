@@ -17,24 +17,13 @@ summary: A mathematical analysis of recursive model collapse, probability mass t
 
 *The mathematical dynamics of recursive model collapse, probability mass truncation, and how Credence's $G=1.00$ verbatim grounding invariant anchors truth back to empirical reality.*
 
+![Figure 1.1: Model collapse probability distribution degradation vs character-offset verbatim grounding](assets/illustrations/escaping-the-synthetic-slop-singularity.svg)
+
 ---
 
 ## 1. The Mathematics of Recursive Model Collapse
 
 When an artificial intelligence model is trained on the output of previous generations of AI models, a well-documented mathematical failure mode occurs: **Model Collapse**.
-
-```text
-+--------------------------------------------------------------------------------------------------+
-|                         PROBABILITY DENSITY COLLAPSE ACROSS GENERATIONS                          |
-+--------------------------------------------------------------------------------------------------+
-|                                                                                                  |
-|   Generation 0 (Human Ground Truth)      Generation 2 (Synthetic Feedback)   Generation 5 (Collapse)    |
-|            +---------+                                +---+                            |         |
-|         ---+         +---                          ---+   +---                      ---+---      |
-|       Rich Tail Variance (H=0.82)              Tails Vanish (H=0.48)             Degenerate Spikes   |
-|                                                                                                  |
-+--------------------------------------------------------------------------------------------------+
-```
 
 Formally, consider an empirical data distribution $\mathcal{D}_0$. In generation $t+1$, an LLM is trained on synthetic text $\mathcal{D}_t$ sampled from generation $t$:
 
@@ -55,24 +44,11 @@ How do you prevent an autonomous verification node from drifting into synthetic 
 
 Credence establishes a mathematical anchor through **Epistemic Verbatim Grounding** ([`inv-verbatim-grounding`](#docs/invariants)):
 
-```text
-+--------------------------------------------------------------------------------------------------+
-|                           THE G=1.00 VERBATIM GROUNDING VERIFICATION GATE                        |
-+--------------------------------------------------------------------------------------------------+
-|                                                                                                  |
-|  [Source Article DOM] --▶ Raw Text Content: "Council voted 4-1 to approve the $12M bond."       |
-|                                                                                                  |
-|  [LLM Audit Finding]  --▶ Extracted Citation: "Council voted 4-1 to approve the $12M bond."     |
-|                                                                                                  |
-|  [Verification Gate]                                                                             |
-|  1. Normalize whitespace: s/\\s+/ /g in both strings                                             |
-|  2. Exact character-offset substring search: source.indexOf(citation) !== -1                     |
-|                                                                                                  |
-|  --▶ RESULT: MATCH ($G = 1.00$) --▶ Attestation Validated & Signed with Ed25519                  |
-|  --▶ MISMATCH: ($G < 1.00$)    --▶ AUTONOMOUS 50% REPUTATION SCORE SLASH ON AUDITING NODE       |
-|                                                                                                  |
-+--------------------------------------------------------------------------------------------------+
-```
+1. **Whitespace Normalization**: `s/\s+/ /g` executed across both source DOM text and extracted citation candidate.
+2. **Exact Offset Substring Matching**: `sourceText.indexOf(citationText) !== -1`.
+3. **Verification Verdict**:
+   - **Match ($G = 1.00$)**: Attestation validated and signed with Ed25519 in RFC 8785 envelope.
+   - **Mismatch ($G < 1.00$)**: Immediate autonomous 50% reputation score slash on auditing node.
 
 ### The 50% Hallucination Slashing Rule
 In Credence, an LLM finding is not accepted on "vibes" or semantic similarity embeddings. If an auditing node claims that an article committed a journalistic violation, it **must** supply the exact, unabridged verbatim substring from the source article.
@@ -89,26 +65,11 @@ If the quote fails exact character matching:
 Another primary driver of model collapse is **architectural monoculture**—when every agent in an ecosystem relies on the same proprietary API provider, inheriting the same alignment biases and blind spots.
 
 Credence enforces **Multi-Model Sovereignty** ([`inv-multi-model-sovereignty`](#docs/invariants)) across 5 decoupled inference adapters:
-
-```text
-+--------------------------------------------------------------------------------------------------+
-|                              MULTI-MODEL DECOUPLED INFERENCE SUITE                               |
-+--------------------------------------------------------------------------------------------------+
-|                                                                                                  |
-|   +------------------------+  +------------------------+  +---------------------------------+    |
-|   | Google Gemini 3.7      |  | Anthropic Claude 3.7   |  | Local Ollama / vLLM             |    |
-|   | Flash (Default 4k)     |  | Sonnet (High-Nuance)   |  | (Llama 3.3 70B - 100% Air-Gap)  |    |
-|   +------------------------+  +------------------------+  +---------------------------------+    |
-|               |                            |                               |                     |
-|               +----------------------------+-------------------------------+                     |
-|                                            ▼                                                     |
-|                           [Cross-Profile Pareto Benchmark Gate]                                  |
-|                           - Free (Structural Heuristic)                                          |
-|                           - Balanced (4,096 Thinking Tokens)                                     |
-|                           - Ultra (Deep Discursive Multi-Agent)                                  |
-|                                                                                                  |
-+--------------------------------------------------------------------------------------------------+
-```
+- **Google Gemini 3.7 Flash** (Default 4k Thinking Tokens)
+- **Anthropic Claude 3.7 Sonnet** (High-Nuance Epistemic Reasoning)
+- **OpenAI GPT-4o** (Deterministic Structured Outputs)
+- **DeepSeek R1** (Open Weights Multi-Step Mathematical Verification)
+- **Local Ollama / vLLM** (Llama 3.3 70B - 100% Air-Gapped Sovereign Hardware)
 
 By decoupling evaluation across different model architectures and verifying them against offline Golden 12 benchmark fixtures (`test_golden12_suite.py`), Credence ensures that synthetic blind spots in one model are caught by diverse architectures and local air-gapped models.
 

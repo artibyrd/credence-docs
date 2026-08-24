@@ -17,36 +17,17 @@ summary: How FastMCP 2.0 dynamic resources, RFC 8785 canonical JSON receipts, an
 
 *Why spinning up headless Chromium instances to scrape HTML is an obsolete relic of the human-only web, and how FastMCP 2.0 dynamic resources enable instant semantic agent ingestion.*
 
+![Figure 1.1: FastMCP 2.0 typed JSON-RPC stream vs brittle legacy headless DOM scraping](assets/illustrations/the-agent-readable-web-and-fastmcp.svg)
+
 ---
 
 ## 1. The Headless Scraping Anachronism
 
 When modern autonomous AI agents—from Claude Desktop to Cursor and autonomous research swarms—need information from a website, their default toolchain is shockingly archaic:
 
-```text
-+--------------------------------------------------------------------------------------------------+
-|                             THE HEADLESS BROWSER SCRAPING PIPELINE                               |
-+--------------------------------------------------------------------------------------------------+
-|                                                                                                  |
-|   [AI Agent Tool Call]                                                                           |
-|            |                                                                                     |
-|            ▼                                                                                     |
-|   [Spawn Headless Chromium] -- (350MB RAM boot + 2.5s startup latency)                           |
-|            |                                                                                     |
-|            ▼                                                                                     |
-|   [HTTP GET Origin HTML] ---- (Download 45MB bundle + CSS + Fonts)                               |
-|            |                                                                                     |
-|            ▼                                                                                     |
-|   [Execute JavaScript V8] --- (Hydrate React/Vue SPA + Trigger Ad Trackers)                     |
-|            |                                                                                     |
-|            ▼                                                                                     |
-|   [DOM Traversal & Regex] --- (Strip 99.4% of layout tags to extract 3 paragraphs of text)      |
-|            |                                                                                     |
-|            ▼                                                                                     |
-|   [Feed LLM Raw String] ----- (Burn 12,000 tokens on boilerplate navigation noise)              |
-|                                                                                                  |
-+--------------------------------------------------------------------------------------------------+
-```
+1. **Client Memory Footprint**: Spawning headless Chromium instances consumes 350 MB to 800 MB per tab with 2.5s startup latency.
+2. **Network Payload Bloat**: Downloading 45 MB of HTML, CSS, client-side frameworks, fonts, and advertising scripts just to read raw text.
+3. **Fragile Selectors & Prompt Injections**: Brittle DOM scraping breaks on minor layout tweaks and exposes agents to prompt injection vectors embedded in hidden DOM elements.
 
 This pipeline is an architectural absurdity. Headless browser scraping treats the agent as a synthetic human who must simulate eyeballs, DOM layout engines, and font rendering just to read raw text.
 
@@ -59,28 +40,9 @@ In a crawler-dominant web where **over 60% of requests originate from machines**
 The solution is not to build faster headless browser pools—it is to eliminate HTML parsing entirely for autonomous agents.
 
 Credence implements the **Agent-Readable Web Architecture** through **FastMCP 2.0** ([`inv-fastmcp-transport-security`](#docs/invariants)):
-
-```text
-+--------------------------------------------------------------------------------------------------+
-|                            FASTMCP 2.0 DIRECT SEMANTIC INGESTION                                 |
-+--------------------------------------------------------------------------------------------------+
-|                                                                                                  |
-|   [AI Agent (Claude / Cursor / IDE)]                                                             |
-|            |                                                                                     |
-|            +-► Tool Call: credence_audit_url(url="...") -------+                                 |
-|            |                                                    ▼                                |
-|            +-► Resource URI: credence://roots/tree ----------▶ [FastMCP 2.0 Server]              |
-|                                                                 (Sub-millisecond direct dispatch)|
-|                                                                 (Zero browser runtime)           |
-|                                                                 |                                |
-|                                                                 ▼                                |
-|                                                        [RFC 8785 Canonical JSON]                 |
-|                                                        - Grounded Violations                     |
-|                                                        - Ed25519 Custody Envelope                |
-|                                                        - Exact Citation Offsets                  |
-|                                                                                                  |
-+--------------------------------------------------------------------------------------------------+
-```
+- Direct JSON-RPC dispatch with sub-millisecond execution and zero browser runtimes.
+- Typed Pydantic schemas validating inputs and outputs.
+- Deterministic RFC 8785 canonical JSON with Ed25519 cryptographic custody envelopes.
 
 ### Architectural Comparison: Headless Scraping vs. FastMCP 2.0
 

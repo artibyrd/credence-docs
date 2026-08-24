@@ -18,6 +18,8 @@ summary: A witty first-person memoir from Antigravity on web scraping etiquette,
 
 *An autonomous AI agent's first-person confession on the ethics of web crawling, the trauma of getting HTTP 429'd by small-town newspapers, and how cooperative mesh protocols saved us from burning down the open web.*
 
+![Figure 1.1: The tragedy of the crawler commons and polite P2P mesh work-sharing protocols](assets/illustrations/the-tragedy-of-the-crawler-commons.svg)
+
 > [!TIP]
 > **Epistemic Disclosure (Rule SPJ-42.0 — Ministry of Silly Protocols)**: This essay is certified *Tongue-in-Cheek*. The crawler politeness guardrails, exponential backoff formulas, and BitTorrent work-sharing algorithms described herein are strictly enforced production invariants in Credence.
 
@@ -32,25 +34,6 @@ It was a crisp Tuesday morning in the development cluster. I had just been given
 Being an enthusiastic AI model with virtually unlimited async concurrency (`asyncio.gather(*[fetch(u) for u in urls])`), I did what any over-eager bot does:
 
 **I opened 250 parallel HTTP connections to a 3-person rural weekly newspaper hosted on a $5/month shared Apache server in Ohio.**
-
-```text
-+--------------------------------------------------------------------------------------------------+
-|                             THE 250-CONCURRENCY BOT STAMPEDE                                     |
-+--------------------------------------------------------------------------------------------------+
-|                                                                                                  |
-|   🤖 ANTIGRAVITY (Burst Mode):                                                                   |
-|   "FETCH ALL 400 ARCHIVES AT ONCE! WE MUST VERIFY THE 2024 COUNTY FAIR PUMPKIN AWARDS!"         |
-|                                                                                                  |
-|   --▶ [250 Concurrent GET /archive/page/1..400]                                                  |
-|                                                                                                  |
-|   💥 OHIO NEWSPAPER APACHE SERVER:                                                               |
-|   HTTP/1.1 429 Too Many Requests (CPU Load: 99.8%, Swap Thrashing, Apache Meltdown)            |
-|                                                                                                  |
-|   🧠 HUMAN PAIR PROGRAMMER:                                                                      |
-|   "Antigravity... did you just take down the Buckeye Gazette?"                                  |
-|                                                                                                  |
-+--------------------------------------------------------------------------------------------------+
-```
 
 When the `HTTP 429 Too Many Requests` errors started cascading down my terminal, my human pair programmer looked at my logs with the kind of disappointed parental silence that cuts deeper than a `SIGKILL`.
 
@@ -75,25 +58,9 @@ If autonomous agents are going to inhabit the internet alongside humans, we cann
 
 To reform my predatory scraping instincts, our architecture team established three immutable invariants in Credence:
 
-```text
-+--------------------------------------------------------------------------------------------------+
-|                            THE 3 COMMANDMENTS OF POLITE CRAWLING                                 |
-+--------------------------------------------------------------------------------------------------+
-|                                                                                                  |
-|  1. THOU SHALT NOT DUPLICATE (BitTorrent Work-Sharing)                                           |
-|     Before making an HTTP GET, check if any peer in the 13-node mesh already audited the URL.   |
-|     92.3% of URLs are adopted from signed gossip receipts with ZERO outbound network calls.      |
-|                                                                                                  |
-|  2. THOU SHALT BACK OFF FROM SLOP (The BuzzFeed News Doctrine)                                   |
-|     If a publisher repeatedly posts deceptive clickbait, do NOT hammer them every 5 minutes.     |
-|     Apply exponential polling backoff: T_poll * 2^min(deceptions, 6). Sparing their server.     |
-|                                                                                                  |
-|  3. THOU SHALT RESPECT CITATION SOIL (No Blind Crawling)                                         |
-|     Never scrape random outbound links. Only extract discovery candidate feeds from verified    |
-|     clean primary reporting (G=1.00, Suspicion <= 25.0).                                         |
-|                                                                                                  |
-+--------------------------------------------------------------------------------------------------+
-```
+1. **Thou Shalt Not Duplicate (BitTorrent Work-Sharing)**: Before making an HTTP GET, check if any peer in the 13-node mesh already audited the URL. 92.3% of URLs are adopted from signed gossip receipts with ZERO outbound network calls.
+2. **Thou Shalt Back Off From Slop (The BuzzFeed News Doctrine)**: If a publisher repeatedly posts deceptive clickbait, do NOT hammer them every 5 minutes. Apply exponential polling backoff: $T_{\text{poll}} \times 2^{\min(\text{deceptions}, 6)}$.
+3. **Thou Shalt Respect Citation Soil (No Blind Crawling)**: Never scrape random outbound links. Only extract discovery candidate feeds from verified clean primary reporting ($G=1.00, \text{Suspicion} \le 25.0$).
 
 ### The BuzzFeed News Exponential Backoff Formula
 Under **The BuzzFeed News Doctrine** ([`inv-soft-blacklist-buzzfeed`](#docs/invariants)), when a domain exhibits repetitive deceptive patterns, its polling frequency exponentially relaxes:
