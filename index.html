@@ -49,8 +49,12 @@
     <aside class="docs-sidebar">
       <div class="search-container">
         <div class="sidebar-plane-toggle" id="sidebar-plane-toggle">
-          <button type="button" class="plane-toggle-btn active" data-plane="docs" id="plane-btn-docs">📘 Technical Docs</button>
-          <button type="button" class="plane-toggle-btn" data-plane="blog" id="plane-btn-blog">✍️ Sovereign Blog</button>
+          <button type="button" class="plane-toggle-btn active" data-plane="docs" id="plane-btn-docs">
+            <span class="plane-icon">📘</span><span class="plane-text">Technical Docs</span>
+          </button>
+          <button type="button" class="plane-toggle-btn" data-plane="blog" id="plane-btn-blog">
+            <span class="plane-icon">✍️</span><span class="plane-text">Sovereign Blog</span>
+          </button>
         </div>
         <div class="search-input-wrapper">
           <input type="text" id="doc-search" class="search-input" placeholder="Search docs, tags, #invariants..." autocomplete="off">

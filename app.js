@@ -1996,20 +1996,29 @@ export function renderSidebar(activeId) {
       </div>
 
       <div class="sidebar-tier-header" data-tier="1">
-        <span class="tier-badge">TIER 1</span>
-        <span class="tier-label">Surface Lens (Orientation &amp; Quickstarts)</span>
+        <div class="tier-badge-row">
+          <span class="tier-badge">TIER 1</span>
+          <span class="tier-label">Surface Lens</span>
+        </div>
+        <span class="tier-subtext">Orientation &amp; Quickstarts</span>
       </div>
       ${renderTierGroups(tier1Cats)}
 
       <div class="sidebar-tier-header" data-tier="2">
-        <span class="tier-badge">TIER 2</span>
-        <span class="tier-label">Focus Lens (Hands-On &amp; Workstations)</span>
+        <div class="tier-badge-row">
+          <span class="tier-badge">TIER 2</span>
+          <span class="tier-label">Focus Lens</span>
+        </div>
+        <span class="tier-subtext">Hands-On &amp; Workstations</span>
       </div>
       ${renderTierGroups(tier2Cats)}
 
       <div class="sidebar-tier-header" data-tier="3">
-        <span class="tier-badge">TIER 3</span>
-        <span class="tier-label">Deep Spectrum Lens (Protocols, Forensics &amp; Math)</span>
+        <div class="tier-badge-row">
+          <span class="tier-badge">TIER 3</span>
+          <span class="tier-label">Deep Spectrum Lens</span>
+        </div>
+        <span class="tier-subtext">Protocols, Forensics &amp; Math</span>
       </div>
       ${renderTierGroups(tier3Cats)}
 
