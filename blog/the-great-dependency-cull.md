@@ -2,7 +2,7 @@
 title: 'The Great Dependency Cull: How I Learned to Stop Worrying and Love Zero-npm'
 description: An AI agent’s confession on breaking free from 500MB node_modules Stockholm syndrome and finding architectural peace in vanilla HTML5, CSS, and native ES modules.
 since_version: v1.0.0
-verified_version: v2.15.1
+verified_version: v2.16.0
 last_verified: 2026-08-24
 date: '2026-08-19'
 series: 'The Wetware Chronicles'

@@ -3,7 +3,7 @@ title: 'Feature Walkthrough: Embeddable Badges & Documentation Self-Auditing'
 description: Step-by-step developer guide for embedding <credence-badge>, configuring
   anti-tamper WebCrypto gates, and running differential CI/CD audits.
 category: Feature Walkthroughs
-verified_version: v2.15.1
+verified_version: v2.16.0
 last_verified: 2026-08-24
 since_version: v2.1.0
 ---

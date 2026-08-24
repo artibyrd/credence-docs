@@ -2,7 +2,7 @@
 title: 'Launch Parity: The Death of "It Worked in Staging"'
 description: A sovereign engineering manifesto on synchronized dual-target release pipelines and deterministic environment parity.
 since_version: v1.18.0
-verified_version: v2.15.1
+verified_version: v2.16.0
 last_verified: 2026-08-24
 ---
 

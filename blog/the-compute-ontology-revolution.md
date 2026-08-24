@@ -7,7 +7,7 @@ date: '2026-08-20'
 author: Credence Protocol Research
 category: Epistemology
 since_version: v2.0.0
-verified_version: v2.15.1
+verified_version: v2.16.0
 last_verified: 2026-08-24
 ---
 

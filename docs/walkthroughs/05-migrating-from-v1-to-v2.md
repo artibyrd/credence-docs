@@ -3,7 +3,7 @@ title: 'Walkthrough: Migrating from v1.x to v2.0.0'
 description: Step-by-step migration guide for upgrading custom scripts, programmatic
   agents, and MCP client configurations to Credence v2.0.0.
 since_version: v2.0.0
-verified_version: v2.15.1
+verified_version: v2.16.0
 last_verified: 2026-08-24
 ---
 

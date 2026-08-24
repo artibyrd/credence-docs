@@ -2,7 +2,7 @@
 title: 'Cookbook: Sovereign Node on Hetzner VPS with Systemd'
 description: Recipe for hosting a sovereign, cost-efficient Credence node on a $4/mo Hetzner Linux VPS using systemd and SQLite WAL.
 since_version: v1.18.0
-verified_version: v2.15.1
+verified_version: v2.16.0
 last_verified: 2026-08-24
 ---
 
