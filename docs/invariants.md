@@ -26,16 +26,6 @@ read_time: 15 min
 
 Mandatory invariants, mathematical formulas, runtime guardrails, and agentic engineering standards governing human contributors, AI pair programmers, and autonomous agents across the Credence network.
 
-<div class="invariant-scope-filter-bar">
-  <div class="scope-filter-label">Filter Living Canon by Scope:</div>
-  <div class="scope-filter-buttons">
-    <button type="button" class="scope-btn active" data-scope-filter="all">All Invariants (57)</button>
-    <button type="button" class="scope-btn" data-scope-filter="universal">🌐 Universal Agentic Standards (37)</button>
-    <button type="button" class="scope-btn" data-scope-filter="domain">🔬 Credence Epistemic Domain (20)</button>
-  </div>
-  <button type="button" class="export-starter-btn" id="btn-export-agentic-pack">📦 Export Universal Agentic Starter Pack</button>
-</div>
-
 | Pillar Domain | Scope & Focus | Primary Verification Gate | Core Engineering Guarantees |
 | :--- | :--- | :--- | :--- |
 | **1. Core Engineering & Runtime Safety** | Workspaces, async DB, token budgets, SSRF | `just test` (Hermetic in-memory SQLite) | Python 3.12 async, SSRF defense, 4k Pareto token budget |
@@ -45,6 +35,16 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
 
 > [!IMPORTANT]
 > **Continuous Verification Invariant**: Every code change must pass automated static verification (`pytest tests/test_docs_integrity.py`), Playwright live rendering suites (`tests/test_docs_rendering.py`), and version parity checks before presenting for human review (**"Mk1 Eyeball"**). Invariants are a living, expanding canon of verifiable constraints.
+
+<div class="invariant-scope-filter-bar">
+  <div class="scope-filter-label">Filter Living Canon by Scope:</div>
+  <div class="scope-filter-buttons">
+    <button type="button" class="scope-btn active" data-scope-filter="all">All Invariants (57)</button>
+    <button type="button" class="scope-btn" data-scope-filter="universal">🌐 Universal Agentic Standards (37)</button>
+    <button type="button" class="scope-btn" data-scope-filter="domain">🔬 Credence Epistemic Domain (20)</button>
+  </div>
+  <button type="button" class="export-starter-btn" id="btn-export-agentic-pack">📦 Export Universal Agentic Starter Pack</button>
+</div>
 
 
 ---
