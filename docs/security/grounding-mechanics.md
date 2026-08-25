@@ -3,7 +3,7 @@ title: Verbatim Grounding Mechanics & Slashing
 description: How exact character substring offsets, whitespace collapsing, and 50%
   reputation slashes eliminate model hallucinations.
 since_version: v1.0.0
-verified_version: v2.16.6
+verified_version: v2.16.7
 last_verified: 2026-08-24
 ---
 

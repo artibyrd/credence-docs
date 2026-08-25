@@ -4,7 +4,7 @@ description: How human-agent pair programming with Google Antigravity accelerate
   complex software engineering through planning mode, asynchronous background tasks,
   and human gating.
 since_version: v1.0.0
-verified_version: v2.16.6
+verified_version: v2.16.7
 last_verified: 2026-08-24
 tags:
 - antigravity

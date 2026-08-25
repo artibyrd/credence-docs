@@ -2,7 +2,7 @@
 title: Poe's Law & Satire Cloaking Defense
 description: Two-tier satire pipeline, linguistic irony detection, SPJ-1.6 overrides, and protecting genuine parody.
 since_version: v1.0.0
-verified_version: v2.16.6
+verified_version: v2.16.7
 last_verified: 2026-08-24
 sidebar:
   order: 1

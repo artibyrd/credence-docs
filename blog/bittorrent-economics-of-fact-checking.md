@@ -2,7 +2,7 @@
 title: 'BitTorrent for Truth: The 92.3% Work-Sharing Economics of Decentralized Epistemics'
 description: How P2P gossip distribution allows peer nodes to share Ed25519 audit receipts, cutting aggregate network inference costs by 92.3%.
 since_version: v1.0.0
-verified_version: v2.16.6
+verified_version: v2.16.7
 last_verified: 2026-08-24
 sidebar:
   order: 1
