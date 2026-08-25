@@ -1687,16 +1687,23 @@ textarea:focus-visible,
 
 /* Invariant Scope Filter Bar */
 .invariant-scope-filter-bar {
+  position: sticky;
+  top: 3.5rem;
+  z-index: 90;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  background: rgba(9, 13, 22, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   padding: 0.85rem 1.15rem;
   margin: 1.5rem 0 2rem 0;
+  transition: all 0.2s ease;
 }
 
 .scope-filter-label {

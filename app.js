@@ -4197,22 +4197,80 @@ export function setupInvariantsPageInteractivity() {
   const buttons = filterBar.querySelectorAll('.scope-btn');
   const cards = document.querySelectorAll('.invariant-card');
 
+  // Add dynamic live status pill if not present
+  let statusPill = filterBar.querySelector('.scope-filter-status');
+  if (!statusPill) {
+    statusPill = document.createElement('span');
+    statusPill.className = 'scope-filter-status';
+    statusPill.style.cssText = 'font-size: 0.8rem; font-weight: 600; color: var(--accent-cyan, #38bdf8); font-family: monospace; padding: 0.2rem 0.5rem; background: rgba(56, 189, 248, 0.1); border-radius: 4px; margin-left: 0.5rem;';
+    const label = filterBar.querySelector('.scope-filter-label');
+    if (label) label.appendChild(statusPill);
+    else filterBar.prepend(statusPill);
+  }
+
+  function applyFilter(filter) {
+    let visibleCount = 0;
+    cards.forEach(card => {
+      const scope = card.getAttribute('data-scope');
+      if (filter === 'all' || filter === scope) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (filter === 'all') {
+      statusPill.textContent = `(Showing all ${visibleCount} Invariants)`;
+    } else if (filter === 'universal') {
+      statusPill.textContent = `(Showing ${visibleCount} Universal Standards)`;
+    } else if (filter === 'domain') {
+      statusPill.textContent = `(Showing ${visibleCount} Domain Invariants)`;
+    }
+
+    // Toggle pillar headings if all cards within that pillar are hidden
+    const pillarHeadings = document.querySelectorAll('#doc-content h2');
+    pillarHeadings.forEach(h2 => {
+      if (!h2.textContent.includes('Pillar')) return;
+      let next = h2.nextElementSibling;
+      let hasVisible = false;
+      while (next && next.tagName !== 'H2' && !next.matches('.table-container, .invariant-scope-filter-bar')) {
+        if (next.classList.contains('invariant-card') && next.style.display !== 'none') {
+          hasVisible = true;
+          break;
+        }
+        next = next.nextElementSibling;
+      }
+      if (filter === 'all' || hasVisible) {
+        h2.style.display = '';
+        const prevHr = h2.previousElementSibling;
+        if (prevHr && prevHr.tagName === 'HR') prevHr.style.display = '';
+      } else {
+        h2.style.display = 'none';
+        const prevHr = h2.previousElementSibling;
+        if (prevHr && prevHr.tagName === 'HR') prevHr.style.display = 'none';
+      }
+    });
+  }
+
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       const filter = btn.getAttribute('data-scope-filter');
-      cards.forEach(card => {
-        const scope = card.getAttribute('data-scope');
-        if (filter === 'all' || filter === scope) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      applyFilter(filter);
+
+      // If user is scrolled above the filter bar, smoothly scroll to it so cards are immediately visible
+      const rect = filterBar.getBoundingClientRect();
+      if (rect.top < 60 || rect.top > 250) {
+        filterBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
+
+  // Initial status count
+  applyFilter('all');
 
   const exportBtn = document.getElementById('btn-export-agentic-pack');
   if (exportBtn) {
