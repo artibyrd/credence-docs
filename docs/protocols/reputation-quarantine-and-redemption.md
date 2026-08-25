@@ -2,7 +2,7 @@
 title: 'Epistemic Protocol Specification: Domain Reputation, Soft Quarantine & Redemption (EPEP-17)'
 description: State machine transitions, half-life decay, exponential backoff, and evidentiary redemption for flagged publisher domains.
 since_version: v1.13.0
-verified_version: v2.16.6
+verified_version: v2.16.7
 last_verified: 2026-08-24
 sidebar:
   order: 8

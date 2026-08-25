@@ -3,7 +3,7 @@ title: Featherweight Swarm Simulation & Low-Resource Testing
 description: How Credence runs 13-node Byzantine-resistant P2P mesh cluster simulations
   in under 150MB of RAM and 4.5 seconds on dual-core laptops and Raspberry Pis.
 since_version: v1.6.0
-verified_version: v2.16.6
+verified_version: v2.16.7
 last_verified: 2026-08-24
 ---
 

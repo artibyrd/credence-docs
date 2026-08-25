@@ -2,11 +2,22 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.16.6
+verified_version: v2.16.7
 last_verified: 2026-08-24
 ---
 
 # Release Changelog
+
+## [2.16.7] - 2026-08-25
+
+### Fixed
+- **Zero-Hash Clean URL Routing & Canonical Slugs (`credence-docs/app.js` & `_worker.js`)**:
+  - Eliminated legacy hash-based routing (`#blog/...` and `#docs/...`) in favor of pure, clean URL path slugs across all documentation and blog essays (e.g. `https://blog.credence.run/the-pizza-hut-problem` and `https://docs.credence.run/protocols/scoring`).
+  - Added `resolveDocument()`, `getCanonicalDocUrl()`, and `getCleanRelativePath()` to decouple path resolution from fragment identifiers, reserving `#hash` strictly for in-page section DOM anchors.
+  - Implemented zero-reload internal client transitions via HTML5 `history.pushState` and `popstate` event listening.
+  - Added Cloudflare Pages SPA rules (`_redirects` with `/* /index.html 200` and `404.html`) and edge proxy fallback in `web/_worker.js`.
+  - Converted all 30 workstation modal knowledge topic URLs and static landing links to clean path canonical URLs.
+  - Added dynamic `<base>` tag injection in `index.html` to support nested clean paths and dev preview isolation without broken asset resolution.
 
 ## [2.16.6] - 2026-08-24
 

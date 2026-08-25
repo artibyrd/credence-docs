@@ -3,7 +3,7 @@ title: 'Operational Guide: Vendor-Agnostic Self-Hosting and Docker'
 description: Comprehensive operational guide for running sovereign Credence nodes
   across Docker Compose, Bare-Metal Linux, VPS, Kubernetes, and non-GCP clouds.
 since_version: v1.18.0
-verified_version: v2.16.6
+verified_version: v2.16.7
 last_verified: 2026-08-24
 ---
 

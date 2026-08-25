@@ -2,7 +2,7 @@
 title: "Tutorial 02: Distinguishing Satire from Disinformation (Poe's Law)"
 description: Learn how Credence protects political parody while catching malicious defamation cloaked as satire.
 since_version: v1.0.0
-verified_version: v2.16.6
+verified_version: v2.16.7
 last_verified: 2026-08-24
 sidebar:
   order: 2

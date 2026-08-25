@@ -4,7 +4,7 @@ description: How Credence P2P mesh clusters use Highest Random Weight (HRW) Rend
   Hashing to partition syndicated feeds without central coordinators, saving 92.3%
   compute.
 since_version: v1.14.1
-verified_version: v2.16.6
+verified_version: v2.16.7
 last_verified: 2026-08-24
 ---
 
