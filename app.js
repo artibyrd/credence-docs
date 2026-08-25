@@ -90,7 +90,8 @@ export const DOCS_REGISTRY = [
       { id: "docs/agentic/03-hermetic-testing-and-zero-npm-guardrails", title: "03. Hermetic Testing & Zero-npm", path: "docs/agentic/03-hermetic-testing-and-zero-npm-guardrails.md", desc: "Hermetic offline test suites and zero-npm static web guardrails.", keywords: ["hermetic", "testing", "zero-npm", "offline", "pytest", "guardrails"] },
       { id: "docs/agentic/04-multi-model-pareto-and-token-governance", title: "04. Multi-Model Pareto & Token Governor", path: "docs/agentic/04-multi-model-pareto-and-token-governance.md", desc: "Token budget governor, circuit breakers, and cost Pareto frontier.", keywords: ["pareto", "tokens", "governor", "circuit breaker", "budget", "cost", "headroom"] },
       { id: "docs/agentic/05-fastmcp-dual-transport-and-four-way-parity", title: "05. FastMCP & 4-Way Parity", path: "docs/agentic/05-fastmcp-dual-transport-and-four-way-parity.md", desc: "FastMCP 2.0 dual transport (stdio and SSE) and 4-way feature parity.", keywords: ["fastmcp", "transport", "stdio", "sse", "parity", "mcp", "streaming"] },
-      { id: "docs/agentic/06-the-demotion-highway-and-invariant-lifecycle", title: "06. Demotion Highway & Lifecycle", path: "docs/agentic/06-the-demotion-highway-and-invariant-lifecycle.md", desc: "Invariant lifecycle state machine, Class Alpha/Beta/Gamma ranking, and automated demotion scanner.", keywords: ["demotion", "highway", "lifecycle", "invariants", "taxonomy", "alpha", "beta", "gamma", "subagents", "scanner"] }
+      { id: "docs/agentic/06-the-demotion-highway-and-invariant-lifecycle", title: "06. Demotion Highway & Lifecycle", path: "docs/agentic/06-the-demotion-highway-and-invariant-lifecycle.md", desc: "Invariant lifecycle state machine, Class Alpha/Beta/Gamma ranking, and automated demotion scanner.", keywords: ["demotion", "highway", "lifecycle", "invariants", "taxonomy", "alpha", "beta", "gamma", "subagents", "scanner"] },
+      { id: "docs/agentic/07-bootstrapping-agentic-workflows-with-invariants", title: "07. Bootstrapping Agentic Invariants", path: "docs/agentic/07-bootstrapping-agentic-workflows-with-invariants.md", desc: "How to extract and bootstrap Universal Agentic Invariants to supercharge AI pair programming in any new project.", keywords: ["bootstrap", "starter pack", "universal", "invariants", "agents.md", "portable", "workflow", "governance"] }
     ]
   },
   {
@@ -1579,7 +1580,7 @@ export function parseMarkdown(md) {
   let inTable = false;
   let tableHeaderParsed = false;
 
-  const HTML_TAG_START_REGEX = /^<\/?(div|section|article|aside|nav|header|footer|main|figure|figcaption|img|svg|g|defs|filter|linearGradient|rect|circle|text|path|line|span|button|textarea|input|label|table|thead|tbody|tr|th|td|form|select|option|code|pre|p|h[1-6]|ul|ol|li|details|summary|hr|style|script|blockquote|!--)/i;
+  const HTML_TAG_START_REGEX = /^<\/?(a|div|section|article|aside|nav|header|footer|main|figure|figcaption|img|svg|g|defs|filter|linearGradient|rect|circle|text|path|line|span|button|textarea|input|label|table|thead|tbody|tr|th|td|form|select|option|code|pre|p|h[1-6]|ul|ol|li|details|summary|hr|style|script|blockquote|!--)/i;
 
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i];
@@ -4109,7 +4110,11 @@ export async function loadDocument(docId, anchorId = '') {
     }
 
     if (target.id.includes('conflict-of-pun-terest') || target.id.includes('the-publisher-on-the-dais') || document.getElementById('inmaricopa-forensics-workbench')) {
-      setupInMaricopaCaseStudyWidget();
+      setupInmaricopaCaseStudyWidget();
+    }
+
+    if (target.id === 'docs/invariants' || document.querySelector('.invariant-scope-filter-bar')) {
+      setupInvariantsPageInteractivity();
     }
 
     if (anchorId) {
@@ -4183,6 +4188,62 @@ export function syncAllTabGroups(preferredName) {
       activateTabInGroup(group, matchIdx);
     }
   });
+}
+
+export function setupInvariantsPageInteractivity() {
+  const filterBar = document.querySelector('.invariant-scope-filter-bar');
+  if (!filterBar) return;
+
+  const buttons = filterBar.querySelectorAll('.scope-btn');
+  const cards = document.querySelectorAll('.invariant-card');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-scope-filter');
+      cards.forEach(card => {
+        const scope = card.getAttribute('data-scope');
+        if (filter === 'all' || filter === scope) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  const exportBtn = document.getElementById('btn-export-agentic-pack');
+  if (exportBtn) {
+    exportBtn.addEventListener('click', () => {
+      const universalCards = Array.from(document.querySelectorAll('.invariant-card[data-scope="universal"]'));
+      let exportText = `# Universal Agentic Engineering Standards (Portable Starter Pack)\n\n`;
+      exportText += `Extracted from the Credence Living Invariant Canon (https://docs.credence.run/#docs/invariants).\n`;
+      exportText += `Drop this ruleset into AGENTS.md to bootstrap high-reliability agentic pair-programming in any repository.\n\n`;
+      exportText += `## Universal Core Invariants\n\n`;
+
+      universalCards.forEach(card => {
+        const titleEl = card.querySelector('h3 a') || card.querySelector('h3');
+        const headlineEl = card.querySelector('.invariant-headline');
+        const rules = Array.from(card.querySelectorAll('.agent-rules-list li')).map(li => li.textContent.trim());
+        
+        const title = titleEl ? titleEl.textContent.replace('The Invariant Bible: ', '').trim() : card.id;
+        const headline = headlineEl ? headlineEl.textContent.trim() : '';
+        const rulesStr = rules.join(' ');
+        
+        exportText += `- **\`${card.id}\` — 🌐 ${title}**: ${headline} ${rulesStr}\n`;
+      });
+
+      navigator.clipboard.writeText(exportText).then(() => {
+        const orig = exportBtn.textContent;
+        exportBtn.textContent = '✅ Copied Universal Starter Pack!';
+        setTimeout(() => { exportBtn.textContent = orig; }, 3000);
+      }).catch(err => {
+        console.warn('Clipboard write failed:', err);
+      });
+    });
+  }
 }
 
 // Global click event delegation for GCP-style tab buttons
