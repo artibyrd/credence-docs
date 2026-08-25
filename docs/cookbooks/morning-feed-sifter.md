@@ -3,9 +3,11 @@ title: Automated Morning Feed Sifter & Epistemic Digest
 description: Setting up zero-trust feed autodiscovery, dynamic quality governance,
   background sifting daemons, and automated executive intelligence briefings.
 since_version: v1.0.0
-verified_version: v2.16.7
-last_verified: 2026-08-24
+verified_version: v2.16.8
+last_verified: 2026-08-25
 ---
+
+# Automated Morning Feed Sifter & Epistemic Digest
 
 Newsrooms, OSINT analysts, enterprise compliance teams, and executive researchers spend hours filtering through hundreds of RSS, Atom, and JSON feeds every morning.
 

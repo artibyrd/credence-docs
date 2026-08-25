@@ -3,8 +3,8 @@ title: Watts-Strogatz Small-World Dynamics
 description: Mathematical formulation of small-world network topology (N=13, k=4,
   p=0.20), clustering coefficients, and epidemic gossip diffusion.
 since_version: v1.0.0
-verified_version: v2.16.7
-last_verified: 2026-08-24
+verified_version: v2.16.8
+last_verified: 2026-08-25
 ---
 
 # Watts-Strogatz Small-World Dynamics

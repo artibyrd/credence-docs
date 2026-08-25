@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.16.7';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.16.8';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -1944,6 +1944,11 @@ export function parseMarkdown(md) {
       frontmatter.invariants.forEach(inv => {
         metaBadges.push(`<a href="#docs/invariants#invariant-${inv}" class="meta-badge invariant">🛡️ Invariant ${inv}</a>`);
       });
+    }
+
+    // Defensive Anti-Headless Synthesis: If document lacks leading <h1>, synthesize one from frontmatter.title
+    if (frontmatter.title && !resultHtml.includes('</h1>')) {
+      resultHtml = `<h1>${escapeHtml(frontmatter.title)}</h1>\n` + resultHtml;
     }
 
     if (metaBadges.length > 0) {

@@ -3,9 +3,11 @@ title: Bootstrap Operator Guide
 description: Comprehensive 10-section operational runbook for multi-cloud deployment,
   P2P mesh operations, and seed governance.
 since_version: v1.0.0
-verified_version: v2.16.7
-last_verified: 2026-08-24
+verified_version: v2.16.8
+last_verified: 2026-08-25
 ---
+
+# Bootstrap Operator Guide
 
 > **Note**: Bootstrap Operator Guide & Runbook
 

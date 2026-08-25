@@ -2,8 +2,8 @@
 title: Zero-Touch Node Germination & Swarm Ignition
 description: 4-stage automated node bootstrap, Ed25519 identity generation, seed sync, and miracle-gro ignition.
 since_version: v1.13.0
-verified_version: v2.16.7
-last_verified: 2026-08-24
+verified_version: v2.16.8
+last_verified: 2026-08-25
 sidebar:
   order: 7
 ---

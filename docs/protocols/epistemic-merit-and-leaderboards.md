@@ -3,8 +3,8 @@ title: Epistemic Merit & Sovereign Node Leaderboards
 description: Technical specification for 5-level node tiers, 8 verifiable merit badges,
   operator maintenance half-life decay, and deterministic tie-breaking.
 since_version: v1.9.0
-verified_version: v2.16.7
-last_verified: 2026-08-24
+verified_version: v2.16.8
+last_verified: 2026-08-25
 ---
 
 # Epistemic Merit & Sovereign Node Leaderboards
