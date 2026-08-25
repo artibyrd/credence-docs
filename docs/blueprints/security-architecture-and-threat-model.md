@@ -2,7 +2,7 @@
 title: 'Technical Blueprint: Security Architecture & Threat Model'
 description: STRIDE threat model, Ed25519 key custody, SSRF defense, prompt injection boundaries, and keyless WIF CI/CD.
 since_version: v1.14.0
-verified_version: v2.16.8
+verified_version: v2.17.0
 last_verified: 2026-08-25
 sidebar:
   order: 6

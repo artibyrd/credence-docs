@@ -2,7 +2,7 @@
 title: Golden 12 Benchmark Suite
 description: Standardized epistemic evaluation benchmark, precision/recall metrics, and cross-model calibration.
 since_version: v1.0.0
-verified_version: v2.16.8
+verified_version: v2.17.0
 last_verified: 2026-08-25
 sidebar:
   order: 14
