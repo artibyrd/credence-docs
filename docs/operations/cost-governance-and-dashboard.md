@@ -2,7 +2,7 @@
 title: 'Operational Guide: Cost Governance & Real-Time Token Dashboard'
 description: Managing spending limits, inspecting token burn rates, tripping circuit breakers, and configuring live cost dashboards.
 since_version: v1.12.0
-verified_version: v2.17.0
+verified_version: v2.17.1
 last_verified: 2026-08-25
 sidebar:
   order: 19
