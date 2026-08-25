@@ -4,8 +4,8 @@ description: "How Credence delivers first-person node visibility, BitTorrent com
 author: "Credence Core Architecture Guild"
 date: "2026-08-19"
 since_version: "v1.15.0"
-verified_version: v2.16.7
-last_verified: 2026-08-24
+verified_version: v2.16.8
+last_verified: 2026-08-25
 ---
 
 # Real-Time Epistemic Mesh Observability Without SaaS Telemetry

@@ -2,8 +2,8 @@
 title: 'The Galileo Rule: Why Grounded Truth Must Always Defeat Consensus Swarms'
 description: How a single specialist with verbatim DOM citations overrides a 100-node Sybil cartel in Bayesian consensus.
 since_version: v1.12.0
-verified_version: v2.16.7
-last_verified: 2026-08-24
+verified_version: v2.16.8
+last_verified: 2026-08-25
 sidebar:
   order: 22
 ---

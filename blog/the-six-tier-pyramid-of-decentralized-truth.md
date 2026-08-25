@@ -5,8 +5,8 @@ description: 'Why static benchmarks fail in decentralized epistemic systems: How
   combines hermetic unit isolation with daily mutating live web gauntlets, zero-npm
   Playwright rendering, and 13-node Byzantine mesh chaos labs.'
 since_version: v1.0.0
-verified_version: v2.16.7
-last_verified: 2026-08-24
+verified_version: v2.16.8
+last_verified: 2026-08-25
 tags:
 - testing
 - e2e
@@ -32,6 +32,8 @@ invariants:
 difficulty: Advanced
 read_time: 11 min
 ---
+
+# The 6-Tier Verification Pyramid: Why Fact-Checking AI Requires Mutating Gauntlets, Zero-npm Longevity, and Byzantine Simulations
 
 > **Note**: The 6-Tier Verification Pyramid: Why Fact-Checking AI Requires Mutating Gauntlets, Zero-npm Longevity, and Byzantine Simulations
 

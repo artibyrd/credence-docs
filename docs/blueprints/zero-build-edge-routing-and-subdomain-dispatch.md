@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Zero-Build Edge Routing and Subdomain Dispatch'
 description: Technical architecture of Cloudflare Anycast edge routing, multi-domain dispatching, and cache tiering across production and dev subdomains.
 since_version: v1.18.0
-verified_version: v2.16.7
-last_verified: 2026-08-24
+verified_version: v2.16.8
+last_verified: 2026-08-25
 sidebar:
   order: 1
 ---

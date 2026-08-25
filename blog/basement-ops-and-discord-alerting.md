@@ -4,8 +4,8 @@ title: 'Basement Ops: Zero-Bloat Cloud Monitoring, Discord Webhooks & TUI Teleme
 description: 'Running sovereign truth nodes on a shoestring: Discord alert webhooks,
   3 essential failure guardrails, and zero-bloat Cloud Run monitoring.'
 since_version: v1.10.0
-verified_version: v2.16.7
-last_verified: 2026-08-24
+verified_version: v2.16.8
+last_verified: 2026-08-25
 ---
 
 # Basement Ops: Zero-Bloat Cloud Monitoring, Discord Webhooks & TUI Telemetry for Sovereign Nodes
