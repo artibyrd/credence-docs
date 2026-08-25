@@ -2,7 +2,7 @@
 title: Token Safety Governor
 description: In-database token buckets, spending ceilings, thinking token accounting, and automated circuit breakers.
 since_version: v1.0.0
-verified_version: v2.16.8
+verified_version: v2.17.0
 last_verified: 2026-08-25
 sidebar:
   order: 1

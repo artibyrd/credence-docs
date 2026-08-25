@@ -2,11 +2,30 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.16.8
+verified_version: v2.17.0
 last_verified: 2026-08-25
 ---
 
 # Release Changelog
+
+## [2.17.0] - 2026-08-25
+
+### Added
+- **Dual-Optimized Living Invariant Canon Architecture (`invariants.md`)**:
+  - Implemented dual-view layout delivering human-readable explanations, "Why It Matters" rationale callouts, and KaTeX/LaTeX display math on the surface, paired with expandable Agent Deontic HUDs (`<details class="agent-translation">`) specifying machine-executable MUST/FORBIDDEN rules and trigger scopes.
+  - Built **Variable Anatomy Tables** (`.variable-anatomy-table`) for mathematical invariants breaking down Symbol, Component Factor, Weight, and Epistemic Role.
+- **Two-Tier Portability Scope Classification & Starter Pack Exporter (`app.js`, `styles.css`)**:
+  - Cleanly partitioned invariants into `🌐 Universal Agentic Standards` (37 rules) and `🔬 Credence Domain Standards` (20 rules).
+  - Built interactive scope filter bar (`[All]`, `[🌐 Universal]`, `[🔬 Domain]`) with 1-click `📦 Export Universal Agentic Starter Pack` clipboard generator.
+- **Adoption Guide: Bootstrapping Agentic Workflows with Invariants (`07-bootstrapping-agentic-workflows-with-invariants.md`)**:
+  - Authored comprehensive adoption documentation detailing the mathematical rationale, comparison matrices, and setup instructions for external agentic teams.
+- **Shift-Left SVG Illustration Visual Integrity Gate**:
+  - Added automated test `test_svg_illustrations_visual_integrity_and_text_budget` enforcing zero bullet points, concise labels, character budgets, and visual-first geometry across all 42 ecosystem SVG illustrations.
+- **Clean Scratch Script Previews (`inv-clean-scratch-scripts`)**:
+  - Codified invariant mandating clickable markdown chat links before executing scratch scripts requiring human approval.
+
+### Changed
+- Streamlined all 42 SVG illustrations in `credence-docs/assets/illustrations/` from text-heavy bullet cards into sleek, high-signal visual architectural schematics.
 
 ## [2.16.8] - 2026-08-25
 

@@ -2,7 +2,7 @@
 title: 'Tutorial 13: Discord Alerting & Basement Homelab Monitoring'
 description: Configure real-time Discord webhook notifications, systemd service daemons, and low-power basement monitoring.
 since_version: v1.12.0
-verified_version: v2.16.8
+verified_version: v2.17.0
 last_verified: 2026-08-25
 sidebar:
   order: 13
