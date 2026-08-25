@@ -2,7 +2,7 @@
 title: 'Tutorial 05: Bootstrapping a 3-Node Local P2P Mesh in 5 Minutes'
 description: Boot three independent local nodes on separate ports, peer them via WebSockets, and watch attestation gossip in action.
 since_version: v1.0.0
-verified_version: v2.17.0
+verified_version: v2.17.1
 last_verified: 2026-08-25
 sidebar:
   order: 5

@@ -2,11 +2,20 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.17.0
+verified_version: v2.17.1
 last_verified: 2026-08-25
 ---
 
 # Release Changelog
+
+## [2.17.1] - 2026-08-25
+
+### Added
+- **Curated Workspace Scratch Space & Archival Lifecycle (`inv-clean-scratch-scripts`)**:
+  - Transitioned scratch script storage from ephemeral brain directories to a curated, reusable workspace root `/scratch/` folder.
+  - Implemented multi-session modification provenance tracking in script headers (`# Created Session ID: <id>`, `# Modified Session IDs: [<id>, ...]`).
+  - Added structured archival lifecycle (`/scratch/archive/`) to preserve historical exploration context while preventing active workspace root clutter.
+  - Enhanced shift-left governance test `test_invariant_variable_anatomy_and_scratch_script_previews` asserting workspace scratch routing, multi-session provenance headers, and pre-execution chat links.
 
 ## [2.17.0] - 2026-08-25
 

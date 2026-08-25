@@ -2,7 +2,7 @@
 title: 'Escaping the Synthetic Slop Singularity: Model Collapse and Epistemic Grounding'
 description: The mathematical dynamics of recursive model collapse when LLMs ingest synthetic web corpora, and how Credence's G=1.00 verbatim grounding invariant anchors truth back to empirical reality.
 since_version: v2.15.0
-verified_version: v2.17.0
+verified_version: v2.17.1
 last_verified: 2026-08-25
 slug: escaping-the-synthetic-slop-singularity
 date: '2026-08-23'

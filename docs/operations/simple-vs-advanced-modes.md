@@ -2,7 +2,7 @@
 title: 'Operational Guide: Simple vs Advanced Operating Modes'
 description: Comprehensive operational guide comparing Simple Sovereign Mode (SQLite/Local) and Advanced Planetary Cloud Mode (PostgreSQL/Cloud Run/R2).
 since_version: v1.17.0
-verified_version: v2.17.0
+verified_version: v2.17.1
 last_verified: 2026-08-25
 ---
 
