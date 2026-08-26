@@ -1995,12 +1995,45 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
 </details>
 </div>
 
+<div class="invariant-card" id="inv-sovereign-config-decoupling" data-scope="universal" data-class="alpha">
+<a id="invariant-59"></a>
+<div class="invariant-header">
+  <div class="invariant-badges">
+    <span class="invariant-badge badge-class-alpha">Class α</span>
+    <span class="invariant-badge badge-scope-universal">🌐 Universal Agentic</span>
+  </div>
+  <h3><a href="#docs/invariants#inv-sovereign-config-decoupling">The Invariant Bible: Sovereign Multi-Tenant Decoupling & Zero Hardcoded Tenant Config</a></h3>
+</div>
+<div class="invariant-human-pane">
+  <p class="invariant-headline">All tenant-specific domains, proprietary RSS feeds, organization identities, telemetry keys, and regional configurations reside strictly in environment variables, manifests, or runtime admin APIs.</p>
+  <div class="invariant-rationale"><strong>Why It Matters:</strong> Hardcoding proprietary or tenant-specific targets into core engine models, migrations, or scrapers pollutes sovereign deployments, breaks multi-tenant neutrality, and forces unwanted surveillance targets onto independent nodes.</div>
+</div>
+<details class="agent-translation">
+  <summary class="agent-summary"><span class="agent-icon">🤖</span> <strong>Agent Deontic Specification</strong> <span class="agent-slug-pill"><code>inv-sovereign-config-decoupling</code></span></summary>
+  <div class="agent-spec-hud">
+    <div class="agent-spec-section">
+      <span class="agent-spec-label">Deontic Execution Rules:</span>
+      <ul class="agent-rules-list">
+        <li><span class='deontic-forbidden'>FORBIDDEN</span> to hardcode organization-specific, regional, or proprietary tenant domains into database migrations, core models, or generic scrapers.</li>
+        <li><span class='deontic-must'>MUST</span> load node-level surveillance targets from <code>CREDENCE_SENTINEL_FEEDS</code> environment variables, manifests, or authenticated runtime admin APIs.</li>
+        <li><span class='deontic-must'>MUST</span> ensure generic nodes boot cleanly with zero pre-assigned third-party surveillance targets.</li>
+      </ul>
+    </div>
+    <div class="agent-spec-meta">
+      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>credence/db.py, credence/feeds/, credence/server/lifespan.py</code></div>
+      <div class="agent-meta-item"><strong>Verification Gate:</strong> <code>tests/governance/test_architecture_governance.py::test_zero_hardcoded_tenant_domains_in_core_engine</code></div>
+    </div>
+  </div>
+</details>
+</div>
+
 
 ## Invariant Reference Index Matrix
 
 | Invariant Slug | Legacy ID | Scope | Class | Title | Key Formula / Enforcement |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **[`inv-workspace-isolation`](#inv-workspace-isolation)** | Inv 1 | 🌐 Universal | Class β | Project & Workspace Isolation | The project executes completely hermetically ... |
+| **[`inv-sovereign-config-decoupling`](#inv-sovereign-config-decoupling)** | Inv 59 | 🌐 Universal | Class α | Sovereign Multi-Tenant Decoupling & Zero Hardcoded Tenant Config | Tenant-specific domains and configs reside strictly in env vars (`CREDENCE_SENTINEL_FEEDS`) with zero hardcoded core favoritism. |
 | **[`inv-async-sqlmodel`](#inv-async-sqlmodel)** | Inv 2 | 🌐 Universal | Class β | Python & SQLModel Async Architecture | Database operations are 100% asynchronous wit... |
 | **[`inv-version-governance`](#inv-version-governance)** | Inv 3 | 🌐 Universal | Class γ | Continuous Changelog & Semantic Version Governance | Every notable feature, blueprint, or fix upda... |
 | **[`inv-hermetic-unit-tests`](#inv-hermetic-unit-tests)** | Inv 4 | 🌐 Universal | Class β | Hermetic Unit Test Isolation & Zero-Browser CI | Unit test suites run 100% in-memory with zero... |
