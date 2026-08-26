@@ -4,7 +4,7 @@ title: 'Conflict of Pun-terest: 347 Reasons Why Maricopa''s Publisher-Politician
 description: Empirical case study of inmaricopa.com auditing the collision of municipal
   governance, unlabelled commercial advertorials, and local news monopoly.
 since_version: v1.12.0
-verified_version: v2.17.1
+verified_version: v2.17.2
 last_verified: 2026-08-25
 ---
 
@@ -14,7 +14,9 @@ When technology ethicists debate digital misinformation, they reflexively point 
 
 Yet the most acute epistemic vulnerability in democratic society today does not occur in national media headlines or generative video models. It happens 30 miles outside metropolitan centers in **exurban news deserts**, where a single private digital publisher holds an absolute monopoly over local civic information.
 
-![Figure 1.1: Circular conflict feedback loop between municipal governance and newsroom monopoly, and Credence forensic audit layer](assets/illustrations/conflict-of-pun-terest.svg)In Maricopa, Arizona—a high-growth desert suburb south of Phoenix—this structural tension came to life. For years, the city’s preeminent digital news outlet, `inmaricopa.com`, was co-owned and directed by Vincent Manfredi, an elected City Councilmember and former Vice Mayor.
+![Figure 1.1: Circular conflict feedback loop between municipal governance and newsroom monopoly, and Credence forensic audit layer](assets/illustrations/conflict-of-pun-terest.svg)
+
+In Maricopa, Arizona—a high-growth desert suburb south of Phoenix—this structural tension came to life. For years, the city’s preeminent digital news outlet, `inmaricopa.com`, was co-owned and directed by Vincent Manfredi, an elected City Councilmember and former Vice Mayor.
 
 When the publisher sits on the dais voting on municipal ordinances, property rezoning, police budgets, and public contracts, and then returns to the newsroom to direct the town's sole civic reporting apparatus, what happens to journalistic integrity?
 
@@ -488,7 +490,7 @@ You can inspect the up-to-the-minute live stream, query the REST API, or run you
   </p>
   <div style="display: flex; flex-direction: column; gap: 0.65rem;">
     <div>🔍 <a href="https://credence.report/#analytics/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Inspect Live Publisher Analytics Dashboard on Credence Report</a> — Real-time DCI trendline, rolling sourcing ratios, and latest article stream.</div>
-    <div>⚡ <a href="https://credence-server-663899237633.us-central1.run.app/api/analytics/publisher/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Direct Production REST API JSON Feed</a> — Live machine-readable publisher record on Google Cloud Run.</div>
+    <div>⚡ <a href="https://credence.run/api/analytics/publisher/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Direct Production REST API JSON Feed</a> — Live machine-readable publisher record on Credence API Gateway.</div>
     <div>📡 <a href="#docs/protocols/fastmcp" style="color: var(--accent-cyan); font-weight: 600;">Query FastMCP Dynamic Resource</a> — Connect Claude or Cursor to <code>credence://analytics/publisher/inmaricopa.com</code>.</div>
   </div>
   <div style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid rgba(56, 189, 248, 0.2);">
@@ -571,7 +573,7 @@ Connect your AI model (Claude, Cursor, Gemini, Antigravity) and query:
 ```
 
 ### 3. Zero-Build Web Explorer
-Visit [credence.report/viewer.html](https://credence.report/viewer.html) and select the **Publisher Analytics & Trends** tab. Enter `inmaricopa.com` to explore the interactive SVG trendline, sourcing ratio breakdowns, and cited excerpts.
+Visit [credence.report/viewer.html#analytics/inmaricopa.com](https://credence.report/viewer.html#analytics/inmaricopa.com) to explore the interactive SVG trendline, sourcing ratio breakdowns, and cited excerpts.
 
 ---
 

@@ -2,7 +2,7 @@
 title: Ecosystem Roadmap & Architecture Horizons
 description: Sovereign in-tree decision matrix, operational edge cases, and future architecture horizons across the Credence ecosystem.
 since_version: v1.0.0
-verified_version: v2.17.1
+verified_version: v2.17.2
 last_verified: 2026-08-25
 tags:
   - roadmap

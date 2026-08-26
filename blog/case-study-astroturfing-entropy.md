@@ -2,7 +2,7 @@
 title: 'Case Study: Unmasking Astroturfing Swarms with Lexical Topic Entropy'
 description: How Shannon entropy calculations (H < 0.30) and SimHash clustering expose coordinated AI content farms in real time.
 since_version: v1.11.0
-verified_version: v2.17.1
+verified_version: v2.17.2
 last_verified: 2026-08-25
 sidebar:
   order: 2
