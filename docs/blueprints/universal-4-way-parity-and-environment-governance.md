@@ -24,8 +24,8 @@ Every core capability in the Credence ecosystem is implemented symmetrically acr
 | **Raw Text Audit** | `credence audit --text "..."` | `credence_check_text` | Pane 1 (Text Modal) | `docs.credence.run/#playground` |
 | **Attestation Receipt Verification** | `credence verify <file>` | `credence_verify_attestation` | Pane 7 (Identity & Crypto) | In-Browser WebCrypto Verifier |
 | **Domain Dossier & DCI Lookup** | `credence domain intel <fqdn>` | `credence_get_domain_dossier` | Pane 5 (Domain Dossiers) | `credence.report` Search |
-| **Token Safety Governor Telemetry** | `credence governor status` | `credence_get_quota_status` | Pane 6 (Headroom Governor) | `credence.nexus/dashboard.html` |
-| **P2P Mesh Topology & Peers** | `credence mesh status` | `credence_query_mesh` | Pane 2 (Mesh Telemetry) | `credence.nexus/mesh.html` |
+| **Token Safety Governor Telemetry** | `credence governor status` | `credence_get_quota_status` | Pane 6 (Headroom Governor) | `credence.nexus` (Node Vitals) |
+| **P2P Mesh Topology & Peers** | `credence mesh status` | `credence_query_mesh` | Pane 2 (Mesh Telemetry) | `credence.nexus` (Mesh Topology) |
 | **Syndicated Feed Sifting** | `credence sifter run` | `credence_sift_feed` | Pane 4 (Syndicated Feeds) | Morning Briefing Viewer |
 | **RFC Standards Governance** | `credence rfc list` | `credence_list_rfcs` | Pane 3 (Taxonomy Tree) | `credence.foundation` Governance |
 

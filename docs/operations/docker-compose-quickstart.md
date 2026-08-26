@@ -41,8 +41,8 @@ curl -sSL http://localhost:8000/health | jq .
 
 ### Endpoints Available Immediately:
 - **FastMCP SSE Transport**: `http://localhost:8000/sse`
-- **Cost & Health Dashboard**: `http://localhost:8000/cost.html`
-- **Audit Reports Viewer**: `http://localhost:8000/api/reports`
+- **Node Telemetry & Vitals**: `http://localhost:8000/api/node/stats`
+- **Audit Reports API**: `http://localhost:8000/api/reports`
 - **P2P Gossip Relay**: `ws://localhost:8765`
 
 ---

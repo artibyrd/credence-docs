@@ -41,7 +41,7 @@ Experience Credence's core mathematical models, cryptographic verification, epis
 | **13. [Content Evolution Lab](#docs/lab-content-evolution)** | Live token drift, SimHash-64 Hamming distance ($d_H$) & SPJ revision shifts | Real-time Text Diff & Score Trajectory |
 | **14. [Adversarial Badge Lab](#docs/lab-badge-security)** | Break the Badge: live DOM tampering, Ed25519 forgery & scrubber cloaking | W3C WebCrypto DOM Digest & Anti-Tamper |
 
-> ⚡ **Looking for the Live Swarm Dashboard?** Visit the zero-build **[Credence Nexus Live Dashboard](https://credence.nexus/dashboard.html)** to inspect first-person node health, BitTorrent work-sharing compute savings, and category score breakdowns across the peer-to-peer network.
+> ⚡ **Looking for the Live Swarm Observatory?** Visit the zero-build **[Credence Nexus NOC Workstation](https://credence.nexus)** to inspect first-person node health, BitTorrent work-sharing compute savings, and category score breakdowns across the peer-to-peer network.
 
 ---
 

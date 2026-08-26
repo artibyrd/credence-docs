@@ -49,8 +49,8 @@ In accordance with **[The Invariant Bible](invariants.md#invariant-24) (Universa
 
 | Feature Area | 🖥️ CLI & ⚡ FastMCP 2.0 | 📟 Textual TUI & 🌐 Web UI | Status |
 | :--- | :--- | :--- | :--- |
-| **Node & Mesh Health Dashboard** | `credence stats`<br/>Tool: `credence_get_mesh_stats` | Tab 8: `🛠️ Ops Telemetry`<br/>`credence.nexus/dashboard.html` | **Full Parity** |
-| **Whole-Mesh Network Topology** | `credence stats --mesh`<br/>Tool: `credence_get_mesh_network_health`<br/>Resource: `credence://mesh/network-health` | Tab 9: `🕸️ P2P Mesh`<br/>`credence.nexus/mesh.html` (13-Node Canvas) | **Full Parity** |
+| **Node & Mesh Health Dashboard** | `credence stats`<br/>Tool: `credence_get_mesh_stats` | Tab 8: `🛠️ Ops Telemetry`<br/>`credence.nexus` (Node Vitals) | **Full Parity** |
+| **Whole-Mesh Network Topology** | `credence stats --mesh`<br/>Tool: `credence_get_mesh_network_health`<br/>Resource: `credence://mesh/network-health` | Tab 9: `🕸️ P2P Mesh`<br/>`credence.nexus` (Mesh Canvas) | **Full Parity** |
 | **Token Headroom Governor** | `credence quota`<br/>Tool: `credence_get_quota_status` | Tab 6: `⚡ Quota`<br/>Status Badge at `credence.run` | **Full Parity** |
 | **Cost Profiles** | `credence profile list`<br/>Resource: `credence://profiles` | Profile Badge `[FREE/BALANCED]`<br/>Cost Tier Grid | **Full Parity** |
 | **Taxonomy Governance** | `credence taxonomy list`<br/>Resource: `credence://taxonomies` | Tab 2: `📚 Taxonomies`<br/>`taxonomies.credence.foundation` | **Full Parity** |

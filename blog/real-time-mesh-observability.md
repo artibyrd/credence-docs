@@ -37,7 +37,7 @@ When an operator boots a Credence node on a local laptop, home server, or cloud 
 
 Whether an operator interacts via an embedded browser, SSH terminal, TUI workstation, or AI coding agent, the telemetry schema is 100% consistent:
 
-- **Zero-Build Web UI (`credence.nexus/dashboard.html`)**: A lightweight, high-contrast dashboard running purely on vanilla ES Modules and SVG graphs with **zero npm packages and zero build toolchains**.
+- **Zero-Build Web UI (`credence.nexus`)**: A lightweight, high-contrast dashboard running purely on vanilla ES Modules and SVG graphs with **zero npm packages and zero build toolchains**.
 - **CLI (`credence stats`)**: Rich terminal panels with `--watch` live auto-refresh and `--breakdown` tables for publisher domains and content categories.
 - **TUI Workstation (`credence tui`)**: Textual-based terminal UI with real-time rolling 5-minute latency percentiles (\(p_{50}, p_{95}, p_{99}\)) and incident alerts.
 - **FastMCP 2.0 (`credence://mesh/stats`)**: Direct JSON resource ingestion for autonomous agents pairing with the node.
@@ -61,7 +61,7 @@ Launch the live dashboard on your local node:
 credence stats --breakdown
 
 # Open the zero-build web dashboard
-open web/credence.nexus/dashboard.html
+open web/credence.nexus/index.html
 ```
 
 ---
