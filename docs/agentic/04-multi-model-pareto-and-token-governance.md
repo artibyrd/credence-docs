@@ -3,8 +3,8 @@ title: 'Multi-Model Pareto Optimization: Token Safety Governors & Prompt Isolati
 description: Cross-model benchmarking, Pareto-optimal 4k thinking budgets, 30% offline
   circuit breakers, and defensive prompt injection isolation.
 since_version: v1.0.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 tags:
 - multi-model
 - gemini

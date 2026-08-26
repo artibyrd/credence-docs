@@ -2,8 +2,8 @@
 title: 'Blast Radius Containment in Decentralized Networks'
 description: An architectural essay on preventing cross-environment state bleed, key compromise containment, and epistemic security.
 since_version: v1.18.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 sidebar:
   order: 14
 ---

@@ -2,8 +2,8 @@
 title: Scoring Calibration & Mathematical Rubrics
 description: Mathematical formulation of the Epistemic Suspicion Score, non-linear saturation curve, and classification rubrics.
 since_version: v1.0.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 sidebar:
   order: 4
 ---

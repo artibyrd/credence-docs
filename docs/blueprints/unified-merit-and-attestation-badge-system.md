@@ -2,8 +2,8 @@
 title: Unified Epistemic Merit & Attestation Badge System
 description: Comprehensive architectural blueprint for high-DPI vector SVG badges and interactive Web Components across the Credence network.
 since_version: v2.1.5
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 ---
 
 # Unified Epistemic Merit & Attestation Badge System 🛡️

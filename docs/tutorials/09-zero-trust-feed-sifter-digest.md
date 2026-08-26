@@ -2,8 +2,8 @@
 title: 'Tutorial 09: Zero-Trust Syndicated Feed Sifter & Morning Briefings'
 description: Subscribe to RSS/Atom feeds, filter out low-integrity articles, and generate formatted morning briefings.
 since_version: v1.1.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 sidebar:
   order: 9
 ---

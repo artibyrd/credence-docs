@@ -2,8 +2,8 @@
 title: 'Tutorial 07: Air-Gapped Sneakernets & Offline Ad-Hoc Verification'
 description: Export and verify Ed25519 audit bundles across offline environments, disaster zones, and air-gapped networks.
 since_version: v1.0.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 sidebar:
   order: 7
 ---

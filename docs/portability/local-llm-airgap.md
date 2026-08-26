@@ -3,8 +3,8 @@ title: 'Zero-Cloud Sovereign Operations: Local LLMs'
 description: Running a 100% private, offline Credence node using local open-weights
   models with Ollama or vLLM on Mac Studio / RTX 4090.
 since_version: v1.0.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 ---
 
 # Zero-Cloud Sovereign Operations: Local LLMs

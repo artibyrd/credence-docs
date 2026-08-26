@@ -3,8 +3,8 @@ title: Universal Agent Interoperability (Claude, Cursor, Cline, Windsurf)
 description: Connecting Credence FastMCP 2.0 to Claude Desktop, Cursor, Windsurf,
   Cline, LangGraph, and CrewAI without vendor lock-in.
 since_version: v1.0.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 ---
 
 # Universal Agent Interoperability (Claude, Cursor, Cline, Windsurf)

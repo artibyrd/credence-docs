@@ -2,8 +2,8 @@
 title: 'Operational Guide: Single-Project vs Dual-Project GCP Topologies'
 description: Architectural comparison, blast radius analysis, billing segregation, and provisioning runbooks for GCP deployments.
 since_version: v1.12.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 sidebar:
   order: 5
 ---

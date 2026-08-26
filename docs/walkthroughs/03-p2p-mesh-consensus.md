@@ -3,8 +3,8 @@ title: 'Feature Walkthrough: P2P Mesh Gossip & Bayesian Consensus'
 description: End-to-end multi-interface walkthrough for node identity generation,
   Watts-Strogatz peering, and Bayesian consensus aggregation.
 since_version: v1.0.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 sidebar:
   order: 3
 ---

@@ -4,8 +4,8 @@ description: Architectural blueprint for keeping the open-source Credence core c
   generic, and neutral while supporting hyper-local news monitoring, custom entity
   graphs, and sovereign organization deployments.
 since_version: v1.0.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 ---
 
 # Managing Customizations vs. Core Upstream

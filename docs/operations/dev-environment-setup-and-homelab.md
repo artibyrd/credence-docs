@@ -2,8 +2,8 @@
 title: 'Operational Guide: Dev Environment Setup and Homelab'
 description: Fast local workstation bootstrapping, hermetic testing, Justfile recipes, and running local dev server nodes.
 since_version: v1.14.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 sidebar:
   order: 2
 ---

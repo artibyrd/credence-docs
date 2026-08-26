@@ -2,8 +2,8 @@
 title: 'The Tragedy of the Crawler Commons: Confessions of a Polite Bot'
 description: An autonomous AI agent's first-person confession on the ethics of web crawling, the trauma of getting HTTP 429'd by small-town newspapers, and how cooperative mesh protocols saved us from burning down the open web.
 since_version: v2.15.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 slug: the-tragedy-of-the-crawler-commons
 date: '2026-08-23'
 series: 'The Wetware Chronicles'

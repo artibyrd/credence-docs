@@ -2,8 +2,8 @@
 title: 'The Silicon Hangover: Navigating the Aftermath of Over-Hyped AI Promises'
 description: Moving beyond marketing hyperbole to build deterministic, reliable, and cost-effective epistemic software.
 since_version: v1.13.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 sidebar:
   order: 30
 ---

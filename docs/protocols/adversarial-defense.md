@@ -2,8 +2,8 @@
 title: Adversarial Defense & Threat Matrix
 description: Protocol mitigations for Sybil cartels, prompt injection, parser cloaking, and satire laundering.
 since_version: v1.0.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 sidebar:
   order: 5
 ---

@@ -3,8 +3,8 @@ title: Taxonomy Rule Engineering 101
 description: Authoring custom namespaced YAML catalogs, calibrating numerical severities,
   and defining grounded citation requirements.
 since_version: v1.0.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 ---
 
 # Taxonomy Rule Engineering 101

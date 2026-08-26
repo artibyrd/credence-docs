@@ -2,8 +2,8 @@
 title: 'Cookbook: Local Dev to Cloud Run Workflow'
 description: Seamless workflow from local code edits to Dev Cloud Run preview and production release.
 since_version: v1.14.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 sidebar:
   order: 7
 ---

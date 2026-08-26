@@ -2,8 +2,8 @@
 title: 'Tutorial 06: Running a 13-Node Watts-Strogatz Chaos Simulation'
 description: Simulate a 13-node peer mesh in memory, inject Byzantine Sybil cartels, and verify the Galileo Rule override.
 since_version: v1.0.0
-verified_version: v2.17.2
-last_verified: 2026-08-25
+verified_version: v2.17.3
+last_verified: 2026-08-26
 sidebar:
   order: 6
 ---
