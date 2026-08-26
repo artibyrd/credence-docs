@@ -490,7 +490,7 @@ You can inspect the up-to-the-minute live stream, query the REST API, or run you
   </p>
   <div style="display: flex; flex-direction: column; gap: 0.65rem;">
     <div>🔍 <a href="https://credence.report/#analytics/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Inspect Live Publisher Analytics Dashboard on Credence Report</a> — Real-time DCI trendline, rolling sourcing ratios, and latest article stream.</div>
-    <div>⚡ <a href="https://credence-server-663899237633.us-central1.run.app/api/analytics/publisher/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Direct Production REST API JSON Feed</a> — Live machine-readable publisher record on Google Cloud Run.</div>
+    <div>⚡ <a href="https://credence.run/api/analytics/publisher/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Direct Production REST API JSON Feed</a> — Live machine-readable publisher record on Credence API Gateway.</div>
     <div>📡 <a href="#docs/protocols/fastmcp" style="color: var(--accent-cyan); font-weight: 600;">Query FastMCP Dynamic Resource</a> — Connect Claude or Cursor to <code>credence://analytics/publisher/inmaricopa.com</code>.</div>
   </div>
   <div style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid rgba(56, 189, 248, 0.2);">
@@ -573,7 +573,7 @@ Connect your AI model (Claude, Cursor, Gemini, Antigravity) and query:
 ```
 
 ### 3. Zero-Build Web Explorer
-Visit [credence.report/viewer.html](https://credence.report/viewer.html) and select the **Publisher Analytics & Trends** tab. Enter `inmaricopa.com` to explore the interactive SVG trendline, sourcing ratio breakdowns, and cited excerpts.
+Visit [credence.report/viewer.html#analytics/inmaricopa.com](https://credence.report/viewer.html#analytics/inmaricopa.com) to explore the interactive SVG trendline, sourcing ratio breakdowns, and cited excerpts.
 
 ---
 
