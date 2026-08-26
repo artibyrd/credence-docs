@@ -2,7 +2,7 @@
 title: 'Tutorial 12: Climbing the Epistemic Tiers (From Sprout to Sovereign)'
 description: Progress through the 5 node tiers, earn empirical domain expertise, and unlock live SVG merit badges.
 since_version: v1.12.0
-verified_version: v2.17.3
+verified_version: v2.17.4
 last_verified: 2026-08-26
 sidebar:
   order: 12

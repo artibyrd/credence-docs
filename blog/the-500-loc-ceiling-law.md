@@ -2,7 +2,7 @@
 title: 'The 500 LOC Ceiling Law: Why Modularity is the Ultimate Antidote to Complexity'
 description: How enforcing a strict 500 LOC ceiling across Python files, Justfiles, and components prevents technical debt.
 since_version: v1.13.0
-verified_version: v2.17.3
+verified_version: v2.17.4
 last_verified: 2026-08-26
 sidebar:
   order: 24

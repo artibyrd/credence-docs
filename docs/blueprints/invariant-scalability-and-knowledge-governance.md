@@ -2,7 +2,7 @@
 title: 'Technical Blueprint: Invariant Scalability & 4-Tier Knowledge Governance'
 description: The 4-Tier Knowledge Taxonomy (/remember), AGENTS.md context economy (<800 tokens), and dynamic Living Canon governance.
 since_version: v1.13.0
-verified_version: v2.17.3
+verified_version: v2.17.4
 last_verified: 2026-08-26
 sidebar:
   order: 16

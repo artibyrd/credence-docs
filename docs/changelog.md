@@ -2,11 +2,24 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.17.3
+verified_version: v2.17.4
 last_verified: 2026-08-26
 ---
 
 # Release Changelog
+
+## [2.17.4] - 2026-08-26
+
+### Added
+- **Shift-Left Web Governance Gates & Demotion Highway (`tests/governance/test_web.py`)**:
+  - Added `test_zero_jargon_surface_glance_and_anti_truncation_invariant` statically asserting zero formula notation in Lens 1 Surface Glance and zero client-side mock dictionaries (`MOCK_CORPUS`) in production viewers.
+  - Added `test_dynamic_category_counts_and_fullheight_table_governance` asserting dynamic category counts derivation (`updateCategoryCounts()`) and sticky table headers.
+  - Added `test_universal_scrollbar_styling_invariant` statically asserting universal custom scrollbar styles across all workstation containers.
+- **Workstation Viewport & Epistemic Lensing Skill Standard (`architecture-governance`)**:
+  - Formulated Section 13 covering vertical flex scrolling mechanics, universal scrollbar styling, epistemic lensing semantic separation, and dynamic count calculation.
+- **Sharpened Core Invariants (`AGENTS.md`)**:
+  - Sharpened `inv-mk1-eyeball` requiring live Dev deployment and browser validation proof before Mk1 review.
+  - Sharpened `inv-zero-build-standards` and `inv-epistemic-lensing` with universal scrollbars and zero-jargon surface lensing boundaries.
 
 ## [2.17.3] - 2026-08-26
 

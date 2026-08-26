@@ -3,7 +3,7 @@ title: Auditing Financial Disclosures & 10-K Filings
 description: Using the ULTRA profile (16k thinking tokens) to audit SEC 10-K filings,
   earnings calls, and corporate releases.
 since_version: v1.0.0
-verified_version: v2.17.3
+verified_version: v2.17.4
 last_verified: 2026-08-26
 ---
 
