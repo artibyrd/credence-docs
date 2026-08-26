@@ -2,7 +2,7 @@
 title: Cross-Model Epistemic & Economic Pareto Benchmark
 description: Empirical cost, latency, thinking token depth, and accuracy comparisons across Gemini 3.7, Claude 3.7, GPT-4o, and DeepSeek-R1.
 since_version: v1.12.0
-verified_version: v2.17.1
+verified_version: v2.17.2
 last_verified: 2026-08-25
 sidebar:
   order: 15

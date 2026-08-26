@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.17.1';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.17.2';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -1464,6 +1464,11 @@ export function formatInline(text) {
     return `<span class="math-inline">${formatMath(expr.trim())}</span>`;
   });
 
+  // Display math $$...$$
+  res = res.replace(/\$\$([^\$\n]+?)\$\$/g, (match, expr) => {
+    return `<span class="math-inline">${formatMath(expr.trim())}</span>`;
+  });
+
   // Standard inline math $...$ (preserving currency like $0.00, $15.00, $1k)
   res = res.replace(/\$([^\$\n]+?)\$/g, (match, expr) => {
     const trimmed = expr.trim();
@@ -1799,6 +1804,11 @@ export function parseMarkdown(md) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
       if (inTable) { html.push('</tbody></table></div>'); inTable = false; tableHeaderParsed = false; }
       let processedLine = line;
+      if (processedLine.includes('$$')) {
+        processedLine = processedLine.replace(/\$\$([^\$\n]+?)\$\$/g, (match, expr) => {
+          return `<span class="math-inline">${formatMath(expr.trim())}</span>`;
+        });
+      }
       if (processedLine.includes('$')) {
         processedLine = processedLine.replace(/\$([^\$\n]+?)\$/g, (match, expr) => {
           return `<span class="math-inline">${formatMath(expr.trim())}</span>`;
@@ -1826,7 +1836,33 @@ export function parseMarkdown(md) {
     // 6. GFM Tables
     if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
       if (inList) { html.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-      const cells = line.split('|').slice(1, -1).map(c => c.trim());
+      
+      // Split cells respecting pipe characters inside code backticks or math expressions
+      const trimmedTableLine = line.trim().replace(/^\||\|$/g, '');
+      const cells = [];
+      let curCell = '';
+      let inCode = false;
+      let inMath = false;
+      for (let cIdx = 0; cIdx < trimmedTableLine.length; cIdx++) {
+        const ch = trimmedTableLine[cIdx];
+        if (ch === '\\' && cIdx + 1 < trimmedTableLine.length) {
+          curCell += ch + trimmedTableLine[++cIdx];
+          continue;
+        }
+        if (ch === '`') {
+          inCode = !inCode;
+          curCell += ch;
+        } else if (ch === '$' && !inCode) {
+          inMath = !inMath;
+          curCell += ch;
+        } else if (ch === '|' && !inCode && !inMath) {
+          cells.push(curCell.trim());
+          curCell = '';
+        } else {
+          curCell += ch;
+        }
+      }
+      cells.push(curCell.trim());
       
       // Separator row check (| :--- | ---: |)
       if (cells.every(c => /^:?-+:?$/.test(c))) {
@@ -4110,7 +4146,7 @@ export async function loadDocument(docId, anchorId = '') {
     }
 
     if (target.id.includes('conflict-of-pun-terest') || target.id.includes('the-publisher-on-the-dais') || document.getElementById('inmaricopa-forensics-workbench')) {
-      setupInmaricopaCaseStudyWidget();
+      setupInMaricopaCaseStudyWidget();
     }
 
     if (target.id === 'docs/invariants' || document.querySelector('.invariant-scope-filter-bar')) {

@@ -2,11 +2,21 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.17.1
+verified_version: v2.17.2
 last_verified: 2026-08-25
 ---
 
 # Release Changelog
+
+## [2.17.2] - 2026-08-25
+
+### Fixed
+- **InMaricopa Forensic Case Study ReferenceError (`credence-docs/app.js`)**:
+  - Corrected JavaScript identifier casing typo on widget invocation from `setupInmaricopaCaseStudyWidget();` to `setupInMaricopaCaseStudyWidget();`, resolving production outage and "Error Loading Document" failure on `https://blog.credence.run/conflict-of-pun-terest`.
+  - Added math- and code-aware markdown table cell splitting in `app.js` to preserve mathematical formulas containing pipe characters (`|`) without breaking GFM table column alignment.
+  - Added newline formatting separation after hero SVG illustration in `blog/conflict-of-pun-terest.md` to prevent DOM block tag nesting issues.
+- **Shift-Left Interactive Widget Mount Integrity Gate (Gate 2)**:
+  - Enhanced `test_all_registered_playgrounds_have_active_dom_mounts` in `tests/governance/test_docs_integrity.py` to assert that all interactive widget and laboratory mount handlers invoked in `loadDocument()` match declared and exported function signatures in `app.js`.
 
 ## [2.17.1] - 2026-08-25
 

@@ -4,7 +4,7 @@ title: 'Conflict of Pun-terest: 347 Reasons Why Maricopa''s Publisher-Politician
 description: Empirical case study of inmaricopa.com auditing the collision of municipal
   governance, unlabelled commercial advertorials, and local news monopoly.
 since_version: v1.12.0
-verified_version: v2.17.1
+verified_version: v2.17.2
 last_verified: 2026-08-25
 ---
 
@@ -14,7 +14,9 @@ When technology ethicists debate digital misinformation, they reflexively point 
 
 Yet the most acute epistemic vulnerability in democratic society today does not occur in national media headlines or generative video models. It happens 30 miles outside metropolitan centers in **exurban news deserts**, where a single private digital publisher holds an absolute monopoly over local civic information.
 
-![Figure 1.1: Circular conflict feedback loop between municipal governance and newsroom monopoly, and Credence forensic audit layer](assets/illustrations/conflict-of-pun-terest.svg)In Maricopa, Arizona—a high-growth desert suburb south of Phoenix—this structural tension came to life. For years, the city’s preeminent digital news outlet, `inmaricopa.com`, was co-owned and directed by Vincent Manfredi, an elected City Councilmember and former Vice Mayor.
+![Figure 1.1: Circular conflict feedback loop between municipal governance and newsroom monopoly, and Credence forensic audit layer](assets/illustrations/conflict-of-pun-terest.svg)
+
+In Maricopa, Arizona—a high-growth desert suburb south of Phoenix—this structural tension came to life. For years, the city’s preeminent digital news outlet, `inmaricopa.com`, was co-owned and directed by Vincent Manfredi, an elected City Councilmember and former Vice Mayor.
 
 When the publisher sits on the dais voting on municipal ordinances, property rezoning, police budgets, and public contracts, and then returns to the newsroom to direct the town's sole civic reporting apparatus, what happens to journalistic integrity?
 

@@ -3,7 +3,7 @@ title: 'Operational Guide: Multi-Environment Boundaries and Deployments'
 description: Comprehensive operational runbook detailing project, account, domain,
   CI/CD secrets, and data boundary isolation between Basic Dev and Advanced Prod deployments.
 since_version: v1.18.0
-verified_version: v2.17.1
+verified_version: v2.17.2
 last_verified: 2026-08-25
 ---
 
