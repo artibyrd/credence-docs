@@ -4,7 +4,7 @@ description: How Credence P2P mesh clusters use Highest Random Weight (HRW) Rend
   Hashing to partition syndicated feeds without central coordinators, saving 92.3%
   compute.
 since_version: v1.14.1
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 ---
 
@@ -80,7 +80,19 @@ def is_primary_auditor(feed_url: str, local_pubkey: str, peer_pubkeys: list[str]
 
 ---
 
-## 4. Invariants & Security Boundaries
+## 4. Sentinel Mode & Mesh Partitioning Isolation
+
+When a node operator enables **Sentinel Mode** (`is_sentinel=True`) on a target news outlet (e.g., `inmaricopa.com`), how does this interact with mesh-wide HRW partitioning?
+
+1. **Local Polling Acceleration**: Sentinel Mode alters the local node's polling cadence ($\Delta t = 300\text{s}$), ensuring the operator receives instant continuous coverage.
+2. **Zero Swarm Coercion**: A node cannot force other peer nodes in the Watts-Strogatz lattice to adopt its custom Sentinel feeds. Other nodes continue to compute feed duties via their own deterministic HRW affinity scores.
+3. **P2P Gossip Diffusion**: When a node audits a new article discovered from its Sentinel feed, it signs the canonical receipt with its Ed25519 key and gossips it across the mesh. Peer nodes receive the signed attestation and adopt it into SQLite at **0 LLM tokens ($0.00 cost)** via mesh effort avoidance (`check_mesh_effort_avoidance`).
+4. **Anti-Starvation Soil Floor ($C_{\text{organic}} \ge 50\%$)**: In every local ingestion cycle, at least 50% of the audit capacity is strictly reserved for organic root citations and standard mesh feeds, ensuring Sentinel sources cannot starve general network discovery.
+
+---
+
+## 5. Invariants & Security Boundaries
 
 - **Atomic Inoculation (The Invariant Bible)**: Feed sifting and seed insertion must execute within atomic commit/rollback sub-transactions to prevent half-ingested feed state during network splits.
 - **Attestation Anti-Tampering (The Invariant Bible)**: Modifying any field in an adopted attestation (`suspicion_score`, `violations`, `content_sha256`) immediately breaks Ed25519 signature verification and triggers a 50% reputation slash against the relaying peer.
+- **Guaranteed Organic Soil Floor (The Invariant Bible)**: Sentinel mode execution must never consume $>50\%$ of an ingestion burst, preserving at least 50% capacity for organic root expansion.

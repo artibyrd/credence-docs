@@ -3,7 +3,7 @@ title: Automated Morning Feed Sifter & Epistemic Digest
 description: Setting up zero-trust feed autodiscovery, dynamic quality governance,
   background sifting daemons, and automated executive intelligence briefings.
 since_version: v1.0.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 ---
 
@@ -56,20 +56,49 @@ View dynamic feed health rankings at any time:
 credence feed health
 ```
 
-Dynamic Feed Health & Epistemic Quality Rankings
-┏━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┓
-┃ ┃                        ┃ Quality ┃        Avg ┃       ┃  Entropy ┃         ┃
-┃ ┃ Feed Title / Channel   ┃  (F_j)  ┃  Suspicion ┃ Grou… ┃      (H) ┃ Status  ┃
-┡━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━┩
-| ProPublica: Main Feeds |  0.89   |        4.2 |  100% |     0.88 | ACTIVE
-| The Markup: Investiga… |  0.87   |        6.1 |  100% |     0.84 | ACTIVE
-| Ars Technica: Lab      |  0.84   |        8.5 |   95% |     0.81 | ACTIVE
-| Krebs on Security      |  0.85   |        5.0 |  100% |     0.82 | ACTIVE
-| 404 Media              |  0.82   |        9.0 |   92% |     0.79 | ACTIVE
+| Feed Title / Channel | Quality ($F_j$) | Avg Suspicion | Grounding ($G$) | Entropy ($H$) | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **ProPublica: Main Feeds** | `0.89` | `4.2` | `100%` | `0.88` | `ACTIVE` |
+| **The Markup: Investigations** | `0.87` | `6.1` | `100%` | `0.84` | `ACTIVE` |
+| **Ars Technica: Lab** | `0.84` | `8.5` | `95%` | `0.81` | `ACTIVE` |
+| **Krebs on Security** | `0.85` | `5.0` | `100%` | `0.82` | `ACTIVE` |
+| **404 Media** | `0.82` | `9.0` | `92%` | `0.79` | `ACTIVE` |
 
 ---
 
-## 4. Running the Background Sifter Daemon
+## 4. Sentinel Mode for High-Priority & Ongoing Case Studies
+
+When conducting an ongoing investigative case study on a specific media outlet (such as our longitudinal analysis of `inmaricopa.com`), standard 15–30 minute polling cycles may be too infrequent, leading to concerns about selection latency or cherry-picking.
+
+**Sentinel Mode** designates high-priority target sources for rapid, guaranteed scanning:
+
+```bash
+# 1. List current Sentinel feeds and their high-frequency cadence
+credence feeds sentinel list
+
+# 2. Enable Sentinel Mode on a target news feed (5-minute / 300s default)
+credence feeds sentinel enable https://inmaricopa.com/feed/
+
+# 3. Configure custom high-frequency polling interval (e.g. 120 seconds)
+credence feeds sentinel set-interval https://inmaricopa.com/feed/ 120
+
+# 4. Disable Sentinel Mode when the intensive observation window concludes
+credence feeds sentinel disable https://inmaricopa.com/feed/
+```
+
+### Sentinel Mode Anti-Abuse & Anti-Starvation Invariants
+
+To ensure Sentinel Mode cannot be exploited by bad actors to bypass organic germination or monopolize node resources, the scheduler enforces five mathematical invariants:
+
+1. **Guaranteed Organic Soil Floor ($C_{\text{organic}} \ge 50\%$)**: In every sifter and boredom cycle, Sentinel items can consume at most 50% of the audit burst. At least 50% of capacity is strictly reserved for organic root citations (`extract_root_candidates`) and peer attestations.
+2. **Sentinel Capacity Ceiling ($N_{\text{max}} = 10$)**: A node can register at most 10 active Sentinel feeds simultaneously.
+3. **Cadence Safety Floor ($\Delta t \ge 60\text{s}$)**: Polling intervals below 60 seconds are rejected to prevent self-inflicted denial-of-service.
+4. **Reputation Quarantine Integrity**: Enabling Sentinel Mode on a quarantined domain increases observation frequency, but **does not bypass** quarantine status or the BuzzFeed News Doctrine redemption rules.
+5. **Verbatim Grounding & Entropy Eviction**: Stuffed feeds generating repetitive astroturfing ($H < 0.30$) or ungrounded claims ($G < 1.00$) are autonomously downgraded to `SENTINEL_PAUSED`.
+
+---
+
+## 5. Running the Background Sifter Daemon
 
 Launch the real-time sifter daemon as a background systemd service or long-running worker. The daemon uses **Rendezvous Hashing (HRW)** to divide scraping duties across peer nodes, adopting attestations from peer nodes in **0 LLM tokens ($0.00 cost)**:
 
@@ -78,7 +107,9 @@ Launch the real-time sifter daemon as a background systemd service or long-runni
 credence sifter --interval 300 --profile balanced
 ```
 
-## 5. Generating Daily Morning Epistemic Briefings
+---
+
+## 6. Generating Daily Morning Epistemic Briefings
 
 Generate executive intelligence summaries across 4 categories (Clean Journalism, Rhetorical Fallacies, Deceptive Flags, Satire Alerts, and Compute Savings):
 
@@ -129,12 +160,14 @@ credence digest --format json --output digest.json
 
 ---
 
-## 6. Automating via FastMCP & AI Agents
+## 7. Automating via FastMCP & AI Agents
 
-If you use Claude, Cursor, or autonomous AI agents, you can generate digests or discover feeds directly through FastMCP 2.0:
+If you use Claude, Cursor, or autonomous AI agents, you can manage Sentinel sources and generate digests directly through FastMCP 2.0:
 
+* **Tool**: `credence_set_feed_sentinel_mode(feed_url="https://inmaricopa.com/feed/", enabled=True, interval_seconds=300)`
+* **Tool**: `credence_list_sentinel_sources()`
 * **Tool**: `credence_discover_feeds(target_url="https://apnews.com")`
 * **Tool**: `credence_inspect_feed_health(feed_url="https://example.com/feed.xml")`
 * **Tool**: `credence_generate_digest(hours=24)`
 * **Resource**: `credence://digest/morning`
-* **Resource**: `credence://feeds/active`
+* **Resource**: `credence://feeds/sentinels`

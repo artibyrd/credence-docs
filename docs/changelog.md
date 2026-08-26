@@ -2,11 +2,31 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 ---
 
 # Release Changelog
+
+## [2.18.0] - 2026-08-26
+
+### Added
+- **High-Priority Ingestion Sentinel Mode Subsystem (`credence.feeds.sentinel`)**:
+  - Implemented dedicated Sentinel Mode enabling node operators to designate high-priority sources (such as `inmaricopa.com`) for continuous, longitudinal 5-minute ingestion cycles to eliminate cherry-picking bias.
+  - Implemented SSRF security boundaries rejecting loopback (`127.0.0.1`), private IP subnets, and cloud metadata (`169.254.169.254`).
+  - Added strict capacity ceiling ($N \le 10$ active sentinels) and minimum poll interval safety guards ($\ge 60\text{s}$).
+  - Enforced the Guaranteed Organic Soil Floor ($C_{\text{organic}} \ge 50\%$) via `partition_ingestion_burst()` during boredom and germination cycles to guarantee un-starved citation graph expansion.
+- **Universal Multi-Interface Sentinel Parity (`inv-multi-interface-parity`)**:
+  - **CLI**: Added `credence feeds sentinel` command group (`list`, `enable <target>`, `disable <target>`, `set-interval <target> <seconds>`).
+  - **FastMCP 2.0**: Added `credence_set_feed_sentinel_mode` and `credence_list_sentinel_sources` tools.
+  - **REST API**: Added `/api/feeds/sentinels` and `/api/feeds/sentinel` endpoints.
+  - **Textual TUI**: Added split-panel feeds inspector, real-time sentinel status formatting, and `t` interactive toggle keybinding.
+  - **Web Dashboard**: Added Sentinel Mode status cards and ingestion controls in `admin.credence.run`.
+- **Anti-Abuse & Germination Gauntlet Test Suites**:
+  - Created `tests/unit/feeds/test_sentinel_anti_abuse.py` validating SSRF rejections, capacity boundaries, and interval guards.
+  - Created `tests/integration/test_sentinel_germination_gauntlet.py` validating organic soil floor preservation and `inmaricopa.com` preset bootstrap.
+- **Comprehensive Documentation Expansion**:
+  - Expanded headline case study (`blog/conflict-of-pun-terest.md`), Morning Feed Sifter cookbook (`docs/cookbooks/morning-feed-sifter.md`), Zero-Trust Feed Sifting walkthrough (`docs/walkthroughs/02-zero-trust-feed-sifting.md`), Quarantine Protocol (`docs/protocols/reputation-quarantine-and-redemption.md`), and Mesh Partitioning (`docs/mesh-engineering/rendezvous-hashing-feed-partitioning.md`).
 
 ## [2.17.4] - 2026-08-26
 

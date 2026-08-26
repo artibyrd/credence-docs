@@ -3,7 +3,7 @@ title: 'Feature Walkthrough: Zero-Trust Feed Autodiscovery & Sifting'
 description: End-to-end multi-interface walkthrough for dynamic RSS/Atom autodiscovery,
   pre-flight forensic audits, and real-time sifting daemons.
 since_version: v1.0.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 sidebar:
   order: 2
@@ -107,7 +107,74 @@ print(f"Status: {report['status']}")
 
 ---
 
-## 3. Running Continuous Sifter Workers
+---
+
+## 3. Sentinel Mode for High-Priority Ongoing Case Studies
+
+For target media outlets undergoing active investigative scrutiny (such as `inmaricopa.com`), node operators can activate **Sentinel Mode** to enforce a rapid 5-minute polling cadence and top-priority queueing without waiting for standard rotation cycles.
+
+:::tabs
+=== CLI
+```bash
+# 1. Enable Sentinel Mode on a target news feed (5m / 300s default)
+credence feeds sentinel enable "https://inmaricopa.com/feed/"
+
+# 2. List all active Sentinel feeds and their high-frequency cadences
+credence feeds sentinel list
+
+# 3. Set a custom high-frequency polling interval (e.g. 120s)
+credence feeds sentinel set-interval "https://inmaricopa.com/feed/" 120
+
+# 4. Disable Sentinel Mode when the case study concludes
+credence feeds sentinel disable "https://inmaricopa.com/feed/"
+```
+
+=== FastMCP 2.0 (Claude / Cursor)
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "tools/call",
+  "params": {
+    "name": "credence_set_feed_sentinel_mode",
+    "arguments": {
+      "feed_url": "https://inmaricopa.com/feed/",
+      "enabled": true,
+      "interval_seconds": 300
+    }
+  }
+}
+```
+
+=== Python SDK
+```python
+from credence.db import get_async_session
+from credence.feeds.sentinel import set_feed_sentinel_mode, list_sentinel_sources
+
+async with get_async_session() as session:
+    # Enable Sentinel Mode on target outlet
+    result = await set_feed_sentinel_mode(
+        session=session,
+        target="https://inmaricopa.com/feed/",
+        enabled=True,
+        interval_seconds=300,
+    )
+    print(f"Sentinel Mode: {result['status']} ({result['interval_seconds']}s cadence)")
+
+    # List all active Sentinel sources
+    sentinels = await list_sentinel_sources(session)
+    for s in sentinels:
+        print(f"Sentinel: {s['domain']} -> Polled every {s['interval_seconds']}s")
+```
+
+=== 📟 Textual TUI Workstation
+1. In `credence tui`, press `4` to open the **📡 Feeds & Dedup** pane.
+2. Active Sentinel feeds are prominently marked with `🛡️ SENTINEL` in the status column.
+3. Review dedicated Sentinel telemetry, polling countdowns, and real-time audit counts directly in the live table.
+:::
+
+---
+
+## 4. Running Continuous Sifter Workers
 
 Run the continuous background sifting worker with Rendezvous Hashing (HRW) work partitioning.
 
@@ -156,7 +223,7 @@ services:
 
 ---
 
-## 4. Feed Health & Rotation Policy Reference
+## 5. Feed Health & Rotation Policy Reference
 
 | Quality Score ($F_j$) | Topic Entropy ($H$) | Rotation Status | Swarm Action |
 | :--- | :--- | :--- | :--- |
@@ -165,4 +232,5 @@ services:
 | **$F_j < 0.40$** | $H < 0.30$ | **QUARANTINED** | **Autonomous eviction**; gossip alert sent to peers |
 
 > [!IMPORTANT]
-> **The Pizza Hut Invariant**: Outlets whose token entropy collapses ($H < 0.30$) due to promotional astroturfing are autonomously demoted without requiring manual admin intervention.
+> **The Pizza Hut Invariant & Organic Floor**: Outlets whose token entropy collapses ($H < 0.30$) due to promotional astroturfing are autonomously demoted. In addition, the scheduler enforces a **Guaranteed Organic Soil Floor ($C_{\text{organic}} \ge 50\%$)**, ensuring Sentinel feeds cannot starve organic germination or citation-based root discovery.
+

@@ -2,7 +2,7 @@
 title: 'Cookbook: Multi-Tenant Org Subdomain Federation'
 description: Dynamic wildcard subdomain routing, tenant isolation, and custom branding for white-labeled organizations.
 since_version: v1.11.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 sidebar:
   order: 6

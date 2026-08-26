@@ -3,7 +3,7 @@ title: Decentralized Architecture
 description: Multi-tier architecture specification spanning ingestion, multi-agent
   evaluation, token governance, and P2P mesh.
 since_version: v1.0.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 ---
 
