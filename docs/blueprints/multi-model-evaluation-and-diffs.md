@@ -114,3 +114,40 @@ In addition to static pairwise diffs, the matrix tracks longitudinal article rev
 - **Lifetime Trajectory Status**: Classified as `IMPROVING` ($\Delta S \le -5.0$), `DEGRADING` ($\Delta S \ge +5.0$), or `STABLE`.
 
 This longitudinal model matrix ensures that news organizations receive verifiable credit for substantive editorial corrections.
+
+---
+
+## 6. Granular Cluster-Level Micro-Agent Swarm Topology
+
+Monolithic evaluation passes (dumping 25+ logical fallacies or 15+ ethics rules into a single giant LLM prompt) introduce severe attention dilution, missed violations, and cognitive hallucinations.
+
+Credence partitions evaluations at the **`TaxonomyCluster`** semantic boundary, restricting each specialist micro-agent pass to **3–6 bounded rules**:
+
+```
+[Evaluator Dispatcher]
+  ├── Fallacy Cluster 1: Relevance & Personal Attacks (FALLACY-1.1 to 1.4)
+  ├── Fallacy Cluster 2: Presumption & Circularity (FALLACY-2.1 to 2.4)
+  ├── Fallacy Cluster 3: Causal & Inductive Reasoning (FALLACY-3.1 to 3.4)
+  ├── Fallacy Cluster 4: Rhetorical Distortion & Evasion (FALLACY-4.1 to 4.4)
+  ├── Ethics Cluster 1: Truth & Sourcing Provenance (SPJ-1.1 to 1.6)
+  ├── Ethics Cluster 2: Independence & Governance COI (SPJ-3.1 to 3.4)
+  ├── Ethics Cluster 3: Harm & Accountable Transparency (SPJ-2.x, SPJ-4.x)
+  ├── Deception Cluster 1: Commercial Camouflage (DEC-1.1 to 1.3)
+  ├── Deception Cluster 2: Urgency & Astroturfing (DEC-1.4, AST-1.x)
+  └── Domain Clusters: Municipal Governance, Clinical Evidence, etc.
+```
+
+Each micro-agent focuses exclusively on its assigned rubric, returning structured violation objects that undergo strict $G=1.00$ verbatim DOM grounding verification.
+
+---
+
+## 7. Dual Execution Driver Architecture
+
+To ensure operational resilience and zero external quota dependency, Credence implements a co-equal dual execution driver layer:
+
+1. **Google AI Studio / Cloud LLM API Driver**:
+   - Uses `GEMINI_API_KEY`, Claude, or OpenAI endpoints for standard CLI, FastMCP, and production server daemon deployments.
+2. **Antigravity-Native Agent Driver**:
+   - Executes audits directly within Antigravity's cognitive agent session using internal reasoning tokens.
+   - Eliminates external 429 rate limit exceptions and token quota costs during development and operator-driven research workflows.
+

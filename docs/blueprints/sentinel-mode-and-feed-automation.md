@@ -99,3 +99,29 @@ $$\text{CanonicalEnvelope} = \text{RFC8785}\left(\text{ReportPayload}\right)$$
 $$\sigma = \text{Ed25519\_Sign}\left(\text{sk}_{\text{node}}, \, \text{CanonicalEnvelope}\right)$$
 
 When peer nodes receive this attestation over the P2P mesh, they verify $\sigma$ against the sender's public key ($\text{pk}_{\text{node}}$). Because verification consumes zero LLM tokens and requires <2ms of CPU time, Sentinel feeds enable global epistemic consensus at minimal operational cost.
+
+---
+
+## 7. Taxonomy Delta Sifter & Staleness-Driven Re-Audits
+
+In a living epistemic system, taxonomy rulebooks expand continuously. To ensure historical audits stay synchronized with modern rubrics without re-running entire swarms unnecessarily, Sentinel Mode includes the **Taxonomy Delta Sifter**:
+
+1. **State Root Comparison**:
+   Sentinel compares the attestation's recorded `taxonomy_root_hash` against the registry's active `TaxonomyRegistry.get_composite_catalog_hash()`.
+2. **Cluster Isolation**:
+   If a mismatch occurs, `TaxonomyRegistry.get_catalog_deltas(taxonomies_used)` identifies the exact `TaxonomyCluster` objects that were added or modified.
+3. **Incremental Micro-Pass Execution**:
+   Rather than re-evaluating the entire 42-rule canon, Sentinel dispatches focused micro-agents solely against the delta clusters, merging new findings and re-sealing the attestation.
+
+---
+
+## 8. Antigravity-Native Scheduled Task Protocol
+
+Operators can run Sentinel daemons directly within Antigravity using internal agent reasoning tokens:
+
+- **CLI / Justfile Commands**:
+  - `just sentinel-audit <feed_url>`: Batch audit incoming articles under the cluster swarm.
+  - `just audit-stale [domain]`: Sweep local database, identify audits with outdated taxonomy hashes, and execute delta upgrades.
+- **Scheduled Antigravity Automation (`/schedule`)**:
+  - Configure scheduled jobs to poll local feeds (e.g. `inmaricopa.com/feed/`), audit new or stale articles, and submit signed attestations to live mesh nodes.
+
