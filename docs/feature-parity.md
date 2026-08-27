@@ -72,6 +72,15 @@ In accordance with **[The Invariant Bible](invariants.md#invariant-24) (Universa
 | **Epistemic Weather Barometer** | `credence rankings --type weather`<br/>Tool: `credence_get_epistemic_weather` | Global Climate Widget<br/>`credence.report` Weather Barometer | **Full Parity** |
 | **Community Bounties** | `credence bounties`<br/>Tool: `credence_get_bounties` | Open Quests List<br/>`credence.nexus` Bounties Board | **Full Parity** |
 
+### E. Decentralized Evaluation, Model Comparison & Heuristic Calibration
+
+| Feature Area | 🖥️ CLI & ⚡ FastMCP 2.0 | 📟 Textual TUI & 🌐 Web UI | Status |
+| :--- | :--- | :--- | :--- |
+| **Egalitarian Mesh Submission** | `credence mesh submit <url>`<br/>Tool: `credence_submit_mesh_attestation` | Ephemeral Submission Handler<br/>`credence.report` Ingestion Gate | **Full Parity** |
+| **Multi-Model Comparison Matrix** | `credence compare <url>`<br/>Tool: `credence_compare_models` | Revision Diff Matrix Widget<br/>`credence.report/viewer.html` Model Diff Matrix | **Full Parity** |
+| **Empirical Heuristic Calibration** | `credence heuristics benchmark`<br/>Tool: `credence_run_heuristics_benchmark` | Heuristic Calibration View<br/>`admin.credence.run` Calibration HUD | **Full Parity** |
+| **Node Operational Roles** | `credence node role/rescore`<br/>REST: `/api/admin/node-role` | Node Role Status Indicators<br/>`admin.credence.run` Station 1 Cockpit | **Full Parity** |
+
 ---
 
 ## 2. 4-Way Presentation Layer Showcase
