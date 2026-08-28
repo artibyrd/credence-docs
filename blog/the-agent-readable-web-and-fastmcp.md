@@ -2,7 +2,7 @@
 title: 'The Agent-Readable Web: Why FastMCP & Structured Endpoints Kill Headless Scraping'
 description: Why spinning up headless Chromium instances to scrape HTML is an obsolete relic of the human-only web, and how FastMCP 2.0 dynamic resources enable instant semantic agent ingestion.
 since_version: v2.15.0
-verified_version: v2.18.0
+verified_version: v2.18.1
 last_verified: 2026-08-28
 slug: the-agent-readable-web-and-fastmcp
 date: '2026-08-23'

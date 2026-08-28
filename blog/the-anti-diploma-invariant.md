@@ -2,7 +2,7 @@
 title: 'The Anti-Diploma Invariant: Why Credentials Cannot Substitute for Verifiable Grounding'
 description: Why institutional pedigrees and domain authority must be continuously proven through character-offset evidence.
 since_version: v1.12.0
-verified_version: v2.18.0
+verified_version: v2.18.1
 last_verified: 2026-08-28
 sidebar:
   order: 29

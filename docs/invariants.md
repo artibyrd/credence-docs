@@ -3,7 +3,7 @@ title: 'The Invariant Bible: Living Canon of System-Wide Invariants & Protocols'
 description: Canonical reference for all mathematical rules, runtime safety guardrails,
   cryptographic protocols, and presentation invariants governing Credence.
 since_version: v1.0.0
-verified_version: v2.18.0
+verified_version: v2.18.1
 last_verified: 2026-08-28
 tags:
 - invariants
@@ -776,6 +776,37 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
     </div>
     <div class="agent-spec-meta">
       <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>docs/, blog/</code></div>
+      <div class="agent-meta-item"><strong>Verification Gate:</strong> <code>tests/governance/test_docs_integrity.py</code></div>
+    </div>
+  </div>
+</details>
+</div>
+
+<div class="invariant-card" id="inv-artifact-curation" data-scope="universal" data-class="gamma">
+<a id="invariant-60"></a>
+<div class="invariant-header">
+  <div class="invariant-badges">
+    <span class="invariant-badge badge-class-gamma">Class γ</span>
+    <span class="invariant-badge badge-scope-universal">🌐 Universal Agentic</span>
+  </div>
+  <h3><a href="#docs/invariants#inv-artifact-curation">The Invariant Bible: Artifact Archival & Anti-Wipe Protocol ("That Belongs in a Museum!")</a></h3>
+</div>
+<div class="invariant-human-pane">
+  <p class="invariant-headline">Artifacts and implementation plans are permanent historical records that must never be overwritten or erased wholesale across session phases.</p>
+  <div class="invariant-rationale"><strong>Why It Matters:</strong> Preserves archaeological reasoning, past test verification matrices, and prevents losing context like wiped BBC tapes.</div>
+</div>
+<details class="agent-translation">
+  <summary class="agent-summary"><span class="agent-icon">🤖</span> <strong>Agent Deontic Specification</strong> <span class="agent-slug-pill"><code>inv-artifact-curation</code></span></summary>
+  <div class="agent-spec-hud">
+    <div class="agent-spec-section">
+      <span class="agent-spec-label">Deontic Execution Rules:</span>
+      <ul class="agent-rules-list">
+        <li><span class='deontic-must'>MUST</span> append chronological milestone phases rather than overwriting past artifacts.</li>
+        <li><span class='deontic-must'>MUST</span> preserve complete test tables, proof matrices, and operator sign-offs.</li>
+      </ul>
+    </div>
+    <div class="agent-spec-meta">
+      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>artifacts, walkthroughs, plans</code></div>
       <div class="agent-meta-item"><strong>Verification Gate:</strong> <code>tests/governance/test_docs_integrity.py</code></div>
     </div>
   </div>
@@ -2056,6 +2087,7 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
 | **[`inv-multi-model-sovereignty`](#inv-multi-model-sovereignty)** | Inv 7 | 🌐 Universal | Class γ | Multi-Model Sovereignty & Token Circuit Breakers | $\text{Headroom} \ge 30\%$ |
 | **[`inv-verbatim-anti-truncation`](#inv-verbatim-anti-truncation)** | Inv 52 | 🌐 Universal | Class α | Universal Verbatim Anti-Truncation UI | Evidence quotes, system rules, and forensic t... |
 | **[`inv-documentation-expansion`](#inv-documentation-expansion)** | Inv 53 | 🌐 Universal | Class γ | Session-Driven Documentation Expansion | New technical knowledge deepens existing cano... |
+| **[`inv-artifact-curation`](#inv-artifact-curation)** | Inv 60 | 🌐 Universal | Class γ | Artifact Archival & Anti-Wipe Protocol ("That Belongs in a Museum!") | Artifacts and implementation plans are permanent h... |
 | **[`inv-living-canon`](#inv-living-canon)** | Inv 54 | 🌐 Universal | Class γ | Dynamic Invariant Canon ("The Invariant Bible") | Invariants use semantic alphanumeric slugs (`... |
 | **[`inv-production-telemetry-boundary`](#inv-production-telemetry-boundary)** | Inv 55 | 🌐 Universal | Class γ | Production Telemetry vs. Simulation Boundary | Production dashboards display authentic syste... |
 | **[`inv-clean-slug-routing`](#inv-clean-slug-routing)** | Inv 56 | 🌐 Universal | Class γ | Zero-Hash Clean URL Routing & Canonical Slugs | Document slugs reside in clean URL paths; has... |
