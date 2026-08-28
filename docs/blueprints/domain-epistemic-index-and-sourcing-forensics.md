@@ -99,10 +99,11 @@ Where:
 
 | DCI Score Tier | Reputation Classification | Editorial Characterization | Sifter Action |
 | :--- | :--- | :--- | :--- |
-| **$85.0 – 100.0$** | **Tier I: Pristine Standard** | Verifiable sourcing, primary citations, transparent corrections | Pass-through with zero delay |
-| **$65.0 – 84.9$** | **Tier II: Generally Reliable**| Occasional unnamed sourcing or superlative framing | Normal queue evaluation |
-| **$40.0 – 64.9$** | **Tier III: Notable Flags** | Frequent clickbait headers, undisclosed commercial links | Mandatory heuristic audit |
-| **$0.0 – 39.9$** | **Tier IV: Soft Quarantine** | Coordinated astroturfing or ungrounded assertions | Flagged in morning briefing |
+| **$90.0 – 100.0$** | **Tier A: Pristine Standard** | Verifiable sourcing, primary citations ($G=1.00$), transparent corrections | Pass-through with zero delay |
+| **$80.0 – 89.9$** | **Tier B: Reliable / Certified** | High-standard reporting with occasional ungrounded assertions | Normal queue evaluation |
+| **$65.0 – 79.9$** | **Tier C: Monitored / Mixed** | Active local news with mixed commercial advertorials or single-source PR | Mandatory heuristic audit |
+| **$45.0 – 64.9$** | **Tier D: Watchlist** | Frequent clickbait headers, ungrounded opinion cloaked as news | Priority heuristic audit |
+| **$0.0 – 44.9$** | **Tier E: Quarantine** | Coordinated astroturfing, scam lures, ungrounded deception | Flagged in morning briefing & Wall of Shame |
 
 ---
 ## Domain Credence Index Aggregation Architecture

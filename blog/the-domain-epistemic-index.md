@@ -38,11 +38,11 @@ A domain's $DCI$ maps directly into five standardized **Trust Bands**:
 
 | Trust Band | $DCI$ Range | Characteristic Behavior | Public Verification Badge |
 | :--- | :---: | :--- | :---: |
-| **High Integrity** | $85.0 - 100.0\%$ | Verbatim sourcing, low suspicion, named bylines, clean corrections | `🛡️ 98% HIGH_INTEGRITY` |
-| **Reliable** | $65.0 - 84.9\%$ | Minor formal fallacies or unlinked quotes; general journalistic rigor | `✅ 74% RELIABLE` |
-| **Mixed** | $45.0 - 64.9\%$ | Frequent emotional framing, unsourced claims, opinion cloaked as news | `⚠️ 52% MIXED` |
-| **Low Integrity** | $25.0 - 44.9\%$ | Pervasive deceptive patterns, fabricated urgency, missing author attribution | `🛑 34% LOW_INTEGRITY` |
-| **Deceptive** | $0.0 - 24.9\%$ | Coordinated inauthentic behavior, health scams, cloaked propaganda | `🚨 12% DECEPTIVE` |
+| **Tier A (Pristine / High Integrity)** | $90.0 - 100.0\%$ | Verbatim primary sourcing, strict bylines ($G=1.00$), clean corrections | `🛡️ 98% HIGH_INTEGRITY` |
+| **Tier B (Reliable / Certified)** | $80.0 - 89.9\%$ | High-standard journalism with minor ungrounded claims or occasional single-source PR | `✅ 84% RELIABLE` |
+| **Tier C (Monitored / Mixed)** | $65.0 - 79.9\%$ | Active local journalism mixed with commercial advertorials or single-source police blotters | `⚠️ 76% MONITORED` |
+| **Tier D (Watchlist / Low Integrity)** | $45.0 - 64.9\%$ | Frequent emotional framing, unsourced claims, opinion cloaked as news | `🛑 52% WATCHLIST` |
+| **Tier E (Deceptive / Quarantine)** | $0.0 - 44.9\%$ | Coordinated inauthentic behavior, health scams, cloaked propaganda, phishing | `🚨 12% DECEPTIVE` |
 
 ---
 
