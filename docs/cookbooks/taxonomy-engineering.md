@@ -3,7 +3,7 @@ title: Taxonomy Rule Engineering 101
 description: Authoring custom namespaced YAML catalogs, calibrating numerical severities,
   and defining grounded citation requirements.
 since_version: v1.0.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 ---
 
@@ -83,33 +83,37 @@ When assigning `severity` ($1 \dots 5$), use the standardized Credence rubric:
 
 ## 4. Deterministic Catalog Hashing (The Invariant Bible)
 
-When a node loads a catalog, it computes its SHA-256 hash across canonical bytes. Peer nodes verify that evaluations cite pinned catalog hashes:
+When a node loads a catalog, it computes its SHA-256 hash across canonical RFC 8785 JSON bytes. The system indexes all catalogs into a global **Composite Taxonomy Root Hash**:
 
-```bash
-credence taxonomy hash credence/taxonomies/financial_disclosures.yaml
-```
-Output: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+$$\text{Taxonomy Root Hash} = \text{SHA256}\left(\bigoplus_{i=1}^{N} \text{catalog\_id}_i : \text{catalog\_hash}_i\right)$$
 
 ---
-## Authoring Custom Taxonomy Rulebooks & Test Suites
 
-To define proprietary ethics, compliance, or editorial guidelines in namespaced YAML rulebooks:
+## 5. Automatic Swarm Partitioning & Granular Cluster Sizing
 
-### Custom Taxonomy Rulebook (`custom-rules.yaml`)
+To prevent prompt bloat and cognitive dilution when catalogs expand, rules must be grouped into semantic clusters bounded to **3–6 rules per cluster**:
+
 ```yaml
-namespace: editorial-integrity
-version: 1.0.0
-rules:
-  - id: EDIT-01
-    name: Sourced Statistical Claims
-    severity: HIGH
-    description: All quantitative statistical claims must link directly to peer-reviewed data.
-    heuristic_regex: "(studies show|research proves|statistics demonstrate)"
-    grounding_required: true
+clusters:
+  - cluster_id: CLINICAL_EVIDENCE
+    name: "Clinical Trial Substantiation"
+    description: "Rules auditing medical claims against peer-reviewed clinical trials."
+    rules:
+      - rule_id: MED-1.1
+        name: "Unverified Miracle Cure Claim"
+        severity: 5
+        description: "Promoting unapproved compounds as definitive cures."
+        evidence_guidelines: "Quote the specific medical efficacy claim."
 ```
 
-| Taxonomy Field | Type | Validation Constraint |
-| :--- | :--- | :--- |
-| `namespace` | String | Lowercase alphanumeric (`[a-z0-9-]+`) |
-| `severity` | Enum | `LOW`, `MEDIUM`, `HIGH`, `CRITICAL` |
-| `grounding_required` | Boolean | If true, triggers $G=1.00$ verbatim DOM match |
+When loaded, `TaxonomyRegistry.get_granular_evaluation_clusters()` automatically parses each cluster into a dedicated specialist micro-agent pass, ensuring zero-code extensibility.
+
+---
+
+## 6. Taxonomy State Drift & Re-Audit Lifecycle
+
+When a developer or standards body updates a YAML catalog:
+1. The catalog's SHA-256 digest and the composite `Taxonomy Root Hash` automatically change.
+2. Existing attestations evaluated under older standards are flagged as `is_taxonomy_stale=True`.
+3. Running `just audit-stale` or Sentinel daemons isolates the exact changed clusters via `TaxonomyRegistry.get_catalog_deltas()` and executes targeted delta micro-passes to update the attestation without re-running the entire suite.
+

@@ -2,7 +2,7 @@
 title: 'Subagent Parenthood: The Dynamics of Delegating and Mentoring Nested AI Swarms'
 description: Best practices for spawning, scoping, and supervising concurrent specialized subagents in complex refactors.
 since_version: v1.13.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 sidebar:
   order: 34

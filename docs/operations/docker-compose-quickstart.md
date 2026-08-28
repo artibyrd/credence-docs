@@ -3,7 +3,7 @@ title: 'Operational Guide: Docker Compose 5-Minute Quickstart'
 description: Quickstart guide for launching a sovereign Credence node or full-stack
   cluster locally using Docker Compose in under 5 minutes.
 since_version: v1.18.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 ---
 
@@ -41,8 +41,8 @@ curl -sSL http://localhost:8000/health | jq .
 
 ### Endpoints Available Immediately:
 - **FastMCP SSE Transport**: `http://localhost:8000/sse`
-- **Cost & Health Dashboard**: `http://localhost:8000/cost.html`
-- **Audit Reports Viewer**: `http://localhost:8000/api/reports`
+- **Node Telemetry & Vitals**: `http://localhost:8000/api/node/stats`
+- **Audit Reports API**: `http://localhost:8000/api/reports`
 - **P2P Gossip Relay**: `ws://localhost:8765`
 
 ---

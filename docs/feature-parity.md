@@ -3,7 +3,7 @@ title: Universal Feature Parity Matrix
 description: Synchronous capability matrix across CLI, FastMCP 2.0, Textual TUI, and
   Zero-Build Web portals.
 since_version: v1.0.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 ---
 
@@ -49,8 +49,8 @@ In accordance with **[The Invariant Bible](invariants.md#invariant-24) (Universa
 
 | Feature Area | 🖥️ CLI & ⚡ FastMCP 2.0 | 📟 Textual TUI & 🌐 Web UI | Status |
 | :--- | :--- | :--- | :--- |
-| **Node & Mesh Health Dashboard** | `credence stats`<br/>Tool: `credence_get_mesh_stats` | Tab 8: `🛠️ Ops Telemetry`<br/>`credence.nexus/dashboard.html` | **Full Parity** |
-| **Whole-Mesh Network Topology** | `credence stats --mesh`<br/>Tool: `credence_get_mesh_network_health`<br/>Resource: `credence://mesh/network-health` | Tab 9: `🕸️ P2P Mesh`<br/>`credence.nexus/mesh.html` (13-Node Canvas) | **Full Parity** |
+| **Node & Mesh Health Dashboard** | `credence stats`<br/>Tool: `credence_get_mesh_stats` | Tab 8: `🛠️ Ops Telemetry`<br/>`credence.nexus` (Node Vitals) | **Full Parity** |
+| **Whole-Mesh Network Topology** | `credence stats --mesh`<br/>Tool: `credence_get_mesh_network_health`<br/>Resource: `credence://mesh/network-health` | Tab 9: `🕸️ P2P Mesh`<br/>`credence.nexus` (Mesh Canvas) | **Full Parity** |
 | **Token Headroom Governor** | `credence quota`<br/>Tool: `credence_get_quota_status` | Tab 6: `⚡ Quota`<br/>Status Badge at `credence.run` | **Full Parity** |
 | **Cost Profiles** | `credence profile list`<br/>Resource: `credence://profiles` | Profile Badge `[FREE/BALANCED]`<br/>Cost Tier Grid | **Full Parity** |
 | **Taxonomy Governance** | `credence taxonomy list`<br/>Resource: `credence://taxonomies` | Tab 2: `📚 Taxonomies`<br/>`taxonomies.credence.foundation` | **Full Parity** |
@@ -71,6 +71,15 @@ In accordance with **[The Invariant Bible](invariants.md#invariant-24) (Universa
 | **Top Violated Rules** | `credence rankings --type rules`<br/>Tool: `credence_get_taxonomy_analytics` | Rules Breakdown View<br/>`credence.report` Rules Aggregator | **Full Parity** |
 | **Epistemic Weather Barometer** | `credence rankings --type weather`<br/>Tool: `credence_get_epistemic_weather` | Global Climate Widget<br/>`credence.report` Weather Barometer | **Full Parity** |
 | **Community Bounties** | `credence bounties`<br/>Tool: `credence_get_bounties` | Open Quests List<br/>`credence.nexus` Bounties Board | **Full Parity** |
+
+### E. Decentralized Evaluation, Model Comparison & Heuristic Calibration
+
+| Feature Area | 🖥️ CLI & ⚡ FastMCP 2.0 | 📟 Textual TUI & 🌐 Web UI | Status |
+| :--- | :--- | :--- | :--- |
+| **Egalitarian Mesh Submission** | `credence mesh submit <url>`<br/>Tool: `credence_submit_mesh_attestation` | Ephemeral Submission Handler<br/>`credence.report` Ingestion Gate | **Full Parity** |
+| **Multi-Model Comparison Matrix** | `credence compare <url>`<br/>Tool: `credence_compare_models` | Revision Diff Matrix Widget<br/>`credence.report/viewer.html` Model Diff Matrix | **Full Parity** |
+| **Empirical Heuristic Calibration** | `credence heuristics benchmark`<br/>Tool: `credence_run_heuristics_benchmark` | Heuristic Calibration View<br/>`admin.credence.run` Calibration HUD | **Full Parity** |
+| **Node Operational Roles** | `credence node role/rescore`<br/>REST: `/api/admin/node-role` | Node Role Status Indicators<br/>`admin.credence.run` Station 1 Cockpit | **Full Parity** |
 
 ---
 

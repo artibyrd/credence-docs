@@ -2,7 +2,7 @@
 title: Scoring Calibration & Mathematical Rubrics
 description: Mathematical formulation of the Epistemic Suspicion Score, non-linear saturation curve, and classification rubrics.
 since_version: v1.0.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 sidebar:
   order: 4
@@ -51,11 +51,53 @@ The overall suspicion score $S$ is calculated from three primary components:
 
 ---
 
-## 4. Interactive Calibration Tools
+## 4. Longitudinal Sourcing Forensics & Publisher Ratios
+
+Beyond single-article suspicion scores, Credence evaluates structural publisher incentives and editorial hygiene using continuous sourcing ratios:
+
+1. **Byline Transparency Index ($R_{\text{byline}}$)**:
+   $$R_{\text{byline}} = \frac{N_{\text{named\_authors}}}{N_{\text{total\_articles}}}$$
+   Scores $100.0$ for verifiable named human journalists and drops to $0.0$ when publications rely on generic handles (`"Staff"`, `"Admin"`, `"News Desk"`) to obscure editorial accountability.
+
+2. **Single-Source Blotter Ratio ($R_{\text{single}}$)**:
+   $$R_{\text{single}} = \frac{N_{\text{single\_source}}}{N_{\text{total\_articles}}}$$
+   Measures reliance on uncorroborated government or law enforcement press releases passed through without independent verification.
+
+3. **Conflict of Interest Exposure ($R_{\text{COI}}$)**:
+   $$R_{\text{COI}} = \frac{N_{\text{unrecused\_conflicts}}}{N_{\text{civic\_articles}}}$$
+   Quantifies coverage of commercial partners, advertisers, or political figures where editorial recusal or explicit disclosure was omitted.
+
+4. **Advertorial Separation Index ($ASI$)**:
+   $$ASI = \max\left(0.0, \min\left(100.0, 100.0 - \sum \text{Violations}_{\text{advertorial}} \times 15.0\right)\right)$$
+   Evaluates native commercial blur, sponsor masking, and hidden promotional directories.
+
+5. **Composite Domain Credence Index ($DCI$)**:
+   $$\text{DCI} = 100.0 - \left(0.50 \cdot S_{\text{recency}} + 0.30 \cdot \min(50.0, \text{Density}) + 0.20 \cdot (1.0 - R_{\text{byline}}) \cdot 100\right)$$
+
+---
+
+## 5. Deterministic Taxonomy State Root Hashing & Staleness
+
+To maintain absolute provenance over changing standards, every attestation records the **Composite Taxonomy Root Hash**:
+
+$$\text{Taxonomy Root Hash} = \text{SHA256}\left(\bigoplus_{i=1}^{N} \text{catalog\_id}_i : \text{catalog\_hash}_i\right)$$
+
+Where $\bigoplus$ denotes canonical lexicographically sorted JSON serialization.
+
+### Automated Staleness & Re-Audit Invalidation
+An existing audit is flagged as `STALE_TAXONOMY` whenever:
+$$\text{Taxonomy Root Hash}_{\text{audit}} \ne \text{Taxonomy Root Hash}_{\text{active\_registry}}$$
+
+When detected, Sentinel daemons and CLI workflows (`just audit-stale`) automatically trigger targeted micro-passes across newly added or modified rule clusters.
+
+---
+
+## 6. Interactive Calibration Tools
 
 * 🎮 [Interactive Saturation Curve Plotter](../playground.md)
 * 📐 [Robust Consensus Proofs & Mathematical Foundations](../mathematics/robust-consensus-proofs.md)
 * 📘 [The Invariant Bible](../invariants.md) — Epistemic Scoring Invariants
+
 
 ---
 ## Epistemic Scoring Pipeline & Calibration Formulas

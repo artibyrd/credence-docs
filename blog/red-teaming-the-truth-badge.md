@@ -2,7 +2,7 @@
 title: 'Red-Teaming the Truth Badge: 4 Ways We Tried to Break Our Own Web Component'
 description: An adversarial engineering postmortem on attacking the <credence-badge> WebCrypto verification pipeline.
 since_version: v1.11.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 sidebar:
   order: 19

@@ -2,7 +2,7 @@
 title: 'Operational Guide: Cost Governance & Real-Time Token Dashboard'
 description: Managing spending limits, inspecting token burn rates, tripping circuit breakers, and configuring live cost dashboards.
 since_version: v1.12.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 sidebar:
   order: 19
@@ -10,7 +10,7 @@ sidebar:
 
 # Operational Guide: Cost Governance & Real-Time Token Dashboard
 
-This operational guide provides operators with complete instructions for monitoring LLM token expenditures, configuring financial tripwires, and managing the **Real-Time Cost Dashboard** (`credence.nexus/cost.html`).
+This operational guide provides operators with complete instructions for monitoring LLM token expenditures, configuring financial tripwires, and managing budget controls in the **Operator Admin Cockpit** (`admin.credence.run`) alongside public telemetry on `credence.nexus`.
 
 ---
 

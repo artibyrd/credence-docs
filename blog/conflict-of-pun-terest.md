@@ -4,7 +4,7 @@ title: 'Conflict of Pun-terest: 347 Reasons Why Maricopa''s Publisher-Politician
 description: Empirical case study of inmaricopa.com auditing the collision of municipal
   governance, unlabelled commercial advertorials, and local news monopoly.
 since_version: v1.12.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 ---
 
@@ -472,13 +472,24 @@ Every article audit produces a calibrated Suspicion Score $S \in [0.0, 100.0]$:
 
 ---
 
-## 📡 Live Ongoing Monitoring: Continuous Verification & Anti-Cherry-Picking
+## 📡 Live Ongoing Monitoring: Continuous Verification, Sentinel Mode & Anti-Cherry-Picking
 
 > [!TIP]
 > **Think these findings were an isolated fluke or cherry-picked?**
-> Credence does not perform one-time manual hit pieces. The decentralized Credence node mesh continuously ingests and audits `inmaricopa.com`'s live syndicated feeds in real-time, verifying every new publication as it goes live.
+> Credence does not perform one-time manual hit pieces. To ensure continuous longitudinal scrutiny and eliminate selection bias, Credence node operators can place target media outlets into **Sentinel Mode**. In Sentinel Mode, `inmaricopa.com`'s live syndicated feed (`https://inmaricopa.com/feed/`) is polled every 5 minutes ($300\text{s}$), with newly published articles immediately evaluated and gossiped across the peer-to-peer mesh.
 
-You can inspect the up-to-the-minute live stream, query the REST API, or run your own independent audits right now:
+### 1. The Sentinel Mode Invariant Architecture
+
+When auditing local news monopolies or publishing-governance conflicts, sample freshness and historical continuity are critical. Sentinel Mode provides a deterministic, automated ingestion mechanism:
+
+1. **High-Frequency Ingestion Cadence ($\Delta t = 300\text{s}$)**: Sentinel feeds bypass standard 15–30 minute polling cycles and are scanned on a rapid 5-minute schedule.
+2. **Prioritized Sifter & Boredom Queueing**: When node token headroom allows, articles from Sentinel sources receive top-priority evaluation in background sifter and boredom cycles.
+3. **Guaranteed Organic Soil Floor ($C_{\text{organic}} \ge 50\%$)**: To prevent Sentinel Mode from being abused to starve organic germination or crowd out root citation expansion (`extract_root_candidates`), Sentinel items are strictly capped at 50% of any audit burst.
+4. **Verbatim Grounding Mandate ($G = 1.00$)**: Every evaluated claim, whether flagged as conflict-of-interest or clean reporting, requires character-for-character DOM evidence. Sentinel monitoring guarantees that subsequent clean coverage is scored just as objectively as flagged violations.
+
+### 2. Live Verification Channels & Operator Controls
+
+You can inspect the up-to-the-minute live stream, configure your own node's Sentinel sources, or query the REST API right now:
 
 <div class="live-monitor-callout">
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem;">
@@ -491,11 +502,15 @@ You can inspect the up-to-the-minute live stream, query the REST API, or run you
   <div style="display: flex; flex-direction: column; gap: 0.65rem;">
     <div>🔍 <a href="https://credence.report/#analytics/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Inspect Live Publisher Analytics Dashboard on Credence Report</a> — Real-time DCI trendline, rolling sourcing ratios, and latest article stream.</div>
     <div>⚡ <a href="https://credence.run/api/analytics/publisher/inmaricopa.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-weight: 600;">Direct Production REST API JSON Feed</a> — Live machine-readable publisher record on Credence API Gateway.</div>
-    <div>📡 <a href="#docs/protocols/fastmcp" style="color: var(--accent-cyan); font-weight: 600;">Query FastMCP Dynamic Resource</a> — Connect Claude or Cursor to <code>credence://analytics/publisher/inmaricopa.com</code>.</div>
+    <div>📡 <a href="https://docs.credence.run/protocols/fastmcp" style="color: var(--accent-cyan); font-weight: 600;">Query FastMCP Dynamic Resource</a> — Connect Claude or Cursor to <code>credence://analytics/publisher/inmaricopa.com</code>.</div>
   </div>
   <div style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid rgba(56, 189, 248, 0.2);">
-    <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 600;">💻 Audit Any Current InMaricopa Article in Real Time from Your Terminal:</div>
-    <pre style="background: #020617; border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 6px; padding: 0.65rem 0.85rem; color: #38bdf8; font-family: var(--font-mono, monospace); font-size: 0.8rem; margin: 0;">credence audit https://inmaricopa.com/&lt;any-article-slug&gt; --profile balanced</pre>
+    <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; font-weight: 600;">💻 Configure Sentinel Mode on InMaricopa or Audit Articles in Real Time from Your Terminal:</div>
+    <pre style="background: #020617; border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 6px; padding: 0.65rem 0.85rem; color: #38bdf8; font-family: var(--font-mono, monospace); font-size: 0.8rem; margin: 0 0 0.5rem 0;"># Enable 5-minute Sentinel Mode for InMaricopa
+credence feeds sentinel enable https://inmaricopa.com/feed/
+
+# Audit any specific InMaricopa article directly
+credence audit https://inmaricopa.com/&lt;any-article-slug&gt; --profile balanced</pre>
   </div>
 </div>
 

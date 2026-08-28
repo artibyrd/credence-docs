@@ -2,7 +2,7 @@
 title: 'Epistemic Protocol Specification: Domain Reputation, Soft Quarantine & Redemption (EPEP-17)'
 description: State machine transitions, half-life decay, exponential backoff, and evidentiary redemption for flagged publisher domains.
 since_version: v1.13.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 sidebar:
   order: 8
@@ -72,7 +72,19 @@ A quarantined domain achieves full redemption to `PRISTINE` status only by meeti
 
 ---
 
-## 5. CLI & FastMCP Operator Interfaces
+## 5. Sentinel Mode Interaction & Quarantine Invariants
+
+When conducting focused investigations, node operators can place specific domains into **Sentinel Mode** (`credence feeds sentinel enable <url>`). 
+
+The interaction between Sentinel Mode and Domain Reputation is strictly governed by three invariants:
+
+1. **Orthogonal Ingestion Priority vs. Epistemic Classification**: Sentinel Mode accelerates polling frequency ($\Delta t = 300\text{s}$) and ingestion queue priority, but has **zero impact** on domain trust classification.
+2. **Zero Quarantine Bypass**: Placing a `SOFT_QUARANTINE` or `PROBATION_REVIEW` domain into Sentinel Mode **never** lifts its quarantine, alters its DCI score, or bypasses the BuzzFeed News Doctrine.
+3. **Probationary Sampling Budget**: Quarantined Sentinel feeds remain subject to the probationary sampling ratio (Lazarus probing) during boredom cycles, ensuring that node operators cannot force unearned clean-soil fast-tracking.
+
+---
+
+## 6. CLI & FastMCP Operator Interfaces
 
 ```bash
 # Inspect domain state machine status and quarantine history
@@ -81,17 +93,21 @@ $ credence report inmaricopa.com
 # Request exploratory probationary audit window
 $ credence check https://inmaricopa.com --profile ultra
 
+# Enable high-frequency Sentinel Mode for longitudinal observation
+$ credence feeds sentinel enable https://inmaricopa.com/feed/
+
 # Query quarantine ledger via FastMCP 2.0
 $ credence_get_domain_dossier(domain="inmaricopa.com")
 ```
 
 ---
 
-## 6. Related Documentation & Case Studies
+## 7. Related Documentation & Case Studies
 
 * 📰 [The BuzzFeed News Doctrine & Redemption Essay](../../blog/the-buzzfeed-news-doctrine.md)
 * 📘 [The Invariant Bible](../invariants.md) — Soft Blacklisting & Redemption Invariants
 * 🏛️ [Conflict of Pun-terest: InMaricopa Forensic Case Study](../../blog/conflict-of-pun-terest.md)
+* 🍳 [Automated Morning Feed Sifter Cookbook](../cookbooks/morning-feed-sifter.md)
 
 ---
 ## Node Reputation State Machine & Slashing Penalties

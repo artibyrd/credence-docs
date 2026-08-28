@@ -2,7 +2,7 @@
 title: 'Technical Blueprint: Operator Telemetry & Mesh Dashboard'
 description: Real-time operator metrics, WebSocket ring buffer aggregation, D3/SVG vector telemetry, and zero-mock production boundary.
 since_version: v1.12.0
-verified_version: v2.17.4
+verified_version: v2.18.0
 last_verified: 2026-08-26
 sidebar:
   order: 11
@@ -10,18 +10,18 @@ sidebar:
 
 # Technical Blueprint: Operator Telemetry & Mesh Dashboard
 
-This technical blueprint specifies the architecture of the **Operator Telemetry & Mesh Dashboard** (`credence.nexus/dashboard.html` and `credence.nexus/mesh.html`), enforcing strict real-time data streaming, in-memory ring buffers, and the **Zero-Mock Production Boundary Invariant (`inv-production-telemetry-boundary`)**.
+This technical blueprint specifies the architecture of the **Operator Telemetry & Mesh Dashboard** (`credence.nexus` and `admin.credence.run`), enforcing strict real-time data streaming, in-memory ring buffers, and the **Zero-Mock Production Boundary Invariant (`inv-production-telemetry-boundary`)**.
 
 ---
 
 ## 1. Zero-Mock Production Boundary Invariant
 
 A critical invariant in Credence is the strict physical boundary between **Production Telemetry** and **Simulated Environments**:
-- **Operator Dashboard (`credence.nexus/dashboard.html`)**: Must report 100% genuine node reality. If the node is running in isolation ($N=1$), it must display `STANDALONE (0 Peers Connected)` with active local SQLite metrics. Zero synthetic or hardcoded peer graphs are permitted in production surfaces.
+- **Operator Dashboard (`credence.nexus` / `admin.credence.run`)**: Must report 100% genuine node reality. If the node is running in isolation ($N=1$), it must display `STANDALONE (0 Peers Connected)` with active local SQLite metrics. Zero synthetic or hardcoded peer graphs are permitted in production surfaces.
 - **Interactive Playground (`docs.credence.run/#playground`)**: Sandboxed educational simulators belong exclusively inside documentation playground routes, clearly marked with simulation badges.
 
 | Observability Plane | Target Environment | Telemetry Source | Simulation Allowed |
-| :--- | :--- | :--- | :---: |
+| :--- | :--- | :--- | :--- |
 | **Production Dashboards** | `credence.nexus` / `admin.credence.run` | 100% Genuine Node State ($N \ge 1$) | **NO** (Zero mock data) |
 | **Documentation Lab** | `docs.credence.run/#docs/playground` | Educational Chaos & Simulators | **YES** (Interactive playground) |
 
@@ -38,7 +38,7 @@ In-Memory 1,000-Event Circular Ring Buffer
 FastMCP SSE & REST API Gateway (`/api/v1/telemetry`)
 - Compresses event histograms into coarse buckets
 - Applies differential privacy transformations
-Zero-Build Web Dashboard (`credence.nexus/mesh.html`)
+Zero-Build Web Dashboard (`credence.nexus`)
 - Native SVG vector gauge rendering
 - Real-time peer latency & Byzantine chord diagrams
 

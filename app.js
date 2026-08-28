@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.17.4';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.18.0';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -4524,7 +4524,7 @@ export function initRouter() {
 
     const prodToDev = {
       'https://credence.run': 'https://dev.credence.run',
-      'https://admin.credence.run': 'https://dev.admin.credence.run',
+      'https://admin.credence.run': 'https://dev.credence.run/admin',
       'https://credence.report': 'https://dev.credence.report',
       'https://credence.nexus': 'https://dev.credence.nexus',
       'https://credence.foundation': 'https://dev.credence.foundation',
@@ -4677,7 +4677,7 @@ export function initRouter() {
     // 2. Dev preview host normalization
     if (isDev) {
       const prodToDev = {
-        'https://admin.credence.run': 'https://dev.admin.credence.run',
+        'https://admin.credence.run': 'https://dev.credence.run/admin',
         'https://credence.run': 'https://dev.credence.run',
         'https://credence.report': 'https://dev.credence.report',
         'https://credence.nexus': 'https://dev.credence.nexus',
