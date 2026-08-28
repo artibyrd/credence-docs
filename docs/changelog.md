@@ -3,16 +3,27 @@ title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
 verified_version: v2.18.0
-last_verified: 2026-08-26
+last_verified: 2026-08-28
 ---
 
 # Release Changelog
 
-## [2.18.0] - 2026-08-26
+## [2.18.0] - 2026-08-28
 
 ### Added
+- **Decentralized Multi-Agent Forensic Specialist Evaluator Subsystem**:
+  - Implemented granular specialist cluster swarms (3–6 rules per pass) with exact verbatim DOM quote grounding ($G=1.00$).
+  - Expanded continuous InMaricopa seed cohort to $N=50$ articles, sealed with root Ed25519 signatures over canonical RFC 8785 JSON bytes.
+- **Calibrated 5-Tier Domain Credence Index (DCI) Standard**:
+  - Calibrated DCI trust bands into rigorous 5-tier standard: Tier A ($\ge 90.0$), Tier B ($80.0 - 89.9$), Tier C ($65.0 - 79.9$, `inmaricopa.com` 77.1), Tier D ($45.0 - 64.9$), and Tier E ($< 45.0$).
+  - Filter chips and multi-column sorting (`sortDciTable`) on `credence.report/#dci`.
+- **Monotonic Score & Categorical Verdict Alignment**:
+  - Enforced strict canonical thresholds across all APIs, SQLite persistence, and UI dossiers ($\le 15.0 \implies \text{CLEAN}$, $\le 40.0 \implies \text{LOW\_SUSPICION}$, $\le 70.0 \implies \text{SUSPICIOUS}$, $> 70.0 \implies \text{DECEPTIVE}$).
+  - Re-classified and re-signed landmark COI case study (*Copper Sky Land Sale is No Scandal*, 78.4) as `DECEPTIVE`.
+- **4-Way Source Provenance Engine**:
+  - Distinctly attributes and visualizes **Genesis Seeder**, **Sentinel Feed**, **P2P Mesh**, and **CLI / Manual** across all search and dossier views.
 - **High-Priority Ingestion Sentinel Mode Subsystem (`credence.feeds.sentinel`)**:
-  - Implemented dedicated Sentinel Mode enabling node operators to designate high-priority sources (such as `inmaricopa.com`) for continuous, longitudinal 5-minute ingestion cycles to eliminate cherry-picking bias.
+  - Implemented dedicated Sentinel Mode enabling node operators to designate high-priority sources for continuous, longitudinal 5-minute ingestion cycles to eliminate cherry-picking bias.
   - Implemented SSRF security boundaries rejecting loopback (`127.0.0.1`), private IP subnets, and cloud metadata (`169.254.169.254`).
   - Added strict capacity ceiling ($N \le 10$ active sentinels) and minimum poll interval safety guards ($\ge 60\text{s}$).
   - Enforced the Guaranteed Organic Soil Floor ($C_{\text{organic}} \ge 50\%$) via `partition_ingestion_burst()` during boredom and germination cycles to guarantee un-starved citation graph expansion.

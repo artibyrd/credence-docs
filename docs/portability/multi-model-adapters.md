@@ -4,7 +4,7 @@ description: Configuring Credence with Anthropic Claude 3.7 Sonnet, OpenAI GPT-4
   / o3-mini, DeepSeek-R1, and Local Ollama / vLLM.
 since_version: v1.0.0
 verified_version: v2.18.0
-last_verified: 2026-08-26
+last_verified: 2026-08-28
 ---
 
 # Multi-Model Provider Architecture

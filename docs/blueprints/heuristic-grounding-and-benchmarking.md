@@ -3,7 +3,7 @@ title: 'Technical Blueprint: Heuristic Grounding, Versioning & Empirical Calibra
 description: Tier 1 42-rule synthetic gauntlet, Tier 2 N=104 static anchor corpus calibration, and mathematical confidence ceiling bounds.
 since_version: v2.18.0
 verified_version: v2.18.0
-last_verified: 2026-08-27
+last_verified: 2026-08-28
 sidebar:
   order: 24
 ---

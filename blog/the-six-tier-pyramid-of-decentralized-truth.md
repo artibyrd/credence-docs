@@ -6,7 +6,7 @@ description: 'Why static benchmarks fail in decentralized epistemic systems: How
   Playwright rendering, and 13-node Byzantine mesh chaos labs.'
 since_version: v1.0.0
 verified_version: v2.18.0
-last_verified: 2026-08-26
+last_verified: 2026-08-28
 tags:
 - testing
 - e2e

@@ -3,7 +3,7 @@ title: 'Technical Blueprint: Sovereign Data Gravity & CAS Portability'
 description: Content-Addressable Storage (CAS), S3-compatible object storage, portable truth bundles, and zero vendor lock-in.
 since_version: v1.13.0
 verified_version: v2.18.0
-last_verified: 2026-08-26
+last_verified: 2026-08-28
 sidebar:
   order: 12
 ---

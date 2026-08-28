@@ -3,7 +3,7 @@ title: 'Technical Blueprint: Dual-Environment Project and Domain Isolation'
 description: Hard project boundaries, IAM role segregation, Cloudflare preview branches, and zero credential sharing.
 since_version: v1.14.0
 verified_version: v2.18.0
-last_verified: 2026-08-26
+last_verified: 2026-08-28
 sidebar:
   order: 9
 ---

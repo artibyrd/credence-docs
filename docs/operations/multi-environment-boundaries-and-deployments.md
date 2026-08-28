@@ -4,7 +4,7 @@ description: Comprehensive operational runbook detailing project, account, domai
   CI/CD secrets, and data boundary isolation between Basic Dev and Advanced Prod deployments.
 since_version: v1.18.0
 verified_version: v2.18.0
-last_verified: 2026-08-26
+last_verified: 2026-08-28
 ---
 
 # Operational Guide: Multi-Environment Boundaries and Deployments

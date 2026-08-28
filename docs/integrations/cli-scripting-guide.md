@@ -4,7 +4,7 @@ description: Advanced shell automation using JSON output, jq filtering, parallel
   processing with xargs, and CI/CD PR review gates.
 since_version: v1.0.0
 verified_version: v2.18.0
-last_verified: 2026-08-26
+last_verified: 2026-08-28
 ---
 
 # CLI Automation & Shell Scripting Guide

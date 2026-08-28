@@ -4,7 +4,7 @@ description: Comprehensive multi-interface walkthrough for auditing live URLs an
   raw prose text across CLI, FastMCP 2.0, Python SDK, and Zero-Build Web UI.
 since_version: v1.0.0
 verified_version: v2.18.0
-last_verified: 2026-08-26
+last_verified: 2026-08-28
 sidebar:
   order: 1
 ---

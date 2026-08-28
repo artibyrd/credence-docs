@@ -3,7 +3,7 @@ title: 'Technical Blueprint: Multi-Model Evaluation Comparison Matrix'
 description: Longitudinal model provenance tracking, pairwise score deltas, taxonomy violation diffs, and multi-model sovereignty.
 since_version: v2.18.0
 verified_version: v2.18.0
-last_verified: 2026-08-27
+last_verified: 2026-08-28
 sidebar:
   order: 23
 ---

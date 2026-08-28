@@ -4,7 +4,7 @@ description: Deploying a low-power ARM64 Credence mesh node with systemd, automa
   SQLite maintenance, and dynamic DNS.
 since_version: v1.0.0
 verified_version: v2.18.0
-last_verified: 2026-08-26
+last_verified: 2026-08-28
 ---
 
 # Raspberry Pi & HomeLab 24/7 Node Runbook

@@ -4,7 +4,7 @@ description: How we run mathematically rigorous 13-node Byzantine P2P mesh clust
   simulations in under 150MB of RAM and 4.5 seconds on edge hardware.
 since_version: v1.6.0
 verified_version: v2.18.0
-last_verified: 2026-08-26
+last_verified: 2026-08-28
 date: '2026-08-18'
 author: Credence Core Architecture Team
 ---

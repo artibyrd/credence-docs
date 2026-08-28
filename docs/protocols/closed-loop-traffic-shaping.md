@@ -4,7 +4,7 @@ description: Technical specification for connecting epistemic merit to P2P netwo
   bandwidth, rate limits, /24 subnet clustering, and zero-cost caching.
 since_version: v1.0.0
 verified_version: v2.18.0
-last_verified: 2026-08-26
+last_verified: 2026-08-28
 ---
 
 # Closed-Loop Routing & P2P Traffic Shaping
