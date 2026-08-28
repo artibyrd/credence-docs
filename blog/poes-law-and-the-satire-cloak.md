@@ -2,7 +2,7 @@
 title: 'Poe’s Law and the Satire Cloak: Teaching an AI When NOT to Be a Pedant'
 description: The comedy and mathematics of detecting satire without letting malicious actors hide factual defamation and commercial astroturfing behind 'it’s just a joke.'
 since_version: v1.0.0
-verified_version: v2.18.0
+verified_version: v2.18.1
 last_verified: 2026-08-28
 date: '2026-08-19'
 series: 'The Wetware Chronicles'

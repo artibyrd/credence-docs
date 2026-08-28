@@ -2,11 +2,27 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.18.0
+verified_version: v2.18.1
 last_verified: 2026-08-28
 ---
 
 # Release Changelog
+
+## [2.18.1] - 2026-08-28
+
+### Added
+- **Credence Operational Compass & Justfile Guidance Highway**:
+  - Implemented the default Operational Compass header on `just` / `just help` mapping the canonical 8-step lifecycle.
+  - Enhanced reminder banners across `branch`, `commit`, `pr-create`, `pr-merge`, and `release` to guide developers and agents through the exact execution sequence.
+- **The Artifact Archival & Anti-Wipe Invariant ("That Belongs in a Museum!") (`inv-artifact-curation`)**:
+  - Codified the permanent artifact preservation rule preventing wholesale overwrites of past phases, test tables, and audit logs during long development sessions.
+- **Workspace Root Scratch Directory & 3-Step Script Ritual (`inv-clean-scratch-scripts`)**:
+  - Unified the scratch location to workspace root `/scratch/<name>.py` and established the mandatory 3-step ritual (write with session headers $\to$ chat link preview $\to$ python execution).
+- **Git Hygiene & Immediate Branching Lifecycle (`inv-incremental-commits-staging`)**:
+  - Codified mandatory immediate feature branching on plan approval before making edits, coupled with frequent discrete commits.
+- **Architecture Governance & Shift-Left Integrity Gates**:
+  - Added `test_5tier_dci_and_monotonic_score_thresholds_parity` in `test_architecture_governance.py`.
+  - Expanded `knowledge-governance`, `architecture-governance`, and `forensic-audit` skills.
 
 ## [2.18.0] - 2026-08-28
 
