@@ -854,8 +854,8 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
   <h3><a href="#docs/invariants#inv-production-telemetry-boundary">The Invariant Bible: Production Telemetry vs. Simulation Boundary</a></h3>
 </div>
 <div class="invariant-human-pane">
-  <p class="invariant-headline">Production dashboards display authentic system runtime reality with zero mock data; simulators are restricted to playground routes.</p>
-  <div class="invariant-rationale"><strong>Why It Matters:</strong> Displaying fake or synthesized metrics in operator workstations undermines operational trust during live incidents.</div>
+  <p class="invariant-headline">Production dashboards display authentic system runtime reality with zero mock data, genuine WebCrypto cryptographic validation, and standalone zero floors; simulators are restricted exclusively to playground routes.</p>
+  <div class="invariant-rationale"><strong>Why It Matters:</strong> Displaying fake, synthesized, or simulated metrics in operator workstations undermines operational trust during live incidents and masks critical runtime failures.</div>
 </div>
 <details class="agent-translation">
   <summary class="agent-summary"><span class="agent-icon">🤖</span> <strong>Agent Deontic Specification</strong> <span class="agent-slug-pill"><code>inv-production-telemetry-boundary</code></span></summary>
@@ -863,13 +863,15 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
     <div class="agent-spec-section">
       <span class="agent-spec-label">Deontic Execution Rules:</span>
       <ul class="agent-rules-list">
-        <li><span class='deontic-must'>MUST</span> report authentic node reality in production operator dashboards with zero mock metrics.</li>
+        <li><span class='deontic-must'>MUST</span> report authentic node reality in production operator dashboards ($N \ge 1$, $f = \lfloor (N-1)/3 \rfloor$) with zero mock metrics or synthetic data generators.</li>
+        <li><span class='deontic-must'>MUST</span> execute authentic in-browser WebCrypto (<code>SubtleCrypto.digest</code> and <code>verifyEd25519Signature</code>) over RFC 8785 canonical bytes with zero <code>setTimeout</code> fake spinners.</li>
+        <li><span class='deontic-must'>MUST</span> emit authentic error toasts/banners on network failures in <code>catch</code> blocks with zero masked "saved locally" success indicators.</li>
         <li><span class='deontic-must'>MUST</span> isolate interactive simulations exclusively to docs playground routes (<code>#docs/playground</code>).</li>
       </ul>
     </div>
     <div class="agent-spec-meta">
-      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>web/assets/credence-workstation.js, credence-docs/app.js</code></div>
-      <div class="agent-meta-item"><strong>Verification Gate:</strong> <code>tests/governance/test_docs_integrity.py</code></div>
+      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>web/assets/credence-workstation.js, web/credence.*, tests/governance/test_production_telemetry_boundary.py</code></div>
+      <div class="agent-meta-item"><strong>Verification Gate:</strong> <code>tests/governance/test_production_telemetry_boundary.py</code></div>
     </div>
   </div>
 </details>

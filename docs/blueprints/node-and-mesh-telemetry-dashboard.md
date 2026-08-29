@@ -64,7 +64,7 @@ GET  /api/v1/telemetry/history     # Returns 24-hour histogram buckets
 GET  /sse/telemetry                # Server-Sent Events stream for live dashboards
 ```
 
-### JSON Response Schema
+### JSON Response Schema (Standalone Node Baseline)
 
 ```json
 {
@@ -72,17 +72,30 @@ GET  /sse/telemetry                # Server-Sent Events stream for live dashboar
   "node_mode": "STANDALONE",
   "connected_peers_count": 0,
   "uptime_seconds": 86400,
-  "rolling_hourly_tokens": 14200,
-  "headroom_percentage": 85.8,
-  "work_sharing_ratio": 0.923,
-  "p95_latency_ms": 142.5,
+  "rolling_hourly_tokens": 0,
+  "headroom_percentage": 100.0,
+  "work_sharing_ratio": 0.0,
+  "p95_latency_ms": 0.0,
   "status": "HEALTHY"
 }
 ```
 
 ---
 
-## 5. Operator CLI & Diagnostic Inspection
+## 5. Shift-Left Telemetry Boundary Governance Gates
+
+To prevent synthetic or mocked data from re-entering production workstations and dashboards, the system enforces 4 automated static AST and runtime gates via `tests/governance/test_production_telemetry_boundary.py`:
+
+| Gate | Verification Target | Invariant Enforced | Failure Condition |
+| :--- | :--- | :--- | :--- |
+| **Gate 1: Zero Synthetic Generators** | `web/credence.report/index.html` | No dynamic hallucination functions | Presence of `synthesizeDomainAudit()` or non-deterministic Math.random loops |
+| **Gate 2: Authentic WebCrypto Verification** | `web/credence.report/viewer.html` | In-browser WebCrypto execution | Presence of `setTimeout` dummy spinners masking crypto verification |
+| **Gate 3: Authentic Error Propagation** | `web/admin.credence.run/index.html` | Accurate network failure feedback | Catch blocks reporting fake "saved locally" success toasts |
+| **Gate 4: Standalone Telemetry Reality** | `credence/mesh/stats.py` | Accurate zero-floor metrics | Artificial floors on peer counts or hardcoded default worksharing ratios |
+
+---
+
+## 6. Operator CLI & Diagnostic Inspection
 
 ```bash
 # Query live real-time telemetry metrics in terminal
@@ -94,14 +107,14 @@ $ credence stats --watch --interval 1s
 
 ---
 
-## 6. Related Protocols & Blueprints
+## 7. Related Protocols & Blueprints
 
 * 🌐 [Interface Telemetry Loopback Protocol (ITLP-v1)](../protocols/telemetry-loopback.md)
 * 📘 [The Invariant Bible](../invariants.md) — Production Telemetry vs. Simulation Boundary
 * 📊 [Cross-Model Epistemic Pareto Benchmark](../protocols/cross-model-pareto-benchmark.md)
 
 ---
-## Node & Mesh Telemetry Dashboard Architecture
+## 8. Dashboard Metric Health Reference
 
 The Credence operator telemetry dashboard (`credence.nexus`) provides real-time observability into local node health, P2P gossip propagation, and token consumption:
 
@@ -118,12 +131,12 @@ $ credence stats --json
 ```
 
 ---
-## Real-Time Prometheus & Starlette Telemetry Metrics
+## 9. Real-Time Prometheus & Starlette Telemetry Metrics
 
 The `/health` endpoint exports JSON telemetry covering memory usage, request counts, P50/P95 latencies, and active alerts.
 
 ---
-## Formal Subsystem Specification & Verification Matrix
+## 10. Formal Subsystem Specification & Verification Matrix
 
 The technical architecture for **Node And Mesh Telemetry Dashboard** operates according to strict operational parameters and deterministic boundaries:
 
