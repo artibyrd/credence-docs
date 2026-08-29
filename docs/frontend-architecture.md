@@ -3,8 +3,8 @@ title: Zero-Build Web Architecture
 description: Architectural decisions, W3C WebCrypto in-browser verification, and zero
   supply-chain attack surface.
 since_version: v1.0.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 ---
 
 # Zero-Build Web Architecture

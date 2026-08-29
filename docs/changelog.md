@@ -2,11 +2,37 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 ---
 
 # Release Changelog
+
+## [2.18.2] - 2026-08-29
+
+### Added
+- **Zero-Mock Production Telemetry Boundary (`inv-production-telemetry-boundary`)**:
+  - Purged all synthetic and hallucinated data generators across production web workstations (`synthesizeDomainAudit()`).
+  - Added authentic "Un-Audited Source" state cards in `credence.report` with 1-click triggers for live engine evaluations.
+  - Replaced all dummy zero-padded hashes with authentic SHA-256 CAS digests and genesis revision labels.
+- **In-Browser WebCrypto Ed25519 Verification Architecture**:
+  - Implemented genuine client-side WebCrypto cryptographic verification using `SubtleCrypto.digest('SHA-256')` and `SubtleCrypto.verify('Ed25519')` over RFC 8785 canonical JSON bytes in `credence.report/viewer.html` and `credence.report/index.html`.
+  - Replaced legacy `setTimeout` spinner simulations with dynamic cryptographic verification badges (`✅ ED25519 VERIFIED (RFC 8785)`, `⚠️ UNVERIFIED`, `❌ SIGNATURE MISMATCH`).
+- **Shift-Left Telemetry Boundary Automated Test Suite**:
+  - Created `tests/governance/test_production_telemetry_boundary.py` enforcing 4 static AST and runtime gates:
+    - *Gate 1*: Prohibits synthetic generator functions and random jitter in web workstations.
+    - *Gate 2*: Verifies authentic WebCrypto APIs in client verification paths.
+    - *Gate 3*: Asserts transparent network failure error toasts in catch blocks.
+    - *Gate 4*: Verifies standalone node telemetry zero floors ($0.0\%$ efficiency, exact active database peers, dynamic daemon uptime).
+- **Backend Telemetry Zero-Floor Realignment**:
+  - Purged artificial `92.3%` default worksharing ratio and `max(4, ...)` peer floor in `credence/mesh/stats.py`.
+  - Dynamically bound node uptime to daemon status and defined live memory readings (`my_memory_mb`) in `credence/mesh/topology.py`.
+  - Replaced static public keys and cache statistics in `admin.credence.run` with live `/api/mesh/status` bindings.
+- **Comprehensive Documentation Expansion**:
+  - Published case study essay: `blog/the-zero-mock-production-boundary.md`.
+  - Deepened `docs/blueprints/node-and-mesh-telemetry-dashboard.md` with the 4 Shift-Left Governance Gates and standalone baseline response schemas.
+  - Expanded `docs/invariants.md` with complete deontic rules for `inv-production-telemetry-boundary`.
+  - Updated `.agents/skills/invariant-audit/SKILL.md` with Gate 11 telemetry boundary audit rules.
 
 ## [2.18.1] - 2026-08-28
 

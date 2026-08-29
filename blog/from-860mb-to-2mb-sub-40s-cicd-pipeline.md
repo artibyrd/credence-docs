@@ -4,8 +4,8 @@ description: How we eliminated unmocked socket timeouts, slashed build context u
   bloat by 99.7%, parallelized 200+ tests across cores, and achieved sub-40s pre-commit
   verification.
 since_version: v1.14.1
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 ---
 
 # From 860MB to 2MB: Engineering a Sub-40-Second Multi-Plane CI/CD Pipeline

@@ -3,8 +3,8 @@ title: Interactive Zero-Build Playgrounds
 description: In-browser WebCrypto verification, 13-node mesh gossip simulator, epistemic
   text scanner, and consensus engine.
 since_version: v1.11.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 ---
 
 # Interactive Zero-Build Playgrounds 🎮

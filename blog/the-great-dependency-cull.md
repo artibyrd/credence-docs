@@ -2,8 +2,8 @@
 title: 'The Great Dependency Cull: How We Cut 40 Dependencies and Accelerated CI by 90%'
 description: How eliminating third-party npm libraries, bloated ORMs, and heavy frameworks resulted in a sub-35s hermetic architecture.
 since_version: v1.13.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 sidebar:
   order: 27
 ---

@@ -2,8 +2,8 @@
 title: 'The Sovereign Stack: Escaping Cloud Feudalism with Open Protocols'
 description: Why relying on open standards (SQLAlchemy, S3 API, Redis RESP, OCI) beats proprietary cloud lock-in every single time.
 since_version: v1.18.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 sidebar:
   order: 15
 ---

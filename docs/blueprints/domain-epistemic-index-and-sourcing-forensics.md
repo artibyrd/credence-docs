@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Domain Epistemic Index & Sourcing Forensics'
 description: Rolling Domain Credence Index (DCI), 30-day Bayesian decay, source network graphs, and conflict-of-interest detection.
 since_version: v1.12.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 sidebar:
   order: 15
 ---

@@ -2,8 +2,8 @@
 title: 'Cookbook: $4/Month Hetzner VPS & Systemd Setup'
 description: Deploying a 24/7 self-hosted sovereign node on a budget Hetzner cloud server using systemd and SQLite WAL.
 since_version: v1.14.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 sidebar:
   order: 8
 ---

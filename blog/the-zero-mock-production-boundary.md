@@ -2,8 +2,8 @@
 title: 'The Zero-Mock Production Boundary: How We Purged Synthetic Telemetry and Instituted Shift-Left Reality Gates'
 description: Why synthetic fallback data is an insidious anti-pattern in operator dashboards, how we purged hallucinated scores and dummy crypto spinners, and how automated AST test gates keep production telemetry 100% genuine.
 since_version: v2.18.1
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 ---
 
 # The Zero-Mock Production Boundary: How We Purged Synthetic Telemetry and Instituted Shift-Left Reality Gates

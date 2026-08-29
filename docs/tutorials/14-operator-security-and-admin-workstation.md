@@ -2,8 +2,8 @@
 title: 'Tutorial 14: Operator Security & Admin Workstation Setup'
 description: Secure your production node with Cloudflare Access Zero Trust, Ed25519 operator tokens, and admin cockpit controls.
 since_version: v1.13.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 sidebar:
   order: 14
 ---

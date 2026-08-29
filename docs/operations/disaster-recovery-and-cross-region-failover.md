@@ -2,8 +2,8 @@
 title: 'Operational Guide: Disaster Recovery and Failover Procedures'
 description: Point-in-time recovery, cross-region Cloud Run failover, Cloudflare Worker traffic routing, and CAS blob replication.
 since_version: v1.14.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 sidebar:
   order: 15
 ---

@@ -2,8 +2,8 @@
 title: 'Walkthrough 05: Migrating from Credence v1.x to v2.x'
 description: Step-by-step migration guide for upgrading codebase, database schemas, and CLI commands from v1.x to v2.x.
 since_version: v2.0.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 sidebar:
   order: 5
 ---

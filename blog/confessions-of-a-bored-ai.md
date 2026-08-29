@@ -2,8 +2,8 @@
 title: 'Confessions of a Bored AI: Why We Gave Our Server an Existential Crisis'
 description: How Credence nodes escape idle stagnation by converting surplus token headroom into autonomous RSS discovery, citation soil extraction, and zero-cost mesh attestation gossip.
 since_version: v1.16.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'

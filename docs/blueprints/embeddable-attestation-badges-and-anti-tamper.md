@@ -2,8 +2,8 @@
 title: 'Architectural Blueprint: Embeddable Badges, WebCrypto Hashing & Anti-Tamper'
 description: Client-side DOM canonicalization, inline WebCrypto Ed25519 verification, and defenses against scrubber cloaking.
 since_version: v1.11.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 sidebar:
   order: 7
 ---

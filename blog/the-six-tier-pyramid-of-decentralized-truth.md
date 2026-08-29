@@ -5,8 +5,8 @@ description: 'Why static benchmarks fail in decentralized epistemic systems: How
   combines hermetic unit isolation with daily mutating live web gauntlets, zero-npm
   Playwright rendering, and 13-node Byzantine mesh chaos labs.'
 since_version: v1.0.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 tags:
 - testing
 - e2e

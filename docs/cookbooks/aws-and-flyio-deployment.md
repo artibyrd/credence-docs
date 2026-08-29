@@ -2,8 +2,8 @@
 title: 'Cookbook: Deploying Credence on AWS App Runner & Fly.io'
 description: Multi-cloud serverless container deployment guide for AWS App Runner, ECS Fargate, and Fly.io global edge.
 since_version: v1.14.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 sidebar:
   order: 9
 ---

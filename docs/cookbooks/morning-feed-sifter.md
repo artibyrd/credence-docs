@@ -3,8 +3,8 @@ title: Automated Morning Feed Sifter & Epistemic Digest
 description: Setting up zero-trust feed autodiscovery, dynamic quality governance,
   background sifting daemons, and automated executive intelligence briefings.
 since_version: v1.0.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 ---
 
 # Automated Morning Feed Sifter & Epistemic Digest

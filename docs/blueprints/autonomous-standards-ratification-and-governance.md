@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Autonomous Standards Ratification & Evolution Protocol'
 description: Decentralized, empirical, and machine-driven governance architecture for adopting, calibrating, and evolving epistemic standard catalogs without human committee bottlenecks.
 since_version: v2.16.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 ---
 
 # Technical Blueprint: Autonomous Standards Ratification & Evolution Protocol

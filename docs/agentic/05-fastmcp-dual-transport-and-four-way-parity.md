@@ -4,8 +4,8 @@ description: Architecture of the FastMCP 2.0 dual stdio/SSE server, Cloudflare e
   proxying, and maintaining synchronous feature parity across CLI, FastMCP, TUI, and
   Web.
 since_version: v1.0.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 tags:
 - fastmcp
 - sse

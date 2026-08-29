@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: V2 Modular Architecture & 500 LOC Subpackage Decoupling'
 description: Deconstructing monoliths, subsystem boundaries, compute_* calculation purity, and architectural governance.
 since_version: v2.0.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 sidebar:
   order: 13
 ---

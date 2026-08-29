@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Sentinel Mode & Sovereign Feed Automation'
 description: Decentralized newsroom RSS/Atom feed automation, sentinel source subscriptions, auto-discovery, and zero-token serving relays.
 since_version: v2.17.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 sidebar:
   order: 21
 ---

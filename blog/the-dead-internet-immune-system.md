@@ -2,8 +2,8 @@
 title: 'The Dead Internet Immune System: Surviving and Thriving in a Crawler-Dominant Web'
 description: How Credence navigates the synthetic slop collapse of the 2026 web through BitTorrent work-sharing, Shannon topic entropy filters, and cryptographic verbatim grounding.
 since_version: v2.15.0
-verified_version: v2.18.1
-last_verified: 2026-08-28
+verified_version: v2.18.2
+last_verified: 2026-08-29
 slug: the-dead-internet-immune-system
 date: '2026-08-23'
 series: 'Dead Internet & Agentic Citizenship'
