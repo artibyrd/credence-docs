@@ -2,11 +2,25 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.18.2
+verified_version: v2.18.3
 last_verified: 2026-08-29
 ---
 
 # Release Changelog
+
+## [2.18.3] - 2026-08-29
+
+### Added
+- **Workspace Root Scratch Directory Isolation Gate (`inv-clean-scratch-scripts`)**:
+  - Implemented automated shift-left test `test_workspace_root_scratch_directory_isolation` in `tests/governance/test_architecture_governance.py`.
+  - Enforced strict filesystem topology: scratch scripts reside exclusively at `/scratch/<name>.py` outside all git sub-repositories.
+- **Bidirectional Documentation & Blueprint Staleness Guard (`inv-documentation-expansion`)**:
+  - Implemented automated shift-left test `test_docs_schema_and_blueprint_staleness_guard` in `tests/governance/test_docs_integrity.py` scanning existing technical blueprints and reference manuals for deprecated mock schemas and outdated function implementations.
+- **Intelligent Triad Completeness Pre-Check**:
+  - Added proactive warning in `manage_pr.py` during `just pr-create` to remind operators/agents to review existing blueprints and expand documentation whenever code changes are made.
+- **Governance Skills & Invariant Refinements**:
+  - Refined `inv-clean-scratch-scripts` and `inv-documentation-expansion` in `AGENTS.md`.
+  - Updated `invariant-audit` and `knowledge-governance` Tier 1 skills.
 
 ## [2.18.2] - 2026-08-29
 

@@ -2,7 +2,7 @@
 title: Interface Telemetry Loopback Protocol (ITLP-v1)
 description: Privacy-preserving local usability metrics, performance telemetry, and anonymous feedback loops.
 since_version: v1.12.0
-verified_version: v2.18.2
+verified_version: v2.18.3
 last_verified: 2026-08-29
 sidebar:
   order: 11

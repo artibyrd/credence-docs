@@ -2,7 +2,7 @@
 title: 'Tutorial 01: Dissecting Sensationalized Headlines & Clickbait'
 description: Learn how Credence uses offline heuristic regexes and syllogistic reasoning to tear down hyperbolic headlines.
 since_version: v1.0.0
-verified_version: v2.18.2
+verified_version: v2.18.3
 last_verified: 2026-08-29
 sidebar:
   order: 1

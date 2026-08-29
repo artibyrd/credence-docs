@@ -2,7 +2,7 @@
 title: 'The Cart-Before-the-Horse Invariant: Prerequisite Order of Operations'
 description: Why data models and cryptographic primitives must always precede APIs, UIs, and marketing documentation.
 since_version: v1.13.0
-verified_version: v2.18.2
+verified_version: v2.18.3
 last_verified: 2026-08-29
 sidebar:
   order: 25

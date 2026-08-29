@@ -3,7 +3,7 @@ title: 'Hermetic Testing & Zero-npm Guardrails: Engineering High-Longevity AI Sy
 description: Why zero external npm buildchains, in-memory SQLite fixtures, and Playwright
   DOM regression testing guarantee software longevity and eliminate supply-chain vulnerabilities.
 since_version: v1.0.0
-verified_version: v2.18.2
+verified_version: v2.18.3
 last_verified: 2026-08-29
 tags:
 - hermetic-testing
