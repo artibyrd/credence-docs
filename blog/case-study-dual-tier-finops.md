@@ -1,6 +1,6 @@
 ---
-title: 'Case Study: Cutting Fact-Checking Cloud Invoices by 94% with Dual-Tier FinOps'
-description: How an investigative consortium audited 50,000 monthly articles on a $15/month budget using Credence.
+title: 'Thought Experiment: Cutting Fact-Checking Cloud Invoices by 94% with Dual-Tier FinOps'
+description: Architectural thought experiment and economic projection modeling how dual-tier ingress gating slashes LLM fact-checking costs at scale.
 since_version: v1.12.0
 verified_version: v2.19.0
 last_verified: 2026-09-06
@@ -8,17 +8,19 @@ sidebar:
   order: 3
 ---
 
-# Case Study: Cutting Fact-Checking Cloud Invoices by 94% with Dual-Tier FinOps
+# Thought Experiment: Cutting Fact-Checking Cloud Invoices by 94% with Dual-Tier FinOps
 
-In early 2026, an independent consortium of environmental and financial investigative journalists faced a severe operational crisis.
+> [!NOTE]
+> ### 📐 Architectural Thought Experiment & Economic Projection
+> The following scenario is an **architectural thought experiment and economic projection model**, not a study of an existing third-party organization. It models the cost dynamics of Credence's dual-tier architecture scaled to a simulated 50,000 monthly ingest workload, benchmarked against real measured token usage from our Golden Calibration Corpus (`-k "case_study_dual_tier_finops"`).
 
-The consortium was monitoring 150 syndicated corporate RSS feeds to track greenwashing claims, undisclosed regulatory infractions, and deceptive press releases. Their existing pipeline used a popular multi-agent LLM framework running on dedicated cloud containers and querying GPT-4o.
+Consider a high-volume investigative newsroom or public watchdog monitoring 150 syndicated corporate RSS feeds to track greenwashing claims, undisclosed regulatory infractions, and deceptive press releases.
 
-At 50,000 audited articles per month, their cloud invoice hit **$1,420.00 / month**—a financially unsustainable burden for a non-profit newsroom.
+Under a conventional monolithic architecture—passing every incoming article directly to a flagship cloud LLM (such as GPT-4o) on dedicated cloud containers—an ingest of 50,000 articles per month would generate an invoice of **~$1,420.00 / month**: an unsustainable burden for an independent or non-profit newsroom.
 
-The consortium migrated their entire pipeline to Credence. Within 30 days, their monthly compute and API expenditure dropped to **$14.80 / month**—a **94.2% cost reduction** with zero degradation in investigative accuracy.
+By routing that same 50,000-article workload through Credence's dual-tier FinOps pipeline, projected compute and API expenditures plummet to **$14.80 / month**—a **94.2% cost reduction** achieved without sacrificing investigative rigor.
 
-Here is how dual-tier FinOps made it possible.
+Here is the mathematical and architectural model that makes this scale possible.
 
 ---
 
@@ -31,7 +33,7 @@ Here is how dual-tier FinOps made it possible.
 
 ---
 
-## Breakdown of 50,000 Monthly Audits
+## Breakdown of 50,000 Monthly Audits (Projected Workload Model)
 
 | Pipeline Stage | Article Volume | LLM Tokens Consumed | Cost |
 | :--- | :---: | :---: | :---: |
@@ -54,7 +56,7 @@ By treating compute efficiency as an epistemic invariant, Credence makes planeta
 ---
 ## Key Architectural Takeaways & Future Directions
 
-The investigation documented in **Case Study Dual Tier Finops** highlights several fundamental principles for building resilient, decentralized software systems:
+The economic projection documented in this thought experiment highlights several fundamental principles for building resilient, decentralized software systems:
 
 1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
 2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
@@ -69,7 +71,7 @@ The investigation documented in **Case Study Dual Tier Finops** highlights sever
 ---
 ## Diagnostic Verification & Invariant Enforcement
 
-To ensure continuous compliance with system invariants, **Case Study Dual Tier Finops** is verified using shift-left integration test gates in the continuous integration pipeline:
+To ensure continuous compliance with system invariants, the dual-tier FinOps pipeline modeled in this thought experiment is verified using shift-left integration test gates in the continuous integration pipeline:
 
 ![Figure 1.1: Bicameral LLM inference architecture and 98% cloud FinOps cost optimization](assets/illustrations/case-study-dual-tier-finops.svg)
 
