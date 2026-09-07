@@ -2,8 +2,8 @@
 title: 'Tutorial 01: Dissecting Sensationalized Headlines & Clickbait'
 description: Learn how Credence uses offline heuristic regexes and syllogistic reasoning to tear down hyperbolic headlines.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 1
 ---
@@ -93,7 +93,7 @@ $ credence audit https://example.com/shocking-breakthrough --verbose
 | :--- | :--- | :---: | :--- |
 | **Clickbait Title Index** | Superlatives / Total Title Tokens | `84.5 / 100` | Exceeds 60.0 (Flagged) |
 | **Verbatim Grounding ($G$)** | Cited DOM Text / Claim Text | `0.42` | Fails $G=1.00$ mandate |
-| **Unnamed Attribution** | `regex: anonymous (sources|insiders|officials)` | `2 occurrences` | Triggers SPJ-1.1 warning |
+| **Unnamed Attribution** | `regex: anonymous (sources / insiders / officials)` | `2 occurrences` | Triggers SPJ-1.1 warning |
 
 ---
 ## Hands-On Clickbait Analysis and Claim Extraction

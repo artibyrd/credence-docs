@@ -2,8 +2,8 @@
 title: Synthetic AI Content & Media Provenance Blueprint
 description: Shannon topic entropy collapse, C2PA cryptographic provenance, top-token concentration, and AI content farm detection.
 since_version: v1.11.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 4
 ---
@@ -75,7 +75,7 @@ $ credence evaluate diff https://site-a.com/article https://site-b.com/article
 
 ## 5. Related Articles & Blueprints
 
-* 📰 [Case Study: Unmasking Astroturfing Swarms with Topic Entropy](../../blog/case-study-astroturfing-entropy.md)
+* 📰 [Architectural Blueprint: Unmasking Astroturfing Swarms with Topic Entropy](../../blog/case-study-astroturfing-entropy.md)
 * 🍕 [The Pizza Hut Problem Essay](../../blog/the-pizza-hut-problem.md)
 * 🎮 [Zero-Trust Dynamic Feed Simulator Playground](../playground.md)
 
@@ -130,14 +130,14 @@ To ensure continuous compliance with system invariants, **Synthetic Media Proven
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "synthetic_media_provenance" -v
+$ poetry run pytest tests/integration/test_epistemic_adversaries.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
-| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
-| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
-| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
-| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+| **Hermetic Isolation** | [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests) | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| [`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519) | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding) | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | [`inv-4way-parity-symmetric-web`](/docs/invariants#inv-multi-interface-parity)| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
 
 By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

@@ -4,8 +4,8 @@ description: "How Credence delivers first-person node visibility, BitTorrent com
 author: "Credence Core Architecture Guild"
 date: "2026-08-19"
 since_version: "v1.15.0"
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Real-Time Epistemic Mesh Observability Without SaaS Telemetry
@@ -65,16 +65,14 @@ open web/credence.nexus/index.html
 ```
 
 ---
-## Key Architectural Takeaways & Future Directions
 
-The investigation documented in **Real Time Mesh Observability** highlights several fundamental principles for building resilient, decentralized software systems:
+## Conclusion: Total Mesh Visibility Without SaaS Feudalism
 
-1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
-2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
-3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+Operating a decentralized P2P verification network requires instant, high-fidelity observability. When network operators cannot see how gossip spreads, which peers are lagging, or whether a Sybil cartel is attempting to bias consensus, decentralization degrades into blind faith.
 
-| System Dimension | Conventional Approach | Credence Sovereign Architecture |
-| :--- | :--- | :--- |
-| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
-| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
-| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |
+Credence achieves **Real-Time Mesh Observability** without outsourcing telemetry to proprietary third-party clouds:
+1. **Direct Event Streams (SSE)**: Nodes stream peer state, HRW feed assignments, and attestation propagation over lightweight HTTP/2 Server-Sent Events.
+2. **Zero-npm Topology Rendering**: The mesh dashboard renders full 13-node Watts-Strogatz small-world network graphs in pure vanilla SVG, requiring zero megabytes of npm dependencies or build pipelines.
+3. **Byzantine & Sybil Telemetry**: Operators can visually track cartel isolation in real time ($3f+1$ tolerance), watching malicious clusters demoted to `SOFT_QUARANTINE` as the Galileo Rule activates.
+
+By embedding sovereign observability directly into the peer runtime, Credence proves that running a resilient, transparent P2P network does not require paying a SaaS landlord for the right to see your own data.

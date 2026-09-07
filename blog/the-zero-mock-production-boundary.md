@@ -2,8 +2,8 @@
 title: 'The Zero-Mock Production Boundary: How We Purged Synthetic Telemetry and Instituted Shift-Left Reality Gates'
 description: Why synthetic fallback data is an insidious anti-pattern in operator dashboards, how we purged hallucinated scores and dummy crypto spinners, and how automated AST test gates keep production telemetry 100% genuine.
 since_version: v2.18.1
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # The Zero-Mock Production Boundary: How We Purged Synthetic Telemetry and Instituted Shift-Left Reality Gates
@@ -82,7 +82,7 @@ To ensure that future development passes cannot accidentally reintroduce mock da
 
 ## 4. The Engineering Lesson
 
-The core heuristic of the **Zero-Mock Production Boundary (`inv-production-telemetry-boundary`)** is simple:
+The core heuristic of the **Zero-Mock Production Boundary ([`inv-production-telemetry-boundary`](/docs/invariants#inv-production-telemetry-boundary))** is simple:
 
 > **A dashboard that shows zero audits and an error state is infinitely more valuable than a dashboard that shows pretty, hallucinated metrics.**
 

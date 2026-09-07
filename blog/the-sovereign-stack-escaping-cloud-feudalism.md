@@ -2,8 +2,8 @@
 title: 'The Sovereign Stack: Escaping Cloud Feudalism with Open Protocols'
 description: Why relying on open standards (SQLAlchemy, S3 API, Redis RESP, OCI) beats proprietary cloud lock-in every single time.
 since_version: v1.18.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 15
 ---
@@ -70,21 +70,15 @@ $ poetry install && credence germinate
 Sovereignty is not about rejecting the cloud—it is about retaining the absolute technical freedom to leave whenever you choose.
 
 ---
-## Escaping Cloud Feudalism with Portable Architectures
 
-Credence avoids proprietary cloud lock-in by using standard container runtimes, S3-compatible CAS storage, and zero-npm static web assets.
+## Conclusion: The Three Laws of Sovereign Software Architecture
 
----
-## Key Architectural Takeaways & Future Directions
+Escaping cloud feudalism is not an ideological posture—it is an engineering discipline. When software architectures tie their operational destiny to proprietary cloud APIs, bespoke database dialects, and brittle build-time package managers, they surrender their sovereignty to a landlord who can raise rents or deprecate infrastructure on a whim.
 
-The investigation documented in **The Sovereign Stack Escaping Cloud Feudalism** highlights several fundamental principles for building resilient, decentralized software systems:
+To maintain true computational autonomy, Credence codifies three laws of sovereign software architecture:
 
-1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
-2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
-3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+1. **Protocol Over Platform**: Anchor all data exchange in open, RFC-standardized protocols (RFC 8785 Canonical JSON, Ed25519 cryptography, and HTTP/2 SSE) rather than proprietary cloud messaging buses.
+2. **State Over Service**: Treat storage as content-addressable and portable. A local SQLite database or simple S3-compatible bucket should always suffice for operational independence; never bind your data models to proprietary managed cloud databases.
+3. **Zero-Build Distribution**: Deliver user interfaces as vanilla HTML5, native CSS custom properties, and standard ES Modules. When your frontend requires zero `npm install` steps and zero compilation toolchains, your application can be served from any static file server, IPFS node, or local filesystem indefinitely.
 
-| System Dimension | Conventional Approach | Credence Sovereign Architecture |
-| :--- | :--- | :--- |
-| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
-| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
-| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |
+By enforcing these three boundaries, Credence demonstrates that high-performance, planetary-scale verification software can remain entirely self-sovereign—giving every operator the absolute freedom to run anywhere, anytime, under their own authority.

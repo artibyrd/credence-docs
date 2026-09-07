@@ -4,8 +4,8 @@ description: How human-agent pair programming with Google Antigravity accelerate
   complex software engineering through planning mode, asynchronous background tasks,
   and human gating.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 tags:
 - antigravity
 - pair-programming
@@ -55,7 +55,7 @@ Traditional agent loops frequently fail due to poll-loop timeouts or freezing te
 === Background Command Launch
 ```bash
 # Long-running Playwright browser suite launched asynchronously
-pytest tests/test_docs_rendering.py -v
+pytest tests/governance/test_docs_rendering.py -v
 # Returns task ID: task-610 immediately without blocking agent context
 ```
 
@@ -71,17 +71,14 @@ pytest tests/test_docs_rendering.py -v
 
 ### Asynchronous Task Reactive Notification Flow
 
-Antigravity Agent                  Background Worker                    Developer IDE
-|                                  |                                   |
-|-- launch_command(pytest...) ----▶|                                   |
-|◀-- Returns Task ID (task-610) ---|                                   |
-|                                  |                                   |
-|-- Update UI status (asynchronous non-blocking turn) ----------------▶|
-|                                  |                                   |
-|                                  | [Executes in background (18s)]    |
-|◀-- High-Priority Wakeup (11 passed in 18.88s) -----------------------|
-|                                  |                                   |
-|-- Present Walkthrough Artifact & Execution Results -----------------▶|
+| Step | Initiator | Recipient | Action / Event Payload | Operational Mode |
+| :---: | :--- | :--- | :--- | :--- |
+| **1** | Antigravity Agent | Background Worker | `launch_command(pytest...)` | Non-blocking dispatch |
+| **2** | Background Worker | Antigravity Agent | Returns Task ID (`task-610`) | Immediate return |
+| **3** | Antigravity Agent | Developer IDE | Update UI status | Non-blocking turn completion |
+| **4** | Background Worker | *(Worker Process)* | Executes test suite in background | ~18s in-memory execution |
+| **5** | Background Worker | Antigravity Agent | High-Priority Wakeup (`11 passed in 18.88s`) | Reactive wakeup (zero polling) |
+| **6** | Antigravity Agent | Developer IDE | Present Walkthrough Artifact & Results | Final turn presentation |
 
 ---
 
@@ -134,7 +131,7 @@ To maximize autonomous pair-programming velocity while safeguarding sovereign us
 1. **Workspace Approval Bootstrapping (`just bootstrap-approvals` & `just bootstrap-approvals-hosted`)**:
    - **Open-Source Core (`just bootstrap-approvals`)**: Runs harmless passes across all standard local developer commands (preflight, parallel check, hermetic unit tests, git/PR inspection) so contributors and forks can authorize autonomous workflows with "Always Allow".
    - **Maintainer Hosted (`just bootstrap-approvals-hosted`)**: Runs harmless passes across Google Cloud Run status/probes, Cloudflare Edge routing, Terraform validation, and direct URL health checks for production maintainers.
-2. **Zero-Blob Brain Scratch Scripts (`inv-clean-scratch-scripts`)**: Any custom or exploratory scripts requiring user approval (`BypassSandbox: true`) are written to standalone files in the session artifact brain directory (`<appDataDir>/brain/<conversation-id>/scratch/<name>.py`). Executing the standalone file allows the operator to grant approval once and enables the agent to iterate on script improvements without triggering subsequent approval modals.
+2. **Zero-Blob Brain Scratch Scripts ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))**: Any custom or exploratory scripts requiring user approval (`BypassSandbox: true`) are written to standalone files in the session artifact brain directory (`<appDataDir>/brain/<conversation-id>/scratch/<name>.py`). Executing the standalone file allows the operator to grant approval once and enables the agent to iterate on script improvements without triggering subsequent approval modals.
 
 > [!TIP]
 > Use read-only `epistemic-auditor` subagents when auditing large codebases to prevent polluting the main agent's working context memory.

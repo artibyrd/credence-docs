@@ -2,15 +2,13 @@
 title: Medical & Health Claim Auditing Blueprint
 description: Threat model, PubMed grounding verification, clinical trial taxonomy, and specialist evaluation rubrics for biomedical prose.
 since_version: v1.10.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 2
 ---
 
 # Medical & Health Claim Auditing Blueprint
-
-> **Note**: Medical & Health Claim Auditing Blueprint
 
 This blueprint specifies the forensic auditing architecture, specialized clinical taxonomies, and source-grounding mechanics used by Credence to evaluate health, biomedical, and pharmaceutical assertions.
 

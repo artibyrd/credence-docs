@@ -2,8 +2,8 @@
 title: 'The Great Dependency Cull: How We Cut 40 Dependencies and Accelerated CI by 90%'
 description: How eliminating third-party npm libraries, bloated ORMs, and heavy frameworks resulted in a sub-35s hermetic architecture.
 since_version: v1.13.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 27
 ---
@@ -20,7 +20,7 @@ In Credence v2.0, we executed **The Great Dependency Cull**.
 
 ---
 
-## The Zero-npm Invariant (`inv-4way-parity-symmetric-web`)
+## The Zero-npm Invariant ([`inv-4way-parity-symmetric-web`](/docs/invariants#inv-multi-interface-parity))
 
 We started with the frontend. We deleted `package.json`, `node_modules`, Webpack, and Babel from `credence-docs/` and `web/`:
 

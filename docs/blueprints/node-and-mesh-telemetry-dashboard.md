@@ -2,15 +2,15 @@
 title: 'Technical Blueprint: Operator Telemetry & Mesh Dashboard'
 description: Real-time operator metrics, WebSocket ring buffer aggregation, D3/SVG vector telemetry, and zero-mock production boundary.
 since_version: v1.12.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 11
 ---
 
 # Technical Blueprint: Operator Telemetry & Mesh Dashboard
 
-This technical blueprint specifies the architecture of the **Operator Telemetry & Mesh Dashboard** (`credence.nexus` and `admin.credence.run`), enforcing strict real-time data streaming, in-memory ring buffers, and the **Zero-Mock Production Boundary Invariant (`inv-production-telemetry-boundary`)**.
+This technical blueprint specifies the architecture of the **Operator Telemetry & Mesh Dashboard** (`credence.nexus` and `admin.credence.run`), enforcing strict real-time data streaming, in-memory ring buffers, and the **Zero-Mock Production Boundary Invariant ([`inv-production-telemetry-boundary`](/docs/invariants#inv-production-telemetry-boundary))**.
 
 ---
 

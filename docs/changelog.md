@@ -2,30 +2,49 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Release Changelog
 
+## [2.19.0] - 2026-09-07
+
+### Added
+- **Empirical Reality Check & Golden Calibration Corpus ($N=104$)**:
+  - Replaced synthetic fixtures with 104 authentic journalism articles across 8 archetypes (`calibration_corpus_v1.json`).
+  - Implemented 4 diagnostic verification suites: `test_case_study_dual_tier_finops.py` (Mode A, Mode B, Mode C 82.7% token savings), `test_case_study_heuristic_ceiling.py` ($C_0 \to C_5$ generational tuning curve and overfitting regression proof), `test_thinking_token_benchmark.py` (the 4,000 token trance curve), and `test_case_study_astroturfing_entropy.py` (Shannon entropy & SimHash clustering).
+- **14-Model Model Garden & Frontier Cross-Model Tournament**:
+  - Implemented `test_cross_model_benchmark.py` evaluating 14 models (7 Antigravity native @ $0.00, 6 Vertex Model Garden models @ $1.74 total spend, 1 local heuristic) under hard $6.00 spend cap.
+  - Exported canonical tournament data to `data/benchmarks/model_garden_tournament_results.json`.
+- **Public Catalog Hygiene & De-Synthetic Resealing**:
+  - Purged all synthetic test URLs (`example.com`, `deceptive-news.fake`, `text://inline`) from syndicated public reports.
+  - Re-exported `web/credence.report/reports.json` with 85 authentic verified journalism articles, explicitly declaring `evaluation_method` and `evaluation_model`.
+- **Automated Docs Test Paths & `-k` Filters Integrity Gate (Gate 11)**:
+  - Added `test_docs_test_paths_and_k_filters_validity` to `tests/governance/test_docs_integrity.py` asserting all documented test commands point to real existing test files and valid `-k` filters.
+  - Rectified all 53 broken `-k` filters and 16 stale test paths across 68 documentation files.
+- **Published Case Studies**:
+  - Published `blog/case-study-the-heuristic-ceiling.md` detailing the mathematical limits of deterministic heuristics.
+  - Updated `blog/case-study-dual-tier-finops.md` and `blog/the-pareto-frontier-of-truth.md`.
+
 ## [2.18.3] - 2026-08-29
 
 ### Added
-- **Workspace Root Scratch Directory Isolation Gate (`inv-clean-scratch-scripts`)**:
+- **Workspace Root Scratch Directory Isolation Gate ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))**:
   - Implemented automated shift-left test `test_workspace_root_scratch_directory_isolation` in `tests/governance/test_architecture_governance.py`.
   - Enforced strict filesystem topology: scratch scripts reside exclusively at `/scratch/<name>.py` outside all git sub-repositories.
-- **Bidirectional Documentation & Blueprint Staleness Guard (`inv-documentation-expansion`)**:
+- **Bidirectional Documentation & Blueprint Staleness Guard ([`inv-documentation-expansion`](/docs/invariants#inv-documentation-expansion))**:
   - Implemented automated shift-left test `test_docs_schema_and_blueprint_staleness_guard` in `tests/governance/test_docs_integrity.py` scanning existing technical blueprints and reference manuals for deprecated mock schemas and outdated function implementations.
 - **Intelligent Triad Completeness Pre-Check**:
   - Added proactive warning in `manage_pr.py` during `just pr-create` to remind operators/agents to review existing blueprints and expand documentation whenever code changes are made.
 - **Governance Skills & Invariant Refinements**:
-  - Refined `inv-clean-scratch-scripts` and `inv-documentation-expansion` in `AGENTS.md`.
+  - Refined [`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts) and [`inv-documentation-expansion`](/docs/invariants#inv-documentation-expansion) in `AGENTS.md`.
   - Updated `invariant-audit` and `knowledge-governance` Tier 1 skills.
 
 ## [2.18.2] - 2026-08-29
 
 ### Added
-- **Zero-Mock Production Telemetry Boundary (`inv-production-telemetry-boundary`)**:
+- **Zero-Mock Production Telemetry Boundary ([`inv-production-telemetry-boundary`](/docs/invariants#inv-production-telemetry-boundary))**:
   - Purged all synthetic and hallucinated data generators across production web workstations (`synthesizeDomainAudit()`).
   - Added authentic "Un-Audited Source" state cards in `credence.report` with 1-click triggers for live engine evaluations.
   - Replaced all dummy zero-padded hashes with authentic SHA-256 CAS digests and genesis revision labels.
@@ -45,7 +64,7 @@ last_verified: 2026-08-29
 - **Comprehensive Documentation Expansion**:
   - Published case study essay: `blog/the-zero-mock-production-boundary.md`.
   - Deepened `docs/blueprints/node-and-mesh-telemetry-dashboard.md` with the 4 Shift-Left Governance Gates and standalone baseline response schemas.
-  - Expanded `docs/invariants.md` with complete deontic rules for `inv-production-telemetry-boundary`.
+  - Expanded `docs/invariants.md` with complete deontic rules for [`inv-production-telemetry-boundary`](/docs/invariants#inv-production-telemetry-boundary).
   - Updated `.agents/skills/invariant-audit/SKILL.md` with Gate 11 telemetry boundary audit rules.
 
 ## [2.18.1] - 2026-08-28
@@ -54,11 +73,11 @@ last_verified: 2026-08-29
 - **Credence Operational Compass & Justfile Guidance Highway**:
   - Implemented the default Operational Compass header on `just` / `just help` mapping the canonical 8-step lifecycle.
   - Enhanced reminder banners across `branch`, `commit`, `pr-create`, `pr-merge`, and `release` to guide developers and agents through the exact execution sequence.
-- **The Artifact Archival & Anti-Wipe Invariant ("That Belongs in a Museum!") (`inv-artifact-curation`)**:
+- **The Artifact Archival & Anti-Wipe Invariant ("That Belongs in a Museum!") ([`inv-artifact-curation`](/docs/invariants#inv-artifact-curation))**:
   - Codified the permanent artifact preservation rule preventing wholesale overwrites of past phases, test tables, and audit logs during long development sessions.
-- **Workspace Root Scratch Directory & 3-Step Script Ritual (`inv-clean-scratch-scripts`)**:
+- **Workspace Root Scratch Directory & 3-Step Script Ritual ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))**:
   - Unified the scratch location to workspace root `/scratch/<name>.py` and established the mandatory 3-step ritual (write with session headers $\to$ chat link preview $\to$ python execution).
-- **Git Hygiene & Immediate Branching Lifecycle (`inv-incremental-commits-staging`)**:
+- **Git Hygiene & Immediate Branching Lifecycle ([`inv-incremental-commits-staging`](/docs/invariants#inv-incremental-commits-staging))**:
   - Codified mandatory immediate feature branching on plan approval before making edits, coupled with frequent discrete commits.
 - **Architecture Governance & Shift-Left Integrity Gates**:
   - Added `test_5tier_dci_and_monotonic_score_thresholds_parity` in `test_architecture_governance.py`.
@@ -83,7 +102,7 @@ last_verified: 2026-08-29
   - Implemented SSRF security boundaries rejecting loopback (`127.0.0.1`), private IP subnets, and cloud metadata (`169.254.169.254`).
   - Added strict capacity ceiling ($N \le 10$ active sentinels) and minimum poll interval safety guards ($\ge 60\text{s}$).
   - Enforced the Guaranteed Organic Soil Floor ($C_{\text{organic}} \ge 50\%$) via `partition_ingestion_burst()` during boredom and germination cycles to guarantee un-starved citation graph expansion.
-- **Universal Multi-Interface Sentinel Parity (`inv-multi-interface-parity`)**:
+- **Universal Multi-Interface Sentinel Parity ([`inv-multi-interface-parity`](/docs/invariants#inv-multi-interface-parity))**:
   - **CLI**: Added `credence feeds sentinel` command group (`list`, `enable <target>`, `disable <target>`, `set-interval <target> <seconds>`).
   - **FastMCP 2.0**: Added `credence_set_feed_sentinel_mode` and `credence_list_sentinel_sources` tools.
   - **REST API**: Added `/api/feeds/sentinels` and `/api/feeds/sentinel` endpoints.
@@ -105,8 +124,8 @@ last_verified: 2026-08-29
 - **Workstation Viewport & Epistemic Lensing Skill Standard (`architecture-governance`)**:
   - Formulated Section 13 covering vertical flex scrolling mechanics, universal scrollbar styling, epistemic lensing semantic separation, and dynamic count calculation.
 - **Sharpened Core Invariants (`AGENTS.md`)**:
-  - Sharpened `inv-mk1-eyeball` requiring live Dev deployment and browser validation proof before Mk1 review.
-  - Sharpened `inv-zero-build-standards` and `inv-epistemic-lensing` with universal scrollbars and zero-jargon surface lensing boundaries.
+  - Sharpened [`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball) requiring live Dev deployment and browser validation proof before Mk1 review.
+  - Sharpened [`inv-zero-build-standards`](/docs/invariants#inv-zero-build-standards) and [`inv-epistemic-lensing`](/docs/invariants#inv-epistemic-lensing) with universal scrollbars and zero-jargon surface lensing boundaries.
 
 ## [2.17.3] - 2026-08-26
 
@@ -141,7 +160,7 @@ last_verified: 2026-08-29
 ## [2.17.1] - 2026-08-25
 
 ### Added
-- **Curated Workspace Scratch Space & Archival Lifecycle (`inv-clean-scratch-scripts`)**:
+- **Curated Workspace Scratch Space & Archival Lifecycle ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))**:
   - Transitioned scratch script storage from ephemeral brain directories to a curated, reusable workspace root `/scratch/` folder.
   - Implemented multi-session modification provenance tracking in script headers (`# Created Session ID: <id>`, `# Modified Session IDs: [<id>, ...]`).
   - Added structured archival lifecycle (`/scratch/archive/`) to preserve historical exploration context while preventing active workspace root clutter.
@@ -160,7 +179,7 @@ last_verified: 2026-08-29
   - Authored comprehensive adoption documentation detailing the mathematical rationale, comparison matrices, and setup instructions for external agentic teams.
 - **Shift-Left SVG Illustration Visual Integrity Gate**:
   - Added automated test `test_svg_illustrations_visual_integrity_and_text_budget` enforcing zero bullet points, concise labels, character budgets, and visual-first geometry across all 42 ecosystem SVG illustrations.
-- **Clean Scratch Script Previews (`inv-clean-scratch-scripts`)**:
+- **Clean Scratch Script Previews ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))**:
   - Codified invariant mandating clickable markdown chat links before executing scratch scripts requiring human approval.
 
 ### Changed
@@ -171,7 +190,7 @@ last_verified: 2026-08-29
 ### Added
 - **Anti-Headless Leading H1 Integrity Gate (Gate 9)**: Added automated shift-left test `test_all_articles_and_docs_have_leading_h1_title_headers` in `tests/governance/test_docs_integrity.py` asserting that all 194 markdown documents begin with an `# <Title>` header matching their frontmatter.
 - **Defensive Client-Side Title Synthesis (`credence-docs/app.js`)**: Updated `parseMarkdown()` in `app.js` to automatically synthesize `<h1>${frontmatter.title}</h1>` if a document body omits a top-level H1 header.
-- **Anti-Headless Article Law (`inv-article-h1-header`)**: Codified invariant across `AGENTS.md` and `architecture-governance/SKILL.md`.
+- **Anti-Headless Article Law ([`inv-article-h1-header`](/docs/invariants#inv-article-h1-header))**: Codified invariant across `AGENTS.md` and `architecture-governance/SKILL.md`.
 
 ### Fixed
 - Added leading `# <Title>` headers across 24 previously headless articles and documentation guides (including `blog/the-pizza-hut-problem.md`).
@@ -245,7 +264,7 @@ last_verified: 2026-08-29
   - Expanded 64+ articles across `docs/` and `blog/` to ensure zero empty sections, deep actionable technical explanations, reproducible CLI workflows, RFC 8785 canonical JSON schemas, and mathematical rigor.
   - Resolved empty P2P gossip specification in `docs/protocols/mesh-protocol.md`, 5-layer token governor architecture in `docs/protocols/token-governor.md`, zero-build edge routing in `docs/blueprints/zero-build-edge-routing-and-subdomain-dispatch.md`, and medical claim forensics in `docs/blueprints/health-medical-claims.md`.
   - Expanded foundational essays including `blog/giving-claude-and-cursor-an-epistemic-brake.md`, `blog/blast-radius-containment-in-decentralized-networks.md`, `blog/the-sovereign-stack-escaping-cloud-feudalism.md`, and `blog/the-beauty-of-hermetic-environments.md`.
-- **Dynamic Canon Naming Alignment (`inv-living-canon`)**:
+- **Dynamic Canon Naming Alignment ([`inv-living-canon`](/docs/invariants#inv-living-canon))**:
   - Replaced legacy hardcoded invariant numbers across documentation prose with semantic invariant slugs (`inv-...`) and references to **The Invariant Bible**.
 
 ### Fixed
@@ -264,7 +283,7 @@ last_verified: 2026-08-29
 
 ### Fixed
 - **Autonomous Lean Patch Release Invariant Enforcement (`AGENTS.md` & `knowledge-governance`)**:
-  - Clarified `inv-4phase-release-learning` in `AGENTS.md` and added Section 13 in `knowledge-governance` skill to mandate immediate, autonomous execution of the lean patch release sequence (`vX.Y.1`) upon `/learn` approval, preventing continuous learning from stalling in unreleased working trees.
+  - Clarified [`inv-4phase-release-learning`](/docs/invariants#inv-4phase-release-learning) in `AGENTS.md` and added Section 13 in `knowledge-governance` skill to mandate immediate, autonomous execution of the lean patch release sequence (`vX.Y.1`) upon `/learn` approval, preventing continuous learning from stalling in unreleased working trees.
 
 ## [2.16.0] - 2026-08-24
 
@@ -309,7 +328,7 @@ last_verified: 2026-08-29
 ## [2.15.0] - 2026-08-23
 
 ### Added
-- **3-Tier Pyramid Lensing Navigation Engine (`inv-information-pyramid-lensing`)**:
+- **3-Tier Pyramid Lensing Navigation Engine ([`inv-information-pyramid-lensing`](/docs/invariants#inv-epistemic-lensing))**:
   - Restructured the technical documentation catalog into a 3-tier cognitive hierarchy: **Tier 1: Surface Lens** (Orientation & Quickstarts), **Tier 2: Focus Lens** (Hands-On Tutorials, Developer Cookbooks, & Client Integrations), and **Tier 3: Deep Spectrum Lens** (Formal Protocol Specifications, Mathematics, Specialized Blueprints, & System Invariants).
   - Added dedicated tier headers with visual badges in the zero-build sidebar navigation.
 - **Dual-Plane Docs vs. Blog Domain Switcher**:
@@ -335,7 +354,7 @@ last_verified: 2026-08-29
   - Updated fallback default state and automated widget synchronization in `just sync-version`.
 
 ### Changed
-- **Inline Multi-Repo / Loop Command Prohibition (`inv-clean-scratch-scripts`)**: Explicitly banned inline multiline shell loops (`for r in ...`) when requesting user approval (`BypassSandbox: true`), mandating standalone brain scratch scripts or pre-approved `just` recipes to preserve Mk1 approval legibility.
+- **Inline Multi-Repo / Loop Command Prohibition ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))**: Explicitly banned inline multiline shell loops (`for r in ...`) when requesting user approval (`BypassSandbox: true`), mandating standalone brain scratch scripts or pre-approved `just` recipes to preserve Mk1 approval legibility.
 - **Codified CLI 3-Tier Subpackage Modularity Pattern**: Documented modular subpackage pattern (`helpers.py`, `dispatch.py`, `main.py`) in architecture governance skill to enforce the 500 LOC Ceiling Law permanently.
 
 ## [2.14.0] - 2026-08-23
@@ -376,7 +395,7 @@ last_verified: 2026-08-29
 - **Parallel Multi-Core QA Gauntlet (`[parallel]`)**: Integrated Just's native `[parallel]` execution engine into `just check`, executing `lint`, `test-unit`, `test-docs`, `tf-validate`, and `agent-check` simultaneously across CPU cores to slash pre-commit verification latency from ~10s to **<3.0s**.
 - **Agent Command Approval Bootstrapping Runner (`scripts/bootstrap_approvals.py`)**: Built an automated bootstrapping runner (`just bootstrap-approvals`) that executes harmless read-only passes across all standard command shapes, enabling developers in fresh workspaces to grant "Always Allow" in rapid sequence.
 - **Universal Guardrail Warnings & Next-Step Guidance Matrix**: Codified consistent color-coded success confirmations, deterministic next-step pointers (`\033[1;36m💡 NEXT STEP: <command>\033[0m`), invariant guardrails (`\033[1;33m⚠️ GUARDRAIL: <rule>\033[0m`), and actionable error remedies across every Just recipe.
-- **Zero-Blob Brain Scratch Script Invariant (`inv-clean-scratch-scripts`)**: Hardened `AGENTS.md` to strictly mandate that all ad-hoc scripts requiring user approval (`BypassSandbox: true`) are written to standalone files in the session artifact brain directory (`<appDataDir>/brain/<conversation-id>/scratch/<name>.py`), preserving context recovery and enabling single-approval iteration.
+- **Zero-Blob Brain Scratch Script Invariant ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))**: Hardened `AGENTS.md` to strictly mandate that all ad-hoc scripts requiring user approval (`BypassSandbox: true`) are written to standalone files in the session artifact brain directory (`<appDataDir>/brain/<conversation-id>/scratch/<name>.py`), preserving context recovery and enabling single-approval iteration.
 - **Architectural Blueprint on Human/Agent Safety**: Authored [`docs/blueprints/human-agent-safety-and-justfile-modularization.md`](blueprints/human-agent-safety-and-justfile-modularization.md) detailing the Human/Agent Safety Paradox, permission topologies, and parallel test acceleration.
 
 ---
@@ -455,7 +474,7 @@ last_verified: 2026-08-29
 - **Scoped Workstation CSS & Viewport Invariant**: Scoped desktop `100vh; overflow: hidden;` in `credence-ui.css` to `html:has(.workstation-container)` so landing pages and docs retain natural scrolling. Added Section 6 to `architecture-governance`.
 - **Multi-Domain Edge Proxy Subpath Preservation**: Ensured `web/_worker.js` preserves full markdown subpaths for `docs.credence.run` and `blog.credence.run`, preventing SPA fallback nesting.
 - **Fail-Closed Markdown Fetch Validation**: Implemented `<!DOCTYPE html>` rejection in `credence-docs/app.js` (`loadDocument`) to prevent HTML error responses from rendering as markdown.
-- **Staged Semantic Versioning Invariant**: Mandated 7-manifest version synchronization on feature branches prior to PR staging in `inv-mk1-eyeball` and `knowledge-governance`.
+- **Staged Semantic Versioning Invariant**: Mandated 7-manifest version synchronization on feature branches prior to PR staging in [`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball) and `knowledge-governance`.
 
 ---
 
@@ -475,7 +494,7 @@ last_verified: 2026-08-29
 ### Added
 - **Multi-Plane Edge Isolation & Dev Preview Playbook**: Codified the Dev Preview Hermetic Boundary and added Section 12 to `cloudrun-ops` skill.
 - **Shift-Left Automated Edge Isolation Tests**: Added `test_wrangler_route_isolation`, `test_deploy_dev_branch_isolation`, and `test_worker_assets_routing_invariant` to `tests/governance/test_docs_integrity.py`.
-- **Pair Programming Process & Scope Discipline**: Refined `inv-mk1-eyeball` to forbid speculative/unrequested UI controls and sharpened `inv-dual-env-least-privilege-cicd` with strict `--branch=dev` Cloudflare Pages preview isolation.
+- **Pair Programming Process & Scope Discipline**: Refined [`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball) to forbid speculative/unrequested UI controls and sharpened [`inv-dual-env-least-privilege-cicd`](/docs/invariants#inv-dual-env-least-privilege-cicd) with strict `--branch=dev` Cloudflare Pages preview isolation.
 
 ---
 
@@ -557,7 +576,7 @@ last_verified: 2026-08-29
 ## [2.6.1] - 2026-08-22
 
 ### Changed
-- **Review Workflow Governance**: Refined `inv-mk1-eyeball` and `inv-4phase-release-learning` in `AGENTS.md` and progressive skills (`knowledge-governance`, `cloudrun-ops`) to require staged PR creation, automated Cloud Run Dev deployment monitoring (`deploy-dev.yml`), and interactive live Dev environment verification links in walkthroughs prior to human review presentation.
+- **Review Workflow Governance**: Refined [`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball) and [`inv-4phase-release-learning`](/docs/invariants#inv-4phase-release-learning) in `AGENTS.md` and progressive skills (`knowledge-governance`, `cloudrun-ops`) to require staged PR creation, automated Cloud Run Dev deployment monitoring (`deploy-dev.yml`), and interactive live Dev environment verification links in walkthroughs prior to human review presentation.
 
 ---
 
@@ -603,7 +622,7 @@ All notable changes to the **Credence** network and documentation are documented
 
 ## [2.4.1] - 2026-08-21
 ### Added & Enhanced
-- **Commit-as-Progress-Saves Workflow (`inv-incremental-commits-staging`)**: Codified immediate phase-by-phase commit cadence upon local QA gate passage, eliminating retrospective session-end commit batching.
+- **Commit-as-Progress-Saves Workflow ([`inv-incremental-commits-staging`](/docs/invariants#inv-incremental-commits-staging))**: Codified immediate phase-by-phase commit cadence upon local QA gate passage, eliminating retrospective session-end commit batching.
 - **Proactive Modularization Invariant (`architecture-governance`)**: Added Day-1 subpackage structure guideline for complex subsystems (>300 LOC) to strictly uphold the 500 LOC Ceiling Law.
 - **Nested Dataclass/Pydantic Serialization**: Added recursive `.model_dump()` serialization rules for REST and FastMCP endpoints returning nested data models.
 - **7-Manifest Parity**: Synchronized all ecosystem manifests and web surfaces to `v2.4.1`.
@@ -668,7 +687,7 @@ All notable changes to the **Credence** network and documentation are documented
   - Implemented `challenge_invariant.py` (`just challenge-invariant <slug>`) and `audit_demotions.py` (`just audit-demotions`), providing automated forensic scrutiny of prompt token load against shift-left test saturation.
   - Successfully challenged and demoted test-saturated manifest rules from Tier 0 prompt memory to Tier 2 test gates, saving ~54–62 prompt tokens per agent turn.
 - **Permanent Semantic Invariant Slugs & Central Resolver**:
-  - Migrated all 45 invariant cards in `docs/invariants.md` to permanent semantic slugs (`inv-verbatim-grounding`, `inv-mk1-eyeball`, `inv-canonical-json-ed25519`, etc.) while retaining dual-anchor compatibility (`#invariant-N`).
+  - Migrated all 45 invariant cards in `docs/invariants.md` to permanent semantic slugs ([`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding), [`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball), [`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519), etc.) while retaining dual-anchor compatibility (`#invariant-N`).
   - Added `INVARIANTS_REGISTRY` and dynamic Class $\alpha/\beta/\gamma$ pill badges across all 28 workstation info modals in `credence-workstation.js` and synchronized Section 11 of `docs/topic-index.md`.
 - **Incremental Commits & Branch-PR Staging Architecture**:
   - Established the `release/vX.Y.Z` milestone branching paradigm with discrete, verified atomic commits.
@@ -996,7 +1015,7 @@ ec{\Delta S}$) and querying full revision lineage.
   - Relocated secondary header links (`Playgrounds`, `Blog`, `GitHub`) to the global 4-column footer alongside `The Invariant Bible`, `Master Sitemap`, `Changelog`, and `Roadmap`.
   - Enforced CSS container queries (`@container (max-width: 820px)`) and dedicated 2x2 grid layout inside documentation reading containers (`.docs-main .footer-grid`) to prevent column wrapping.
 - **Automated Cross-Domain Navigation Test Gates**:
-  - Updated `test_cross_domain_consistent_navigation_and_footers` in `tests/test_docs_rendering.py` to assert exact 5-link header navigation across all domains.
+  - Updated `test_cross_domain_consistent_navigation_and_footers` in `tests/governance/test_docs_rendering.py` to assert exact 5-link header navigation across all domains.
 - **7-Manifest Parity Sync**:
   - Synchronized canonical semantic version `v1.21.3` across all 7 ecosystem manifests.
 
@@ -1014,8 +1033,8 @@ ec{\Delta S}$) and querying full revision lineage.
   - Reorganized the Universal Feature Parity Matrix into 4 categorized 4-column tables to eliminate horizontal scrolling.
   - Refactored Morning Epistemic Digest walkthrough tabs into 4 concise interface panes (`🖥️ CLI Terminal`, `⚡ FastMCP 2.0`, `📟 Textual TUI`, `📄 Export & JSON`) with `nowrap` horizontal scrolling.
 - **Automated Docs Rendering & Fence Integrity Tests**:
-  - Expanded `tests/test_docs_integrity.py` with `test_all_markdown_code_fences_and_syntax` to statically verify delimiter hygiene and zero indented fences across all documentation files.
-  - Expanded `tests/test_docs_rendering.py` with comprehensive iteration over all `DOCS_REGISTRY` routes and updated cross-domain navigation consistency assertions.
+  - Expanded `tests/governance/test_docs_integrity.py` with `test_all_markdown_code_fences_and_syntax` to statically verify delimiter hygiene and zero indented fences across all documentation files.
+  - Expanded `tests/governance/test_docs_rendering.py` with comprehensive iteration over all `DOCS_REGISTRY` routes and updated cross-domain navigation consistency assertions.
 - **7-Manifest Parity Sync**:
   - Synchronized canonical semantic version `v1.21.2` across all 7 ecosystem manifests.
 
@@ -1028,7 +1047,7 @@ ec{\Delta S}$) and querying full revision lineage.
   - Audited and elevated 114+ Mermaid diagrams across all blog essays, technical blueprints, protocols, and operator walkthroughs.
   - Standardized modern semantic shapes (`[(Database)]`, `([Endpoint])`, `{"Decision"}`), subgraphs, activation lifelines, and `stateDiagram-v2` transitions.
   - Eliminated parser anti-patterns including unquoted comparison operators (`<`, `>`), invalid embedded markdown links, and literal `\n` linebreaks.
-- **Shift-Left CI Integrity Guardrails (`tests/test_docs_integrity.py`)**:
+- **Shift-Left CI Integrity Guardrails (`tests/governance/test_docs_integrity.py`)**:
   - Expanded `test_mermaid_diagram_syntax_integrity` with strict balanced delimiter validation (`[]`, `()`, `{}`, `""`), subgraph closure checks, linebreak hygiene, and dark slate WCAG 2.1 AA contrast assertions.
 - **7-Manifest Parity Sync**:
   - Synchronized canonical semantic version `v1.21.1` across all 7 ecosystem manifests.
@@ -1047,7 +1066,7 @@ ec{\Delta S}$) and querying full revision lineage.
 - **The BuzzFeed News Doctrine (Asymmetric Epistemic Recovery)**:
   - Formalized The Invariant Bible and EPEP-17: Quarantined domains retain a verifiable path to redemption via low-frequency Lazarus sampling probes.
   - Required $k=5$ consecutive clean audits ($G=1.00, \text{Suspicion} \le 15.0$) across $\ge 2$ distinct subject namespaces to graduate to `PROBATIONARY_RECOVERY`, neutralizing Trojan whitelist attacks.
-- **13-Node Watts-Strogatz Mesh Simulation Suite (`credence/experiments/mesh_boredom_study.py`, `tests/test_mesh_cluster.py`)**:
+- **13-Node Watts-Strogatz Mesh Simulation Suite (`credence/experiments/mesh_boredom_study.py`, `tests/integration/test_mesh_cluster_gossip.py`)**:
   - Added 4 hermetic distributed cluster tests verifying adversarial inoculation, mesh-wide quarantine backoff, BuzzFeed Doctrine redemption, and Byzantine Sybil cartel defense ($N=13, f=4$).
 - **Universal 4-Way Feature Parity**:
   - CLI: `credence domain reputation [domain]`, `credence domain blacklist`, `credence domain appeal <domain>`, `credence boredom --ratio <float>`.
@@ -1084,7 +1103,7 @@ ec{\Delta S}$) and querying full revision lineage.
   - Calculates Epistemic Divergence ($\Delta S = |S_{\text{dev}} - S_{\text{prod}}|$) and proves an empirical **83.3% FinOps inference cost reduction** across the Golden 12 benchmark fixtures by filtering benign reporting at stage 1 before invoking 4k thinking.
 - **Sovereign White-Label Federation Bridge & Byzantine Fault Simulator (`credence/experiments/federation_bridge.py`, `just experiment federation-bridge`)**:
   - Validates cross-organization RFC 8785 canonical JSON attestation signing and exchange, Highest Random Weight (HRW) rendezvous feed partitioning, and $3f+1$ Byzantine Sybil fault isolation.
-- **Hermetic Adversarial Fuzzing Test Suite (`tests/test_adversarial_fuzzing.py`, `tests/test_experiments_harness.py`)**:
+- **Hermetic Adversarial Fuzzing Test Suite (`tests/integration/test_adversarial_fuzzing.py`, `tests/test_experiments_harness.py`)**:
   - Added comprehensive in-memory unit tests for Billion Laughs XML entity expansion defense, SSRF IPv6/metadata filters, prompt injection container bounds, and cryptographic signature tamper rejection.
 - **Operational Guides & Sovereign Case Studies (`credence-docs/`)**:
   - Published `bicameral-testing-and-experiments.md` operator handbook.
@@ -1176,7 +1195,7 @@ ec{\Delta S}$) and querying full revision lineage.
 - **Hermetic Test Suites & Mesh Cluster Verification**:
   - Added `tests/test_roots.py` (candidate extraction, SSRF rejection, feed discovery, root trees).
   - Added `tests/test_boredom.py` (boredom cycle execution, token governor gating, background daemon).
-  - Added `test_mesh_cluster_boredom_work_sharing` and `test_mesh_cluster_boredom_root_partitioning` in `tests/test_mesh_cluster.py`.
+  - Added `test_mesh_cluster_boredom_work_sharing` and `test_mesh_cluster_boredom_root_partitioning` in `tests/integration/test_mesh_cluster_gossip.py`.
 
 ## [1.15.3] - 2026-08-19
 
@@ -1196,7 +1215,7 @@ ec{\Delta S}$) and querying full revision lineage.
 ## [1.15.2] - 2026-08-19
 
 ### CI/CD Hardening & Workflow Resilience
-- **Shift-Left Test Marker Static Gate (`tests/test_docs_integrity.py`)**:
+- **Shift-Left Test Marker Static Gate (`tests/governance/test_docs_integrity.py`)**:
   - Added `test_hermetic_unit_test_markers_invariant` to statically inspect the AST of all test suites during `just check`, verifying that no test marked `@pytest.mark.unit` imports Playwright or invokes `capture_webpage`.
 - **Atomic Release Preflight Cleanliness Guard (`Justfile`)**:
   - Added working-tree cleanliness preflights (`git diff --quiet` and `git diff --cached --quiet`) to the `release` recipe, preventing partial or unstaged tagging desynchronization.
@@ -1231,7 +1250,7 @@ ec{\Delta S}$) and querying full revision lineage.
 - **Relative Asset Links Audit**:
   - Repaired 27 relative image paths to vector assets (`assets/tui/*.svg`) across tutorials, walkthroughs, and integrations.
 - **Shift-Left Automated Integrity Tests**:
-  - Enhanced `test_docs_registry_parity` in `tests/test_docs_integrity.py` to assert that all 109 document and blog IDs in `DOCS_REGISTRY` map to distinct paths and resolve cleanly.
+  - Enhanced `test_docs_registry_parity` in `tests/governance/test_docs_integrity.py` to assert that all 109 document and blog IDs in `DOCS_REGISTRY` map to distinct paths and resolve cleanly.
   - Added `test_web_reports_json_schema_completeness`, `test_web_viewer_heuristic_suspicion_safeguards`, and `test_web_viewer_css_tab_and_hash_integrity` to `tests/test_web.py`.
 
 ## [1.15.0] - 2026-08-19
@@ -1277,7 +1296,7 @@ ec{\Delta S}$) and querying full revision lineage.
 - **3-Tier Invariant Scalability Framework**:
   - Restructured `AGENTS.md` into high-density **Tier 0 Universal Core Invariants (P0 Non-Negotiables)** (<800 tokens, 62% token reduction), eliminating cognitive oatmeal and attention dilution.
   - Stratified subsystem-specific runbooks into **Tier 1 Progressive Subsystem Skills** (`.agents/skills/`), loading playbooks dynamically on-demand.
-  - Shifted mechanical syntax, version parity, and formatting rules into **Tier 2 Shift-Left Automated Integrity Tests** (`tests/test_docs_integrity.py`), executing in <0.3s during `just check`.
+  - Shifted mechanical syntax, version parity, and formatting rules into **Tier 2 Shift-Left Automated Integrity Tests** (`tests/governance/test_docs_integrity.py`), executing in <0.3s during `just check`.
   - Maintained canonical reference catalog and mathematical proofs in **Tier 3 Reference Specifications** (`docs/invariants.md`).
 - **New Blueprint & Engineering Essay**:
   - **Invariant Scalability Blueprint (`docs/blueprints/invariant-scalability-and-knowledge-governance.md`)**: Architectural blueprint detailing the 3-tier hierarchy, cognitive failure modes of flat rulebooks, and token budget governance.
@@ -1537,7 +1556,7 @@ ec{\Delta S}$) and querying full revision lineage.
 - **Swarm Rendezvous Partitioning & 13-Node Mesh Hardening**:
   - Implemented Highest Random Weight (HRW) feed affinity sorting (`compute_feed_affinity`) in Miracle-Gro burst, preventing swarm dogpiling across concurrent nodes.
   - Implemented atomic commit/rollback sub-transactions in seeding and Genesis inoculation, eliminating multi-node database race conditions.
-  - Added `test_13_node_concurrent_swarm_germination_and_mesh_cross_adoption` to `tests/test_mesh_cluster.py`.
+  - Added `test_13_node_concurrent_swarm_germination_and_mesh_cross_adoption` to `tests/integration/test_mesh_cluster_gossip.py`.
 - **New Documentation & Sovereign Dispatches**:
   - **Engineering Guide**: `docs/mesh-engineering/featherweight-swarm-testing.md` (Low-resource 13-node simulation in <150MB RAM).
   - **Blog Dispatch**: `blog/testing-13-node-swarms-on-a-raspberry-pi.md` (The Featherweight Mesh Architecture on edge hardware).
@@ -1721,7 +1740,7 @@ ec{\Delta S}$) and querying full revision lineage.
   - Added 22 new Mermaid architecture and sequence flowcharts, 18 comparison tables, and 25 styled callouts across 28 articles.
   - 100% of all 68 documentation and blog articles now satisfy the $\ge 2.0$ visuals per 500 words invariant.
 - **Automated Tab Persistence & Navigation Regression Tests**:
-  - Added `test_tabbed_interface_switching_and_persistence` in `tests/test_docs_rendering.py` validating tab switching, active panel swaps, `localStorage` saves, and multi-page persistence.
+  - Added `test_tabbed_interface_switching_and_persistence` in `tests/governance/test_docs_rendering.py` validating tab switching, active panel swaps, `localStorage` saves, and multi-page persistence.
 
 ---
 
@@ -1732,8 +1751,8 @@ ec{\Delta S}$) and querying full revision lineage.
 - **Dark Aesthetic Diagram Theme**: Configured dark palette (`#0d121f` container, `#38bdf8` cyan glow borders, `#f8fafc` typography) matching the Credence design system.
 - **Copy to Clipboard Buttons**: Added animated one-click copy buttons and uppercase language tags (`BASH`, `PYTHON`, `YAML`, `JSON`, `TEXT`) across all fenced code blocks.
 - **GitHub Alert Callouts Styling**: Added distinctive dark glassmorphism containers and icons for `> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`, and `> [!CAUTION]`.
-- **Automated Live Rendering Test Suite**: Created `tests/test_docs_rendering.py` with Playwright + headless Chromium verifying zero unrendered Mermaid diagrams, zero raw HTML tag leaks, full interactivity across all 8 playground widgets, and 0 console errors across all documentation pages.
-- **Extended Static Integrity Suite**: Updated `tests/test_docs_integrity.py` with static Mermaid syntax validation and complete DOM element coverage for all 8 playground widgets.
+- **Automated Live Rendering Test Suite**: Created `tests/governance/test_docs_rendering.py` with Playwright + headless Chromium verifying zero unrendered Mermaid diagrams, zero raw HTML tag leaks, full interactivity across all 8 playground widgets, and 0 console errors across all documentation pages.
+- **Extended Static Integrity Suite**: Updated `tests/governance/test_docs_integrity.py` with static Mermaid syntax validation and complete DOM element coverage for all 8 playground widgets.
 
 ### Fixed
 - **Markdown Block Parsing Precedence**: Overhauled `parseMarkdown` in `app.js` to prioritize code block fences before HTML tag inspection, eliminating raw HTML tag leaks (`&lt;/div&gt;`, `&lt;textarea&gt;`) inside code samples and interactive widgets.
@@ -1775,7 +1794,7 @@ ec{\Delta S}$) and querying full revision lineage.
 - **Zero-Build Multi-Domain Edge Router**: Cloudflare Worker (`_worker.js`) routing across `credence.run`, `credence.nexus`, `credence.foundation`, and `credence.report` with 0 npm dependencies.
 - **Air-Gapped Genesis Root Key Ceremony**: Generated network root Ed25519 keypair and published canonical RFC 8785 signed `peers.json` and pinned `root.pub`.
 - **Streamlined Operator Justfile Recipes**: Added `just gcp-build`, `just tf-plan`, `just tf-apply`, and `just seed-sync` for one-command deployment.
-- **Hermetic Documentation Integrity Test Suite**: Added `tests/test_docs_integrity.py` validating 47 docs, 7 interactive widgets, and zero-npm compliance in <0.1s.
+- **Hermetic Documentation Integrity Test Suite**: Added `tests/governance/test_docs_integrity.py` validating 47 docs, 7 interactive widgets, and zero-npm compliance in <0.1s.
 - **Platform Portability Specifications**: 5 comprehensive specifications for multi-model adapters (Claude 3.7 Sonnet, GPT-4o, DeepSeek-R1, local Ollama) and multi-cloud deployment (AWS, Azure, Hetzner, K8s).
 - **Interactive Model Cost Comparator**: Section 7 in `docs/playground.md` for real-time model cost, latency, and sovereignty trade-off analysis.
 

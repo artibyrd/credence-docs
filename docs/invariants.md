@@ -3,8 +3,8 @@ title: 'The Invariant Bible: Living Canon of System-Wide Invariants & Protocols'
 description: Canonical reference for all mathematical rules, runtime safety guardrails,
   cryptographic protocols, and presentation invariants governing Credence.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 tags:
 - invariants
 - architecture
@@ -29,12 +29,12 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
 | Pillar Domain | Scope & Focus | Primary Verification Gate | Core Engineering Guarantees |
 | :--- | :--- | :--- | :--- |
 | **1. Core Engineering & Runtime Safety** | Workspaces, async DB, token budgets, SSRF | `just test` (Hermetic in-memory SQLite) | Python 3.12 async, SSRF defense, 4k Pareto token budget |
-| **2. Epistemic Ingestion & Scoring** | Information theory, Grounding, Satire | `pytest tests/test_scoring.py` | Topic entropy astroturfing defense, $G=1.0$ grounding, satire cloaking overrides |
-| **3. Cryptographic Mesh & Authority** | P2P gossip, Ed25519 envelopes, Consensus | `pytest tests/test_mesh.py` | RFC 8785 Ed25519 envelopes, 5-factor quality $Q_i$, Galileo Rule protection |
-| **4. Universal Presentation & Zero-Build** | Zero-npm, 4-way parity, accessible layouts | `pytest tests/test_docs_rendering.py` | Zero npm / zero build, synchronous 4-way parity, framed accessible UX |
+| **2. Epistemic Ingestion & Scoring** | Information theory, Grounding, Satire | `pytest tests/unit/pipeline/test_pipeline.py` | Topic entropy astroturfing defense, $G=1.0$ grounding, satire cloaking overrides |
+| **3. Cryptographic Mesh & Authority** | P2P gossip, Ed25519 envelopes, Consensus | `pytest tests/unit/mesh/test_mesh.py` | RFC 8785 Ed25519 envelopes, 5-factor quality $Q_i$, Galileo Rule protection |
+| **4. Universal Presentation & Zero-Build** | Zero-npm, 4-way parity, accessible layouts | `pytest tests/governance/test_docs_rendering.py` | Zero npm / zero build, synchronous 4-way parity, framed accessible UX |
 
 > [!IMPORTANT]
-> **Continuous Verification Invariant**: Every code change must pass automated static verification (`pytest tests/test_docs_integrity.py`), Playwright live rendering suites (`tests/test_docs_rendering.py`), and version parity checks before presenting for human review (**"Mk1 Eyeball"**). Invariants are a living, expanding canon of verifiable constraints.
+> **Continuous Verification Invariant**: Every code change must pass automated static verification (`pytest tests/governance/test_docs_integrity.py`), Playwright live rendering suites (`tests/governance/test_docs_rendering.py`), and version parity checks before presenting for human review (**"Mk1 Eyeball"**). Invariants are a living, expanding canon of verifiable constraints.
 
 <div class="invariant-scope-filter-bar">
   <div class="scope-filter-label">Filter Living Canon by Scope:</div>
@@ -55,6 +55,8 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
 
 <div class="invariant-card" id="inv-workspace-isolation" data-scope="universal" data-class="beta">
 <a id="invariant-1"></a>
+<a id="inv-500-loc-ceiling-law"></a>
+<a id="inv-architecture-governance"></a>
 <div class="invariant-header">
   <div class="invariant-badges">
     <span class="invariant-badge badge-class-beta">Class β</span>
@@ -1831,12 +1833,12 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
     <div class="agent-spec-section">
       <span class="agent-spec-label">Deontic Execution Rules:</span>
       <ul class="agent-rules-list">
-        <li><span class='deontic-must'>MUST</span> verify UI and docs via Playwright live rendering suites (<code>tests/test_docs_rendering.py</code>).</li>
+        <li><span class='deontic-must'>MUST</span> verify UI and docs via Playwright live rendering suites (<code>tests/governance/test_docs_rendering.py</code>).</li>
         <li><span class='deontic-must'>MUST</span> assert non-zero SVG dimensions and zero raw HTML tag leaks in rendered prose.</li>
       </ul>
     </div>
     <div class="agent-spec-meta">
-      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>tests/test_docs_rendering.py</code></div>
+      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>tests/governance/test_docs_rendering.py</code></div>
       <div class="agent-meta-item"><strong>Verification Gate:</strong> <code>tests/governance/test_docs_integrity.py</code></div>
     </div>
   </div>
@@ -2060,6 +2062,39 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
 </details>
 </div>
 
+<div class="invariant-card" id="inv-narrative-plot-fidelity" data-scope="universal" data-class="gamma">
+<a id="invariant-61"></a>
+<div class="invariant-header">
+  <div class="invariant-badges">
+    <span class="invariant-badge badge-class-gamma">Class γ</span>
+    <span class="invariant-badge badge-scope-universal">🌐 Universal Agentic</span>
+  </div>
+  <h3><a href="#docs/invariants#inv-narrative-plot-fidelity">The Invariant Bible: Universal Narrative Plot Fidelity & Anti-Boilerplate Invariant ("Never Lose the Plot")</a></h3>
+</div>
+<div class="invariant-human-pane">
+  <p class="invariant-headline">Every published study, case study, and architectural article must strictly fulfill the promise of its title, maintain a coherent 4-stage narrative arc, and contain zero orphaned data dumps, unfulfilled title questions, pseudo-ASCII chart remnants, or copied generic boilerplate conclusions.</p>
+  <div class="invariant-rationale"><strong>Why It Matters:</strong> Prevents technical documentation and research studies from degenerating into meaningless numbers, sterile jargon, or copy-pasted boilerplate conclusions that fail to answer the core question posed to the reader.</div>
+</div>
+<details class="agent-translation">
+  <summary class="agent-summary"><span class="agent-icon">🤖</span> <strong>Agent Deontic Specification</strong> <span class="agent-slug-pill"><code>inv-narrative-plot-fidelity</code></span></summary>
+  <div class="agent-spec-hud">
+    <div class="agent-spec-section">
+      <span class="agent-spec-label">Deontic Execution Rules:</span>
+      <ul class="agent-rules-list">
+        <li><span class='deontic-must'>MUST</span> structure articles around a 4-stage narrative arc: 1. Title's Promise &rarr; 2. Grounded Empirical Investigation &rarr; 3. Human Metric Demystification &rarr; 4. Definitive Conclusion Circling Back to the Title.</li>
+        <li><span class='deontic-forbidden'>FORBIDDEN</span> to include ungrounded data tables or formulas without plain-English metric explanations.</li>
+        <li><span class='deontic-forbidden'>FORBIDDEN</span> to copy generic template boilerplate conclusions across multiple documents.</li>
+        <li><span class='deontic-forbidden'>FORBIDDEN</span> to leave pseudo-ASCII line chart remnants or literal escape characters in published prose.</li>
+      </ul>
+    </div>
+    <div class="agent-spec-meta">
+      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>blog/*.md, docs/**/*.md</code></div>
+      <div class="agent-meta-item"><strong>Verification Gate:</strong> <code>tests/governance/test_docs_integrity.py::test_narrative_plot_fidelity_and_zero_copy_boilerplate_invariant</code></div>
+    </div>
+  </div>
+</details>
+</div>
+
 
 ## Invariant Reference Index Matrix
 
@@ -2097,7 +2132,7 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
 | **[`inv-topic-entropy-defense`](#inv-topic-entropy-defense)** | Inv 19 | 🔬 Domain | Class γ | Topic Entropy Astroturfing Defense (The Pizza Hut Problem) | $H_{\text{penalized}} = H \times (1.0 - C_{\text{top3}})$ |
 | **[`inv-poes-law-satire`](#inv-poes-law-satire)** | Inv 20 | 🔬 Domain | Class γ | Poe's Law & Satire Safeguards | Legitimate satire is recognized and neutraliz... |
 | **[`inv-fixed-taxonomies`](#inv-fixed-taxonomies)** | Inv 21 | 🔬 Domain | Class β | Namespaced Fixed Taxonomies | $\text{URI} = \text{domain}:\text{cluster}/\text{rule\_id}@\text{version}$ |
-| **[`inv-verbatim-grounding`](#inv-verbatim-grounding)** | Inv 22 | 🔬 Domain | Class α | Whitespace-Insensitive Grounding ($G=1.00$) | $G = \frac{|\text{Grounded Citations}|}{|\text{Total Citations}|} = 1.00$ |
+| **[`inv-verbatim-grounding`](#inv-verbatim-grounding)** | Inv 22 | 🔬 Domain | Class α | Whitespace-Insensitive Grounding ($G=1.00$) | $G = \frac{\lvert\text{Grounded Citations}\rvert}{\lvert\text{Total Citations}\rvert} = 1.00$ |
 | **[`inv-heuristic-disclosure`](#inv-heuristic-disclosure)** | Inv 23 | 🔬 Domain | Class β | Transparent Heuristic Disclosure | $\text{Confidence} \le 0.50$ |
 | **[`inv-4k-thinking-budget`](#inv-4k-thinking-budget)** | Inv 15 | 🔬 Domain | Class γ | Empirical Thinking Budget Sweet Spot (4k Invariant) | $\text{Thinking Tokens} = 4096$ |
 | **[`inv-audit-entity-persistence`](#inv-audit-entity-persistence)** | Inv 58 | 🔬 Domain | Class γ | Audit Entity & Violation Persistence | All standalone text and URL audits persist Sn... |
@@ -2124,4 +2159,5 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
 | **[`inv-epistemic-lensing`](#inv-epistemic-lensing)** | Inv 42 | 🌐 Universal | Class γ | The Epistemic Lensing & Information Pyramid Invariant | User views structure content into a 3-tier co... |
 | **[`inv-web-component-isolation`](#inv-web-component-isolation)** | Inv 44 | 🌐 Universal | Class γ | Web Component Isolation & Zero-Clone Safety | Custom web components never invoke cloneNode(... |
 | **[`inv-dense-workstation-viewport`](#inv-dense-workstation-viewport)** | Inv 45 | 🔬 Domain | Class γ | Dense Workstation Viewport & Zero-Masking Invariant | Workstation card grids are bounded within scr... |
+| **[`inv-narrative-plot-fidelity`](#inv-narrative-plot-fidelity)** | Inv 61 | 🌐 Universal | Class γ | Universal Narrative Plot Fidelity & Anti-Boilerplate Invariant | Every study, case study, and article strictly fulfills its title's promise with zero copy-paste boilerplate. |
 

@@ -2,8 +2,8 @@
 title: 'Walkthrough 05: Migrating from Credence v1.x to v2.x'
 description: Step-by-step migration guide for upgrading codebase, database schemas, and CLI commands from v1.x to v2.x.
 since_version: v2.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 5
 ---
@@ -16,7 +16,7 @@ This walkthrough guides operators and developers through migrating existing Cred
 
 ## 1. Key Architectural Changes in v2.x
 
-1. **500 LOC Ceiling Law (`inv-architecture-governance`)**: Subsystems decoupled into clean subpackages (`credence.pipeline`, `credence.mesh`, `credence.governor`, `credence.identity`).
+1. **500 LOC Ceiling Law ([`inv-architecture-governance`](/docs/invariants#inv-500-loc-ceiling-law))**: Subsystems decoupled into clean subpackages (`credence.pipeline`, `credence.mesh`, `credence.governor`, `credence.identity`).
 2. **Deterministic Calculation Naming (`compute_*`)**: Pure mathematical functions renamed to `compute_*` across all modules.
 3. **FastMCP 2.0 Dual Transport**: Added native stdio and SSE support for AI coding assistants.
 4. **Scale-to-Zero Cloud Run**: Migration from persistent VM daemons to stateless serverless containers.
@@ -123,14 +123,14 @@ To ensure continuous compliance with system invariants, **05 Migrating From V1 T
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "05_migrating_from_v1_to_v2" -v
+$ poetry run pytest tests/integration/test_models.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
-| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
-| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
-| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
-| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+| **Hermetic Isolation** | [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests) | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| [`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519) | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding) | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | [`inv-4way-parity-symmetric-web`](/docs/invariants#inv-multi-interface-parity)| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
 
 By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

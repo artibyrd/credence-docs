@@ -2,8 +2,8 @@
 title: 'The Boredom Engine & Expanding Roots: How Autonomous Nodes Self-Direct Epistemic Discovery'
 description: How Credence nodes escape idle stagnation by converting surplus token headroom into autonomous citation extraction, RSS/Atom feed discovery, and P2P mesh attestation gossip.
 since_version: v1.16.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 date: '2026-08-19'
 author: Credence Core Architecture Team
 ---
@@ -95,7 +95,7 @@ In accordance with our universal parity invariant, the Boredom Engine is accessi
 
 ## 4. Live Verification Results
 
-In multi-node P2P mesh cluster simulations (`tests/test_mesh_cluster.py`):
+In multi-node P2P mesh cluster simulations (`tests/integration/test_mesh_cluster_gossip.py`):
 - A 3-node cluster with 1 bored node digested 10 pending items, expanded 2 new root feeds, and gossiped signed attestations across the mesh.
 - Peer nodes adopted all 10 attestations at **$0.00 marginal cost**, saving **32,400 tokens** across the swarm.
 - Root partitioning via Highest Random Weight (HRW) rendezvous hashing ensured zero redundant candidate feed discovery requests.

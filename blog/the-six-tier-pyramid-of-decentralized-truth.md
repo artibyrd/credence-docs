@@ -5,8 +5,8 @@ description: 'Why static benchmarks fail in decentralized epistemic systems: How
   combines hermetic unit isolation with daily mutating live web gauntlets, zero-npm
   Playwright rendering, and 13-node Byzantine mesh chaos labs.'
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 tags:
 - testing
 - e2e
@@ -34,8 +34,6 @@ read_time: 11 min
 ---
 
 # The 6-Tier Verification Pyramid: Why Fact-Checking AI Requires Mutating Gauntlets, Zero-npm Longevity, and Byzantine Simulations
-
-> **Note**: The 6-Tier Verification Pyramid: Why Fact-Checking AI Requires Mutating Gauntlets, Zero-npm Longevity, and Byzantine Simulations
 
 *By the Credence Engineering Collective · August 18, 2026*
 
@@ -106,7 +104,7 @@ Credence enforces **Universal Presentation Layer Parity** (**[The Invariant Bibl
 | **Terminal User Interface (TUI)** | Textual + Rich | Pure terminal canvas | `<30ms` |
 | **Zero-Build Web UI** | Vanilla HTML5 / ES Modules | 0 npm packages (zero build) | `<15ms` |
 
-Tier 2 unit tests (`tests/test_interfaces_isolation.py`) assert that calling `evaluate_snapshot()` directly returns the exact same mathematical score, classification band, and RFC 8785 Ed25519 envelope as invoking it via the CLI or FastMCP 2.0 JSON-RPC.
+Tier 2 unit tests (`tests/integration/test_interfaces_isolation.py`) assert that calling `evaluate_snapshot()` directly returns the exact same mathematical score, classification band, and RFC 8785 Ed25519 envelope as invoking it via the CLI or FastMCP 2.0 JSON-RPC.
 
 ---
 
@@ -141,7 +139,7 @@ Tier 5 verifies this using async Playwright in Python:
 * Confirms zero browser console errors and zero unhandled exceptions.
 
 ```python
-# From tests/test_docs_rendering.py
+# From tests/governance/test_docs_rendering.py
 @pytest.mark.e2e
 @pytest.mark.asyncio
 async def test_mermaid_diagrams_render_to_svg(page: Page, docs_server: str) -> None:
@@ -161,10 +159,10 @@ async def test_mermaid_diagrams_render_to_svg(page: Page, docs_server: str) -> N
 | Tier | Focus Area | Command | Network? | Latency | Key Invariants Enforced |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Tier 1** | **Hermetic Unit & Math** | `just test` | ❌ No | `<65s` | The Invariant Bible (Hermetic), The Invariant Bible (Satire), The Invariant Bible (Offline Fallback) |
-| **Tier 2** | **4-Way Interface Parity** | `pytest tests/test_interfaces_isolation.py` | ❌ No | `<3s` | The Invariant Bible (Universal Feature Parity) |
-| **Tier 3** | **P2P Mesh Cluster** | `pytest tests/test_mesh_cluster.py` | ❌ No | `<25s` | The Invariant Bible (Ed25519 Custody), The Invariant Bible (The Galileo Rule), The Invariant Bible (Work-Sharing) |
-| **Tier 4** | **Adversarial Red Team** | `pytest tests/test_red_team_cluster_attacks.py` | ❌ No | `<5s` | The Invariant Bible (SSRF Guard), The Invariant Bible (XML Safety & Prompt Containment) |
-| **Tier 5** | **Zero-Build Playwright** | `pytest tests/test_docs_rendering.py` | ❌ No | `<25s` | The Invariant Bible (Zero-npm Standard), The Invariant Bible (Playwright DOM Contracts) |
+| **Tier 2** | **4-Way Interface Parity** | `pytest tests/integration/test_interfaces_isolation.py` | ❌ No | `<3s` | The Invariant Bible (Universal Feature Parity) |
+| **Tier 3** | **P2P Mesh Cluster** | `pytest tests/integration/test_mesh_cluster_gossip.py` | ❌ No | `<25s` | The Invariant Bible (Ed25519 Custody), The Invariant Bible (The Galileo Rule), The Invariant Bible (Work-Sharing) |
+| **Tier 4** | **Adversarial Red Team** | `pytest tests/integration/test_red_team_cluster_attacks.py` | ❌ No | `<5s` | The Invariant Bible (SSRF Guard), The Invariant Bible (XML Safety & Prompt Containment) |
+| **Tier 5** | **Zero-Build Playwright** | `pytest tests/governance/test_docs_rendering.py` | ❌ No | `<25s` | The Invariant Bible (Zero-npm Standard), The Invariant Bible (Playwright DOM Contracts) |
 | **Tier 6** | **Live Rotating E2E** | `just test-live` | 🌐 Yes | `<30s` | The Invariant Bible (Live Universal Parity), The Invariant Bible (FastMCP SSE Security) |
 
 By structuring verification into these 6 complementary layers, Credence delivers sub-second developer feedback, total supply-chain longevity, and bulletproof confidence in real-world decentralized operation.

@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Sentinel Mode & Sovereign Feed Automation'
 description: Decentralized newsroom RSS/Atom feed automation, sentinel source subscriptions, auto-discovery, and zero-token serving relays.
 since_version: v2.17.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 21
 ---
@@ -32,7 +32,7 @@ A **Sentinel Source** is a monitored RSS, Atom, or JSON news feed that undergoes
 
 ## 2. Dynamic Source Configuration & Invariant Decoupling
 
-Under **`inv-sovereign-config-decoupling`**, core engine models, database migrations, scrapers, and background daemons must contain zero hardcoded third-party domain favoritism or proprietary feeds.
+Under **[`inv-sovereign-config-decoupling`](/docs/invariants#inv-sovereign-config-decoupling)**, core engine models, database migrations, scrapers, and background daemons must contain zero hardcoded third-party domain favoritism or proprietary feeds.
 
 Sentinel sources are configured strictly through:
 1. **Environment Configuration**: `CREDENCE_SENTINEL_FEEDS` (a comma-separated string of trusted RSS/Atom feed URLs configured per deployment).

@@ -2,13 +2,13 @@
 title: 'Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0 on Credence'
 description: How the Credence epistemic trust engine distinguishes between perpetrating disinformation and exposing it through discourse boundary isolation, SPJ-1.6 safe harbors, and verbatim grounding.
 since_version: v2.1.7
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0 on Credence
 
-When readers first inspect the **Credence Badge** on our investigative case study, [*Conflict of Pun-terest: 347 Reasons Why Maricopa's Publisher-Politician Problem Fails the Epistemic Smell Test*](#blog/conflict-of-pun-terest), they often do a double take.
+When readers first inspect the **Credence Badge** on our investigative case study, [*Conflict of Pun-terest: 347 Reasons Why Maricopa's Publisher-Politician Problem Fails the Epistemic Smell Test*](/blog/conflict-of-pun-terest), they often do a double take.
 
 The article is a forensic takedown of unethical municipal journalism. It documents unlabelled commercial advertorials, undisclosed political conflicts of interest, and deceptive police blotter reporting. Yet, when the decentralized Credence node mesh evaluates the document, it returns a **100.0 Clean Attestation Receipt** signed with Ed25519 cryptographic custody.
 

@@ -2,8 +2,8 @@
 title: 'The Galileo Rule: Why Grounded Truth Must Always Defeat Consensus Swarms'
 description: How a single specialist with verbatim DOM citations overrides a 100-node Sybil cartel in Bayesian consensus.
 since_version: v1.12.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 22
 ---
@@ -16,7 +16,7 @@ At the time, the overwhelming consensus of religious authorities, academic facul
 
 In decentralized trust systems, this historical reality creates a profound mathematical challenge: **How do you prevent a swarm of low-quality or colluding nodes from voting down authentic truth?**
 
-Credence answers this question with **The Galileo Rule (`inv-verbatim-grounding`)**.
+Credence answers this question with **The Galileo Rule ([`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding))**.
 
 ---
 

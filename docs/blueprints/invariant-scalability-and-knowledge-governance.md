@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Invariant Scalability & 4-Tier Knowledge Governance'
 description: The 4-Tier Knowledge Taxonomy (/remember), AGENTS.md context economy (<800 tokens), and dynamic Living Canon governance.
 since_version: v1.13.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 16
 ---
@@ -42,11 +42,11 @@ Tier 0: UNIVERSAL CORE INVARIANTS (`AGENTS.md` - <800 Tokens)
 
 ---
 
-## 3. Dynamic Living Canon Invariant (`inv-living-canon`)
+## 3. Dynamic Living Canon Invariant ([`inv-living-canon`](/docs/invariants#inv-living-canon))
 
 Credence prohibits hardcoded numerical invariant counters in documentation prose (e.g., "The Invariant Bible"). Instead:
 - System invariants are referenced as **The Invariant Bible** or **The Living Canon of System Invariants**.
-- Specific rules use semantic alphanumeric slugs (`inv-verbatim-grounding`, `inv-canonical-json-ed25519`).
+- Specific rules use semantic alphanumeric slugs ([`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding), [`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519)).
 - Adding or reordering invariants never breaks existing documentation links.
 
 ---
@@ -101,15 +101,15 @@ To ensure continuous compliance with system invariants, **Invariant Scalability 
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "invariant_scalability_and_knowledge_governance" -v
+$ poetry run pytest tests/governance/test_docs_integrity.py -k "test_learning_lifecycle_and_invariant_governance_contracts" -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
-| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
-| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
-| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
-| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+| **Hermetic Isolation** | [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests) | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| [`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519) | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding) | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | [`inv-4way-parity-symmetric-web`](/docs/invariants#inv-multi-interface-parity)| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
 
 By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.
 

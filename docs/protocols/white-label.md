@@ -2,8 +2,8 @@
 title: White-Label Sovereign Federation
 description: Multi-tenant sovereign organization federation, custom DNS namespaces, signed seed trees, and decentralized identity.
 since_version: v1.11.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 12
 ---

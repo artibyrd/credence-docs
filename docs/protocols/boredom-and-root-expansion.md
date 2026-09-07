@@ -2,8 +2,8 @@
 title: 'Epistemic Protocol Specification: Boredom Engine & Root Expansion (EPEP-16)'
 description: Opportunistic token consumption, idle headroom exploration, citation crawl graph expansion, and candidate seed discovery.
 since_version: v1.13.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 9
 ---

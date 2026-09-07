@@ -3,8 +3,8 @@ title: 'Playground 14: Adversarial Badge Security Lab (Break the Badge)'
 description: Interactive zero-build sandbox testing the anti-tamper defenses of <credence-badge> against Bait-and-Switch, signature forgery, and domain spoofing.
 category: Interactive Playgrounds
 since_version: v2.1.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Playground 14: Adversarial Badge Security Lab (Break the Badge) 🛡️
@@ -69,6 +69,6 @@ An author wraps defamatory paragraphs inside `[data-credence-ignore]` elements t
 ## 4. Architectural & System Invariants
 
 This lab enforces key principles from **The Invariant Bible**:
-- **`inv-canonical-json-ed25519`**: RFC 8785 canonical JSON bytes ensure cross-platform signature determinism between Python CLI and in-browser WebCrypto.
-- **`inv-mk1-eyeball` & `inv-web-component-isolation`**: Zero-clone, leak-free Web Component isolation ensuring tamper alerts cannot be hidden by host scripts.
-- **`inv-untrusted-ingestion`**: Defensive isolation of all untrusted third-party DOM text.\n
+- **[`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519)**: RFC 8785 canonical JSON bytes ensure cross-platform signature determinism between Python CLI and in-browser WebCrypto.
+- **[`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball) & [`inv-web-component-isolation`](/docs/invariants#inv-web-component-isolation)**: Zero-clone, leak-free Web Component isolation ensuring tamper alerts cannot be hidden by host scripts.
+- **[`inv-untrusted-ingestion`](/docs/invariants#inv-untrusted-ingestion)**: Defensive isolation of all untrusted third-party DOM text.

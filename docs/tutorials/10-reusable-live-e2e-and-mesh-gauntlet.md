@@ -2,8 +2,8 @@
 title: 10. Reusable Live Rotating E2E & Byzantine Mesh Gauntlet
 description: Step-by-step tutorial on executing, customizing, and scaling the reusable live rotating test suite across CLI, FastMCP 2.0 SSE, and 13-node P2P mesh clusters.
 since_version: v1.4.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 tags:
 - tutorial
 - e2e
@@ -34,7 +34,8 @@ In this hands-on tutorial, you will learn how to operate, configure, and extend 
 Ensure your local development environment is active and dependencies are installed:
 
 ```bash
-cd /home/pendragon/Projects/credence-ecosystem/credence
+git clone https://github.com/artibyrd/credence.git
+cd credence
 poetry install
 ```
 
@@ -74,7 +75,7 @@ The test verifies two critical properties:
 
 ```bash
 # Execute 13-node Byzantine swarm test
-$ poetry run pytest tests/unit/mesh/test_mesh.py -k "test_byzantine_resilience" -v
+$ poetry run pytest tests/integration/test_ephemeral_mesh_gauntlet.py -v
 ```
 
 ---

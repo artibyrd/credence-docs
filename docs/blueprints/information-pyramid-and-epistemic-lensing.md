@@ -2,15 +2,15 @@
 title: 'Architectural Blueprint: The Information Pyramid & Epistemic Lensing'
 description: The 3-Tier Cognitive Hierarchy, Surface/Focus/Deep Spectrum Lenses, and progressive disclosure UI architecture.
 since_version: v1.12.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 10
 ---
 
 # Architectural Blueprint: The Information Pyramid & Epistemic Lensing
 
-The **Information Pyramid & Epistemic Lensing Invariant (`inv-epistemic-lensing`)** governs how complex forensic evidence, mathematical scores, and cryptographic attestations are presented across human and machine interfaces.
+The **Information Pyramid & Epistemic Lensing Invariant ([`inv-epistemic-lensing`](/docs/invariants#inv-epistemic-lensing))** governs how complex forensic evidence, mathematical scores, and cryptographic attestations are presented across human and machine interfaces.
 
 ---
 
@@ -69,7 +69,7 @@ $ credence audit https://example.com/article --lens forensic
 ---
 ## Epistemic Lensing Architecture & Progressive Disclosure
 
-The Information Pyramid invariant (`inv-epistemic-lensing`) organizes complex forensic data into 3 decoupled cognitive layers to prevent reader fatigue:
+The Information Pyramid invariant ([`inv-epistemic-lensing`](/docs/invariants#inv-epistemic-lensing)) organizes complex forensic data into 3 decoupled cognitive layers to prevent reader fatigue:
 
 | Lens Tier | Cognitive Horizon | Data Elements Rendered | Target Audience |
 | :--- | :---: | :--- | :--- |
@@ -123,14 +123,14 @@ To ensure continuous compliance with system invariants, **Information Pyramid An
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "information_pyramid_and_epistemic_lensing" -v
+$ poetry run pytest tests/governance/test_information_pyramid_and_lensing.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
-| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
-| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
-| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
-| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+| **Hermetic Isolation** | [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests) | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| [`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519) | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding) | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | [`inv-4way-parity-symmetric-web`](/docs/invariants#inv-multi-interface-parity)| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
 
 By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

@@ -15,7 +15,7 @@ Use this skill when evaluating epistemic calibration, measuring cost efficiency,
 - `just experiment shadow-audit`: Execute bicameral differential shadow audits calculating $\Delta S$ and FinOps cost curves.
 - `just experiment federation-bridge`: Simulate sovereign cross-organization attestation signing, HRW feed partitioning, and $3f+1$ Byzantine isolation.
 - `poetry run python -m credence.pipeline.cross_model_benchmark`: Execute live cross-model Pareto benchmark across model tiers and thinking budgets.
-- `poetry run pytest tests/test_benchmark.py -v`: Run hermetic benchmark test suite.
+- `poetry run pytest tests/integration/test_benchmark.py -v`: Run hermetic benchmark test suite.
 - `credence profile list`: Inspect operational token and reasoning limits across profiles.
 
 ---

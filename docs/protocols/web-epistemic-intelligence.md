@@ -2,8 +2,8 @@
 title: Global Web Intelligence, DCI & Epistemic Weather
 description: Real-time epistemic intelligence protocol, publisher domain trust indices, and network weather forecasting.
 since_version: v1.12.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 6
 ---
@@ -41,7 +41,7 @@ The network computes four core macro-telemetry indices to describe the informati
 
 ### 2.2 Epistemic Weather Classification Bands
 
-| Weather Status | DCI Range | Grounding ($G$) | Topic Entropy ($H$) | Network Condition |
+| Weather Status | DCI Range | Grounding (G) | Topic Entropy (H) | Network Condition |
 | :--- | :---: | :---: | :---: | :--- |
 | ☀️ **Pristine Sunlight** | $\ge 85.0$ | $\ge 0.95$ | $\ge 0.75$ | High-veracity journalism, diverse sourcing, zero coordinated slop. |
 | ⛅ **Scattered Fog** | $65.0 - 84.9$ | $0.80 - 0.94$ | $0.55 - 0.74$ | Occasional ungrounded claims, clickbait framing, or editorial bias. |
@@ -88,7 +88,7 @@ GET https://credence.report/api/v1/domain/reuters.com
 ## 4. Academic Standards & References
 
 * 📘 [The Invariant Bible](../invariants.md) — Epistemic Scoring Invariants
-* 📰 [The Domain Epistemic Index Case Study](../../blog/the-domain-epistemic-index.md)
+* 📰 [The Domain Credence Index (DCI) Overview](../../blog/the-domain-epistemic-index.md)
 * 🍕 [The Pizza Hut Problem & Astroturfing Defense](../../blog/the-pizza-hut-problem.md)
 * 🎮 [Zero-Trust Dynamic Feed Simulator Playground](../playground.md)
 

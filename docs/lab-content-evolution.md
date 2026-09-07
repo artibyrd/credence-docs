@@ -3,8 +3,8 @@ title: 'Playground 13: Content Evolution & Stealth Edit Forensic Lab'
 description: Interactive in-browser simulator demonstrating how Credence tracks text modifications over time, computing diffs and score trajectories in real time.
 category: Interactive Playgrounds
 since_version: v2.1.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Playground 13: Content Evolution & Stealth Edit Forensic Lab 📝
@@ -83,6 +83,6 @@ Credence evaluates content revisions from raw ingestion through cryptographic at
 ## 5. Architectural & System Invariants
 
 This lab directly embodies the following principles from **The Invariant Bible**:
-- **`inv-verbatim-grounding`**: Grounding citations match character-for-character across snapshot diffs.
-- **`inv-topic-entropy-astroturfing`**: Detects topic entropy collapse and promotional pivot injection across successive article edits.
-- **`inv-canonical-json-ed25519`**: Every snapshot diff mints a separate RFC 8785 canonical envelope cryptographically bound to the node identity.\n
+- **[`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding)**: Grounding citations match character-for-character across snapshot diffs.
+- **[`inv-topic-entropy-astroturfing`](/docs/invariants#inv-topic-entropy-defense)**: Detects topic entropy collapse and promotional pivot injection across successive article edits.
+- **[`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519)**: Every snapshot diff mints a separate RFC 8785 canonical envelope cryptographically bound to the node identity.

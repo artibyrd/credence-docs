@@ -1,6 +1,15 @@
 /* Credence Zero-Build Documentation & Blog Master Stylesheet */
 @import url('assets/credence-ui.css');
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 135px;
+}
+
+.invariant-card, [id] {
+  scroll-margin-top: 135px;
+}
+
 /* Layout structure */
 .docs-layout {
   display: flex;
@@ -1675,6 +1684,12 @@ textarea:focus-visible,
   background: rgba(15, 23, 42, 0.95);
 }
 
+.highlight-anchor {
+  outline: 2px solid #38bdf8 !important;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.45) !important;
+  transition: all 0.3s ease;
+}
+
 .invariant-card h3 {
   margin-top: 0 !important;
   color: #f8fafc !important;
@@ -1688,7 +1703,7 @@ textarea:focus-visible,
 /* Invariant Scope Filter Bar */
 .invariant-scope-filter-bar {
   position: sticky;
-  top: 3.5rem;
+  top: 70px;
   z-index: 90;
   display: flex;
   flex-wrap: wrap;

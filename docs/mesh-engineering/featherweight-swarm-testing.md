@@ -3,8 +3,8 @@ title: Featherweight Swarm Simulation & Low-Resource Testing
 description: How Credence runs 13-node Byzantine-resistant P2P mesh cluster simulations
   in under 150MB of RAM and 4.5 seconds on dual-core laptops and Raspberry Pis.
 since_version: v1.6.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Featherweight Swarm Simulation & Low-Resource Testing
@@ -18,7 +18,7 @@ In **Credence**, we engineered a **featherweight swarm architecture** that allow
 ## 1. The 3 Pillars of Low-Resource Swarm Simulation
 
 ### Pillar 1: Pure Asyncio WebSocket Small-World Lattices
-Rather than spawning heavy OS processes or virtual machines, `tests/test_mesh_cluster.py` instantiates 13 independent `MeshGossipRelay` instances within a single Python event loop.
+Rather than spawning heavy OS processes or virtual machines, `tests/integration/test_mesh_cluster_gossip.py` instantiates 13 independent `MeshGossipRelay` instances within a single Python event loop.
 
 Each relay binds to an ephemeral local port or memory socket, connecting to its assigned peers according to a **Watts-Strogatz Small-World topology** ($N = 13$, degree $d = 4$, rewiring $\beta = 0.20$):
 
@@ -127,7 +127,7 @@ Despite its ultra-low resource profile, the test gauntlet verifies deep distribu
 ### Running the Ultra-Fast In-Memory Swarm Suite:
 ```bash
 # Run all 14 mesh cluster tests in <35 seconds using <150MB RAM
-poetry run pytest tests/test_mesh_cluster.py -v
+poetry run pytest tests/integration/test_mesh_cluster_gossip.py -v
 ```
 
 ### Running the 13-Container Physical Cluster:

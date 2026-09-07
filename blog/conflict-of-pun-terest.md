@@ -4,8 +4,8 @@ title: 'Conflict of Pun-terest: 347 Reasons Why Maricopa''s Publisher-Politician
 description: Empirical case study of inmaricopa.com auditing the collision of municipal
   governance, unlabelled commercial advertorials, and local news monopoly.
 since_version: v1.12.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Conflict of Pun-terest: 347 Reasons Why Maricopa's Publisher-Politician Problem Fails the Epistemic Smell Test
@@ -30,11 +30,11 @@ In this case study, Credence applies **cryptographically grounded, deterministic
 > 
 > **Credence scores the integrity of the lens, not the dirt on the window.**  
 > This investigative exposé exemplifies the highest epistemic hygiene:
-> 1. **Containerized Discourse Boundaries (`SPJ-1.6`)**: Quoting unethical journalism within an attribution framework qualifies for investigative safe-harbor credit.
-> 2. **Verbatim Primary Grounding ($G=1.00$)**: Every finding is grounded in public records, city council meeting transcripts, and verified primary quotations.
-> 3. **High Semantic Entropy ($H \gg 0.70$)**: The analysis displays rich vocabulary variance with zero commercial astroturfing.
+> 1. **Containerized Discourse Boundaries ([`SPJ-1.6`](/docs/cookbooks/taxonomy-engineering))**: Quoting unethical journalism within an attribution framework qualifies for investigative safe-harbor credit.
+> 2. **Verbatim Primary Grounding ([$G=1.00$ under `inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding))**: Every finding is grounded in public records, city council meeting transcripts, and verified primary quotations.
+> 3. **High Semantic Entropy ([analyzed in Astroturfing Entropy](/blog/case-study-astroturfing-entropy))**: The analysis displays rich vocabulary variance ($H \gg 0.70$) with zero commercial astroturfing.
 > 
-> 📖 **Read the deep-dive companion essay**: [Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0 on Credence](#blog/scoring-the-lens-not-the-window)
+> 📖 **Read the deep-dive companion essay**: [Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0 on Credence](/blog/scoring-the-lens-not-the-window)
 
 ---
 

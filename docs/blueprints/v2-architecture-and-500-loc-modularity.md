@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: V2 Modular Architecture & 500 LOC Subpackage Decoupling'
 description: Deconstructing monoliths, subsystem boundaries, compute_* calculation purity, and architectural governance.
 since_version: v2.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 13
 ---
@@ -25,7 +25,7 @@ In Credence v1.x, the codebase grew organically into large files: `credence.py` 
 
 ## 2. The 500 LOC Subpackage Decoupling Architecture
 
-In v2.0, we decomposed the codebase into focused subpackages, enforcing **The 500 LOC Ceiling Law (`inv-architecture-governance`)**:
+In v2.0, we decomposed the codebase into focused subpackages, enforcing **The 500 LOC Ceiling Law ([`inv-architecture-governance`](/docs/invariants#inv-500-loc-ceiling-law))**:
 
 credence/
 | Subpackage Directory | Core Responsibilities | Line Budget Target |
@@ -51,7 +51,7 @@ credence/
 
 ```bash
 # Run architectural governance test gate
-$ pytest tests/governance/test_docs_integrity.py -k test_python_and_justfile_500_loc_ceiling
+$ pytest tests/governance/test_architecture_governance.py -v
 ```
 
 ---
@@ -97,15 +97,15 @@ To ensure continuous compliance with system invariants, **V2 Architecture And 50
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "v2_architecture_and_500_loc_modularity" -v
+$ poetry run pytest tests/governance/test_architecture_governance.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
-| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
-| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
-| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
-| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+| **Hermetic Isolation** | [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests) | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| [`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519) | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding) | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | [`inv-4way-parity-symmetric-web`](/docs/invariants#inv-multi-interface-parity)| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
 
 By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.
 

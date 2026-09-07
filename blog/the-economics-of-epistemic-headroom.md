@@ -2,8 +2,8 @@
 title: 'The Economics of Epistemic Headroom: Why 30% Safety Buffers Save Production'
 description: Why setting a 30% offline tripwire on token spending protects interactive developer pairing and production stability.
 since_version: v1.12.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 18
 ---
@@ -14,7 +14,7 @@ In the world of autonomous AI systems, managing API rate limits and financial sp
 
 Everything runs smoothly until a breaking news cycle triggers a surge of syndicated articles. The background worker aggressively calls frontier reasoning models, rapidly consuming all Tokens Per Minute (TPM) and Requests Per Day (RPD). Suddenly, developers pairing interactively with AI coding assistants (Claude Desktop, Cursor, Antigravity) are locked out with cryptic `429 ResourceExhausted` errors. Development grinds to a dead halt.
 
-To solve this shared resource tragedy, Credence established the **Epistemic Headroom Invariant (`inv-multi-model-sovereignty`)**.
+To solve this shared resource tragedy, Credence established the **Epistemic Headroom Invariant ([`inv-multi-model-sovereignty`](/docs/invariants#inv-multi-model-sovereignty))**.
 
 ---
 

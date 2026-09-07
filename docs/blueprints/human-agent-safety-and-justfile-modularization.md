@@ -2,8 +2,8 @@
 title: Human/Agent Workflow Safety & Justfile Modularization
 description: Architectural blueprint for safe autonomous agent pairing, discrete Justfile recipe topologies, parallel QA gates, and brain scratch script execution.
 since_version: v2.13.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Human/Agent Workflow Safety & Justfile Modularization
@@ -13,14 +13,14 @@ last_verified: 2026-08-29
 Autonomous AI coding agents operate at extreme velocity, executing hundreds of file reads, refactors, and test runs in minutes. However, pairing an autonomous agent with a human developer introduces an operational paradox:
 
 1. **Velocity Demand**: Routine, non-destructive tasks (linting, hermetic unit tests, git status inspection, documentation integrity checks) should execute seamlessly without prompting the developer for permission on every invocation.
-2. **Sovereign Custody Demand (`inv-mk1-eyeball`)**: Mutating actions with real-world consequences (git commits, branch creations, pull request merges, version tags, and cloud deployments) **must never execute without explicit human authorization**.
+2. **Sovereign Custody Demand ([`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball))**: Mutating actions with real-world consequences (git commits, branch creations, pull request merges, version tags, and cloud deployments) **must never execute without explicit human authorization**.
 
 ### Operational Safety Domains
 
 | Safety Domain | Approval Status | Typical Workflows | Invariant Guardrail |
 | :--- | :--- | :--- | :--- |
 | **Autonomous Zone** | Pre-Approved / Always Allow | `just lint`, `just format`, `just test-unit`, `just test-docs`, `just status`, `just git-diff`, `just cloud-status`, `just cloud-probe`, `<brain>/scratch/<name>.py` | 100% Read-Only, Hermetic, Zero Destructive Drift |
-| **Human Review Gate** | Gated / Manual Mk1 Sign-Off | `just branch <name>`, `just commit <msg>`, `just pr-create <title>`, `just pr-merge`, `just cloud-deploy-prod`, `just cloud-rollback`, `just release <ver> <msg>` | `inv-mk1-eyeball`, Commit-Before-Deploy, Sovereign Human Authority |
+| **Human Review Gate** | Gated / Manual Mk1 Sign-Off | `just branch <name>`, `just commit <msg>`, `just pr-create <title>`, `just pr-merge`, `just cloud-deploy-prod`, `just cloud-rollback`, `just release <ver> <msg>` | [`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball), Commit-Before-Deploy, Sovereign Human Authority |
 
 ---
 
@@ -83,13 +83,13 @@ check: lint test-unit test-docs tf-validate agent-check
 
 ---
 
-## 5. Zero-Blob Brain Scratch Invariant (`inv-clean-scratch-scripts`)
+## 5. Zero-Blob Brain Scratch Invariant ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))
 
 When an agent needs to execute an ad-hoc Python or bash script requiring human approval (`BypassSandbox: true`), sending multi-line inline blobs (`python -c "..."`) creates severe usability failures:
 1. **Unreadable Modal UI**: Long escaped strings flood the IDE approval modal, making forensic human review impossible.
 2. **Approval Cache Invalidation**: Any single-character edit changes the command string, re-prompting the user for approval on every iteration.
 
-Under `inv-clean-scratch-scripts`, all ad-hoc scripts MUST be written to standalone files in the session's artifact brain directory:
+Under [`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts), all ad-hoc scripts MUST be written to standalone files in the session's artifact brain directory:
 
 ```bash
 # Correct Canonical Pattern

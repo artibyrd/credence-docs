@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Domain Epistemic Index & Sourcing Forensics'
 description: Rolling Domain Credence Index (DCI), 30-day Bayesian decay, source network graphs, and conflict-of-interest detection.
 since_version: v1.12.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 15
 ---
@@ -83,7 +83,7 @@ $ credence domain history reuters.com --window 30d
 
 * 🌐 [Global Web Intelligence Protocol (WEIP-v1)](../protocols/web-epistemic-intelligence.md)
 * 📘 [The Invariant Bible](../invariants.md) — Namespaced Fixed Taxonomies
-* 📰 [The Domain Epistemic Index Case Study](../../blog/the-domain-epistemic-index.md)
+* 📰 [The Domain Credence Index (DCI) Overview](../../blog/the-domain-epistemic-index.md)
 
 ---
 ## Domain Credence Index (DCI) Formulation & Sourcing Decay

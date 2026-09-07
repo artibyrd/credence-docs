@@ -3,8 +3,8 @@ title: 'Feature Walkthrough: Daily Morning Epistemic Briefings'
 description: Multi-interface walkthrough for compiling executive intelligence briefings,
   newsletter exports, and FastMCP morning digest streams.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 4
 ---
@@ -148,6 +148,6 @@ $ credence sifter publish-feed --output /var/www/feeds/verified-morning.xml
 ```
 
 ### Architectural Invariants Enforced
-- **Zero-Token Adoptions (`inv-multi-model-sovereignty`)**: Verified attestations signed by mesh peer nodes with $Q_i \ge 0.70$ are adopted with $0$ LLM tokens.
-- **Verbatim Grounding (`inv-verbatim-grounding`)**: Briefing claim summaries are linked directly to character-offset DOM quotes.
-- **RFC 8785 Serialization (`inv-canonical-json-ed25519`)**: All JSON exports use deterministic canonical byte ordering.
+- **Zero-Token Adoptions ([`inv-multi-model-sovereignty`](/docs/invariants#inv-multi-model-sovereignty))**: Verified attestations signed by mesh peer nodes with $Q_i \ge 0.70$ are adopted with $0$ LLM tokens.
+- **Verbatim Grounding ([`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding))**: Briefing claim summaries are linked directly to character-offset DOM quotes.
+- **RFC 8785 Serialization ([`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519))**: All JSON exports use deterministic canonical byte ordering.

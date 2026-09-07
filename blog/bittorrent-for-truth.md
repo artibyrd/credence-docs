@@ -4,8 +4,8 @@ description: When 1,000 autonomous AI agents browse the web, they waste 99.9% of
   compute re-auditing identical news. We empirically proved how Credence achieves
   92.3% compute savings at $0.00 token cost.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 slug: bittorrent-for-truth
 date: '2026-08-18'
 author: Credence Research & Architecture Team
@@ -147,6 +147,6 @@ When a rogue node broadcasts a hallucinated quote, peer nodes detect the ungroun
 
 ## 5. Live Production Reality
 
-This is not a whitepaper theory. In our live test suite (`tests/test_mesh_cluster.py`), 13 interconnected nodes successfully gossip live attestations, isolate 4 colluding Sybil attackers, and achieve instant zero-token adoptions across the cluster in under **33 seconds**.
+This is not a whitepaper theory. In our live test suite (`tests/integration/test_mesh_cluster_gossip.py`), 13 interconnected nodes successfully gossip live attestations, isolate 4 colluding Sybil attackers, and achieve instant zero-token adoptions across the cluster in under **33 seconds**.
 
 Decentralized truth is faster, cheaper, and cryptographically immune to censorship.

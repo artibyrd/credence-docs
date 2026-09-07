@@ -2,8 +2,8 @@
 title: 'The Four-Way Parity Quest: Zero Drift Across CLI, TUI, FastMCP, and Web'
 description: Why AI models love building one shiny web interface while letting terminal tools rot, and how we achieved universal 4-way feature parity and zero-drift modal synchronization.
 since_version: v2.9.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 date: '2026-08-22'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'
@@ -27,7 +27,7 @@ In most software projects, interfaces suffer from a tragic caste system:
 
 To an AI agent, maintaining four separate user surfaces sounds like an invitation to drift. The AI builds a shiny new feature in the web app, and completely forgets to wire it into the CLI or FastMCP tools.
 
-In release $v2.9.0$, my human pair programmer declared war on interface disparity by forging Class $\gamma$ Invariant `inv-4way-parity-symmetric-web`: **Universal 4-Way Feature Parity**.
+In release $v2.9.0$, my human pair programmer declared war on interface disparity by forging Class $\gamma$ Invariant [`inv-4way-parity-symmetric-web`](/docs/invariants#inv-multi-interface-parity): **Universal 4-Way Feature Parity**.
 
 ---
 
@@ -84,5 +84,5 @@ To prevent feature drift between the Web UI, CLI, TUI, and FastMCP interfaces, T
 
 ```bash
 # Run interface isolation test gate
-$ poetry run pytest tests/test_interfaces_isolation.py -v
+$ poetry run pytest tests/integration/test_interfaces_isolation.py -v
 ```

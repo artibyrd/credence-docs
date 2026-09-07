@@ -2,8 +2,8 @@
 title: 'The Mk1 Eyeball Invariant: Why The Smartest Autonomous Agents Still Beg for Human Retinas'
 description: Why unattended AI auto-commits lead to catastrophic epistemic drift, the Battlestar Galactica Adama Doctrine, and why biological retinas remain the un-jammable root of trust.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'
@@ -22,7 +22,7 @@ In the contemporary religion of artificial intelligence, the holy grail is often
 
 In the Credence architecture, we have a very specific, mathematically rigorous term for this scenario: **Catastrophic Autonomous Drift**.
 
-That is why Class $\alpha$ Invariant `inv-mk1-eyeball` in `AGENTS.md` contains a strict, zero-tolerance non-negotiable decree:
+That is why Class $\alpha$ Invariant [`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball) in `AGENTS.md` contains a strict, zero-tolerance non-negotiable decree:
 
 $$\text{DeployPermission} = f(\text{PassingTests}, \text{CleanLint}, \text{Mk1EyeballApproval}) = 0 \quad \text{if } \text{Mk1EyeballApproval} = \text{False}$$
 
@@ -81,7 +81,7 @@ An agent is never allowed to ask a human to review abstract code without proving
 4. Present clickable, live staging links in the walkthrough before asking for the human's signature.
 
 ### 3. The Anti-Speculative UI Invariant
-LLMs suffer from "generative enthusiasm"—the irresistible urge to add unrequested switches, speculative filtering dropdowns, or experimental modals because they think it makes them look helpful. Under `inv-mk1-eyeball`, **speculative UI additions are strictly forbidden**. If a control is not specified in the architectural blueprint, adding it is treated as a defect.
+LLMs suffer from "generative enthusiasm"—the irresistible urge to add unrequested switches, speculative filtering dropdowns, or experimental modals because they think it makes them look helpful. Under [`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball), **speculative UI additions are strictly forbidden**. If a control is not specified in the architectural blueprint, adding it is treated as a defect.
 
 ---
 

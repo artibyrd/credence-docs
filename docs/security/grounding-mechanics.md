@@ -3,8 +3,8 @@ title: Verbatim Grounding Mechanics & Slashing
 description: How exact character substring offsets, whitespace collapsing, and 50%
   reputation slashes eliminate model hallucinations.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Verbatim Grounding Mechanics & Slashing
@@ -62,7 +62,7 @@ Every citation generated during an audit must match the normalized source DOM ch
 
 $$G = \frac{\sum_{i=1}^{m} \text{len}(\text{verbatim\_quote}_i)}{\sum_{i=1}^{m} \text{len}(\text{claimed\_assertion}_i)} = 1.00$$
 
-| Grounding Ratio ($G$) | Severity Assessment | System Action |
+| Grounding Ratio (G) | Severity Assessment | System Action |
 | :---: | :--- | :--- |
 | **$G = 1.00$** | **Certified Pristine** | Mint signed Ed25519 attestation receipt |
 | **$0.90 \le G < 1.00$** | Minor Ellipsis / Paraphrase | Warning attached; node enters 14-day probation |

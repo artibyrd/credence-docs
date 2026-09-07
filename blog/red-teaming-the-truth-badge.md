@@ -2,8 +2,8 @@
 title: 'Red-Teaming the Truth Badge: 4 Ways We Tried to Break Our Own Web Component'
 description: An adversarial engineering postmortem on attacking the <credence-badge> WebCrypto verification pipeline.
 since_version: v1.11.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 19
 ---
@@ -64,7 +64,7 @@ We introduced **The Scrubber Surface Ratio Invariant**: if ignored elements acco
 A malicious client script attempts to clone the active `<credence-badge>` DOM node via `element.cloneNode(true)` and insert it into unverified third-party iframes.
 
 ### The Defense
-We codified `inv-web-component-isolation`: Web Components must never invoke `cloneNode(true)` on host trees containing custom element instances. The component uses an isolated Shadow DOM with encapsulated styles and strict origin validation.
+We codified [`inv-web-component-isolation`](/docs/invariants#inv-web-component-isolation): Web Components must never invoke `cloneNode(true)` on host trees containing custom element instances. The component uses an isolated Shadow DOM with encapsulated styles and strict origin validation.
 
 ---
 

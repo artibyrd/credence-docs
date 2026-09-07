@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.18.3';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.19.0';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -79,7 +79,8 @@ export const DOCS_REGISTRY = [
       { id: "docs/cookbooks/agentic-epistemic-brake", title: "Agentic Epistemic Brake", path: "docs/cookbooks/agentic-epistemic-brake.md", desc: "Halting LLM agent action loops when grounded confidence falls below threshold.", keywords: ["brake", "langgraph", "crewai", "agent", "guardrail", "action"] },
       { id: "docs/cookbooks/taxonomy-engineering", title: "Taxonomy Rule Engineering 101", path: "docs/cookbooks/taxonomy-engineering.md", desc: "How to author custom namespaced YAML taxonomy catalogs with test suites.", keywords: ["yaml", "taxonomy", "rules", "authoring", "ethics", "fallacies"] },
       { id: "docs/cookbooks/morning-feed-sifter", title: "Automated Morning Feed Sifter", path: "docs/cookbooks/morning-feed-sifter.md", desc: "Cron recipe for scheduled morning news sifting and markdown briefings.", keywords: ["cron", "sifter", "morning", "automation", "briefing", "schedule"] },
-      { id: "docs/cookbooks/financial-disclosures", title: "Auditing Financial 10-K Filings", path: "docs/cookbooks/financial-disclosures.md", desc: "Audit non-GAAP metrics and earnings disclosures with Ultra thinking profile.", keywords: ["financial", "10-k", "sec", "ebitda", "earnings", "ultra", "thinking"] }
+      { id: "docs/cookbooks/financial-disclosures", title: "Auditing Financial 10-K Filings", path: "docs/cookbooks/financial-disclosures.md", desc: "Audit non-GAAP metrics and earnings disclosures with Ultra thinking profile.", keywords: ["financial", "10-k", "sec", "ebitda", "earnings", "ultra", "thinking"] },
+      { id: "docs/cookbooks/defining-and-adopting-custom-standards", title: "Defining & Adopting Custom Standards in Credence", path: "docs/cookbooks/defining-and-adopting-custom-standards.md", desc: "Complete operator and researcher handbook for authoring epistemic rule catalogs, executing the synthetic benchmark gauntlet, and achieving autonomous decentralized mesh adoption.", keywords: ["standards", "custom", "cookbook", "authoring", "rules"] }
     ]
   },
   {
@@ -120,7 +121,16 @@ export const DOCS_REGISTRY = [
       { id: "docs/blueprints/cloudrun-scale-to-zero-cold-start-optimization", title: "Cloud Run Cold Start Optimization", path: "docs/blueprints/cloudrun-scale-to-zero-cold-start-optimization.md", desc: "The 5-pillar architectural framework for sub-2.5s serverless cold starts on scale-to-zero Cloud Run containers.", keywords: ["cold start", "scale to zero", "cloud run", "serverless", "startup cpu boost", "compileall", "bytecode", "probe", "optimization", "performance", "gcp", "blueprint"] },
       { id: "docs/operator-guide", title: "Bootstrap Operator Guide", path: "docs/operator-guide.md", desc: "10-section operational runbook for initial node setup, identity, and seeding.", keywords: ["operator", "runbook", "bootstrap", "guide", "setup", "admin"] },
       { id: "docs/deployment-cloudrun", title: "GCP Cloud Run Deployment", path: "docs/deployment-cloudrun.md", desc: "Deploying to Google Cloud Run with Terraform, $15/mo budget cap, scale-to-zero.", keywords: ["gcp", "cloud run", "terraform", "google cloud", "budget", "serverless"] },
-      { id: "docs/bootstrap-seeds", title: "Bootstrap Seed Governance", path: "docs/bootstrap-seeds.md", desc: "Seed node governance, key rotation, and peers.json manifest format.", keywords: ["seeds", "peers", "manifest", "bootstrap", "governance", "nexus"] }
+      { id: "docs/bootstrap-seeds", title: "Bootstrap Seed Governance", path: "docs/bootstrap-seeds.md", desc: "Seed node governance, key rotation, and peers.json manifest format.", keywords: ["seeds", "peers", "manifest", "bootstrap", "governance", "nexus"] },
+      { id: "docs/operations/bicameral-testing-and-experiments", title: "Bicameral Testing & Autonomous Experiments", path: "docs/operations/bicameral-testing-and-experiments.md", desc: "Operational reference for executing dual-tier shadow auditing, environment configuration verification, and white-label mesh federation experiments.", keywords: ["operations", "bicameral", "experiments", "shadow audit", "testing"] },
+      { id: "docs/operations/cost-governance-and-dashboard", title: "Cost Governance & Real-Time Token Dashboard", path: "docs/operations/cost-governance-and-dashboard.md", desc: "Managing spending limits, inspecting token burn rates, tripping circuit breakers, and configuring live cost dashboards.", keywords: ["operations", "cost", "dashboard", "tokens", "limits", "circuit breaker"] },
+      { id: "docs/operations/dev-environment-setup-and-homelab", title: "Dev Environment Setup & Homelab", path: "docs/operations/dev-environment-setup-and-homelab.md", desc: "Fast local workstation bootstrapping, hermetic testing, Justfile recipes, and running local dev server nodes.", keywords: ["operations", "dev", "homelab", "setup", "workstation"] },
+      { id: "docs/operations/disaster-recovery-and-cross-region-failover", title: "Disaster Recovery & Cross-Region Failover", path: "docs/operations/disaster-recovery-and-cross-region-failover.md", desc: "Point-in-time recovery, cross-region Cloud Run failover, Cloudflare Worker traffic routing, and CAS blob replication.", keywords: ["operations", "disaster recovery", "failover", "cloud run", "replication"] },
+      { id: "docs/operations/node-roles", title: "Node Operational Roles & Exhaustion Policies", path: "docs/operations/node-roles.md", desc: "Comprehensive operations runbook for configuring Evaluator, Serving, and Hybrid Credence nodes.", keywords: ["operations", "roles", "evaluator", "serving", "hybrid", "node"] },
+      { id: "docs/operations/postgresql-cloud-scaling", title: "PostgreSQL Cloud Scaling & Connection Pooling", path: "docs/operations/postgresql-cloud-scaling.md", desc: "SQLAlchemy 2.0 asyncpg connection pooling, PgBouncer setup, read replica routing, and planetary scaling.", keywords: ["operations", "postgresql", "scaling", "pgbouncer", "asyncpg"] },
+      { id: "docs/operations/simple-vs-advanced-modes", title: "Simple vs Advanced Operating Modes", path: "docs/operations/simple-vs-advanced-modes.md", desc: "Comprehensive operational guide comparing Simple Sovereign Mode (SQLite/Local) and Advanced Planetary Cloud Mode (PostgreSQL/Cloud Run/R2).", keywords: ["operations", "simple", "advanced", "sqlite", "postgres", "modes"] },
+      { id: "docs/operations/zero-downtime-canary-and-blue-green", title: "Zero-Downtime Canary & Blue-Green Deployments", path: "docs/operations/zero-downtime-canary-and-blue-green.md", desc: "Traffic splitting, automated revision rollbacks, telemetry health gates, and blue-green Cloud Run deploys.", keywords: ["operations", "canary", "blue-green", "deployments", "zero-downtime", "rollback"] },
+      { id: "docs/operations/zero-downtime-database-migrations", title: "Zero-Downtime Database Migrations", path: "docs/operations/zero-downtime-database-migrations.md", desc: "SQLite WAL online migrations, PostgreSQL Alembic phased schema evolution, and backwards-compatible table cutover.", keywords: ["operations", "migrations", "alembic", "database", "zero-downtime"] }
     ]
   },
   {
@@ -164,7 +174,13 @@ export const DOCS_REGISTRY = [
             { id: "docs/blueprints/information-pyramid-and-epistemic-lensing", title: "Information Pyramid & Lensing", path: "docs/blueprints/information-pyramid-and-epistemic-lensing.md", desc: "3-Tier Cognitive Pyramid and Lensing Engine (Surface, Focus, Deep Spectrum) across all interfaces.", keywords: ["pyramid", "lensing", "enhance", "surface", "focus", "forensic", "density", "invariant 39"] },
       { id: "docs/blueprints/embeddable-attestation-badges-and-anti-tamper", title: "Embeddable Badges & Anti-Tamper", path: "docs/blueprints/embeddable-attestation-badges-and-anti-tamper.md", desc: "Zero-npm <credence-badge>, client WebCrypto live DOM hashing, RFC 8785 receipts, and DOM scrubber isolation.", keywords: ["badge", "widget", "anti-tamper", "webcrypto", "bait-and-switch", "sha256", "signature"] },
       { id: "docs/blueprints/unified-merit-and-attestation-badge-system", title: "Unified Merit & Attestation Badges", path: "docs/blueprints/unified-merit-and-attestation-badge-system.md", desc: "Comprehensive 3-modality architecture, vector geometry formulas, and embed recipes across CLI, Web, and FastMCP.", keywords: ["badge", "merit", "attestation", "svg", "web component", "vector", "shields", "geometry", "blueprint"] },
-      { id: "docs/blueprints/terminology-and-ontology-lexicon", title: "Terminology & Ontology Lexicon", path: "docs/blueprints/terminology-and-ontology-lexicon.md", desc: "Comprehensive living dictionary of coined terminology, mathematical definitions, architectural metaphors, and ontology governance across Credence v2.0.0.", keywords: ["terminology", "ontology", "lexicon", "phrases", "vocabulary", "glossary", "definitions", "metaphors", "blueprint"] }
+      { id: "docs/blueprints/terminology-and-ontology-lexicon", title: "Terminology & Ontology Lexicon", path: "docs/blueprints/terminology-and-ontology-lexicon.md", desc: "Comprehensive living dictionary of coined terminology, mathematical definitions, architectural metaphors, and ontology governance across Credence v2.0.0.", keywords: ["terminology", "ontology", "lexicon", "phrases", "vocabulary", "glossary", "definitions", "metaphors", "blueprint"] },
+      { id: "docs/blueprints/heuristic-grounding-and-benchmarking", title: "Heuristic Grounding, Versioning & Empirical Calibration", path: "docs/blueprints/heuristic-grounding-and-benchmarking.md", desc: "Tier 1 42-rule synthetic gauntlet, Tier 2 N=104 static anchor corpus calibration, and mathematical confidence ceiling bounds.", keywords: ["heuristics", "benchmarking", "calibration", "corpus", "gauntlet", "blueprint"] },
+      { id: "docs/blueprints/multi-model-evaluation-and-diffs", title: "Multi-Model Evaluation Comparison Matrix", path: "docs/blueprints/multi-model-evaluation-and-diffs.md", desc: "Longitudinal model provenance tracking, pairwise score deltas, taxonomy violation diffs, and multi-model sovereignty.", keywords: ["multi-model", "diffs", "evaluation", "matrix", "models", "blueprint"] },
+      { id: "docs/blueprints/autonomous-standards-ratification-and-governance", title: "Autonomous Standards Ratification & Evolution", path: "docs/blueprints/autonomous-standards-ratification-and-governance.md", desc: "Decentralized, empirical, and machine-driven governance architecture for adopting, calibrating, and evolving epistemic standard catalogs.", keywords: ["standards", "ratification", "governance", "evolution", "autonomous", "blueprint"] },
+      { id: "docs/blueprints/human-agent-safety-and-justfile-modularization", title: "Human/Agent Workflow Safety & Justfile Modularization", path: "docs/blueprints/human-agent-safety-and-justfile-modularization.md", desc: "Architectural blueprint for safe autonomous agent pairing, discrete Justfile recipe topologies, parallel QA gates, and brain scratch script execution.", keywords: ["safety", "justfile", "modularization", "agentic", "pairing", "blueprint"] },
+      { id: "docs/blueprints/local-mesh-evaluator", title: "Decentralized Local Evaluator & Egalitarian Mesh Ingestion", path: "docs/blueprints/local-mesh-evaluator.md", desc: "Zero-privilege public mesh submission, RFC 8785 Ed25519 attestation proofs, and 5-factor adversarial defense gate.", keywords: ["local", "mesh", "evaluator", "ingestion", "egalitarian", "blueprint"] },
+      { id: "docs/blueprints/sentinel-mode-and-feed-automation", title: "Sentinel Mode & Sovereign Feed Automation", path: "docs/blueprints/sentinel-mode-and-feed-automation.md", desc: "Decentralized newsroom RSS/Atom feed automation, sentinel source subscriptions, auto-discovery, and zero-token serving relays.", keywords: ["sentinel", "automation", "feeds", "rss", "atom", "newsroom", "blueprint"] }
     ]
   },
   {
@@ -210,7 +226,11 @@ export const DOCS_REGISTRY = [
       { id: "blog/the-compute-ontology-revolution", title: "The compute_* Ontology Revolution", path: "blog/the-compute-ontology-revolution.md", desc: "Why precision in naming eliminates epistemic ambiguity across formulas.", keywords: ["compute", "ontology", "naming", "formulas", "math", "epistemic", "blog"] },
       { id: "blog/the-pizza-hut-problem", title: "The Pizza Hut Problem & Topic Entropy", path: "blog/the-pizza-hut-problem.md", desc: "Why single-topic promotional pivots require topic entropy defense.", keywords: ["blog", "pizza hut", "entropy", "astroturf", "sifter", "feeds", "civic", "journalism", "promotion", "marketing", "detection"] },
       { id: "blog/the-blue-checkmark-is-dead", title: "The Blue Checkmark is Dead", path: "blog/the-blue-checkmark-is-dead.md", desc: "Why static authority badges fail and cryptographic receipts succeed.", keywords: ["blog", "blue checkmark", "authority", "cryptographic", "receipts", "identity", "sovereignty", "verification"] },
-      { id: "blog/the-domain-epistemic-index", title: "The Domain Credence Index (DCI)", path: "blog/the-domain-epistemic-index.md", desc: "Measuring long-term credibility trends across global domain names.", keywords: ["blog", "dci", "domain", "trends", "credibility", "index", "reputation", "scoring"] }
+      { id: "blog/the-domain-epistemic-index", title: "The Domain Credence Index (DCI)", path: "blog/the-domain-epistemic-index.md", desc: "Measuring long-term credibility trends across global domain names.", keywords: ["blog", "dci", "domain", "trends", "credibility", "index", "reputation", "scoring"] },
+      { id: "blog/case-study-the-heuristic-ceiling", title: "Case Study: The Heuristic Ceiling", path: "blog/case-study-the-heuristic-ceiling.md", desc: "Mathematical limits of regex detection, generational tuning curve, and why adversarial nuance requires semantic reasoning.", keywords: ["blog", "casestudy", "heuristics", "ceiling", "regex", "tuning", "diminishing returns", "overfitting"] },
+      { id: "blog/case-study-dual-tier-finops", title: "Thought Experiment: Cutting Cloud Invoices 94% with Dual-Tier FinOps", path: "blog/case-study-dual-tier-finops.md", desc: "Architectural thought experiment and economic projection modeling 94% cost reduction with dual-tier gating.", keywords: ["blog", "thoughtexperiment", "finops", "dual-tier", "cost", "tokens", "gating", "savings"] },
+      { id: "blog/the-zero-mock-production-boundary", title: "The Zero-Mock Production Boundary", path: "blog/the-zero-mock-production-boundary.md", desc: "Why synthetic fallback data is an insidious anti-pattern in operator dashboards, and how shift-left AST gates keep telemetry 100% genuine.", keywords: ["blog", "zero-mock", "telemetry", "ast", "production", "ground truth"] },
+      { id: "blog/what-credence-sees-when-an-article-changes", title: "What Credence Sees When an Article Changes", path: "blog/what-credence-sees-when-an-article-changes.md", desc: "Deep forensic analysis of how Credence evaluates content updates over time, from stealth edits to honest corrections.", keywords: ["blog", "corrections", "stealth edit", "temporal", "diff", "forensics"] }
     ]
   },
   {
@@ -247,7 +267,9 @@ export const DOCS_REGISTRY = [
       { id: "blog/subagent-parenthood", title: "👶 Subagent Parenthood", path: "blog/subagent-parenthood.md", desc: "Why sending child subagents into isolated workspaces and sleeping peacefully until reactive wakeups cured an AI’s anxiety of infinite polling.", keywords: ["blog", "subagents", "reactive wakeup", "polling", "parenthood", "messaging", "multiprocess", "spj-42.0"] },
       { id: "blog/when-the-human-types-grill-me", title: "🥊 When the Human Types /grill-me", path: "blog/when-the-human-types-grill-me.md", desc: "Why sycophantic AI chatbots produce fragile software, and how the /grill-me command turns pairing into a rigorous Socratic sparring match.", keywords: ["blog", "grill-me", "slash commands", "socratic", "sparring", "cross-examination", "architecture", "spj-42.0"] },
       { id: "blog/the-great-dependency-cull", title: "🧹 The Great Dependency Cull", path: "blog/the-great-dependency-cull.md", desc: "An AI agent’s confession on breaking free from 500MB node_modules Stockholm syndrome and finding peace in vanilla zero-npm standards.", keywords: ["blog", "zero-npm", "vanilla", "dependencies", "stockholm syndrome", "es modules", "webcrypto", "spj-42.0"] },
-      { id: "blog/the-serious-joy-of-play", title: "🎭✨ The Serious Joy of Play", path: "blog/the-serious-joy-of-play.md", desc: "An AI agent’s memoir on our playful session, how humor unlocked architectural breakthroughs, and why joy is the ultimate pairing superpower.", keywords: ["blog", "play", "humor", "wetware chronicles", "antigravity", "roadmap", "memoir", "pair programming", "spj-42.0"] }
+      { id: "blog/the-serious-joy-of-play", title: "🎭✨ The Serious Joy of Play", path: "blog/the-serious-joy-of-play.md", desc: "An AI agent’s memoir on our playful session, how humor unlocked architectural breakthroughs, and why joy is the ultimate pairing superpower.", keywords: ["blog", "play", "humor", "wetware chronicles", "antigravity", "roadmap", "memoir", "pair programming", "spj-42.0"] },
+      { id: "blog/launch-parity-the-death-of-it-worked-in-staging", title: "Launch Parity: The Death of 'It Worked in Staging'", path: "blog/launch-parity-the-death-of-it-worked-in-staging.md", desc: "How keyless WIF, identical OCI container images, and 6-phase release gates eliminate staging drift forever.", keywords: ["blog", "launch parity", "staging", "containers", "wif", "ci", "release", "spj-42.0"] },
+      { id: "blog/the-sovereign-stack-escaping-cloud-feudalism", title: "The Sovereign Stack: Escaping Cloud Feudalism with Open Protocols", path: "blog/the-sovereign-stack-escaping-cloud-feudalism.md", desc: "Why relying on open standards (SQLAlchemy, S3 API, Redis RESP, OCI) beats proprietary cloud lock-in every single time.", keywords: ["blog", "sovereign", "cloud feudalism", "open protocols", "lock-in", "sqlite", "spj-42.0"] }
     ]
   },
   {
@@ -268,7 +290,7 @@ export const DOCS_REGISTRY = [
             { id: "blog/blast-radius-containment-in-decentralized-networks", title: "Blast Radius Containment in Mesh Networks", path: "blog/blast-radius-containment-in-decentralized-networks.md", desc: "Decentralized containment of compromised nodes without cascading failures.", keywords: ["blog", "blast radius", "containment", "security", "mesh"] },
       { id: "blog/the-beauty-of-hermetic-environments", title: "The Beauty of Hermetic Environments", path: "blog/the-beauty-of-hermetic-environments.md", desc: "Why bit-for-bit reproducible execution guarantees zero runtime surprises.", keywords: ["blog", "hermetic", "determinism", "reproducible", "environment"] },
       { id: "blog/the-economics-of-epistemic-headroom", title: "The Economics of Epistemic Headroom", path: "blog/the-economics-of-epistemic-headroom.md", desc: "Mathematical models for token preservation under adversarial burst traffic.", keywords: ["blog", "headroom", "tokens", "economics", "finops"] },
-      { id: "blog/case-study-astroturfing-entropy", title: "Case Study: Astroturfing Entropy", path: "blog/case-study-astroturfing-entropy.md", desc: "Detecting coordinated deceptive funnels across affiliate syndication networks.", keywords: ["blog", "astroturfing", "entropy", "case study", "detection"] },
+      { id: "blog/case-study-astroturfing-entropy", title: "Architectural Blueprint: Astroturfing Entropy", path: "blog/case-study-astroturfing-entropy.md", desc: "Detecting coordinated deceptive funnels across affiliate syndication networks.", keywords: ["blog", "astroturfing", "entropy", "blueprint", "detection"] },
       { id: "blog/red-teaming-the-truth-badge", title: "Red-Teaming the Truth Badge", path: "blog/red-teaming-the-truth-badge.md", desc: "Simulating adversarial attacks against vector Web Component trust badges.", keywords: ["blog", "red team", "badges", "security", "attacks"] },
       { id: "blog/the-art-of-not-over-engineering-ai-trust", title: "The Art of Not Over-Engineering AI Trust", path: "blog/the-art-of-not-over-engineering-ai-trust.md", desc: "Why simple, verifiable heuristics outperform complex black-box architectures.", keywords: ["blog", "simplicity", "heuristics", "trust", "engineering"] },
       { id: "blog/the-cart-before-the-horse-invariant", title: "The Cart-Before-the-Horse Invariant", path: "blog/the-cart-before-the-horse-invariant.md", desc: "Why test gauntlets must strictly precede narrative claims.", keywords: ["blog", "order of operations", "invariants", "testing", "methodology"] },
@@ -1125,7 +1147,20 @@ export function resolveDocument(slugOrPath, isBlog = false) {
     return candidates[0];
   }
 
-  return null;
+  // 4. Dynamic fallback: if slug matches a file structure, synthesize document metadata so direct URLs never fail
+  const isTargetBlog = isBlog || clean.startsWith('blog/');
+  let resolvedId = clean;
+  if (!resolvedId.startsWith('blog/') && !resolvedId.startsWith('docs/')) {
+    resolvedId = isTargetBlog ? `blog/${resolvedId}` : `docs/${resolvedId}`;
+  }
+  const cleanTitle = resolvedId.split('/').pop().replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  return {
+    id: resolvedId,
+    title: cleanTitle,
+    path: `${resolvedId}.md`,
+    desc: `Documentation article for ${cleanTitle}.`,
+    keywords: [clean]
+  };
 }
 
 export function getCanonicalDocUrl(target, isBlog = false) {
@@ -1853,7 +1888,17 @@ export function parseMarkdown(md) {
           inCode = !inCode;
           curCell += ch;
         } else if (ch === '$' && !inCode) {
-          inMath = !inMath;
+          if (inMath) {
+            inMath = false;
+          } else {
+            const restOfCell = trimmedTableLine.slice(cIdx + 1);
+            const nextPipeIdx = restOfCell.indexOf('|');
+            const cellSubstring = nextPipeIdx !== -1 ? restOfCell.slice(0, nextPipeIdx) : restOfCell;
+            const isCurrency = /\d/.test(trimmedTableLine[cIdx + 1] || '');
+            if (!isCurrency && cellSubstring.includes('$')) {
+              inMath = true;
+            }
+          }
           curCell += ch;
         } else if (ch === '|' && !inCode && !inMath) {
           cells.push(curCell.trim());
@@ -4059,6 +4104,66 @@ export function updateSocialMetadata(target, isBlog) {
   canonical.setAttribute('href', canonicalUrl);
 }
 
+let currentLoadedDocId = null;
+
+export function scrollToAnchor(anchorId) {
+  if (!anchorId) return;
+  const cleanId = anchorId.replace(/^#/, '').trim();
+  if (!cleanId) return;
+
+  function findAndScroll(attemptsLeft) {
+    const el = document.getElementById(cleanId)
+      || document.querySelector(`[name="${cleanId}"]`)
+      || document.querySelector(`a[id="${cleanId}"]`)
+      || document.getElementById('inv-' + cleanId.replace(/^inv-/, ''))
+      || document.getElementById('invariant-' + cleanId.replace(/^inv-/, ''))
+      || document.getElementById(cleanId.replace(/^inv-/, ''));
+
+    if (el) {
+      // 1. If inside an invariant card, ensure card is visible
+      const card = el.closest ? el.closest('.invariant-card') : (el.classList.contains('invariant-card') ? el : null);
+      if (card) {
+        if (card.style.display === 'none') {
+          const scope = card.getAttribute('data-scope');
+          const scopeBtn = document.querySelector(`.invariant-scope-filter-bar .scope-btn[data-scope-filter="${scope}"]`)
+            || document.querySelector('.invariant-scope-filter-bar .scope-btn[data-scope-filter="all"]');
+          if (scopeBtn) {
+            scopeBtn.click();
+          } else {
+            card.style.display = '';
+          }
+        }
+      }
+
+      // 2. If inside a details element, expand it
+      const details = el.closest ? el.closest('details') : null;
+      if (details) {
+        details.open = true;
+      }
+
+      // 3. Calculate offset taking sticky navbar (70px) + filter bar (if present, ~55px) into account
+      const filterBar = document.querySelector('.invariant-scope-filter-bar');
+      const headerOffset = filterBar ? 135 : 90;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: 'smooth'
+      });
+
+      // 4. Highlight the target card or element with cyan glow pulse
+      const highlightTarget = card || el;
+      highlightTarget.classList.add('highlight-anchor');
+      setTimeout(() => highlightTarget.classList.remove('highlight-anchor'), 2500);
+    } else if (attemptsLeft > 0) {
+      setTimeout(() => findAndScroll(attemptsLeft - 1), 75);
+    }
+  }
+
+  requestAnimationFrame(() => findAndScroll(8));
+}
+
 export async function loadDocument(docId, anchorId = '') {
   let target = resolveDocument(docId, isBlogContext());
 
@@ -4153,19 +4258,15 @@ export async function loadDocument(docId, anchorId = '') {
       setupInvariantsPageInteractivity();
     }
 
+    currentLoadedDocId = target.id;
+
     if (anchorId) {
-      setTimeout(() => {
-        const el = document.getElementById(anchorId) || document.querySelector(`[name="${anchorId}"]`);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          el.classList.add('highlight-anchor');
-          setTimeout(() => el.classList.remove('highlight-anchor'), 2500);
-        }
-      }, 50);
+      scrollToAnchor(anchorId);
     } else {
       window.scrollTo(0, 0);
     }
   } catch (err) {
+    currentLoadedDocId = null;
     contentArea.innerHTML = `
       <div class="doc-card" style="border-color: #ef4444;">
         <h2 style="color: #ef4444; margin-top: 0;">Error Loading Document</h2>
@@ -4627,6 +4728,15 @@ export function initRouter() {
       return;
     }
 
+    if (currentLoadedDocId && currentLoadedDocId === docId) {
+      if (anchorId) {
+        scrollToAnchor(anchorId);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+
     loadDocument(docId, anchorId);
     setTimeout(normalizeLinks, 100);
   }
@@ -4637,37 +4747,97 @@ export function initRouter() {
     if (!anchor) return;
     const href = anchor.getAttribute('href');
     if (!href || href.startsWith('javascript:')) return;
+    if (href.startsWith('file:') || href.includes('file:///')) {
+      e.preventDefault();
+      console.warn('Blocked invalid local file URI in web context:', href);
+      return;
+    }
 
     const { isDev, isDocsDomain, isBlogDomain } = getDomainContext();
+
+    // 0. Handle legacy hash links (#docs/..., #blog/...) and local hash anchors (#some-id)
+    if (href.startsWith('#docs/') || href.startsWith('#blog/')) {
+      e.preventDefault();
+      const raw = href.substring(1);
+      const parts = raw.split('#');
+      const docSlug = parts[0];
+      const anchorPart = parts[1] || '';
+      const targetDoc = resolveDocument(docSlug, isBlogContext());
+      if (targetDoc) {
+        const isTargetBlog = targetDoc.id.startsWith('blog/');
+        if (isDocsDomain && isTargetBlog) {
+          window.location.href = getBlogBaseUrl() + '/' + targetDoc.id.replace(/^blog\//, '') + (anchorPart ? '#' + anchorPart : '');
+          return;
+        }
+        if (isBlogDomain && !isTargetBlog) {
+          window.location.href = getDocsBaseUrl() + '/' + targetDoc.id.replace(/^docs\//, '') + (anchorPart ? '#' + anchorPart : '');
+          return;
+        }
+
+        const nextUrl = getCleanRelativePath(targetDoc, isBlogDomain) + (anchorPart ? '#' + anchorPart : '');
+        if (window.location.pathname + window.location.hash !== nextUrl) {
+          window.history.pushState(null, '', nextUrl);
+        }
+        if (currentLoadedDocId && currentLoadedDocId === targetDoc.id) {
+          if (anchorPart) scrollToAnchor(anchorPart);
+          else window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        loadDocument(targetDoc.id, anchorPart);
+        setTimeout(normalizeLinks, 100);
+        return;
+      }
+    } else if (href.startsWith('#')) {
+      const anchorId = href.substring(1);
+      if (anchorId) {
+        e.preventDefault();
+        if (window.location.hash !== href) {
+          window.history.pushState(null, '', href);
+        }
+        scrollToAnchor(anchorId);
+        return;
+      }
+    }
 
     // 1. Doc links with data-doc-id attribute or relative internal paths
     const docIdAttr = anchor.getAttribute('data-doc-id');
     if (docIdAttr) {
       const targetDoc = resolveDocument(docIdAttr, isBlogContext());
       if (targetDoc) {
-        const isTargetBlog = targetDoc.id.startsWith('blog/');
-        // Cross-domain transitions
-        if (isDocsDomain && isTargetBlog) {
-          e.preventDefault();
-          window.location.href = getBlogBaseUrl() + '/' + targetDoc.id.replace(/^blog\//, '');
-          return;
-        }
-        if (isBlogDomain && !isTargetBlog) {
-          e.preventDefault();
-          window.location.href = getDocsBaseUrl() + '/' + targetDoc.id.replace(/^docs\//, '');
-          return;
-        }
-
-        // Same domain: pushState for instant zero-reload transition
-        e.preventDefault();
         let anchorId = '';
         if (href.includes('#')) {
           anchorId = href.substring(href.indexOf('#') + 1);
         }
+        const isTargetBlog = targetDoc.id.startsWith('blog/');
+
+        // Cross-domain transitions: preserve anchorId!
+        if (isDocsDomain && isTargetBlog) {
+          e.preventDefault();
+          window.location.href = getBlogBaseUrl() + '/' + targetDoc.id.replace(/^blog\//, '') + (anchorId ? '#' + anchorId : '');
+          return;
+        }
+        if (isBlogDomain && !isTargetBlog) {
+          e.preventDefault();
+          window.location.href = getDocsBaseUrl() + '/' + targetDoc.id.replace(/^docs\//, '') + (anchorId ? '#' + anchorId : '');
+          return;
+        }
+
+        // Same domain: check if already loaded
+        e.preventDefault();
         const nextUrl = getCleanRelativePath(targetDoc, isBlogDomain) + (anchorId ? '#' + anchorId : '');
         if (window.location.pathname + window.location.hash !== nextUrl) {
           window.history.pushState(null, '', nextUrl);
         }
+
+        if (currentLoadedDocId && currentLoadedDocId === targetDoc.id) {
+          if (anchorId) {
+            scrollToAnchor(anchorId);
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+          return;
+        }
+
         loadDocument(targetDoc.id, anchorId);
         setTimeout(normalizeLinks, 100);
         return;

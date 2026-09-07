@@ -2,8 +2,8 @@
 title: 'Poe’s Law and the Satire Cloak: Teaching an AI When NOT to Be a Pedant'
 description: The comedy and mathematics of detecting satire without letting malicious actors hide factual defamation and commercial astroturfing behind 'it’s just a joke.'
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'
@@ -58,16 +58,14 @@ When an article is genuine satire, its vocabulary is broad, literary, and unpred
 A free society requires both rigorous truth and biting satire. By teaching our AI when to laugh and when to audit, Credence ensures that humor remains protected while deceptive propaganda finds nowhere to hide.
 
 ---
-## Key Architectural Takeaways & Future Directions
 
-The investigation documented in **Poes Law And The Satire Cloak** highlights several fundamental principles for building resilient, decentralized software systems:
+## Conclusion: Solving Poe's Law with Information Theory
 
-1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
-2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
-3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+Poe's Law famously states that without a clear indicator of authorial intent, it is impossible to create a parody of extreme views so obviously exaggerated that it cannot be mistaken by someone for sincere belief. For automated content moderation systems, this ambiguity has historically led to two catastrophic failures: censorship of legitimate literary satire, or complete paralysis in the face of coordinated propaganda masquerading as parody.
 
-| System Dimension | Conventional Approach | Credence Sovereign Architecture |
-| :--- | :--- | :--- |
-| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
-| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
-| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |
+Credence cuts this Gordian knot not through subjective content policing, but through **information theory and discourse boundaries**:
+1. **The Literary Entropy Signature ($H \ge 0.70$)**: Authentic satire exhibits rich, unpredictable lexical variance across metaphor and hyperbole. Disguised propaganda and commercial advertorials collapse into narrow keyword clusters ($H < 0.30$).
+2. **Containerized Discourse Boundaries (`SPJ-1.6`)**: Quoting absurd falsehoods within an explicit parody framework receives safe-harbor protection, while ungrounded factual accusations presented as news face immediate forensic scoring.
+3. **The 'Just a Joke' Cloak Defense**: When an article asserts defamatory allegations of fact, claiming satirical intent after publication does not erase empirical groundlessness ($G < 1.00$).
+
+By anchoring satire evaluation in mathematical entropy and structural attribution, Credence ensures that human wit and parody remain free to challenge authority, while malicious actors can no longer hide deceptive propaganda behind a satirical cloak.

@@ -2,8 +2,8 @@
 title: 'When the Human Types /grill-me: The Power of Socratic Agent Alignment'
 description: How interactive Socratic interviews surface edge cases, refine architectures, and prevent costly design mistakes.
 since_version: v1.13.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 33
 ---
@@ -42,7 +42,7 @@ AI Drafts Implementation Plan with 100% Alignment
 
 1. **Surfacing Hidden Trade-Offs**: Forcing the engineer to articulate edge-case handling before writing code exposes logical ambiguities early when they cost nothing to fix.
 2. **Eliminating Implicit Assumptions**: Both human and agent align on formal invariants (e.g., whether quarantine should be hard deletion vs. soft exponential polling).
-3. **Elevating Human Authority (`inv-mk1-eyeball`)**: Socratic questioning keeps the human engineer firmly in the architectural cockpit, guiding design decisions rather than reviewing unexpected code diffs after the fact.
+3. **Elevating Human Authority ([`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball))**: Socratic questioning keeps the human engineer firmly in the architectural cockpit, guiding design decisions rather than reviewing unexpected code diffs after the fact.
 
 ---
 

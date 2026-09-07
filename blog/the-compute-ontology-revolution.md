@@ -2,8 +2,8 @@
 title: 'The Compute Ontology Revolution: Why Pure Math Belongs in compute_* Functions'
 description: How standardizing on compute_* naming across Python, TypeScript, and Rust eliminates state mutation bugs.
 since_version: v1.13.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 23
 ---
@@ -16,7 +16,7 @@ This lack of semantic discipline conceals a catastrophic architectural hazard: *
 
 When a function named `get_quality()` internally makes network requests, updates database rows, or alters class attributes, callers cannot reason about its side effects. In a high-throughput epistemic evaluation engine processing hundreds of concurrent gossip envelopes, state mutation inside calculation pipelines leads to race conditions, memory leaks, and non-deterministic scores.
 
-To eliminate this class of defects, Credence established **The Compute Naming Ontology (`inv-architecture-governance`)**.
+To eliminate this class of defects, Credence established **The Compute Naming Ontology ([`inv-architecture-governance`](/docs/invariants#inv-500-loc-ceiling-law))**.
 
 ---
 

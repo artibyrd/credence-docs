@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Multi-Model Evaluation Comparison Matrix'
 description: Longitudinal model provenance tracking, pairwise score deltas, taxonomy violation diffs, and multi-model sovereignty.
 since_version: v2.18.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 23
 ---
@@ -14,7 +14,7 @@ This technical blueprint specifies the **Multi-Model Evaluation Comparison Matri
 
 ---
 
-## 1. Multi-Model Sovereignty (`inv-multi-model-sovereignty`)
+## 1. Multi-Model Sovereignty ([`inv-multi-model-sovereignty`](/docs/invariants#inv-multi-model-sovereignty))
 
 Credence firmly rejects single-model epistemic monopolies. Relying exclusively on any single proprietary AI model creates systemic blind spots, vendor lock-in, and susceptibility to model-specific hallucinations or alignment drifts.
 
@@ -67,11 +67,11 @@ $$D(A, B) = \frac{|\Delta S_{A \to B}|}{100.0} \times \left(1.0 - \frac{c_A + c_
 
 Discrepancies between model passes are categorized into three distinct operational bands:
 
-| Discrepancy Band | Threshold ($|\Delta S|$) | Interpretation & Operator Action |
+| Discrepancy Band | Threshold ($\lvert\Delta S\rvert$) | Interpretation & Operator Action |
 | :--- | :--- | :--- |
-| **Consensus Agreement** | $|\Delta S| < 10.0$ | High cross-model alignment. Both engines agree on the core factual integrity or violation status of the text. |
-| **Rhetorical Nuance** | $10.0 \le |\Delta S| < 25.0$ | Moderate divergence. Typically caused by differing interpretations of secondary fallacies (e.g. slippery slope vs. legitimate causal inference). |
-| **Epistemic Divergence** | $|\Delta S| \ge 25.0$ | Significant disagreement. Triggers human-in-the-loop review ("Mk1 Eyeball") or automated re-evaluation via a third independent model family. |
+| **Consensus Agreement** | $\lvert\Delta S\rvert < 10.0$ | High cross-model alignment. Both engines agree on the core factual integrity or violation status of the text. |
+| **Rhetorical Nuance** | $10.0 \le \lvert\Delta S\rvert < 25.0$ | Moderate divergence. Typically caused by differing interpretations of secondary fallacies (e.g. slippery slope vs. legitimate causal inference). |
+| **Epistemic Divergence** | $\lvert\Delta S\rvert \ge 25.0$ | Significant disagreement. Triggers human-in-the-loop review ("Mk1 Eyeball") or automated re-evaluation via a third independent model family. |
 
 When an epistemic divergence is identified in an active newsroom pipeline, Credence marks the attestation with a divergence warning badge and queues the document for editorial arbitration.
 

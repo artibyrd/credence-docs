@@ -3,8 +3,8 @@ title: Automated Morning Feed Sifter & Epistemic Digest
 description: Setting up zero-trust feed autodiscovery, dynamic quality governance,
   background sifting daemons, and automated executive intelligence briefings.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Automated Morning Feed Sifter & Epistemic Digest
@@ -56,7 +56,7 @@ View dynamic feed health rankings at any time:
 credence feed health
 ```
 
-| Feed Title / Channel | Quality ($F_j$) | Avg Suspicion | Grounding ($G$) | Entropy ($H$) | Status |
+| Feed Title / Channel | Quality (F) | Avg Suspicion | Grounding (G) | Entropy (H) | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **ProPublica: Main Feeds** | `0.89` | `4.2` | `100%` | `0.88` | `ACTIVE` |
 | **The Markup: Investigations** | `0.87` | `6.1` | `100%` | `0.84` | `ACTIVE` |
