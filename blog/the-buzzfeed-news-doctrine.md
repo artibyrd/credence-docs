@@ -10,8 +10,6 @@ sidebar:
 
 # The BuzzFeed News Doctrine: Why Soft Quarantine Beats Permanent Blacklists
 
-> **Note**: The BuzzFeed News Doctrine: Why Soft Quarantine Beats Permanent Blacklists
-
 In the mid-2010s, BuzzFeed was universally known as the undisputed king of internet clickbait: listicles, cat quizzes, and sensationalized entertainment content.
 
 If an algorithmic fact-checking system had evaluated the internet during that era using traditional binary blacklists, BuzzFeed's domain would have been permanently banned as low-quality spam.

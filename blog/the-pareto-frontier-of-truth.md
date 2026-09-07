@@ -18,8 +18,6 @@ summary: Why running $18/1k audit flagship models is not just cost-prohibitive, 
 
 # The $0.34 Pareto Frontier: Why Flagship Models Fail at Fact-Checking
 
-> **Note**: The $0.34 Pareto Frontier: Why Flagship Models Fail at Fact-Checking
-
 *How calibrated reasoning budgets beat 30x more expensive flagship models at detecting deception and understanding human satire.*
 
 ---

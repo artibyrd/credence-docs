@@ -9,8 +9,6 @@ last_verified: 2026-09-06
 
 # Bootstrap Operator Guide
 
-> **Note**: Bootstrap Operator Guide & Runbook
-
 A comprehensive, unabridged operations runbook for deploying, configuring, securing, and maintaining **Credence** nodes, multi-cloud production infrastructure, P2P mesh clusters, sovereign federations, and decoupled editorial platforms.
 
 ---

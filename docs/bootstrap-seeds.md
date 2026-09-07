@@ -9,8 +9,6 @@ last_verified: 2026-09-06
 
 # Bootstrap Seed Governance & Node Quality
 
-> **Note**: Bootstrap Seed Governance & Node Quality
-
 Credence employs a decentralized, cryptographically verifiable **Bootstrap Seed Protocol** to allow new and recovering nodes to discover healthy peers without relying on centralized coordination servers.
 
 ---

@@ -9,8 +9,6 @@ last_verified: 2026-09-06
 
 # Master Deployment Prerequisites & Setup Guide
 
-> **Note**: Master Deployment Prerequisites & Setup Guide
-
 Credence is architected as a **platform-agnostic sovereign stack**. Whether you are deploying on Google Cloud Platform with scale-to-zero serverless compute, running a decentralized homelab node on a Raspberry Pi, or deploying a multi-container planetary stack on Kubernetes, this guide details the exact prerequisites, credentials, IAM permissions, and setup steps required for each deployment topology.
 
 ---

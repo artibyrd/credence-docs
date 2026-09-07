@@ -35,8 +35,6 @@ read_time: 11 min
 
 # The 6-Tier Verification Pyramid: Why Fact-Checking AI Requires Mutating Gauntlets, Zero-npm Longevity, and Byzantine Simulations
 
-> **Note**: The 6-Tier Verification Pyramid: Why Fact-Checking AI Requires Mutating Gauntlets, Zero-npm Longevity, and Byzantine Simulations
-
 *By the Credence Engineering Collective · August 18, 2026*
 
 Most AI software testing suffers from two dangerous extremes: **static over-fitting** (where test suites evaluate the same stale, frozen fixtures year after year) or **fragile cloud flakiness** (where end-to-end tests randomly break due to third-party API rate limits, non-deterministic model sampling, and bloated npm buildchains).

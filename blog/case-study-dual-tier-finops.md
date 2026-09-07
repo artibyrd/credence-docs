@@ -10,8 +10,6 @@ sidebar:
 
 # Case Study: Cutting Fact-Checking Cloud Invoices by 94% with Dual-Tier FinOps
 
-> **Note**: Case Study: Cutting Fact-Checking Cloud Invoices by 94% with Dual-Tier FinOps
-
 In early 2026, an independent consortium of environmental and financial investigative journalists faced a severe operational crisis.
 
 The consortium was monitoring 150 syndicated corporate RSS feeds to track greenwashing claims, undisclosed regulatory infractions, and deceptive press releases. Their existing pipeline used a popular multi-agent LLM framework running on dedicated cloud containers and querying GPT-4o.

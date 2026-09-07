@@ -10,8 +10,6 @@ sidebar:
 
 # The Blue Checkmark is Dead: Replacing Identity Theatre with Epistemic Receipts
 
-> **Note**: The Blue Checkmark is Dead: Replacing Identity Theatre with Epistemic Receipts
-
 For more than a decade, the primary trust mechanism on the internet was the **blue checkmark**.
 
 Originally created by social media platforms to verify the identity of public figures, the blue badge was eventually co-opted into a paid subscription perk. Anyone with an active credit card and a mobile phone number could purchase a "verified" badge for $8/month.

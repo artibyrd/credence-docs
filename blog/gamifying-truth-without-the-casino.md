@@ -9,8 +9,6 @@ last_verified: 2026-09-06
 
 # Folding@home for Truth: Gamification Without the Casino
 
-> **Note**: Folding@home for Truth: Gamification Without the Casino
-
 When platforms attempt to "gamify" online discourse, they almost invariably construct a casino. 
 
 They introduce speculative tokens, algorithmic virality meters, streak mechanics, and pay-to-play verification badges. In doing so, they optimize for addictive engagement, outrage velocity, and financialized speculation—the very forces currently dismantling the digital information ecosystem.

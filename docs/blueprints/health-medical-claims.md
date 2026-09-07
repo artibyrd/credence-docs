@@ -10,8 +10,6 @@ sidebar:
 
 # Medical & Health Claim Auditing Blueprint
 
-> **Note**: Medical & Health Claim Auditing Blueprint
-
 This blueprint specifies the forensic auditing architecture, specialized clinical taxonomies, and source-grounding mechanics used by Credence to evaluate health, biomedical, and pharmaceutical assertions.
 
 ---

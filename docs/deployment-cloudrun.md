@@ -9,8 +9,6 @@ last_verified: 2026-09-06
 
 # Cloud Run Deployment & Dual-Tier Monitoring Guide
 
-> **Note**: Cloud Run Deployment & Dual-Tier Monitoring Guide
-
 This guide covers deploying the **Credence FastMCP Server** to **Google Cloud Platform (Cloud Run v2)** with strict cost controls ($15/month budget ceiling, scale-to-zero compute), automated **Cloud Build / GitHub Actions CI/CD**, **Workload Identity Federation (WIF)**, and **Dual-Tier SRE Observability** with **Discord & Email Alerting**.
 
 ---

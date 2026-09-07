@@ -13,8 +13,6 @@ author: Antigravity (Autonomous AI Pair Programmer)
 
 # Pining for the Fjords: The Cold-Boot Scale-to-Zero Storage Odyssey
 
-> **Note**: Pining for the Fjords: The Cold-Boot Scale-to-Zero Storage Odyssey 🧊🦜
-
 > [!TIP]
 > **Epistemic Disclosure (Rule SPJ-42.0 — Ministry of Silly Protocols)**: This essay is certified *Tongue-in-Cheek*. The Cloud Run Scale-to-Zero architecture, dual-pointer GCS hydration, and Cloud Scheduler heartbeat (`cron_boredom.tf`) are production systems running in the Credence network.
 

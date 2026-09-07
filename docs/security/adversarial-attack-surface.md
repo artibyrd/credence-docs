@@ -9,8 +9,6 @@ last_verified: 2026-09-06
 
 # The Adversarial Attack Surface of AI Fact-Checkers
 
-> **Note**: The Adversarial Attack Surface of AI Fact-Checkers
-
 Automated fact-checking and epistemic evaluation engines are high-value targets for adversarial manipulation. Malicious actors employ a wide variety of evasion tactics to confuse AI auditors or trick them into hallucinating compliance.
 
 This document details Credence's threat model and protocol defenses against adversarial evasion attacks.

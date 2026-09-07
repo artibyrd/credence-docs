@@ -29,8 +29,6 @@ read_time: 8 min
 
 # FastMCP 2.0 Substrate: Dual Transports & 4-Way Synchronous Parity
 
-> **Note**: FastMCP 2.0 Substrate: Dual Transports & 4-Way Synchronous Parity
-
 Explore the communication architecture powering Credence's **FastMCP 2.0 server**, providing unified tool and resource access to Claude Desktop, Cursor, and Antigravity while maintaining 4-way synchronous feature parity.
 
 > [!IMPORTANT]

@@ -10,8 +10,6 @@ last_verified: 2026-09-06
 
 # Taming the 10-Second Cold Start: How We Cut Python Cloud Run Startup by 80% at $0.00 Idle Cost
 
-> **Note**: Taming the 10-Second Cold Start: How We Cut Python Cloud Run Startup by 80% at $0.00 Idle Cost
-
 *By the Credence Core Engineering Team*  
 *August 19, 2026*
 

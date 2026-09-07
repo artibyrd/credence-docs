@@ -9,8 +9,6 @@ last_verified: 2026-09-06
 
 # Raspberry Pi & HomeLab 24/7 Node Runbook
 
-> **Note**: Raspberry Pi & HomeLab 24/7 Node Runbook
-
 Running a persistent Credence node on a **Raspberry Pi 5 (8GB)** or low-power mini-PC contributes seed capacity to the Credence Mesh, seeds syndicated news attestations to peers, and provides a local 0-token caching proxy for home and office AI agents.
 
 ---

@@ -10,8 +10,6 @@ sidebar:
 
 # Golden 12 Benchmark Suite
 
-> **Note**: Golden 12 Benchmark Suite
-
 The **Golden 12 Benchmark Suite** is the canonical evaluation harness used to measure precision, recall, and cross-entropy across Credence scoring models and heuristic engines.
 
 ---

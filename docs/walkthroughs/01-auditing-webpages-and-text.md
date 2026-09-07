@@ -11,8 +11,6 @@ sidebar:
 
 # Feature Walkthrough: Webpage & Prose Epistemic Auditing
 
-> **Note**: Feature Walkthrough: Webpage & Prose Epistemic Auditing
-
 Learn how to audit digital media, news articles, and raw prose against formal journalistic ethics (SPJ), logical fallacies (IEP), and deceptive UI patterns across all supported interfaces.
 
 > [!NOTE]

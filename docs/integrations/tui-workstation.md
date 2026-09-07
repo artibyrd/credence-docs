@@ -9,8 +9,6 @@ last_verified: 2026-09-06
 
 # Textual TUI Terminal Workstation Deep Dive
 
-> **Note**: Textual TUI Terminal Workstation Deep Dive
-
 Credence includes an interactive terminal workstation powered by **Textual** (`credence tui`).
 
 It provides real-time audit monitoring, grounded citation inspection across 3-tier epistemic lenses, publisher dossiers, token headroom governance, live SRE telemetry, and decentralized P2P mesh consensus directly inside your terminal emulator.

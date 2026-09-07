@@ -10,8 +10,6 @@ sidebar:
 
 # Case Study: The Heuristic Ceiling and the Limits of Deterministic Fact-Checking
 
-> **Note**: Case Study: The Heuristic Ceiling and the Limits of Deterministic Fact-Checking
-
 When engineering high-throughput, low-cost verification pipelines, the instinct of every systems architect is simple: *push deterministic heuristics as far as possible before dispatching probabilistic LLMs.*
 
 After all, regex keyword matching and DOM structural selectors execute in sub-millisecond latencies ($<1,000\,\mu\text{s}$) at strictly **$0.00 token cost**.
