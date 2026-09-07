@@ -2,7 +2,7 @@
 title: 'Thought Experiment: Cutting Fact-Checking Cloud Invoices by 94% with Dual-Tier FinOps'
 description: Architectural thought experiment and economic projection modeling how dual-tier ingress gating slashes LLM fact-checking costs at scale.
 since_version: v1.12.0
-verified_version: v2.19.0
+verified_version: v2.19.1
 last_verified: 2026-09-07
 sidebar:
   order: 3

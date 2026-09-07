@@ -2,11 +2,23 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.19.0
+verified_version: v2.19.1
 last_verified: 2026-09-07
 ---
 
 # Release Changelog
+
+## [2.19.1] - 2026-09-07
+
+### Added
+- **Docker Artifact & Build Cache Hygiene Toolchain (`just docker-clean`)**:
+  - Implemented `just docker-clean` in `engine.just` to safely prune dangling BuildKit caches, untagged images, and dangling volumes without stopping active project containers.
+  - Implemented interactive `just docker-prune-all` for periodic deep operator maintenance.
+  - Codified the *Docker Artifact & Build Cache Hygiene Standard* in Tier 1 skill `architecture-governance`.
+- **Architecture & Knowledge Governance Enhancements**:
+  - Codified *Universal Internal Cross-Reference Density & Hyperlinked Invariants Standard* and *Zero-Reload Invariant Anchor Navigation & Dynamic Offset Standard* into `architecture-governance`.
+  - Documented *Case Study: v2.19.0 Hypertext, Plot Fidelity & Docker Demotions* in `knowledge-governance`.
+  - Added `--yes` auto-confirm guidance to release workflow state chaining.
 
 ## [2.19.0] - 2026-09-07
 
