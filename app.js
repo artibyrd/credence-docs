@@ -4104,6 +4104,66 @@ export function updateSocialMetadata(target, isBlog) {
   canonical.setAttribute('href', canonicalUrl);
 }
 
+let currentLoadedDocId = null;
+
+export function scrollToAnchor(anchorId) {
+  if (!anchorId) return;
+  const cleanId = anchorId.replace(/^#/, '').trim();
+  if (!cleanId) return;
+
+  function findAndScroll(attemptsLeft) {
+    const el = document.getElementById(cleanId)
+      || document.querySelector(`[name="${cleanId}"]`)
+      || document.querySelector(`a[id="${cleanId}"]`)
+      || document.getElementById('inv-' + cleanId.replace(/^inv-/, ''))
+      || document.getElementById('invariant-' + cleanId.replace(/^inv-/, ''))
+      || document.getElementById(cleanId.replace(/^inv-/, ''));
+
+    if (el) {
+      // 1. If inside an invariant card, ensure card is visible
+      const card = el.closest ? el.closest('.invariant-card') : (el.classList.contains('invariant-card') ? el : null);
+      if (card) {
+        if (card.style.display === 'none') {
+          const scope = card.getAttribute('data-scope');
+          const scopeBtn = document.querySelector(`.invariant-scope-filter-bar .scope-btn[data-scope-filter="${scope}"]`)
+            || document.querySelector('.invariant-scope-filter-bar .scope-btn[data-scope-filter="all"]');
+          if (scopeBtn) {
+            scopeBtn.click();
+          } else {
+            card.style.display = '';
+          }
+        }
+      }
+
+      // 2. If inside a details element, expand it
+      const details = el.closest ? el.closest('details') : null;
+      if (details) {
+        details.open = true;
+      }
+
+      // 3. Calculate offset taking sticky navbar (70px) + filter bar (if present, ~55px) into account
+      const filterBar = document.querySelector('.invariant-scope-filter-bar');
+      const headerOffset = filterBar ? 135 : 90;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: 'smooth'
+      });
+
+      // 4. Highlight the target card or element with cyan glow pulse
+      const highlightTarget = card || el;
+      highlightTarget.classList.add('highlight-anchor');
+      setTimeout(() => highlightTarget.classList.remove('highlight-anchor'), 2500);
+    } else if (attemptsLeft > 0) {
+      setTimeout(() => findAndScroll(attemptsLeft - 1), 75);
+    }
+  }
+
+  requestAnimationFrame(() => findAndScroll(8));
+}
+
 export async function loadDocument(docId, anchorId = '') {
   let target = resolveDocument(docId, isBlogContext());
 
@@ -4198,19 +4258,15 @@ export async function loadDocument(docId, anchorId = '') {
       setupInvariantsPageInteractivity();
     }
 
+    currentLoadedDocId = target.id;
+
     if (anchorId) {
-      setTimeout(() => {
-        const el = document.getElementById(anchorId) || document.querySelector(`[name="${anchorId}"]`);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          el.classList.add('highlight-anchor');
-          setTimeout(() => el.classList.remove('highlight-anchor'), 2500);
-        }
-      }, 50);
+      scrollToAnchor(anchorId);
     } else {
       window.scrollTo(0, 0);
     }
   } catch (err) {
+    currentLoadedDocId = null;
     contentArea.innerHTML = `
       <div class="doc-card" style="border-color: #ef4444;">
         <h2 style="color: #ef4444; margin-top: 0;">Error Loading Document</h2>
@@ -4672,6 +4728,15 @@ export function initRouter() {
       return;
     }
 
+    if (currentLoadedDocId && currentLoadedDocId === docId) {
+      if (anchorId) {
+        scrollToAnchor(anchorId);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+
     loadDocument(docId, anchorId);
     setTimeout(normalizeLinks, 100);
   }
@@ -4690,34 +4755,89 @@ export function initRouter() {
 
     const { isDev, isDocsDomain, isBlogDomain } = getDomainContext();
 
+    // 0. Handle legacy hash links (#docs/..., #blog/...) and local hash anchors (#some-id)
+    if (href.startsWith('#docs/') || href.startsWith('#blog/')) {
+      e.preventDefault();
+      const raw = href.substring(1);
+      const parts = raw.split('#');
+      const docSlug = parts[0];
+      const anchorPart = parts[1] || '';
+      const targetDoc = resolveDocument(docSlug, isBlogContext());
+      if (targetDoc) {
+        const isTargetBlog = targetDoc.id.startsWith('blog/');
+        if (isDocsDomain && isTargetBlog) {
+          window.location.href = getBlogBaseUrl() + '/' + targetDoc.id.replace(/^blog\//, '') + (anchorPart ? '#' + anchorPart : '');
+          return;
+        }
+        if (isBlogDomain && !isTargetBlog) {
+          window.location.href = getDocsBaseUrl() + '/' + targetDoc.id.replace(/^docs\//, '') + (anchorPart ? '#' + anchorPart : '');
+          return;
+        }
+
+        const nextUrl = getCleanRelativePath(targetDoc, isBlogDomain) + (anchorPart ? '#' + anchorPart : '');
+        if (window.location.pathname + window.location.hash !== nextUrl) {
+          window.history.pushState(null, '', nextUrl);
+        }
+        if (currentLoadedDocId && currentLoadedDocId === targetDoc.id) {
+          if (anchorPart) scrollToAnchor(anchorPart);
+          else window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        loadDocument(targetDoc.id, anchorPart);
+        setTimeout(normalizeLinks, 100);
+        return;
+      }
+    } else if (href.startsWith('#')) {
+      const anchorId = href.substring(1);
+      if (anchorId) {
+        e.preventDefault();
+        if (window.location.hash !== href) {
+          window.history.pushState(null, '', href);
+        }
+        scrollToAnchor(anchorId);
+        return;
+      }
+    }
+
     // 1. Doc links with data-doc-id attribute or relative internal paths
     const docIdAttr = anchor.getAttribute('data-doc-id');
     if (docIdAttr) {
       const targetDoc = resolveDocument(docIdAttr, isBlogContext());
       if (targetDoc) {
-        const isTargetBlog = targetDoc.id.startsWith('blog/');
-        // Cross-domain transitions
-        if (isDocsDomain && isTargetBlog) {
-          e.preventDefault();
-          window.location.href = getBlogBaseUrl() + '/' + targetDoc.id.replace(/^blog\//, '');
-          return;
-        }
-        if (isBlogDomain && !isTargetBlog) {
-          e.preventDefault();
-          window.location.href = getDocsBaseUrl() + '/' + targetDoc.id.replace(/^docs\//, '');
-          return;
-        }
-
-        // Same domain: pushState for instant zero-reload transition
-        e.preventDefault();
         let anchorId = '';
         if (href.includes('#')) {
           anchorId = href.substring(href.indexOf('#') + 1);
         }
+        const isTargetBlog = targetDoc.id.startsWith('blog/');
+
+        // Cross-domain transitions: preserve anchorId!
+        if (isDocsDomain && isTargetBlog) {
+          e.preventDefault();
+          window.location.href = getBlogBaseUrl() + '/' + targetDoc.id.replace(/^blog\//, '') + (anchorId ? '#' + anchorId : '');
+          return;
+        }
+        if (isBlogDomain && !isTargetBlog) {
+          e.preventDefault();
+          window.location.href = getDocsBaseUrl() + '/' + targetDoc.id.replace(/^docs\//, '') + (anchorId ? '#' + anchorId : '');
+          return;
+        }
+
+        // Same domain: check if already loaded
+        e.preventDefault();
         const nextUrl = getCleanRelativePath(targetDoc, isBlogDomain) + (anchorId ? '#' + anchorId : '');
         if (window.location.pathname + window.location.hash !== nextUrl) {
           window.history.pushState(null, '', nextUrl);
         }
+
+        if (currentLoadedDocId && currentLoadedDocId === targetDoc.id) {
+          if (anchorId) {
+            scrollToAnchor(anchorId);
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+          return;
+        }
+
         loadDocument(targetDoc.id, anchorId);
         setTimeout(normalizeLinks, 100);
         return;
