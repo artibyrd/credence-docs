@@ -2,8 +2,8 @@
 title: 'Cookbook: Browser Extension MV3 Zero-Hop Edge Verification'
 description: Building a Manifest V3 browser extension with IndexedDB local caching, sub-10ms edge verification, and WebCrypto.
 since_version: v1.11.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 5
 ---
@@ -111,7 +111,7 @@ To ensure continuous compliance with system invariants, **Edge Caching Browser E
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "edge_caching_browser_extension" -v
+$ poetry run pytest tests/governance/test_edge_cache_headers.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

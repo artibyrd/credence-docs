@@ -2,8 +2,8 @@
 title: 'Operational Guide: Simple vs Advanced Operating Modes'
 description: Comprehensive operational guide comparing Simple Sovereign Mode (SQLite/Local) and Advanced Planetary Cloud Mode (PostgreSQL/Cloud Run/R2).
 since_version: v1.17.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Operational Guide: Simple vs Advanced Operating Modes
@@ -101,7 +101,7 @@ To ensure continuous compliance with system invariants, **Simple Vs Advanced Mod
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "simple_vs_advanced_modes" -v
+$ poetry run pytest tests/integration/test_zero_key_ux.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

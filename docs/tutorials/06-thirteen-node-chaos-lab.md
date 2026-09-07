@@ -2,8 +2,8 @@
 title: 'Tutorial 06: Running a 13-Node Watts-Strogatz Chaos Simulation'
 description: Simulate a 13-node peer mesh in memory, inject Byzantine Sybil cartels, and verify the Galileo Rule override.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 6
 ---
@@ -75,7 +75,7 @@ The 13-node chaos lab stresses the P2P network under adversarial Sybil attacks a
 
 ```bash
 # Execute 13-node Watts-Strogatz chaos simulation
-$ poetry run pytest tests/unit/mesh/test_mesh.py -k "test_watts_strogatz" -v
+$ poetry run pytest tests/integration/test_mesh_cluster_gossip.py -v
 ```
 
 ---
@@ -107,7 +107,7 @@ To ensure continuous compliance with system invariants, **06 Thirteen Node Chaos
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "06_thirteen_node_chaos_lab" -v
+$ poetry run pytest tests/integration/test_mesh_cluster_gossip.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

@@ -107,7 +107,7 @@ This skill enforces the **3-Tier Invariant Scalability Architecture** across fiv
 just audit-invariants
 
 # Run targeted shift-left invariant and lifecycle tests
-poetry run pytest tests/test_docs_integrity.py -k "lifecycle or invariant or parity"
+poetry run pytest tests/governance/test_docs_integrity.py -k "lifecycle or invariant or parity"
 ```
 
 ---

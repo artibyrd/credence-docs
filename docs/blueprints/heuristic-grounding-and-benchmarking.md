@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Heuristic Grounding, Versioning & Empirical Calibration'
 description: Tier 1 42-rule synthetic gauntlet, Tier 2 N=104 static anchor corpus calibration, and mathematical confidence ceiling bounds.
 since_version: v2.18.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 24
 ---
@@ -36,7 +36,7 @@ The Tier 1 synthetic gauntlet asserts complete functional coverage across the en
 
 ```bash
 # Execute Tier 1 synthetic gauntlet in <1 second
-$ pytest tests/unit/pipeline/test_43_rule_gauntlet.py -k test_synthetic_gauntlet
+$ pytest tests/unit/pipeline/test_43_rule_gauntlet.py -v
 ```
 
 Every synthetic test case verifies that the heuristic extractor correctly identifies the offending DOM element or text quote and asserts $G=1.00$ verbatim matching.

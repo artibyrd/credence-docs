@@ -3,8 +3,8 @@ title: Raspberry Pi & HomeLab 24/7 Node Runbook
 description: Deploying a low-power ARM64 Credence mesh node with systemd, automated
   SQLite maintenance, and dynamic DNS.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Raspberry Pi & HomeLab 24/7 Node Runbook

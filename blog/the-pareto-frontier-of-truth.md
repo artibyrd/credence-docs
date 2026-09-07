@@ -4,8 +4,8 @@ description: Why running $18/1k audit flagship models is not just cost-prohibiti
   but produces worse truth audits. Live empirical benchmarks prove that Gemini 3.7
   Flash with 4k thinking is the Pareto sweet spot.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 slug: the-pareto-frontier-of-truth
 date: '2026-08-18'
 author: Credence Research & Architecture Team
@@ -147,8 +147,23 @@ To make truth verification ubiquitous, the marginal cost of an audit must approa
 
 $$\text{Cost to Audit 1,000,000 Articles with Pro Flagships} = \$18,291.00$$
 $$\text{Cost to Audit 1,000,000 Articles with Gemini 3.7 Flash (4k)} = \$556.20$$
-$$\text{Cost to Audit 1,000,000 Articles with P2P Mesh Work-Sharing} = \$42.78$$
-
-By combining the **4k Thinking Token Pareto Sweet Spot** with Credence's **P2P Work-Sharing Protocol**, we achieve a **99.7% total cost reduction** over traditional centralized LLM architectures.
-
 Truth is no longer an expensive luxury for enterprise newsrooms. It is an ambient, zero-cost utility for every AI agent on the web.
+
+---
+
+## Diagnostic Verification & Invariant Enforcement
+
+To ensure continuous compliance with system invariants, **The Pareto Frontier of Truth** is verified using shift-left integration test gates in the continuous integration pipeline:
+
+```bash
+# Execute focused test gate for this subsystem
+$ poetry run pytest tests/ -k "cross_model_benchmark" -v
+```
+
+| Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
+| :--- | :--- | :--- | :--- |
+| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory execution |
+| **Model Sovereignty** | `inv-multi-model-sovereignty` | Pre-commit | Complete 14-model hybrid tournament roster coverage |
+| **Spend Governance** | `inv-sovereign-config-decoupling` | Release gate | 2-Tier governance capping total tournament spend $\le \$6.00$ |
+| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+

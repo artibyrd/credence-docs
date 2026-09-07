@@ -2,8 +2,8 @@
 title: 'Tutorial 08: Sybil Cartel Demolition & Cartel Isolation'
 description: Launch a multi-node Byzantine cartel attack and watch the Credence consensus engine detect, isolate, and quarantine malicious nodes.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 8
 ---
@@ -81,7 +81,7 @@ $ credence mesh peers --quarantine
 
 ```bash
 # Execute Sybil cartel isolation and slashing test
-$ poetry run pytest tests/unit/mesh/test_merit_red_team.py -k "test_sybil_isolation" -v
+$ poetry run pytest tests/integration/test_mesh_byzantine_cartel.py -v
 ```
 
 | Cluster Node Role | Node Count | Submitted Score | Consensus Resolution |

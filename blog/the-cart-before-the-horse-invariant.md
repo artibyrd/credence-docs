@@ -2,8 +2,8 @@
 title: 'The Cart-Before-the-Horse Invariant: Prerequisite Order of Operations'
 description: Why data models and cryptographic primitives must always precede APIs, UIs, and marketing documentation.
 since_version: v1.13.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 25
 ---
@@ -93,7 +93,7 @@ To ensure continuous compliance with system invariants, **The Cart Before The Ho
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "the_cart_before_the_horse_invariant" -v
+$ poetry run pytest tests/governance/test_docs_integrity.py -k "test_invariants_registry_and_slug_integrity" -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

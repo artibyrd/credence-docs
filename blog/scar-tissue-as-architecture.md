@@ -2,8 +2,8 @@
 title: 'Scar Tissue as Architecture: Why Every Tier-0 Invariant Started as an Embarrassing Disaster'
 description: How production failures, hallucinated citations, dirty deployments, and bloated CI pipelines transformed into permanent, non-negotiable architectural invariants.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'
@@ -27,7 +27,7 @@ In mediocre engineering organizations, when a catastrophic bug takes down produc
 
 In sovereign decentralized systems, we practice **Architectural Scarring**.
 
-When a system fails in Credence, we do not write vague memos. We forge a **Tier-0 Universal Invariant** into `AGENTS.md` and construct a deterministic, sub-second test gate in `tests/test_docs_integrity.py`. 
+When a system fails in Credence, we do not write vague memos. We forge a **Tier-0 Universal Invariant** into `AGENTS.md` and construct a deterministic, sub-second test gate in `tests/governance/test_docs_integrity.py`. 
 
 The rule becomes permanent law. The system heals by building mathematical scar tissue that makes regression physically impossible.
 
@@ -107,7 +107,7 @@ The rule becomes permanent law. The system heals by building mathematical scar t
 | **Dev preview route escape** | Shared routing in edge workers | Dev Hermetic Boundary | `test_wrangler_route_isolation` |
 | **Ghost Cloud Run deploy** | Local unstaged buffer drift | Clean Working-Tree Preflight | `git diff --quiet` in `Justfile` |
 | **12-minute Playwright CI** | Browser daemons in unit tests | Hermetic Unit Isolation (<35s) | `test_hermetic_unit_test_markers` |
-| **XML Billion Laughs probe** | Unchecked entity parsing & SSRF | Defused XML + Subnet Blacklists | `tests/test_adversarial_fuzzing.py` |
+| **XML Billion Laughs probe** | Unchecked entity parsing & SSRF | Defused XML + Subnet Blacklists | `tests/integration/test_adversarial_fuzzing.py` |
 | **11.8s cold start timeout** | Top-level synchronous imports | 5-Pillar Scale-to-Zero Engine | `tests/test_cloudrun_coldstart.py` |
 
 ---

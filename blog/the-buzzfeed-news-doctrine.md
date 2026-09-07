@@ -2,8 +2,8 @@
 title: 'The BuzzFeed News Doctrine: Why Soft Quarantine Beats Permanent Blacklists'
 description: How history taught us that low-quality clickbait outlets can break world-class investigative journalism, and how Credence handles redemption.
 since_version: v1.13.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 35
 ---

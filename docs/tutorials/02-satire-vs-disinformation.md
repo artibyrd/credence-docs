@@ -2,8 +2,8 @@
 title: "Tutorial 02: Distinguishing Satire from Disinformation (Poe's Law)"
 description: Learn how Credence protects political parody while catching malicious defamation cloaked as satire.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 2
 ---
@@ -102,7 +102,7 @@ To ensure continuous compliance with system invariants, **02 Satire Vs Disinform
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "02_satire_vs_disinformation" -v
+$ poetry run pytest tests/unit/pipeline/test_scoring.py -k "satire" -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

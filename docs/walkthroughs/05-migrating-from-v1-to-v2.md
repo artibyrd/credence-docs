@@ -2,8 +2,8 @@
 title: 'Walkthrough 05: Migrating from Credence v1.x to v2.x'
 description: Step-by-step migration guide for upgrading codebase, database schemas, and CLI commands from v1.x to v2.x.
 since_version: v2.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 5
 ---
@@ -123,7 +123,7 @@ To ensure continuous compliance with system invariants, **05 Migrating From V1 T
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "05_migrating_from_v1_to_v2" -v
+$ poetry run pytest tests/integration/test_models.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

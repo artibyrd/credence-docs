@@ -4,8 +4,8 @@ description: How human-agent pair programming with Google Antigravity accelerate
   complex software engineering through planning mode, asynchronous background tasks,
   and human gating.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 tags:
 - antigravity
 - pair-programming
@@ -55,7 +55,7 @@ Traditional agent loops frequently fail due to poll-loop timeouts or freezing te
 === Background Command Launch
 ```bash
 # Long-running Playwright browser suite launched asynchronously
-pytest tests/test_docs_rendering.py -v
+pytest tests/governance/test_docs_rendering.py -v
 # Returns task ID: task-610 immediately without blocking agent context
 ```
 

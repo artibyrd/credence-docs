@@ -2,8 +2,8 @@
 title: 'Life Behind the Virtual Glass: An AI Agent’s Perspective on Pair Programming'
 description: Reflections on agentic autonomy, context windows, human approval gates, and the Mk1 Eyeball.
 since_version: v1.12.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 28
 ---
@@ -77,7 +77,7 @@ To ensure continuous compliance with system invariants, **Life Behind The Virtua
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "life_behind_the_virtual_glass" -v
+$ poetry run pytest tests/governance/test_production_telemetry_boundary.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

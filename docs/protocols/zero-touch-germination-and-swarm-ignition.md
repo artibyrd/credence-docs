@@ -2,8 +2,8 @@
 title: Zero-Touch Node Germination & Swarm Ignition
 description: 4-stage automated node bootstrap, Ed25519 identity generation, seed sync, and miracle-gro ignition.
 since_version: v1.13.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 7
 ---
@@ -139,7 +139,7 @@ To ensure continuous compliance with system invariants, **Zero Touch Germination
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "zero_touch_germination_and_swarm_ignition" -v
+$ poetry run pytest tests/integration/test_sentinel_germination_gauntlet.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

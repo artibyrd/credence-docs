@@ -2,8 +2,8 @@
 title: Ecosystem Testing Strategy & Gauntlet
 description: 6-tier hermetic test architecture, shift-left governance gates, in-memory 13-node mesh swarm, and live rotating gauntlet.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 13
 ---
@@ -116,7 +116,7 @@ To ensure continuous compliance with system invariants, **Testing Strategy** is 
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "testing_strategy" -v
+$ poetry run pytest tests/integration/test_benchmark.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

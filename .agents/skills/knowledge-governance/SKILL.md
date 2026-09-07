@@ -49,7 +49,7 @@ When synthesizing new insights, evaluate each finding against this scalability m
   - Multi-step procedural runbooks and troubleshooting workflows (`white-label-ops`, `mesh-cluster`).
   - Complex domain simulations (`epistemic-benchmark`).
 
-### Tier 2: Shift-Left Automated Integrity Test Gates (`tests/test_docs_integrity.py` & `Justfile`)
+### Tier 2: Shift-Left Automated Integrity Test Gates (`tests/governance/test_docs_integrity.py` & `Justfile`)
 - **Loading Mode**: Execution Time (`just check` runs in <0.3s).
 - **Best For**:
   - Semantic version parity across manifests (`test_ecosystem_version_parity`).
@@ -90,7 +90,7 @@ Invariants are not immutable dogmas; they represent the **strongest validated em
 
 ### The Demotion Highway (Shift-Left Graduation)
 - **Philosophy**: *If a machine can assert it deterministically in <0.3s, never waste LLM attention tokens prompting for it.*
-- When deterministic static analysis or unit test coverage is built for a Tier 0 invariant, that rule is **demoted** out of `AGENTS.md` and converted into a permanent test gate in `tests/test_docs_integrity.py`.
+- When deterministic static analysis or unit test coverage is built for a Tier 0 invariant, that rule is **demoted** out of `AGENTS.md` and converted into a permanent test gate in `tests/governance/test_docs_integrity.py`.
 - This keeps `AGENTS.md` permanently bounded ($<800$ tokens) regardless of how many versions or invariants are discovered over years of development.
 
 ### Upward Axiomatic Consolidation Heuristic
@@ -214,7 +214,7 @@ Every `.md` document in `docs/` and `blog/` must maintain three version provenan
 
 ### Major Release Documentation Audit Procedure
 During major release cycles:
-1. **Freshness Scan**: Run `pytest tests/test_docs_integrity.py` to assert that all documentation markdown files have valid `since_version` and `verified_version` frontmatter.
+1. **Freshness Scan**: Run `pytest tests/governance/test_docs_integrity.py` to assert that all documentation markdown files have valid `since_version` and `verified_version` frontmatter.
 2. **Obsolete Pattern Elimination**: Audit markdown bodies to eliminate legacy CLI patterns (e.g. `poetry run credence serve` &rarr; direct virtualenv execution), outdated LLM models, and deprecated cloud deployment flags.
 3. **Bump Verification Metadata**: Update `verified_version` to target release (e.g. `v1.15.0`) and `last_verified` to the current release date.
 
@@ -237,7 +237,7 @@ Before implementing major structural changes, subject the plan to the **4-Round 
 
 ### Prompt Context Budget Governance
 - **Strict `< 800-token` Hard Ceiling:** Root `AGENTS.md` must be kept under 800 tokens.
-- **Rule Pruning:** Whenever a new Tier-0 invariant is proposed, audit existing rules. If a rule can be verified mechanically (e.g. frontmatter or sitemaps), move it into `tests/test_docs_integrity.py` (Tier 2).
+- **Rule Pruning:** Whenever a new Tier-0 invariant is proposed, audit existing rules. If a rule can be verified mechanically (e.g. frontmatter or sitemaps), move it into `tests/governance/test_docs_integrity.py` (Tier 2).
 ---
 
 ## 7. Canonical Lexicon Governance & Thematic Ontology

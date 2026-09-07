@@ -3,8 +3,8 @@ title: 'The Invariant Bible: Living Canon of System-Wide Invariants & Protocols'
 description: Canonical reference for all mathematical rules, runtime safety guardrails,
   cryptographic protocols, and presentation invariants governing Credence.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 tags:
 - invariants
 - architecture
@@ -29,12 +29,12 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
 | Pillar Domain | Scope & Focus | Primary Verification Gate | Core Engineering Guarantees |
 | :--- | :--- | :--- | :--- |
 | **1. Core Engineering & Runtime Safety** | Workspaces, async DB, token budgets, SSRF | `just test` (Hermetic in-memory SQLite) | Python 3.12 async, SSRF defense, 4k Pareto token budget |
-| **2. Epistemic Ingestion & Scoring** | Information theory, Grounding, Satire | `pytest tests/test_scoring.py` | Topic entropy astroturfing defense, $G=1.0$ grounding, satire cloaking overrides |
-| **3. Cryptographic Mesh & Authority** | P2P gossip, Ed25519 envelopes, Consensus | `pytest tests/test_mesh.py` | RFC 8785 Ed25519 envelopes, 5-factor quality $Q_i$, Galileo Rule protection |
-| **4. Universal Presentation & Zero-Build** | Zero-npm, 4-way parity, accessible layouts | `pytest tests/test_docs_rendering.py` | Zero npm / zero build, synchronous 4-way parity, framed accessible UX |
+| **2. Epistemic Ingestion & Scoring** | Information theory, Grounding, Satire | `pytest tests/unit/pipeline/test_pipeline.py` | Topic entropy astroturfing defense, $G=1.0$ grounding, satire cloaking overrides |
+| **3. Cryptographic Mesh & Authority** | P2P gossip, Ed25519 envelopes, Consensus | `pytest tests/unit/mesh/test_mesh.py` | RFC 8785 Ed25519 envelopes, 5-factor quality $Q_i$, Galileo Rule protection |
+| **4. Universal Presentation & Zero-Build** | Zero-npm, 4-way parity, accessible layouts | `pytest tests/governance/test_docs_rendering.py` | Zero npm / zero build, synchronous 4-way parity, framed accessible UX |
 
 > [!IMPORTANT]
-> **Continuous Verification Invariant**: Every code change must pass automated static verification (`pytest tests/test_docs_integrity.py`), Playwright live rendering suites (`tests/test_docs_rendering.py`), and version parity checks before presenting for human review (**"Mk1 Eyeball"**). Invariants are a living, expanding canon of verifiable constraints.
+> **Continuous Verification Invariant**: Every code change must pass automated static verification (`pytest tests/governance/test_docs_integrity.py`), Playwright live rendering suites (`tests/governance/test_docs_rendering.py`), and version parity checks before presenting for human review (**"Mk1 Eyeball"**). Invariants are a living, expanding canon of verifiable constraints.
 
 <div class="invariant-scope-filter-bar">
   <div class="scope-filter-label">Filter Living Canon by Scope:</div>
@@ -1831,12 +1831,12 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
     <div class="agent-spec-section">
       <span class="agent-spec-label">Deontic Execution Rules:</span>
       <ul class="agent-rules-list">
-        <li><span class='deontic-must'>MUST</span> verify UI and docs via Playwright live rendering suites (<code>tests/test_docs_rendering.py</code>).</li>
+        <li><span class='deontic-must'>MUST</span> verify UI and docs via Playwright live rendering suites (<code>tests/governance/test_docs_rendering.py</code>).</li>
         <li><span class='deontic-must'>MUST</span> assert non-zero SVG dimensions and zero raw HTML tag leaks in rendered prose.</li>
       </ul>
     </div>
     <div class="agent-spec-meta">
-      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>tests/test_docs_rendering.py</code></div>
+      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>tests/governance/test_docs_rendering.py</code></div>
       <div class="agent-meta-item"><strong>Verification Gate:</strong> <code>tests/governance/test_docs_integrity.py</code></div>
     </div>
   </div>

@@ -3,8 +3,8 @@ title: 'Testing 13-Node Swarms on a $35 Pi: The Featherweight Mesh Architecture'
 description: How we run mathematically rigorous 13-node Byzantine P2P mesh cluster
   simulations in under 150MB of RAM and 4.5 seconds on edge hardware.
 since_version: v1.6.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 date: '2026-08-18'
 author: Credence Core Architecture Team
 ---
@@ -32,7 +32,7 @@ To test whether Node 1's attestation diffuses across 13 hops without storm loops
 2. **State Isolation**: 13 independent LRU deduplication caches and memory stores.
 3. **Transport Concurrency**: 13 async WebSocket relay servers communicating over non-blocking network streams.
 
-In `tests/test_mesh_cluster.py`, we construct a 13-node Watts-Strogatz small-world lattice ($N = 13$, degree $d = 4$, rewiring $\beta = 0.20$) in a single Python process:
+In `tests/integration/test_mesh_cluster_gossip.py`, we construct a 13-node Watts-Strogatz small-world lattice ($N = 13$, degree $d = 4$, rewiring $\beta = 0.20$) in a single Python process:
 
 ```python
 # Constructing 13 independent relays on local ephemeral ports
@@ -95,5 +95,5 @@ Run it yourself right now:
 git clone https://github.com/thependragon/credence.git
 cd credence
 poetry install
-poetry run pytest tests/test_mesh_cluster.py -v
+poetry run pytest tests/integration/test_mesh_cluster_gossip.py -v
 ```

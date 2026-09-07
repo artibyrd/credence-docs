@@ -2,8 +2,8 @@
 title: Poe's Law & Satire Cloaking Defense
 description: Two-tier satire pipeline, linguistic irony detection, SPJ-1.6 overrides, and protecting genuine parody.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 1
 ---
@@ -91,7 +91,7 @@ To ensure continuous compliance with system invariants, **Satire Cloaking Defens
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "satire_cloaking_defense" -v
+$ poetry run pytest tests/unit/pipeline/test_scoring.py -k "satire" -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

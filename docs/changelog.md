@@ -2,11 +2,30 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Release Changelog
+
+## [2.19.0] - 2026-09-07
+
+### Added
+- **Empirical Reality Check & Golden Calibration Corpus ($N=104$)**:
+  - Replaced synthetic fixtures with 104 authentic journalism articles across 8 archetypes (`calibration_corpus_v1.json`).
+  - Implemented 4 diagnostic verification suites: `test_case_study_dual_tier_finops.py` (Mode A, Mode B, Mode C 82.7% token savings), `test_case_study_heuristic_ceiling.py` ($C_0 \to C_5$ generational tuning curve and overfitting regression proof), `test_thinking_token_benchmark.py` (the 4,000 token trance curve), and `test_case_study_astroturfing_entropy.py` (Shannon entropy & SimHash clustering).
+- **14-Model Model Garden & Frontier Cross-Model Tournament**:
+  - Implemented `test_cross_model_benchmark.py` evaluating 14 models (7 Antigravity native @ $0.00, 6 Vertex Model Garden models @ $1.74 total spend, 1 local heuristic) under hard $6.00 spend cap.
+  - Exported canonical tournament data to `data/benchmarks/model_garden_tournament_results.json`.
+- **Public Catalog Hygiene & De-Synthetic Resealing**:
+  - Purged all synthetic test URLs (`example.com`, `deceptive-news.fake`, `text://inline`) from syndicated public reports.
+  - Re-exported `web/credence.report/reports.json` with 85 authentic verified journalism articles, explicitly declaring `evaluation_method` and `evaluation_model`.
+- **Automated Docs Test Paths & `-k` Filters Integrity Gate (Gate 11)**:
+  - Added `test_docs_test_paths_and_k_filters_validity` to `tests/governance/test_docs_integrity.py` asserting all documented test commands point to real existing test files and valid `-k` filters.
+  - Rectified all 53 broken `-k` filters and 16 stale test paths across 68 documentation files.
+- **Published Case Studies**:
+  - Published `blog/case-study-the-heuristic-ceiling.md` detailing the mathematical limits of deterministic heuristics.
+  - Updated `blog/case-study-dual-tier-finops.md` and `blog/the-pareto-frontier-of-truth.md`.
 
 ## [2.18.3] - 2026-08-29
 
@@ -996,7 +1015,7 @@ ec{\Delta S}$) and querying full revision lineage.
   - Relocated secondary header links (`Playgrounds`, `Blog`, `GitHub`) to the global 4-column footer alongside `The Invariant Bible`, `Master Sitemap`, `Changelog`, and `Roadmap`.
   - Enforced CSS container queries (`@container (max-width: 820px)`) and dedicated 2x2 grid layout inside documentation reading containers (`.docs-main .footer-grid`) to prevent column wrapping.
 - **Automated Cross-Domain Navigation Test Gates**:
-  - Updated `test_cross_domain_consistent_navigation_and_footers` in `tests/test_docs_rendering.py` to assert exact 5-link header navigation across all domains.
+  - Updated `test_cross_domain_consistent_navigation_and_footers` in `tests/governance/test_docs_rendering.py` to assert exact 5-link header navigation across all domains.
 - **7-Manifest Parity Sync**:
   - Synchronized canonical semantic version `v1.21.3` across all 7 ecosystem manifests.
 
@@ -1014,8 +1033,8 @@ ec{\Delta S}$) and querying full revision lineage.
   - Reorganized the Universal Feature Parity Matrix into 4 categorized 4-column tables to eliminate horizontal scrolling.
   - Refactored Morning Epistemic Digest walkthrough tabs into 4 concise interface panes (`🖥️ CLI Terminal`, `⚡ FastMCP 2.0`, `📟 Textual TUI`, `📄 Export & JSON`) with `nowrap` horizontal scrolling.
 - **Automated Docs Rendering & Fence Integrity Tests**:
-  - Expanded `tests/test_docs_integrity.py` with `test_all_markdown_code_fences_and_syntax` to statically verify delimiter hygiene and zero indented fences across all documentation files.
-  - Expanded `tests/test_docs_rendering.py` with comprehensive iteration over all `DOCS_REGISTRY` routes and updated cross-domain navigation consistency assertions.
+  - Expanded `tests/governance/test_docs_integrity.py` with `test_all_markdown_code_fences_and_syntax` to statically verify delimiter hygiene and zero indented fences across all documentation files.
+  - Expanded `tests/governance/test_docs_rendering.py` with comprehensive iteration over all `DOCS_REGISTRY` routes and updated cross-domain navigation consistency assertions.
 - **7-Manifest Parity Sync**:
   - Synchronized canonical semantic version `v1.21.2` across all 7 ecosystem manifests.
 
@@ -1028,7 +1047,7 @@ ec{\Delta S}$) and querying full revision lineage.
   - Audited and elevated 114+ Mermaid diagrams across all blog essays, technical blueprints, protocols, and operator walkthroughs.
   - Standardized modern semantic shapes (`[(Database)]`, `([Endpoint])`, `{"Decision"}`), subgraphs, activation lifelines, and `stateDiagram-v2` transitions.
   - Eliminated parser anti-patterns including unquoted comparison operators (`<`, `>`), invalid embedded markdown links, and literal `\n` linebreaks.
-- **Shift-Left CI Integrity Guardrails (`tests/test_docs_integrity.py`)**:
+- **Shift-Left CI Integrity Guardrails (`tests/governance/test_docs_integrity.py`)**:
   - Expanded `test_mermaid_diagram_syntax_integrity` with strict balanced delimiter validation (`[]`, `()`, `{}`, `""`), subgraph closure checks, linebreak hygiene, and dark slate WCAG 2.1 AA contrast assertions.
 - **7-Manifest Parity Sync**:
   - Synchronized canonical semantic version `v1.21.1` across all 7 ecosystem manifests.
@@ -1047,7 +1066,7 @@ ec{\Delta S}$) and querying full revision lineage.
 - **The BuzzFeed News Doctrine (Asymmetric Epistemic Recovery)**:
   - Formalized The Invariant Bible and EPEP-17: Quarantined domains retain a verifiable path to redemption via low-frequency Lazarus sampling probes.
   - Required $k=5$ consecutive clean audits ($G=1.00, \text{Suspicion} \le 15.0$) across $\ge 2$ distinct subject namespaces to graduate to `PROBATIONARY_RECOVERY`, neutralizing Trojan whitelist attacks.
-- **13-Node Watts-Strogatz Mesh Simulation Suite (`credence/experiments/mesh_boredom_study.py`, `tests/test_mesh_cluster.py`)**:
+- **13-Node Watts-Strogatz Mesh Simulation Suite (`credence/experiments/mesh_boredom_study.py`, `tests/integration/test_mesh_cluster_gossip.py`)**:
   - Added 4 hermetic distributed cluster tests verifying adversarial inoculation, mesh-wide quarantine backoff, BuzzFeed Doctrine redemption, and Byzantine Sybil cartel defense ($N=13, f=4$).
 - **Universal 4-Way Feature Parity**:
   - CLI: `credence domain reputation [domain]`, `credence domain blacklist`, `credence domain appeal <domain>`, `credence boredom --ratio <float>`.
@@ -1084,7 +1103,7 @@ ec{\Delta S}$) and querying full revision lineage.
   - Calculates Epistemic Divergence ($\Delta S = |S_{\text{dev}} - S_{\text{prod}}|$) and proves an empirical **83.3% FinOps inference cost reduction** across the Golden 12 benchmark fixtures by filtering benign reporting at stage 1 before invoking 4k thinking.
 - **Sovereign White-Label Federation Bridge & Byzantine Fault Simulator (`credence/experiments/federation_bridge.py`, `just experiment federation-bridge`)**:
   - Validates cross-organization RFC 8785 canonical JSON attestation signing and exchange, Highest Random Weight (HRW) rendezvous feed partitioning, and $3f+1$ Byzantine Sybil fault isolation.
-- **Hermetic Adversarial Fuzzing Test Suite (`tests/test_adversarial_fuzzing.py`, `tests/test_experiments_harness.py`)**:
+- **Hermetic Adversarial Fuzzing Test Suite (`tests/integration/test_adversarial_fuzzing.py`, `tests/test_experiments_harness.py`)**:
   - Added comprehensive in-memory unit tests for Billion Laughs XML entity expansion defense, SSRF IPv6/metadata filters, prompt injection container bounds, and cryptographic signature tamper rejection.
 - **Operational Guides & Sovereign Case Studies (`credence-docs/`)**:
   - Published `bicameral-testing-and-experiments.md` operator handbook.
@@ -1176,7 +1195,7 @@ ec{\Delta S}$) and querying full revision lineage.
 - **Hermetic Test Suites & Mesh Cluster Verification**:
   - Added `tests/test_roots.py` (candidate extraction, SSRF rejection, feed discovery, root trees).
   - Added `tests/test_boredom.py` (boredom cycle execution, token governor gating, background daemon).
-  - Added `test_mesh_cluster_boredom_work_sharing` and `test_mesh_cluster_boredom_root_partitioning` in `tests/test_mesh_cluster.py`.
+  - Added `test_mesh_cluster_boredom_work_sharing` and `test_mesh_cluster_boredom_root_partitioning` in `tests/integration/test_mesh_cluster_gossip.py`.
 
 ## [1.15.3] - 2026-08-19
 
@@ -1196,7 +1215,7 @@ ec{\Delta S}$) and querying full revision lineage.
 ## [1.15.2] - 2026-08-19
 
 ### CI/CD Hardening & Workflow Resilience
-- **Shift-Left Test Marker Static Gate (`tests/test_docs_integrity.py`)**:
+- **Shift-Left Test Marker Static Gate (`tests/governance/test_docs_integrity.py`)**:
   - Added `test_hermetic_unit_test_markers_invariant` to statically inspect the AST of all test suites during `just check`, verifying that no test marked `@pytest.mark.unit` imports Playwright or invokes `capture_webpage`.
 - **Atomic Release Preflight Cleanliness Guard (`Justfile`)**:
   - Added working-tree cleanliness preflights (`git diff --quiet` and `git diff --cached --quiet`) to the `release` recipe, preventing partial or unstaged tagging desynchronization.
@@ -1231,7 +1250,7 @@ ec{\Delta S}$) and querying full revision lineage.
 - **Relative Asset Links Audit**:
   - Repaired 27 relative image paths to vector assets (`assets/tui/*.svg`) across tutorials, walkthroughs, and integrations.
 - **Shift-Left Automated Integrity Tests**:
-  - Enhanced `test_docs_registry_parity` in `tests/test_docs_integrity.py` to assert that all 109 document and blog IDs in `DOCS_REGISTRY` map to distinct paths and resolve cleanly.
+  - Enhanced `test_docs_registry_parity` in `tests/governance/test_docs_integrity.py` to assert that all 109 document and blog IDs in `DOCS_REGISTRY` map to distinct paths and resolve cleanly.
   - Added `test_web_reports_json_schema_completeness`, `test_web_viewer_heuristic_suspicion_safeguards`, and `test_web_viewer_css_tab_and_hash_integrity` to `tests/test_web.py`.
 
 ## [1.15.0] - 2026-08-19
@@ -1277,7 +1296,7 @@ ec{\Delta S}$) and querying full revision lineage.
 - **3-Tier Invariant Scalability Framework**:
   - Restructured `AGENTS.md` into high-density **Tier 0 Universal Core Invariants (P0 Non-Negotiables)** (<800 tokens, 62% token reduction), eliminating cognitive oatmeal and attention dilution.
   - Stratified subsystem-specific runbooks into **Tier 1 Progressive Subsystem Skills** (`.agents/skills/`), loading playbooks dynamically on-demand.
-  - Shifted mechanical syntax, version parity, and formatting rules into **Tier 2 Shift-Left Automated Integrity Tests** (`tests/test_docs_integrity.py`), executing in <0.3s during `just check`.
+  - Shifted mechanical syntax, version parity, and formatting rules into **Tier 2 Shift-Left Automated Integrity Tests** (`tests/governance/test_docs_integrity.py`), executing in <0.3s during `just check`.
   - Maintained canonical reference catalog and mathematical proofs in **Tier 3 Reference Specifications** (`docs/invariants.md`).
 - **New Blueprint & Engineering Essay**:
   - **Invariant Scalability Blueprint (`docs/blueprints/invariant-scalability-and-knowledge-governance.md`)**: Architectural blueprint detailing the 3-tier hierarchy, cognitive failure modes of flat rulebooks, and token budget governance.
@@ -1537,7 +1556,7 @@ ec{\Delta S}$) and querying full revision lineage.
 - **Swarm Rendezvous Partitioning & 13-Node Mesh Hardening**:
   - Implemented Highest Random Weight (HRW) feed affinity sorting (`compute_feed_affinity`) in Miracle-Gro burst, preventing swarm dogpiling across concurrent nodes.
   - Implemented atomic commit/rollback sub-transactions in seeding and Genesis inoculation, eliminating multi-node database race conditions.
-  - Added `test_13_node_concurrent_swarm_germination_and_mesh_cross_adoption` to `tests/test_mesh_cluster.py`.
+  - Added `test_13_node_concurrent_swarm_germination_and_mesh_cross_adoption` to `tests/integration/test_mesh_cluster_gossip.py`.
 - **New Documentation & Sovereign Dispatches**:
   - **Engineering Guide**: `docs/mesh-engineering/featherweight-swarm-testing.md` (Low-resource 13-node simulation in <150MB RAM).
   - **Blog Dispatch**: `blog/testing-13-node-swarms-on-a-raspberry-pi.md` (The Featherweight Mesh Architecture on edge hardware).
@@ -1721,7 +1740,7 @@ ec{\Delta S}$) and querying full revision lineage.
   - Added 22 new Mermaid architecture and sequence flowcharts, 18 comparison tables, and 25 styled callouts across 28 articles.
   - 100% of all 68 documentation and blog articles now satisfy the $\ge 2.0$ visuals per 500 words invariant.
 - **Automated Tab Persistence & Navigation Regression Tests**:
-  - Added `test_tabbed_interface_switching_and_persistence` in `tests/test_docs_rendering.py` validating tab switching, active panel swaps, `localStorage` saves, and multi-page persistence.
+  - Added `test_tabbed_interface_switching_and_persistence` in `tests/governance/test_docs_rendering.py` validating tab switching, active panel swaps, `localStorage` saves, and multi-page persistence.
 
 ---
 
@@ -1732,8 +1751,8 @@ ec{\Delta S}$) and querying full revision lineage.
 - **Dark Aesthetic Diagram Theme**: Configured dark palette (`#0d121f` container, `#38bdf8` cyan glow borders, `#f8fafc` typography) matching the Credence design system.
 - **Copy to Clipboard Buttons**: Added animated one-click copy buttons and uppercase language tags (`BASH`, `PYTHON`, `YAML`, `JSON`, `TEXT`) across all fenced code blocks.
 - **GitHub Alert Callouts Styling**: Added distinctive dark glassmorphism containers and icons for `> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`, and `> [!CAUTION]`.
-- **Automated Live Rendering Test Suite**: Created `tests/test_docs_rendering.py` with Playwright + headless Chromium verifying zero unrendered Mermaid diagrams, zero raw HTML tag leaks, full interactivity across all 8 playground widgets, and 0 console errors across all documentation pages.
-- **Extended Static Integrity Suite**: Updated `tests/test_docs_integrity.py` with static Mermaid syntax validation and complete DOM element coverage for all 8 playground widgets.
+- **Automated Live Rendering Test Suite**: Created `tests/governance/test_docs_rendering.py` with Playwright + headless Chromium verifying zero unrendered Mermaid diagrams, zero raw HTML tag leaks, full interactivity across all 8 playground widgets, and 0 console errors across all documentation pages.
+- **Extended Static Integrity Suite**: Updated `tests/governance/test_docs_integrity.py` with static Mermaid syntax validation and complete DOM element coverage for all 8 playground widgets.
 
 ### Fixed
 - **Markdown Block Parsing Precedence**: Overhauled `parseMarkdown` in `app.js` to prioritize code block fences before HTML tag inspection, eliminating raw HTML tag leaks (`&lt;/div&gt;`, `&lt;textarea&gt;`) inside code samples and interactive widgets.
@@ -1775,7 +1794,7 @@ ec{\Delta S}$) and querying full revision lineage.
 - **Zero-Build Multi-Domain Edge Router**: Cloudflare Worker (`_worker.js`) routing across `credence.run`, `credence.nexus`, `credence.foundation`, and `credence.report` with 0 npm dependencies.
 - **Air-Gapped Genesis Root Key Ceremony**: Generated network root Ed25519 keypair and published canonical RFC 8785 signed `peers.json` and pinned `root.pub`.
 - **Streamlined Operator Justfile Recipes**: Added `just gcp-build`, `just tf-plan`, `just tf-apply`, and `just seed-sync` for one-command deployment.
-- **Hermetic Documentation Integrity Test Suite**: Added `tests/test_docs_integrity.py` validating 47 docs, 7 interactive widgets, and zero-npm compliance in <0.1s.
+- **Hermetic Documentation Integrity Test Suite**: Added `tests/governance/test_docs_integrity.py` validating 47 docs, 7 interactive widgets, and zero-npm compliance in <0.1s.
 - **Platform Portability Specifications**: 5 comprehensive specifications for multi-model adapters (Claude 3.7 Sonnet, GPT-4o, DeepSeek-R1, local Ollama) and multi-cloud deployment (AWS, Azure, Hetzner, K8s).
 - **Interactive Model Cost Comparator**: Section 7 in `docs/playground.md` for real-time model cost, latency, and sovereignty trade-off analysis.
 

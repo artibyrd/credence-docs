@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: V2 Modular Architecture & 500 LOC Subpackage Decoupling'
 description: Deconstructing monoliths, subsystem boundaries, compute_* calculation purity, and architectural governance.
 since_version: v2.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 13
 ---
@@ -51,7 +51,7 @@ credence/
 
 ```bash
 # Run architectural governance test gate
-$ pytest tests/governance/test_docs_integrity.py -k test_python_and_justfile_500_loc_ceiling
+$ pytest tests/governance/test_architecture_governance.py -v
 ```
 
 ---
@@ -97,7 +97,7 @@ To ensure continuous compliance with system invariants, **V2 Architecture And 50
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "v2_architecture_and_500_loc_modularity" -v
+$ poetry run pytest tests/governance/test_architecture_governance.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

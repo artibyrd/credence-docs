@@ -2,8 +2,8 @@
 title: 'Launch Parity: The Death of "It Worked in Staging"'
 description: How keyless WIF, identical OCI container images, and 6-phase release gates eliminate staging drift forever.
 since_version: v1.18.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 17
 ---
@@ -87,7 +87,7 @@ To ensure continuous compliance with system invariants, **Launch Parity The Deat
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "launch_parity_the_death_of_it_worked_in_staging" -v
+$ poetry run pytest tests/integration/test_interfaces_isolation.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

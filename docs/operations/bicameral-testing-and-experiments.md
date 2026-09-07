@@ -2,8 +2,8 @@
 title: Bicameral Testing & Autonomous Experimentation Handbook
 description: Operational reference for executing dual-tier shadow auditing, environment configuration verification, and white-label mesh federation experiments.
 since_version: v1.19.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Bicameral Testing & Autonomous Experimentation Handbook
@@ -85,7 +85,7 @@ just experiment federation-bridge \
 | **Verify Environment Configurations** | `just config-verify` |
 | **Run Shadow Audit Suite** | `just experiment shadow-audit` |
 | **Simulate Sovereign Mesh Bridge** | `just experiment federation-bridge` |
-| **Run Hermetic Security Fuzzing** | `poetry run pytest tests/test_adversarial_fuzzing.py -m unit` |
+| **Run Hermetic Security Fuzzing** | `poetry run pytest tests/integration/test_adversarial_fuzzing.py -m unit` |
 | **Full Pre-Commit QA Gate** | `just check` |
 
 

@@ -3,8 +3,8 @@ title: SimHash-64 & Mirror Network Detection
 description: Mathematical formulation of 64-bit SimHash, Hamming distances, and detecting
   coordinated propaganda syndication rings.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # SimHash-64 & Mirror Network Detection

@@ -3,8 +3,8 @@ title: DNS SRV & Dynamic Discovery Architecture
 description: Configuring RFC 2782 DNS SRV records (_mesh._tcp.credence.nexus) with
   weighted priorities and failover sequences.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # DNS SRV & Dynamic Discovery Architecture
@@ -102,7 +102,7 @@ To ensure continuous compliance with system invariants, **Dns Srv Discovery** is
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "dns_srv_discovery" -v
+$ poetry run pytest tests/unit/mesh/test_mesh.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

@@ -2,8 +2,8 @@
 title: 'Case Study: Cutting Fact-Checking Cloud Invoices by 94% with Dual-Tier FinOps'
 description: How an investigative consortium audited 50,000 monthly articles on a $15/month budget using Credence.
 since_version: v1.12.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 3
 ---
@@ -73,11 +73,10 @@ The investigation documented in **Case Study Dual Tier Finops** highlights sever
 
 To ensure continuous compliance with system invariants, **Case Study Dual Tier Finops** is verified using shift-left integration test gates in the continuous integration pipeline:
 
-```bash
-# Execute focused test gate for this subsystem
-
 ![Figure 1.1: Bicameral LLM inference architecture and 98% cloud FinOps cost optimization](assets/illustrations/case-study-dual-tier-finops.svg)
 
+```bash
+# Execute focused test gate for this subsystem
 $ poetry run pytest tests/ -k "case_study_dual_tier_finops" -v
 ```
 

@@ -2,8 +2,8 @@
 title: 'The Blue Checkmark is Dead: Replacing Identity Theatre with Epistemic Receipts'
 description: Why paid subscription badges failed to create internet trust, and how Ed25519 cryptographic receipts fix verifiable truth.
 since_version: v1.12.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 21
 ---
@@ -100,7 +100,7 @@ To ensure continuous compliance with system invariants, **The Blue Checkmark Is 
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "the_blue_checkmark_is_dead" -v
+$ poetry run pytest tests/unit/identity/test_identity.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

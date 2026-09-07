@@ -2,8 +2,8 @@
 title: 'Tutorial 09: Zero-Trust Syndicated Feed Sifter & Morning Briefings'
 description: Subscribe to RSS/Atom feeds, filter out low-integrity articles, and generate formatted morning briefings.
 since_version: v1.1.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 9
 ---
@@ -128,7 +128,7 @@ To ensure continuous compliance with system invariants, **09 Zero Trust Feed Sif
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "09_zero_trust_feed_sifter_digest" -v
+$ poetry run pytest tests/unit/feeds/test_feed_sifter.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

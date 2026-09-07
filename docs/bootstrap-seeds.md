@@ -3,8 +3,8 @@ title: Bootstrap Seed Governance & Node Quality
 description: 5-factor node quality equation (Q_i), signed seed directory distribution,
   and 4-tier discovery fallback.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Bootstrap Seed Governance & Node Quality
@@ -73,7 +73,7 @@ To ensure continuous compliance with system invariants, **Bootstrap Seeds** is v
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "bootstrap_seeds" -v
+$ poetry run pytest tests/unit/feeds/test_seed.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

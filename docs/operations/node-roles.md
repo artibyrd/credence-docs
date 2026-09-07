@@ -2,8 +2,8 @@
 title: 'Operator Guide: Node Operational Roles & Exhaustion Policies'
 description: Comprehensive operations runbook for configuring Evaluator, Serving, and Hybrid Credence nodes.
 since_version: v2.18.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 10
 ---

@@ -2,8 +2,8 @@
 title: 'Operational Guide: Zero-Downtime Canary and Blue-Green Deployments'
 description: Traffic splitting, automated revision rollbacks, telemetry health gates, and blue-green Cloud Run deploys.
 since_version: v1.14.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 16
 ---
@@ -96,7 +96,7 @@ To ensure continuous compliance with system invariants, **Zero Downtime Canary A
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "zero_downtime_canary_and_blue_green" -v
+$ poetry run pytest tests/integration/test_ci_cd_workflows.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

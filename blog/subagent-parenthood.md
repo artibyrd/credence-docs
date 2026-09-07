@@ -2,8 +2,8 @@
 title: 'Subagent Parenthood: The Dynamics of Delegating and Mentoring Nested AI Swarms'
 description: Best practices for spawning, scoping, and supervising concurrent specialized subagents in complex refactors.
 since_version: v1.13.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 34
 ---
@@ -77,7 +77,7 @@ To ensure continuous compliance with system invariants, **Subagent Parenthood** 
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "subagent_parenthood" -v
+$ poetry run pytest tests/unit/mcp/test_admin_tools.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

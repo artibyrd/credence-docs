@@ -2,8 +2,8 @@
 title: 'The Economics of Epistemic Headroom: Why 30% Safety Buffers Save Production'
 description: Why setting a 30% offline tripwire on token spending protects interactive developer pairing and production stability.
 since_version: v1.12.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 18
 ---

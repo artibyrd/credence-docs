@@ -2,8 +2,8 @@
 title: 'Tutorial 14: Operator Security & Admin Workstation Setup'
 description: Secure your production node with Cloudflare Access Zero Trust, Ed25519 operator tokens, and admin cockpit controls.
 since_version: v1.13.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 14
 ---
@@ -117,7 +117,7 @@ To ensure continuous compliance with system invariants, **14 Operator Security A
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "14_operator_security_and_admin_workstation" -v
+$ poetry run pytest tests/unit/mcp/test_admin_tools.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

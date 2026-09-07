@@ -2,8 +2,8 @@
 title: Synthetic AI Content & Media Provenance Blueprint
 description: Shannon topic entropy collapse, C2PA cryptographic provenance, top-token concentration, and AI content farm detection.
 since_version: v1.11.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 4
 ---
@@ -130,7 +130,7 @@ To ensure continuous compliance with system invariants, **Synthetic Media Proven
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "synthetic_media_provenance" -v
+$ poetry run pytest tests/integration/test_epistemic_adversaries.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

@@ -3,8 +3,8 @@ title: Building a Zero-Build Browser Extension (Manifest V3)
 description: How to build a lightweight, zero-npm Chrome and Firefox extension to
   query Credence scores on active browser tabs.
 since_version: v1.0.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 ---
 
 # Building a Zero-Build Browser Extension (Manifest V3)
@@ -133,7 +133,7 @@ To ensure continuous compliance with system invariants, **Browser Extension Mv3*
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "browser_extension_mv3" -v
+$ poetry run pytest tests/integration/test_widget_api.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |

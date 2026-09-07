@@ -2,8 +2,8 @@
 title: 'Cookbook: Local Dev to Cloud Run Workflow'
 description: Seamless workflow from local code edits to Dev Cloud Run preview and production release.
 since_version: v1.14.0
-verified_version: v2.18.3
-last_verified: 2026-08-29
+verified_version: v2.19.0
+last_verified: 2026-09-06
 sidebar:
   order: 7
 ---
@@ -79,7 +79,7 @@ To ensure continuous compliance with system invariants, **Local Dev To Cloud Run
 
 ```bash
 # Execute focused test gate for this subsystem
-$ poetry run pytest tests/ -k "local_dev_to_cloud_run_workflow" -v
+$ poetry run pytest tests/integration/test_dev_to_prod_state_isolation.py -v
 ```
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
