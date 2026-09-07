@@ -34,7 +34,8 @@ In this hands-on tutorial, you will learn how to operate, configure, and extend 
 Ensure your local development environment is active and dependencies are installed:
 
 ```bash
-cd /home/pendragon/Projects/credence-ecosystem/credence
+git clone https://github.com/artibyrd/credence.git
+cd credence
 poetry install
 ```
 

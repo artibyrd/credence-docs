@@ -4682,6 +4682,11 @@ export function initRouter() {
     if (!anchor) return;
     const href = anchor.getAttribute('href');
     if (!href || href.startsWith('javascript:')) return;
+    if (href.startsWith('file:') || href.includes('file:///')) {
+      e.preventDefault();
+      console.warn('Blocked invalid local file URI in web context:', href);
+      return;
+    }
 
     const { isDev, isDocsDomain, isBlogDomain } = getDomainContext();
 

@@ -22,7 +22,7 @@ summary: Full 14-model empirical tournament results across Antigravity, Vertex M
 
 In enterprise AI engineering, there is a pervasive assumption: *if you want maximum reasoning quality, you must deploy the largest, most expensive flagship model available.*
 
-When architecting **Credence**—our autonomous, decentralized truth and deception engine for AI agents and the web—we subjected this assumption to rigorous empirical tournament testing across the **$N=104$ Golden Calibration Corpus** ([`calibration_corpus_v1.json`](file:///home/pendragon/Projects/credence-ecosystem/credence/credence/pipeline/heuristics/corpus/calibration_corpus_v1.json)). We evaluated 14 distinct reasoning engines spanning 3 operational tracks under live network conditions:
+When architecting **Credence**—our autonomous, decentralized truth and deception engine for AI agents and the web—we subjected this assumption to rigorous empirical tournament testing across the **$N=104$ Golden Calibration Corpus** (specified in the [Cross-Model Pareto Benchmark](/docs/protocols/cross-model-pareto-benchmark) and [Golden Benchmark Suite](/docs/protocols/benchmark-suite)). We evaluated 14 distinct reasoning engines spanning 3 operational tracks under live network conditions:
 
 1. **Track 1: Antigravity Frontier & Fast Fleet ($0.00 Extra Cost)**:
    * **Gemini 3.8 Flash** (High Fast) — Next-generation sub-second reasoning.
@@ -70,7 +70,7 @@ The total blended financial expenditure required to audit 1,000 articles (includ
 
 ## 3. The Master 14-Model Tournament Matrix ($N=104$ Calibration Corpus)
 
-Every engine evaluated the exact same 104 articles from [`calibration_corpus_v1.json`](file:///home/pendragon/Projects/credence-ecosystem/credence/credence/pipeline/heuristics/corpus/calibration_corpus_v1.json). The serialized empirical results from [`model_garden_tournament_results.json`](file:///home/pendragon/Projects/credence-ecosystem/credence/data/benchmarks/model_garden_tournament_results.json) establish the comprehensive tournament rankings:
+Every engine evaluated the exact same 104 articles from the Golden Calibration Corpus. The serialized empirical results codified in the [Cross-Model Pareto Benchmark Protocol](/docs/protocols/cross-model-pareto-benchmark) establish the comprehensive tournament rankings:
 
 | Model & Configuration | Architectural Family & Venue | Accuracy (F1) | Verbatim Grounding (G) | Median Latency (P50) | Tail Latency (P95) | Cost / 1k Audits | Operational Tournament Role |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
@@ -128,7 +128,7 @@ Below is the verified vector schematic illustrating the 4 operational quadrants 
 
 Why do massive flagship models—commanding 30x the token price of Flash models—frequently produce *worse* truth audits on human discourse?
 
-To isolate the mechanism, we executed systematic thinking token sweeps (0, 1024, 2048, 4096, 8192 tokens) across the calibration corpus ([`test_thinking_token_benchmark.py`](file:///home/pendragon/Projects/credence-ecosystem/credence/tests/integration/test_thinking_token_benchmark.py)):
+To isolate the mechanism, we executed systematic thinking token sweeps (0, 1024, 2048, 4096, 8192 tokens) across the calibration corpus (analyzed in [The 4,000 Token Trance](/blog/the-4000-token-trance) and governed by [`inv-multi-model-sovereignty`](/docs/invariants#inv-multi-model-sovereignty)):
 
 | Thinking Budget | Base Accuracy | Verbatim Grounding (G) | Median Latency (P50) | Cost Multiplier | Deliberation Loops |
 | :---: | :---: | :---: | :---: | :---: | :---: |
