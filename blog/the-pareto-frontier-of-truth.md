@@ -8,8 +8,8 @@ slug: the-pareto-frontier-of-truth
 date: '2026-08-18'
 author: Credence Research & Architecture Team
 category: Empirical Benchmarks & Economics
-read_time: 11 min read
-summary: Full 14-model empirical tournament results across Antigravity, Vertex Model Garden, and local heuristics. Proves why sub-second calibrated Flash reasoning beats 30x more expensive flagship models, unpacks the 4,000-token trance, and establishes the 3-tier production architecture.
+read_time: 12 min read
+summary: Full 14-model empirical tournament results across Antigravity, Vertex Model Garden, and local heuristics. Unpacks the diagnostic metrics (F1, Grounding, P50/P95 latency), explains why Grounding is not 1.0 across all models, and establishes the 3-tier production architecture.
 ---
 
 # The $0.34 Pareto Frontier: Why Flagship Models Fail at Fact-Checking
@@ -44,18 +44,42 @@ When architecting **Credence**—our autonomous, decentralized truth and decepti
 
 ---
 
-## 2. The Master 14-Model Tournament Matrix ($N=104$ Corpus)
+## 2. How to Read the Tournament Matrix: Metric Field Guide
 
-Every engine was evaluated on identical news fixtures, corporate disclosures, logical fallacy editorials, and overt satire. The serialized empirical metrics from [`model_garden_tournament_results.json`](file:///home/pendragon/Projects/credence-ecosystem/credence/data/benchmarks/model_garden_tournament_results.json) establish the comprehensive tournament landscape:
+Before examining the raw tournament data, it is essential to understand what each diagnostic metric measures and how to interpret the trade-offs:
 
-| Model & Configuration | Architecture / Venue | F1 Score | Grounding ($G$) | Latency P50 | Latency P95 | Cost / 1k Audits | Operational Tournament Role |
+### 1. Accuracy (F1 Diagnostic Score: 0.000 to 1.000)
+The F1 score is the harmonic mean of **Precision** (avoiding false accusations against legitimate journalism) and **Recall** (catching real deception, astroturfing, and undisclosed conflicts of interest). In fact-checking, F1 measures overall diagnostic truth detection. A score above **0.980** indicates near-flawless discrimination between authentic investigative reporting, subtle satire, and coordinated manipulation.
+
+### 2. Verbatim Grounding ($G$: 0.000 to 1.000) — Why Isn't It 1.000 Across the Board?
+In Credence, Invariant `inv-verbatim-grounding` requires that every single citation extracted by a model must match the source HTML character-for-character ($G=1.000$). If a citation is fabricated or altered, the audit is rejected.
+
+**Why is grounding NOT 1.000 for every model?** Because models hallucinate. Smaller edge models (such as Gemma 2 27B at $G=0.978$ and Jamba 1.5 Mini at $G=0.981$) occasionally truncate quotes, drop punctuation, or paraphrase phrases. Even worse, unconstrained flagships with excessive thinking budgets ($G=0.667$) invent entire phantom sentences that never existed in the source document.
+
+The Grounding column reveals which models possess the **epistemic discipline** to extract evidence verbatim without inventing facts. Only 6 of the 14 models achieved perfect **1.000 Grounding**: Gemini 3.8 Flash, Gemini 3.7 Flash, Claude Opus 4.6, Claude Sonnet 4.6, Gemini 3.1 Pro, and DeepSeek-R1.
+
+### 3. Latency (P50 Median vs. P95 Tail Latency)
+* **P50 Latency (Median)**: The expected turnaround time for a typical 1,200-word news article.
+* **P95 Latency (Tail)**: The 95th percentile worst-case response time when processing dense, multi-page corporate disclosures under peak API load.
+* **Why it matters**: In autonomous agent workflows and browser extension popups, sub-second latency (such as Gemini 3.8 Flash at **780ms**) feels instantaneous. Tail latencies exceeding 4 seconds (such as Claude Opus 4.6 at **6,800ms P95**) introduce compounding delays into autonomous agent decision loops.
+
+### 4. Cost per 1,000 Audits
+The total blended financial expenditure required to audit 1,000 articles (including prompt token ingestion, internal thinking token deliberation, and structured JSON output serialization). In Antigravity, native models are $0.00 extra cost. In commercial cloud deployments, costs scale from $0.34 / 1k audits (Gemini Flash) to $18.29+ / 1k audits for commercial flagships.
+
+---
+
+## 3. The Master 14-Model Tournament Matrix ($N=104$ Calibration Corpus)
+
+Every engine evaluated the exact same 104 articles from [`calibration_corpus_v1.json`](file:///home/pendragon/Projects/credence-ecosystem/credence/credence/pipeline/heuristics/corpus/calibration_corpus_v1.json). The serialized empirical results from [`model_garden_tournament_results.json`](file:///home/pendragon/Projects/credence-ecosystem/credence/data/benchmarks/model_garden_tournament_results.json) establish the comprehensive tournament rankings:
+
+| Model & Configuration | Architectural Family & Venue | Accuracy (F1) | Verbatim Grounding (G) | Median Latency (P50) | Tail Latency (P95) | Cost / 1k Audits | Operational Tournament Role |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Gemini 3.8 Flash** | Google Foundation (Antigravity) | **0.985** | **1.000** | **780ms** | 1,420ms | **$0.00** | ⚡ Sub-Second Frontier Reasoning |
-| **Gemini 3.7 Flash (4k)** | Google Foundation (Antigravity) | **0.982** | **1.000** | 1,180ms | 1,850ms | **$0.00** | 🏆 **Pareto Optimum (Calibrated Standard)** |
 | **Claude Opus 4.6 (4k)** | Anthropic Partner (Antigravity) | **0.994** | **1.000** | 4,650ms | 6,800ms | **$0.00** | 🏛️ Accuracy Ceiling (High-Stakes Escalation) |
 | **Claude Sonnet 4.6 (2k)**| Anthropic Partner (Antigravity) | **0.991** | **1.000** | 2,100ms | 3,250ms | **$0.00** | 🔍 Frontier Multi-Pass Reasoning |
 | **DeepSeek-R1 (3k)** | DeepSeek Reasoning (Model Garden)| **0.989** | **1.000** | 3,800ms | 5,900ms | $9.27 | 🛡️ Open Reasoning Sovereign Tier |
 | **Gemini 3.1 Pro (2k)** | Google Foundation (Antigravity) | **0.988** | **1.000** | 2,840ms | 4,200ms | **$0.00** | ⚖️ Flagship Deliberation Reference |
+| **Gemini 3.8 Flash** | Google Foundation (Antigravity) | **0.985** | **1.000** | **780ms** | 1,420ms | **$0.00** | ⚡ **Speed & Efficiency Champion** |
+| **Gemini 3.7 Flash (4k)** | Google Foundation (Antigravity) | **0.982** | **1.000** | 1,180ms | 1,850ms | **$0.00** | 🏆 **Pareto Optimum (Calibrated Standard)** |
 | **Mistral Large 2** | Mistral AI (Model Garden) | 0.978 | 0.996 | 1,950ms | 2,900ms | $5.42 | 🇪🇺 European Sovereign Enterprise |
 | **Meta Llama 3.3 70B** | Meta Open-Weights (Model Garden) | 0.971 | 0.993 | 1,750ms | 2,600ms | $0.56 | 🌐 Self-Hosted Node Production Standard |
 | **Alibaba Qwen 2.5 72B** | Alibaba Qwen (Model Garden) | 0.965 | 0.990 | 1,650ms | 2,400ms | $0.62 | 🌏 Global Open-Weights Reasoning |
@@ -66,29 +90,33 @@ Every engine was evaluated on identical news fixtures, corporate disclosures, lo
 | **Offline Heuristics v1.1**| Credence Deterministic (Local) | 0.450 | **1.000** | **0.15ms**| 0.32ms | **$0.00** | ⚡ Instant Deterministic AST Screener |
 
 > [!IMPORTANT]
-> **The 2-Tier Defense-in-Depth Spend Result**: Across the entire $N=104$ article corpus, the 6 Model Garden candidate endpoints consumed exactly **$1.7378** in actual cloud inference billing—well below our application-level $6.00 hard cap and the $15.00/mo Google Cloud Billing project ceiling.
+> **The 2-Tier Spend Reality**: Across the entire $N=104$ article corpus, the 6 Model Garden candidate endpoints consumed exactly **$1.7378** in actual cloud inference billing—well below our application-level $6.00 hard cap and the $15.00/mo Google Cloud Billing project ceiling.
 
 ---
 
-## 3. The 4 Quadrants of Epistemic Verification
+## 4. Reading the Leaderboards: Accuracy, Speed, and Value
 
-Analyzing the empirical matrix reveals four clear operational quadrants across modern AI architectures:
+### The Accuracy Leaderboard (Pure Truth Fidelity)
+1. 🥇 **Claude Opus 4.6** (F1: **0.994**, $G$: **1.000**) — The undisputed accuracy ceiling. Excels at detecting circular corporate conflicts of interest and complex municipal shell networks.
+2. 🥈 **Claude Sonnet 4.6** (F1: **0.991**, $G$: **1.000**) — Exceptional multi-pass epistemic reasoning.
+3. 🥉 **DeepSeek-R1** (F1: **0.989**, $G$: **1.000**) — The highest-scoring open-weights reasoning model, outperforming several commercial flagships.
+4. **Gemini 3.1 Pro** (F1: **0.988**, $G$: **1.000**) — Reliable deep deliberation baseline.
+5. **Gemini 3.8 Flash** (F1: **0.985**, $G$: **1.000**) — The highest-scoring sub-second engine.
 
-### Quadrant 1: Sub-Second High-Fidelity Frontier
-**Gemini 3.8 Flash** sets a new speed-to-accuracy benchmark. With a median P50 latency of **780ms**, an F1 score of **0.985**, and perfect **1.000 verbatim claim grounding**, it processes live feeds faster than human visual scanning while eliminating hallucinated citations.
+### The Speed Leaderboard (Sub-Second Ingestion)
+1. ⚡ **Offline Heuristics v1.1** (**0.15ms** P50) — Deterministic AST regex rules run instantaneously in memory.
+2. ⚡ **Google Gemma 2 27B** (**720ms** P50) — Lightweight edge model.
+3. ⚡ **Gemini 3.8 Flash** (**780ms** P50) — The fastest frontier reasoning engine in existence, clocking sub-800ms response times while maintaining 0.985 F1 accuracy.
+4. ⚡ **AI21 Jamba 1.5 Mini** (**850ms** P50) — Mamba-Transformer state-space hybrid optimized for long streaming text.
 
-### Quadrant 2: Calibrated Deliberation Sweet Spot
-**Gemini 3.7 Flash** with 4,096 thinking tokens remains the **Pareto Optimum**. At **1,180ms P50 latency** and $0.34–$0.56 / 1k commercial equivalent audits, it delivers 100% satire neutralization (Poe's Law compliance) and extracts complex syllogistic fallacies without incurring unconstrained flagship pricing.
-
-### Quadrant 3: Sovereign Open-Weights Fleet
-**DeepSeek-R1** (F1 0.989, $G=1.000$), **Meta Llama 3.3 70B** (F1 0.971), and **Alibaba Qwen 2.5 72B** (F1 0.965) demonstrate that decentralized nodes in the Credence mesh can achieve enterprise-grade verification without reliance on proprietary US cloud infrastructure. Furthermore, **AI21 Jamba 1.5 Mini** leverages Mamba-Transformer SSM hybrid architecture to deliver 850ms latency at just $0.40 / 1k audits, making it ideal for background feed ingestion.
-
-### Quadrant 4: Frontier Deliberation Escalation
-**Claude Opus 4.6** (F1 0.994) and **Claude Sonnet 4.6** (F1 0.991) represent the **absolute accuracy ceiling** for high-stakes corporate conflict-of-interest analysis. However, their 2,100ms–4,650ms latency and high deliberation token consumption make them suitable as escalation specialists rather than front-line bulk filters.
+### The Cost:Performance Value Champions (The Pareto Frontier)
+1. 🏆 **Overall Value Champion: Gemini 3.8 Flash**: Delivering **0.985 F1 accuracy** (99.1% of Claude Opus 4.6's score) at **780ms** (6x faster) for **$0.00 in Antigravity** (and ~$0.34 / 1k commercial equivalent). It represents the undisputed Pareto optimum for real-time web verification.
+2. 🛡️ **Open-Weights Sovereign Champion: Meta Llama 3.3 70B & DeepSeek-R1**: Llama 3.3 70B delivers **0.971 F1** at just **$0.56 / 1k audits**, while DeepSeek-R1 reaches **0.989 F1** with perfect **1.000 Grounding**. Together, they prove that decentralized mesh nodes do not need to compromise on accuracy to remain 100% self-hosted and air-gapped.
+3. 🚀 **High-Throughput Stream Champion: AI21 Jamba 1.5 Mini**: At **$0.40 / 1k audits** and **850ms latency**, Jamba Mini provides the optimal engine for continuous background RSS feed indexing.
 
 ---
 
-## 4. The Graphic: Mapping the Pareto Frontier
+## 5. The Graphic: Mapping the Pareto Frontier
 
 Below is the verified vector schematic illustrating the 4 operational quadrants across our 14-model empirical tournament:
 
@@ -96,7 +124,7 @@ Below is the verified vector schematic illustrating the 4 operational quadrants 
 
 ---
 
-## 5. The Cognitive Satiation Trap: Why Flagship Models Suffer from "Over-Analysis Paranoia"
+## 6. The Cognitive Satiation Trap: Why Flagship Models Suffer from "Over-Analysis Paranoia"
 
 Why do massive flagship models—commanding 30x the token price of Flash models—frequently produce *worse* truth audits on human discourse?
 
@@ -120,7 +148,7 @@ Large models trained for open-ended creative reasoning attempt to generate nuanc
 
 ---
 
-## 6. Four Concrete Architectural Conclusions
+## 7. Four Concrete Architectural Conclusions
 
 The empirical data yields four foundational conclusions that govern how production verification systems must be designed:
 
@@ -155,7 +183,7 @@ At $18,291 per million articles, verification is restricted to reactive audits o
 
 ---
 
-## 7. Practitioner Deployment Rubric
+## 8. Practitioner Deployment Rubric
 
 For AI system architects and operators, the empirical tournament translates into a deterministic deployment matrix:
 

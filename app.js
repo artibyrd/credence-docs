@@ -1888,7 +1888,13 @@ export function parseMarkdown(md) {
           inCode = !inCode;
           curCell += ch;
         } else if (ch === '$' && !inCode) {
-          inMath = !inMath;
+          const restOfCell = trimmedTableLine.slice(cIdx + 1);
+          const nextPipeIdx = restOfCell.indexOf('|');
+          const cellSubstring = nextPipeIdx !== -1 ? restOfCell.slice(0, nextPipeIdx) : restOfCell;
+          const isCurrency = /\d/.test(trimmedTableLine[cIdx + 1] || '');
+          if (!isCurrency && cellSubstring.includes('$')) {
+            inMath = !inMath;
+          }
           curCell += ch;
         } else if (ch === '|' && !inCode && !inMath) {
           cells.push(curCell.trim());
