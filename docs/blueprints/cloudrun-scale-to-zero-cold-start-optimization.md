@@ -3,7 +3,7 @@ title: 'Technical Blueprint: Cloud Run Scale-to-Zero & Cold Start Optimization'
 description: Sub-150ms container cold starts, lean OCI image layers, pre-warmed SQLite connections, and scale-to-zero economics.
 since_version: v1.14.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 sidebar:
   order: 14
 ---

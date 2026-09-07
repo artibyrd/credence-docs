@@ -4,7 +4,7 @@ description: Architectural Decision Record explaining the technical, mathematica
   and economic rationale behind choosing Gemini 3.7 Flash.
 since_version: v1.0.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 ---
 
 # ADR: Why Gemini 3.7 Flash as Default Reference Engine

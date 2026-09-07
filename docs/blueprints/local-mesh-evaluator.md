@@ -3,7 +3,7 @@ title: 'Technical Blueprint: Decentralized Local Evaluator & Egalitarian Mesh In
 description: Zero-privilege public mesh submission, RFC 8785 Ed25519 attestation proofs, and 5-factor adversarial defense gate.
 since_version: v2.18.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 sidebar:
   order: 22
 ---

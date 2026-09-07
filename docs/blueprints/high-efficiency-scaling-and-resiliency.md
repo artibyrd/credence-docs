@@ -3,7 +3,7 @@ title: 'Technical Blueprint: High-Efficiency Scaling & Resiliency Architecture'
 description: Sub-35s test execution, in-memory SQLite WAL, 92.3% P2P work-sharing, and zero-npm edge performance.
 since_version: v1.14.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 sidebar:
   order: 3
 ---

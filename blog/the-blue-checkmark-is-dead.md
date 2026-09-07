@@ -3,7 +3,7 @@ title: 'The Blue Checkmark is Dead: Replacing Identity Theatre with Epistemic Re
 description: Why paid subscription badges failed to create internet trust, and how Ed25519 cryptographic receipts fix verifiable truth.
 since_version: v1.12.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 sidebar:
   order: 21
 ---

@@ -4,7 +4,7 @@ description: 'Welcome to Credence: the open epistemic trust engine for AI and th
   web.'
 since_version: v1.0.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 ---
 
 # Welcome to Credence 🛡️

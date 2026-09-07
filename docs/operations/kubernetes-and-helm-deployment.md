@@ -4,7 +4,7 @@ description: Comprehensive operational guide for deploying Credence to vanilla K
   k3s, MicroK8s, AWS EKS, or GKE using standard declarative manifests.
 since_version: v1.18.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 ---
 
 # Operational Guide: Kubernetes and Container Orchestration

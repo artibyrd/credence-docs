@@ -4,7 +4,7 @@ description: Cross-model benchmarking, Pareto-optimal 4k thinking budgets, 30% o
   circuit breakers, and defensive prompt injection isolation.
 since_version: v1.0.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 tags:
 - multi-model
 - gemini

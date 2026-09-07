@@ -3,7 +3,7 @@ title: 'When the Human Types /grill-me: The Power of Socratic Agent Alignment'
 description: How interactive Socratic interviews surface edge cases, refine architectures, and prevent costly design mistakes.
 since_version: v1.13.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 sidebar:
   order: 33
 ---

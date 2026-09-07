@@ -3,7 +3,7 @@ title: Defining & Adopting Custom Standards in Credence
 description: Complete operator and researcher handbook for authoring epistemic rule catalogs, executing the synthetic benchmark gauntlet, and achieving autonomous decentralized mesh adoption.
 since_version: v2.16.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 ---
 
 # Defining & Adopting Custom Standards in Credence

@@ -4,7 +4,7 @@ description: Canonical reference for all mathematical rules, runtime safety guar
   cryptographic protocols, and presentation invariants governing Credence.
 since_version: v1.0.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 tags:
 - invariants
 - architecture

@@ -3,7 +3,7 @@ title: 'Architectural Blueprint: Unmasking Astroturfing Swarms with Lexical Topi
 description: How Shannon entropy calculations (H < 0.30) and SimHash clustering expose coordinated AI content farms in real time.
 since_version: v1.11.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 sidebar:
   order: 2
 ---

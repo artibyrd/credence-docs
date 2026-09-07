@@ -3,7 +3,7 @@ title: Medical & Health Claim Auditing Blueprint
 description: Threat model, PubMed grounding verification, clinical trial taxonomy, and specialist evaluation rubrics for biomedical prose.
 since_version: v1.10.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 sidebar:
   order: 2
 ---

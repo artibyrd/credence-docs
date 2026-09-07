@@ -5,7 +5,7 @@ description: How we eliminated unmocked socket timeouts, slashed build context u
   verification.
 since_version: v1.14.1
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 ---
 
 # From 860MB to 2MB: Engineering a Sub-40-Second Multi-Plane CI/CD Pipeline

@@ -4,7 +4,7 @@ description: Mathematical formulation of small-world network topology (N=13, k=4
   p=0.20), clustering coefficients, and epidemic gossip diffusion.
 since_version: v1.0.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 ---
 
 # Watts-Strogatz Small-World Dynamics

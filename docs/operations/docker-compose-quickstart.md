@@ -4,7 +4,7 @@ description: Quickstart guide for launching a sovereign Credence node or full-st
   cluster locally using Docker Compose in under 5 minutes.
 since_version: v1.18.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 ---
 
 # Operational Guide: Docker Compose 5-Minute Quickstart

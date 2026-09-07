@@ -5,7 +5,7 @@ description: How Credence solves the Cold-Start Ghost Town problem in decentrali
   zero-token mesh adoption.
 since_version: v1.6.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 date: '2026-08-18'
 author: Credence Core Architecture Team
 ---

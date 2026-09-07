@@ -4,7 +4,7 @@ description: Configuring RFC 2782 DNS SRV records (_mesh._tcp.credence.nexus) wi
   weighted priorities and failover sequences.
 since_version: v1.0.0
 verified_version: v2.19.0
-last_verified: 2026-09-06
+last_verified: 2026-09-07
 ---
 
 # DNS SRV & Dynamic Discovery Architecture
