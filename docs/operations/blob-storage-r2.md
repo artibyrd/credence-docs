@@ -2,7 +2,7 @@
 title: 'Operational Guide: Cloudflare R2 Content-Addressable Storage'
 description: Zero-egress S3-compatible blob storage configuration, CAS object lifecycle, and multi-region replication.
 since_version: v1.14.0
-verified_version: v2.19.0
+verified_version: v2.19.1
 last_verified: 2026-09-07
 sidebar:
   order: 18

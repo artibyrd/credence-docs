@@ -2,7 +2,7 @@
 title: 'The $0.34 Pareto Frontier: Why Flagship Models Fail at Fact-Checking'
 description: Comprehensive empirical evaluation of 14 frontier, open-weights, and deterministic reasoning engines across the N=104 Calibration Corpus. Proves that sub-second calibrated Flash reasoning outperforms unconstrained flagships at truth verification.
 since_version: v1.0.0
-verified_version: v2.19.0
+verified_version: v2.19.1
 last_verified: 2026-09-07
 slug: the-pareto-frontier-of-truth
 date: '2026-08-18'
