@@ -55,7 +55,7 @@ Use this skill when refactoring, modularizing, or auditing source files, Justfil
 
 ### 7. Zero-Hash Clean URL Routing & Canonical Slugs Law (`inv-clean-slug-routing`)
 - **Path vs. Hash Separation**: Document paths and essay slugs must strictly reside in `window.location.pathname` (e.g. `https://blog.credence.run/the-pizza-hut-problem` and `https://docs.credence.run/protocols/scoring`). Hash fragments (`#<id>`) are reserved exclusively for in-page DOM element IDs and section headings.
-- **Zero Backwards-Compatibility Overhead**: Prohibit legacy `#blog/...` or `#docs/...` hash routing handlers. Keep canonical URLs clean, robust, and free of legacy cruft.
+- **Zero Backwards-Compatibility Overhead**: Prohibit legacy hash routing handlers (such as `#blog-route` or hash-based paths). Keep canonical URLs clean, robust, and free of legacy cruft.
 - **HTML5 History API Navigation**: Internal link navigation must use `history.pushState(null, '', nextUrl)` with active `popstate` event listeners for instant, zero-reload transitions.
 - **Cloudflare Pages SPA Architecture**: All zero-build documentation and blog sites deployed to Cloudflare Pages must include `_redirects` (`/* /index.html 200`) and a dynamic `<base>` tag initializer in `<head>` to ensure relative assets and ES module imports resolve properly across multi-level clean paths.
 

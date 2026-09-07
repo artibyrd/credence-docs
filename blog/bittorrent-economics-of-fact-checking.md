@@ -70,16 +70,14 @@ What if Node A is malicious and signs a falsified receipt?
 By sharing cryptographic proofs rather than repeating redundant calculations, Credence transforms fact-checking from an expensive luxury into an abundant, self-sustaining public utility.
 
 ---
-## Key Architectural Takeaways & Future Directions
 
-The investigation documented in **Bittorrent Economics Of Fact Checking** highlights several fundamental principles for building resilient, decentralized software systems:
+## Conclusion: Turning Verification into an Abundant Mesh Utility
 
-1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
-2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
-3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+The central thesis of **The BitTorrent Economics of Fact-Checking** is that truth verification does not scale when every participant acts as an isolated island, paying frontier cloud providers to re-verify the exact same viral articles hundreds of times per second.
 
-| System Dimension | Conventional Approach | Credence Sovereign Architecture |
-| :--- | :--- | :--- |
-| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
-| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
-| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |
+Just as BitTorrent revolutionized file distribution by transforming content downloaders into uploaders, Credence transforms verification consumers into truth seeders. By combining:
+1. **Deterministic Content-Addressable Hashes (RFC 8785 canonical bytes)** that guarantee identical articles produce identical hash keys across all machines,
+2. **Ed25519 Cryptographic Signatures** that establish non-repudiable proof of who verified what, and
+3. **The Galileo Rule** that guarantees grounded physical citations ($G=1.00$) always override ungrounded majorities,
+
+the Credence mesh achieves an ambient 92.3% cache hit rate. As more independent nodes join the network, verification becomes faster, cheaper, and harder to censor. Fact-checking ceases to be an expensive centralized bottleneck and becomes an abundant, self-sustaining peer-to-peer utility.

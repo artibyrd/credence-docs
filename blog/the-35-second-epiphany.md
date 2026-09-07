@@ -86,16 +86,14 @@ Fast failure beats slow perfection. When your tests run in 28 seconds, you test 
 Keep your browsers in end-to-end testing, keep your unit tests hermetic, and protect your 35-second flow state at all costs.
 
 ---
-## Key Architectural Takeaways & Future Directions
 
-The investigation documented in **The 35 Second Epiphany** highlights several fundamental principles for building resilient, decentralized software systems:
+## Conclusion: Guarding the Flow State with Hermetic Isolation
 
-1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
-2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
-3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+The core realization of **The 35-Second Epiphany** is that developer velocity is non-linear: a test suite that takes 8 minutes destroys cognitive flow, encouraging engineers to batch up massive, risky commits and cross their fingers. A test suite that runs in 28 seconds changes human behavior completely.
 
-| System Dimension | Conventional Approach | Credence Sovereign Architecture |
-| :--- | :--- | :--- |
-| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
-| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
-| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |
+To protect this sacred feedback loop, Credence codified `inv-hermetic-unit-tests`:
+1. **Zero Browser Runtimes in Unit CI**: Headless browsers belong exclusively in staged smoke tests, never in the fast-inner-loop unit suite.
+2. **In-Memory SQLite State**: All databases, cache tables, and cryptographic registries spin up and tear down in RAM in milliseconds.
+3. **Zero Network I/O**: Network sockets are banned during unit test runs, ensuring zero flaky failures caused by external API rate limits or third-party cloud outages.
+
+When your entire test suite executes in less than 35 seconds, testing ceases to be a chore and becomes an instantaneous safety net. Fast, deterministic tests allow engineers and autonomous agents to move with unshakeable confidence.

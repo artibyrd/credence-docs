@@ -55,7 +55,7 @@ The rule becomes permanent law. The system heals by building mathematical scar t
 
 ### 4. The Whistleblower Cartel Penalty $\rightarrow$ The Galileo Rule
 * **The Disaster:** Our Byzantine swarm consensus originally penalized any node whose score deviated from the swarm median. During adversarial testing, four ungrounded Sybil nodes submitted coordinated scores claiming a fraudulent article was completely benign. The single honest node that audited the article and found character-for-character DOM evidence was penalized for "deviating from consensus"!
-* **The Scar Tissue:** **[The Galileo Rule](#blog/the-galileo-rule)**. Grounded evidentiary discoveries ($G \ge 0.85$) are mathematically immune to swarm deviation penalties. Asymmetric grounded truth overrides ungrounded majorities, allowing honest whistleblowers to build sovereign domain authority.
+* **The Scar Tissue:** **[The Galileo Rule](/blog/the-galileo-rule)**. Grounded evidentiary discoveries ($G \ge 0.85$) are mathematically immune to swarm deviation penalties. Asymmetric grounded truth overrides ungrounded majorities, allowing honest whistleblowers to build sovereign domain authority.
 
 ---
 

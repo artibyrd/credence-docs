@@ -34,7 +34,7 @@ In this case study, Credence applies **cryptographically grounded, deterministic
 > 2. **Verbatim Primary Grounding ($G=1.00$)**: Every finding is grounded in public records, city council meeting transcripts, and verified primary quotations.
 > 3. **High Semantic Entropy ($H \gg 0.70$)**: The analysis displays rich vocabulary variance with zero commercial astroturfing.
 > 
-> 📖 **Read the deep-dive companion essay**: [Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0 on Credence](#blog/scoring-the-lens-not-the-window)
+> 📖 **Read the deep-dive companion essay**: [Scoring the Lens, Not the Window: Why Exposing Bad Journalism Scores 100.0 on Credence](/blog/scoring-the-lens-not-the-window)
 
 ---
 

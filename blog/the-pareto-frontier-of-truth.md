@@ -130,7 +130,7 @@ Why do massive flagship modelsâ€”commanding 30x the token price of Flash modelsâ
 
 To isolate the mechanism, we executed systematic thinking token sweeps (0, 1024, 2048, 4096, 8192 tokens) across the calibration corpus ([`test_thinking_token_benchmark.py`](file:///home/pendragon/Projects/credence-ecosystem/credence/tests/integration/test_thinking_token_benchmark.py)):
 
-| Thinking Budget | Base Accuracy | Verbatim Grounding ($G$) | Median Latency (P50) | Cost Multiplier | Deliberation Loops |
+| Thinking Budget | Base Accuracy | Verbatim Grounding (G) | Median Latency (P50) | Cost Multiplier | Deliberation Loops |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | **0 Tokens** | 82.4% | 0.912 | 420ms | 1.0x | 0 loops |
 | **1,024 Tokens** | 96.4% | 0.991 | 1,180ms | 1.6x | 0 loops |

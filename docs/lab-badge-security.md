@@ -71,4 +71,4 @@ An author wraps defamatory paragraphs inside `[data-credence-ignore]` elements t
 This lab enforces key principles from **The Invariant Bible**:
 - **`inv-canonical-json-ed25519`**: RFC 8785 canonical JSON bytes ensure cross-platform signature determinism between Python CLI and in-browser WebCrypto.
 - **`inv-mk1-eyeball` & `inv-web-component-isolation`**: Zero-clone, leak-free Web Component isolation ensuring tamper alerts cannot be hidden by host scripts.
-- **`inv-untrusted-ingestion`**: Defensive isolation of all untrusted third-party DOM text.\n
+- **`inv-untrusted-ingestion`**: Defensive isolation of all untrusted third-party DOM text.

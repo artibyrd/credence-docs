@@ -18,7 +18,7 @@ This specification publishes empirical benchmark data comparing frontier LLM rea
 
 Empirical evaluation of all 14 candidate models across the $N=104$ Golden Calibration Corpus spanning Antigravity native models, Vertex AI Model Garden endpoints, and local deterministic heuristics:
 
-| AI Model & Configuration | Architecture & Venue | Cost / 1k Audits | P50 Latency | Grounding ($G$) | F1 Score | Pareto Classification |
+| AI Model & Configuration | Architecture & Venue | Cost / 1k Audits | P50 Latency | Grounding (G) | F1 Score | Pareto Classification |
 | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
 | **Gemini 3.8 Flash** | Google Foundation (Antigravity) | **$0.00** | **780ms** | **$1.000$** | **0.985** | ⚡ Sub-Second Frontier Reasoning |
 | **Gemini 3.7 Flash (4k)** | Google Foundation (Antigravity) | **$0.00** | **1,180ms** | **$1.000$** | **0.982** | 🏆 Pareto Optimum (Calibrated Workhorse) |
@@ -57,7 +57,7 @@ $ credence benchmark pareto --output-json data/pareto.json
 
 ## 4. Related Blueprints & Articles
 
-* 📊 [The $0.34 Pareto Frontier Essay](../../blog/the-pareto-frontier-of-truth.md)
+* 📊 [The $0.34 Pareto Frontier Essay](/blog/the-pareto-frontier-of-truth)
 * 🎮 [Interactive Multi-Model Comparator Playground](../playground.md)
 * 📘 [The Invariant Bible](../invariants.md) — Multi-Model Sovereignty & Token Budget Invariants
 

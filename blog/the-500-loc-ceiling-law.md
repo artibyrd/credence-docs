@@ -91,16 +91,14 @@ $ poetry run pytest tests/governance/test_architecture_governance.py -k "test_50
 ```
 
 ---
-## Key Architectural Takeaways & Future Directions
 
-The investigation documented in **The 500 Loc Ceiling Law** highlights several fundamental principles for building resilient, decentralized software systems:
+## Conclusion: Architectural Clarity Through Forced Restraint
 
-1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
-2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
-3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+The 500 LOC Ceiling Law is not a petty formatting style preference; it is a structural architectural immune system. Without a hard ceiling on file length, codebase files inevitably obey the entropy of least resistance: developers append helper functions, extra routes, and ad-hoc mutations until clean single-responsibility files devolve into thousand-line unmaintainable "God Objects".
 
-| System Dimension | Conventional Approach | Credence Sovereign Architecture |
-| :--- | :--- | :--- |
-| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
-| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
-| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |
+By establishing a static test gate that hard-fails builds when any Python or Justfile exceeds 500 lines:
+1. **Forced Modularization**: Growing files are compelled to split into cleanly decoupled subpackages (`models.py`, `engine.py`, `dispatch.py`) long before complexity becomes unmanageable.
+2. **Cognitive Ergonomics**: Every file fits comfortably inside human short-term memory and inside AI agent context windows without truncation or loss of precision.
+3. **Focused Testability**: Modular subcomponents can be tested in complete isolation, accelerating unit test runs and preventing hidden regressions.
+
+True software craft is not measured by how much code you can pack into a single file, but by how cleanly you can separate concerns. The 500 LOC Ceiling Law ensures that simplicity is not just an aspiration—it is an enforced physical law of the codebase.

@@ -93,7 +93,7 @@ $ credence audit https://example.com/shocking-breakthrough --verbose
 | :--- | :--- | :---: | :--- |
 | **Clickbait Title Index** | Superlatives / Total Title Tokens | `84.5 / 100` | Exceeds 60.0 (Flagged) |
 | **Verbatim Grounding ($G$)** | Cited DOM Text / Claim Text | `0.42` | Fails $G=1.00$ mandate |
-| **Unnamed Attribution** | `regex: anonymous (sources|insiders|officials)` | `2 occurrences` | Triggers SPJ-1.1 warning |
+| **Unnamed Attribution** | `regex: anonymous (sources / insiders / officials)` | `2 occurrences` | Triggers SPJ-1.1 warning |
 
 ---
 ## Hands-On Clickbait Analysis and Claim Extraction

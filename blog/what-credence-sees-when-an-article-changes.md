@@ -49,8 +49,7 @@ Now consider an innocuous lifestyle article that secretly injects an unlabelled 
 
 ### What Credence Sees:
 1. **Token Drift**: `compute_token_drift()` detects a 0.18 semantic shift without any corresponding editorial update notice.
-2. **Deceptive Pattern Classifier**: The dark pattern specialist fires `DP-3.1` (Hidden Commercial Sponsorship) and `SPJ-2.1` (Undisclosed Conflict of Interest).
-3. **Trajectory Output**: Suspicion score surges from **5.0** to **72.0** (High Suspicion).\n
+3. **Trajectory Output**: Suspicion score surges from **5.0** to **72.0** (High Suspicion).
 
 ---
 ## The Mechanics of Epistemic Differential Tracking
@@ -78,21 +77,24 @@ print(f"Suspicion Shift: {delta.suspicion_delta:+.2f}")
 By continuously computing the SimHash bitwise distance ($d_H$) and syntactic drift across consecutive snapshots, Credence creates an unalterable forensic record of editorial behavior across the decentralized web.
 
 ---
-## Tracking Editorial Transparency Over Time
+## Content-Addressable History & Temporal Lineage
 
-Every revision of a web article is fingerprinted and compared against historical snapshots to detect covert edits and stealth retractions.
+Modern web publishing treats the web as ephemeral: URLs stay the same while the text underneath mutates invisibly. Credence counters this ephemerality by decoupling an article's public URL from its immutable cryptographic reality.
+
+1. **Content-Addressable Snapshots (CAS)**: Every ingested version of an article is hashed using RFC 8785 canonical bytes and stored by its SHA-256 digest (`cas://<sha256>`). A URL is merely a temporal pointer (`url -> [sha256_v1, sha256_v2, ...]`).
+2. **Directed Acyclic Evolution Graphs (DAG)**: Subsequent edits form an append-only parent-child lineage. If an author alters three paragraphs, Credence generates a structured sentence-level delta map detailing exactly what changed, what was deleted, and what was inserted.
+3. **The Delta Score Metric ($\Delta S$)**: Credence computes both absolute scores ($S_t$) and trajectory velocity ($\Delta S = S_t - S_{t-1}$). An honest correction triggers a sharp negative delta ($\Delta S < -25$), earning an editorial transparency badge. Conversely, stealth changes trigger a positive spike ($\Delta S > +30$).
 
 ---
-## Key Architectural Takeaways & Future Directions
+## Conclusion: Four Golden Rules for Newsroom Editorial Hygiene
 
-The temporal tracking architecture documented in **What Credence Sees When An Article Changes** highlights several fundamental principles for building resilient, decentralized software systems:
+What does Credence see when an article changes? **Credence sees intentionality.** 
 
-1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
-2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
-3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+When an outlet makes an honest mistake and owns it, the algorithms reward that transparency. When an outlet quietly sanitizes false claims to escape liability or injects covert commercial endorsements, the differential engine preserves the forensic receipt permanently.
 
-| System Dimension | Conventional Approach | Credence Sovereign Architecture |
-| :--- | :--- | :--- |
-| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
-| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
-| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |
+For digital newsrooms and publishing platforms seeking to maintain high epistemic trust, we recommend four concrete operational practices:
+
+1. **Explicit, Dated Correction Headers**: Always place corrections in dedicated callout blocks with ISO dates and explicit descriptions of what was revised (`[Correction: YYYY-MM-DD]...`).
+2. **Preserve Semantic Anchors**: Never silently delete sentences that third parties have already linked or cited; retain strikethroughs or append explanatory notes rather than wiping history.
+3. **Disclose Commercial Alignments**: If affiliate links, sponsored products, or corporate partners are added retroactively, disclose them prominently in the article header rather than quietly slipping them into paragraph bodies.
+4. **Publish Immutable Update Receipts**: Publish canonical content digests so aggregators, archivists, and readers can cryptographically verify that updates represent honest reporting rather than stealth historical revisionism.

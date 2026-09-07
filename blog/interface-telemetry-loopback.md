@@ -79,16 +79,14 @@ By integrating telemetry directly into the core application runtime rather than 
 3. **Sovereign Independence**: Solo operators ("a guy in his basement") get production-grade telemetry and incident alerts without needing expensive enterprise SaaS subscriptions.
 
 ---
-## Key Architectural Takeaways & Future Directions
 
-The investigation documented in **Interface Telemetry Loopback** highlights several fundamental principles for building resilient, decentralized software systems:
+## Conclusion: Observability as an Active Operational Circuit
 
-1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
-2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
-3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+Conventional enterprise observability treats telemetry as a one-way archival pipe: logs, metrics, and traces are shipped off to third-party cloud dashboards where they sit passively until a human engineer opens a ticket or configures a webhook.
 
-| System Dimension | Conventional Approach | Credence Sovereign Architecture |
-| :--- | :--- | :--- |
-| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
-| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
-| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |
+In Credence, telemetry is a **closed operational loopback**:
+- When the **CLI** detects rate-limit degradation, it instantly reflects backpressure to the terminal operator.
+- When an AI agent connects via **FastMCP 2.0**, it queries `/telemetry` as a first-class tool resource to adjust its thinking token budgets and model escalation tiers dynamically.
+- When the **Zero-Build Web UI** connects via SSE, it streams real-time node health without polling or page refreshes.
+
+By making telemetry symmetrical, lightweight, and native across every interface, Credence ensures that both human operators and autonomous pair programmers maintain complete operational awareness—transforming passive telemetry into proactive, self-healing resilience.

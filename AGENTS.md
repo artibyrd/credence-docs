@@ -42,8 +42,9 @@ Welcome to the **Credence** codebase (`/home/pendragon/Projects/credence`).
 - **`inv-web-component-isolation` — 🌐 Web Component Isolation & Zero-Clone Invariant**: Web components must never invoke `cloneNode(true)` on host trees containing custom element instances.
 - **`inv-topic-entropy-defense` — 🔬 Topic Entropy Astroturfing Defense ($H < 0.30$)**: Combine top-token concentration with Shannon entropy ($H_{\text{penalized}} = H \times (1 - C_{\text{top3}})$). Neutralize satire ($0.00$), invoke `SPJ-1.6` overrides on factual allegations.
 - **`inv-fastmcp-datetime-serialization` — 🌐 FastMCP Datetime Serialization**: Standalone text audits persist entities to SQLite and serialize `datetime` to ISO-8601 strings in `.to_dict()`.
-- **`inv-clean-slug-routing` — 🌐 Zero-Hash Clean URL Routing & Canonical Slugs**: Slugs reside in pathname with zero `#blog/...` legacy hash cruft; `#hash` is reserved strictly for in-page DOM anchors.
+- **`inv-clean-slug-routing` — 🌐 Zero-Hash Clean URL Routing & Canonical Slugs**: Slugs reside in pathname with zero legacy hash cruft; `#hash` is reserved strictly for in-page DOM anchors.
 - **`inv-article-h1-header` — 🌐 Anti-Headless Article Invariant**: All articles require leading `# <Title>` matching frontmatter; client parser defensively synthesizes `<h1>` if missing.
+- **`inv-narrative-plot-fidelity` — 🌐 Universal Narrative Plot Fidelity & Anti-Boilerplate Invariant ("Never Lose the Plot")**: Every published study, case study, and architectural article must strictly fulfill the promise of its title, maintain a coherent 4-stage narrative arc (Title Promise $\to$ Grounded Investigation $\to$ Human Metric Demystification $\to$ Definitive Conclusion Circling Back to the Title), and contain zero orphaned data dumps, unfulfilled title questions, pseudo-ASCII chart remnants, or copied generic boilerplate conclusions (`Decouple Heuristics...`).
 
 ---
 

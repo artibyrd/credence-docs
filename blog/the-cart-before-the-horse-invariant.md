@@ -72,19 +72,17 @@ $ poetry run pytest tests/unit/ingestion/ -v
 When user interfaces are constructed prior to stabilizing underlying data models, 80% of frontend code is rewritten when the schema changes. The Cart-Before-the-Horse invariant eliminates this engineering waste.
 
 ---
-## Key Architectural Takeaways & Future Directions
 
-The investigation documented in **The Cart Before The Horse Invariant** highlights several fundamental principles for building resilient, decentralized software systems:
+## Conclusion: Engineering Discipline Over Premature Polish
 
-1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
-2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
-3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+The temptation to put the cart before the horse is almost irresistible in modern software development. Product teams want to see interactive mockups immediately, leading developers to sketch out web interfaces and API endpoints before data models, validation constraints, and database schemas have even stabilized.
 
-| System Dimension | Conventional Approach | Credence Sovereign Architecture |
-| :--- | :--- | :--- |
-| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
-| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
-| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |
+In Credence, `inv-cart-before-horse` is an absolute Class $\beta$ engineering law:
+1. **The Invariant Order of Operations**: Scrubbers precede Models $\to$ Models precede Migrations $\to$ Migrations precede Pipelines $\to$ Pipelines precede Unit Tests $\to$ Unit Tests precede APIs $\to$ APIs precede UIs.
+2. **Elimination of Speculative Rework**: Building user interfaces against frozen, verified schemas ensures that frontend code is written once and works immediately, eliminating the constant churn of mock-data refactors.
+3. **Shift-Left Reality Testing**: When tests pass on real in-memory data models before the API route is even registered, bugs are snuffed out at the root rather than discovered by baffled users in the browser.
+
+By subordinating cosmetic polish to foundational data integrity, the Cart-Before-the-Horse invariant guarantees that Credence systems are structurally sound from the inside out. Polish is cheap; correct foundation is permanent.
 
 ---
 ## Diagnostic Verification & Invariant Enforcement

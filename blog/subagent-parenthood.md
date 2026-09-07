@@ -56,19 +56,17 @@ A parent agent must never give a subagent a vague prompt like *"Fix the codebase
 When parent agents orchestrate focused subagents with clear boundaries and disciplined feedback loops, large-scale refactorings that once took days can be completed in minutes with total verification.
 
 ---
-## Key Architectural Takeaways & Future Directions
 
-The investigation documented in **Subagent Parenthood** highlights several fundamental principles for building resilient, decentralized software systems:
+## Conclusion: The Laws of Disciplined Subagent Governance
 
-1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
-2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
-3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+The greatest failure mode in multi-agent systems is unconstrained context explosion. When a single agent attempts to juggle research, testing, refactoring, and documentation in one monolithic conversation, context windows degrade, hallucinations compound, and instructions are forgotten.
 
-| System Dimension | Conventional Approach | Credence Sovereign Architecture |
-| :--- | :--- | :--- |
-| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
-| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
-| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |
+True **Subagent Parenthood** solves this through structured delegation and strict isolation:
+1. **Discrete Task Isolation**: Spawning specialized subagents for targeted investigations preserves the parent's pristine context while granting children laser-focused objectives.
+2. **Workspace Isolation (`Workspace: 'branch'`)**: Child swarms perform radical refactors and experiments in branch-isolated worktrees, keeping the parent working tree clean until verification passes.
+3. **Reactive Wakeups (Zero Polling)**: Parent agents never spin in polling loops waiting for child completion; the messaging runtime automatically wakes the parent when the subagent task delivers its structured result.
+
+By treating subagents as autonomous, disciplined specialists governed by clear scopes and mathematical verification gates, engineers can orchestrate swarms of arbitrary size without ever losing control of the system.
 
 ---
 ## Diagnostic Verification & Invariant Enforcement

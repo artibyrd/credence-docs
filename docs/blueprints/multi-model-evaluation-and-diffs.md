@@ -67,11 +67,11 @@ $$D(A, B) = \frac{|\Delta S_{A \to B}|}{100.0} \times \left(1.0 - \frac{c_A + c_
 
 Discrepancies between model passes are categorized into three distinct operational bands:
 
-| Discrepancy Band | Threshold ($|\Delta S|$) | Interpretation & Operator Action |
+| Discrepancy Band | Threshold ($\lvert\Delta S\rvert$) | Interpretation & Operator Action |
 | :--- | :--- | :--- |
-| **Consensus Agreement** | $|\Delta S| < 10.0$ | High cross-model alignment. Both engines agree on the core factual integrity or violation status of the text. |
-| **Rhetorical Nuance** | $10.0 \le |\Delta S| < 25.0$ | Moderate divergence. Typically caused by differing interpretations of secondary fallacies (e.g. slippery slope vs. legitimate causal inference). |
-| **Epistemic Divergence** | $|\Delta S| \ge 25.0$ | Significant disagreement. Triggers human-in-the-loop review ("Mk1 Eyeball") or automated re-evaluation via a third independent model family. |
+| **Consensus Agreement** | $\lvert\Delta S\rvert < 10.0$ | High cross-model alignment. Both engines agree on the core factual integrity or violation status of the text. |
+| **Rhetorical Nuance** | $10.0 \le \lvert\Delta S\rvert < 25.0$ | Moderate divergence. Typically caused by differing interpretations of secondary fallacies (e.g. slippery slope vs. legitimate causal inference). |
+| **Epistemic Divergence** | $\lvert\Delta S\rvert \ge 25.0$ | Significant disagreement. Triggers human-in-the-loop review ("Mk1 Eyeball") or automated re-evaluation via a third independent model family. |
 
 When an epistemic divergence is identified in an active newsroom pipeline, Credence marks the attestation with a divergence warning badge and queues the document for editorial arbitration.
 

@@ -71,17 +71,14 @@ pytest tests/governance/test_docs_rendering.py -v
 
 ### Asynchronous Task Reactive Notification Flow
 
-Antigravity Agent                  Background Worker                    Developer IDE
-|                                  |                                   |
-|-- launch_command(pytest...) ----▶|                                   |
-|◀-- Returns Task ID (task-610) ---|                                   |
-|                                  |                                   |
-|-- Update UI status (asynchronous non-blocking turn) ----------------▶|
-|                                  |                                   |
-|                                  | [Executes in background (18s)]    |
-|◀-- High-Priority Wakeup (11 passed in 18.88s) -----------------------|
-|                                  |                                   |
-|-- Present Walkthrough Artifact & Execution Results -----------------▶|
+| Step | Initiator | Recipient | Action / Event Payload | Operational Mode |
+| :---: | :--- | :--- | :--- | :--- |
+| **1** | Antigravity Agent | Background Worker | `launch_command(pytest...)` | Non-blocking dispatch |
+| **2** | Background Worker | Antigravity Agent | Returns Task ID (`task-610`) | Immediate return |
+| **3** | Antigravity Agent | Developer IDE | Update UI status | Non-blocking turn completion |
+| **4** | Background Worker | *(Worker Process)* | Executes test suite in background | ~18s in-memory execution |
+| **5** | Background Worker | Antigravity Agent | High-Priority Wakeup (`11 passed in 18.88s`) | Reactive wakeup (zero polling) |
+| **6** | Antigravity Agent | Developer IDE | Present Walkthrough Artifact & Results | Final turn presentation |
 
 ---
 

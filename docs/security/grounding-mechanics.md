@@ -62,7 +62,7 @@ Every citation generated during an audit must match the normalized source DOM ch
 
 $$G = \frac{\sum_{i=1}^{m} \text{len}(\text{verbatim\_quote}_i)}{\sum_{i=1}^{m} \text{len}(\text{claimed\_assertion}_i)} = 1.00$$
 
-| Grounding Ratio ($G$) | Severity Assessment | System Action |
+| Grounding Ratio (G) | Severity Assessment | System Action |
 | :---: | :--- | :--- |
 | **$G = 1.00$** | **Certified Pristine** | Mint signed Ed25519 attestation receipt |
 | **$0.90 \le G < 1.00$** | Minor Ellipsis / Paraphrase | Warning attached; node enters 14-day probation |

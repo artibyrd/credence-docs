@@ -26,10 +26,24 @@ Here is the mathematical and architectural model that makes this scale possible.
 
 ## The 4 Financial Levers of Credence FinOps
 
-1. P2P Mesh Work-Sharing: 92.3% Cache Hit Rate ($0.00 / audit)
-2. Offline Regex Pre-Filter: 60% of misses resolved locally ($0.00)
-3. Gemini 3.7 Flash Thinking: $0.34/1M tokens (vs. $2.50/1M GPT-4o)
-4. Google Cloud Run v2 Scale-to-Zero: $0.00 idle compute
+| Financial Lever | Operational Mechanism | Cost Impact |
+| :--- | :--- | :--- |
+| **1. P2P Mesh Work-Sharing** | Ed25519-signed attestations gossiped across peer nodes eliminate redundant audits | **92.3% cache hit rate** (\$0.00 per cached audit) |
+| **2. Offline Regex & DOM Pre-Filters** | Pure deterministic checks (clickbait syntax, known syndication headers) run in RAM | **60% of misses** resolved locally in <2ms (\$0.00) |
+| **3. Tiered Model Selection** | Gemini 3.7 Flash Thinking handles standard audits at \$0.34/1M tokens; flagship models are reserved for escalations | **85% reduction** in token unit cost |
+| **4. Scale-to-Zero Serverless** | Google Cloud Run v2 scales to 0 instances during quiet hours, eliminating idle VM burn | **\$0.00 idle infrastructure** overhead |
+
+---
+
+## The 50,000-Article Monthly Ingest Leaderboard
+
+To demonstrate why architectural design matters more than raw LLM pricing, here is the comparative cost breakdown across three deployment strategies for a 50,000 monthly article ingest:
+
+| Architectural Strategy | Primary Model Strategy | Monthly Compute / API Cost | Effective Cost per 1,000 Articles |
+| :--- | :--- | :---: | :---: |
+| **Naive Flagship Monolith** | GPT-4o / Claude 3.7 Sonnet on all 50k articles | **\$1,420.00** | \$28.40 |
+| **Naive Lightweight Monolith** | Unfiltered Gemini 3.7 Flash on all 50k articles | **\$85.00** | \$1.70 |
+| **Credence Dual-Tier FinOps** | P2P Cache $\to$ Heuristic Filter $\to$ Tiered Flash / Flagship Escalation | **\$14.80** | **\$0.30** |
 
 ---
 
@@ -51,24 +65,18 @@ Here is the mathematical and architectural model that makes this scale possible.
 2. **Decouple Thinking Budgets by Risk**: Routine news wire audits need 1,024 thinking tokens; complex financial disclosures warrant 4,096 tokens. A one-size-fits-all prompt is financial negligence.
 3. **Scale to Zero**: Background batch jobs run in bursts. Paying for idle VM daemons during quiet night hours is completely unnecessary with Cloud Run v2.
 
-By treating compute efficiency as an epistemic invariant, Credence makes planetary-scale truth auditing accessible to any newsroom on Earth.
+---
+
+## Conclusion: Making Ambient Truth Affordable for Everyone
+
+The question asked by this thought experiment is fundamental to the future of the internet: **can small newsrooms and civic watchdogs afford to run automated fact-checking at scale?**
+
+If the answer requires spending \$1,400 every month on centralized frontier model APIs, independent verification will remain the exclusive luxury of well-funded media conglomerates. The rest of the web will drown in synthesized synthetic noise.
+
+By structuring verification as a progressive funnel—P2P work sharing first, deterministic heuristics second, lightweight reasoning third, and expensive flagship reasoning only as a last resort—Credence proves that planetary-scale verification can cost less than a lunch salad. Trust does not require a blank check; it requires disciplined, sovereign systems architecture.
 
 ---
-## Key Architectural Takeaways & Future Directions
 
-The economic projection documented in this thought experiment highlights several fundamental principles for building resilient, decentralized software systems:
-
-1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
-2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
-3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
-
-| System Dimension | Conventional Approach | Credence Sovereign Architecture |
-| :--- | :--- | :--- |
-| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
-| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
-| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |
-
----
 ## Diagnostic Verification & Invariant Enforcement
 
 To ensure continuous compliance with system invariants, the dual-tier FinOps pipeline modeled in this thought experiment is verified using shift-left integration test gates in the continuous integration pipeline:
@@ -82,9 +90,9 @@ $ poetry run pytest tests/ -k "case_study_dual_tier_finops" -v
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
+| **Multi-Model Sovereignty** | `inv-multi-model-sovereignty` | On every evaluation | Dynamic fallback with 30% quota headroom preservation |
 | **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
-| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
-| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
-| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+| **Attestation Custody** | `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision** | `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
 
-By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.
+By enforcing these automated invariant gates, Credence guarantees that low cost never comes at the expense of cryptographic rigor and epistemic grounding.

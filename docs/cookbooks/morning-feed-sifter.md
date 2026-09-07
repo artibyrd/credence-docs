@@ -56,7 +56,7 @@ View dynamic feed health rankings at any time:
 credence feed health
 ```
 
-| Feed Title / Channel | Quality ($F_j$) | Avg Suspicion | Grounding ($G$) | Entropy ($H$) | Status |
+| Feed Title / Channel | Quality (F) | Avg Suspicion | Grounding (G) | Entropy (H) | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **ProPublica: Main Feeds** | `0.89` | `4.2` | `100%` | `0.88` | `ACTIVE` |
 | **The Markup: Investigations** | `0.87` | `6.1` | `100%` | `0.84` | `ACTIVE` |

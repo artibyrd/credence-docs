@@ -72,21 +72,16 @@ To cure the silicon hangover, epistemic systems must enforce strict mathematical
 By combining deterministic heuristics before model invocation, strict token headroom budgets, and cryptographic audit receipts, software systems can safely harness the reasoning power of modern neural architectures without succumbing to generative hallucination.
 
 ---
-## Reclaiming Engineering Rigor in AI Systems
 
-By pairing probabilistic neural networks with deterministic cryptographic proofs, we build systems that are innovative yet reliable.
+## Conclusion: Sobriety After the Generative Binge
 
----
-## Key Architectural Takeaways & Future Directions
+The euphoria of the initial generative AI wave convinced many engineering organizations that deterministic code was obsolete—that natural language prompts and massive foundational models could replace compilers, type checkers, database constraints, and rigorous testing suites.
 
-The investigation documented in **The Silicon Hangover** highlights several fundamental principles for building resilient, decentralized software systems:
+The reality that followed is **The Silicon Hangover**: astronomical cloud inference invoices, non-deterministic bugs that appear only in production, subtle hallucinations that destroy user trust, and unmaintainable prompt spaghetti.
 
-1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
-2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
-3. **Continuous Shift-Left Verification**: Real-world robustness is maintained through daily mutating test gauntlets and strict invariant enforcement.
+The cure is not to abandon machine learning, but to embrace engineering sobriety:
+1. **Probabilistic Reasoning Inside Deterministic Fences**: Neural networks are extraordinary reasoning engines, but they must operate inside strict, unbreakable programmatic harnesses.
+2. **Grounding as the Ultimate Epistemic Anchor ($G=1.00$)**: Never accept a model's summary of what a document says without verifying that every cited excerpt exists character-for-character in the source text.
+3. **Cryptographic Accountability**: Trust is not established by a model's conversational confidence; it is established by digital signatures over immutable bytes.
 
-| System Dimension | Conventional Approach | Credence Sovereign Architecture |
-| :--- | :--- | :--- |
-| **Trust Model** | Centralized authority / Platform badges | Decentralized Ed25519 cryptographic receipts |
-| **Compute Strategy** | Monolithic unconstrained LLM calls | Multi-tiered heuristic and token-budgeted pipelines |
-| **Frontend Delivery** | Heavy bundled frameworks (npm) | Zero-build Vanilla HTML5 / Native ES Modules |
+When the silicon hangover fades, the systems that endure will not be the ones with the flashiest demos or the largest parameter counts. They will be the systems that paired the intelligence of modern models with the timeless discipline of classical computer science.

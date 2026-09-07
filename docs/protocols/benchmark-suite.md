@@ -62,7 +62,7 @@ $ credence benchmark run --suite golden-12 --mock
 
 The Golden 12 benchmark suite evaluates model precision, cross-entropy loss, and heuristic grounding across `FREE`, `BALANCED`, and `ULTRA` profiles:
 
-| Benchmark Fixture | Category | Expected Grounding ($G$) | Expected Verdict |
+| Benchmark Fixture | Category | Expected Grounding (G) | Expected Verdict |
 | :--- | :--- | :---: | :--- |
 | `01_clickbait_superlative.html` | Clickbait | $G \le 0.40$ | `SUSPICIOUS (58.4)` |
 | `02_scientific_rct.html` | Biomedical | $G = 1.00$ | `PRISTINE (8.2)` |

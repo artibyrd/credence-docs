@@ -41,7 +41,7 @@ The network computes four core macro-telemetry indices to describe the informati
 
 ### 2.2 Epistemic Weather Classification Bands
 
-| Weather Status | DCI Range | Grounding ($G$) | Topic Entropy ($H$) | Network Condition |
+| Weather Status | DCI Range | Grounding (G) | Topic Entropy (H) | Network Condition |
 | :--- | :---: | :---: | :---: | :--- |
 | ☀️ **Pristine Sunlight** | $\ge 85.0$ | $\ge 0.95$ | $\ge 0.75$ | High-veracity journalism, diverse sourcing, zero coordinated slop. |
 | ⛅ **Scattered Fog** | $65.0 - 84.9$ | $0.80 - 0.94$ | $0.55 - 0.74$ | Occasional ungrounded claims, clickbait framing, or editorial bias. |

@@ -85,4 +85,4 @@ Credence evaluates content revisions from raw ingestion through cryptographic at
 This lab directly embodies the following principles from **The Invariant Bible**:
 - **`inv-verbatim-grounding`**: Grounding citations match character-for-character across snapshot diffs.
 - **`inv-topic-entropy-astroturfing`**: Detects topic entropy collapse and promotional pivot injection across successive article edits.
-- **`inv-canonical-json-ed25519`**: Every snapshot diff mints a separate RFC 8785 canonical envelope cryptographically bound to the node identity.\n
+- **`inv-canonical-json-ed25519`**: Every snapshot diff mints a separate RFC 8785 canonical envelope cryptographically bound to the node identity.
