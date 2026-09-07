@@ -35,27 +35,27 @@ As shown in the matrix above, node operators and ephemeral community contributor
 
 Because public ingestion endpoints (`POST /api/mesh/submit-attestation` and `POST /api/mesh/submit-batch`) are open and unauthenticated, nodes defend their storage and compute against Sybil attacks and data poisoning using a five-stage defense pipeline:
 
-### Factor 1: RFC 8785 Canonical JSON & Ed25519 Integrity (`inv-canonical-json-ed25519`)
+### Factor 1: RFC 8785 Canonical JSON & Ed25519 Integrity ([`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519))
 Every submitted attestation must contain a valid Ed25519 signature computed over the RFC 8785 canonical bytes of the report payload:
 
 $$\text{Verify}_{\text{pk}}\left(\sigma, \, \text{RFC8785}(\text{Report} \setminus \{\sigma, \text{pk}\})\right) = \text{True}$$
 
 Any mutation of scores, timestamps, or violation details invalidates the signature and causes an immediate HTTP 422 rejection.
 
-### Factor 2: Untrusted Ingestion Boundary & Network Defense (`inv-untrusted-ingestion`)
+### Factor 2: Untrusted Ingestion Boundary & Network Defense ([`inv-untrusted-ingestion`](/docs/invariants#inv-untrusted-ingestion))
 To prevent Server-Side Request Forgery (SSRF) and cloud metadata exfiltration, submitted target URLs are strictly validated:
 - Rejects cloud metadata addresses (`169.254.169.254`, `metadata.google.internal`).
 - Rejects loopback addresses (`127.0.0.1`, `localhost`) unless `allow_local=True` is explicitly enabled in testing fixtures.
 - Rejects RFC 1918 private subnets (`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`).
 
-### Factor 3: Verbatim Whitespace-Insensitive DOM Grounding ($G=1.00$) (`inv-verbatim-grounding`)
+### Factor 3: Verbatim Whitespace-Insensitive DOM Grounding ($G=1.00$) ([`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding))
 For every violation finding included in the audit, the quoted excerpt must exist character-for-character within the sanitized DOM or clean article text:
 
 $$G = \frac{|\text{Quoted Tokens} \cap \text{DOM Tokens}|}{|\text{Quoted Tokens}|} = 1.00$$
 
 If any specialist finding contains hallucinated or fabricated text ($G < 1.00$), the entire report is rejected and the node's reputation score is slashed.
 
-### Factor 4: Topic Entropy Floor Defense ($H \ge 0.30$) (`inv-topic-entropy-defense`)
+### Factor 4: Topic Entropy Floor Defense ($H \ge 0.30$) ([`inv-topic-entropy-defense`](/docs/invariants#inv-topic-entropy-defense))
 To prevent adversarial astroturfing and repetitive synthetic slop attacks, submissions must meet or exceed the normalized Shannon word entropy threshold:
 
 $$H_{\text{penalized}} = H_{\text{normalized}} \times (1 - C_{\text{top3}}) \times \text{TTR} \ge 0.30$$

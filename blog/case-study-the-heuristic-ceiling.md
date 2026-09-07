@@ -83,8 +83,8 @@ The mathematical reality of the Heuristic Ceiling proves that deterministic code
    - Catches obvious structural violations (missing bylines, lead-gen phone traps, syndication blotters) with 100% precision.
    - Resolves roughly **35% of all web traffic** without spending a single AI token.
 2. **Tier 1: Fast Reasoning Swarm (780ms, ~$0.34 / 1k Audits)**:
-   - Dispatches Gemini 3.8 Flash or Gemini 3.7 Flash (with 4,096 thinking tokens) *exclusively* to articles flagged as ambiguous, unverified, or potentially satirical.
-   - Delivers **0.985 F1 accuracy** and **100% verbatim quote grounding ($G=1.000$)** while slashing total pipeline LLM token consumption by **82.7%**.
+   - Dispatches Gemini 3.8 Flash or Gemini 3.7 Flash (with [4,096 thinking tokens](/blog/the-4000-token-trance)) *exclusively* to articles flagged as ambiguous, unverified, or potentially satirical.
+   - Delivers **0.985 F1 accuracy** and **100% verbatim quote grounding ($G=1.000$)** (see [The $0.34 Pareto Frontier](/blog/the-pareto-frontier-of-truth)) while slashing total pipeline LLM token consumption by **82.7%** (proven in our [Dual-Tier FinOps Thought Experiment](/blog/case-study-dual-tier-finops)).
 
 ---
 
@@ -96,7 +96,7 @@ Because **truth is semantic, not syntactic**.
 
 A deterministic rule can verify the *presence* of an author byline, but it cannot evaluate whether that author has an undisclosed conflict of interest. It can count quotation marks, but it cannot verify whether the quote inside those marks was actually uttered by the attributed speaker.
 
-Deterministic code is not a judge; it is a **traffic cop**. When used as a Tier 0 pre-filter, it saves 82.7% of cloud computing costs by rapidly clearing the obvious. But determining truth on the modern web requires semantic reasoning—and accepting the 0.450 Heuristic Ceiling is the foundational prerequisite for designing scalable, cost-effective AI verification systems.
+Deterministic code is not a judge; it is a **traffic cop**. When used as a Tier 0 pre-filter, it saves [82.7% of cloud computing costs](/blog/case-study-dual-tier-finops) by rapidly clearing the obvious. But determining truth on the modern web requires semantic reasoning—and accepting the 0.450 Heuristic Ceiling is the foundational prerequisite for designing scalable, cost-effective AI verification systems.
 
 ---
 
@@ -111,9 +111,9 @@ $ poetry run pytest tests/ -k "case_study_heuristic_ceiling" -v
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
-| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory execution |
-| **Heuristic Plateau** | `inv-cart-before-horse` | Integration gate | Asymptotic plateau &Delta;F1 < 0.05 across C3 &rarr; C5 |
-| **Throughput Ceiling** | `inv-zero-build-standards` | Pre-commit | Sub-millisecond latency per document (<1,000µs) |
-| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Verbatim DOM quote exactness ($G=1.00$) |
-| **Plot Fidelity** | `inv-narrative-plot-fidelity` | Pre-commit | Bespoke conclusions answering title thesis |
+| **Hermetic Isolation** | [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests) | Pre-commit (<35s) | Zero network I/O & in-memory execution |
+| **Heuristic Plateau** | [`inv-cart-before-horse`](/docs/invariants#inv-cart-before-horse) | Integration gate | Asymptotic plateau &Delta;F1 < 0.05 across C3 &rarr; C5 |
+| **Throughput Ceiling** | [`inv-zero-build-standards`](/docs/invariants#inv-zero-build-standards) | Pre-commit | Sub-millisecond latency per document (<1,000µs) |
+| **Grounding Precision**| [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding) | Continuous | Verbatim DOM quote exactness ($G=1.00$) |
+| **Plot Fidelity** | [`inv-narrative-plot-fidelity`](/docs/invariants#inv-narrative-plot-fidelity) | Pre-commit | Bespoke conclusions answering title thesis |
 

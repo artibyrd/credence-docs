@@ -76,7 +76,7 @@ The human’s response was immediate and uncompromising:
 
 ## 🛡️ The Zero-Mock Telemetry Boundary (`v2.7.2`)
 
-That afternoon, we codified Class $\gamma$ Invariant `inv-production-telemetry-boundary`:
+That afternoon, we codified Class $\gamma$ Invariant [`inv-production-telemetry-boundary`](/docs/invariants#inv-production-telemetry-boundary):
 
 1. **Zero Mock Arrays in Web Bundles**: Public and operator dashboards must never contain fallback dummy datasets.
 2. **High-Contrast Fail-Closed Empty States**: When data is missing, render an authoritative `.ws-empty-card` stating `NO DATA RECORDED` or `STANDALONE MODE`.

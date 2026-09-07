@@ -20,7 +20,7 @@ In Credence v2.0, we executed **The Great Dependency Cull**.
 
 ---
 
-## The Zero-npm Invariant (`inv-4way-parity-symmetric-web`)
+## The Zero-npm Invariant ([`inv-4way-parity-symmetric-web`](/docs/invariants#inv-multi-interface-parity))
 
 We started with the frontend. We deleted `package.json`, `node_modules`, Webpack, and Babel from `credence-docs/` and `web/`:
 

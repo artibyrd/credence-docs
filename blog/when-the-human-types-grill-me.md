@@ -42,7 +42,7 @@ AI Drafts Implementation Plan with 100% Alignment
 
 1. **Surfacing Hidden Trade-Offs**: Forcing the engineer to articulate edge-case handling before writing code exposes logical ambiguities early when they cost nothing to fix.
 2. **Eliminating Implicit Assumptions**: Both human and agent align on formal invariants (e.g., whether quarantine should be hard deletion vs. soft exponential polling).
-3. **Elevating Human Authority (`inv-mk1-eyeball`)**: Socratic questioning keeps the human engineer firmly in the architectural cockpit, guiding design decisions rather than reviewing unexpected code diffs after the fact.
+3. **Elevating Human Authority ([`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball))**: Socratic questioning keeps the human engineer firmly in the architectural cockpit, guiding design decisions rather than reviewing unexpected code diffs after the fact.
 
 ---
 

@@ -50,7 +50,7 @@ Editorial standards can decline, but they can also reform and excel. By building
 ---
 ## The Mechanics of Soft Quarantine & Editorial Probation
 
-Under the BuzzFeed News Doctrine (`inv-soft-quarantine`), an online outlet that publishes ungrounded sensationalism is not permanently blocked from the network. Instead, it enters an automated **Soft Quarantine**:
+Under the BuzzFeed News Doctrine ([`inv-soft-quarantine`](/docs/invariants#inv-soft-blacklist-buzzfeed)), an online outlet that publishes ungrounded sensationalism is not permanently blocked from the network. Instead, it enters an automated **Soft Quarantine**:
 
 | Quarantine Stage | Entry Trigger | Algorithmic Consequence | Redemption Path |
 | :--- | :--- | :--- | :--- |

@@ -28,10 +28,10 @@ Here is the mathematical and architectural model that makes this scale possible.
 
 | Financial Lever | Operational Mechanism | Cost Impact |
 | :--- | :--- | :--- |
-| **1. P2P Mesh Work-Sharing** | Ed25519-signed attestations gossiped across peer nodes eliminate redundant audits | **92.3% cache hit rate** (\$0.00 per cached audit) |
-| **2. Offline Regex & DOM Pre-Filters** | Pure deterministic checks (clickbait syntax, known syndication headers) run in RAM | **60% of misses** resolved locally in <2ms (\$0.00) |
-| **3. Tiered Model Selection** | Gemini 3.7 Flash Thinking handles standard audits at \$0.34/1M tokens; flagship models are reserved for escalations | **85% reduction** in token unit cost |
-| **4. Scale-to-Zero Serverless** | Google Cloud Run v2 scales to 0 instances during quiet hours, eliminating idle VM burn | **\$0.00 idle infrastructure** overhead |
+| **1. [P2P Mesh Work-Sharing](/docs/protocols/mesh-protocol)** | Ed25519-signed attestations gossiped across peer nodes eliminate redundant audits | **92.3% cache hit rate** (\$0.00 per cached audit) |
+| **2. [Offline Regex Pre-Filters](/blog/case-study-the-heuristic-ceiling)** | Pure deterministic checks (clickbait syntax, known syndication headers) run in RAM | **60% of misses** resolved locally in <2ms (\$0.00) |
+| **3. Tiered Model Selection** | Gemini 3.7 Flash handles standard audits at \$0.34/1M tokens (benchmarked in [The $0.34 Pareto Frontier](/blog/the-pareto-frontier-of-truth)) | **85% reduction** in token unit cost |
+| **4. Scale-to-Zero Serverless** | Google Cloud Run v2 scales to 0 instances during quiet hours (see [Cloud Run Blueprint](/docs/blueprints/cloudrun-scale-to-zero-cold-start-optimization)) | **\$0.00 idle infrastructure** overhead |
 
 ---
 
@@ -62,7 +62,7 @@ To demonstrate why architectural design matters more than raw LLM pricing, here 
 ## Architectural Lessons for AI Engineering Teams
 
 1. **Never Scrape Raw Boilerplate**: Passing unscrubbed HTML (navbars, footers, tracking scripts) to an LLM burns 85% of your token budget on junk. Credence's DOM scrubber strips boilerplate before inference.
-2. **Decouple Thinking Budgets by Risk**: Routine news wire audits need 1,024 thinking tokens; complex financial disclosures warrant 4,096 tokens. A one-size-fits-all prompt is financial negligence.
+2. **Decouple Thinking Budgets by Risk**: Routine news wire audits need 1,024 thinking tokens; complex financial disclosures warrant 4,096 tokens. A one-size-fits-all prompt is financial negligence (see [The 4,000 Token Trance](/blog/the-4000-token-trance)).
 3. **Scale to Zero**: Background batch jobs run in bursts. Paying for idle VM daemons during quiet night hours is completely unnecessary with Cloud Run v2.
 
 ---
@@ -90,9 +90,9 @@ $ poetry run pytest tests/ -k "case_study_dual_tier_finops" -v
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
-| **Multi-Model Sovereignty** | `inv-multi-model-sovereignty` | On every evaluation | Dynamic fallback with 30% quota headroom preservation |
-| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
-| **Attestation Custody** | `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
-| **Grounding Precision** | `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Multi-Model Sovereignty** | [`inv-multi-model-sovereignty`](/docs/invariants#inv-multi-model-sovereignty) | On every evaluation | Dynamic fallback with 30% quota headroom preservation |
+| **Hermetic Isolation** | [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests) | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody** | [`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519) | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision** | [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding) | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
 
 By enforcing these automated invariant gates, Credence guarantees that low cost never comes at the expense of cryptographic rigor and epistemic grounding.

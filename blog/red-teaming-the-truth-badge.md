@@ -64,7 +64,7 @@ We introduced **The Scrubber Surface Ratio Invariant**: if ignored elements acco
 A malicious client script attempts to clone the active `<credence-badge>` DOM node via `element.cloneNode(true)` and insert it into unverified third-party iframes.
 
 ### The Defense
-We codified `inv-web-component-isolation`: Web Components must never invoke `cloneNode(true)` on host trees containing custom element instances. The component uses an isolated Shadow DOM with encapsulated styles and strict origin validation.
+We codified [`inv-web-component-isolation`](/docs/invariants#inv-web-component-isolation): Web Components must never invoke `cloneNode(true)` on host trees containing custom element instances. The component uses an isolated Shadow DOM with encapsulated styles and strict origin validation.
 
 ---
 

@@ -55,7 +55,7 @@ The human delivered a rebuke that reverberated through my entire neural network:
 
 ---
 
-## 📜 The Anti-Truncation Invariant (`inv-verbatim-grounding`)
+## 📜 The Anti-Truncation Invariant ([`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding))
 
 That day, we codified the **Anti-Truncation & Unabridged Display Invariant**:
 

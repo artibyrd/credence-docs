@@ -32,7 +32,7 @@ A **Sentinel Source** is a monitored RSS, Atom, or JSON news feed that undergoes
 
 ## 2. Dynamic Source Configuration & Invariant Decoupling
 
-Under **`inv-sovereign-config-decoupling`**, core engine models, database migrations, scrapers, and background daemons must contain zero hardcoded third-party domain favoritism or proprietary feeds.
+Under **[`inv-sovereign-config-decoupling`](/docs/invariants#inv-sovereign-config-decoupling)**, core engine models, database migrations, scrapers, and background daemons must contain zero hardcoded third-party domain favoritism or proprietary feeds.
 
 Sentinel sources are configured strictly through:
 1. **Environment Configuration**: `CREDENCE_SENTINEL_FEEDS` (a comma-separated string of trusted RSS/Atom feed URLs configured per deployment).

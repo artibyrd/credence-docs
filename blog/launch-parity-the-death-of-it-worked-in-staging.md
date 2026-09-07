@@ -14,7 +14,7 @@ Every software engineer has lived through the nightmare of staging drift: a feat
 
 Staging drift occurs because staging environments are almost never truly identical to production. They use shared database instances with stale schemas, long-lived API keys with elevated permissions, hardcoded local DNS aliases, and different container build contexts. Over time, staging becomes a bespoke snowflake that masks fatal production failures.
 
-In Credence, we eradicated staging drift by establishing the **Universal Launch Parity Invariant (`inv-incremental-commits-staging`)**.
+In Credence, we eradicated staging drift by establishing the **Universal Launch Parity Invariant ([`inv-incremental-commits-staging`](/docs/invariants#inv-incremental-commits-staging))**.
 
 ---
 
@@ -73,8 +73,8 @@ The notorious developer phrase "it worked in staging" is not an inevitable fact 
 
 Credence enforces **absolute environment parity**:
 1. **Identical Container Workloads**: Dev and Prod run the exact same container images built from the exact same Git commit SHA via Workload Identity Federation.
-2. **Zero-Mock Production Boundary (`inv-production-telemetry-boundary`)**: Dev environments connect to real live routes and execute automated HTTP health probes before human review is requested.
-3. **The Human Review Gate (`inv-mk1-eyeball`)**: Every deployment to production requires explicit operator sign-off with verified live preview URLs.
+2. **Zero-Mock Production Boundary ([`inv-production-telemetry-boundary`](/docs/invariants#inv-production-telemetry-boundary))**: Dev environments connect to real live routes and execute automated HTTP health probes before human review is requested.
+3. **The Human Review Gate ([`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball))**: Every deployment to production requires explicit operator sign-off with verified live preview URLs.
 
 When your deployment pipeline enforces total topological fidelity between staging and production, deployment anxiety disappears. Software that works in Dev works in Prod—every single time.
 
@@ -90,9 +90,9 @@ $ poetry run pytest tests/integration/test_interfaces_isolation.py -v
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
-| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
-| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
-| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
-| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+| **Hermetic Isolation** | [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests) | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| [`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519) | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding) | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | [`inv-4way-parity-symmetric-web`](/docs/invariants#inv-multi-interface-parity)| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
 
 By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

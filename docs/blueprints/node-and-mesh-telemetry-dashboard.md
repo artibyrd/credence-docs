@@ -10,7 +10,7 @@ sidebar:
 
 # Technical Blueprint: Operator Telemetry & Mesh Dashboard
 
-This technical blueprint specifies the architecture of the **Operator Telemetry & Mesh Dashboard** (`credence.nexus` and `admin.credence.run`), enforcing strict real-time data streaming, in-memory ring buffers, and the **Zero-Mock Production Boundary Invariant (`inv-production-telemetry-boundary`)**.
+This technical blueprint specifies the architecture of the **Operator Telemetry & Mesh Dashboard** (`credence.nexus` and `admin.credence.run`), enforcing strict real-time data streaming, in-memory ring buffers, and the **Zero-Mock Production Boundary Invariant ([`inv-production-telemetry-boundary`](/docs/invariants#inv-production-telemetry-boundary))**.
 
 ---
 

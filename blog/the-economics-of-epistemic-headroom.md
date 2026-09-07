@@ -14,7 +14,7 @@ In the world of autonomous AI systems, managing API rate limits and financial sp
 
 Everything runs smoothly until a breaking news cycle triggers a surge of syndicated articles. The background worker aggressively calls frontier reasoning models, rapidly consuming all Tokens Per Minute (TPM) and Requests Per Day (RPD). Suddenly, developers pairing interactively with AI coding assistants (Claude Desktop, Cursor, Antigravity) are locked out with cryptic `429 ResourceExhausted` errors. Development grinds to a dead halt.
 
-To solve this shared resource tragedy, Credence established the **Epistemic Headroom Invariant (`inv-multi-model-sovereignty`)**.
+To solve this shared resource tragedy, Credence established the **Epistemic Headroom Invariant ([`inv-multi-model-sovereignty`](/docs/invariants#inv-multi-model-sovereignty))**.
 
 ---
 

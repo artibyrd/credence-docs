@@ -13,7 +13,7 @@ since_version: v2.1.0
 
 When a news organization publishes a story, the text is rarely set in stone. Sometimes breaking information warrants an immediate update. Other times, a factual inaccuracy requires a prominent correction. And in darker corners of the web, authors quietly scrub defamatory rumors or inject sponsored links into aged viral articles—a practice known as **stealth editing**.
 
-In **Credence v2.1.0**, we introduce the **Temporal Content & Score History Tracking Engine**. Here is a forensic look at what our multi-agent pipeline sees when an article is modified.
+In **Credence v2.1.0**, we introduce the **Temporal Content & Score History Tracking Engine** (specified in [Multi-Model Evaluation & Diffs](/docs/blueprints/multi-model-evaluation-and-diffs) and interactive via the [Temporal Evolution Simulator Lab](/docs/lab-content-evolution)). Here is a forensic look at what our multi-agent pipeline sees when an article is modified.
 
 > [!NOTE]
 > ### 🔍 Forensic Simulation & Differential Mechanics
@@ -32,8 +32,8 @@ Consider a breaking news report that initially cited an unverified social media 
 
 ### What Credence Sees:
 1. **Editorial Notice Detection**: `extract_editorial_notices()` identifies the formal `[Correction: ...]` block.
-2. **Grounding Verification**: The new DOI link is validated against peer-reviewed academic registries ($G=1.00$).
-3. **Violation Resolution**: The initial `SPJ-1.1` (Unverified Anonymous Claim) is marked resolved.
+2. **Grounding Verification**: The new DOI link is validated against peer-reviewed academic registries ([$G=1.00$ under `inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding)).
+3. **Violation Resolution**: The initial [`SPJ-1.1`](/docs/cookbooks/taxonomy-engineering) (Unverified Anonymous Claim) is marked resolved.
 4. **Trajectory Output**: Suspicion score plummets from **45.0** (Notable Flags) to **2.1** (Pristine), recording a **$\Delta S = -42.9$ pts** trust improvement on the public history dashboard.
 
 ---
@@ -62,7 +62,7 @@ Credence tracks article evolution using a multi-layered differential analysis pi
 | :--- | :--- | :--- | :--- |
 | **Stealth Retraction** | Deletion of factual assertion without editor note | High Suspicion ($S \ge 65.0$) | Gossip alert to peer subscribers |
 | **Transparent Correction** | Editor notice with explicit correction date | Neutral / Positive ($S \le 20.0$) | Updated attestation linked to parent |
-| **Astroturf Spin** | Rephrasing marketing copy with identical keywords | Entropy collapse ($H < 0.30$) | Flagged in syndicated sifter digest |
+| **Astroturf Spin** | Rephrasing marketing copy with identical keywords | [Entropy collapse ($H < 0.30$)](/blog/case-study-astroturfing-entropy) | Flagged in [syndicated sifter digest](/docs/tutorials/09-zero-trust-feed-sifter-digest) |
 
 ```python
 from credence.pipeline.temporal_diff import compute_evolution_delta
@@ -81,9 +81,9 @@ By continuously computing the SimHash bitwise distance ($d_H$) and syntactic dri
 
 Modern web publishing treats the web as ephemeral: URLs stay the same while the text underneath mutates invisibly. Credence counters this ephemerality by decoupling an article's public URL from its immutable cryptographic reality.
 
-1. **Content-Addressable Snapshots (CAS)**: Every ingested version of an article is hashed using RFC 8785 canonical bytes and stored by its SHA-256 digest (`cas://<sha256>`). A URL is merely a temporal pointer (`url -> [sha256_v1, sha256_v2, ...]`).
+1. **[Content-Addressable Snapshots (CAS)](/docs/blueprints/sovereign-data-gravity-and-cas-portability)**: Every ingested version of an article is hashed using RFC 8785 canonical bytes and stored by its SHA-256 digest (`cas://<sha256>`). A URL is merely a temporal pointer (`url -> [sha256_v1, sha256_v2, ...]`).
 2. **Directed Acyclic Evolution Graphs (DAG)**: Subsequent edits form an append-only parent-child lineage. If an author alters three paragraphs, Credence generates a structured sentence-level delta map detailing exactly what changed, what was deleted, and what was inserted.
-3. **The Delta Score Metric ($\Delta S$)**: Credence computes both absolute scores ($S_t$) and trajectory velocity ($\Delta S = S_t - S_{t-1}$). An honest correction triggers a sharp negative delta ($\Delta S < -25$), earning an editorial transparency badge. Conversely, stealth changes trigger a positive spike ($\Delta S > +30$).
+3. **The Delta Score Metric ($\Delta S$)**: Credence computes both absolute scores ($S_t$) and trajectory velocity ($\Delta S = S_t - S_{t-1}$). An honest correction triggers a sharp negative delta ($\Delta S < -25$), earning an [editorial transparency badge](/docs/lab-badge-security). Conversely, stealth changes trigger a positive spike ($\Delta S > +30$).
 
 ---
 ## Conclusion: Four Golden Rules for Newsroom Editorial Hygiene

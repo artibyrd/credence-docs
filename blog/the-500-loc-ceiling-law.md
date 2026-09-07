@@ -17,7 +17,7 @@ Every codebase starts clean. But as features accumulate, files quietly grow into
 
 When a single file reaches 1,500 lines of code, nobody understands its full internal state. Functions develop hidden interdependencies, test isolation becomes impossible, and AI coding assistants struggle with context window degradation. Refactoring becomes an exercise in fear.
 
-To permanently prevent monolith creep, Credence established **The 500 LOC Ceiling Law (`inv-architecture-governance`)**.
+To permanently prevent monolith creep, Credence established **The 500 LOC Ceiling Law ([`inv-architecture-governance`](/docs/invariants#inv-500-loc-ceiling-law))**.
 
 ---
 

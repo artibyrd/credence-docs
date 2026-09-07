@@ -52,7 +52,7 @@ Before examining the raw tournament data, it is essential to understand what eac
 The F1 score is the harmonic mean of **Precision** (avoiding false accusations against legitimate journalism) and **Recall** (catching real deception, astroturfing, and undisclosed conflicts of interest). In fact-checking, F1 measures overall diagnostic truth detection. A score above **0.980** indicates near-flawless discrimination between authentic investigative reporting, subtle satire, and coordinated manipulation.
 
 ### 2. Verbatim Grounding ($G$: 0.000 to 1.000) — Why Isn't It 1.000 Across the Board?
-In Credence, Invariant `inv-verbatim-grounding` requires that every single citation extracted by a model must match the source HTML character-for-character ($G=1.000$). If a citation is fabricated or altered, the audit is rejected.
+In Credence, Invariant [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding) requires that every single citation extracted by a model must match the source HTML character-for-character ($G=1.000$). If a citation is fabricated or altered, the audit is rejected.
 
 **Why is grounding NOT 1.000 for every model?** Because models hallucinate. Smaller edge models (such as Gemma 2 27B at $G=0.978$ and Jamba 1.5 Mini at $G=0.981$) occasionally truncate quotes, drop punctuation, or paraphrase phrases. Even worse, unconstrained flagships with excessive thinking budgets ($G=0.667$) invent entire phantom sentences that never existed in the source document.
 
@@ -141,8 +141,8 @@ To isolate the mechanism, we executed systematic thinking token sweeps (0, 1024,
 The data proves the existence of **three distinct cognitive phases**:
 
 1. **Phase 1: Rapid Syllogistic Ascent (0 -> 1,024 tokens)**: Introducing just 1,024 thinking tokens produces a massive **+14.0% accuracy leap** (82.4% -> 96.4%). The model decomposes compound sentences into atomic, testable claims.
-2. **Phase 2: Forensic Grounding (1,024 -> 4,096 tokens)**: Thinking tokens allow the model to cross-reference extracted quotes against the exact character offsets in the source DOM, achieving **100% verbatim grounding ($G=1.000$)** and correctly neutralizing comedic hyperbole (Poe's Law compliance).
-3. **Phase 3: The 4,000 Token Trance (> 4,096 tokens)**: Beyond 4,096 tokens, marginal accuracy gains collapse to **less than 0.5%**, while latency explodes past 9 seconds. More dangerously, models engage in circular semantic looping: they begin over-scrutinizing deadpan jokes as sinister disinformation campaigns, inventing non-existent ethical violations and hallucinating evidence.
+2. **Phase 2: Forensic Grounding (1,024 -> 4,096 tokens)**: Thinking tokens allow the model to cross-reference extracted quotes against the exact character offsets in the source DOM, achieving **100% verbatim grounding ($G=1.000$)** and correctly neutralizing comedic hyperbole ([Poe's Law compliance](/blog/poes-law-and-the-satire-cloak)).
+3. **Phase 3: The 4,000 Token Trance (> 4,096 tokens)**: Explored in depth in [The 4,000 Token Trance](/blog/the-4000-token-trance), beyond 4,096 tokens marginal accuracy gains collapse to **less than 0.5%**, while latency explodes past 9 seconds. More dangerously, models engage in circular semantic looping: they begin over-scrutinizing deadpan jokes as sinister disinformation campaigns, inventing non-existent ethical violations and hallucinating evidence.
 
 Large models trained for open-ended creative reasoning attempt to generate nuance where none exists. Fact-checking requires **epistemic discipline**, not imaginative extrapolation.
 
@@ -153,15 +153,15 @@ Large models trained for open-ended creative reasoning attempt to generate nuanc
 The empirical data yields four foundational conclusions that govern how production verification systems must be designed:
 
 ### Conclusion 1: The 3-Tier Execution Funnel (98% Cost Reduction)
-Never deploy a monolithic model across an entire ingestion pipeline. Credence implements a **3-Tier Sifting Funnel**:
-* **Tier 0 (Deterministic AST Pre-Filter — 0.15ms, $0.00)**: Structural regex and DOM parsers screen 100% of incoming articles. Roughly 35% of programmatic spam, missing bylines, and malformed syndication articles are flagged or cleared without spending a single LLM token.
+Never deploy a monolithic model across an entire ingestion pipeline. Credence implements a **3-Tier Sifting Funnel** (modeled in our [Dual-Tier FinOps Thought Experiment](/blog/case-study-dual-tier-finops)):
+* **Tier 0 (Deterministic AST Pre-Filter — 0.15ms, $0.00)**: Structural regex and DOM parsers screen 100% of incoming articles. As proven in [The Heuristic Ceiling](/blog/case-study-the-heuristic-ceiling), deterministic code clears ~35% of programmatic spam, missing bylines, and malformed syndication articles without spending a single LLM token.
 * **Tier 1 (Calibrated Fast Workhorse — 780ms, $0.34/1k)**: Gemini 3.8 Flash and Gemini 3.7 Flash (4k thinking) evaluate 95% of substantive content, identifying claims, checking local consensus, and neutralizing satire with 100% claim grounding.
-* **Tier 2 (High-Stakes Escalation Specialist — 4,650ms, Selective)**: Claude Opus 4.6 or Gemini 3.1 Pro are invoked *exclusively* when Tier 1 detects critical corporate conflicts of interest (`SPJ-1.6`) or contested multi-jurisdictional allegations.
+* **Tier 2 (High-Stakes Escalation Specialist — 4,650ms, Selective)**: Claude Opus 4.6 or Gemini 3.1 Pro are invoked *exclusively* when Tier 1 detects critical corporate conflicts of interest ([`SPJ-1.6`](/docs/cookbooks/taxonomy-engineering)) or contested multi-jurisdictional allegations.
 
 **The Architectural Result**: The system achieves the **0.994 accuracy ceiling** of flagship deliberation, but operates at a blended system cost of **under $0.40 per 1,000 audits**—a 98% savings compared to running a monolithic flagship.
 
 ### Conclusion 2: Bounded Deliberation Beats Unconstrained Thinking
-More compute does not automatically equal more truth. While coding or mathematical theorem proving benefits from 32,000 thinking tokens, epistemic verification exhibits a sharp inflection point at **4,096 tokens**. Capping the reasoning budget prevents the model from entering "cognitive satiation" and hallucinating bad-faith intent in ordinary journalistic prose.
+More compute does not automatically equal more truth. While coding or mathematical theorem proving benefits from 32,000 thinking tokens, epistemic verification exhibits a sharp inflection point at **4,096 tokens**. Capping the reasoning budget prevents the model from entering "cognitive satiation" and hallucinating bad-faith intent in ordinary journalistic prose (see [The 4,000 Token Trance](/blog/the-4000-token-trance)).
 
 ### Conclusion 3: Sovereign Mesh Viability is Proven Reality
 A persistent criticism of decentralized verification has been that self-hosted open-weights models cannot compete with proprietary hyperscaler models. Our tournament refutes this:
@@ -169,7 +169,7 @@ A persistent criticism of decentralized verification has been that self-hosted o
 * **Meta Llama 3.3 70B** delivered **0.971 F1** at **$0.56 / 1k audits**.
 * **AI21 Jamba 1.5 Mini** indexed live streaming feeds in **850ms** at **$0.40 / 1k audits**.
 
-An air-gapped node running an open-weights model in a local newsroom is fully equipped to participate as a peer in the Credence Byzantine consensus mesh without compromising verification rigor.
+An air-gapped node running an open-weights model in a local newsroom is fully equipped to participate as a peer in the Credence Byzantine consensus mesh (specified in the [P2P Mesh Protocol](/docs/protocols/mesh-protocol)) without compromising verification rigor.
 
 ### Conclusion 4: The Economic Law of Ambient Truth
 Truth verification cannot scale if it remains a luxury good.
@@ -209,8 +209,8 @@ $ poetry run pytest tests/integration/test_thinking_token_benchmark.py -v
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
-| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero unmocked external dependencies in CI |
-| **Model Sovereignty** | `inv-multi-model-sovereignty` | Pre-commit | Complete 14-model hybrid tournament roster coverage |
-| **Spend Governance** | `inv-sovereign-config-decoupling` | Release gate | 2-Tier governance capping total tournament spend <= $6.00 |
-| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
-| **Shift-Left Gate 11** | `inv-cart-before-horse` | Pre-merge | Empirical calibration results persisted in `data/benchmarks/` |
+| **Hermetic Isolation** | [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests) | Pre-commit (<35s) | Zero unmocked external dependencies in CI |
+| **Model Sovereignty** | [`inv-multi-model-sovereignty`](/docs/invariants#inv-multi-model-sovereignty) | Pre-commit | Complete 14-model hybrid tournament roster coverage |
+| **Spend Governance** | [`inv-sovereign-config-decoupling`](/docs/invariants#inv-sovereign-config-decoupling) | Release gate | 2-Tier governance capping total tournament spend <= $6.00 |
+| **Grounding Precision**| [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding) | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Shift-Left Gate 11** | [`inv-cart-before-horse`](/docs/invariants#inv-cart-before-horse) | Pre-merge | Empirical calibration results persisted in `data/benchmarks/` |

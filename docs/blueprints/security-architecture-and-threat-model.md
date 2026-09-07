@@ -69,10 +69,10 @@ Credence is engineered to withstand adversarial attacks across network, parsing,
 
 | Threat Vector | Attack Mechanism | Credence Defense Invariant | Implementation Subsystem |
 | :--- | :--- | :--- | :--- |
-| **SSRF & Metadata Exfiltration**| Probing `169.254.169.254` | `inv-untrusted-ingestion` | Network pre-request IP filter |
+| **SSRF & Metadata Exfiltration**| Probing `169.254.169.254` | [`inv-untrusted-ingestion`](/docs/invariants#inv-untrusted-ingestion) | Network pre-request IP filter |
 | **XML Bomb / DoS** | Deeply nested DTD entity expansions | Reject `<!DOCTYPE` / `<!ENTITY>` | Fast HTML parser sanitization |
 | **Prompt Injection Smuggling** | Hidden instructions in HTML comments | Wrap inputs in XML wrappers | `<untrusted_source_text>` isolation |
-| **Bait-and-Switch Tampering**| Modifying article text post-audit | `inv-canonical-json-ed25519` | SHA-256 CAS digest validation |
+| **Bait-and-Switch Tampering**| Modifying article text post-audit | [`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519) | SHA-256 CAS digest validation |
 | **Sybil Cartel Smears** | Colluding nodes submitting fake 0.0 scores| Weighted Bayesian Medians | $3f+1$ Byzantine isolation |
 
 ---
@@ -115,9 +115,9 @@ $ poetry run pytest tests/integration/test_widget_security_redteam.py -v
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
-| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
-| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
-| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
-| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+| **Hermetic Isolation** | [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests) | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| [`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519) | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding) | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | [`inv-4way-parity-symmetric-web`](/docs/invariants#inv-multi-interface-parity)| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
 
 By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

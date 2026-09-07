@@ -16,7 +16,7 @@ If an article is published by a prestigious legacy newsroom, written by an autho
 
 In the digital era, this credentialist trust model has collapsed. Legacy outlets routinely publish unverified anonymous claims, sponsored advertorials, and sensationalized headlines, relying on their historical prestige to shield them from accountability. Conversely, independent investigative bloggers and citizen watchdogs often break deeply researched stories backed by primary source documents, only to be dismissed because they lack formal institutional backing.
 
-Credence was built on a radical philosophical principle: **The Anti-Diploma Invariant (`inv-verbatim-grounding`)**.
+Credence was built on a radical philosophical principle: **The Anti-Diploma Invariant ([`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding))**.
 
 ---
 
@@ -50,7 +50,7 @@ Truth is not an aristocratic title bestowed by a university or a media conglomer
 
 In traditional credentialing systems, trust is conferred by institutional stamps: a university degree, a corporate job title, or a social media verification badge. In decentralized epistemic networks, institutional credentials are fundamentally ungrounded—they can be purchased, faked, or co-opted.
 
-Credence enforces the **Anti-Diploma Invariant (`inv-epistemic-merit`)**: trust is earned exclusively through measurable, character-grounded audit precision over time.
+Credence enforces the **Anti-Diploma Invariant ([`inv-epistemic-merit`](/docs/invariants#inv-5factor-node-quality))**: trust is earned exclusively through measurable, character-grounded audit precision over time.
 
 | Epistemic Verification Model | Trust Anchor Source | Sybil / Forgery Vulnerability | Dynamic Accuracy Score |
 | :--- | :--- | :--- | :--- |

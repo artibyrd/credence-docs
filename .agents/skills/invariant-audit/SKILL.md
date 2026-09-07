@@ -94,7 +94,7 @@ This skill enforces the **3-Tier Invariant Scalability Architecture** across fiv
   $$\mathcal{F}_1 \ge 0.87, \quad \text{Precision} \ge 0.90, \quad \text{Recall} \ge 0.85, \quad \text{FPR}_{\text{golden}} = 0.00\%, \quad G = 1.00$$
 - **CAS Pinning**: Ratified standards are pinned using RFC 8785 canonical JSON bytes and SHA-256 CAS hashes with dynamic hot-reload into `TaxonomyRegistry`.
 
-### 11. Zero-Mock Telemetry Boundary Audit (`inv-production-telemetry-boundary`)
+### 11. Zero-Mock Telemetry Boundary Audit ([`inv-production-telemetry-boundary`](/docs/invariants#inv-production-telemetry-boundary))
 - **Real Node Reality**: Asserts that production operator dashboards (`credence.nexus`, `credence.report`, `admin.credence.run`, `credence.foundation`) never fall back to fake simulated datasets (`getDemoData()`, zeroed hashes, fake `setTimeout`).
 - **Genesis State**: Fresh, unpeered nodes report authentic `STANDALONE (UNPEERED)` status ($N=1, f=0$) with authentic receipts or an explicit disconnected state.
 

@@ -82,7 +82,7 @@ To ensure that future development passes cannot accidentally reintroduce mock da
 
 ## 4. The Engineering Lesson
 
-The core heuristic of the **Zero-Mock Production Boundary (`inv-production-telemetry-boundary`)** is simple:
+The core heuristic of the **Zero-Mock Production Boundary ([`inv-production-telemetry-boundary`](/docs/invariants#inv-production-telemetry-boundary))** is simple:
 
 > **A dashboard that shows zero audits and an error state is infinitely more valuable than a dashboard that shows pretty, hallucinated metrics.**
 

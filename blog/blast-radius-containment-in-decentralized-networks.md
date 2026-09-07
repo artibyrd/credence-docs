@@ -51,7 +51,7 @@ When autonomous nodes fetch external web URLs for ethical and factual evaluation
 - **Cloud Metadata Interception**: Querying `http://169.254.169.254/computeMetadata/v1/` to steal container service account tokens.
 - **Localhost Loopback Pivoting**: Attempting to access internal admin ports (`http://localhost:8765/admin`).
 
-Credence enforces strict ingestion defense in accordance with `inv-untrusted-ingestion`:
+Credence enforces strict ingestion defense in accordance with [`inv-untrusted-ingestion`](/docs/invariants#inv-untrusted-ingestion):
 - All IP addresses are resolved before socket initialization. Link-local (`169.254.0.0/16`), loopback (`127.0.0.0/8`), and private RFC 1918 networks are permanently blacklisted at the kernel level.
 - Maximum redirect chains are clamped to $\le 3$ hops, with SSL certificates enforced unconditionally.
 
@@ -73,7 +73,7 @@ By constraining failure to isolated cryptographic cells, Credence ensures that t
 Decentralized networks cannot rely on polite assumptions. In an open environment where any anonymous peer can send attestations or feed inputs, system survival depends entirely on **blast radius containment**.
 
 A single malicious payload, compromised node key, or adversarial cloud SSRF attempt must never threaten the wider network. By enforcing three non-negotiable containment boundaries:
-1. **Kernel-Level Network Ingress Fences (`inv-untrusted-ingestion`)**: Hard-blocking loopback, cloud metadata endpoints (`169.254.169.254`), and private RFC 1918 addresses before TCP socket allocation,
+1. **Kernel-Level Network Ingress Fences ([`inv-untrusted-ingestion`](/docs/invariants#inv-untrusted-ingestion))**: Hard-blocking loopback, cloud metadata endpoints (`169.254.169.254`), and private RFC 1918 addresses before TCP socket allocation,
 2. **Cellular Attestation Isolation**: Quarantining compromised Ed25519 signing keys through automated Bayesian reputation slashing and gossip revocation without requiring central administrative intervention, and
 3. **Hermetic In-Memory Process Boundaries**: Ensuring that individual audit failures and memory corruptions remain strictly confined to transient worker threads,
 

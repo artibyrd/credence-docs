@@ -14,7 +14,7 @@ This technical blueprint specifies the **Multi-Model Evaluation Comparison Matri
 
 ---
 
-## 1. Multi-Model Sovereignty (`inv-multi-model-sovereignty`)
+## 1. Multi-Model Sovereignty ([`inv-multi-model-sovereignty`](/docs/invariants#inv-multi-model-sovereignty))
 
 Credence firmly rejects single-model epistemic monopolies. Relying exclusively on any single proprietary AI model creates systemic blind spots, vendor lock-in, and susceptibility to model-specific hallucinations or alignment drifts.
 

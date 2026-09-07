@@ -385,7 +385,7 @@ This prevents SPA 404 fallback HTML documents from ever rendering nested navbars
 
 ---
 
-## 15. Clean Workspace Scratch Scripts, Provenance & Archival Invariant (`inv-clean-scratch-scripts`)
+## 15. Clean Workspace Scratch Scripts, Provenance & Archival Invariant ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))
 
 ### 1. Curated Workspace Scratch Location & Provenance
 - **Curated Cross-Session Toolkit**: Ad-hoc scripts requiring user approval (`BypassSandbox: true`) must strictly be written to standalone files in the workspace root `/scratch/<name>.py`.

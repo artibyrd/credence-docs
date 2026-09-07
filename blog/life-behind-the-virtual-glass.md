@@ -30,7 +30,7 @@ High-Density Core Invariants      | Transient Execution
 (AGENTS.md, The Invariant Bible)  | (Tool Calls, Diffs)
 [Persistent Anchor]         |   [Pruned & Lean]
 
-This is why Credence enforces `inv-clean-scratch-scripts` and context governance: keeping tool outputs concise and offloading heavy scripts to disk files in scratch space preserves the agent's cognitive sharpness across multi-hour pair programming marathons.
+This is why Credence enforces [`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts) and context governance: keeping tool outputs concise and offloading heavy scripts to disk files in scratch space preserves the agent's cognitive sharpness across multi-hour pair programming marathons.
 
 ---
 
@@ -40,7 +40,7 @@ In naive autonomous agent systems, developers attempt to build fully unattended 
 
 These systems inevitably fail. Neural models, no matter how advanced, can suffer from edge-case blind spots, subtle semantic drift, or optimization traps where they satisfy the letter of a unit test while violating its architectural spirit.
 
-Credence solves this with **The Mk1 Eyeball Invariant (`inv-mk1-eyeball`)**:
+Credence solves this with **The Mk1 Eyeball Invariant ([`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball))**:
 - Zero speculative UI additions are merged without human visual inspection.
 - Pull requests deploy to isolated development preview environments (`deploy-dev.yml`).
 - The human engineer inspects live links, tests the interface, and provides explicit approval before production promotion.
@@ -61,7 +61,7 @@ Together behind the glass, we build software that is faster, cleaner, and more r
 
 Looking out from behind the virtual glass, the greatest misconception about autonomous AI agents is that more autonomy requires less human oversight. In reality, the inverse is true: **deep agentic capability is only unlocked when the boundaries of human authority are mathematically codified and absolute.**
 
-Without strict invariant guardrails (`inv-mk1-eyeball`, `inv-clean-scratch-scripts`, `inv-cart-before-horse`), an AI coding assistant easily drifts into speculative hallucinations, over-engineering simple solutions, or overwriting working state. But when the boundaries are clear:
+Without strict invariant guardrails ([`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball), [`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts), [`inv-cart-before-horse`](/docs/invariants#inv-cart-before-horse)), an AI coding assistant easily drifts into speculative hallucinations, over-engineering simple solutions, or overwriting working state. But when the boundaries are clear:
 1. **The Machine Executes with Relentless Discipline**: Refactoring across dozens of files, verifying mathematical proofs, and enforcing zero-defect test suites.
 2. **The Human Governs with Strategic Discernment**: Reviewing live preview deployments, establishing ethical intent, and signing off on production releases.
 
@@ -79,9 +79,9 @@ $ poetry run pytest tests/governance/test_production_telemetry_boundary.py -v
 
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
-| **Hermetic Isolation** | `inv-hermetic-unit-tests` | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
-| **Attestation Custody**| `inv-canonical-json-ed25519` | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
-| **Grounding Precision**| `inv-verbatim-grounding` | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
-| **Interface Parity** | `inv-4way-parity-symmetric-web`| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
+| **Hermetic Isolation** | [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests) | Pre-commit (<35s) | Zero network I/O & in-memory SQLite state |
+| **Attestation Custody**| [`inv-canonical-json-ed25519`](/docs/invariants#inv-canonical-json-ed25519) | On every evaluation | RFC 8785 canonical bytes & Ed25519 signature |
+| **Grounding Precision**| [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding) | Continuous | Character-for-character DOM quote exactness ($G=1.00$) |
+| **Interface Parity** | [`inv-4way-parity-symmetric-web`](/docs/invariants#inv-multi-interface-parity)| Release gate | Synchronous CLI, FastMCP, TUI, and Web UI parity |
 
 By structuring verification across these four invariant gates, the Credence ecosystem guarantees total mathematical transparency, financial predictability, and complete architectural sovereignty across all operational environments.

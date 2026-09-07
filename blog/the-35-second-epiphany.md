@@ -91,7 +91,7 @@ Keep your browsers in end-to-end testing, keep your unit tests hermetic, and pro
 
 The core realization of **The 35-Second Epiphany** is that developer velocity is non-linear: a test suite that takes 8 minutes destroys cognitive flow, encouraging engineers to batch up massive, risky commits and cross their fingers. A test suite that runs in 28 seconds changes human behavior completely.
 
-To protect this sacred feedback loop, Credence codified `inv-hermetic-unit-tests`:
+To protect this sacred feedback loop, Credence codified [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests):
 1. **Zero Browser Runtimes in Unit CI**: Headless browsers belong exclusively in staged smoke tests, never in the fast-inner-loop unit suite.
 2. **In-Memory SQLite State**: All databases, cache tables, and cryptographic registries spin up and tear down in RAM in milliseconds.
 3. **Zero Network I/O**: Network sockets are banned during unit test runs, ensuring zero flaky failures caused by external API rate limits or third-party cloud outages.

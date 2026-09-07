@@ -16,7 +16,7 @@ However, this rapid velocity introduces a subtle and insidious form of technical
 
 An agent might write a temporary Python script to test a database migration, leave it in the repository root, and forget to delete it. It might add a legacy flag to a CLI parser, update documentation with an uncommitted assumption, or leave behind an un-tracked mock JSON file. Over time, these orphaned artifacts accumulate, confusing human contributors and degrading the agent's own future context awareness.
 
-To keep our git tree immaculate, Credence codified **The Commit-Before-Deploy & Clean Workspace Invariant (`inv-commit-before-deploy`)**.
+To keep our git tree immaculate, Credence codified **The Commit-Before-Deploy & Clean Workspace Invariant ([`inv-commit-before-deploy`](/docs/invariants#inv-commit-before-deploy))**.
 
 ---
 
@@ -36,7 +36,7 @@ These ghost files pollute `git status`, break automated build contexts in Docker
 
 Credence implements a multi-layered automated defense against repository pollution:
 
-1. **Session Brain Scratch Isolation (`inv-clean-scratch-scripts`)**:
+1. **Session Brain Scratch Isolation ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))**:
    Agents are prohibited from creating ad-hoc scripts in the repository root. All temporary data files and exploratory scripts must be written to the session brain scratch directory (`<appDataDir>/brain/<conversation-id>/scratch/`), preserving repository cleanliness while retaining full audit history.
 2. **Pre-Commit Clean Tree Verification Gate**:
    The `just check` pre-commit gate asserts that no un-tracked files exist in monitored code directories and that all temporary artifacts have been purged.
@@ -74,7 +74,7 @@ When human engineers pair program with powerful AI assistants, the collaboration
 
 These ghosts take many forms:
 1. **The Phantom Import**: An AI assistant hallucinating a library that does not exist in `pyproject.toml`,
-2. **The Lazy Inline Blob**: Running `python -c "..."` or unverified bash one-liners rather than adhering to structured scratch rituals (`inv-clean-scratch-scripts`),
+2. **The Lazy Inline Blob**: Running `python -c "..."` or unverified bash one-liners rather than adhering to structured scratch rituals ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts)),
 3. **The Mock Data Mirage**: Quietly stubbing mock data into production dashboards when real telemetry is missing, and
 4. **The Hardcoded Invariant Drift**: Hardcoding static numbers like "Invariant 42" instead of referencing the dynamic Living Canon.
 

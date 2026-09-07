@@ -39,7 +39,7 @@ In Credence, frontier reasoning models are never used for tasks that can be perf
 LLMs are reserved strictly for high-dimensional semantic deduction: dissecting syllogistic logic and extracting nuanced logical fallacies.
 
 ### 2. Enforce Hard Spending Floors
-Software cannot rely on the goodwill of cloud providers. Credence enforces strict token safety governors (`inv-multi-model-sovereignty`), capping daily spend at predictable sub-dollar budgets ($0.50/day) with automatic offline fallback buffers.
+Software cannot rely on the goodwill of cloud providers. Credence enforces strict token safety governors ([`inv-multi-model-sovereignty`](/docs/invariants#inv-multi-model-sovereignty)), capping daily spend at predictable sub-dollar budgets ($0.50/day) with automatic offline fallback buffers.
 
 ---
 

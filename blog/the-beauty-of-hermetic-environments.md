@@ -16,7 +16,7 @@ A simple pull request that modifies ten lines of logic often triggers a 20-minut
 
 When CI takes 20 minutes, developers stop testing locally. They push broken commits, context-switch to other tasks, and wait for GitHub Actions to alert them. Development velocity collapses, and subtle bugs slip into production.
 
-Credence rejected this paradigm by establishing `inv-hermetic-unit-tests`: **The Hermetic In-Memory Test Invariant**.
+Credence rejected this paradigm by establishing [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests): **The Hermetic In-Memory Test Invariant**.
 
 ---
 

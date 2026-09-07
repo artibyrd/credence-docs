@@ -50,9 +50,9 @@ The Universal Starter Pack consists of 25+ portable invariants organized across 
 
 | Cognitive Class | Scope & Focus | Primary Universal Invariants |
 | :--- | :--- | :--- |
-| **Class α (Alpha)** | Sovereign Safety, Custody & Human Authority | `inv-mk1-eyeball`, `inv-clean-scratch-scripts`, `inv-untrusted-ingestion`, `inv-verbatim-anti-truncation` |
-| **Class β (Beta)** | Execution Topology, Lifecycle & Release | `inv-cart-before-horse`, `inv-4phase-release-learning`, `inv-commit-before-deploy`, `inv-incremental-commits-staging`, `inv-hermetic-unit-tests`, `inv-3plane-governance` |
-| **Class γ (Gamma)** | Ergonomics, Symmetry & Presentation | `inv-progressive-disclosure`, `inv-epistemic-lensing`, `inv-multi-model-sovereignty`, `inv-multi-interface-parity`, `inv-zero-build-standards`, `inv-living-canon` |
+| **Class α (Alpha)** | Sovereign Safety, Custody & Human Authority | [`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball), [`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts), [`inv-untrusted-ingestion`](/docs/invariants#inv-untrusted-ingestion), [`inv-verbatim-anti-truncation`](/docs/invariants#inv-verbatim-anti-truncation) |
+| **Class β (Beta)** | Execution Topology, Lifecycle & Release | [`inv-cart-before-horse`](/docs/invariants#inv-cart-before-horse), [`inv-4phase-release-learning`](/docs/invariants#inv-4phase-release-learning), [`inv-commit-before-deploy`](/docs/invariants#inv-commit-before-deploy), [`inv-incremental-commits-staging`](/docs/invariants#inv-incremental-commits-staging), [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests), [`inv-3plane-governance`](/docs/invariants#inv-3plane-governance) |
+| **Class γ (Gamma)** | Ergonomics, Symmetry & Presentation | [`inv-progressive-disclosure`](/docs/invariants#inv-progressive-disclosure), [`inv-epistemic-lensing`](/docs/invariants#inv-epistemic-lensing), [`inv-multi-model-sovereignty`](/docs/invariants#inv-multi-model-sovereignty), [`inv-multi-interface-parity`](/docs/invariants#inv-multi-interface-parity), [`inv-zero-build-standards`](/docs/invariants#inv-zero-build-standards), [`inv-living-canon`](/docs/invariants#inv-living-canon) |
 
 ---
 

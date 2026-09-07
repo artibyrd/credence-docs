@@ -55,6 +55,8 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
 
 <div class="invariant-card" id="inv-workspace-isolation" data-scope="universal" data-class="beta">
 <a id="invariant-1"></a>
+<a id="inv-500-loc-ceiling-law"></a>
+<a id="inv-architecture-governance"></a>
 <div class="invariant-header">
   <div class="invariant-badges">
     <span class="invariant-badge badge-class-beta">Class β</span>
