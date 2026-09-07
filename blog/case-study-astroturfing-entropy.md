@@ -1,5 +1,5 @@
 ---
-title: 'Case Study: Unmasking Astroturfing Swarms with Lexical Topic Entropy'
+title: 'Architectural Blueprint: Unmasking Astroturfing Swarms with Lexical Topic Entropy & SimHash-64'
 description: How Shannon entropy calculations (H < 0.30) and SimHash clustering expose coordinated AI content farms in real time.
 since_version: v1.11.0
 verified_version: v2.19.0
@@ -8,18 +8,19 @@ sidebar:
   order: 2
 ---
 
-# Case Study: Unmasking Astroturfing Swarms with Lexical Topic Entropy
+# Architectural Blueprint: Unmasking Astroturfing Swarms with Lexical Topic Entropy & SimHash-64
 
 ![Figure 1.1: Shannon topic entropy collapse and SimHash mirror detection in astroturfing swarms](assets/illustrations/case-study-astroturfing-entropy.svg)
 
+> [!NOTE]
+> ### 📐 Architectural Specification & Detection Benchmark
+> The syndicate analyzed in this document is an **architectural workload model and detection specification**, modeling the "Pink Slime" local news network topologies documented by academic research (such as the Tow Center for Digital Journalism). The 32-domain Midwestern cluster serves as an integration test harness (`-k "case_study_astroturfing_entropy"`) to validate Credence's topic entropy collapse ($H < 0.30$) and SimHash-64 Hamming distance ($d_H \le 2$) algorithms against synthetic advertorial swarms.
 
-In late 2025, an investigative journalist alerted our team to a suspicious cluster of 32 local news websites operating across the American Midwest.
+Coordinated political and commercial operations increasingly deploy synthetic local news syndicates—colloquially known as "Pink Slime" networks—to manufacture artificial grassroots consensus. These syndicates spin up dozens of localized municipal mastheads (modeled in our benchmark suite with names like *The Canton Gazette*, *The Peoria Times*, and *The Fort Wayne Observer*) that publish nearly identical syndicated PR copy with only municipal tokens swapped out.
 
-On the surface, each website appeared to be an authentic municipal newspaper with names like *The Canton Gazette*, *The Peoria Times*, and *The Fort Wayne Observer*. They featured professional mastheads, localized weather widgets, and bylines attributed to local reporters.
+To validate Credence's automated defense against these deceptive networks, we modeled a 32-domain syndicate benchmark (`tests/integration/test_case_study_astroturfing_entropy.py`). When our automated sifter ingests feeds across the cluster, the epistemic telemetry triggers an immediate network alert: **Astroturfing Swarm Detected ($H_{\text{topic}} < 0.24, d_H \le 2$)**.
 
-However, when our automated sifter ingested feeds across all 32 domains, the epistemic telemetry triggered a massive network alert: **Astroturfing Swarm Detected ($H_{\text{topic}} < 0.24, d_H \le 2$)**.
-
-Here is the forensic dissection of how Credence unmasked this synchronized AI content farm.
+Here is the forensic breakdown of how Credence exposes synchronized content farms using information theory and locality-sensitive hashing.
 
 ---
 
@@ -60,17 +61,17 @@ When we computed pairwise Hamming distances ($d_H$) across articles on different
 
 ## Automated Quarantine and Network Warning
 
-Within 45 seconds of feed ingestion:
-1. All 32 domains were linked in the **Syndicate Mirror DAG** (`credence.report/#mirrors`).
-2. The entire cluster was demoted to `SOFT_QUARANTINE` under protocol `EPEP-17`.
-3. Downstream browser extensions and morning briefings displayed prominent forensic warnings, preventing readers from being deceived by manufactured grassroots consensus.
+When evaluated against this simulated syndicate workload:
+1. All 32 domains are linked in the **Syndicate Mirror DAG** (`credence.report/#mirrors`).
+2. The entire cluster is demoted to `SOFT_QUARANTINE` under protocol `EPEP-17`.
+3. Downstream browser extensions and morning briefings display prominent forensic warnings, preventing readers from being deceived by manufactured grassroots consensus.
 
 By combining information theory with cryptographic receipts, Credence turns the stealth weapons of automated propaganda into mathematically unmaskable signals.
 
 ---
 ## Key Architectural Takeaways & Future Directions
 
-The investigation documented in **Case Study Astroturfing Entropy** highlights several fundamental principles for building resilient, decentralized software systems:
+The detection architecture documented in **Unmasking Astroturfing Swarms** highlights several fundamental principles for building resilient, decentralized software systems:
 
 1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
 2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
@@ -85,7 +86,7 @@ The investigation documented in **Case Study Astroturfing Entropy** highlights s
 ---
 ## Diagnostic Verification & Invariant Enforcement
 
-To ensure continuous compliance with system invariants, **Case Study Astroturfing Entropy** is verified using shift-left integration test gates in the continuous integration pipeline:
+To ensure continuous compliance with system invariants, the **Astroturfing Entropy Detection Pipeline** is verified using shift-left integration test gates in the continuous integration pipeline:
 
 ```bash
 # Execute focused test gate for this subsystem

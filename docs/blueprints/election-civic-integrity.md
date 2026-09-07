@@ -39,7 +39,7 @@ Credence enforces strict Society of Professional Journalists (SPJ) ethical rules
 
 ## 3. Newsroom Pre-Publication Automated Workflows
 
-Newsrooms integrate Credence directly into their Content Management Systems (CMS) and pre-publication CI gates:
+Newsrooms can integrate Credence directly into their Content Management Systems (CMS) and pre-publication CI gates:
 
 ```bash
 # Run automated pre-publication newsroom audit

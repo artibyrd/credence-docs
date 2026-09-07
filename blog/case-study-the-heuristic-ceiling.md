@@ -10,6 +10,10 @@ sidebar:
 
 # Case Study: The Heuristic Ceiling and the Limits of Deterministic Fact-Checking
 
+> [!NOTE]
+> ### 🔬 Internal Empirical Calibration Benchmark
+> This study documents an **internal empirical benchmark experiment** conducted across Credence's $N=104$ Golden Calibration Corpus (`calibration_corpus_v1.json`). It measures the mathematical limits of deterministic heuristics across five generational tuning cycles ($C_0 \to C_5$), verified in continuous integration via `-k "case_study_heuristic_ceiling"`. It is an internal algorithmic evaluation rather than an external customer study.
+
 When engineering high-throughput, low-cost verification pipelines, the instinct of every systems architect is simple: *push deterministic heuristics as far as possible before dispatching probabilistic LLMs.*
 
 After all, regex keyword matching and DOM structural selectors execute in sub-millisecond latencies ($<1,000\,\mu\text{s}$) at strictly **$0.00 token cost**.

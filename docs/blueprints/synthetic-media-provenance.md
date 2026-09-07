@@ -75,7 +75,7 @@ $ credence evaluate diff https://site-a.com/article https://site-b.com/article
 
 ## 5. Related Articles & Blueprints
 
-* 📰 [Case Study: Unmasking Astroturfing Swarms with Topic Entropy](../../blog/case-study-astroturfing-entropy.md)
+* 📰 [Architectural Blueprint: Unmasking Astroturfing Swarms with Topic Entropy](../../blog/case-study-astroturfing-entropy.md)
 * 🍕 [The Pizza Hut Problem Essay](../../blog/the-pizza-hut-problem.md)
 * 🎮 [Zero-Trust Dynamic Feed Simulator Playground](../playground.md)
 

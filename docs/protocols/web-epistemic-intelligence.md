@@ -88,7 +88,7 @@ GET https://credence.report/api/v1/domain/reuters.com
 ## 4. Academic Standards & References
 
 * 📘 [The Invariant Bible](../invariants.md) — Epistemic Scoring Invariants
-* 📰 [The Domain Epistemic Index Case Study](../../blog/the-domain-epistemic-index.md)
+* 📰 [The Domain Credence Index (DCI) Overview](../../blog/the-domain-epistemic-index.md)
 * 🍕 [The Pizza Hut Problem & Astroturfing Defense](../../blog/the-pizza-hut-problem.md)
 * 🎮 [Zero-Trust Dynamic Feed Simulator Playground](../playground.md)
 

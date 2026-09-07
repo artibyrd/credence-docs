@@ -83,7 +83,7 @@ $ credence domain history reuters.com --window 30d
 
 * 🌐 [Global Web Intelligence Protocol (WEIP-v1)](../protocols/web-epistemic-intelligence.md)
 * 📘 [The Invariant Bible](../invariants.md) — Namespaced Fixed Taxonomies
-* 📰 [The Domain Epistemic Index Case Study](../../blog/the-domain-epistemic-index.md)
+* 📰 [The Domain Credence Index (DCI) Overview](../../blog/the-domain-epistemic-index.md)
 
 ---
 ## Domain Credence Index (DCI) Formulation & Sourcing Decay

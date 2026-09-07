@@ -15,9 +15,13 @@ When a news organization publishes a story, the text is rarely set in stone. Som
 
 In **Credence v2.1.0**, we introduce the **Temporal Content & Score History Tracking Engine**. Here is a forensic look at what our multi-agent pipeline sees when an article is modified.
 
+> [!NOTE]
+> ### 🔍 Forensic Simulation & Differential Mechanics
+> The scenarios presented below are **representative editorial simulations** illustrating Credence's temporal diffing algorithms. They demonstrate how `compute_evolution_delta()` programmatically distinguishes between transparent corrections and deceptive stealth editing.
+
 ---
 
-## Scenario A: The Honest Editorial Correction (Score Improves: $45.0 	o 2.1$)
+## Scenario A: The Honest Editorial Correction (Score Improves: $45.0 \to 2.1$)
 
 Consider a breaking news report that initially cited an unverified social media claim:
 
@@ -34,7 +38,7 @@ Consider a breaking news report that initially cited an unverified social media 
 
 ---
 
-## Scenario B: The Deceptive Stealth Edit (Score Degrades: $5.0 	o 72.0$)
+## Scenario B: The Deceptive Stealth Edit (Score Degrades: $5.0 \to 72.0$)
 
 Now consider an innocuous lifestyle article that secretly injects an unlabelled affiliate affiliate scam three months after publication:
 
@@ -81,7 +85,7 @@ Every revision of a web article is fingerprinted and compared against historical
 ---
 ## Key Architectural Takeaways & Future Directions
 
-The investigation documented in **What Credence Sees When An Article Changes** highlights several fundamental principles for building resilient, decentralized software systems:
+The temporal tracking architecture documented in **What Credence Sees When An Article Changes** highlights several fundamental principles for building resilient, decentralized software systems:
 
 1. **Decouple Heuristics from Probabilistic Inference**: By layering fast, deterministic filters ahead of complex reasoning models, systems achieve sub-second execution while conserving computational resources.
 2. **Anchor Trust in Cryptographic Provenance**: Rather than trusting centralized platform credentials, all evaluative findings must be backed by verifiable digital signatures over canonical bytes.
