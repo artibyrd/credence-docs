@@ -2,11 +2,33 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.19.1
+verified_version: v2.20.0
 last_verified: 2026-09-07
 ---
 
 # Release Changelog
+
+## [2.20.0] - 2026-09-07
+
+### Added
+- **Governance Demotion Highway Execution & Prompt Context Economy**:
+  - Compressed root and repository `AGENTS.md` files from ~3,300 tokens down to 596 words (~792 tokens), strictly adhering to the `< 800` token budget ceiling.
+  - Retained 13 high-density behavioral directives across Class α (Sovereign Safety & Authority), Class β (Topology & Lifecycle), and Class γ (Ergonomics & Governance) in Tier 0.
+  - Enforced 100% byte-for-byte symmetry across all three ecosystem repositories (`credence`, `credence-docs`, and `credence-agent`) to prevent drift.
+- **Shift-Left Automated Integrity Test Gates**:
+  - Implemented `test_agents_md_token_budget_ceiling` in `test_architecture_governance.py` to prevent token bloat across all `AGENTS.md` files in CI.
+  - Implemented `test_tier0_invariants_demotion_redundancy` in `test_architecture_governance.py` to prevent re-accumulation of mechanically enforced rules in Tier 0.
+  - Added `--strict` CLI flag to `credence-agent/scripts/audit_demotions.py` to automatically fail CI if token ceilings are exceeded or un-demoted mechanical rules are detected.
+- **Tier 1 Progressive Subsystem Skills Routing**:
+  - Pruned `knowledge-governance/SKILL.md` (down from 444 to 211 LOC), establishing the `/learn` Invariant Admission Gate while preserving core release contracts.
+  - Enriched `mesh-cluster` with `inv-5factor-node-quality` ($Q_i$ formula) and `inv-canonical-json-ed25519`.
+  - Enriched `cloudrun-ops` with `inv-3plane-governance` (Edge, Compute, Infra planes).
+  - Added `forensic-audit` skill mirrored across all repositories with $G=1.00$ DOM grounding and $H < 0.30$ topic entropy defense.
+  - Enriched `architecture-governance` with `inv-multi-model-sovereignty`.
+  - Maintained zero-drift across all 9 skills across `.agents/skills/` in all 3 ecosystem repositories.
+- **Code-Level Comment Guards**:
+  - Embedded `inv-web-component-isolation` in `web/assets/credence-widget.js`.
+  - Embedded `inv-fastmcp-datetime-serialization` in `credence/server/mcp/governance_tools.py`.
 
 ## [2.19.1] - 2026-09-07
 

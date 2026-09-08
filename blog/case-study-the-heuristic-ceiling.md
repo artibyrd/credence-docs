@@ -2,7 +2,7 @@
 title: 'Case Study: The Heuristic Ceiling and the Limits of Deterministic Fact-Checking'
 description: Why five generations of deterministic regex heuristics hit an unyielding epistemic plateau at F1=0.45, and how dual-tier gating solves it.
 since_version: v2.19.0
-verified_version: v2.19.1
+verified_version: v2.20.0
 last_verified: 2026-09-07
 sidebar:
   order: 4
