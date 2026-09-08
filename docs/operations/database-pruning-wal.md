@@ -2,8 +2,8 @@
 title: 'Operational Guide: Database Pruning & WAL Maintenance'
 description: SQLite WAL checkpointing, automated 90-day half-life pruning, vacuuming, and performance tuning.
 since_version: v1.14.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 sidebar:
   order: 20
 ---

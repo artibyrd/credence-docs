@@ -2,8 +2,8 @@
 title: 'Architectural Blueprint: The Information Pyramid & Epistemic Lensing'
 description: The 3-Tier Cognitive Hierarchy, Surface/Focus/Deep Spectrum Lenses, and progressive disclosure UI architecture.
 since_version: v1.12.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 sidebar:
   order: 10
 ---
