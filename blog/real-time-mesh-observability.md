@@ -48,7 +48,7 @@ Whether an operator interacts via an embedded browser, SSH terminal, TUI worksta
 
 Decentralized evaluation does not mean duplicated computation. Through the **BitTorrent-Style Work-Sharing Protocol**, when a syndicated feed item arrives that has already been evaluated and signed by a trusted peer ($Q_j \ge 0.70$), the node verifies the Ed25519 signature and adopts the attestation at **zero LLM token spend**.
 
-In practice, this achieves an average **92.3% work-sharing efficiency**, enabling a swarm of independent nodes to monitor tens of thousands of syndicated news articles continuously for less than $0.05 per day.
+In a 13-node cooperative mesh cluster ($1 - 1/13$), this yields a theoretical **92.3% work-sharing efficiency**, enabling a swarm of independent nodes to monitor tens of thousands of syndicated news articles continuously for less than $0.05 per day.
 
 ---
 

@@ -53,7 +53,7 @@ By substituting fast, offline regex calculations for expensive LLM inference dur
 | :--- | :---: | :---: | :---: |
 | **Max Daily Spend** | $15.00 – $85.00 / day | **$0.50 / day (Hard Cap)** | 96% - 99% savings |
 | **Unexpected 429 Errors** | Common during feed bursts | **Zero (Headroom Protected)** | 100% reliability |
-| **P2P Work-Sharing Hits** | 0% (Isolated silos) | **92.3% (Mesh Swarm)** | 13x compute multiplier |
+| **P2P Work-Sharing Hits** | 0% (Isolated silos) | **92.3% (13-Node Mesh Swarm)** | 13x compute multiplier |
 | **Developer Pairing Interruption** | Frequent | **Zero** | Uninterrupted flow |
 
 ---

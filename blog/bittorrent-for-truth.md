@@ -50,7 +50,7 @@ Credence solves the Duplication Trap by treating truth attestations like BitTorr
 | :--- | :--- | :--- |
 | **Token Cost per 13 Nodes** | 13x Full LLM Inference ($0.0039) | **1x Single Audit ($0.0003)** |
 | **Peer Adoption Cost** | Full API pricing ($15.00/M tokens) | **$0.00 (Zero LLM Tokens)** |
-| **Cluster Compute Savings** | 0.0% (Massive Duplication) | **92.3% Compute Reduction** |
+| **Cluster Compute Savings** | 0.0% (Massive Duplication) | **92.3% Compute Reduction (N=13)** |
 | **Verification Latency** | 2.5s – 5.0s per agent | **< 1ms local signature check** |
 | **Censorship Vulnerability** | Single Point of Failure (API outage) | **Decentralized Multi-Hop Resilience** |
 

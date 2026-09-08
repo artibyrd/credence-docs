@@ -70,7 +70,7 @@ Credence includes an in-memory 13-node Watts-Strogatz small-world mesh simulator
 | **Phase 4: Slashing** | Consensus Aggregator| Computes Bayesian median and penalizes Node 12 | Node 12 Concordance slashed by 50% |
 
 The test verifies two critical properties:
-1. **P2P Work-Sharing**: 12 peer nodes adopt the attestation in $0$ LLM tokens (**92.3% compute savings**).
+1. **P2P Work-Sharing**: 12 peer nodes adopt the attestation in $0$ LLM tokens (**theoretical 92.3% 13-node compute savings**).
 2. **Anti-Smear Slashing**: When Node 12 injects an ungrounded smear ($S=95.0, G=0.0$), the aggregator isolates Node 12 and drops it from the consensus score.
 
 ```bash

@@ -115,11 +115,11 @@ Decentralized consensus cannot be verified with simple mock functions. To prove 
 | Mesh Node Cluster Role | Node ID Range | Verification Workload | Compute Headroom Impact |
 | :--- | :--- | :--- | :--- |
 | **Ingestion Origin Node** | Node 0 | Evaluates target with Gemini 3.7 | 100% full evaluation spend |
-| **Honest Peer Swarm** | Nodes 1..11 | Adopts signed Ed25519 receipt | 0 tokens spent (92.3% compute savings) |
+| **Honest Peer Swarm** | Nodes 1..11 | Adopts signed Ed25519 receipt | 0 tokens spent (theoretical 92.3% 13-node compute savings) |
 | **Adversarial Byzantine Peer** | Node 12 | Submits forged audit payload | Identified & slashed 50% Concordance |
 
 The simulation mathematically proves:
-1. **BitTorrent Work-Sharing**: 12 peer nodes adopt the attestation in $0$ LLM tokens (**92.3% compute savings** at $\$0.00$ token cost).
+1. **BitTorrent Work-Sharing**: 12 peer nodes adopt the attestation in $0$ LLM tokens (**theoretical 92.3% 13-node compute savings** at $\$0.00$ token cost).
 2. **The Galileo Rule ([The Invariant Bible](../docs/invariants.md#invariant-23))**: Verified domain authorities with 100% grounded citations cannot be outlier-dismissed by ungrounded majorities.
 3. **Byzantine Slashing**: Injected ungrounded smears ($S=95.0, G=0.0$) are filtered as outliers and dropped from the consensus score.
 

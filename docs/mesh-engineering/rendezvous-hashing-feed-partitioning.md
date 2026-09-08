@@ -42,11 +42,11 @@ Because SHA-256 is deterministic, every node in the cluster independently arrive
 ### 2. Minimal Disruption on Node Churn ($1/k$)
 When a new node joins or an existing node leaves a cluster of size $k$, traditional modulo hashing ($H(f) \pmod k$) shuffles nearly 100% of feed assignments. With HRW Rendezvous Hashing, only an optimal fraction of $\frac{1}{k}$ feeds are reassigned, preventing cluster-wide audit storms.
 
-### 3. BitTorrent Work-Sharing Economics (92.3% Savings)
+### 3. BitTorrent Work-Sharing Economics (Theoretical 92.3% 13-Node Savings)
 In a 13-node cluster:
 - 1 primary node performs the initial LLM evaluation and signs the resulting canonical receipt with its Ed25519 private key.
 - 12 peer nodes receive the signed attestation over multi-hop gossip diffusion, verify the cryptographic signature in under 1ms, and adopt the record locally into SQLite.
-- **Compute Savings**: **92.3% reduction in inference tokens** ($12/13$ of evaluations cost **$0.00**).
+- **Compute Savings**: **Theoretical 92.3% reduction in inference tokens** ($12/13$ of evaluations cost **$0.00** in LLM tokens across a 13-node cluster).
 
 ---
 

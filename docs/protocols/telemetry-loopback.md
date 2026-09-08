@@ -46,7 +46,7 @@ Unlike conventional surveillance analytics, ITLP-v1 is strictly **zero-knowledge
 
 1. **Latency Distributions**: P50, P90, and P99 audit completion latency across profiles (FREE, BALANCED, ULTRA).
 2. **Headroom Utilization**: Real-time spending trajectory relative to configured hourly/daily ceilings.
-3. **P2P Work-Sharing Efficiency**: Ratio of mesh cache hits vs. raw LLM inference invocations ($92.3\%$ target).
+3. **P2P Work-Sharing Efficiency**: Ratio of mesh cache hits vs. raw LLM inference invocations (theoretical $92.3\%$ upper bound in 13-node cluster: $1 - 1/13$).
 4. **Interface Symmetry Concordance**: Measuring feature usage parity across CLI, FastMCP 2.0, Textual TUI, and Web.
 
 ---

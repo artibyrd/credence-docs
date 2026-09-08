@@ -1393,7 +1393,7 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
   <h3><a href="#docs/invariants#inv-bittorrent-worksharing">The Invariant Bible: BitTorrent Work-Sharing & Generous Defaults</a></h3>
 </div>
 <div class="invariant-human-pane">
-  <p class="invariant-headline">Nodes seed attestations freely and divide RSS/Atom feeds across peers using Rendezvous Hashing for 92.3% compute savings.</p>
+  <p class="invariant-headline">Nodes seed attestations freely and divide RSS/Atom feeds across peers using Rendezvous Hashing for theoretical compute savings of up to 92.3% (N=13).</p>
   <div class="invariant-rationale"><strong>Why It Matters:</strong> Eliminates duplicate LLM audit compute across decentralized peers.</div>
   <div class="variable-anatomy-container">
     <table class="variable-anatomy-table">

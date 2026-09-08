@@ -31,7 +31,7 @@ ightarrow$ Centralized LLM API | 10,000 calls | $\$34.00$ | 100% Redundant API s
 | **Credence P2P Mesh** | Node A audits $
 ightarrow$ Nodes B..Z adopt via gossip | 1 call | **$\$0.0034$** | **$99.99\%$ Compute Savings** |
 
-In a standard 13-node Watts-Strogatz cluster monitoring active syndicated wire feeds, empirical telemetry proves that **$92.3\%$ of incoming query URLs have already been audited and signed by a trusted peer**.
+In a standard 13-node Watts-Strogatz cluster monitoring active syndicated wire feeds, theoretical cooperative modeling demonstrates that **up to $92.3\%$ of incoming query URLs can be adopted from trusted peer signatures ($1 - 1/13$)**.
 
 ---
 
@@ -80,4 +80,4 @@ Just as BitTorrent revolutionized file distribution by transforming content down
 2. **Ed25519 Cryptographic Signatures** that establish non-repudiable proof of who verified what, and
 3. **The Galileo Rule** that guarantees grounded physical citations ($G=1.00$) always override ungrounded majorities,
 
-the Credence mesh achieves an ambient 92.3% cache hit rate. As more independent nodes join the network, verification becomes faster, cheaper, and harder to censor. Fact-checking ceases to be an expensive centralized bottleneck and becomes an abundant, self-sustaining peer-to-peer utility.
+the Credence mesh achieves a theoretical 92.3% work-sharing ceiling in a 13-node cluster. As more independent nodes join the network, verification becomes faster, cheaper, and harder to censor. Fact-checking ceases to be an expensive centralized bottleneck and becomes an abundant, self-sustaining peer-to-peer utility.

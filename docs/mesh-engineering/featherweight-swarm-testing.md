@@ -101,7 +101,7 @@ Despite its ultra-low resource profile, the test gauntlet verifies deep distribu
 | 2. Sybil Cartel (3f+1)    | 4 collusive nodes isolated; Galileo Rule overrides false swarm |
 | 3. Linear Daisy Chain     | Strict TTL and hop-count exhaustion prevents infinite loops    |
 | 4. Eclipse Partition      | Ring-shattering recovery heals network partitions (<1.2s)      |
-| 5. Swarm Germination      | HRW feed partitioning achieves 92.3% compute savings at $0.00  |
+| 5. Swarm Germination      | HRW feed partitioning achieves theoretical 92.3% savings (N=13)|
 --------------------------------------------------------------------------------+
 
 ### 1. Multi-Hop Epidemic Diffusion
