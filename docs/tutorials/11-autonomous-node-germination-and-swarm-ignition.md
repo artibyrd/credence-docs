@@ -2,8 +2,8 @@
 title: 'Tutorial 11: Autonomous Node Germination & Swarm Ignition'
 description: Bootstrap a self-healing node swarm in under 30 seconds using the automated ignition sequence.
 since_version: v1.12.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 sidebar:
   order: 11
 ---

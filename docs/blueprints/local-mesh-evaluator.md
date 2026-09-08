@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Decentralized Local Evaluator & Egalitarian Mesh Ingestion'
 description: Zero-privilege public mesh submission, RFC 8785 Ed25519 attestation proofs, and 5-factor adversarial defense gate.
 since_version: v2.18.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 sidebar:
   order: 22
 ---

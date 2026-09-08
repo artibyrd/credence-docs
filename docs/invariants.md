@@ -3,8 +3,8 @@ title: 'The Invariant Bible: Living Canon of System-Wide Invariants & Protocols'
 description: Canonical reference for all mathematical rules, runtime safety guardrails,
   cryptographic protocols, and presentation invariants governing Credence.
 since_version: v1.0.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 tags:
 - invariants
 - architecture
@@ -1393,7 +1393,7 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
   <h3><a href="#docs/invariants#inv-bittorrent-worksharing">The Invariant Bible: BitTorrent Work-Sharing & Generous Defaults</a></h3>
 </div>
 <div class="invariant-human-pane">
-  <p class="invariant-headline">Nodes seed attestations freely and divide RSS/Atom feeds across peers using Rendezvous Hashing for 92.3% compute savings.</p>
+  <p class="invariant-headline">Nodes seed attestations freely and divide RSS/Atom feeds across peers using Rendezvous Hashing for theoretical compute savings of up to 92.3% (N=13).</p>
   <div class="invariant-rationale"><strong>Why It Matters:</strong> Eliminates duplicate LLM audit compute across decentralized peers.</div>
   <div class="variable-anatomy-container">
     <table class="variable-anatomy-table">

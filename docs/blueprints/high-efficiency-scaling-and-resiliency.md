@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: High-Efficiency Scaling & Resiliency Architecture'
 description: Sub-35s test execution, in-memory SQLite WAL, 92.3% P2P work-sharing, and zero-npm edge performance.
 since_version: v1.14.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 sidebar:
   order: 3
 ---
@@ -17,12 +17,12 @@ Credence is engineered under extreme efficiency constraints: delivering enterpri
 ## 1. The 5 Value Pillars of Credence Architecture
 
 THE 5 HIGH-EFFICIENCY VALUE PILLARS
-1. Scale-to-Zero  | 2. 92.3% Work-    | 3. Zero-npm    | 4. Sub-35s
+1. Scale-to-Zero  | 2. 92.3% 13-Node  | 3. Zero-npm    | 4. Sub-35s
 Compute ($0/mo)|    Sharing Swarm  |    Edge Plane  |    Hermetic CI
 5. WAL-Safe Sovereign Storage & BitTorrent Epistemic Economics
 
 1. **Scale-to-Zero Compute Plane**: Google Cloud Run v2 container instances scale to exactly 0 instances when idle, incurring $0.00 cloud compute charges during quiet hours.
-2. **92.3% Work-Sharing Mesh Swarm**: P2P gossip distribution allows peer nodes to adopt Ed25519-signed audit receipts, cutting aggregate network LLM token consumption by 92.3%.
+2. **13-Node Work-Sharing Mesh Swarm**: P2P gossip distribution allows peer nodes to adopt Ed25519-signed audit receipts, achieving a theoretical aggregate LLM token reduction of up to 92.3% in a 13-node cooperative cluster ($1 - 1/13$).
 3. **Zero-npm / Zero-Build Edge Plane**: Cloudflare Pages CDN serves vanilla HTML5, CSS variables, and native ES modules with zero build step, zero Node.js runtime overhead, and instant Anycast routing.
 4. **Sub-35s Hermetic CI Suite**: The entire unit, governance, and mathematical test suite executes in memory across CPU cores in under 35 seconds without launching browser daemons.
 5. **WAL-Safe Sovereign Storage**: Async SQLite with Write-Ahead Logging delivers $>10,000$ queries/second on a $4/mo Hetzner VPS or home Raspberry Pi.
@@ -64,7 +64,7 @@ $ pytest tests/integration/test_mesh_cluster_gossip.py
 ## 5. Related Essays & Guides
 
 * 🚀 [From 860MB to 2MB: Sub-40s CI/CD Pipeline Essay](../../blog/from-860mb-to-2mb-sub-40s-cicd-pipeline.md)
-* ⚡ [BitTorrent for Truth: 92.3% Compute Savings](../../blog/bittorrent-for-truth.md)
+* ⚡ [BitTorrent for Truth: Theoretical 92.3% 13-Node Compute Savings](../../blog/bittorrent-for-truth.md)
 * 📘 [The Invariant Bible](../invariants.md) — Hermetic Unit Test Isolation
 
 ---

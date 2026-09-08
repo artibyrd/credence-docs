@@ -4,8 +4,8 @@ title: 'The 3-Plane Architecture: Zero-npm Edge, Scale-to-Zero Compute, and Sove
 description: How Credence decouples global Edge delivery, compute inference, and declarative
   infrastructure to achieve $0.00 idle costs and zero supply-chain risk.
 since_version: v1.14.1
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 ---
 
 # The 3-Plane Architecture: Zero-npm Edge, Scale-to-Zero Compute, and Sovereign Infra

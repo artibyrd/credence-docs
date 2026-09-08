@@ -2,8 +2,8 @@
 title: 'The Dead Internet Immune System: Surviving and Thriving in a Crawler-Dominant Web'
 description: How Credence navigates the synthetic slop collapse of the 2026 web through BitTorrent work-sharing, Shannon topic entropy filters, and cryptographic verbatim grounding.
 since_version: v2.15.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 slug: the-dead-internet-immune-system
 date: '2026-08-23'
 series: 'Dead Internet & Agentic Citizenship'
@@ -45,7 +45,7 @@ Credence eliminates this planetary compute and bandwidth waste via the **BitTorr
 - **Traditional Scraper Swarm**: 13 siloed agents perform 13 separate HTTP GETs and 13x LLM inferences, overloading publisher origins and wasting compute.
 - **Credence Watts-Strogatz Mesh ($k=4, p=0.15$)**: 1 partitioned node performs a single HTTP GET and 1x LLM inference, generates a signed RFC 8785 Ed25519 receipt, and propagates it via epidemic gossip in <350ms to 12 peer nodes with zero origin re-scraping.
 
-### Rendezvous Feed Partitioning & 92.3% Compute Savings
+### Rendezvous Feed Partitioning & Theoretical 92.3% 13-Node Compute Savings
 Rather than all nodes racing to scrape the same RSS/Atom feeds, nodes determine deterministic ownership using **Highest Random Weight (HRW) Rendezvous Hashing**:
 
 $$\text{Affinity}(N_i, u) = \text{SHA256}(\text{PubKey}_i \parallel \text{URL}_u)$$

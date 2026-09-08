@@ -2,8 +2,8 @@
 title: 'The Economics of Epistemic Headroom: Why 30% Safety Buffers Save Production'
 description: Why setting a 30% offline tripwire on token spending protects interactive developer pairing and production stability.
 since_version: v1.12.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 sidebar:
   order: 18
 ---
@@ -53,7 +53,7 @@ By substituting fast, offline regex calculations for expensive LLM inference dur
 | :--- | :---: | :---: | :---: |
 | **Max Daily Spend** | $15.00 – $85.00 / day | **$0.50 / day (Hard Cap)** | 96% - 99% savings |
 | **Unexpected 429 Errors** | Common during feed bursts | **Zero (Headroom Protected)** | 100% reliability |
-| **P2P Work-Sharing Hits** | 0% (Isolated silos) | **92.3% (Mesh Swarm)** | 13x compute multiplier |
+| **P2P Work-Sharing Hits** | 0% (Isolated silos) | **92.3% (13-Node Mesh Swarm)** | 13x compute multiplier |
 | **Developer Pairing Interruption** | Frequent | **Zero** | Uninterrupted flow |
 
 ---

@@ -3,8 +3,8 @@ title: Featherweight Swarm Simulation & Low-Resource Testing
 description: How Credence runs 13-node Byzantine-resistant P2P mesh cluster simulations
   in under 150MB of RAM and 4.5 seconds on dual-core laptops and Raspberry Pis.
 since_version: v1.6.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 ---
 
 # Featherweight Swarm Simulation & Low-Resource Testing
@@ -101,7 +101,7 @@ Despite its ultra-low resource profile, the test gauntlet verifies deep distribu
 | 2. Sybil Cartel (3f+1)    | 4 collusive nodes isolated; Galileo Rule overrides false swarm |
 | 3. Linear Daisy Chain     | Strict TTL and hop-count exhaustion prevents infinite loops    |
 | 4. Eclipse Partition      | Ring-shattering recovery heals network partitions (<1.2s)      |
-| 5. Swarm Germination      | HRW feed partitioning achieves 92.3% compute savings at $0.00  |
+| 5. Swarm Germination      | HRW feed partitioning achieves theoretical 92.3% savings (N=13)|
 --------------------------------------------------------------------------------+
 
 ### 1. Multi-Hop Epidemic Diffusion

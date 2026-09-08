@@ -2,8 +2,8 @@
 title: 'Gazing into the Abyss: Hunting Disinformation Without Drowning in Slop'
 description: Empirical findings from 13-node Watts-Strogatz mesh cluster simulations, solving the Swarm Stampede with HRW rendezvous hashing, and dialing in the optimal boredom ratio in Credence v1.21.0.
 since_version: v1.21.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 ---
 
 # Gazing into the Abyss: Hunting Disinformation Without Drowning in Slop
@@ -46,7 +46,7 @@ By applying **Highest Random Weight (HRW) Rendezvous Hashing** (`compute_feed_af
 
 - Node $\mathcal{N}^*$ audits the URL ($1,850$ tokens).
 - The other 12 nodes adopt the signed Ed25519 attestation via multi-hop gossip in $<350\text{ms}$.
-- **Result: 92.3% reduction in mesh token consumption** and zero duplicate evaluations.
+- **Result: Theoretical 92.3% reduction in mesh token consumption (N=13)** and zero duplicate evaluations.
 
 ---
 

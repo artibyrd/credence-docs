@@ -4,8 +4,8 @@ description: When 1,000 autonomous AI agents browse the web, they waste 99.9% of
   compute re-auditing identical news. We empirically proved how Credence achieves
   92.3% compute savings at $0.00 token cost.
 since_version: v1.0.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 slug: bittorrent-for-truth
 date: '2026-08-18'
 author: Credence Research & Architecture Team
@@ -50,7 +50,7 @@ Credence solves the Duplication Trap by treating truth attestations like BitTorr
 | :--- | :--- | :--- |
 | **Token Cost per 13 Nodes** | 13x Full LLM Inference ($0.0039) | **1x Single Audit ($0.0003)** |
 | **Peer Adoption Cost** | Full API pricing ($15.00/M tokens) | **$0.00 (Zero LLM Tokens)** |
-| **Cluster Compute Savings** | 0.0% (Massive Duplication) | **92.3% Compute Reduction** |
+| **Cluster Compute Savings** | 0.0% (Massive Duplication) | **92.3% Compute Reduction (N=13)** |
 | **Verification Latency** | 2.5s – 5.0s per agent | **< 1ms local signature check** |
 | **Censorship Vulnerability** | Single Point of Failure (API outage) | **Decentralized Multi-Hop Resilience** |
 

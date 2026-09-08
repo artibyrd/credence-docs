@@ -2,8 +2,8 @@
 title: 10. Reusable Live Rotating E2E & Byzantine Mesh Gauntlet
 description: Step-by-step tutorial on executing, customizing, and scaling the reusable live rotating test suite across CLI, FastMCP 2.0 SSE, and 13-node P2P mesh clusters.
 since_version: v1.4.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 tags:
 - tutorial
 - e2e
@@ -70,7 +70,7 @@ Credence includes an in-memory 13-node Watts-Strogatz small-world mesh simulator
 | **Phase 4: Slashing** | Consensus Aggregator| Computes Bayesian median and penalizes Node 12 | Node 12 Concordance slashed by 50% |
 
 The test verifies two critical properties:
-1. **P2P Work-Sharing**: 12 peer nodes adopt the attestation in $0$ LLM tokens (**92.3% compute savings**).
+1. **P2P Work-Sharing**: 12 peer nodes adopt the attestation in $0$ LLM tokens (**theoretical 92.3% 13-node compute savings**).
 2. **Anti-Smear Slashing**: When Node 12 injects an ungrounded smear ($S=95.0, G=0.0$), the aggregator isolates Node 12 and drops it from the consensus score.
 
 ```bash

@@ -2,11 +2,27 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 ---
 
 # Release Changelog
+
+## [2.21.0] - 2026-09-08
+
+### Added
+- **500 LOC Ceiling Law Extension to JavaScript & Automated Governance Gate**:
+  - Enforced `inv-500-loc-ceiling` permanently across both Python and JavaScript ecosystems.
+  - Extended `test_500_loc_ceiling_invariant()` in `tests/governance/test_architecture_governance.py` to scan all `.js` files across `web/` and `credence-docs/`, asserting every file remains strictly $\le 500$ LOC.
+- **Modular Zero-Build ES Subsystem Architecture**:
+  - Decomposed monolithic `credence-workstation.js` (1,940 LOC) into 8 modular native ES submodules: `topics/reports.js` (345 LOC), `topics/foundation.js` (200 LOC), `topics/nexus.js` (307 LOC), `workstation-topics.js` (16 LOC), `workstation-auth.js` (176 LOC), `workstation-crypto.js` (40 LOC), `workstation-modals.js` (489 LOC), and `workstation-nav.js` (127 LOC), reducing the entrypoint coordinator to 295 LOC.
+  - Decomposed monolithic docs application engine `app.js` (5,029 LOC) into 16 modular native ES submodules under `credence-docs/modules/`: `taxonomy-rules-core.js` (380 LOC), `taxonomy-rules-extended.js` (387 LOC), `taxonomy-rules.js` (14 LOC), `formatters.js` (363 LOC), `markdown-parser.js` (482 LOC), `router.js` (418 LOC), `nav.js` (362 LOC), `search.js` (148 LOC), `case-study.js` (468 LOC), `playgrounds/crypto-sim.js` (307 LOC), `playgrounds/forensic-sim.js` (462 LOC), `playgrounds/labs.js` (152 LOC), `playgrounds/mesh-sim.js` (246 LOC), `playgrounds/taxonomy-sim.js` (257 LOC), `playgrounds/index.js` (22 LOC), and `doc-loader.js` (371 LOC), reducing the entrypoint coordinator to 372 LOC.
+  - Maintained strict zero-npm invariant (`inv-zero-build-standards`) and full backward compatibility with existing HTML `<script>` mounts.
+- **Pipeline & Epistemic Benchmark Hygiene**:
+  - Refactored `credence/pipeline/benchmark.py`: clarified docstring to distinguish the canonical Golden 12 benchmark suite from the $N=104$ calibration corpus, introduced `GOLDEN_12_FIXTURES_METADATA` while preserving backward-compatible `GOLDEN_12_METADATA` alias, added `resolve_benchmark_fixtures_dir()`, wired CLI command `credence benchmark` to `run_epistemic_benchmark()`, and purged dead duplicate `return 0`.
+  - Refactored `credence/pipeline/cross_model_benchmark.py`: instantiated `GeminiProvider` directly from `credence.pipeline.adapters`, unified exception handling, and cleaned unused imports.
+- **Theoretical 13-Node Mesh Work-Sharing Documentation Qualification**:
+  - Systematically audited and qualified all references to "92.3%" compute savings across documentation and blog articles as theoretical/projected maximum savings for a 13-node cooperative mesh cluster ($1 - 1/13 = 92.3\%$).
 
 ## [2.20.0] - 2026-09-07
 

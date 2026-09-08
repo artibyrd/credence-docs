@@ -3,8 +3,8 @@ title: 'Feature Walkthrough: Zero-Trust Feed Autodiscovery & Sifting'
 description: End-to-end multi-interface walkthrough for dynamic RSS/Atom autodiscovery,
   pre-flight forensic audits, and real-time sifting daemons.
 since_version: v1.0.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 sidebar:
   order: 2
 ---

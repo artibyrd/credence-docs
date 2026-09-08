@@ -2,8 +2,8 @@
 title: Election & Civic Information Integrity Blueprint
 description: Pre-publication newsroom verification, polling methodology forensics, official ballot cross-checks, and SPJ ethical standards.
 since_version: v1.11.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 sidebar:
   order: 8
 ---

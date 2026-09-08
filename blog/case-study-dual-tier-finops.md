@@ -2,8 +2,8 @@
 title: 'Thought Experiment: Cutting Fact-Checking Cloud Invoices by 94% with Dual-Tier FinOps'
 description: Architectural thought experiment and economic projection modeling how dual-tier ingress gating slashes LLM fact-checking costs at scale.
 since_version: v1.12.0
-verified_version: v2.20.0
-last_verified: 2026-09-07
+verified_version: v2.21.0
+last_verified: 2026-09-08
 sidebar:
   order: 3
 ---
@@ -28,7 +28,7 @@ Here is the mathematical and architectural model that makes this scale possible.
 
 | Financial Lever | Operational Mechanism | Cost Impact |
 | :--- | :--- | :--- |
-| **1. [P2P Mesh Work-Sharing](/docs/protocols/mesh-protocol)** | Ed25519-signed attestations gossiped across peer nodes eliminate redundant audits | **92.3% cache hit rate** (\$0.00 per cached audit) |
+| **1. [P2P Mesh Work-Sharing](/docs/protocols/mesh-protocol)** | Ed25519-signed attestations gossiped across peer nodes eliminate redundant audits | **Up to 92.3% projected cache hit rate** in 13-node cluster (\$0.00 per cached audit) |
 | **2. [Offline Regex Pre-Filters](/blog/case-study-the-heuristic-ceiling)** | Pure deterministic checks (clickbait syntax, known syndication headers) run in RAM | **60% of misses** resolved locally in <2ms (\$0.00) |
 | **3. Tiered Model Selection** | Gemini 3.7 Flash handles standard audits at \$0.34/1M tokens (benchmarked in [The $0.34 Pareto Frontier](/blog/the-pareto-frontier-of-truth)) | **85% reduction** in token unit cost |
 | **4. Scale-to-Zero Serverless** | Google Cloud Run v2 scales to 0 instances during quiet hours (see [Cloud Run Blueprint](/docs/blueprints/cloudrun-scale-to-zero-cold-start-optimization)) | **\$0.00 idle infrastructure** overhead |
