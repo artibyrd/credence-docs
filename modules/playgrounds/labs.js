@@ -3,6 +3,8 @@
  * Zero-npm native ES module.
  */
 
+import { CURRENT_ECOSYSTEM_VERSION } from '../../app.js';
+
 // ==============================================================================
 // Playground 13 & 14 Interactive Lab Simulators
 // ==============================================================================

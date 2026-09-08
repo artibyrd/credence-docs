@@ -3,7 +3,7 @@
  * Zero-npm native ES module.
  */
 
-import { computeSimHash, getHammingDistance } from '../formatters.js';
+import { computeSimHash, getHammingDistance, escapeHtml } from '../formatters.js';
 
 export function setupCryptoWidgets() {
   // 2. SimHash & Hamming Distance Visualizer

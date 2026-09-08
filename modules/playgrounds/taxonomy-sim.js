@@ -5,6 +5,7 @@
 
 import { FULL_TAXONOMY_RULES } from '../taxonomy-rules.js';
 import { MODELS_PRICING } from '../../app.js';
+import { escapeHtml } from '../formatters.js';
 
 export function setupTaxonomyWidgets() {
   // 6. Taxonomy Explorer with Filter Chips & Responsive Cards (Invariant 38 Natural Flow)

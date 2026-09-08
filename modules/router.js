@@ -4,8 +4,9 @@
  */
 
 import { DOCS_REGISTRY } from '../app.js';
-import { loadDocument, scrollToAnchor } from './doc-loader.js';
+import { loadDocument, scrollToAnchor, currentLoadedDocId } from './doc-loader.js';
 import { renderSidebar } from './nav.js';
+import { setupSearch } from './search.js';
 
 export function getDomainContext() {
   const host = typeof window !== 'undefined' ? window.location.hostname : '';

@@ -3,6 +3,8 @@
  * Zero-npm native ES module.
  */
 
+import { escapeHtml } from '../formatters.js';
+
 export function setupForensicWidgets() {
   // 8. Zero-Trust Dynamic Feed Quality Simulator
   const feedSuspSlider = document.getElementById('feed-suspicion-slider');

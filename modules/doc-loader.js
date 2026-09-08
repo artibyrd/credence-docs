@@ -3,10 +3,11 @@
  * Zero-npm native ES module.
  */
 
-import { DOCS_REGISTRY } from '../app.js';
-import { getCleanRelativePath, getCanonicalDocUrl, isBlogContext } from './router.js';
+import { DOCS_REGISTRY, CURRENT_ECOSYSTEM_VERSION } from '../app.js';
+import { getCleanRelativePath, getCanonicalDocUrl, isBlogContext, resolveDocument } from './router.js';
 import { parseMarkdown } from './markdown-parser.js';
-import { renderTableOfContents, renderGlobalFooter, updateSocialMetadata } from './nav.js';
+import { renderTableOfContents, renderGlobalFooter, updateSocialMetadata, renderSidebar } from './nav.js';
+import { escapeHtml } from './formatters.js';
 import { setupPlaygroundWidgets } from './playgrounds/index.js';
 import { mountContentEvolutionLab, mountBadgeSecurityLab } from './playgrounds/labs.js';
 import { setupInMaricopaCaseStudyWidget, setupPublisherAggregateCard } from './case-study.js';

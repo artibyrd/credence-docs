@@ -6,6 +6,7 @@
 import { DOCS_REGISTRY } from '../app.js';
 import { getCleanRelativePath, getCanonicalDocUrl, isBlogContext, getDocsBaseUrl, getBlogBaseUrl } from './router.js';
 import { scrollToAnchor } from './doc-loader.js';
+import { escapeHtml } from './formatters.js';
 
 export function updateSearchPills(activeFilter = 'all') {
   const isBlog = isBlogContext();
@@ -357,6 +358,4 @@ export function updateSocialMetadata(target, isBlog) {
   }
   canonical.setAttribute('href', canonicalUrl);
 }
-
-let currentLoadedDocId = null;
 

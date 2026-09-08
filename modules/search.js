@@ -4,7 +4,9 @@
  */
 
 import { DOCS_REGISTRY } from '../app.js';
-import { getCleanRelativePath } from './router.js';
+import { getCleanRelativePath, getDomainContext, getDocsBaseUrl, getBlogBaseUrl } from './router.js';
+import { updateSearchPills } from './nav.js';
+import { loadDocument } from './doc-loader.js';
 
 export function setupSearch() {
   const searchInput = document.getElementById('doc-search');
