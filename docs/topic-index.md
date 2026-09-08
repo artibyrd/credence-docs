@@ -189,18 +189,6 @@ Every metric card, interactive table, and telemetry widget across the zero-build
 <!-- BEGIN_MODAL_REGISTRY -->
 | Topic Key | Topic Name & Domain | Classification | Bound Invariant Slugs | CLI Tool | Authoritative Blueprint / Essay |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `search` | 🔍 Epistemic Query & Multi-Criteria Search | `FORENSICS` | — | `credence search` | [The Invariant Bible](invariants.md) |
-| `backup` | 💾 Sovereign Database Backup & Cold-Boot Recovery | `STORAGE GRAVITY` | — | `credence backup` | [The Invariant Bible](invariants.md) |
-| `boredom` | 🌀 Autonomous Epistemic Boredom Engine | `AUTONOMOUS INGESTION` | — | `credence boredom` | [The Invariant Bible](invariants.md) |
-| `browse` | 📚 Curated Audit Directory & Case Studies | `GROUND TRUTH` | — | `credence browse` | [The Invariant Bible](invariants.md) |
-| `lensing` | 🔬 3-Tier Epistemic Lensing Hierarchy | `COGNITIVE ARCHITECTURE` | — | `credence lensing` | [The Invariant Bible](invariants.md) |
-| `score` | 📊 Epistemic Suspicion Score (0.0 – 100.0) | `SCORING METRIC` | — | `credence score` | [The Invariant Bible](invariants.md) |
-| `grounding` | 🎯 Verbatim Empirical Grounding (G = 1.00) | `INTEGRITY GUARANTEE` | — | `credence grounding` | [The Invariant Bible](invariants.md) |
-| `temporal_diff` | ⏱️ Bitwise Temporal Diff & Stealth Edit Forensics | `TEMPORAL FORENSICS` | — | `credence temporal_diff` | [The Invariant Bible](invariants.md) |
-| `webcrypto` | 🧪 Native W3C WebCrypto In-Browser Verification | `CRYPTOGRAPHY` | — | `credence webcrypto` | [The Invariant Bible](invariants.md) |
-| `dossier` | 🏛️ Publisher Epistemic Dossier & Track Record | `REPUTATION PROFILE` | — | `credence dossier` | [The Invariant Bible](invariants.md) |
-| `dci` | 🏆 Domain Credence Index (DCI) Honor Roll | `ECOSYSTEM RANKINGS` | — | `credence dci` | [The Invariant Bible](invariants.md) |
-| `sifter` | 📡 Sifter Continuous Syndication Stream | `STREAM INGESTION` | — | `credence sifter` | [The Invariant Bible](invariants.md) |
 | `taxonomies` | 📜 Canonical Rule Catalogs (The Credence Rulebook) | `GOVERNANCE` | — | `credence taxonomies` | [The Invariant Bible](invariants.md) |
 | `spj_ethics` | 📰 Society of Professional Journalists (SPJ) Code of Ethics | `ETHICAL STANDARD` | — | `credence spj_ethics` | [The Invariant Bible](invariants.md) |
 | `iep_fallacies` | 🧠 Internet Encyclopedia of Philosophy (IEP) Fallacies | `LOGICAL RIGOR` | — | `credence iep_fallacies` | [The Invariant Bible](invariants.md) |
@@ -219,6 +207,18 @@ Every metric card, interactive table, and telemetry widget across the zero-build
 | `operator_admin` | 🛠️ Operator Security Cockpit & Headroom Governor | `OPERATIONS` | — | `credence operator_admin` | [The Invariant Bible](invariants.md) |
 | `miracle_gro` | 🌱 Miracle-Gro Seed Germination Engine | `CACHE WARMING` | — | `credence miracle_gro` | [The Invariant Bible](invariants.md) |
 | `daemons` | 🔄 Ingestion Stream Daemons & Crawlers | `DAEMON ENGINE` | — | `credence daemons` | [The Invariant Bible](invariants.md) |
+| `search` | 🔍 Epistemic Query & Multi-Criteria Search | `FORENSICS` | — | `credence search` | [The Invariant Bible](invariants.md) |
+| `backup` | 💾 Sovereign Database Backup & Cold-Boot Recovery | `STORAGE GRAVITY` | — | `credence backup` | [The Invariant Bible](invariants.md) |
+| `boredom` | 🌀 Autonomous Epistemic Boredom Engine | `AUTONOMOUS INGESTION` | — | `credence boredom` | [The Invariant Bible](invariants.md) |
+| `browse` | 📚 Curated Audit Directory & Case Studies | `GROUND TRUTH` | — | `credence browse` | [The Invariant Bible](invariants.md) |
+| `lensing` | 🔬 3-Tier Epistemic Lensing Hierarchy | `COGNITIVE ARCHITECTURE` | — | `credence lensing` | [The Invariant Bible](invariants.md) |
+| `score` | 📊 Epistemic Suspicion Score (0.0 – 100.0) | `SCORING METRIC` | — | `credence score` | [The Invariant Bible](invariants.md) |
+| `grounding` | 🎯 Verbatim Empirical Grounding (G = 1.00) | `INTEGRITY GUARANTEE` | — | `credence grounding` | [The Invariant Bible](invariants.md) |
+| `temporal_diff` | ⏱️ Bitwise Temporal Diff & Stealth Edit Forensics | `TEMPORAL FORENSICS` | — | `credence temporal_diff` | [The Invariant Bible](invariants.md) |
+| `webcrypto` | 🧪 Native W3C WebCrypto In-Browser Verification | `CRYPTOGRAPHY` | — | `credence webcrypto` | [The Invariant Bible](invariants.md) |
+| `dossier` | 🏛️ Publisher Epistemic Dossier & Track Record | `REPUTATION PROFILE` | — | `credence dossier` | [The Invariant Bible](invariants.md) |
+| `dci` | 🏆 Domain Credence Index (DCI) Honor Roll | `ECOSYSTEM RANKINGS` | — | `credence dci` | [The Invariant Bible](invariants.md) |
+| `sifter` | 📡 Sifter Continuous Syndication Stream | `STREAM INGESTION` | — | `credence sifter` | [The Invariant Bible](invariants.md) |
 <!-- END_MODAL_REGISTRY -->
 
 ---
