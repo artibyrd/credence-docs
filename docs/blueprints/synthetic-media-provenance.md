@@ -2,7 +2,7 @@
 title: Synthetic AI Content & Media Provenance Blueprint
 description: Shannon topic entropy collapse, C2PA cryptographic provenance, top-token concentration, and AI content farm detection.
 since_version: v1.11.0
-verified_version: v2.21.0
+verified_version: v2.21.1
 last_verified: 2026-09-08
 sidebar:
   order: 4

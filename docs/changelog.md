@@ -2,11 +2,24 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.21.0
+verified_version: v2.21.1
 last_verified: 2026-09-08
 ---
 
 # Release Changelog
+
+## [2.21.1] - 2026-09-08
+
+### Added
+- **ES Module Submodule Decomposition & Explicit Import Binding Law**:
+  - Codified the ES module binding invariant in Tier 1 skill `architecture-governance`: in zero-build ES environments, bare `export * from ...` statements do not bind symbols in the local module execution scope.
+  - Mandated explicit `import` declarations for all referenced variables, functions, and state objects across decomposed modular subpackages (`app.js` and `credence-workstation.js`).
+  - Added pre-commit AST cross-module export/import reference scanner to detect missing imports prior to staging.
+- **Playwright Headless Browser Verification Gate (`inv-playwright-rendering-tests`)**:
+  - Codified the automated browser verification protocol in `architecture-governance`: pure HTTP 200 checks are insufficient for client-side zero-build applications.
+  - Enforced automated headless browser validation via Playwright asserting zero uncaught page exceptions (`page.on('pageerror')`) and substantive DOM rendering before requesting Mk1 review.
+- **Non-Interactive Tool Execution Invariant**:
+  - Codified standard non-interactive CLI flags (`just --yes`, `npx -y`, `CI=true`) across automated agent workflows to prevent hanging on interactive terminal confirmation prompts.
 
 ## [2.21.0] - 2026-09-08
 

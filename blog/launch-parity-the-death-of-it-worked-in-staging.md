@@ -2,7 +2,7 @@
 title: 'Launch Parity: The Death of "It Worked in Staging"'
 description: How keyless WIF, identical OCI container images, and 6-phase release gates eliminate staging drift forever.
 since_version: v1.18.0
-verified_version: v2.21.0
+verified_version: v2.21.1
 last_verified: 2026-09-08
 sidebar:
   order: 17

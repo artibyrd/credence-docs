@@ -5,7 +5,7 @@ description: Why static domain whitelists create dangerous single points of epis
   failure, and how Shannon Topic Entropy and dynamic quality scoring autonomously
   protect decentralized swarms.
 since_version: v1.0.0
-verified_version: v2.21.0
+verified_version: v2.21.1
 last_verified: 2026-09-08
 date: '2026-08-18'
 author: The Credence Network Engineering Group

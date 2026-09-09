@@ -2,7 +2,7 @@
 title: 'Architectural Blueprint: Unmasking Astroturfing Swarms with Lexical Topic Entropy & SimHash-64'
 description: How Shannon entropy calculations (H < 0.30) and SimHash clustering expose coordinated AI content farms in real time.
 since_version: v1.11.0
-verified_version: v2.21.0
+verified_version: v2.21.1
 last_verified: 2026-09-08
 sidebar:
   order: 2

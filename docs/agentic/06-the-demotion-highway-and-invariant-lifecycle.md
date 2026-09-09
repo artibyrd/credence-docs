@@ -2,7 +2,7 @@
 title: '06. The Demotion Highway & Invariant Lifecycle Governance'
 description: How Credence re-evaluates system invariants, enforces Class Alpha/Beta/Gamma cognitive ranking, and graduates mechanical rules to automated test gates.
 since_version: v2.3.0
-verified_version: v2.21.0
+verified_version: v2.21.1
 last_verified: 2026-09-08
 tags:
 - invariants
