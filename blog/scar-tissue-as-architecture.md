@@ -2,8 +2,8 @@
 title: 'Scar Tissue as Architecture: Why Every Tier-0 Invariant Started as an Embarrassing Disaster'
 description: How production failures, hallucinated citations, dirty deployments, and bloated CI pipelines transformed into permanent, non-negotiable architectural invariants.
 since_version: v1.0.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 date: '2026-08-19'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'

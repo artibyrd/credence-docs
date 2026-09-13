@@ -3,8 +3,8 @@ title: CLI Automation & Shell Scripting Guide
 description: Advanced shell automation using JSON output, jq filtering, parallel batch
   processing with xargs, and CI/CD PR review gates.
 since_version: v1.0.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 ---
 
 # CLI Automation & Shell Scripting Guide

@@ -2,8 +2,8 @@
 title: 'Tutorial 03: Pairing with Claude Desktop & Cursor via FastMCP 2.0'
 description: Connect your favorite AI coding assistants directly to your local Credence node using the Model Context Protocol.
 since_version: v1.0.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 sidebar:
   order: 3
 ---

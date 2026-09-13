@@ -2,8 +2,8 @@
 title: FastMCP 2.0 Integration Specification
 description: Model Context Protocol (MCP) tool definitions, dual stdio/SSE transports, and autonomous agent contracts.
 since_version: v1.0.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 sidebar:
   order: 3
 ---
