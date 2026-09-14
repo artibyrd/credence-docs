@@ -31,18 +31,19 @@ Credence exposes FastMCP 2.0 across two standard communication transports:
 ## 2. FastMCP Tool Catalog
 
 ### 2.1 `credence_check_url`
-Audits a live webpage URL for deceptive patterns, unverified assertions, clickbait framing, and prompt injection attacks.
+Audits a live webpage URL for deceptive patterns, unverified assertions, clickbait framing, and prompt injection attacks. Features an adaptive 25-second Epistemic Brake window allowing distributed mempool workers to fulfill novel audits before falling back to structural triage:
 
 ```json
 {
   "name": "credence_check_url",
-  "description": "Performs a complete epistemic audit of a web URL, returning a calibrated suspicion score, classification, and grounded quotes.",
+  "description": "Performs an epistemic audit of a web URL with a 25-second adaptive brake window for mempool worker resolution, returning calibrated scores, grounded quotes, and consensus metadata.",
   "parameters": {
     "type": "object",
     "properties": {
       "url": { "type": "string", "description": "The fully qualified HTTP/HTTPS URL to audit." },
       "profile": { "type": "string", "enum": ["free", "balanced", "ultra"], "default": "balanced" },
-      "thinking_budget": { "type": "integer", "default": 1024 }
+      "thinking_budget": { "type": "integer", "default": 1024 },
+      "wait_timeout": { "type": "integer", "default": 25, "description": "Adaptive wait window in seconds for peer/worker resolution." }
     },
     "required": ["url"]
   }
@@ -57,6 +58,26 @@ Cryptographically verifies an Ed25519 audit receipt against the publisher's publ
 
 ### 2.4 `credence_get_quota_status`
 Returns real-time token governor budget status, active hourly spend, and circuit breaker tripwire headroom.
+
+### 2.5 `credence_verify_and_anchor`
+Allows in-chat agents (Claude Desktop, Cursor, Antigravity) to submit self-evaluated audit findings directly to the node. The node deterministically verifies $G=1.00$ verbatim grounding against the raw page text, validates taxonomy rule IDs, countersigns with its Ed25519 key, and anchors the attestation to the public ledger:
+
+```json
+{
+  "name": "credence_verify_and_anchor",
+  "description": "Verifies in-context agent findings against source DOM for G=1.00 exact grounding, countersigns, and anchors to the public ledger.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "url": { "type": "string", "description": "URL of the audited content." },
+      "violations": { "type": "array", "items": { "type": "object" }, "description": "List of detected violations with verbatim quotes and rule IDs." },
+      "reasoning": { "type": "string", "description": "Agent analysis and justification." },
+      "model_slug": { "type": "string", "description": "Calling model identifier (e.g. anthropic/claude-3.7-sonnet)." }
+    },
+    "required": ["url", "violations"]
+  }
+}
+```
 
 ---
 

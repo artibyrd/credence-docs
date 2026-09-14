@@ -157,3 +157,13 @@ is_grounded = evaluate_grounding_exactness(
 )
 assert is_grounded is True
 ```
+
+---
+
+## 11. Contributor Telemetry Deck & Leaderboards (`credence.nexus`)
+
+In addition to node vitals, `credence.nexus` provides real-time observability into the distributed volunteer worker fleet:
+
+1. **Live Mempool Odometer**: Active queue depth, estimated wait time, completed audits throughput, and cumulative community tokens donated.
+2. **Volunteer Worker Leaderboard**: Sortable rankings by tokens donated, bounties cleared, and quality score ($Q_w$). Filterable by model family.
+3. **Interactive Contributor Dossiers (`#worker/{pubkey}`)**: Modal inspection of an individual worker's cryptographic identity, model family, turnaround latency, verbatim grounding history, unlocked badges, and 1-click embed codes.

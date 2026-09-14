@@ -53,20 +53,22 @@ In accordance with **[The Invariant Bible](invariants.md#invariant-24) (Universa
 | **Whole-Mesh Network Topology** | `credence stats --mesh`<br/>Tool: `credence_get_mesh_network_health`<br/>Resource: `credence://mesh/network-health` | Tab 9: `🕸️ P2P Mesh`<br/>`credence.nexus` (Mesh Canvas) | **Full Parity** |
 | **Token Headroom Governor** | `credence quota`<br/>Tool: `credence_get_quota_status` | Tab 6: `⚡ Quota`<br/>Status Badge at `credence.run` | **Full Parity** |
 | **Cost Profiles** | `credence profile list`<br/>Resource: `credence://profiles` | Profile Badge `[FREE/BALANCED]`<br/>Cost Tier Grid | **Full Parity** |
-| **Taxonomy Governance** | `credence taxonomy list`<br/>Resource: `credence://taxonomies` | Tab 2: `📚 Taxonomies`<br/>`taxonomies.credence.foundation` | **Full Parity** |
-| **Cryptographic Identity** | `credence identity show`<br/>Resource: `credence://node/identity` | Tab 7: `🔑 Node Identity`<br/>`keys.credence.foundation` | **Full Parity** |
+| **Cryptographic Identity & Key Custody** | `credence key show`, `credence key export`<br/>`credence identity show`<br/>Resource: `credence://node/identity` | Tab 7: `🔑 Node Identity`<br/>`keys.credence.foundation` | **Full Parity** |
+| **Open Epistemic Mempool Queue** | `credence queue`<br/>REST: `/api/queue/*` | Queue Vitals Card<br/>`credence.nexus` Queue Status | **Full Parity** |
 | **P2P Mesh Seeds & Ranking** | `credence seeds`, `rank`<br/>Resource: `credence://mesh/seeds` | Peer Status Indicators<br/>`seeds.credence.nexus/peers.json` | **Full Parity** |
 | **Hierarchical Subjects** | `credence subjects list`<br/>Resource: `credence://subjects/registry` | Tab 3: `🧠 Domain Subjects`<br/>Subject Explorer | **Full Parity** |
 | **White-Label Org Generator** | `credence init-org`<br/>*Intentionally CLI-Only* | *Intentionally CLI-Only*<br/>*Intentionally CLI-Only* | OS Scaffolding |
 | **P2P Relay Daemon** | `credence mesh`<br/>*Intentionally CLI-Only* | *Intentionally CLI-Only*<br/>*Intentionally CLI-Only* | OS Daemon |
+| **Volunteer Worker Daemon** | `credence worker`<br/>*Intentionally CLI-Only* | *Intentionally CLI-Only*<br/>*Intentionally CLI-Only* | OS Daemon |
 
 ### D. Epistemic Analytics, DEI & Leaderboards
 
 | Feature Area | 🖥️ CLI & ⚡ FastMCP 2.0 | 📟 Textual TUI & 🌐 Web UI | Status |
 | :--- | :--- | :--- | :--- |
-| **Epistemic Leaderboards** | `credence rankings`<br/>Tool: `credence_get_leaderboard` | Tab 5: `🏛️ Dossiers & Rankings`<br/>`credence.nexus` Leaderboards | **Full Parity** |
+| **Epistemic Leaderboards (Nodes & Workers)** | `credence rankings --type <nodes\|workers>`<br/>Tool: `credence_get_leaderboard` | Tab 5: `🏛️ Dossiers & Rankings`<br/>`credence.nexus` Leaderboards | **Full Parity** |
+| **Worker Contributor Dossiers** | `credence worker show <pubkey>`<br/>Endpoint: `/api/workers/{pubkey}` | Contributor Telemetry Deck<br/>`credence.nexus#worker/{pubkey}` Modal | **Full Parity** |
 | **Sovereign Node Merit** | `credence merit --mesh`<br/>Tool: `credence_get_node_merit` | Tab 5: Split Merit Card<br/>`credence.nexus` Merit Matrix | **Full Parity** |
-| **Live Vector SVG & Web Component Badges** | `credence badge export --modality <m> --format <f>`<br/>Tool: `credence_generate_badge`<br/>Resource: `credence://merit/badges` | Merit Matrix & Studio<br/>`credence.nexus` Badge Studio (Node / Publisher / Attestation) | **Full Parity** |
+| **Live Vector SVG & Web Component Badges** | `credence badge export --modality <m> --format <f>`<br/>Tool: `credence_generate_badge`<br/>Resource: `credence://merit/badges` | Merit Matrix & Studio<br/>`credence.nexus` Badge Studio (Node / Publisher / Attestation / Worker) | **Full Parity** |
 | **Domain Credence Index (DCI)** | `credence rankings`<br/>Tool: `credence_get_domain_rankings` | DCI Honor Roll Table<br/>`credence.report` Honor Roll / Shame | **Full Parity** |
 | **Top Violated Rules** | `credence rankings --type rules`<br/>Tool: `credence_get_taxonomy_analytics` | Rules Breakdown View<br/>`credence.report` Rules Aggregator | **Full Parity** |
 | **Epistemic Weather Barometer** | `credence rankings --type weather`<br/>Tool: `credence_get_epistemic_weather` | Global Climate Widget<br/>`credence.report` Weather Barometer | **Full Parity** |

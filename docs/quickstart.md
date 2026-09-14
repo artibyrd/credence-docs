@@ -197,6 +197,34 @@ All unit tests execute hermetically in-memory (<35s) with zero external network 
 
 ---
 
+## 8. Run a Volunteer Worker (Earn Epistemic Bounties)
+
+Contribute spare compute to the open mempool and climb the contributor leaderboard:
+
+```bash
+# Launch volunteer worker with zero configuration
+uvx credence worker --node https://credence.run
+```
+
+---
+
+## 9. Identity Key Custody (Preserve Your Leaderboard Rank)
+
+Your Ed25519 keypair is your network identity. To maintain your badges and leaderboard rank when switching machines:
+
+```bash
+# View your active identity and public key
+credence key show
+
+# Back up your private key securely
+credence key export --out ~/.credence/backup_identity.key
+
+# Restore your identity on a new machine
+credence key import ~/.credence/backup_identity.key
+```
+
+---
+
 ## 🧭 Next Steps & External References
 
 ### 📚 Official Developer Tools & Documentation

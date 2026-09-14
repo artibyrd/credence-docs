@@ -143,7 +143,25 @@ This mathematical guarantee prevents low-quality Sybil cartels ($3f+1$) from sup
 
 ---
 
-## 6. Operator CLI & Mesh Diagnostics
+## 6. Open Epistemic Mempool Gossip & Multi-Model Quorum
+
+Credence nodes exchange mempool job state over WebSocket gossip to coordinate volunteer worker compute across decentralized clusters:
+
+| Wire Message Type | Payload Fields | Role in Cluster |
+| :--- | :--- | :--- |
+| `MEMPOOL_JOB_ANNOUNCE` | `job_id`, `url`, `content_sha256`, `target_quorum`, `priority` | Broadcasts new audit request to cluster |
+| `MEMPOOL_JOB_CLAIMED` | `job_id`, `worker_pubkey`, `model_family`, `lease_expires_at` | Informs peers of active model family lease |
+| `MEMPOOL_JOB_COMPLETED` | `job_id`, `worker_pubkey`, `model_family`, `audit_id`, `sig` | Broadcasts completed pass to build consensus |
+
+### Multi-Model Consensus Quorum
+To protect against model monoculture and sybil attacks:
+1. **Target Quorum ($M \ge 3$)**: Requires passes from distinct cognitive model families (e.g. Gemini, Claude, DeepSeek).
+2. **Key Uniqueness**: Each pass must be signed by a distinct Ed25519 worker identity.
+3. **The Galileo Override**: Unanimously corroborated violations are prioritized, while grounded discoveries ($G=1.00$) from a single model override ungrounded majorities.
+
+---
+
+## 7. Operator CLI & Mesh Diagnostics
 
 Operators can inspect and manage mesh connectivity directly from the terminal:
 
@@ -160,7 +178,7 @@ $ credence mesh query https://example.com/article --min-peers 3
 
 ---
 
-## 7. RFC Standards & Mathematical References
+## 8. RFC Standards & Mathematical References
 
 ### 📚 Official IETF RFCs & Scientific Publications
 * **RFC 8785**: [JSON Canonicalization Scheme (JCS) - IETF](https://datatracker.ietf.org/doc/html/rfc8785)

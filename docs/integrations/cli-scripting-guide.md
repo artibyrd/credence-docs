@@ -151,3 +151,47 @@ Inspect active mesh reality and Byzantine fault tolerance limits ($f = \lfloor (
 # Query live mesh status with fault tolerance capacity
 credence merit --mesh
 ```
+
+---
+
+## 8. Volunteer Worker Daemon Automation
+
+Run an automated volunteer worker contributing compute to the public mempool:
+
+```bash
+# Basic worker connecting to community node
+uvx credence worker --node https://credence.run
+
+# Worker running local Ollama or vLLM open-weights model
+uvx credence worker \
+  --node https://credence.run \
+  --model ollama/llama3.3:70b \
+  --api-base http://localhost:11434/v1
+
+# Paired worker with Self-Serve Affinity accelerating local IDE queries
+uvx credence worker --node https://credence.run --affinity my-dev-workstation
+```
+
+---
+
+## 9. Cryptographic Identity Key Custody
+
+Manage your Ed25519 node and worker identity keys across machines:
+
+```bash
+# Display active public key and fingerprint
+credence key show
+
+# Export private key to secure PEM backup
+credence key export --out ~/.credence/backup_identity.key
+credence key export --stdout  # Print ASCII PEM for secret managers
+
+# Import private key on a new workstation
+credence key import ~/.credence/backup_identity.key
+
+# Generate a fresh keypair (with overwrite protection)
+credence key generate --force
+```
+
+> [!TIP]
+> **Container & Headless Injection**: Pass your private key via `CREDENCE_NODE_KEY_PEM` environment variable in Docker, Kubernetes, or Cloud Run without writing to disk.

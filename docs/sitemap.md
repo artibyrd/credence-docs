@@ -165,9 +165,12 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * **[11. Autonomous Node Germination](/docs/tutorials/11-autonomous-node-germination-and-swarm-ignition)**: 5-second node germination, genesis keys, and burst auditing.
 * **[12. Climbing Epistemic Tiers](/docs/tutorials/12-climbing-the-epistemic-tiers)**: Building empirical expertise ($E_i$), domain authority, and node ranking.
 * **[13. Discord Alerts & Basement Monitoring](/docs/tutorials/13-discord-alerting-and-basement-monitoring)**: Webhook notifications for breaking high-suspicion stories.
+* **[14. Operator Security & Admin Workstation](/docs/tutorials/14-operator-security-and-admin-workstation)**: Securing admin routes and operator credentials.
+* **[15. Volunteer Compute & Worker Guide](/docs/tutorials/15-volunteer-compute-and-worker-guide)**: 30-second volunteer worker quickstart, model configuration, and merit bounties.
 
 ### Developer Cookbooks & Blueprints
 * **[Agentic Epistemic Brake Cookbook](/docs/cookbooks/agentic-epistemic-brake)**: Halting agent execution when confidence falls below safety thresholds.
+* **[Preserving Epistemic Identity & Key Custody](/docs/cookbooks/worker-key-custody-and-migration)**: Backing up, exporting, and migrating Ed25519 worker identity keys across machines.
 * **[Taxonomy Rule Engineering 101](/docs/cookbooks/taxonomy-engineering)**: Authoring custom namespaced YAML taxonomy catalogs with test suites.
 * **[Automated Morning Feed Sifter Recipe](/docs/cookbooks/morning-feed-sifter)**: Cron recipe for automated news briefings.
 * **[Auditing Financial 10-K Filings](/docs/cookbooks/financial-disclosures)**: Auditing non-GAAP metrics, EBITDA reconciliations, and SEC disclosures.
@@ -184,6 +187,7 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * **[Air-Gapped Sneakernet Protocol](/docs/mesh-engineering/airgapped-sneakernets)**: Offline verification and bundle exchange.
 * **[DNS SRV Dynamic Peer Discovery](/docs/mesh-engineering/dns-srv-discovery)**: RFC 2782 DNS SRV peer discovery without central trackers.
 * **[Token Safety Governor Specification](/docs/protocols/token-governor)**: Spending profiles, budget caps, and 30% headroom breaker.
+* **[Open Epistemic Mempool Protocol Specification](/docs/protocols/open-epistemic-mempool)**: Public audit queue, soft lease state machine, multi-model consensus, and saturated escalation valves.
 * **[Protocol Specification: Boredom Engine & Root Expansion (EPEP-16)](/docs/protocols/boredom-and-root-expansion)**: Technical specification for opportunistic queue digestion, token governor gating, and autonomous feed discovery.
 * **[Protocol Specification: Domain Reputation, Soft Quarantine & Redemption (EPEP-17)](/docs/protocols/reputation-quarantine-and-redemption)**: Technical specification for domain reputation tracking, exponential polling backoff, HRW swarm coordination, and the BuzzFeed News Doctrine.
 * **[P2P Mesh & Consensus Protocol](/docs/protocols/mesh-protocol)**: RFC 8785 canonical JSON, Ed25519 signatures, and gossip routing.

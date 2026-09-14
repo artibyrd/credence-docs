@@ -200,6 +200,7 @@ Every metric card, interactive table, and telemetry widget across the zero-build
 | `byzantine` | 🛡️ Byzantine Fault Tolerance & Quorum Formulation | `CONSENSUS MATHEMATICS` | — | `credence byzantine` | [The Invariant Bible](invariants.md) |
 | `gossip` | 📡 Live P2P Gossip Stream & Peer Protocol | `GOSSIP PROTOCOL` | — | `credence gossip` | [The Invariant Bible](invariants.md) |
 | `qi_scoring` | 🏆 5-Factor Node Quality Score (Qᵢ) | `NODE QUALITY METRIC` | — | `credence qi_scoring` | [The Invariant Bible](invariants.md) |
+| `qw_scoring` | 🐝 Volunteer Worker Fleet Quality & Badges (Q_w) | `VOLUNTEER FLEET` | — | `credence qw_scoring` | [The Invariant Bible](invariants.md) |
 | `vitals` | 👤 Node Health, Memory & Scale-to-Zero Vitals | `COMPUTE PLANE` | — | `credence vitals` | [The Invariant Bible](invariants.md) |
 | `telemetry` | 🩺 Interface Telemetry Loopback Protocol (ITLP-v1) | `TELEMETRY STANDARD` | — | `credence telemetry` | [The Invariant Bible](invariants.md) |
 | `badges` | 🛡️ Dynamic SVG Merit Badges & Manifest | `ATTESTATION BADGES` | — | `credence badges` | [The Invariant Bible](invariants.md) |

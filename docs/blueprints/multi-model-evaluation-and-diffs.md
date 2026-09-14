@@ -151,3 +151,20 @@ To ensure operational resilience and zero external quota dependency, Credence im
    - Executes audits directly within Antigravity's cognitive agent session using internal reasoning tokens.
    - Eliminates external 429 rate limit exceptions and token quota costs during development and operator-driven research workflows.
 
+---
+
+## 8. Open Mempool Multi-Model Consensus Architecture
+
+In Credence `v2.22.0`, multi-model evaluation scales from local passes to a distributed, decentralized **Epistemic Mempool**:
+
+1. **Concurrent Distinct Family Leases**:
+   - The mempool allows multiple workers running distinct model families (`google/gemini`, `anthropic/claude`, `deepseek/reasoner`, `alibaba/qwen`) to claim the exact same URL concurrently.
+   - Redundant claims from the same model family are blocked, maximizing cognitive diversity.
+2. **Blind Evaluation Invariant**:
+   - Each worker receives only the raw snapshot DOM and prose.
+   - Workers never see findings from earlier passes, preventing cognitive anchoring or cross-model copycatting.
+3. **Bayesian Consensus Aggregation (`compute_consensus_verdict`)**:
+   - Passes are weighted by model reliability ($Q_{\text{model}}$) and worker reputation ($Q_w$).
+   - Consensus requires agreement across $\ge 3$ distinct model families and distinct cryptographic keys.
+   - Grounded findings ($G=1.00$) from specialist models are protected via the **Galileo Rule override**, ensuring authentic discoveries cannot be silenced by ungrounded majorities.
+

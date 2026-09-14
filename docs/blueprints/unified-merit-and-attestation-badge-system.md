@@ -14,13 +14,14 @@ Whether displayed on static **GitHub READMEs**, dynamically rendered in **newsro
 
 ---
 
-## 1. The Three Badge Modalities
+## 1. The Four Badge Modalities
 
 | Modality | Target Entity | Core Metric | Primary Embed Format | Endpoint / Interface |
 | :--- | :--- | :--- | :--- | :--- |
 | **Node Epistemic Merit** | P2P Validator Nodes | 11 Milestones & 5 Tiers ($Q_i, U_i, L_i, G_i$) | Dynamic Vector SVG (`.svg`) | `/api/badge/{badge_id}` / `credence badge export --modality node` |
 | **Publisher Trust** | Newsrooms & Outlets | Domain Credence Index (DCI %) | Dynamic Vector SVG (`.svg`) | `/api/badge/publisher/{domain}` / `credence badge export --modality publisher` |
 | **Article Attestation** | Individual Articles | Verbatim DOM Grounding ($G$) | Web Component / Dynamic SVG | `/api/badge/attestation/{identifier}` / `credence badge export --modality attestation` |
+| **Worker Contributor Merit** | Volunteer Edge Workers | Donated Tokens, Bounties & Quality ($Q_w$) | Dynamic Vector SVG (`.svg`) | `/api/badge/worker/{pubkey}` / `credence badge export worker <pubkey>` |
 
 ---
 
@@ -75,6 +76,8 @@ version="v2.7.0">
 [![Verified Auditor](https://credence.nexus/api/badge/verified_auditor?node=anchor-01&style=shield)](https://credence.nexus/#merit)
 <!-- Publisher Trust Badge -->
 [![Reuters Trust](https://credence.nexus/api/badge/publisher/reuters.com?style=shield)](https://credence.report/domain/reuters.com)
+<!-- Worker Contributor Merit Badge -->
+[![Volunteer Worker](https://credence.run/api/badge/worker/9580dc91c01992b33e3fd76718fcf94a...)](https://credence.nexus#worker/9580dc91c01992b33e3fd76718fcf94a...)
 
 ### C. HTML Image (Websites & Static Site Generators)
 ```html
@@ -90,6 +93,9 @@ credence badge export verified_auditor --node my-node-01 --style shield --output
 
 # Export publisher trust badge
 credence badge export reuters.com --style shield --output ./reuters_badge.svg
+
+# Export worker contributor merit badge
+credence badge export worker 9580dc91c01992b33e3fd76718fcf94a... --style shield --output ./worker_badge.svg
 ```
 
 ---
