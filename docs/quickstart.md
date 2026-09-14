@@ -1,243 +1,125 @@
 ---
-title: Quickstart & Installation
-description: Get started with Credence CLI, FastMCP 2.0 server, and Textual TUI in
-  under 60 seconds.
+title: "The Credence Graduation Path & Quickstart Directory"
+description: "Explore the 3 ways to use Credence and follow the progressive graduation path from FastMCP assistant to volunteer worker to sovereign coordinator node."
 since_version: v1.0.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-09-14
 ---
 
-# Quickstart & Installation ⚡
+# The Credence Graduation Path & Quickstart Directory 🧭
 
-Get started with the Credence CLI, AI Assistant integration (FastMCP 2.0), and Textual TUI workstation in under a minute.
+Welcome to Credence! Because Credence is both an in-editor developer tool and a decentralized epistemic consensus network, different users enter the ecosystem at different layers. 
 
----
-
-## 🚀 3-Step Quickstart
-
-:::tabs
-=== 1. Install
-Install Credence via the automated installer, Poetry, or Docker:
-```bash
-# Automated installer (Linux & macOS)
-curl -fsSL https://credence.run/install.sh | bash
-```
-
-=== 2. Audit
-Run your first live audit on any URL or news article:
-```bash
-# Audit a live article
-credence audit https://example.com/news-story
-```
-
-=== 3. Interface
-Choose how you want to interact with Credence:
-```bash
-# Terminal Dashboard (TUI) | FastMCP (Claude/Cursor) | Daily Digest
-credence tui
-```
-:::
-
----
-
-## 1. Installation Options
-
-:::tabs
-=== POSIX One-Liner (macOS & Linux)
-```bash
-curl -fsSL https://credence.run/install.sh | bash
-```
-
-=== Git Clone & Poetry
-```bash
-git clone https://github.com/artibyrd/credence.git
-cd credence
-poetry install
-```
-
-=== Docker Container
-```bash
-docker run -d -p 8000:8000 ghcr.io/artibyrd/credence:latest
-```
-:::
-
----
-
-<a id="2-api-key-configuration-optional"></a>
-## 2. API Key Configuration & Operator Security (Optional)
-
-### Multi-Agent LLM Reasoning (Gemini 3.7 Flash)
-Credence uses **Gemini 3.7 Flash** by default for deep multi-agent evaluation. Set your API key in your shell environment:
-
-```bash
-export CREDENCE_GEMINI_API_KEY="your-gemini-api-key"
-```
-
-> 💡 **Zero-Cost / Offline Heuristics**: If no API key is provided, Credence automatically runs in **100% offline heuristic mode** ($0.00 spend) using structural rules.
-
-### Operator Admin Key & Browser Command Deck
-To administer your local or cloud node via the browser **Admin Command Deck** (`https://credence.nexus#admin`) or pass mutating REST API calls:
-
-```bash
-# 1-Command bootstrap: generates secure token in .env
-just auth-bootstrap local
-
-# Print active operator token for browser unlock
-just auth-token
-```
-
----
-
-## 3. Running Your First Audit
-
-Audit any webpage directly from your command line:
-
-```bash
-# Default audit with Balanced profile (Gemini 3.7 Flash thinking model)
-credence audit https://example.com/news-story
-
-# Fast zero-cost audit (0 API tokens, 100% offline heuristics)
-credence audit https://example.com/news-story --profile free
-
-# Deep investigative audit (for complex legal, financial, or technical claims)
-credence audit https://example.com/news-story --profile ultra
-```
-
-### Example Terminal Output
+Rather than forcing a single monolithic quickstart, Credence provides **three focused, role-specific quickstarts** connected by a progressive **Graduation Path**:
 
 ```text
-🛡️ Credence Audit: https://example.com/breaking-news
-Content SHA-256: 8f4e2b...
-Classification: FACTUAL_REPORTING (is_satire: False)
-Suspicion Score: 0.12 (Low Suspicion)
-Violations Found: 1
-  - [IEP:INFORMAL/straw_man@1.0.0] Severity: 2
-    Quote: "Opponents believe that everyone should lose their jobs immediately."
-    Grounding: Verified (Exact Verbatim Match)
-Attestation Signed: Ed25519 (Node ID: e4d9...)
+1. CONSUME: FastMCP 2.0 Client (<60s)
+   "Start by using the MCP server."
+   Connect Claude Desktop, Cursor, or Antigravity with zero infrastructure.
+   Get real-time fact checking and the in-editor Epistemic Brake.
+   |
+   v
+2. CONTRIBUTE: Volunteer Worker Daemon (<2m)
+   "Not getting audits fast enough? Contribute as a worker."
+   Run uvx credence worker to claim open mempool bounties.
+   Earn cryptographic merit badges and accelerate verification throughput.
+   |
+   v
+3. HOST & COORDINATE: Sovereign Node (<5m)
+   "Have a team running lots of audits? Host your own node."
+   Spin up a full coordinator node with 1-command ignition.
+   Manage team mempools, customize rules, and federate across the global mesh.
 ```
 
 ---
 
-## 4. Launching the Interactive Terminal Dashboard (TUI)
+## 🚀 Choose Your Quickstart Guide
 
-Launch the full-screen terminal IDE to inspect live citation highlights, browse ethical taxonomies, and monitor token quotas:
+Jump directly to the setup guide that matches your immediate goal:
 
-```bash
-credence tui
-```
+### ⚡ 1. FastMCP 2.0 AI Assistant
+* **Persona**: AI Developers, Researchers, Pair-Programmers
+* **Interface**: Claude Desktop, Cursor IDE, Antigravity, Cline
+* **Setup Time**: **< 60 Seconds**
+* **Primary Goal**: Real-time fact-checking and hallucination defense inside your editor.
+* **Quickstart Guide**: &rarr; **[Open FastMCP Client Quickstart](quickstart-mcp.md)**
 
-![Credence TUI Workstation](../assets/tui/01-inspector-rich.svg)
+### 🐝 2. Volunteer Worker Daemon
+* **Persona**: Community Contributors, Homelab Operators, Model Enthusiasts
+* **Interface**: Terminal Daemon (`uvx credence worker`)
+* **Setup Time**: **< 2 Minutes**
+* **Primary Goal**: Donate spare compute (local Ollama or API), clear mempool bounties, and climb the leaderboard.
+* **Quickstart Guide**: &rarr; **[Open Volunteer Worker Quickstart](quickstart-worker.md)**
 
-* Press **`/`** to audit a new URL.
-* Use **`j` / `k`** or **`↑` / `↓`** to navigate violations and view exact highlighted quotes.
-* Press **`1`–`6`** to switch between Inspector, Taxonomies, Subjects, Feeds, Quota, and Identity panes.
-* Press **`q`** to exit.
-
----
-
-## 5. Connecting to Claude & Cursor (FastMCP 2.0)
-
-Equip your AI coding assistant with real-time fact-checking and source verification tools:
-
-### Claude Desktop Configuration
-
-Add Credence to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "credence": {
-      "command": "credence",
-      "args": ["serve", "--mcp"],
-      "env": {
-        "CREDENCE_GEMINI_API_KEY": "your-gemini-api-key"
-      }
-    }
-  }
-}
-```
-
-### Cursor IDE Setup
-
-In Cursor settings under **Features &rarr; MCP Servers**, add:
-* **Name**: `credence`
-* **Type**: `command`
-* **Command**: `credence serve --mcp`
-
-### FastMCP HTTP / SSE Streaming Server
-
-For remote agents or network clients, launch the streaming SSE server:
-
-```bash
-credence serve --transport sse --port 8000
-```
-Connect via `http://localhost:8000/sse`.
+### 🏛️ 3. Sovereign Node & Coordinator
+* **Persona**: Engineering Teams, Sysadmins, Sovereign Organizations
+* **Interface**: Coordinator Engine, REST API, Web Admin Deck (`credence.nexus#admin`)
+* **Setup Time**: **< 5 Minutes**
+* **Primary Goal**: Full-stack sovereign hosting, team mempool coordination, and P2P mesh federation.
+* **Quickstart Guide**: &rarr; **[Open Sovereign Node Quickstart](quickstart-node.md)**
 
 ---
 
-## 6. Instant Node Germination (Bootstrap in 5s)
+## 📊 Quickstart Comparison & Decision Matrix
 
-If you are setting up a full node, run `credence germinate` to mint cryptographic keys, inoculate Genesis seed data at $0.00 cost, and sow 24 preset feeds:
-
-```bash
-credence germinate
-```
-
----
-
-## 7. Running the Test Suite
-
-Verify your installation by running the hermetic test suite:
-
-```bash
-just test-unit
-```
-All unit tests execute hermetically in-memory (<35s) with zero external network access.
+| Dimension | Tier 1: FastMCP Client | Tier 2: Volunteer Worker | Tier 3: Sovereign Node |
+| :--- | :--- | :--- | :--- |
+| **Primary Role** | Consumer (Queries truth) | Contributor (Solves bounties) | Operator (Coordinates network) |
+| **Setup Time** | **< 60 Seconds** | **< 2 Minutes** | **< 5 Minutes** |
+| **Hardware Footprint** | 0 MB server memory (Pure client) | 200 MB RAM (or local LLM VRAM) | 512 MB RAM + 1 vCPU |
+| **Cost to Run** | **$0.00** (Free tier / Heuristics) | **$0.00** (Ollama) or pennies/bounty | **$0.00** (Local/Docker) or Cloud Run cap |
+| **Required Keys** | Optional Gemini API key | Node Ed25519 key (Auto-generated) | Operator Bearer token + Node keypair |
+| **Launch Command** | `uvx credence serve --mcp` | `uvx credence worker --node ...` | `curl ... | bash` &bull; `just ignite` |
+| **Dedicated Guide** | [FastMCP Quickstart](quickstart-mcp.md) | [Worker Quickstart](quickstart-worker.md) | [Node Quickstart](quickstart-node.md) |
 
 ---
 
-## 8. Run a Volunteer Worker (Earn Epistemic Bounties)
+## 🌐 How the Three Roles Overlap in the Network
 
-Contribute spare compute to the open mempool and climb the contributor leaderboard:
+The Credence network functions through the cooperative interaction of these three roles:
 
-```bash
-# Launch volunteer worker with zero configuration
-uvx credence worker --node https://credence.run
+```text
+[1. Consumers (Claude / Cursor)]
+               |
+               | 1. credence_check_url (Queries URL)
+               v
+[3. Sovereign Coordinator Nodes]
+   ├── Check Edge Cache ───────> (Cache Hit: Instant Response <15ms)
+   └── Cache Miss ─────────────> (Enqueue Bounty onto Mempool)
+                                           |
+                                           | 2. Poll & Claim Lease
+                                           v
+                        [2. Volunteer Worker Fleet]
+                           ├── Worker 1: Gemini 3.7 Flash
+                           ├── Worker 2: Claude 3.7 Sonnet
+                           ├── Worker 3: Local Ollama (Llama 3.3)
+                           └── Worker 4: DeepSeek-R1
+                                           |
+                                           | 3. Submit G=1.00 Signed Attestation
+                                           v
+[3. Sovereign Coordinator Nodes] <─────────┘
+   ├── Compute Multi-Model Bayesian Consensus
+   ├── Apply The Galileo Rule (inv-galileo-rule)
+   └── Return Verified Receipt to Consumer & Archive to Store
 ```
 
----
-
-## 9. Identity Key Custody (Preserve Your Leaderboard Rank)
-
-Your Ed25519 keypair is your network identity. To maintain your badges and leaderboard rank when switching machines:
-
-```bash
-# View your active identity and public key
-credence key show
-
-# Back up your private key securely
-credence key export --out ~/.credence/backup_identity.key
-
-# Restore your identity on a new machine
-credence key import ~/.credence/backup_identity.key
-```
+1. **Consumers Create Demand**: When a developer in Claude Desktop asks to verify a URL, FastMCP sends a query to the coordinator.
+2. **Nodes Manage Coordination**: If the URL has not been audited yet, the coordinator places an audit bounty on the open mempool.
+3. **Workers Provide Truth**: Distributed volunteer workers claim the bounty, evaluate the source text across diverse models, verify verbatim citations ($G=1.00$), and sign the verdict with their Ed25519 identity.
+4. **Consensus Resolves**: The coordinator aggregates multiple worker reports into a Bayesian consensus score, permanently archiving the verified attestation.
 
 ---
 
 ## 🧭 Next Steps & External References
 
 ### 📚 Official Developer Tools & Documentation
-* **Gemini API**: [Get a Gemini API Key on Google AI Studio](https://aistudio.google.com/app/apikey) &bull; [Google Gemini API Docs](https://ai.google.dev/docs)
-* **Package Management**: [Poetry Dependency Management](https://python-poetry.org/docs/) &bull; [Python 3.12 Release Notes](https://docs.python.org/3.12/)
-* **Containers & CI/CD**: [Docker Engine Overview](https://docs.docker.com/engine/) &bull; [GitHub Container Registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
-* **IDE & Agent Environments**: [Claude Desktop](https://claude.ai/download) &bull; [Cursor AI Code Editor](https://www.cursor.com/) &bull; [Model Context Protocol](https://modelcontextprotocol.io/)
+* **MCP Protocol**: [Model Context Protocol Specification](https://modelcontextprotocol.io/) &bull; [Claude Desktop Downloads](https://claude.ai/download) &bull; [Cursor Code Editor](https://www.cursor.com/)
+* **Package Management**: [Astral uv & uvx](https://docs.astral.sh/uv/) &bull; [Python Poetry](https://python-poetry.org/)
+* **Containers & Orchestration**: [Docker Engine](https://docs.docker.com/engine/) &bull; [Google Cloud Run](https://cloud.google.com/run)
 
 ### 🔗 Related Guides & Playgrounds in Credence
-* 🎮 **[Interactive Zero-Build Playgrounds](playground.md)**: Test 12 algorithms live in your browser without installing anything.
-* 🔬 **[Case Study: Conflict of Pun-terest](../blog/conflict-of-pun-terest.md)**: Forensic case study auditing an elected publisher's civic monopoly.
+* 🎮 **[Interactive Zero-Build Playgrounds](playground.md)**: Test 12 consensus algorithms live in your browser without installing anything.
 * 🧭 **[Topic Index & Cheat Sheet](topic-index.md)**: Searchable reference covering all commands, settings, and flags.
 * 📖 **[Auditing Webpages & Text Walkthrough](walkthroughs/01-auditing-webpages-and-text.md)**: In-depth guide to interpreting suspicion scores and violation categories.
-* 📰 **[Morning Epistemic Digest](walkthroughs/04-morning-digest-briefings.md)**: Setting up automated daily 24-hour news briefings.
-* 🤖 **[Claude & Cursor Integration Tutorial](tutorials/03-claude-cursor-fastmcp.md)**: Detailed multi-agent setup patterns.
 * 🕸️ **[3-Node Mesh Quickstart](tutorials/05-mesh-quickstart.md)**: Spin up a local P2P gossip mesh in 5 minutes.
+* 📜 **[Open Epistemic Mempool Protocol](protocols/open-epistemic-mempool.md)**: Deep dive into the Bayesian consensus engine.

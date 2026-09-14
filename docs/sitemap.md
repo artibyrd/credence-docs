@@ -132,7 +132,10 @@ Forensic investigations, economic proofs, and real-world case studies published 
 
 ### Quickstart & Foundations
 * **[Introduction & Overview](/docs/intro)**: What is Credence, architectural pillars, and zero-trust verification.
-* **[60-Second Jump-In Quickstart](/docs/quickstart)**: CLI installation, first audit, and instant terminal workflow.
+* **[The Credence Graduation Path Hub](/docs/quickstart)**: Architectural orientation and 3-step graduation ladder from client to node.
+* **[Quickstart: FastMCP 2.0 AI Assistant](/docs/quickstart-mcp)**: Connecting Claude Desktop and Cursor in under 60 seconds.
+* **[Quickstart: Volunteer Worker Daemon](/docs/quickstart-worker)**: Donating spare compute, clearing mempool bounties, and earning merit badges.
+* **[Quickstart: Sovereign Node & Coordinator](/docs/quickstart-node)**: Hosting a full coordinator node, managing queues, and unlocking the Admin Deck.
 * **[Universal Feature Parity Matrix](/docs/feature-parity)**: Feature synchronization across CLI, FastMCP 2.0, Textual TUI, and Web UI.
 * **[Decentralized Architecture Specification](/docs/architecture)**: End-to-end multi-agent pipeline and consensus engine specs.
 * **[Zero-Build Frontend Architecture](/docs/frontend-architecture)**: Vanilla HTML5, CSS Custom Properties, and W3C WebCrypto standards.
