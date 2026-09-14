@@ -45,7 +45,7 @@ You do not need to clone the repository or manually manage virtual environments.
 ```bash
 # Launch a volunteer worker using Google Gemini
 export GEMINI_API_KEY="AIzaSy..."
-uvx credence worker --model google/gemini-3.7-flash --continuous
+uvx credence worker --model google/gemini-3.8-flash --continuous
 ```
 
 Upon launching, the worker outputs a terminal odometer and registers with the coordinator:
@@ -53,7 +53,7 @@ Upon launching, the worker outputs a terminal odometer and registers with the co
 ```bash
 # Terminal execution output
 # Worker Pubkey: 9f486ba6241d69...733db917df
-# Model Slug: google/gemini-3.7-flash
+# Model Slug: google/gemini-3.8-flash
 # Model Family: google/gemini
 # Client Affinity: all (general mempool)
 # Coordinator: https://credence.run
