@@ -3,8 +3,8 @@ title: The Multi-Model Provider Architecture
 description: Configuring Credence with Anthropic Claude 3.7 Sonnet, OpenAI GPT-4o
   / o3-mini, DeepSeek-R1, and Local Ollama / vLLM.
 since_version: v1.0.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 ---
 
 # Multi-Model Provider Architecture
@@ -78,32 +78,83 @@ credence audit https://example.com/article
 
 ---
 
-## 3. Implementing a Custom LLM Adapter
+## 3. Universal OpenAI-Compatible Provider (`OpenAICompatibleProvider`)
 
-To add a proprietary in-house model or specialized inference gateway, implement the `LLMProvider` abstract base class in Python:
+Credence includes an out-of-the-box universal adapter for any OpenAI-compatible API endpoint, such as **vLLM**, **LM Studio**, **LocalAI**, **OpenRouter**, **Together AI**, **Groq**, or **Ollama** `/v1`:
 
-```python
-from typing import Dict, Any, List
-from credence.pipeline.provider import LLMProvider, AuditResult
+```bash
+# Connect to a local vLLM or LM Studio instance
+export CREDENCE_LLM_PROVIDER=openai_compatible
+export CREDENCE_API_BASE=http://localhost:8000/v1
+export CREDENCE_API_KEY=sk-local-dev
+export CREDENCE_MODEL=meta-llama/Llama-3.3-70B-Instruct
 
-class CustomEnterpriseLLMProvider(LLMProvider):
-    def __init__(self, endpoint_url: str, api_token: str):
-        self.endpoint_url = endpoint_url
-        self.api_token = api_token
-
-    async def evaluate_claims(
-        self, 
-        normalized_prose: str, 
-        taxonomy_rules: List[Dict[str, Any]],
-        thinking_budget: int = 1024
-    ) -> AuditResult:
-        # 1. Format containerized prompt with <untrusted_source_text>
-        # 2. Invoke enterprise inference endpoint
-        # 3. Parse JSON violations and return structured AuditResult
-        pass
+credence audit https://example.com/article
 ```
 
 ---
-## Multi-Model Provider Architecture and Fallbacks
 
-Pluggable model adapters support Gemini, Claude, GPT-4o, DeepSeek-R1, and local Ollama with automatic fallback capabilities.
+## 4. Open Model Namespace Architecture (`<namespace>/<model_id>`)
+
+Credence supports an open, two-tier URI namespace for cognitive models rather than a closed, hardcoded enum:
+
+$$\text{Model Identifier} = \langle\text{namespace}\rangle / \langle\text{model\_id}\rangle$$
+
+| Namespace Type | Example Slugs | Epistemic Role |
+| :--- | :--- | :--- |
+| **Frontier Commercial** | `google/gemini-2.5-pro`, `anthropic/claude-3.7-sonnet`, `openai/o3-mini` | High-accuracy reference anchors ($Q_{\text{model}} \approx 0.95$) |
+| **Open-Weights Ecosystem** | `alibaba/qwen2.5-72b`, `deepseek/deepseek-r1-14b`, `meta/llama-3.3-70b` | Diverse independent perspectives & sovereign audits |
+| **Academic & Research** | `allenai/tulu-3-70b`, `stanford-nlp/epistemic-70b`, `moonshot/kimi-k1.5` | Specialized reasoning and domain evaluations |
+| **Custom & Homelab** | `local/my-fine-tune-mlx`, `acme-corp/financial-auditor-v2` | Proprietary fine-tunes and organizational models |
+
+### Dynamic Model Family Resolution
+
+To prevent redundant duplicate computation when workers run cosmetic variations of identical weights, the node resolves model slugs into base family clusters:
+
+```python
+def resolve_model_family(model_slug: str, base_family: str | None = None) -> str:
+    """Resolve an open model slug to an epistemic family cluster."""
+    if base_family:
+        return base_family.lower().strip()
+    slug = model_slug.lower().strip()
+    if any(k in slug for k in ("gemini", "gemma")): return "google/gemini"
+    if any(k in slug for k in ("claude", "anthropic")): return "anthropic/claude"
+    if any(k in slug for k in ("gpt-", "o1", "o3", "openai")): return "openai/gpt"
+    if any(k in slug for k in ("deepseek", "r1")): return "deepseek/reasoner"
+    if any(k in slug for k in ("llama", "meta-llama")): return "meta/llama"
+    if any(k in slug for k in ("qwen", "qwq")): return "alibaba/qwen"
+    if any(k in slug for k in ("mistral", "mixtral", "codestral")): return "mistral/mixtral"
+    if any(k in slug for k in ("grok", "xai")): return "xai/grok"
+    if any(k in slug for k in ("command", "cohere")): return "cohere/command"
+    if any(k in slug for k in ("kimi", "moonshot")): return "moonshot/kimi"
+    if "/" in slug:
+        return slug.split("/", 1)[0].strip()
+    return f"custom/{slug}"
+```
+
+---
+
+## 5. Distributed Volunteer Worker Integration
+
+Volunteer workers can contribute compute to the open mempool using any supported model or custom inference endpoint:
+
+```bash
+# Run worker with local Ollama model
+uvx credence worker --node https://credence.run --model ollama/llama3.3:70b
+
+# Run worker with OpenAI-compatible endpoint (vLLM, LM Studio, OpenRouter)
+uvx credence worker \
+  --node https://credence.run \
+  --model custom/deepseek-r1-distill \
+  --api-base http://localhost:8000/v1 \
+  --api-key sk-local-inference
+```
+
+---
+
+## 6. Zero-Trust Epistemic Verification ($G=1.00$)
+
+Credence safely accepts evaluations from **any custom, unvetted, or experimental model** because all findings must satisfy **verbatim DOM grounding**:
+1. **Deterministic Grounding Gate**: Every rule citation must contain an exact character-offset substring from the raw webpage DOM ($G=1.00$). Any hallucinated quote causes instant `HTTP 422` rejection.
+2. **Taxonomy Adherence**: Rule IDs must map to official catalog standards (SPJ Journalistic Ethics, IEP Fallacies, Deceptive Patterns).
+3. **Cryptographic Accountability**: Workers sign reports with Ed25519 keys, anchoring reputation to verifiable accuracy.

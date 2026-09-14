@@ -2,8 +2,8 @@
 title: 'Tutorial 04: Scaffolding a Sovereign Organization in 60 Seconds'
 description: Scaffold independent sovereign federation organizations (credence init-org), configure root keys, and deploy multi-cloud Terraform.
 since_version: v1.11.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 sidebar:
   order: 4
 ---

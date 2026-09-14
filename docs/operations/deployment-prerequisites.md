@@ -3,8 +3,8 @@ title: Master Deployment Prerequisites & Setup Guide
 description: Complete prerequisite checklists, credential matrices, CLI commands,
   and decision trees across all Credence deployment topologies.
 since_version: v1.18.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 ---
 
 # Master Deployment Prerequisites & Setup Guide

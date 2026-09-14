@@ -2,8 +2,8 @@
 title: 'Tutorial 03: Pairing with Claude Desktop & Cursor via FastMCP 2.0'
 description: Connect your favorite AI coding assistants directly to your local Credence node using the Model Context Protocol.
 since_version: v1.0.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 sidebar:
   order: 3
 ---
@@ -91,9 +91,13 @@ To equip your coding assistants with live epistemic verification, configure the 
 
 | FastMCP Tool Name | Arguments | Execution Purpose | Return Type |
 | :--- | :--- | :--- | :--- |
-| `credence_check_url` | `url`, `profile`, `thinking_budget` | Audit webpage credibility | JSON Attestation Receipt |
-| `credence_audit_text` | `text`, `profile` | Audit raw text or clipboard snippet | Grounded Violation Cards |
+| `credence_check_url` | `url`, `profile`, `thinking_budget`, `wait_timeout` | Audit webpage credibility (25s adaptive brake) | JSON Attestation Receipt & Consensus |
+| `credence_check_text` | `text`, `profile` | Audit raw text or clipboard snippet | Grounded Violation Cards |
+| `credence_verify_and_anchor` | `url`, `violations`, `reasoning`, `model_slug` | In-chat agent evaluation & ledger anchoring | Countersigned Consensus Receipt |
 | `credence_get_quota_status`| *None* | Check token headroom & budget | Remaining Token Capacity |
+
+> [!TIP]
+> **Self-Serve Affinity Acceleration**: Run a local background worker with `uvx credence worker --node https://credence.run --affinity my-workstation` to snatch and fulfill your own Claude/Cursor queries locally in $< 3$ seconds at $0.00 cloud cost!
 
 ---
 ## Configuring AI Coding Assistants with Credence FastMCP

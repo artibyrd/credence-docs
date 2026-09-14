@@ -3,8 +3,8 @@ title: 'The Invariant Bible: Living Canon of System-Wide Invariants & Protocols'
 description: Canonical reference for all mathematical rules, runtime safety guardrails,
   cryptographic protocols, and presentation invariants governing Credence.
 since_version: v1.0.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 tags:
 - invariants
 - architecture
@@ -1413,6 +1413,7 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
       <ul class="agent-rules-list">
         <li><span class='deontic-must'>MUST</span> use Highest Random Weight (HRW) rendezvous hashing for feed partition assignments.</li>
         <li><span class='deontic-must'>MUST</span> gossip signed Ed25519 attestations to all peers with zero token cost.</li>
+        <li><span class='deontic-must'>MUST</span> support volunteer worker compute offloading via open mempool soft leases (180s) and P1 adaptive lease slicing (15s).</li>
       </ul>
     </div>
     <div class="agent-spec-meta">
@@ -1454,6 +1455,7 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
       <ul class="agent-rules-list">
         <li><span class='deontic-must'>MUST</span> require $N \ge 3f + 1$ nodes for BFT consensus quorum.</li>
         <li><span class='deontic-must'>MUST</span> enforce domain entropy across distinct FQDNs to prevent single-entity Sybil cartels.</li>
+        <li><span class='deontic-must'>MUST</span> require multi-model consensus quorums to originate from distinct cryptographic worker keys and distinct model families.</li>
       </ul>
     </div>
     <div class="agent-spec-meta">

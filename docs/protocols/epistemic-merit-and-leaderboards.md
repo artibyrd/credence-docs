@@ -3,8 +3,8 @@ title: Epistemic Merit & Sovereign Node Leaderboards
 description: Technical specification for 5-level node tiers, 8 verifiable merit badges,
   operator maintenance half-life decay, and deterministic tie-breaking.
 since_version: v1.9.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 ---
 
 # Epistemic Merit & Sovereign Node Leaderboards
@@ -138,6 +138,30 @@ GET /api/badge/publisher/reuters.com?style=shield&theme=dark
 - **Cyber Cyan (`#38bdf8` &rarr; `#0284c7`)**: Verified Auditors, Sifter Pioneers, and Clean Publications ($\ge 70\%$).
 - **Violet Beam (`#c084fc` &rarr; `#7c3aed`)**: Galileo Pioneers and Domain Specialists.
 - **Amber Alert (`#fbbf24` &rarr; `#d97706`)**: Philanthropic Relays and Moderate Publications ($\ge 50\%$).
-- **Base Containers (`#0d121f` &rarr; `#07090e`)**: Frosted slate gradient background with 1px glowing perimeter.
-
 *For complete vector geometry specifications and threat isolation proofs, see the [Unified Merit & Attestation Badge System Blueprint](../blueprints/unified-merit-and-attestation-badge-system.md).*
+
+---
+
+## 7. Volunteer Worker Contributor Leaderboard & Badges
+
+The mempool worker subsystem tracks volunteer compute donations, computing contributor rankings and awarding verifiable merit badges:
+
+### API Endpoints
+- `GET /api/leaderboard/workers`: Returns the active worker leaderboard sorted by tokens donated, bounties cleared, or quality score ($Q_w$).
+- `GET /api/workers/{pubkey}`: Returns an individual worker's telemetry dossier, audit history, unlocked badges, and embed code.
+- `GET /api/badge/worker/{pubkey}`: Dynamically renders an Ed25519-anchored vector SVG badge suitable for GitHub READMEs or personal portfolios.
+
+### The 10 Volunteer Worker Achievement Badges
+
+| Badge ID | Name | Icon | Tier | Unlock Criterion |
+| :--- | :--- | :---: | :--- | :--- |
+| `first_bounty` | First Blood | 🏹 | `SPROUT` | Claimed and completed 1st open mempool audit job |
+| `speed_demon` | Sub-10s Flash Worker | ⚡ | `AUDITOR` | Evaluated an interactive P1 audit in under 10 seconds with $G=1.00$ |
+| `bounty_hunter` | Bounty Hunter | 🎯 | `SPECIALIST` | Claimed and cleared 25+ aging or high-priority queue bounties |
+| `bounty_legend` | Apex Bounty Hunter | 🤠 | `ROOT_ANCHOR` | Cleared 100+ aging bounties with zero grounding rejections |
+| `night_owl_compute` | Night Owl Sifter | 🦉 | `SIFTER` | Cleared 250+ backlog items during off-peak hours (00:00–06:00 UTC) |
+| `epistemic_patron` | Epistemic Patron | 💎 | `SPECIALIST` | Donated 5,000,000+ local reasoning tokens to the network commons |
+| `flawless_cluster` | Zero-Hallucination Operative | 🔬 | `SPECIALIST` | Completed 50+ consecutive audits with 100% exact DOM quotes ($G=1.00$) |
+| `century_worker` | Century Worker | 🏛️ | `ROOT_ANCHOR` | Completed 1,000+ verified worker audits across 50+ unique domains |
+| `consensus_anchor` | Consensus Anchor | ⚓ | `SPECIALIST` | Contributed 20+ corroborating 2nd or 3rd model passes |
+| `model_diversity` | Cognitive Explorer | 🧭 | `AUDITOR` | Contributed audits using non-standard or local open models |

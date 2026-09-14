@@ -3,8 +3,8 @@ title: Topic Index & Quick Reference
 description: Comprehensive concept index, cheat sheet, and fast-lookup directory for
   the Credence ecosystem.
 since_version: v1.11.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 ---
 
 # 🧭 Topic Index & Quick Reference
@@ -36,10 +36,13 @@ last_verified: 2026-09-08
 ## 🚀 1. Getting Started & Setup
 
 * **🎮 Interactive Playgrounds**: Test 12 in-browser models and the InMaricopa forensics workbench &rarr; [Interactive Playgrounds](playground.md)
-* **One-Liner Install (POSIX)**: Run `curl -fsSL https://credence.run/install.sh | bash` &rarr; [Quickstart Guide](quickstart.md#1-installation-options)
-* **Git & Poetry Setup**: Clone and setup via `poetry install` &rarr; [Quickstart Guide](quickstart.md#1-installation-options)
-* **Docker Container**: Pre-built container with Chromium &rarr; [Quickstart Guide](quickstart.md#1-installation-options)
-* **API Key Setup**: Setting `CREDENCE_GEMINI_API_KEY` in your shell &rarr; [API Configuration](quickstart.md#2-api-key-configuration-optional)
+* **🧭 The Credence Graduation Path**: Progressive guide from MCP consumer to worker to node &rarr; [Graduation Path Hub](quickstart.md)
+* **⚡ FastMCP 2.0 AI Assistant**: Connect Claude Desktop and Cursor in <60s &rarr; [FastMCP Quickstart](quickstart-mcp.md)
+* **🐝 Volunteer Worker Daemon**: Contribute spare compute and earn merit badges &rarr; [Volunteer Worker Quickstart](quickstart-worker.md)
+* **🏛️ Sovereign Node Hosting**: Run a full coordinator node with 1-command ignition &rarr; [Sovereign Node Quickstart](quickstart-node.md)
+* **One-Liner Install (POSIX)**: Run `curl -fsSL https://credence.run/install.sh | bash` &rarr; [Sovereign Node Quickstart](quickstart-node.md)
+* **Docker Container**: Pre-built container with Chromium &rarr; [Sovereign Node Quickstart](quickstart-node.md)
+* **API Key Setup**: Setting `CREDENCE_GEMINI_API_KEY` in your shell &rarr; [FastMCP Quickstart](quickstart-mcp.md)
 * **Zero-Cost / Offline Mode**: Running audits with 0 API spend &rarr; [Token Governor](protocols/token-governor.md)
 * **Node Germination ("Miracle-Gro" Bootstrap)**: Instant key generation, seed inoculation, and initial burst &rarr; [Node Germination Protocol](protocols/node-germination-lifecycle.md)
 * **First Web Audit**: Running your very first URL audit in under 5 seconds &rarr; [Auditing Webpages & Text](walkthroughs/01-auditing-webpages-and-text.md)
@@ -200,6 +203,7 @@ Every metric card, interactive table, and telemetry widget across the zero-build
 | `byzantine` | 🛡️ Byzantine Fault Tolerance & Quorum Formulation | `CONSENSUS MATHEMATICS` | — | `credence byzantine` | [The Invariant Bible](invariants.md) |
 | `gossip` | 📡 Live P2P Gossip Stream & Peer Protocol | `GOSSIP PROTOCOL` | — | `credence gossip` | [The Invariant Bible](invariants.md) |
 | `qi_scoring` | 🏆 5-Factor Node Quality Score (Qᵢ) | `NODE QUALITY METRIC` | — | `credence qi_scoring` | [The Invariant Bible](invariants.md) |
+| `qw_scoring` | 🐝 Volunteer Worker Fleet Quality & Badges (Q_w) | `VOLUNTEER FLEET` | — | `credence qw_scoring` | [The Invariant Bible](invariants.md) |
 | `vitals` | 👤 Node Health, Memory & Scale-to-Zero Vitals | `COMPUTE PLANE` | — | `credence vitals` | [The Invariant Bible](invariants.md) |
 | `telemetry` | 🩺 Interface Telemetry Loopback Protocol (ITLP-v1) | `TELEMETRY STANDARD` | — | `credence telemetry` | [The Invariant Bible](invariants.md) |
 | `badges` | 🛡️ Dynamic SVG Merit Badges & Manifest | `ATTESTATION BADGES` | — | `credence badges` | [The Invariant Bible](invariants.md) |

@@ -4,7 +4,7 @@
  */
 
 // Canonical ecosystem version
-export const CURRENT_ECOSYSTEM_VERSION = 'v2.21.1';
+export const CURRENT_ECOSYSTEM_VERSION = 'v2.22.0';
 
 // Navigation structure and complete catalog
 export const DOCS_REGISTRY = [
@@ -12,7 +12,10 @@ export const DOCS_REGISTRY = [
     category: "Getting Started",
     items: [
       { id: "docs/intro", title: "Introduction & Overview", path: "docs/intro.md", desc: "Welcome to Credence, key concepts, and progressive on-ramp.", keywords: ["intro", "overview", "welcome", "philosophy", "grounding", "basics", "start", "truth", "ethics", "ai"] },
-      { id: "docs/quickstart", title: "Quickstart & Installation", path: "docs/quickstart.md", desc: "Install Credence, set API keys, and run your first audit in 60 seconds.", keywords: ["quickstart", "install", "curl", "poetry", "docker", "gemini", "api key", "first audit", "setup", "run", "cli"] },
+      { id: "docs/quickstart", title: "The Graduation Path", path: "docs/quickstart.md", desc: "The Credence Graduation Path: from FastMCP client to volunteer worker to sovereign coordinator node.", keywords: ["quickstart", "graduation", "path", "roles", "mcp", "worker", "node", "install", "start", "onboarding"] },
+      { id: "docs/quickstart-mcp", title: "Quickstart: FastMCP AI Assistant", path: "docs/quickstart-mcp.md", desc: "Connect Claude Desktop, Cursor, or AI swarms to Credence for real-time fact checking in <60s.", keywords: ["mcp", "fastmcp", "claude", "cursor", "antigravity", "cline", "ai assistant", "pair programming", "epistemic brake", "quickstart"] },
+      { id: "docs/quickstart-worker", title: "Quickstart: Volunteer Worker", path: "docs/quickstart-worker.md", desc: "Donate spare compute, claim mempool audit bounties, earn merit badges, and climb the leaderboard.", keywords: ["worker", "volunteer", "mempool", "bounties", "compute", "ollama", "gemini", "badges", "leaderboard", "quickstart"] },
+      { id: "docs/quickstart-node", title: "Quickstart: Sovereign Node", path: "docs/quickstart-node.md", desc: "Host a sovereign coordinator node, manage mempool queues, germinate keys, and unlock the Admin Deck.", keywords: ["node", "coordinator", "host", "germinate", "admin", "cloud run", "docker", "tui", "quickstart", "sovereign"] },
       { id: "docs/topic-index", title: "Topic Index & Concept Directory", path: "docs/topic-index.md", desc: "The Marbles in the Oatmeal: complete categorized cheat sheet and index.", keywords: ["index", "cheat sheet", "search", "topics", "sitemap", "directory", "marbles", "lookup", "concepts", "all", "reference", "find"] },
       { id: "docs/sitemap", title: "Ecosystem Master Sitemap", path: "docs/sitemap.md", desc: "Visual and structural sitemap covering all sovereign domains, playgrounds, invariants, and guides.", keywords: ["sitemap", "map", "directory", "tree", "overview", "domains", "navigation", "all pages", "structure"] },
       { id: "docs/feature-parity", title: "Universal Feature Parity", path: "docs/feature-parity.md", desc: "Synchronous 4-way parity across CLI, FastMCP, TUI, and Web UI.", keywords: ["parity", "interfaces", "cli", "tui", "mcp", "web", "terminal", "browser"] },
@@ -65,7 +68,8 @@ export const DOCS_REGISTRY = [
       { id: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition", title: "11. Node Germination & Swarm Ignition", path: "docs/tutorials/11-autonomous-node-germination-and-swarm-ignition.md", desc: "5-second node germination: keys, genesis inoculation, and burst auditing.", keywords: ["germination", "genesis", "miracle-gro", "ignition", "bootstrap", "seeds"] },
       { id: "docs/tutorials/12-climbing-the-epistemic-tiers", title: "12. Climbing the Epistemic Tiers", path: "docs/tutorials/12-climbing-the-epistemic-tiers.md", desc: "Earn empirical expertise, build domain authority, and climb P2P leaderboards.", keywords: ["tiers", "reputation", "leaderboard", "expertise", "quality", "rank"] },
       { id: "docs/tutorials/13-discord-alerting-and-basement-monitoring", title: "13. Discord Alerts & Basement Ops", path: "docs/tutorials/13-discord-alerting-and-basement-monitoring.md", desc: "Setup real-time Discord webhook notifications for breaking high-suspicion stories.", keywords: ["discord", "webhook", "alerts", "monitoring", "basement", "notifications"] },
-      { id: "docs/tutorials/14-operator-security-and-admin-workstation", title: "14. Operator Security & Admin Workstation", path: "docs/tutorials/14-operator-security-and-admin-workstation.md", desc: "Bootstrapping operator authentication, managing AI cost budgets, and operating the Web Admin Command Deck.", keywords: ["operator", "security", "admin", "workstation", "oauth", "oidc", "token", "budget", "emergency stop", "tutorial"] }
+      { id: "docs/tutorials/14-operator-security-and-admin-workstation", title: "14. Operator Security & Admin Workstation", path: "docs/tutorials/14-operator-security-and-admin-workstation.md", desc: "Bootstrapping operator authentication, managing AI cost budgets, and operating the Web Admin Command Deck.", keywords: ["operator", "security", "admin", "workstation", "oauth", "oidc", "token", "budget", "emergency stop", "tutorial"] },
+      { id: "docs/tutorials/15-volunteer-compute-and-worker-guide", title: "15. Volunteer Compute & Worker Guide", path: "docs/tutorials/15-volunteer-compute-and-worker-guide.md", desc: "How to contribute spare compute to the open mempool, climb the leaderboard, and earn badges.", keywords: ["volunteer", "worker", "mempool", "compute", "leaderboard", "badges", "uvx", "tutorial"] }
     ]
   },
   {
@@ -80,7 +84,8 @@ export const DOCS_REGISTRY = [
       { id: "docs/cookbooks/taxonomy-engineering", title: "Taxonomy Rule Engineering 101", path: "docs/cookbooks/taxonomy-engineering.md", desc: "How to author custom namespaced YAML taxonomy catalogs with test suites.", keywords: ["yaml", "taxonomy", "rules", "authoring", "ethics", "fallacies"] },
       { id: "docs/cookbooks/morning-feed-sifter", title: "Automated Morning Feed Sifter", path: "docs/cookbooks/morning-feed-sifter.md", desc: "Cron recipe for scheduled morning news sifting and markdown briefings.", keywords: ["cron", "sifter", "morning", "automation", "briefing", "schedule"] },
       { id: "docs/cookbooks/financial-disclosures", title: "Auditing Financial 10-K Filings", path: "docs/cookbooks/financial-disclosures.md", desc: "Audit non-GAAP metrics and earnings disclosures with Ultra thinking profile.", keywords: ["financial", "10-k", "sec", "ebitda", "earnings", "ultra", "thinking"] },
-      { id: "docs/cookbooks/defining-and-adopting-custom-standards", title: "Defining & Adopting Custom Standards in Credence", path: "docs/cookbooks/defining-and-adopting-custom-standards.md", desc: "Complete operator and researcher handbook for authoring epistemic rule catalogs, executing the synthetic benchmark gauntlet, and achieving autonomous decentralized mesh adoption.", keywords: ["standards", "custom", "cookbook", "authoring", "rules"] }
+      { id: "docs/cookbooks/defining-and-adopting-custom-standards", title: "Defining & Adopting Custom Standards in Credence", path: "docs/cookbooks/defining-and-adopting-custom-standards.md", desc: "Complete operator and researcher handbook for authoring epistemic rule catalogs, executing the synthetic benchmark gauntlet, and achieving autonomous decentralized mesh adoption.", keywords: ["standards", "custom", "cookbook", "authoring", "rules"] },
+      { id: "docs/cookbooks/worker-key-custody-and-migration", title: "Worker Key Custody & Machine Migration", path: "docs/cookbooks/worker-key-custody-and-migration.md", desc: "Backing up, exporting, and importing your Ed25519 identity key to preserve reputation and badges.", keywords: ["key", "identity", "custody", "export", "import", "pem", "migration", "ed25519", "cookbook"] }
     ]
   },
   {
@@ -152,7 +157,8 @@ export const DOCS_REGISTRY = [
       { id: "docs/protocols/boredom-and-root-expansion", title: "Boredom & Root Expansion (EPEP-16)", path: "docs/protocols/boredom-and-root-expansion.md", desc: "Technical protocol specification for opportunistic queue digestion and feed discovery.", keywords: ["protocol", "epep-16", "boredom", "roots", "expansion", "mesh", "gossip", "specification"] },
       { id: "docs/protocols/reputation-quarantine-and-redemption", title: "Domain Reputation & Redemption (EPEP-17)", path: "docs/protocols/reputation-quarantine-and-redemption.md", desc: "Protocol specification for domain reputation tracking, exponential backoff, and the BuzzFeed News Doctrine.", keywords: ["protocol", "epep-17", "reputation", "quarantine", "buzzfeed", "redemption", "backoff", "specification"] },
       { id: "docs/protocols/telemetry-loopback", title: "Interface Telemetry Loopback (ITLP-v1)", path: "docs/protocols/telemetry-loopback.md", desc: "Anonymous local usage metrics and interface performance telemetry.", keywords: ["telemetry", "itlp", "metrics", "performance", "privacy"] },
-      { id: "docs/protocols/testing-strategy", title: "6-Tier Testing Strategy", path: "docs/protocols/testing-strategy.md", desc: "Hermetic unit, mock, integration, rotating live E2E, and gauntlet testing.", keywords: ["testing", "strategy", "pytest", "unit", "e2e", "gauntlet", "tiers"] }
+      { id: "docs/protocols/testing-strategy", title: "6-Tier Testing Strategy", path: "docs/protocols/testing-strategy.md", desc: "Hermetic unit, mock, integration, rotating live E2E, and gauntlet testing.", keywords: ["testing", "strategy", "pytest", "unit", "e2e", "gauntlet", "tiers"] },
+      { id: "docs/protocols/open-epistemic-mempool", title: "Open Epistemic Mempool Protocol", path: "docs/protocols/open-epistemic-mempool.md", desc: "Decentralized job queue, atomic lease state machine, multi-model Bayesian consensus, and Galileo Rule.", keywords: ["mempool", "queue", "lease", "consensus", "bayesian", "galileo", "worker", "protocol"] }
     ]
   },
   {
@@ -281,7 +287,8 @@ export const DOCS_REGISTRY = [
       { id: "blog/the-pareto-frontier-of-truth", title: "The $0.34 Pareto Frontier", path: "blog/the-pareto-frontier-of-truth.md", desc: "Achieving high epistemic precision for pennies per 1,000 articles.", keywords: ["blog", "pareto", "cost", "economics", "efficiency", "pricing"] },
       { id: "blog/the-anti-diploma-invariant", title: "The Anti-Diploma Invariant", path: "blog/the-anti-diploma-invariant.md", desc: "Authority must be continuously earned through grounded performance.", keywords: ["blog", "anti diploma", "reputation", "merit", "performance"] },
       { id: "blog/the-six-tier-pyramid-of-decentralized-truth", title: "The 6-Tier Verification Pyramid", path: "blog/the-six-tier-pyramid-of-decentralized-truth.md", desc: "From raw DOM capture to Bayesian multi-node consensus.", keywords: ["blog", "pyramid", "verification", "tiers", "consensus", "evidence"] },
-      { id: "blog/gamifying-truth-without-the-casino", title: "Folding@home for Truth (No Casino)", path: "blog/gamifying-truth-without-the-casino.md", desc: "Why decentralized truth works like Folding@home without speculative crypto tokens.", keywords: ["blog", "folding", "gamification", "tokens", "casino", "philosophy"] }
+      { id: "blog/gamifying-truth-without-the-casino", title: "Folding@home for Truth (No Casino)", path: "blog/gamifying-truth-without-the-casino.md", desc: "Why decentralized truth works like Folding@home without speculative crypto tokens.", keywords: ["blog", "folding", "gamification", "tokens", "casino", "philosophy"] },
+      { id: "blog/the-model-lineage-sybil", title: "The Model Lineage Sybil: Red-Teaming Distributed LLM Consensus", path: "blog/the-model-lineage-sybil.md", desc: "What we learned subjecting open multi-model mempools and volunteer compute to 14 adversarial red team attack vectors.", keywords: ["blog", "sybil", "consensus", "lineage", "mempool", "red team", "galileo", "grounding", "byzantine", "volunteer"] }
     ]
   },
   {
