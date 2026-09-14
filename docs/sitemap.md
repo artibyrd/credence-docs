@@ -90,6 +90,7 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * 🌐 **[The Domain Credence Index (DCI)](/blog/the-domain-epistemic-index)** (Measuring long-term journalistic integrity across global web domains)
 * 🪙 **[Gamifying Truth Without the Casino](/blog/gamifying-truth-without-the-casino)** (Merit badges, philanthropy odometers, and non-financialized reputation)
 * 🛑 **[Giving Claude and Cursor an Epistemic Brake](/blog/giving-claude-and-cursor-an-epistemic-brake)** (FastMCP 2.0 integration and autonomous agent halting)
+* 🧬 **[The Model Lineage Sybil: Red-Teaming Distributed LLM Consensus](/blog/the-model-lineage-sybil)** (What we learned subjecting open multi-model mempools, volunteer compute, and Byzantine quorums to 14 adversarial red team attack vectors)
 * 🍓 **[Testing 13-Node Swarms on a Raspberry Pi](/blog/testing-13-node-swarms-on-a-raspberry-pi)** (Featherweight in-memory simulation of Watts-Strogatz small worlds)
 * 🌱 **[Miracle-Gro for Truth Nodes](/blog/miracle-gro-for-truth-nodes)** (Autonomous node germination, Ed25519 key minting, and zero-touch ignition)
 * 🔄 **[Interface Telemetry Loopback (ITLP-v1)](/blog/interface-telemetry-loopback)** (Anonymous local telemetry and usability feedback loops)
