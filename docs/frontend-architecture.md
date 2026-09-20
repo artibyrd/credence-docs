@@ -3,8 +3,8 @@ title: Zero-Build Web Architecture
 description: Architectural decisions, W3C WebCrypto in-browser verification, and zero
   supply-chain attack surface.
 since_version: v1.0.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 ---
 
 # Zero-Build Web Architecture
@@ -66,10 +66,10 @@ Across **`credence.report`**, **`credence.nexus`**, and **`credence.foundation`*
 ## 5. W3C Standards & External Documentation
 
 ### 📚 Official Web Standards Specifications
-* **W3C Standards**: [W3C Web Cryptography API Specification](https://www.w3.org/TR/WebCryptoAPI/) &bull; [MDN Web Crypto API Guide](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
+* **W3C Standards**: [W3C Web Cryptography API Specification](https://www.w3.org/TR/WebCryptoAPI/) • [MDN Web Crypto API Guide](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
 * **Modern JavaScript**: [Native ES Modules in Modern Browsers (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
-* **Cloudflare Workers**: [Zero-Build Static Assets with `env.ASSETS`](https://developers.cloudflare.com/workers/static-assets/) &bull; [Cloudflare Pages](https://developers.cloudflare.com/pages/)
-* **Performance & Accessibility**: [Google Core Web Vitals (web.dev)](https://web.dev/explore/learn-core-web-vitals) &bull; [W3C Web Content Accessibility Guidelines (WCAG 2.1)](https://www.w3.org/WAI/standards-guidelines/wcag/)
+* **Cloudflare Workers**: [Zero-Build Static Assets with `env.ASSETS`](https://developers.cloudflare.com/workers/static-assets/) • [Cloudflare Pages](https://developers.cloudflare.com/pages/)
+* **Performance & Accessibility**: [Google Core Web Vitals (web.dev)](https://web.dev/explore/learn-core-web-vitals) • [W3C Web Content Accessibility Guidelines (WCAG 2.1)](https://www.w3.org/WAI/standards-guidelines/wcag/)
 
 ### 🔗 Related Presentation Guides in Credence
 * 🎮 [Interactive Zero-Build Playgrounds (12 Live WebCrypto Tools)](playground.md)

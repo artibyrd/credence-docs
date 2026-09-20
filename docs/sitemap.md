@@ -4,8 +4,8 @@ description: Comprehensive visual and structural sitemap covering all 5 sovereig
   domains, 12 interactive playgrounds, The Invariant Bible, investigative essays,
   and documentation guides across the Credence network.
 since_version: v1.13.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 ---
 
 # Ecosystem Master Sitemap 🗺️
@@ -90,6 +90,7 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * 🌐 **[The Domain Credence Index (DCI)](/blog/the-domain-epistemic-index)** (Measuring long-term journalistic integrity across global web domains)
 * 🪙 **[Gamifying Truth Without the Casino](/blog/gamifying-truth-without-the-casino)** (Merit badges, philanthropy odometers, and non-financialized reputation)
 * 🛑 **[Giving Claude and Cursor an Epistemic Brake](/blog/giving-claude-and-cursor-an-epistemic-brake)** (FastMCP 2.0 integration and autonomous agent halting)
+* 🧬 **[The Model Lineage Sybil: Red-Teaming Distributed LLM Consensus](/blog/the-model-lineage-sybil)** (What we learned subjecting open multi-model mempools, volunteer compute, and Byzantine quorums to 14 adversarial red team attack vectors)
 * 🍓 **[Testing 13-Node Swarms on a Raspberry Pi](/blog/testing-13-node-swarms-on-a-raspberry-pi)** (Featherweight in-memory simulation of Watts-Strogatz small worlds)
 * 🌱 **[Miracle-Gro for Truth Nodes](/blog/miracle-gro-for-truth-nodes)** (Autonomous node germination, Ed25519 key minting, and zero-touch ignition)
 * 🔄 **[Interface Telemetry Loopback (ITLP-v1)](/blog/interface-telemetry-loopback)** (Anonymous local telemetry and usability feedback loops)
@@ -131,7 +132,10 @@ Forensic investigations, economic proofs, and real-world case studies published 
 
 ### Quickstart & Foundations
 * **[Introduction & Overview](/docs/intro)**: What is Credence, architectural pillars, and zero-trust verification.
-* **[60-Second Jump-In Quickstart](/docs/quickstart)**: CLI installation, first audit, and instant terminal workflow.
+* **[The Credence Graduation Path Hub](/docs/quickstart)**: Architectural orientation and 3-step graduation ladder from client to node.
+* **[Quickstart: FastMCP 2.0 AI Assistant](/docs/quickstart-mcp)**: Connecting Claude Desktop and Cursor in under 60 seconds.
+* **[Quickstart: Volunteer Worker Daemon](/docs/quickstart-worker)**: Donating spare compute, clearing mempool bounties, and earning merit badges.
+* **[Quickstart: Sovereign Node & Coordinator](/docs/quickstart-node)**: Hosting a full coordinator node, managing queues, and unlocking the Admin Deck.
 * **[Universal Feature Parity Matrix](/docs/feature-parity)**: Feature synchronization across CLI, FastMCP 2.0, Textual TUI, and Web UI.
 * **[Decentralized Architecture Specification](/docs/architecture)**: End-to-end multi-agent pipeline and consensus engine specs.
 * **[Zero-Build Frontend Architecture](/docs/frontend-architecture)**: Vanilla HTML5, CSS Custom Properties, and W3C WebCrypto standards.
@@ -165,9 +169,12 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * **[11. Autonomous Node Germination](/docs/tutorials/11-autonomous-node-germination-and-swarm-ignition)**: 5-second node germination, genesis keys, and burst auditing.
 * **[12. Climbing Epistemic Tiers](/docs/tutorials/12-climbing-the-epistemic-tiers)**: Building empirical expertise ($E_i$), domain authority, and node ranking.
 * **[13. Discord Alerts & Basement Monitoring](/docs/tutorials/13-discord-alerting-and-basement-monitoring)**: Webhook notifications for breaking high-suspicion stories.
+* **[14. Operator Security & Admin Workstation](/docs/tutorials/14-operator-security-and-admin-workstation)**: Securing admin routes and operator credentials.
+* **[15. Volunteer Compute & Worker Guide](/docs/tutorials/15-volunteer-compute-and-worker-guide)**: 30-second volunteer worker quickstart, model configuration, and merit bounties.
 
 ### Developer Cookbooks & Blueprints
 * **[Agentic Epistemic Brake Cookbook](/docs/cookbooks/agentic-epistemic-brake)**: Halting agent execution when confidence falls below safety thresholds.
+* **[Preserving Epistemic Identity & Key Custody](/docs/cookbooks/worker-key-custody-and-migration)**: Backing up, exporting, and migrating Ed25519 worker identity keys across machines.
 * **[Taxonomy Rule Engineering 101](/docs/cookbooks/taxonomy-engineering)**: Authoring custom namespaced YAML taxonomy catalogs with test suites.
 * **[Automated Morning Feed Sifter Recipe](/docs/cookbooks/morning-feed-sifter)**: Cron recipe for automated news briefings.
 * **[Auditing Financial 10-K Filings](/docs/cookbooks/financial-disclosures)**: Auditing non-GAAP metrics, EBITDA reconciliations, and SEC disclosures.
@@ -184,6 +191,7 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * **[Air-Gapped Sneakernet Protocol](/docs/mesh-engineering/airgapped-sneakernets)**: Offline verification and bundle exchange.
 * **[DNS SRV Dynamic Peer Discovery](/docs/mesh-engineering/dns-srv-discovery)**: RFC 2782 DNS SRV peer discovery without central trackers.
 * **[Token Safety Governor Specification](/docs/protocols/token-governor)**: Spending profiles, budget caps, and 30% headroom breaker.
+* **[Open Epistemic Mempool Protocol Specification](/docs/protocols/open-epistemic-mempool)**: Public audit queue, soft lease state machine, multi-model consensus, and saturated escalation valves.
 * **[Protocol Specification: Boredom Engine & Root Expansion (EPEP-16)](/docs/protocols/boredom-and-root-expansion)**: Technical specification for opportunistic queue digestion, token governor gating, and autonomous feed discovery.
 * **[Protocol Specification: Domain Reputation, Soft Quarantine & Redemption (EPEP-17)](/docs/protocols/reputation-quarantine-and-redemption)**: Technical specification for domain reputation tracking, exponential polling backoff, HRW swarm coordination, and the BuzzFeed News Doctrine.
 * **[P2P Mesh & Consensus Protocol](/docs/protocols/mesh-protocol)**: RFC 8785 canonical JSON, Ed25519 signatures, and gossip routing.

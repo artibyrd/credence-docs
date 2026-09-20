@@ -2,8 +2,8 @@
 title: Node Germination Lifecycle & Identity Minting
 description: Cryptographic identity minting, state migration, peer discovery, and background worker lifecycle.
 since_version: v1.13.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 sidebar:
   order: 10
 ---

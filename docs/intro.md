@@ -3,8 +3,8 @@ title: Introduction & Overview
 description: 'Welcome to Credence: the open epistemic trust engine for AI and the
   web.'
 since_version: v1.0.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 ---
 
 # Welcome to Credence 🛡️
@@ -24,11 +24,13 @@ Where would you like to start?
 
 | Your Goal | Recommended Starting Point | Time Needed |
 | :--- | :--- | :--- |
+| **⚡ Connect Claude or Cursor (FastMCP)** | [Quickstart: FastMCP AI Assistant](quickstart-mcp.md) | **< 60 seconds** |
+| **🐝 Donate compute & earn merit badges** | [Quickstart: Volunteer Worker](quickstart-worker.md) | **2 minutes** |
+| **🏛️ Host a sovereign team coordinator** | [Quickstart: Sovereign Node](quickstart-node.md) | **5 minutes** |
+| **🧭 Compare all roles & graduation path** | [The Credence Graduation Path Hub](quickstart.md) | **1 minute** |
 | **🎮 Try interactive browser playgrounds** | [Interactive Zero-Build Playgrounds](playground.md) | **Instant (Zero Install)** |
 | **🔬 Inspect live forensic case study** | [Conflict of Pun-terest: InMaricopa Case Study](../blog/conflict-of-pun-terest.md) | **2 minutes** |
-| **🚀 Just jump in and try the CLI** | [Quickstart & Installation Guide](quickstart.md) | **1 minute** |
 | **🧭 Find a specific command or topic** | [Topic Index & Concept Directory](topic-index.md) | **Instant** |
-| **🤖 Connect to Claude Desktop or Cursor** | [Claude & Cursor FastMCP Tutorial](tutorials/03-claude-cursor-fastmcp.md) | **2 minutes** |
 | **📰 Get an automated morning news brief** | [Morning Digest Walkthrough](walkthroughs/04-morning-digest-briefings.md) | **3 minutes** |
 | **🌐 Explore reports in your browser** | [Zero-Build Report Viewer](https://credence.report/viewer.html) | **Instant** |
 | **🕸️ Explore P2P mesh & consensus math** | [3-Node Mesh Quickstart](tutorials/05-mesh-quickstart.md) | **5 minutes** |

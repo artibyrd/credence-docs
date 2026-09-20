@@ -2,8 +2,8 @@
 title: 'The UUID Awakening: Why Content-Addressable SHA-256 Hashes Beat Random Primary Keys'
 description: Why deterministic content-addressable storage (CAS) is the foundation of decentralized epistemic verification.
 since_version: v1.13.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 sidebar:
   order: 32
 ---

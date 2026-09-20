@@ -3,8 +3,8 @@ title: Raspberry Pi & HomeLab 24/7 Node Runbook
 description: Deploying a low-power ARM64 Credence mesh node with systemd, automated
   SQLite maintenance, and dynamic DNS.
 since_version: v1.0.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 ---
 
 # Raspberry Pi & HomeLab 24/7 Node Runbook
@@ -88,7 +88,7 @@ If hosting a public seed peer behind a residential ISP:
 
 ### 📚 Official Hardware & System Documentation
 * **Raspberry Pi**: [Raspberry Pi 5 Hardware Specs & NVMe HAT Documentation](https://www.raspberrypi.com/documentation/)
-* **Operating Systems**: [Ubuntu Server 24.04 LTS for ARM64](https://ubuntu.com/download/raspberry-pi) &bull; [Debian Bookworm on ARM](https://www.debian.org/ports/arm/)
+* **Operating Systems**: [Ubuntu Server 24.04 LTS for ARM64](https://ubuntu.com/download/raspberry-pi) • [Debian Bookworm on ARM](https://www.debian.org/ports/arm/)
 * **Service Management**: [systemd Service Units & Resource Control](https://systemd.io/)
 * **DNS & Dynamic IP**: [Cloudflare Dynamic DNS (DDNS) API Automation](https://developers.cloudflare.com/api/operations/dns-records-for-a-zone-patch-dns-record)
 

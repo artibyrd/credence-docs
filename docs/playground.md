@@ -3,8 +3,8 @@ title: Interactive Zero-Build Playgrounds
 description: In-browser WebCrypto verification, 13-node mesh gossip simulator, epistemic
   text scanner, and consensus engine.
 since_version: v1.11.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 ---
 
 # Interactive Zero-Build Playgrounds 🎮
@@ -262,9 +262,9 @@ Filter and inspect rules across the Society of Professional Journalists (SPJ), I
   </div>
 
   <div class="taxonomy-pagination-bar" id="taxonomy-pagination">
-    <button type="button" id="tax-prev-btn" class="widget-btn" disabled>&larr; Previous</button>
+    <button type="button" id="tax-prev-btn" class="widget-btn" disabled>← Previous</button>
     <span id="tax-page-indicator" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Page 1 of 6</span>
-    <button type="button" id="tax-next-btn" class="widget-btn">Next &rarr;</button>
+    <button type="button" id="tax-next-btn" class="widget-btn">Next →</button>
     <button type="button" id="tax-show-all-btn" class="widget-btn" style="margin-left: 0.5rem;">Show All</button>
   </div>
 </div>
