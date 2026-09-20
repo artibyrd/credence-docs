@@ -75,7 +75,7 @@ Add the `credence` server entry:
       "command": "uvx",
       "args": ["credence", "serve", "--mcp"],
       "env": {
-        "CREDENCE_GEMINI_API_KEY": "<your-gemini-api-key>"
+        "CREDENCE_MODEL_API_KEY": "<your-model-api-key>"
       }
     }
   }
@@ -94,11 +94,11 @@ Add the `credence` server entry:
 ```
 :::
 
-> 💡 **Zero-Cost Heuristic Mode**: If you do not provide `CREDENCE_GEMINI_API_KEY`, Credence automatically executes in **100% offline heuristic mode** ($0.00 spend) using deterministic structural rules.
+> 💡 **Model-Agnostic & Zero-Cost Modes**: Credence supports any major model provider (`CREDENCE_MODEL_API_KEY`, or provider-specific keys like `GEMINI_API_KEY`, `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `DEEPSEEK_API_KEY`) as well as local Ollama instances (`OLLAMA_HOST`). If no key is provided, Credence automatically executes in **100% offline heuristic mode** ($0.00 spend) using deterministic structural rules.
 
 ### 2. Cursor IDE Setup
 
-1. Open Cursor Settings and navigate to **Features** &rarr; **MCP Servers**.
+1. Open Cursor Settings and navigate to **Features** → **MCP Servers**.
 2. Click **+ Add New MCP Server**.
 3. Fill in the connection settings:
    - **Name**: `credence`
@@ -147,19 +147,7 @@ Your assistant receives a structured JSON payload containing:
 
 FastMCP 2.0 is the **consumer tier** of the Credence network:
 
-```text
-[IDE: Claude / Cursor] ──(1. credence_check_url)──> [FastMCP 2.0 Engine]
-                                                           |
-                                                           | (2. Check Cache)
-                                                           v
-                                            [Sovereign Coordinator Node]
-                                               ├── Cache Hit: Instant Receipt (<15ms)
-                                               └── Cache Miss: Enqueue Mempool Bounty
-                                                           |
-                                                           v
-                                            [Volunteer Worker Fleet]
-                                               └── Blind Evaluation & G=1.00 Attestation
-```
+![Figure 2.1: Tripartite consensus topology illustrating consumer demand, coordinator mempool dispatch, and volunteer worker attestation](assets/illustrations/mempool-worker-consensus.svg)
 
 1. When you request an audit, FastMCP checks the coordinator's edge cache.
 2. If the URL was recently audited, you receive an instant response in milliseconds.

@@ -183,11 +183,11 @@ just deploy all
 ## 7. Multi-Cloud References & Provider Documentation
 
 ### 📚 Official Cloud Platform Docs
-* **AWS Serverless**: [AWS ECS Fargate Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) &bull; [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/)
-* **Microsoft Azure**: [Azure Container Apps Serverless Overview](https://learn.microsoft.com/en-us/azure/container-apps/overview) &bull; [Azure Key Vault Secrets](https://learn.microsoft.com/en-us/azure/key-vault/secrets/quick-create-portal)
-* **Hetzner Cloud**: [Hetzner Cloud ARM64 Server Instances (CAX11)](https://docs.hetzner.com/cloud/servers/overview/) &bull; [Hetzner Cloud CLI (`hcloud`)](https://github.com/hetznercloud/cli)
-* **Lightweight Kubernetes**: [k3s - The Lightweight Kubernetes Distribution](https://docs.k3s.io/) &bull; [Helm Charts](https://helm.sh/docs/)
-* **Cloudflare Edge**: [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/) &bull; [Cloudflare Pages](https://developers.cloudflare.com/pages/)
+* **AWS Serverless**: [AWS ECS Fargate Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) • [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/)
+* **Microsoft Azure**: [Azure Container Apps Serverless Overview](https://learn.microsoft.com/en-us/azure/container-apps/overview) • [Azure Key Vault Secrets](https://learn.microsoft.com/en-us/azure/key-vault/secrets/quick-create-portal)
+* **Hetzner Cloud**: [Hetzner Cloud ARM64 Server Instances (CAX11)](https://docs.hetzner.com/cloud/servers/overview/) • [Hetzner Cloud CLI (`hcloud`)](https://github.com/hetznercloud/cli)
+* **Lightweight Kubernetes**: [k3s - The Lightweight Kubernetes Distribution](https://docs.k3s.io/) • [Helm Charts](https://helm.sh/docs/)
+* **Cloudflare Edge**: [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/) • [Cloudflare Pages](https://developers.cloudflare.com/pages/)
 * **Google Cloud**: [Google Cloud Run Documentation](https://cloud.google.com/run/docs)
 
 ### 🔗 Related Architecture Guides in Credence

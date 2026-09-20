@@ -124,21 +124,7 @@ uvx credence worker --node https://credence.run
 
 Volunteer workers provide the engine power for the entire Credence ecosystem:
 
-```text
-[FastMCP Clients (Claude / Cursor)]
-               |
-               | (1. Enqueue Audit Bounties)
-               v
-[Coordinator Mempool Queue (POST /api/queue/claim)]
-               |
-               | (2. Claim & Evaluate)
-               v
-[Volunteer Worker Fleet (You!)]
-               |
-               | (3. Submit G=1.00 Signed Attestations)
-               v
-[Consensus Engine & Public Explorer (credence.report)]
-```
+![Figure 3.1: Tripartite consensus topology illustrating consumer demand, coordinator mempool dispatch, and volunteer worker attestation](assets/illustrations/mempool-worker-consensus.svg)
 
 Without volunteer workers, AI coding assistants querying fresh URLs would wait in backlog queues. By running a worker daemon, you accelerate verification latency for developers worldwide while earning cryptographic credit.
 

@@ -37,7 +37,7 @@ We evaluated 104 ground-truth news articles spanning 8 distinct journalistic arc
 | **C2** | **Police Blotters**: `SPJ-1.1`, `SPJ-1.3` | 151µs | 1.000 | 0.048 | 0.092 | Detects single-source blotter syndication |
 | **C3** | **Byline Masking**: `SPJ-4.1`, `SPJ-3.2` | 97µs | **1.000** | **0.290** | **0.450** | Catches generic staff handles & advocacy |
 | **C4** | **Clickbait Lexical**: `SPJ-1.2`, `SPJ-1.4` | 121µs | 1.000 | 0.290 | 0.450 | **Asymptotic Plateau** (&Delta;F1 = 0.000) |
-| **C5** | **Safe Harbor Satire**: `SPJ-1.6` overrides | 148µs | 1.000 | 0.290 | 0.450 | **Ceiling Reached** (&Delta;F1 &rarr; 0) |
+| **C5** | **Safe Harbor Satire**: `SPJ-1.6` overrides | 148µs | 1.000 | 0.290 | 0.450 | **Ceiling Reached** (&Delta;F1 → 0) |
 
 ---
 
@@ -73,7 +73,7 @@ We tested this overfitted configuration in an experimental **Cycle 6 ($C_6$)**:
 
 ---
 
-## 4. The Tier 0 &rarr; Tier 1 Handover Contract
+## 4. The Tier 0 → Tier 1 Handover Contract
 
 The mathematical reality of the Heuristic Ceiling proves that deterministic code and AI reasoning models must not compete; they must operate in a strictly ordered **handover contract**:
 
@@ -83,7 +83,7 @@ The mathematical reality of the Heuristic Ceiling proves that deterministic code
    - Catches obvious structural violations (missing bylines, lead-gen phone traps, syndication blotters) with 100% precision.
    - Resolves roughly **35% of all web traffic** without spending a single AI token.
 2. **Tier 1: Fast Reasoning Swarm (780ms, ~$0.34 / 1k Audits)**:
-   - Dispatches Gemini 3.8 Flash or Gemini 3.7 Flash (with [4,096 thinking tokens](/blog/the-4000-token-trance)) *exclusively* to articles flagged as ambiguous, unverified, or potentially satirical.
+   - Dispatches fast reasoning models (Gemini Flash, Claude Haiku, DeepSeek, or local Ollama with [4,096 thinking tokens](/blog/the-4000-token-trance)) *exclusively* to articles flagged as ambiguous, unverified, or potentially satirical.
    - Delivers **0.985 F1 accuracy** and **100% verbatim quote grounding ($G=1.000$)** (see [The $0.34 Pareto Frontier](/blog/the-pareto-frontier-of-truth)) while slashing total pipeline LLM token consumption by **82.7%** (proven in our [Dual-Tier FinOps Thought Experiment](/blog/case-study-dual-tier-finops)).
 
 ---
@@ -112,7 +112,7 @@ $ poetry run pytest tests/ -k "case_study_heuristic_ceiling" -v
 | Verification Layer | Target Invariant | Execution Frequency | Verification Criterion |
 | :--- | :--- | :--- | :--- |
 | **Hermetic Isolation** | [`inv-hermetic-unit-tests`](/docs/invariants#inv-hermetic-unit-tests) | Pre-commit (<35s) | Zero network I/O & in-memory execution |
-| **Heuristic Plateau** | [`inv-cart-before-horse`](/docs/invariants#inv-cart-before-horse) | Integration gate | Asymptotic plateau &Delta;F1 < 0.05 across C3 &rarr; C5 |
+| **Heuristic Plateau** | [`inv-cart-before-horse`](/docs/invariants#inv-cart-before-horse) | Integration gate | Asymptotic plateau &Delta;F1 < 0.05 across C3 → C5 |
 | **Throughput Ceiling** | [`inv-zero-build-standards`](/docs/invariants#inv-zero-build-standards) | Pre-commit | Sub-millisecond latency per document (<1,000µs) |
 | **Grounding Precision**| [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding) | Continuous | Verbatim DOM quote exactness ($G=1.00$) |
 | **Plot Fidelity** | [`inv-narrative-plot-fidelity`](/docs/invariants#inv-narrative-plot-fidelity) | Pre-commit | Bespoke conclusions answering title thesis |

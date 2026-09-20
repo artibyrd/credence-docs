@@ -2083,7 +2083,7 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
     <div class="agent-spec-section">
       <span class="agent-spec-label">Deontic Execution Rules:</span>
       <ul class="agent-rules-list">
-        <li><span class='deontic-must'>MUST</span> structure articles around a 4-stage narrative arc: 1. Title's Promise &rarr; 2. Grounded Empirical Investigation &rarr; 3. Human Metric Demystification &rarr; 4. Definitive Conclusion Circling Back to the Title.</li>
+        <li><span class='deontic-must'>MUST</span> structure articles around a 4-stage narrative arc: 1. Title's Promise → 2. Grounded Empirical Investigation → 3. Human Metric Demystification → 4. Definitive Conclusion Circling Back to the Title.</li>
         <li><span class='deontic-forbidden'>FORBIDDEN</span> to include ungrounded data tables or formulas without plain-English metric explanations.</li>
         <li><span class='deontic-forbidden'>FORBIDDEN</span> to copy generic template boilerplate conclusions across multiple documents.</li>
         <li><span class='deontic-forbidden'>FORBIDDEN</span> to leave pseudo-ASCII line chart remnants or literal escape characters in published prose.</li>

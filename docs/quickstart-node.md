@@ -50,12 +50,12 @@ docker run -d \
   --name credence-node \
   -p 8000:8000 \
   -v ~/.credence:/root/.credence \
-  -e CREDENCE_GEMINI_API_KEY="<your-api-key>" \
+  -e CREDENCE_MODEL_API_KEY="<your-api-key>" \
   ghcr.io/artibyrd/credence:latest
 ```
 
-=== Option C: Serverless Google Cloud Run ($0-$15/mo Cap)
-Deploy to Cloud Run with automatic scale-to-zero ($0.00 idle cost) and Workload Identity Federation:
+=== Option C: Serverless Cloud Containers (Cloud Run, AWS, Fly.io, or VPS)
+Deploy to cloud containers with automatic scale-to-zero ($0.00 idle cost) and Workload Identity:
 
 ```bash
 # Provision Cloud Run service via Terraform
@@ -117,6 +117,8 @@ For headless servers and terminal enthusiasts, Credence includes a full-screen T
 credence tui
 ```
 
+![Figure 4.2: Credence Textual TUI inspector terminal workstation](assets/tui/01-inspector-rich.svg)
+
 * **Inspector (`1`)**: Audit live URLs, inspect highlighted citations, and navigate exact DOM quotes.
 * **Taxonomies (`2`)**: Browse active SPJ ethical rules and IEP logical fallacies.
 * **Vitals & Quota (`5`)**: Real-time token consumption meters and circuit breaker status.
@@ -128,19 +130,7 @@ credence tui
 
 A sovereign node acts as the gravitational center for your team or organization:
 
-```text
-[Consumers (Claude / Cursor / Swarms)]
-               |
-               | (Direct In-IDE Queries)
-               v
-[Your Sovereign Coordinator Node]
-   ├── Verification Store (SQLite / Postgres)
-   ├── Mempool Lease Manager (/api/queue/*)
-   └── Browser Admin Command Deck
-               |
-               ├── (Claims Bounties) ──> [Volunteer Workers (Ollama / Cloud)]
-               └── (Gossips Envelopes) <──> [Global Federated Mesh Peers]
-```
+![Figure 4.1: Tripartite consensus topology illustrating consumer demand, coordinator mempool dispatch, and volunteer worker attestation](assets/illustrations/mempool-worker-consensus.svg)
 
 * **Local Sovereignty**: Your team's queries stay private on your coordinator node.
 * **Collaborative Verification**: Your node can dispatch difficult bounties to the global mempool or accept bounties from federated peers.

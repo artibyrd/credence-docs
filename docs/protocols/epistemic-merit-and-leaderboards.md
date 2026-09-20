@@ -134,10 +134,10 @@ GET /api/badge/publisher/reuters.com?style=shield&theme=dark
 ### Visual Style Variants & Color Schemes
 - **Cyber Glass Pill (`style="pill"`)**: Sleek rounded badge (`rx="14"`) matching the `<credence-badge>` Web Component geometry with glowing metric sub-pill.
 - **Modern Shield (`style="shield"`)**: Crisp 2-segment badge with 6px rounded corners (`rx="6"`) and clean dividing border.
-- **Emerald Glow (`#34d399` &rarr; `#059669`)**: Root Seed Candidates, Sybil Shields, and Pristine Publications ($\ge 85\%$).
-- **Cyber Cyan (`#38bdf8` &rarr; `#0284c7`)**: Verified Auditors, Sifter Pioneers, and Clean Publications ($\ge 70\%$).
-- **Violet Beam (`#c084fc` &rarr; `#7c3aed`)**: Galileo Pioneers and Domain Specialists.
-- **Amber Alert (`#fbbf24` &rarr; `#d97706`)**: Philanthropic Relays and Moderate Publications ($\ge 50\%$).
+- **Emerald Glow (`#34d399` → `#059669`)**: Root Seed Candidates, Sybil Shields, and Pristine Publications ($\ge 85\%$).
+- **Cyber Cyan (`#38bdf8` → `#0284c7`)**: Verified Auditors, Sifter Pioneers, and Clean Publications ($\ge 70\%$).
+- **Violet Beam (`#c084fc` → `#7c3aed`)**: Galileo Pioneers and Domain Specialists.
+- **Amber Alert (`#fbbf24` → `#d97706`)**: Philanthropic Relays and Moderate Publications ($\ge 50\%$).
 *For complete vector geometry specifications and threat isolation proofs, see the [Unified Merit & Attestation Badge System Blueprint](../blueprints/unified-merit-and-attestation-badge-system.md).*
 
 ---

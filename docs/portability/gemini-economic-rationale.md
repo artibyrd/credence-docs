@@ -67,11 +67,11 @@ In accordance with our live empirical benchmarks across the Golden 12 fixture su
 ## 6. Official Model References & Benchmark Specifications
 
 ### 📚 Official Model Provider Documentation
-* **Google Gemini**: [Gemini 3.7 Flash Thinking Overview](https://ai.google.dev/gemini-api/docs/thinking) &bull; [Google AI Pricing Calculator](https://ai.google.dev/pricing)
-* **Anthropic**: [Claude Extended Thinking Architecture](https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking) &bull; [Claude 3.7 Sonnet Model Card](https://www.anthropic.com/news/claude-3-7-sonnet)
-* **OpenAI**: [OpenAI Platform Models & Reasoning](https://platform.openai.com/docs/models) &bull; [OpenAI API Pricing](https://openai.com/api/pricing/)
+* **Google Gemini**: [Gemini 3.7 Flash Thinking Overview](https://ai.google.dev/gemini-api/docs/thinking) • [Google AI Pricing Calculator](https://ai.google.dev/pricing)
+* **Anthropic**: [Claude Extended Thinking Architecture](https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking) • [Claude 3.7 Sonnet Model Card](https://www.anthropic.com/news/claude-3-7-sonnet)
+* **OpenAI**: [OpenAI Platform Models & Reasoning](https://platform.openai.com/docs/models) • [OpenAI API Pricing](https://openai.com/api/pricing/)
 * **DeepSeek**: [DeepSeek-R1 Reasoning Repository](https://github.com/deepseek-ai/DeepSeek-R1)
-* **Ollama**: [Ollama Local LLM Architecture](https://ollama.com/) &bull; [Llama 3.3 70B Quantized Weights](https://ollama.com/library/llama3.3)
+* **Ollama**: [Ollama Local LLM Architecture](https://ollama.com/) • [Llama 3.3 70B Quantized Weights](https://ollama.com/library/llama3.3)
 
 ### 🔗 Related Epistemic Benchmarks in Credence
 * 📊 [Cross-Model Pareto Benchmark: Gemini vs Claude vs GPT-4o vs DeepSeek](../protocols/cross-model-pareto-benchmark.md)

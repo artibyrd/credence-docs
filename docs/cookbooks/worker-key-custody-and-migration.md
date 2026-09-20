@@ -96,7 +96,7 @@ export CREDENCE_NODE_KEY_PEM="$(cat ~/my-credence-worker.pem)"
 # Run worker daemon in headless container
 docker run --rm \
   -e CREDENCE_NODE_KEY_PEM="$CREDENCE_NODE_KEY_PEM" \
-  -e GEMINI_API_KEY="$GEMINI_API_KEY" \
+  -e CREDENCE_MODEL_API_KEY="$CREDENCE_MODEL_API_KEY" \
   ghcr.io/credence-ecosystem/credence:v2.22.0 worker --continuous
 ```
 

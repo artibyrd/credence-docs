@@ -98,7 +98,7 @@ tool_node = ToolNode(tools)
 ## 5. External Specifications & Agent Ecosystem References
 
 ### 📚 Official AI Agent & IDE Documentation
-* **Model Context Protocol**: [Official MCP Specification](https://modelcontextprotocol.io/) &bull; [MCP Architecture Overview](https://modelcontextprotocol.io/docs/concepts/architecture)
+* **Model Context Protocol**: [Official MCP Specification](https://modelcontextprotocol.io/) • [MCP Architecture Overview](https://modelcontextprotocol.io/docs/concepts/architecture)
 * **Anthropic**: [Claude Desktop MCP Quickstart](https://docs.anthropic.com/en/docs/agents-and-tools/mcp)
 * **Cursor**: [Cursor AI Editor & MCP Tools](https://docs.cursor.com/context/model-context-protocol)
 * **Windsurf**: [Codeium Windsurf IDE Cascade Architecture](https://codeium.com/windsurf)

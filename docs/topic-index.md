@@ -35,18 +35,18 @@ last_verified: 2026-09-13
 
 ## 🚀 1. Getting Started & Setup
 
-* **🎮 Interactive Playgrounds**: Test 12 in-browser models and the InMaricopa forensics workbench &rarr; [Interactive Playgrounds](playground.md)
-* **🧭 The Credence Graduation Path**: Progressive guide from MCP consumer to worker to node &rarr; [Graduation Path Hub](quickstart.md)
-* **⚡ FastMCP 2.0 AI Assistant**: Connect Claude Desktop and Cursor in <60s &rarr; [FastMCP Quickstart](quickstart-mcp.md)
-* **🐝 Volunteer Worker Daemon**: Contribute spare compute and earn merit badges &rarr; [Volunteer Worker Quickstart](quickstart-worker.md)
-* **🏛️ Sovereign Node Hosting**: Run a full coordinator node with 1-command ignition &rarr; [Sovereign Node Quickstart](quickstart-node.md)
-* **One-Liner Install (POSIX)**: Run `curl -fsSL https://credence.run/install.sh | bash` &rarr; [Sovereign Node Quickstart](quickstart-node.md)
-* **Docker Container**: Pre-built container with Chromium &rarr; [Sovereign Node Quickstart](quickstart-node.md)
-* **API Key Setup**: Setting `CREDENCE_GEMINI_API_KEY` in your shell &rarr; [FastMCP Quickstart](quickstart-mcp.md)
-* **Zero-Cost / Offline Mode**: Running audits with 0 API spend &rarr; [Token Governor](protocols/token-governor.md)
-* **Node Germination ("Miracle-Gro" Bootstrap)**: Instant key generation, seed inoculation, and initial burst &rarr; [Node Germination Protocol](protocols/node-germination-lifecycle.md)
-* **First Web Audit**: Running your very first URL audit in under 5 seconds &rarr; [Auditing Webpages & Text](walkthroughs/01-auditing-webpages-and-text.md)
-* **Zero-Build Web UI**: Browsing reports in the vanilla HTML5 web app &rarr; [Zero-Build Web Architecture](frontend-architecture.md)
+* **🎮 Interactive Playgrounds**: Test 12 in-browser models and the InMaricopa forensics workbench → [Interactive Playgrounds](playground.md)
+* **🧭 The Credence Graduation Path**: Progressive guide from MCP consumer to worker to node → [Graduation Path Hub](quickstart.md)
+* **⚡ FastMCP 2.0 AI Assistant**: Connect Claude Desktop and Cursor in <60s → [FastMCP Quickstart](quickstart-mcp.md)
+* **🐝 Volunteer Worker Daemon**: Contribute spare compute and earn merit badges → [Volunteer Worker Quickstart](quickstart-worker.md)
+* **🏛️ Sovereign Node Hosting**: Run a full coordinator node with 1-command ignition → [Sovereign Node Quickstart](quickstart-node.md)
+* **One-Liner Install (POSIX)**: Run `curl -fsSL https://credence.run/install.sh | bash` → [Sovereign Node Quickstart](quickstart-node.md)
+* **Docker Container**: Pre-built container with Chromium → [Sovereign Node Quickstart](quickstart-node.md)
+* **API Key Setup**: Setting `CREDENCE_MODEL_API_KEY` (or provider key / Ollama) in your shell → [FastMCP Quickstart](quickstart-mcp.md)
+* **Zero-Cost / Offline Mode**: Running audits with 0 API spend → [Token Governor](protocols/token-governor.md)
+* **Node Germination ("Miracle-Gro" Bootstrap)**: Instant key generation, seed inoculation, and initial burst → [Node Germination Protocol](protocols/node-germination-lifecycle.md)
+* **First Web Audit**: Running your very first URL audit in under 5 seconds → [Auditing Webpages & Text](walkthroughs/01-auditing-webpages-and-text.md)
+* **Zero-Build Web UI**: Browsing reports in the vanilla HTML5 web app → [Zero-Build Web Architecture](frontend-architecture.md)
 
 ---
 
@@ -74,100 +74,100 @@ last_verified: 2026-09-13
 
 ## 🤖 3. AI Agents & FastMCP 2.0 Integrations
 
-* **Claude Desktop Setup**: Adding Credence to `claude_desktop_config.json` &rarr; [Claude & Cursor FastMCP Guide](tutorials/03-claude-cursor-fastmcp.md)
-* **Cursor Editor Setup**: Configuring MCP tools in Cursor settings &rarr; [Claude & Cursor FastMCP Guide](tutorials/03-claude-cursor-fastmcp.md)
-* **Antigravity SDK Pair-Programming**: Multi-agent coding patterns and invariant checks &rarr; [Antigravity Pair-Programming](agentic/01-antigravity-pair-programming-paradigm.md)
-* **`/learn` & Continuous Invariant Synthesis**: Capturing session learnings into machine invariants &rarr; [Continuous Learning](agentic/02-continuous-learning-and-invariant-synthesis.md)
-* **The Demotion Highway & Invariant Lifecycle**: 6-state lifecycle, Class $\alpha/\beta/\gamma$ ranking, and automated demotion scanning &rarr; [Demotion Highway & Lifecycle](agentic/06-the-demotion-highway-and-invariant-lifecycle.md)
-* **Invariant Scalability Blueprint**: The 3-tier framework and <800 token hard budget &rarr; [Invariant Scalability Blueprint](blueprints/invariant-scalability-and-knowledge-governance.md)
-* **Agentic Epistemic Brake**: Halting LangGraph / CrewAI hallucination cascades before tool execution &rarr; [Epistemic Brake Cookbook](cookbooks/agentic-epistemic-brake.md)
-* **FastMCP Tools Reference**: Complete specs for `credence_check_url`, `credence_evaluate_text`, `credence_get_audit`, etc. &rarr; [FastMCP 2.0 Protocol](protocols/fastmcp.md)
-* **Universal Agent Interoperability**: Connecting Windsurf, Cline, and custom agent swarms &rarr; [Universal Agent Interop](portability/universal-agent-interop.md)
-* **Multi-Model Adapters**: Using Claude 3.7 Sonnet, GPT-4o, DeepSeek-R1, and local Ollama &rarr; [Multi-Model Adapters](portability/multi-model-adapters.md)
+* **Claude Desktop Setup**: Adding Credence to `claude_desktop_config.json` → [Claude & Cursor FastMCP Guide](tutorials/03-claude-cursor-fastmcp.md)
+* **Cursor Editor Setup**: Configuring MCP tools in Cursor settings → [Claude & Cursor FastMCP Guide](tutorials/03-claude-cursor-fastmcp.md)
+* **Antigravity SDK Pair-Programming**: Multi-agent coding patterns and invariant checks → [Antigravity Pair-Programming](agentic/01-antigravity-pair-programming-paradigm.md)
+* **`/learn` & Continuous Invariant Synthesis**: Capturing session learnings into machine invariants → [Continuous Learning](agentic/02-continuous-learning-and-invariant-synthesis.md)
+* **The Demotion Highway & Invariant Lifecycle**: 6-state lifecycle, Class $\alpha/\beta/\gamma$ ranking, and automated demotion scanning → [Demotion Highway & Lifecycle](agentic/06-the-demotion-highway-and-invariant-lifecycle.md)
+* **Invariant Scalability Blueprint**: The 3-tier framework and <800 token hard budget → [Invariant Scalability Blueprint](blueprints/invariant-scalability-and-knowledge-governance.md)
+* **Agentic Epistemic Brake**: Halting LangGraph / CrewAI hallucination cascades before tool execution → [Epistemic Brake Cookbook](cookbooks/agentic-epistemic-brake.md)
+* **FastMCP Tools Reference**: Complete specs for `credence_check_url`, `credence_evaluate_text`, `credence_get_audit`, etc. → [FastMCP 2.0 Protocol](protocols/fastmcp.md)
+* **Universal Agent Interoperability**: Connecting Windsurf, Cline, and custom agent swarms → [Universal Agent Interop](portability/universal-agent-interop.md)
+* **Multi-Model Adapters**: Using Claude 3.7 Sonnet, GPT-4o, DeepSeek-R1, and local Ollama → [Multi-Model Adapters](portability/multi-model-adapters.md)
 
 ---
 
 ## 💰 4. Cost Profiles & Token Economics
 
-* **Profile Overview**: Compare latency, token limits, thinking tokens, and spend limits &rarr; [Cost Profiles Guide](protocols/token-governor.md)
-* **`FREE` Profile ($0.00 / Zero Spend)**: Strict zero-cost offline heuristic auditing &rarr; [Token Governor](protocols/token-governor.md)
-* **`BALANCED` Profile (Default)**: Gemini 3.7 Flash with 1,024–4,096 thinking tokens for daily news &rarr; [ADR: Why Gemini 3.7 Flash](portability/gemini-economic-rationale.md)
-* **`ULTRA` Profile (Investigative)**: Deep reasoning with up to 16,384 thinking tokens for legal/financial filings &rarr; [Financial 10-K Cookbook](cookbooks/financial-disclosures.md)
-* **30% Headroom Circuit Breaker**: Automatic offline fallback to prevent unexpected cloud API bills &rarr; [Token Safety Governor](protocols/token-governor.md)
-* **BitTorrent Work-Sharing Economics**: How peer nodes share 92.3% of compute work at $0.00 token cost &rarr; [Economics of Truth](mathematics/economics-of-truth.md)
+* **Profile Overview**: Compare latency, token limits, thinking tokens, and spend limits → [Cost Profiles Guide](protocols/token-governor.md)
+* **`FREE` Profile ($0.00 / Zero Spend)**: Strict zero-cost offline heuristic auditing → [Token Governor](protocols/token-governor.md)
+* **`BALANCED` Profile (Default)**: Gemini 3.7 Flash with 1,024–4,096 thinking tokens for daily news → [ADR: Why Gemini 3.7 Flash](portability/gemini-economic-rationale.md)
+* **`ULTRA` Profile (Investigative)**: Deep reasoning with up to 16,384 thinking tokens for legal/financial filings → [Financial 10-K Cookbook](cookbooks/financial-disclosures.md)
+* **30% Headroom Circuit Breaker**: Automatic offline fallback to prevent unexpected cloud API bills → [Token Safety Governor](protocols/token-governor.md)
+* **BitTorrent Work-Sharing Economics**: How peer nodes share 92.3% of compute work at $0.00 token cost → [Economics of Truth](mathematics/economics-of-truth.md)
 
 ---
 
 ## 📜 5. Ethics, Logic & Taxonomy Catalogs
 
-* **Society of Professional Journalists (SPJ) Ethics**: Rules on unnamed sources, unverified claims, conflict of interest &rarr; [Taxonomy Engineering 101](cookbooks/taxonomy-engineering.md)
-* **Internet Encyclopedia of Philosophy (IEP) Fallacies**: Ad Hominem, Straw Man, False Dilemma, Circular Logic &rarr; [Taxonomy Engineering 101](cookbooks/taxonomy-engineering.md)
-* **Deceptive UI Patterns Catalog**: Sneak into Basket, Confirmshaming, Hidden Costs, Forced Continuity &rarr; [Taxonomy Engineering 101](cookbooks/taxonomy-engineering.md)
-* **Authoring Custom Taxonomies**: How to write namespaced YAML rule catalogs &rarr; [Taxonomy Engineering 101](cookbooks/taxonomy-engineering.md)
-* **Medical & Health Claims Blueprint**: In vitro extrapolation, unproven miracle cures, clinical trials &rarr; [Health & Medical Claims Blueprint](blueprints/health-medical-claims.md)
-* **Election & Civic Integrity Blueprint**: Polling methodology, voting locations, candidate claims &rarr; [Election Integrity Blueprint](blueprints/election-civic-integrity.md)
-* **Synthetic AI & Deepfake Provenance**: C2PA metadata, pink slime news farms &rarr; [Synthetic Media Provenance](blueprints/synthetic-media-provenance.md)
+* **Society of Professional Journalists (SPJ) Ethics**: Rules on unnamed sources, unverified claims, conflict of interest → [Taxonomy Engineering 101](cookbooks/taxonomy-engineering.md)
+* **Internet Encyclopedia of Philosophy (IEP) Fallacies**: Ad Hominem, Straw Man, False Dilemma, Circular Logic → [Taxonomy Engineering 101](cookbooks/taxonomy-engineering.md)
+* **Deceptive UI Patterns Catalog**: Sneak into Basket, Confirmshaming, Hidden Costs, Forced Continuity → [Taxonomy Engineering 101](cookbooks/taxonomy-engineering.md)
+* **Authoring Custom Taxonomies**: How to write namespaced YAML rule catalogs → [Taxonomy Engineering 101](cookbooks/taxonomy-engineering.md)
+* **Medical & Health Claims Blueprint**: In vitro extrapolation, unproven miracle cures, clinical trials → [Health & Medical Claims Blueprint](blueprints/health-medical-claims.md)
+* **Election & Civic Integrity Blueprint**: Polling methodology, voting locations, candidate claims → [Election Integrity Blueprint](blueprints/election-civic-integrity.md)
+* **Synthetic AI & Deepfake Provenance**: C2PA metadata, pink slime news farms → [Synthetic Media Provenance](blueprints/synthetic-media-provenance.md)
 
 ---
 
 ## 🎭 6. Satire, Parody & Disinformation Defense
 
-* **Poe's Law Principle**: Distinguishing parody (*The Onion*) from genuine disinformation &rarr; [Satire vs Disinformation Tutorial](tutorials/02-satire-vs-disinformation.md)
-* **Satire Neutralization ($0.00 Score)**: Ensuring humor is tagged but not penalized &rarr; [Satire Cloaking Defense](security/satire-cloaking-defense.md)
-* **`SPJ-1.6` Cloaking Override**: Disabling satire protections when bad-faith actors cloak defamatory factual claims as "humor" &rarr; [Satire Cloaking Defense](security/satire-cloaking-defense.md)
-* **Verbatim Grounding ($G = 1.0$)**: Requiring exact character substring matches for all cited evidence &rarr; [Grounding Mechanics](security/grounding-mechanics.md)
-* **50% Hallucination Slashing**: Autonomous reputation slashing for fabricated citations &rarr; [Grounding Mechanics](security/grounding-mechanics.md)
-* **Indirect Prompt Injection Defense**: XML untrusted boundary encapsulation & Billion Laughs XML parser guards &rarr; [Adversarial Attack Surface](security/adversarial-attack-surface.md)
+* **Poe's Law Principle**: Distinguishing parody (*The Onion*) from genuine disinformation → [Satire vs Disinformation Tutorial](tutorials/02-satire-vs-disinformation.md)
+* **Satire Neutralization ($0.00 Score)**: Ensuring humor is tagged but not penalized → [Satire Cloaking Defense](security/satire-cloaking-defense.md)
+* **`SPJ-1.6` Cloaking Override**: Disabling satire protections when bad-faith actors cloak defamatory factual claims as "humor" → [Satire Cloaking Defense](security/satire-cloaking-defense.md)
+* **Verbatim Grounding ($G = 1.0$)**: Requiring exact character substring matches for all cited evidence → [Grounding Mechanics](security/grounding-mechanics.md)
+* **50% Hallucination Slashing**: Autonomous reputation slashing for fabricated citations → [Grounding Mechanics](security/grounding-mechanics.md)
+* **Indirect Prompt Injection Defense**: XML untrusted boundary encapsulation & Billion Laughs XML parser guards → [Adversarial Attack Surface](security/adversarial-attack-surface.md)
 
 ---
 
 ## 🕸️ 7. P2P Mesh Network & Consensus
 
-* **3-Node Mesh Quickstart**: Run a local 3-node P2P mesh cluster &rarr; [3-Node Mesh Tutorial](tutorials/05-mesh-quickstart.md)
-* **13-Node Chaos Lab**: Test Byzantine cartels ($f=4$) and network partition resilience &rarr; [13-Node Chaos Lab](tutorials/06-thirteen-node-chaos-lab.md)
-* **Zero-Coordination Swarm Rendezvous Hashing**: Highest Random Weight (HRW) feed partitioning without central locks &rarr; [Swarm Rendezvous Hashing](mesh-engineering/rendezvous-hashing-feed-partitioning.md)
-* **Zero-Touch Node Germination**: Autonomous cryptographic identity minting and genesis inoculation in <5s &rarr; [Zero-Touch Node Germination](protocols/zero-touch-germination-and-swarm-ignition.md)
-* **P2P Gossip Protocol**: Watts-Strogatz small-world lattice ($N=13, k=4, \beta=0.10$) &rarr; [Mesh Protocol Spec](protocols/mesh-protocol.md)
-* **Seed Node Governance**: Genesis bootstrap seeds (`seeds.credence.nexus`) and Ed25519 verification &rarr; [Bootstrap Seed Governance](bootstrap-seeds.md)
-* **Dynamic DNS SRV Discovery**: Decentralized peer autodiscovery via RFC 2782 DNS records &rarr; [DNS SRV Discovery](mesh-engineering/dns-srv-discovery.md)
-* **Air-Gapped Sneakernets**: Sharing signed `.credence.json` bundles over USB / offline networks &rarr; [Air-Gapped Truth Bundles](mesh-engineering/airgapped-sneakernets.md)
-* **Sybil Cartel Demolition**: How robust weighted medians isolate coordinated malicious swarms &rarr; [Sybil Cartel Demolition](tutorials/08-sybil-cartel-demolition.md)
+* **3-Node Mesh Quickstart**: Run a local 3-node P2P mesh cluster → [3-Node Mesh Tutorial](tutorials/05-mesh-quickstart.md)
+* **13-Node Chaos Lab**: Test Byzantine cartels ($f=4$) and network partition resilience → [13-Node Chaos Lab](tutorials/06-thirteen-node-chaos-lab.md)
+* **Zero-Coordination Swarm Rendezvous Hashing**: Highest Random Weight (HRW) feed partitioning without central locks → [Swarm Rendezvous Hashing](mesh-engineering/rendezvous-hashing-feed-partitioning.md)
+* **Zero-Touch Node Germination**: Autonomous cryptographic identity minting and genesis inoculation in <5s → [Zero-Touch Node Germination](protocols/zero-touch-germination-and-swarm-ignition.md)
+* **P2P Gossip Protocol**: Watts-Strogatz small-world lattice ($N=13, k=4, \beta=0.10$) → [Mesh Protocol Spec](protocols/mesh-protocol.md)
+* **Seed Node Governance**: Genesis bootstrap seeds (`seeds.credence.nexus`) and Ed25519 verification → [Bootstrap Seed Governance](bootstrap-seeds.md)
+* **Dynamic DNS SRV Discovery**: Decentralized peer autodiscovery via RFC 2782 DNS records → [DNS SRV Discovery](mesh-engineering/dns-srv-discovery.md)
+* **Air-Gapped Sneakernets**: Sharing signed `.credence.json` bundles over USB / offline networks → [Air-Gapped Truth Bundles](mesh-engineering/airgapped-sneakernets.md)
+* **Sybil Cartel Demolition**: How robust weighted medians isolate coordinated malicious swarms → [Sybil Cartel Demolition](tutorials/08-sybil-cartel-demolition.md)
 
 ---
 
 ## 📐 8. Mathematical Foundations & Proofs
 
-* **Domain Authority Weighted Medians**: Mathematical proofs for outlier rejection &rarr; [Robust Consensus Proofs](mathematics/robust-consensus-proofs.md)
-* **The Galileo Rule**: Formal proof of why 100% grounded citations override ungrounded majorities &rarr; [Robust Consensus Proofs](mathematics/robust-consensus-proofs.md)
-* **SimHash-64 & Mirror Detection**: 64-bit Hamming distance calculation for duplicate articles &rarr; [SimHash Mirror Detection](mathematics/simhash-mirror-detection.md)
-* **Exponential Saturation Curves**: Suspicion score scaling math & density index &rarr; [Scoring Calibration Spec](protocols/scoring.md)
-* **Topic Diversity Entropy ($H_{\text{topic}}$)**: Shannon entropy and top-token concentration against promotional astroturfing &rarr; [Feed Sifting Walkthrough](walkthroughs/02-zero-trust-feed-sifting.md)
-* **Domain Credence Index ($DCI$) & Sourcing Forensics**: Longitudinal publisher scoring, byline ratios, and advertorial separation &rarr; [DCI & Sourcing Forensics](blueprints/domain-epistemic-index-and-sourcing-forensics.md)
+* **Domain Authority Weighted Medians**: Mathematical proofs for outlier rejection → [Robust Consensus Proofs](mathematics/robust-consensus-proofs.md)
+* **The Galileo Rule**: Formal proof of why 100% grounded citations override ungrounded majorities → [Robust Consensus Proofs](mathematics/robust-consensus-proofs.md)
+* **SimHash-64 & Mirror Detection**: 64-bit Hamming distance calculation for duplicate articles → [SimHash Mirror Detection](mathematics/simhash-mirror-detection.md)
+* **Exponential Saturation Curves**: Suspicion score scaling math & density index → [Scoring Calibration Spec](protocols/scoring.md)
+* **Topic Diversity Entropy ($H_{\text{topic}}$)**: Shannon entropy and top-token concentration against promotional astroturfing → [Feed Sifting Walkthrough](walkthroughs/02-zero-trust-feed-sifting.md)
+* **Domain Credence Index ($DCI$) & Sourcing Forensics**: Longitudinal publisher scoring, byline ratios, and advertorial separation → [DCI & Sourcing Forensics](blueprints/domain-epistemic-index-and-sourcing-forensics.md)
 
 ---
 
 ## ☁️ 9. Self-Hosting & Operations
 
-* **Master Deployment Prerequisites**: Complete checklists, credential matrices, and CLI setup guides across all topologies &rarr; [Master Deployment Prerequisites](operations/deployment-prerequisites.md)
-* **Single-Project vs Dual-Project GCP**: Comparison and CLI runbooks for partitioned vs hard-isolated GCP topologies &rarr; [Single vs Dual-Project GCP](operations/single-vs-dual-project-gcp.md)
-* **Multi-Environment Boundaries & Parity**: Project, domain, and data boundary isolation with launch parity &rarr; [Multi-Environment Boundaries](operations/multi-environment-boundaries-and-deployments.md)
-* **Vendor-Agnostic Self-Hosting**: Bare-metal Linux, Hetzner/OVH VPS, systemd, and Caddy reverse proxy &rarr; [Vendor-Agnostic Self-Hosting](operations/vendor-agnostic-self-hosting-and-docker.md)
-* **Docker Compose 5-Minute Quickstart**: Launch Basic ($0 SQLite) and Planetary (Postgres + MinIO + Valkey) clusters &rarr; [Docker Compose Quickstart](operations/docker-compose-quickstart.md)
-* **Kubernetes & Container Orchestration**: Declarative Kubernetes manifests, PVC storage, ingress, and HPA &rarr; [Kubernetes & Helm Deployment](operations/kubernetes-and-helm-deployment.md)
-* **Cloudflare R2 Blob Storage**: S3-compatible zero-egress CAS storage for forensic snapshots &rarr; [Cloudflare R2 Blob Storage](operations/blob-storage-r2.md)
-* **Multi-Plane Pipeline & Build Optimization**: Sub-40s pre-commit QA gates, pytest-xdist parallelization, and build context exclusions &rarr; [Pipeline & Build Optimization Handbook](operations/pipeline-and-build-optimization.md)
-* **The 3-Plane Sovereign Architecture**: Decoupling zero-npm Cloudflare edge, scale-to-zero Cloud Run compute, and Terraform infra &rarr; [The 3-Plane Architecture](../blog/the-three-plane-architecture.md)
-* **CI/CD Acceleration Post-Mortem**: Slashing build context upload bloat from 860MB to 2MB &rarr; [From 860MB to 2MB](../blog/from-860mb-to-2mb-sub-40s-cicd-pipeline.md)
-* **Raspberry Pi Homelab Node**: Low-power $0.00/mo self-hosting guide &rarr; [Raspberry Pi Homelab Guide](operations/raspberry-pi-homelab.md)
-* **GCP Cloud Run Deployment**: Production Terraform templates with $15/mo budget cap and scale-to-zero &rarr; [GCP Cloud Run Deployment](deployment-cloudrun.md)
-* **Cloud Run Cold Start Optimization Blueprint**: 5-pillar architectural framework for sub-2.5s scale-to-zero serverless cold starts &rarr; [Cloud Run Cold Start Blueprint](blueprints/cloudrun-scale-to-zero-cold-start-optimization.md)
-* **Node & Mesh Telemetry Dashboard Blueprint**: Technical specification for real-time node operator observability and BitTorrent compute savings &rarr; [Node & Mesh Telemetry Blueprint](blueprints/node-and-mesh-telemetry-dashboard.md)
-* **Real-Time Mesh Observability Essay**: First-person operator telemetry and decentralized swarm visibility without SaaS tracking &rarr; [Real-Time Mesh Observability](../blog/real-time-mesh-observability.md)
-* **Taming the 10-Second Cold Start Essay**: Forensic teardown of Python serverless boot bottlenecks &rarr; [Taming the 10s Cold Start](../blog/taming-the-10-second-cold-start-scale-to-zero.md)
-* **Tailscale & WireGuard Peering**: Encrypted private overlay mesh networks &rarr; [Tailscale Peering Guide](operations/tailscale-wireguard-mesh.md)
-* **SQLite Database Maintenance**: WAL checkpoints, vacuuming, and 30-day token retention pruning &rarr; [Database Pruning & WAL Care](operations/database-pruning-wal.md)
-* **Discord Webhook Alerts**: Setting up live notifications for high-suspicion breaking news &rarr; [Discord Alerting Guide](tutorials/13-discord-alerting-and-basement-monitoring.md)
-* **White-Label Sovereign Federation**: Scaffolding private institutional mesh networks (`credence init-org`) &rarr; [White-Label Federation Protocol](protocols/white-label.md)
+* **Master Deployment Prerequisites**: Complete checklists, credential matrices, and CLI setup guides across all topologies → [Master Deployment Prerequisites](operations/deployment-prerequisites.md)
+* **Single-Project vs Dual-Project GCP**: Comparison and CLI runbooks for partitioned vs hard-isolated GCP topologies → [Single vs Dual-Project GCP](operations/single-vs-dual-project-gcp.md)
+* **Multi-Environment Boundaries & Parity**: Project, domain, and data boundary isolation with launch parity → [Multi-Environment Boundaries](operations/multi-environment-boundaries-and-deployments.md)
+* **Vendor-Agnostic Self-Hosting**: Bare-metal Linux, Hetzner/OVH VPS, systemd, and Caddy reverse proxy → [Vendor-Agnostic Self-Hosting](operations/vendor-agnostic-self-hosting-and-docker.md)
+* **Docker Compose 5-Minute Quickstart**: Launch Basic ($0 SQLite) and Planetary (Postgres + MinIO + Valkey) clusters → [Docker Compose Quickstart](operations/docker-compose-quickstart.md)
+* **Kubernetes & Container Orchestration**: Declarative Kubernetes manifests, PVC storage, ingress, and HPA → [Kubernetes & Helm Deployment](operations/kubernetes-and-helm-deployment.md)
+* **Cloudflare R2 Blob Storage**: S3-compatible zero-egress CAS storage for forensic snapshots → [Cloudflare R2 Blob Storage](operations/blob-storage-r2.md)
+* **Multi-Plane Pipeline & Build Optimization**: Sub-40s pre-commit QA gates, pytest-xdist parallelization, and build context exclusions → [Pipeline & Build Optimization Handbook](operations/pipeline-and-build-optimization.md)
+* **The 3-Plane Sovereign Architecture**: Decoupling zero-npm Cloudflare edge, scale-to-zero Cloud Run compute, and Terraform infra → [The 3-Plane Architecture](../blog/the-three-plane-architecture.md)
+* **CI/CD Acceleration Post-Mortem**: Slashing build context upload bloat from 860MB to 2MB → [From 860MB to 2MB](../blog/from-860mb-to-2mb-sub-40s-cicd-pipeline.md)
+* **Raspberry Pi Homelab Node**: Low-power $0.00/mo self-hosting guide → [Raspberry Pi Homelab Guide](operations/raspberry-pi-homelab.md)
+* **GCP Cloud Run Deployment**: Production Terraform templates with $15/mo budget cap and scale-to-zero → [GCP Cloud Run Deployment](deployment-cloudrun.md)
+* **Cloud Run Cold Start Optimization Blueprint**: 5-pillar architectural framework for sub-2.5s scale-to-zero serverless cold starts → [Cloud Run Cold Start Blueprint](blueprints/cloudrun-scale-to-zero-cold-start-optimization.md)
+* **Node & Mesh Telemetry Dashboard Blueprint**: Technical specification for real-time node operator observability and BitTorrent compute savings → [Node & Mesh Telemetry Blueprint](blueprints/node-and-mesh-telemetry-dashboard.md)
+* **Real-Time Mesh Observability Essay**: First-person operator telemetry and decentralized swarm visibility without SaaS tracking → [Real-Time Mesh Observability](../blog/real-time-mesh-observability.md)
+* **Taming the 10-Second Cold Start Essay**: Forensic teardown of Python serverless boot bottlenecks → [Taming the 10s Cold Start](../blog/taming-the-10-second-cold-start-scale-to-zero.md)
+* **Tailscale & WireGuard Peering**: Encrypted private overlay mesh networks → [Tailscale Peering Guide](operations/tailscale-wireguard-mesh.md)
+* **SQLite Database Maintenance**: WAL checkpoints, vacuuming, and 30-day token retention pruning → [Database Pruning & WAL Care](operations/database-pruning-wal.md)
+* **Discord Webhook Alerts**: Setting up live notifications for high-suspicion breaking news → [Discord Alerting Guide](tutorials/13-discord-alerting-and-basement-monitoring.md)
+* **White-Label Sovereign Federation**: Scaffolding private institutional mesh networks (`credence init-org`) → [White-Label Federation Protocol](protocols/white-label.md)
 
 ---
 

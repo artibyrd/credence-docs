@@ -66,7 +66,7 @@ Upon launching, the worker outputs a terminal odometer and registers with the co
 
 Credence supports diverse model families to prevent single-vendor monoculture and bias.
 
-### Google Gemini (Recommended Default)
+### Google Gemini
 ```bash
 export GEMINI_API_KEY="AIzaSy..."
 uvx credence worker --model google/gemini-3.7-flash
