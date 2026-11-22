@@ -3,7 +3,7 @@ title: "Quickstart: Sovereign Node & Coordinator (Full-Stack Hosting)"
 description: "Host a sovereign Credence node, manage mempool queues, germinate cryptographic keys, and unlock the browser Admin Command Deck in under 5 minutes."
 since_version: v2.22.0
 verified_version: v2.22.0
-last_verified: 2026-09-14
+last_verified: 2026-11-22
 ---
 
 # Quickstart: Sovereign Node & Coordinator (Full-Stack Hosting) 🏛️
@@ -59,7 +59,7 @@ Deploy to cloud containers with automatic scale-to-zero ($0.00 idle cost) and Wo
 
 ```bash
 # Provision Cloud Run service via Terraform
-cd terraform/gcp
+cd terraform
 terraform init && terraform apply
 ```
 :::
@@ -75,7 +75,7 @@ credence germinate
 ```
 
 In under 5 seconds, germination automatically:
-1. **Mints an Ed25519 Cryptographic Identity**: Creates your node's sovereign public/private keypair at `~/.credence/identity.pem`.
+1. **Mints an Ed25519 Cryptographic Identity**: Creates your node's sovereign public/private keypair at `data/node_identity.key` (configurable via `NODE_KEY_PATH` or `--key-file`).
 2. **Inoculates Genesis Attestations ($0.00 Spend)**: Seeds 50+ pre-evaluated canonical articles and ethical taxonomy rubrics directly into your database with zero API token spend.
 3. **Sows 24 Curated Feeds**: Populates initial RSS/Atom feeds across technology, civic policy, and science journals.
 

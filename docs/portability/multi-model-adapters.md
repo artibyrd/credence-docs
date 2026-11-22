@@ -140,10 +140,10 @@ Volunteer workers can contribute compute to the open mempool using any supported
 
 ```bash
 # Run worker with local Ollama model
-uvx credence worker --node https://credence.run --model ollama/llama3.3:70b
+uvx --from git+https://github.com/artibyrd/credence credence worker --node https://credence.run --model ollama/llama3.3:70b
 
 # Run worker with OpenAI-compatible endpoint (vLLM, LM Studio, OpenRouter)
-uvx credence worker \
+uvx --from git+https://github.com/artibyrd/credence credence worker \
   --node https://credence.run \
   --model custom/deepseek-r1-distill \
   --api-base http://localhost:8000/v1 \

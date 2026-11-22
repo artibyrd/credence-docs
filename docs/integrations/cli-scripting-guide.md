@@ -160,16 +160,16 @@ Run an automated volunteer worker contributing compute to the public mempool:
 
 ```bash
 # Basic worker connecting to community node
-uvx credence worker --node https://credence.run
+uvx --from git+https://github.com/artibyrd/credence credence worker --node https://credence.run
 
 # Worker running local Ollama or vLLM open-weights model
-uvx credence worker \
+uvx --from git+https://github.com/artibyrd/credence credence worker \
   --node https://credence.run \
   --model ollama/llama3.3:70b \
   --api-base http://localhost:11434/v1
 
 # Paired worker with Self-Serve Affinity accelerating local IDE queries
-uvx credence worker --node https://credence.run --affinity my-dev-workstation
+uvx --from git+https://github.com/artibyrd/credence credence worker --node https://credence.run --affinity my-dev-workstation
 ```
 
 ---
@@ -184,7 +184,7 @@ credence key show
 
 # Export private key to secure PEM backup
 credence key export --out ~/.credence/backup_identity.key
-credence key export --stdout  # Print ASCII PEM for secret managers
+credence key export  # Print ASCII PEM to stdout for secret managers
 
 # Import private key on a new workstation
 credence key import ~/.credence/backup_identity.key

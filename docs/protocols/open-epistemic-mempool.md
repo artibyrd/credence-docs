@@ -3,7 +3,7 @@ title: "Protocol: The Open Epistemic Mempool Queue & Multi-Model Consensus"
 description: "Architectural specification of the decentralized audit job queue, atomic lease state machine, multi-model Bayesian consensus quorum, and the Galileo Rule."
 since_version: "v2.22.0"
 verified_version: "v2.22.0"
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 ---
 
 # Protocol: The Open Epistemic Mempool Queue & Multi-Model Consensus
@@ -74,12 +74,12 @@ This invariant guarantees that a compromised or gullible quorum cannot launder a
 
 | Attack Vector | Defense Mechanism | Invariant / Rule |
 | :--- | :--- | :--- |
-| **Sybil Lease Exhaustion** | Strict limit of 3 concurrent active leases per worker pubkey. | Vector 7 |
-| **Model Slug Injection** | Strict regex validation (`^[a-zA-Z0-9_-]+/[a-zA-Z0-9_.-]+$`). Block `..` and path traversal. | Vector 9 |
-| **Hallucinated Quotes** | Grounding assertion $G=1.00$: every quote must exist verbatim in source text. | Vector 4 |
-| **Stored XSS Injection** | Sanitization and HTML-tag stripping on all violation quotes and reasoning. | Vector 5 |
-| **Signature Forgery** | Ed25519 cryptographic attestation verification on every submission. | Vector 6 |
-| **Tampered Timestamp** | Coordinator-assigned UTC lease expiration window. | Vector 12 |
+| **Sybil Lease Exhaustion & Pubkey DoS** | Ed25519 proof-of-possession signature (`claim_timestamp` + `claim_signature`, 300s replay window) plus max 3 concurrent active leases per worker pubkey (`HTTP 429`). | Vector 7 |
+| **Model Slug Injection** | Strict regex validation (`^(?!.*\.\.)[a-zA-Z0-9_\-\.\/]{1,64}(?::[a-zA-Z0-9_\-\.]{1,32})?$`) and server-side canonical family derivation (`resolve_model_family`). | Vector 9 & 10 |
+| **Untrusted Enqueue Poisoning** | Public `http(s)://` enqueues ignore untrusted caller prose and capture authoritative text via SSRF-safe, rate-limited, 10 MB-capped coordinator fastpath fetch. | Vector 1 & 3 |
+| **Hallucinated Quotes** | Fail-closed grounding assertion $G=1.00$: every quote must exist verbatim in coordinator source text; failures reject with `HTTP 422` and slash worker $Q_w$. | Vector 4 & 8 |
+| **Stored XSS Injection** | Reject HTML tags, event handlers, and dangerous URI schemes on submit; sanitize worker aliases; render via safe DOM APIs (`textContent`). | Vector 5 & 13 |
+| **Signature Forgery & Replay** | RFC 8785 Ed25519 verification bound to `worker_pubkey`, claimed `job.url`, `content_sha256`, and active unexpired lease. | Vector 6 & 12 |
 
 ---
 

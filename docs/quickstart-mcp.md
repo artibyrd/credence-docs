@@ -3,7 +3,7 @@ title: "Quickstart: FastMCP 2.0 AI Assistant (Claude & Cursor)"
 description: "Equip Claude Desktop, Cursor IDE, Antigravity, and AI swarms with Credence real-time fact checking and the Epistemic Brake in under 60 seconds."
 since_version: v2.22.0
 verified_version: v2.22.0
-last_verified: 2026-09-14
+last_verified: 2026-11-22
 ---
 
 # Quickstart: FastMCP 2.0 AI Assistant (Claude & Cursor) ⚡
@@ -20,7 +20,7 @@ AI assistants are extraordinary at writing code and analyzing arguments, but the
 
 1. **The In-IDE Epistemic Brake**: When your AI assistant browses external documentation, reviews dependencies, or investigates claims, it halts execution when encountering ungrounded claims and verifies the underlying source text before accepting it into its context window.
 2. **`credence_check_url`**: Dispatches real-time evaluations to the Credence network. It checks articles against standardized journalism codes (SPJ), logical fallacies (IEP), and deceptive patterns. Every finding is character-grounded ($G=1.00$) against the original DOM text.
-3. **`credence_verify_and_anchor`**: Automatically anchors verified sources directly into your local git-tracked markdown notes or documentation, cryptographically signed with an Ed25519 attestation.
+3. **`credence_verify_and_anchor`**: Verifies $G=1.00$ verbatim grounding and anchors findings with Ed25519 cryptographic attestation. In local `stdio` mode (or for authenticated operators), your local node signs `text://inline` prose or server-captured Snapshots; over public remote MCP, callers sign with their own Ed25519 `worker_pubkey` and `worker_signature` against a server-captured `Snapshot`.
 4. **Zero-Token Local Cache Fastpath**: If an article or claim has already been evaluated by the network, FastMCP returns an instant consensus receipt without burning LLM context window tokens or incurring API costs.
 
 ---
@@ -31,16 +31,16 @@ You can connect your IDE to Credence using either our public hosted remote endpo
 
 :::tabs
 === Option A: Public Remote Endpoint (Zero Local Install)
-Connect directly to the public Credence network over Server-Sent Events (SSE). No Python or local binaries required:
+Connect directly to the public Credence network over Server-Sent Events (SSE) or Streamable HTTP. No Python or local binaries required:
 
-* **Transport**: `sse`
-* **URL**: `https://credence.run/sse` (or dev environment `https://credence-dev-865363499314.us-central1.run.app/sse`)
+* **SSE Transport**: `https://mcp.credence.run/sse`
+* **Streamable HTTP Transport**: `https://mcp.credence.run/mcp`
 
 === Option B: Zero-Install Local CLI (via uvx)
-Run the local FastMCP server on demand using `uvx` (part of the Astral `uv` toolchain). No permanent package installation needed:
+Run the local FastMCP `stdio` server on demand using `uvx` (part of the Astral `uv` toolchain). No permanent package installation needed:
 
 ```bash
-uvx credence serve --mcp
+uvx --from git+https://github.com/artibyrd/credence credence serve --mcp
 ```
 
 === Option C: Installed Credence CLI
@@ -73,7 +73,7 @@ Add the `credence` server entry:
   "mcpServers": {
     "credence": {
       "command": "uvx",
-      "args": ["credence", "serve", "--mcp"],
+      "args": ["--from", "git+https://github.com/artibyrd/credence", "credence", "serve", "--mcp"],
       "env": {
         "CREDENCE_MODEL_API_KEY": "<your-model-api-key>"
       }
@@ -87,7 +87,7 @@ Add the `credence` server entry:
 {
   "mcpServers": {
     "credence": {
-      "url": "https://credence.run/sse"
+      "url": "https://mcp.credence.run/sse"
     }
   }
 }
@@ -103,7 +103,7 @@ Add the `credence` server entry:
 3. Fill in the connection settings:
    - **Name**: `credence`
    - **Type**: `command`
-   - **Command**: `uvx credence serve --mcp`
+   - **Command**: `uvx --from git+https://github.com/artibyrd/credence credence serve --mcp`
 4. Click **Save**. The status indicator will turn green once connected.
 
 ### 3. Google Antigravity & Agent Swarms
@@ -136,8 +136,8 @@ Try prompting your assistant with a live news story or research claim:
 ### What You Will Receive Back
 
 Your assistant receives a structured JSON payload containing:
-* **Classification**: `FACTUAL_REPORTING`, `SATIRE`, `OPINION`, or `UNTRUSTED`.
-* **Suspicion Score**: Continuous scale from `0.00` (Pristine) to `1.00` (High Suspicion).
+* **Classification**: `CLEAN`, `LOW_SUSPICION`, `SUSPICIOUS`, `DECEPTIVE`, or `SATIRE_PARODY`.
+* **Suspicion Score**: Continuous scale from `0.0` (Clean) to `100.0` (Deceptive).
 * **Grounding Evidence ($G=1.00$)**: Exact character-offset quotes extracted verbatim from the original text showing where bias, unnamed sources, or fallacies occurred.
 * **Cryptographic Attestation**: Ed25519 signature from the auditing node, verifiable against public keys.
 

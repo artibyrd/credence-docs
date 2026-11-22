@@ -4,7 +4,7 @@ description: Comprehensive concept index, cheat sheet, and fast-lookup directory
   the Credence ecosystem.
 since_version: v1.11.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 ---
 
 # 🧭 Topic Index & Quick Reference
@@ -57,8 +57,8 @@ last_verified: 2026-09-13
 | `credence audit <url>` | Live forensic evaluation of a webpage | [Auditing Webpages & Text](walkthroughs/01-auditing-webpages-and-text.md) |
 | `credence audit <url> --profile free` | Low-latency zero-cost heuristic audit | [Operational Cost Profiles](protocols/token-governor.md) |
 | `credence tui` | Launch full-screen interactive terminal workstation | [Textual TUI Workstation](integrations/tui-workstation.md) |
-| `credence digest --format terminal` | Print 24-hour morning epistemic briefing | [Morning Digest Briefings](walkthroughs/04-morning-digest-briefings.md) |
-| `credence sifter --interval 300` | Run autonomous background RSS feed filter | [Zero-Trust Feed Sifting](walkthroughs/02-zero-trust-feed-sifting.md) |
+| `credence digest --hours 24` | Print 24-hour morning epistemic briefing | [Morning Digest Briefings](walkthroughs/04-morning-digest-briefings.md) |
+| `credence sifter --burst` | Run autonomous background RSS feed filter | [Zero-Trust Feed Sifting](walkthroughs/02-zero-trust-feed-sifting.md) |
 | `credence serve --mcp` | Start FastMCP 2.0 server on `stdio` | [Claude & Cursor Integration](tutorials/03-claude-cursor-fastmcp.md) |
 | `credence serve --transport sse` | Start FastMCP 2.0 streaming HTTP/SSE server | [FastMCP 2.0 Protocol](protocols/fastmcp.md) |
 | `credence quota` | Inspect current token usage and headroom safety | [Token Governor Protocol](protocols/token-governor.md) |

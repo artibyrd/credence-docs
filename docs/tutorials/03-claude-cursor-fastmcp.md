@@ -93,11 +93,11 @@ To equip your coding assistants with live epistemic verification, configure the 
 | :--- | :--- | :--- | :--- |
 | `credence_check_url` | `url`, `profile`, `thinking_budget`, `wait_timeout` | Audit webpage credibility (25s adaptive brake) | JSON Attestation Receipt & Consensus |
 | `credence_check_text` | `text`, `profile` | Audit raw text or clipboard snippet | Grounded Violation Cards |
-| `credence_verify_and_anchor` | `url`, `violations`, `reasoning`, `model_slug` | In-chat agent evaluation & ledger anchoring | Countersigned Consensus Receipt |
+| `credence_verify_and_anchor` | `url`, `normalized_text`, `suspicion_score`, `classification`, `violations`, `model_name`, `worker_pubkey`, `worker_signature` | In-chat $G=1.00$ grounding verification & signed ledger anchoring | Grounded & Attested Consensus Receipt |
 | `credence_get_quota_status`| *None* | Check token headroom & budget | Remaining Token Capacity |
 
 > [!TIP]
-> **Self-Serve Affinity Acceleration**: Run a local background worker with `uvx credence worker --node https://credence.run --affinity my-workstation` to snatch and fulfill your own Claude/Cursor queries locally in $< 3$ seconds at $0.00 cloud cost!
+> **Self-Serve Affinity Acceleration**: Run a local background worker with `uvx --from git+https://github.com/artibyrd/credence credence worker --node https://credence.run --affinity my-workstation` to snatch and fulfill your own Claude/Cursor queries locally in $< 3$ seconds at $0.00 cloud cost!
 
 ---
 ## Configuring AI Coding Assistants with Credence FastMCP
@@ -118,7 +118,7 @@ Complete the following validation steps to confirm successful execution of **03 
 
 ```bash
 # Execute end-to-end verification
-$ credence stats --json
+$ credence stats
 ```
 
 ---

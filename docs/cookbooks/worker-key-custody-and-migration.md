@@ -3,7 +3,7 @@ title: "Cookbook: Worker Key Custody & Machine Migration"
 description: "How to backup, export, import, and manage your Ed25519 worker identity key to preserve your leaderboard rank, badges, and reputation across machines."
 since_version: "v2.22.0"
 verified_version: "v2.22.0"
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 ---
 
 # Cookbook: Worker Key Custody & Machine Migration
@@ -27,10 +27,10 @@ credence key show
 Output:
 ```bash
 # Output format:
-# Public Key (Hex): 9f486ba6241d696123456789abcdef0123456789abcdef0123456789733db917df
-# Key Storage Path: /home/user/.credence/node_identity.pem
+# Public Key (Hex): 9f486ba6241d6961e8c40b9132a4f570d8b2a6c4e1f9b3a70562d8e4733db917
+# Key Storage Path: data/node_identity.key
 # Key Algorithm: Ed25519 (256-bit elliptic curve)
-# Dossier Link: https://credence.nexus/#worker/9f486ba6241d69...
+# Dossier Link: https://credence.nexus/#worker/9f486ba6241d6961e8c40b9132a4f570d8b2a6c4e1f9b3a70562d8e4733db917
 ```
 
 The 64-character public key hex string is your public identifier across all Credence nodes, consensus quorums, and leaderboard tables.
@@ -63,7 +63,7 @@ chmod 600 ~/my-credence-worker.pem
 
 ## 3. Importing Your Key on a New Machine
 
-When you switch to a new workstation, laptop, or server, transfer your PEM file securely (e.g., via `scp` or an encrypted USB drive) and import it:
+When you switch to a new workstation, laptop, or server, transfer your PEM file securely (e.g., via `scp` or an encrypted USB drive) and import it (both `-i <path>` and positional `<path>` are supported):
 
 ```bash
 # Import the key onto the new machine
@@ -72,16 +72,16 @@ credence key import -i ~/my-credence-worker.pem
 
 Output:
 ```bash
-# Key successfully validated and imported to: /home/user/.credence/node_identity.pem
-# Public Key: 9f486ba6241d69...733db917df
+# Key successfully validated and imported to: data/node_identity.key
+# Public Key: 9f486ba6241d6961e8c40b9132a4f570d8b2a6c4e1f9b3a70562d8e4733db917
 # Your previous leaderboard rank, badges, and audit history are now active on this machine.
 ```
 
 Now, when you launch the worker daemon:
 ```bash
-uvx credence worker --continuous
+uvx --from git+https://github.com/artibyrd/credence credence worker --continuous
 ```
-It immediately uses your imported keypair, maintaining your rank, historical bounties, and badges.
+It immediately uses your imported keypair, maintaining your rank, historical bounties, and badges. To run against a separate key file without overwriting the default path, pass `--key-file ~/my-credence-worker.pem`.
 
 ---
 
@@ -97,13 +97,13 @@ export CREDENCE_NODE_KEY_PEM="$(cat ~/my-credence-worker.pem)"
 docker run --rm \
   -e CREDENCE_NODE_KEY_PEM="$CREDENCE_NODE_KEY_PEM" \
   -e CREDENCE_MODEL_API_KEY="$CREDENCE_MODEL_API_KEY" \
-  ghcr.io/credence-ecosystem/credence:v2.22.0 worker --continuous
+  ghcr.io/artibyrd/credence:v2.22.0 worker --continuous
 ```
 
-When `CREDENCE_NODE_KEY_PEM` is set:
+When `CREDENCE_NODE_KEY_PEM` is set (and `--key-file` is not explicitly passed):
 - The daemon parses the Ed25519 key directly in memory.
 - No files are written to the container filesystem.
-- The daemon will validate the key curve and format, rejecting corrupted strings or foreign curve types.
+- The daemon validates the key curve and format, rejecting corrupted strings or foreign curve types.
 
 ---
 
@@ -126,6 +126,6 @@ credence key generate --force
 Before decommissioning a computer or rotating hardware:
 - [ ] Run `credence key show` and verify your public key matches your leaderboard entry.
 - [ ] Run `credence key export -o ~/credence-worker-backup.pem`.
-- [ ] Test the backup key on your new machine with `credence key import -i ...`.
+- [ ] Test the backup key on your new machine with `credence key import -i ~/credence-worker-backup.pem`.
 - [ ] Run `credence key show` on the new machine to confirm matching public keys.
-- [ ] Securely delete the temporary export file (`shred -u ~/credence-worker-backup.pem` or `rm -P`).
+- [ ] Securely delete the temporary export file (`shred -u ~/credence-worker-backup.pem` or `rm -P ~/credence-worker-backup.pem`).

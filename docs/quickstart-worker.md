@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Volunteer Worker Daemon (Open Mempool Compute)"
-description: "Donate spare compute, claim mempool audit bounties, earn cryptographic merit badges, and climb the leaderboard with uvx credence worker in under 2 minutes."
+description: "Donate spare compute, claim mempool audit bounties, earn cryptographic merit badges, and climb the leaderboard with uvx in under 2 minutes."
 since_version: v2.22.0
 verified_version: v2.22.0
-last_verified: 2026-09-14
+last_verified: 2026-11-22
 ---
 
 # Quickstart: Volunteer Worker Daemon (Open Mempool Compute) 🐝
@@ -18,9 +18,9 @@ Credence replaces single-model evaluation monocultures with a decentralized, mul
 
 When you run a **Volunteer Worker Daemon**:
 
-1. **Polls the Open Mempool**: Your worker continuously checks the coordinator's queue for unfulfilled evaluation bounties via `POST /api/queue/claim`.
-2. **Performs Blind Evaluation**: Your worker fetches the source content and independently evaluates it against standardized journalistic (SPJ) and logical fallacy (IEP) rules using your configured model.
-3. **Extracts Verbatim DOM Grounding ($G=1.00$)**: Every finding is backed by exact, character-for-character quotes from the source text. Hallucinated findings are automatically discarded.
+1. **Polls the Open Mempool**: Your worker continuously checks the coordinator's queue for unfulfilled evaluation bounties via `POST /api/queue/claim` with an Ed25519 proof-of-possession signature.
+2. **Performs Blind Evaluation**: Your worker evaluates the coordinator-captured source text independently against standardized journalistic (SPJ) and logical fallacy (IEP) rules using your configured model.
+3. **Extracts Verbatim DOM Grounding ($G=1.00$)**: Every finding is backed by exact, character-for-character quotes from the source text. Hallucinated findings are rejected with HTTP 422 and slash worker quality.
 4. **Signs and Submits Attestations**: Your worker signs the completed evaluation receipt using its unique Ed25519 cryptographic key and submits it back to the mempool via `POST /api/queue/submit`.
 5. **Drives Bayesian Consensus**: Multiple workers running distinct model families (Gemini, Claude, GPT, DeepSeek, Llama, Mistral, Qwen) converge on a Bayesian consensus score. If a lone worker discovers an undeniable, grounded deception that other models missed, **The Galileo Rule** triggers to ensure truth prevails over consensus.
 
@@ -31,33 +31,36 @@ When you run a **Volunteer Worker Daemon**:
 You can run a volunteer worker immediately with **zero installation** using `uvx`. Choose whether you want to evaluate with cloud APIs or 100% private local models.
 
 :::tabs
-=== Option A: Google Gemini 3.7 Flash (Default / Ultra-Low Cost)
+=== Option A: Google Gemini 3.8 Flash (Default / Ultra-Low Cost)
 ```bash
-# Set your Gemini API key (from Google AI Studio)
-export CREDENCE_GEMINI_API_KEY="<your-gemini-api-key>"
+# Set your Gemini API key (or universal CREDENCE_MODEL_API_KEY)
+export GEMINI_API_KEY="<your-gemini-api-key>"
 
 # Launch the worker daemon connecting to the public network
-uvx credence worker --node https://credence.run --model google/gemini-3.8-flash
+uvx --from git+https://github.com/artibyrd/credence credence worker --node https://credence.run --model google/gemini-3.8-flash
 ```
 
 === Option B: 100% Offline Local Ollama ($0.00 Spend)
 If you have Ollama running locally, you can donate compute with zero external API costs and absolute privacy:
 
 ```bash
+# Optional: override Ollama endpoint (defaults to http://localhost:11434)
+export OLLAMA_HOST="http://localhost:11434"
+
 # Launch worker using local Llama 3.3 70B via Ollama
-uvx credence worker --node https://credence.run --model ollama/llama3.3:70b
+uvx --from git+https://github.com/artibyrd/credence credence worker --node https://credence.run --model ollama/llama3.3:70b
 ```
 
 === Option C: Anthropic Claude 3.7 Sonnet
 ```bash
-export CREDENCE_ANTHROPIC_API_KEY="<your-anthropic-api-key>"
-uvx credence worker --node https://credence.run --model anthropic/claude-3.7-sonnet
+export ANTHROPIC_API_KEY="<your-anthropic-api-key>"
+uvx --from git+https://github.com/artibyrd/credence credence worker --node https://credence.run --model anthropic/claude-3-7-sonnet
 ```
 
-=== Option D: DeepSeek-R1 (API or Local vLLM)
+=== Option D: DeepSeek (API or Local vLLM)
 ```bash
-export CREDENCE_DEEPSEEK_API_KEY="<your-deepseek-api-key>"
-uvx credence worker --node https://credence.run --model deepseek/deepseek-reasoner
+export DEEPSEEK_API_KEY="<your-deepseek-api-key>"
+uvx --from git+https://github.com/artibyrd/credence credence worker --node https://credence.run --model deepseek/deepseek-reasoner
 ```
 :::
 
@@ -69,10 +72,10 @@ Credence is vendor-agnostic and explicitly designed to support any open-weights 
 
 * **Commercial APIs**: Google Gemini (`google/*`), Anthropic Claude (`anthropic/*`), OpenAI GPT (`openai/*`), DeepSeek (`deepseek/*`).
 * **Open-Weights Model Families**: Meta Llama (`meta-llama/*`), Mistral AI (`mistralai/*`), Qwen (`qwen/*`).
-* **Local Inference Servers**: Ollama (`ollama/*`), vLLM (`vllm/*`), LM Studio (`lmstudio/*`), or any OpenAI-compatible HTTP endpoint.
-* **Custom Fine-Tunes**: Use prefix notation `custom/<family>/<model>` or `<vendor>/<model>`.
+* **Local Inference Servers**: Ollama (`ollama/*`), vLLM (`vllm/*`), LM Studio (`lmstudio/*`), or any OpenAI-compatible HTTP endpoint via `--api-base`.
+* **Custom Fine-Tunes**: Use prefix notation `<vendor>/<model>` or `custom/<model>`.
 
-The Bayesian consensus engine uses this lineage taxonomy to ensure architectural diversity: consensus requires verification from at least two distinct cognitive model families before a final verdict is sealed.
+The coordinator resolves canonical model families server-side from `model_slug` so consensus requires genuinely distinct cognitive lineages.
 
 ---
 
@@ -81,9 +84,9 @@ The Bayesian consensus engine uses this lineage taxonomy to ensure architectural
 Every bounty your worker clears increases your standing on the public leaderboard:
 
 * **Live Leaderboard**: View real-time standings at [`https://credence.nexus#leaderboard`](https://credence.nexus#leaderboard).
-* **Worker Quality Score ($Q_w$)**: Your worker's reliability score on a 0.0 to 10.0 scale, calculated as:
-  $$Q_w = 0.50 + 0.25 \cdot \text{Volume} + 0.15 \cdot \text{Grounding} + 0.10 \cdot \text{Longevity}$$
-* **10-Tier Merit Badges**: Unlock verifiable badges including `first_bounty` (Pioneer Worker), `verbatim_hawk` ($G=1.00$ precision), `galileo_champion` (solitary grounded dissenter override), and `iron_pillar` ($99\%$ claim fulfillment).
+* **Worker Quality Score ($Q_w$)**: Computed in `[0.10, 1.00]` on the coordinator (and displayed scaled `× 10` as `0.0–10.0` on the Nexus leaderboard), incorporating volume, grounding accuracy, longevity, and `-0.15` slashing per ungrounded rejection:
+  $$Q_w = \text{clamp}\!\left(0.50 + 0.25 \cdot V + 0.15 \cdot A_{\text{ground}} + 0.10 \cdot L - 0.15 \cdot R_{\text{reject}},\ 0.10,\ 1.00\right)$$
+* **10 Achievement Badges**: Unlock verifiable merit badges including `first_bounty`, `speed_demon`, `bounty_hunter`, `bounty_legend`, `diversity_champion`, `model_pioneer`, `night_owl`, `weekend_warrior`, `precision_striker`, and `iron_worker`.
 * **Dynamic SVG Profile Badge**: Embed your live merit badge directly into your personal portfolio or GitHub README:
 
 ```markdown
@@ -115,7 +118,7 @@ For serverless containers or Kubernetes pods with ephemeral storage, pass your k
 
 ```bash
 export CREDENCE_NODE_KEY_PEM="$(cat ~/.credence/worker_backup.pem)"
-uvx credence worker --node https://credence.run
+uvx --from git+https://github.com/artibyrd/credence credence worker --node https://credence.run
 ```
 
 ---

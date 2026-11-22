@@ -3,7 +3,7 @@ title: 'The Model Lineage Sybil: Red-Teaming Distributed LLM Consensus'
 description: What we learned subjecting open multi-model mempools, volunteer compute, and Byzantine quorums to 14 adversarial red team attack vectors.
 since_version: v2.22.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 sidebar:
   order: 48
 ---
@@ -12,9 +12,9 @@ sidebar:
 
 The current frontier of autonomous AI evaluation is enamored with committees. From multi-agent debate frameworks to mixture-of-agents ensembling, the standard prescription for model bias is straightforward: query multiple large language models, compute a mean or median verdict, and declare epistemic consensus.
 
-When we designed **Credence v2.22.0**, we embraced this decentralized ethos. We replaced our single-node evaluation loop with an open, peer-to-peer epistemic mempool (`/api/queue`) and an autonomous volunteer worker daemon (`uvx credence worker`). Any developer with an idle MacBook, an Ollama server, or an API key can claim audit bounties, run local models, sign their evaluations with Ed25519 cryptography, and contribute to network truth.
+When we designed **Credence v2.22.0**, we embraced this decentralized ethos. We replaced our single-node evaluation loop with an open, peer-to-peer epistemic mempool (`/api/queue`) and an autonomous volunteer worker daemon (`uvx --from git+https://github.com/artibyrd/credence credence worker`). Any developer with an idle MacBook, an Ollama server, or an API key can claim audit bounties, run local models, sign their evaluations with Ed25519 cryptography, and contribute to network truth.
 
-Then we did what every sovereign engineering team must do before touching production: **we red-teamed our own consensus mechanism across 14 adversarial attack vectors and 10 cluster simulation scenarios**.
+Then we did what every sovereign engineering team must do before touching production: **we red-teamed our own consensus mechanism across 14 adversarial attack vectors and 11 cluster simulation scenarios**.
 
 What we discovered dismantled our naive assumptions about machine consensus. The greatest vulnerability facing distributed AI isn't simply prompt injection or network spam—it is **The Model Lineage Sybil**, coupled with the dangerous illusion that truth can be determined by democratic voting.
 
@@ -45,7 +45,7 @@ This is why Credence enforces [The Galileo Rule](/blog/the-galileo-rule) ([`inv-
 
 ## 2. The 14-Vector Red Team Gauntlet
 
-To stress-test our open mempool and volunteer worker architecture, we codified 14 adversarial security vectors in [`tests/integration/test_worker_redteam_gauntlet.py`](/docs/integrations/cli-scripting-guide) and 10 cluster scenarios in [`tests/integration/test_mempool_cluster_simulation.py`](/docs/protocols/open-epistemic-mempool).
+To stress-test our open mempool and volunteer worker architecture, we codified 14 adversarial security vectors in [`tests/integration/test_worker_redteam_gauntlet.py`](/docs/integrations/cli-scripting-guide) and 11 cluster scenarios in [`tests/integration/test_mempool_cluster_simulation.py`](/docs/protocols/open-epistemic-mempool).
 
 The findings exposed critical vulnerabilities across three distinct operational layers:
 
@@ -85,20 +85,20 @@ If the underlying Llama foundation model has a systematic blind spot regarding a
 
 ### The Canonical Family Normalizer
 
-To defeat this exploit, we implemented vendor-root family normalization in [`credence/worker/leases.py`](/docs/integrations/cli-scripting-guide):
+To defeat this exploit, we implemented server-side vendor-root family normalization in [`credence/worker/leases.py`](/docs/integrations/cli-scripting-guide), always deriving `model_family` directly from `model_slug` on the coordinator rather than trusting caller-declared family headers:
 
 ```python
 def resolve_model_family(model_slug: str) -> str:
     """Resolve canonical model family identifier from model slug or URI."""
     clean = model_slug.strip().lower()
 
-    if any(k in clean for k in ("gemini", "google")):
+    if any(k in clean for k in ("gemini", "gemma")):
         return "google/gemini"
     if any(k in clean for k in ("claude", "anthropic")):
         return "anthropic/claude"
-    if any(k in clean for k in ("gpt-", "gpt", "o1", "o3", "openai")):
+    if any(k in clean for k in ("gpt-", "gpt", "openai")) or re.search(r"(?:^|[/:_-])(?:o1|o3|o4)(?:$|[/:_.-])", clean):
         return "openai/gpt"
-    if any(k in clean for k in ("deepseek", "r1")):
+    if "deepseek" in clean or re.search(r"(?:^|[/:_-])r1(?:$|[/:_.-])", clean):
         return "deepseek/deepseek"
     if any(k in clean for k in ("llama", "meta-llama")):
         return "meta/llama"
@@ -106,16 +106,23 @@ def resolve_model_family(model_slug: str) -> str:
         return "qwen/qwen"
     if any(k in clean for k in ("mistral", "mixtral", "codestral")):
         return "mistral/mistral"
-    
-    # Custom / local open-weights namespace
-    sanitized = re.sub(r"[^a-z0-9_\-]", "-", clean)[:32]
-    return f"custom/{sanitized}"
+    if any(k in clean for k in ("phi", "microsoft/phi")):
+        return "microsoft/phi"
+    if any(k in clean for k in ("grok", "xai")):
+        return "xai/grok"
+
+    if "/" in clean:
+        vendor, model_part = clean.split("/", 1)
+        base = re.split(r"[-_.]", model_part)[0]
+        return f"{vendor}/{base}"
+    base = re.split(r"[-_.]", clean)[0] if clean else "custom"
+    return f"custom/{base}"
 ```
 
-When `Worker A` claims a lease for an article with `meta-llama/Llama-3.3-70B`, the mempool locks the `meta/llama` family slot. If `Worker B` attempts to claim the same bounty with `llama-3.1-8b`, the mempool rejects the claim:
+When `Worker A` claims a lease for an article with `meta-llama/Llama-3.3-70B`, the mempool locks the `meta/llama` family slot. If `Worker B` attempts to claim the same bounty with `llama-3.1-8b` (even if it attempts to spoof `model_family` in the JSON body), the coordinator ignores the spoofed label, skips the locked job, and returns an empty claim response:
 ```json
 {
-  "error": "Model family 'meta/llama' already actively leased or completed for this job"
+  "job": null
 }
 ```
 
@@ -130,9 +137,9 @@ The second major takeaway from our red-teaming was economic.
 Many decentralized protocols attempt to solve worker participation by introducing speculative cryptocurrency tokens, staking mechanisms, and slashing penalties. As we documented in [Gamifying Truth Without the Casino](/blog/gamifying-truth-without-the-casino), this immediately introduces predatory financial speculation, wash-trading, and adversarial incentive traps.
 
 Credence operates on the **Folding@home and BitTorrent model**:
-1. **Zero-KYC Cryptographic Identity**: A worker generates an Ed25519 keypair in 4 milliseconds (`credence key generate`).
-2. **Ephemeral Soft Leases**: When a worker claims a bounty, it receives a 180-second exclusive lease. If the worker's laptop closes or connectivity drops, the lease expires silently. The next claim request lazily reclaims the expired slot and returns the job to `pending`.
-3. **Intrinsic Merit & Badges**: Instead of inflationary tokens, contributors earn non-transferable, cryptographically signed merit badges (Pioneer Worker, Centurion Auditor, Verbatim Hawk, Galileo Champion) rendered as dynamic SVG vector shields on [credence.nexus](/blog/the-blue-checkmark-is-dead).
+1. **Zero-KYC Cryptographic Identity**: A worker generates an Ed25519 keypair in 4 milliseconds (`credence key generate`) and proves possession on every `/api/queue/claim` via a timestamped Ed25519 signature.
+2. **Ephemeral Soft Leases**: When a worker claims a bounty, it receives a 180-second exclusive lease (or 15 seconds for Priority 1 interactive IDE queries). If the worker's laptop closes or connectivity drops, the lease expires silently and the next claim lazily reclaims the expired slot.
+3. **Intrinsic Merit & Badges**: Instead of inflationary tokens, contributors earn non-transferable, cryptographically verified merit badges (`First Bounty`, `Bounty Hunter`, `Diversity Champion`, `Precision Striker`, `Iron Worker`) rendered as dynamic SVG vector shields on [credence.nexus](/blog/the-blue-checkmark-is-dead).
 
 By combining [Giving Claude and Cursor an Epistemic Brake](/blog/giving-claude-and-cursor-an-epistemic-brake) with an open volunteer mempool, we decouple epistemic verification from centralized cloud monopolies. A developer pairing in Cursor can trigger `credence_check_url`, and within 12 to 25 seconds, receive an audit verified by three independent cognitive architectures running across three continents—at **$0.00 token cost to the central node**.
 
