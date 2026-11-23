@@ -4,7 +4,7 @@ description: Canonical reference for all mathematical rules, runtime safety guar
   cryptographic protocols, and presentation invariants governing Credence.
 since_version: v1.0.0
 verified_version: v2.22.1
-last_verified: 2026-11-22
+last_verified: 2026-11-23
 tags:
 - invariants
 - architecture
@@ -250,11 +250,11 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
     <span class="invariant-badge badge-class-alpha">Class α</span>
     <span class="invariant-badge badge-scope-universal">🌐 Universal Agentic</span>
   </div>
-  <h3><a href="#docs/invariants#inv-clean-scratch-scripts">The Invariant Bible: Clean Brain Scratch Script Approvals</a></h3>
+  <h3><a href="#docs/invariants#inv-clean-scratch-scripts">The Invariant Bible: Clean Off-Repo Scratch Script Approvals</a></h3>
 </div>
 <div class="invariant-human-pane">
-  <p class="invariant-headline">Complex multi-step or multi-repo agent commands are written to standalone script files rather than executed as unreadable inline bash blobs.</p>
-  <div class="invariant-rationale"><strong>Why It Matters:</strong> Inline bash loops (<code>for r in ...</code>) are unreadable during human approval dialogs, hide errors, and destroy auditability.</div>
+  <p class="invariant-headline">Complex multi-step or ad-hoc agent scripts are written outside the git working tree rather than executed as inline shell blobs or stored in tracked repository scratch directories.</p>
+  <div class="invariant-rationale"><strong>Why It Matters:</strong> Inline shell blobs (<code>python -c</code>, <code>bash -c</code>, shell loops) are unreadable during human approval dialogs and destroy auditability, while repo-root scratch folders risk leaking throwaway files into git history across agent harnesses.</div>
 </div>
 <details class="agent-translation">
   <summary class="agent-summary"><span class="agent-icon">🤖</span> <strong>Agent Deontic Specification</strong> <span class="agent-slug-pill"><code>inv-clean-scratch-scripts</code></span></summary>
@@ -262,12 +262,12 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
     <div class="agent-spec-section">
       <span class="agent-spec-label">Deontic Execution Rules:</span>
       <ul class="agent-rules-list">
-        <li><span class='deontic-forbidden'>FORBIDDEN</span> to execute multi-command inline bash blobs or shell loops in <code>BypassSandbox: true</code> tool calls.</li>
-        <li><span class='deontic-must'>MUST</span> write standalone Python/Bash scripts to <code>&lt;appDataDir&gt;/brain/&lt;conversation-id&gt;/scratch/&lt;name&gt;.py</code> or call pre-approved <code>just</code> recipes.</li>
+        <li><span class='deontic-forbidden'>FORBIDDEN</span> to execute multi-command inline shell blobs (<code>python -c</code>, <code>bash -c</code>, or shell loops) or store throwaway scratch scripts inside tracked repository directories.</li>
+        <li><span class='deontic-must'>MUST</span> write temporary standalone Python/Bash scripts outside the git working tree—in your agent harness's session scratch directory (e.g., Antigravity's <code>&lt;appDataDir&gt;/brain/&lt;conversation-id&gt;/scratch/&lt;name&gt;.py</code>) or <code>/tmp/</code>—or call pre-approved <code>just</code> recipes.</li>
       </ul>
     </div>
     <div class="agent-spec-meta">
-      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>run_command, brain scratch directory</code></div>
+      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>run_command, off-repo session scratch directory</code></div>
       <div class="agent-meta-item"><strong>Verification Gate:</strong> <code>tests/governance/test_docs_integrity.py</code></div>
     </div>
   </div>
@@ -509,8 +509,8 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
   <h3><a href="#docs/invariants#inv-cart-before-horse">The Invariant Bible: The Cart-Before-the-Horse Order-of-Operations Invariant</a></h3>
 </div>
 <div class="invariant-human-pane">
-  <p class="invariant-headline">Prerequisite data models and scrubbers must precede APIs and UIs; tests must pass before writing case studies.</p>
-  <div class="invariant-rationale"><strong>Why It Matters:</strong> Building user interfaces or writing walkthroughs before underlying data models and tests are verified creates wasted rework and speculative code.</div>
+  <p class="invariant-headline">Shared contracts, schemas, and public test seams precede parallel downstream work; implementation advances in verified vertical behavioral slices before drafting walkthroughs or case studies.</p>
+  <div class="invariant-rationale"><strong>Why It Matters:</strong> Agreeing on contracts and public test seams upfront enables two-phase vertical-slice TDD (failing seam test → minimal model + API/UI slice → green) without speculative rework or unverified documentation.</div>
 </div>
 <details class="agent-translation">
   <summary class="agent-summary"><span class="agent-icon">🤖</span> <strong>Agent Deontic Specification</strong> <span class="agent-slug-pill"><code>inv-cart-before-horse</code></span></summary>
@@ -518,12 +518,12 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
     <div class="agent-spec-section">
       <span class="agent-spec-label">Deontic Execution Rules:</span>
       <ul class="agent-rules-list">
-        <li><span class='deontic-must'>MUST</span> build prerequisite data models and scrubbers before downstream APIs and UIs.</li>
-        <li><span class='deontic-must'>MUST</span> execute and pass empirical tests before drafting corresponding walkthroughs or case studies.</li>
+        <li><span class='deontic-must'>MUST</span> define shared contracts, schemas, and public test seams before spawning parallel downstream API/UI work, implementing via vertical red → green behavioral slices.</li>
+        <li><span class='deontic-must'>MUST</span> execute and pass empirical tests before drafting corresponding walkthroughs, release narratives, or case studies.</li>
       </ul>
     </div>
     <div class="agent-spec-meta">
-      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>Implementation plans, Task breakdowns</code></div>
+      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>Implementation plans, Vertical-slice TDD, Task breakdowns</code></div>
       <div class="agent-meta-item"><strong>Verification Gate:</strong> <code>tests/governance/test_docs_integrity.py</code></div>
     </div>
   </div>
@@ -2109,7 +2109,7 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
 | **[`inv-hermetic-unit-tests`](#inv-hermetic-unit-tests)** | Inv 4 | 🌐 Universal | Class β | Hermetic Unit Test Isolation & Zero-Browser CI | Unit test suites run 100% in-memory with zero... |
 | **[`inv-scoped-verification`](#inv-scoped-verification)** | Inv 5 | 🌐 Universal | Class β | Scoped Verification for Docs-Only Changes | Documentation and static asset edits use ligh... |
 | **[`inv-mk1-eyeball`](#inv-mk1-eyeball)** | Inv 6 | 🌐 Universal | Class α | Human Review Gate ("Mk1 Eyeball") | All code commits, PR merges, and production d... |
-| **[`inv-clean-scratch-scripts`](#inv-clean-scratch-scripts)** | Inv 46 | 🌐 Universal | Class α | Clean Brain Scratch Script Approvals | Complex multi-step or multi-repo agent comman... |
+| **[`inv-clean-scratch-scripts`](#inv-clean-scratch-scripts)** | Inv 46 | 🌐 Universal | Class α | Clean Off-Repo Scratch Script Approvals | Zero inline shell blobs or tracked scratch dirs; write temp scripts off-repo (session scratch dir or `/tmp/`). |
 | **[`inv-untrusted-ingestion`](#inv-untrusted-ingestion)** | Inv 8 | 🌐 Universal | Class α | Untrusted Ingestion Boundary & Network Defense | External network ingestion rejects internal m... |
 | **[`inv-xml-safety`](#inv-xml-safety)** | Inv 10 | 🌐 Universal | Class β | XML ElementTree Traversal Safety | XML tree parsers check element existence expl... |
 | **[`inv-ground-truth-config`](#inv-ground-truth-config)** | Inv 11 | 🌐 Universal | Class β | Model Default Truth & Verification Guardrail | Application defaults and pricing tiers are de... |
@@ -2117,7 +2117,7 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
 | **[`inv-fastmcp-datetime-serialization`](#inv-fastmcp-datetime-serialization)** | Inv 16 | 🌐 Universal | Class γ | FastMCP Nested Datetime Serialization | All data payloads exposed via FastMCP tools s... |
 | **[`inv-content-decoupling`](#inv-content-decoupling)** | Inv 17 | 🌐 Universal | Class β | Content Decoupling & Hermetic CI | Application code, marketing content, and docu... |
 | **[`inv-progressive-disclosure`](#inv-progressive-disclosure)** | Inv 18 | 🌐 Universal | Class γ | Context Governance & Progressive Disclosure | $\text{Tokens}(\text{AGENTS.md}) < 800$ |
-| **[`inv-cart-before-horse`](#inv-cart-before-horse)** | Inv 43 | 🌐 Universal | Class β | The Cart-Before-the-Horse Order-of-Operations Invariant | Prerequisite data models and scrubbers must p... |
+| **[`inv-cart-before-horse`](#inv-cart-before-horse)** | Inv 43 | 🌐 Universal | Class β | The Cart-Before-the-Horse Order-of-Operations Invariant | Shared contracts & public test seams precede parallel downstream work; vertical-slice TDD tests pass before case studies. |
 | **[`inv-commit-before-deploy`](#inv-commit-before-deploy)** | Inv 47 | 🌐 Universal | Class β | Commit-Before-Deploy & Push-and-Delegate CI/CD Gate | Git trees must be clean and committed before ... |
 | **[`inv-incremental-commits-staging`](#inv-incremental-commits-staging)** | Inv 48 | 🌐 Universal | Class β | Incremental Commits & Staging Topology | Feature branches deploy to isolated dev previ... |
 | **[`inv-4phase-release-learning`](#inv-4phase-release-learning)** | Inv 49 | 🌐 Universal | Class β | 4-Phase Release & Lean Learning Lifecycle | Release sequence strictly follows: 1. Local Q... |

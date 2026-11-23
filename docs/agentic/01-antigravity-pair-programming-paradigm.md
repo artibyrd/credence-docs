@@ -5,7 +5,7 @@ description: How human-agent pair programming with Google Antigravity accelerate
   and human gating.
 since_version: v1.0.0
 verified_version: v2.22.1
-last_verified: 2026-11-22
+last_verified: 2026-11-23
 tags:
 - antigravity
 - pair-programming
@@ -20,13 +20,17 @@ invariants:
 - inv-workspace-isolation
 - inv-hermetic-testing
 - inv-mk1-eyeball
-- inv-progressive-disclosuredifficulty: Intermediate
+- inv-progressive-disclosure
+difficulty: Intermediate
 read_time: 7 min
 ---
 
 # Antigravity Pair-Programming: Planning Mode, Background Tasks, & Mk1 Eyeball
 
-Explore the operational methodology developed during the creation of Credence using **Google Antigravity (AGY)**—combining rigorous planning mode, non-blocking asynchronous task orchestration, and human-in-the-loop review ("Mk1 Eyeball").
+Explore the operational methodology developed during the creation of Credence using **Google Antigravity (AGY)**—combining rigorous planning mode, non-blocking asynchronous task orchestration, and human-in-the-loop review ("Mk1 Eyeball"). Credence is **optimized for Antigravity and compatible with other harnesses** (Claude Code, Cursor, Codex, and OpenHands).
+
+> [!TIP]
+> **Reusable Plugins & Repo Overlays:** Looking for the standalone 20-plugin Antigravity workflow suite (`artibyrd/antigravity-customizations`) or Credence's harness-agnostic `.agents/overrides/` skill overlay pattern? See **[08. Antigravity Customizations & Skill Overlays](08-antigravity-customizations-and-skill-overlays.md)**.
 
 > [!IMPORTANT]
 > **[The Invariant Bible: Human Review Before Commits ("Mk1 Eyeball")](../invariants.md#invariant-6)**: Agents must never execute `git commit` or apply infrastructure changes autonomously without presenting live verification results for human approval first.
@@ -89,7 +93,7 @@ For multi-agent workflows, Credence declares specialized subagents configured wi
 | Subagent Role | Mode | Focus & Key Directives |
 | :--- | :--- | :--- |
 | **`epistemic-auditor`** | `inherit` (Read-only) | Validates $G=1.00$ verbatim grounding, Ed25519 canonical JSON signatures, and SPJ scoring. |
-| **`refactor-sentinel`** | `branch` (Worktree) | Enforces the 500 LOC Ceiling Law, function splitting, and `compute_*` naming standards. |
+| **`refactor-sentinel`** | `branch` (Worktree) | Enforces Ousterhout Deep Modules (`~500 LOC` soft trigger, 1,000-LOC anti-god-file rail) and `compute_*` naming standards. |
 | **`docs-sync-agent`** | `inherit` (Read/Write) | Synchronizes `DOCS_REGISTRY` (`app.js`), `sitemap.md`, and changelogs. |
 
 ---
@@ -108,15 +112,12 @@ just agent-check
 
 To prevent high-risk monolithic commits and ensure verifiable step-by-step progress, Credence pair programming follows an **Incremental Commit & Branch-PR Staging Architecture**:
 
-INCREMENTAL ATOMIC COMMITS & BRANCH-PR STAGING TOPOLOGY
----------------------------------------------------------------
-| 1. FEATURE BRANCH         | 2. PULL REQUEST & DEV DEPLOY  | 3. MAIN MERGE & PROD RELEASE   |
----------------------------------------------------------------
-| • `just branch feat/...`  | • `just pr create`            | • Mk1 Human PR Approval Gate   |
-| • Atomic Milestone Commits| • GitHub Actions CI Validation| • `just pr merge` to `main`    |
-| • Fast local QA (<20s)    | • Auto-Deploy to Cloud Run DEV| • Auto-Deploy Cloud Run PROD   |
-| • Zero-mock verified state|   (`credence-dev-495173`)     | • Auto-Deploy Cloudflare Edge  |
----------------------------------------------------------------
+| Stage 1: Feature Branch | Stage 2: Pull Request & Dev Deploy | Stage 3: Main Merge & Prod Release |
+| :--- | :--- | :--- |
+| Create isolated branch (`just branch feat/...`) | Open staged PR (`just pr-create`) | Mk1 Human PR Approval Gate ([`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball)) |
+| Atomic milestone commits (`just commit`) | GitHub Actions CI validation | Merge to `main` (`just pr-merge`) |
+| Fast local QA (`just check`, `<20s`) | Auto-deploy to Cloud Run DEV (`credence-dev-495173`) | Auto-deploy Cloud Run PROD (`credence-prod-505902`) |
+| Zero-mock verified state | Live preview verification | Auto-deploy Cloudflare Edge & Pages |
 
 ### Core Release Rules:
 1. **Commit-as-You-Go**: Changes are committed as discrete, tested units (`just commit "<message>"`) throughout the session after each test gate passes, rather than batched into one massive release commit.
@@ -124,14 +125,14 @@ INCREMENTAL ATOMIC COMMITS & BRANCH-PR STAGING TOPOLOGY
 3. **Automated Dev Cloud Staging**: Opening a Pull Request or pushing new commits automatically triggers `deploy-dev.yml` to deploy live previews to `credence-dev-495173`.
 4. **Automated Production Release on Merge**: Merging the PR into `main` automatically triggers `deploy-backend.yml` and `deploy-edge.yml` to deploy to `credence-prod-505902` and Cloudflare Pages.
 
-## 6. Command Approval Bootstrapping & Clean Brain Scratch Invariant
+## 6. Dynamic Approval Priming, Hooks & Off-Repo Scratch Scripts
 
 To maximize autonomous pair-programming velocity while safeguarding sovereign user authorization:
 
-1. **Workspace Approval Bootstrapping (`just bootstrap-approvals` & `just bootstrap-approvals-hosted`)**:
-   - **Open-Source Core (`just bootstrap-approvals`)**: Runs harmless passes across all standard local developer commands (preflight, parallel check, hermetic unit tests, git/PR inspection) so contributors and forks can authorize autonomous workflows with "Always Allow".
-   - **Maintainer Hosted (`just bootstrap-approvals-hosted`)**: Runs harmless passes across Google Cloud Run status/probes, Cloudflare Edge routing, Terraform validation, and direct URL health checks for production maintainers.
-2. **Zero-Blob Brain Scratch Scripts ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))**: Any custom or exploratory scripts requiring user approval (`BypassSandbox: true`) are written to standalone files in the session artifact brain directory (`<appDataDir>/brain/<conversation-id>/scratch/<name>.py`). Executing the standalone file allows the operator to grant approval once and enables the agent to iterate on script improvements without triggering subsequent approval modals.
+1. **Dynamic Approval Priming (`bootstrap-approvals` + `.agents/overrides/bootstrap-approvals.md`)**:
+   - Instead of static wrapper scripts (which break IDE command-prefix caching), the optional [`bootstrap-approvals`](08-antigravity-customizations-and-skill-overlays.md) plugin dynamically discovers safe read-only commands, consults `.agents/overrides/bootstrap-approvals.md` for Credence's `core` vs. `hosted` `Justfile` groupings, and runs discrete top-level read passes under the strict **No-Spicy-Prefixes** boundary law.
+   - Optional native Antigravity hook plugins (`git-guardrails` and `workspace-hygiene-hooks`) complement Credence's harness-agnostic git `commit-msg` hook (`credence-agent/scripts/install_hooks.py`) by hard-blocking destructive git operations and auto-formatting edited files.
+2. **Harness-Neutral Off-Repo Scratch Scripts ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))**: Ad-hoc exploratory scripts are never executed as inline shell blobs (`python -c`, `bash -c`) and never placed inside tracked repository directories. Write standalone files outside the git working tree—in your agent harness's session scratch directory (e.g., Antigravity's `<appDataDir>/brain/<conversation-id>/scratch/<name>.py`) or `/tmp/<name>.py`—so operators can review and approve once cleanly.
 
 > [!TIP]
-> Use read-only `epistemic-auditor` subagents when auditing large codebases to prevent polluting the main agent's working context memory.
+> Use read-only `epistemic-auditor` subagents when auditing large codebases to prevent polluting the main agent's working context memory, and read **[08. Antigravity Customizations & Skill Overlays](08-antigravity-customizations-and-skill-overlays.md)** to configure optional companion plugins and `.agents/overrides/` overlays.

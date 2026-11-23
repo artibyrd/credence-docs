@@ -4,7 +4,7 @@ description: Comprehensive concept index, cheat sheet, and fast-lookup directory
   the Credence ecosystem.
 since_version: v1.11.0
 verified_version: v2.22.1
-last_verified: 2026-11-22
+last_verified: 2026-11-23
 ---
 
 # 🧭 Topic Index & Quick Reference
@@ -77,6 +77,7 @@ last_verified: 2026-11-22
 * **Claude Desktop Setup**: Adding Credence to `claude_desktop_config.json` → [Claude & Cursor FastMCP Guide](tutorials/03-claude-cursor-fastmcp.md)
 * **Cursor Editor Setup**: Configuring MCP tools in Cursor settings → [Claude & Cursor FastMCP Guide](tutorials/03-claude-cursor-fastmcp.md)
 * **Antigravity SDK Pair-Programming**: Multi-agent coding patterns and invariant checks → [Antigravity Pair-Programming](agentic/01-antigravity-pair-programming-paradigm.md)
+* **Antigravity Customizations & Skill Overlays**: Standalone 20-plugin workflow suite and platform-agnostic `.agents/overrides/` overlays → [Antigravity Customizations & Skill Overlays](agentic/08-antigravity-customizations-and-skill-overlays.md)
 * **`/learn` & Continuous Invariant Synthesis**: Capturing session learnings into machine invariants → [Continuous Learning](agentic/02-continuous-learning-and-invariant-synthesis.md)
 * **The Demotion Highway & Invariant Lifecycle**: 6-state lifecycle, Class $\alpha/\beta/\gamma$ ranking, and automated demotion scanning → [Demotion Highway & Lifecycle](agentic/06-the-demotion-highway-and-invariant-lifecycle.md)
 * **Invariant Scalability Blueprint**: The 3-tier framework and <800 token hard budget → [Invariant Scalability Blueprint](blueprints/invariant-scalability-and-knowledge-governance.md)

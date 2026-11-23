@@ -3,7 +3,7 @@ title: 'Technical Blueprint: Invariant Scalability & 4-Tier Knowledge Governance
 description: The 4-Tier Knowledge Taxonomy (/remember), AGENTS.md context economy (<800 tokens), and dynamic Living Canon governance.
 since_version: v1.13.0
 verified_version: v2.22.1
-last_verified: 2026-11-22
+last_verified: 2026-11-23
 sidebar:
   order: 16
 ---
@@ -32,17 +32,32 @@ Credence solves this with **The 4-Tier Knowledge Placement Taxonomy**.
 
 ## 2. The 4-Tier Knowledge Placement Taxonomy (`/remember`)
 
-Tier 0: UNIVERSAL CORE INVARIANTS (`AGENTS.md` - <800 Tokens)
 | Knowledge Placement Tier | Architectural Artifact | Governance Scope | Token Budget Rule |
 | :--- | :--- | :--- | :--- |
 | **Tier 0: Universal Core** | `AGENTS.md` | Non-negotiable safety, custody, and release gates | Strict `< 800` tokens total |
-| **Tier 1: Progressive Skills**| `.agents/skills/` | Deep operational runbooks & domain procedures | Loaded on-demand per task |
-| **Tier 2: Integrity Gates** | `tests/governance/` | Shift-left automated assertions (Parity, 500 LOC) | Hard failures in CI |
-| **Tier 3: Canonical Blueprints**| `docs/blueprints/` | Mathematical proofs, architecture specs | Full human documentation |
+| **Tier 1: Progressive Skills & Overlays** | `credence-agent/skills/` & `.agents/overrides/<skill>.md` | 6 focused Credence domain skills + 6 self-contained project overlays (optional `antigravity-customizations` companion suite) | Loaded on-demand (`0` always-on tokens for overlays) |
+| **Tier 2: Integrity Gates** | `tests/governance/` | Shift-left automated assertions (parity, `.gemini/` hygiene, 1,000-LOC anti-god-file rail) | Hard failures in CI |
+| **Tier 3: Canonical Blueprints** | `docs/blueprints/` | Mathematical proofs, architecture specs, and historical ADRs | Full human documentation |
 
 ---
 
-## 3. Dynamic Living Canon Invariant ([`inv-living-canon`](/docs/invariants#inv-living-canon))
+## 3. Repo-Specific Skill Overlays & Platform-Agnostic Hygiene
+
+To adopt generalized engineering workflows from [`artibyrd/antigravity-customizations`](https://github.com/artibyrd/antigravity-customizations) without forking upstream skills or introducing vendor lock-in, Credence separates **generalized workflow mechanics** from **Credence-specific policy deltas**:
+
+### The `.agents/overrides/<skill-name>.md` Overlay Pattern
+* **Zero Shadowing & Zero Always-On Tokens:** Overlays are stored as plain Markdown under `.agents/overrides/<skill-name>.md` (never named `SKILL.md`), so they never shadow upstream plugins or bloat the always-loaded skill catalog.
+* **Three Explicit Delta Sections:** Every overlay uses `## Overrides`, `## Extensions`, and `## Disabled / Not Applicable`.
+* **Belt-and-Suspenders Discovery & Standalone Utility:** Upstream generalized skills automatically check `.agents/overrides/<skill-name>.md` on activation, while `AGENTS.md` carries a 1-line pointer so contributors on **Claude Code, Cursor, Codex, or OpenHands** (or Antigravity *without* `antigravity-customizations`) can read the same self-contained Markdown overlays directly as Credence subsystem rulebooks.
+* **Multi-Repo Parity:** Canonical overlays live in `credence-agent/overrides/`, symlinked at umbrella `.agents/overrides -> ../credence-agent/overrides`, and mirrored into standalone `credence/.agents/overrides/` under a deterministic Tier 2 parity gate.
+
+### Platform-Agnostic `.gemini/` & IDE Dotfolder Hygiene
+* Antigravity `v2.17.0+` stores per-project settings in `<project>/.gemini/config.json`. All three Credence repositories explicitly ignore `.gemini/`, `.vscode/`, `.cursor/`, and `.idea/` in `.gitignore` and enforce Tier 2 governance checks prohibiting tracked vendor IDE dotfolders or machine-local home paths.
+* `antigravity-customizations` and `agy plugin validate --strict` remain strictly optional: `just check` and `just agent-check` pass 100% on environments without Antigravity installed.
+
+---
+
+## 4. Dynamic Living Canon Invariant ([`inv-living-canon`](/docs/invariants#inv-living-canon))
 
 Credence prohibits hardcoded numerical invariant counters in documentation prose (e.g., "The Invariant Bible"). Instead:
 - System invariants are referenced as **The Invariant Bible** or **The Living Canon of System Invariants**.
@@ -51,7 +66,7 @@ Credence prohibits hardcoded numerical invariant counters in documentation prose
 
 ---
 
-## 4. Shift-Left Governance Verification
+## 5. Shift-Left Governance Verification
 
 ```bash
 # Verify AGENTS.md token budget (<800 tokens) and Living Canon naming
@@ -60,9 +75,10 @@ $ pytest tests/governance/test_docs_integrity.py -k test_zero_hardcoded_invarian
 
 ---
 
-## 5. Related Guides & Blueprints
+## 6. Related Guides & Blueprints
 
-* 🧠 [Knowledge Governance Skill Guide](../invariants.md)
+* 🧩 [08. Antigravity Customizations & Skill Overlays](../agentic/08-antigravity-customizations-and-skill-overlays.md)
+* 🧠 [06. The Demotion Highway & Invariant Lifecycle](../agentic/06-the-demotion-highway-and-invariant-lifecycle.md)
 * 📘 [The Invariant Bible](../invariants.md)
 * 🚀 [Release Changelog](../changelog.md)
 
@@ -117,6 +133,6 @@ By structuring verification across these four invariant gates, the Credence ecos
 
 To prevent system prompt bloat while retaining deep architectural context:
 
-- **Tier 0 Invariants**: Universally enforced across all sessions (<800 tokens total in AGENTS.md).
-- **Tier 1 Progressive Skills**: Detailed subsystem runbooks located in `.agents/skills/` and loaded on demand.
-- **Tier 2 Automated Gates**: Shift-left governance tests asserting manifest parity, zero-npm standards, and dynamic Living Canon naming.
+- **Tier 0 Invariants**: Universally enforced across all sessions (`<800` tokens total in `AGENTS.md`, including the 1-line overlay pointer).
+- **Tier 1 Progressive Skills & Self-Contained Overlays**: 6 focused Credence domain skills in `credence-agent/skills/` plus 6 zero-always-on-token project overlays in `.agents/overrides/<skill>.md` (layered automatically over optional `antigravity-customizations` plugins or read standalone on any harness).
+- **Tier 2 Automated Gates**: Shift-left governance tests asserting manifest parity, `.gemini/` dotfolder hygiene, overlay checksum parity, zero-npm standards, and dynamic Living Canon naming.

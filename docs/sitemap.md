@@ -5,7 +5,7 @@ description: Comprehensive visual and structural sitemap covering all 5 sovereig
   and documentation guides across the Credence network.
 since_version: v1.13.0
 verified_version: v2.22.1
-last_verified: 2026-11-22
+last_verified: 2026-11-23
 ---
 
 # Ecosystem Master Sitemap 🗺️
@@ -154,6 +154,8 @@ Forensic investigations, economic proofs, and real-world case studies published 
 * **[04. Multi-Model Pareto & Token Governance](/docs/agentic/04-multi-model-pareto-and-token-governance)**: Managing LLM inference costs and circuit breakers.
 * **[05. FastMCP Dual Transport & 4-Way Parity](/docs/agentic/05-fastmcp-dual-transport-and-four-way-parity)**: stdio and SSE transport mechanisms with synchronous UI parity.
 * **[06. The Demotion Highway & Invariant Lifecycle](/docs/agentic/06-the-demotion-highway-and-invariant-lifecycle)**: Invariant lifecycle state machine, Class Alpha/Beta/Gamma cognitive taxonomy, and automated demotion scanner.
+* **[07. Bootstrapping Agentic Workflows with Universal Invariants](/docs/agentic/07-bootstrapping-agentic-workflows-with-invariants)**: Extracting and bootstrapping Universal Agentic Invariants in any new repository.
+* **[08. Antigravity Customizations & Skill Overlays](/docs/agentic/08-antigravity-customizations-and-skill-overlays)**: Standalone `artibyrd/antigravity-customizations` 20-plugin suite and platform-agnostic `.agents/overrides/` skill overlays.
 
 ### Hands-On Tutorials
 * **[01. Clickbait Teardown](/docs/tutorials/01-clickbait-teardown)**: Step-by-step forensic analysis of sensationalist headlines and unnamed sources.

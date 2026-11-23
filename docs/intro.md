@@ -4,7 +4,7 @@ description: 'Welcome to Credence: the open epistemic trust engine for AI and th
   web.'
 since_version: v1.0.0
 verified_version: v2.22.1
-last_verified: 2026-11-22
+last_verified: 2026-11-23
 ---
 
 # Welcome to Credence 🛡️
@@ -25,6 +25,7 @@ Where would you like to start?
 | Your Goal | Recommended Starting Point | Time Needed |
 | :--- | :--- | :--- |
 | **⚡ Connect Claude or Cursor (FastMCP)** | [Quickstart: FastMCP AI Assistant](quickstart-mcp.md) | **< 60 seconds** |
+| **🧩 Adopt Antigravity plugins & skill overlays** | [Antigravity Customizations & Skill Overlays](agentic/08-antigravity-customizations-and-skill-overlays.md) | **2 minutes** |
 | **🐝 Donate compute & earn merit badges** | [Quickstart: Volunteer Worker](quickstart-worker.md) | **2 minutes** |
 | **🏛️ Host a sovereign team coordinator** | [Quickstart: Sovereign Node](quickstart-node.md) | **5 minutes** |
 | **🧭 Compare all roles & graduation path** | [The Credence Graduation Path Hub](quickstart.md) | **1 minute** |
@@ -83,6 +84,7 @@ Credence maintains 100% synchronous feature parity across 4 distinct interfaces:
 When you're ready to explore under the hood:
 
 * 🧭 **[Topic Index & Concept Directory](topic-index.md)**: Searchable directory of all commands, settings, and invariants.
+* 🧩 **[Antigravity Customizations & Skill Overlays](agentic/08-antigravity-customizations-and-skill-overlays.md)**: Standalone 20-plugin Antigravity workflow suite and platform-agnostic `.agents/overrides/` skill overlays (optimized for Antigravity, compatible with Claude Code, Cursor, and Codex).
 * 🎓 **[Hands-On Tutorials](tutorials/01-clickbait-teardown.md)**: Step-by-step forensic teardowns and chaos labs.
 * 🏛️ **[The Invariant Bible](invariants.md)**: Master architectural, mathematical, and safety guarantees.
 * 🗺️ **[Roadmap & Horizons](roadmap.md)**: Current development roadmap, completed milestones, and upcoming horizons.
