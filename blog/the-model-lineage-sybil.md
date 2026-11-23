@@ -2,7 +2,7 @@
 title: 'The Model Lineage Sybil: Red-Teaming Distributed LLM Consensus'
 description: What we learned subjecting open multi-model mempools, volunteer compute, and Byzantine quorums to 14 adversarial red team attack vectors.
 since_version: v2.22.0
-verified_version: v2.22.0
+verified_version: v2.22.1
 last_verified: 2026-11-22
 sidebar:
   order: 48

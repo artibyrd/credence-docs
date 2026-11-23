@@ -2,7 +2,7 @@
 title: "Quickstart: Sovereign Node & Coordinator (Full-Stack Hosting)"
 description: "Host a sovereign Credence node, manage mempool queues, germinate cryptographic keys, and unlock the browser Admin Command Deck in under 5 minutes."
 since_version: v2.22.0
-verified_version: v2.22.0
+verified_version: v2.22.1
 last_verified: 2026-11-22
 ---
 
