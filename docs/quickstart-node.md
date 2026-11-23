@@ -54,14 +54,21 @@ docker run -d \
   ghcr.io/artibyrd/credence:latest
 ```
 
-=== Option C: Serverless Cloud Containers (Cloud Run, AWS, Fly.io, or VPS)
-Deploy to cloud containers with automatic scale-to-zero ($0.00 idle cost) and Workload Identity:
+=== Option C: Cloud Hosting (Reference GCP Terraform & Multi-Cloud)
+Our repository ships a ready-to-use **Google Cloud Run** Terraform stack with automatic scale-to-zero ($0.00 idle cost) and a $15/mo budget cap. Configure your GCP project variables before applying:
 
 ```bash
-# Provision Cloud Run service via Terraform
+# 1. Copy and edit the GCP Cloud Run variable template (set project_id, billing_account_id, container_image)
 cd terraform
-terraform init && terraform apply
+cp terraform.tfvars.example terraform.tfvars
+
+# 2. Provision Cloud Run v2, Secret Manager, and budget alerts
+terraform init
+terraform apply
 ```
+
+* **Full GCP Runbook**: Follow [Deployment Prerequisites](operations/deployment-prerequisites.md) and the [Google Cloud Run Deployment Blueprint](deployment-cloudrun.md) for `gcloud` API setup, Secret Manager keys, and keyless GitHub Actions Workload Identity Federation.
+* **Deploying on AWS, Azure, Fly.io, Hetzner, or Kubernetes?** Those providers run the exact same `ghcr.io/artibyrd/credence:latest` OCI image from Option B—see the [Multi-Cloud Deployment Guide](portability/multi-cloud-deployment.md) and [Vendor-Agnostic Self-Hosting Guide](operations/vendor-agnostic-self-hosting-and-docker.md) for provider-specific manifests.
 :::
 
 ---
@@ -150,5 +157,6 @@ A sovereign node acts as the gravitational center for your team or organization:
 
 * 📖 [The Credence Graduation Path Hub](quickstart.md): Complete overview of the 3 roles and network architecture.
 * 🏛️ [Node Germination Lifecycle Specification](protocols/node-germination-lifecycle.md): Zero-touch ignition, seed inoculation, and swarm bootstrapping.
-* ☁️ [Google Cloud Run Deployment Blueprint](deployment-cloudrun.md): Terraform architecture, scale-to-zero cold start tuning, and $15/mo budget caps.
+* ☁️ [Google Cloud Run Deployment Blueprint](deployment-cloudrun.md): Reference GCP Terraform stack, `gcloud` setup, scale-to-zero tuning, and $15/mo budget caps.
+* 🌍 [Multi-Cloud Deployment Guide](portability/multi-cloud-deployment.md): Provider-specific configurations for AWS ECS Fargate, Azure Container Apps, Hetzner Cloud, and Kubernetes.
 * 🔒 [System Invariant: Tenant Decoupling](invariants.md#inv-sovereign-config-decoupling): Zero hardcoded tenant domains across core engines.
