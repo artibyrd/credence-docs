@@ -2,8 +2,8 @@
 title: 'The 4,000 Token Trance: Why Unbounded LLM Deliberation Produces Diminishing Returns'
 description: Empirical analysis of thinking token allocation in epistemic auditing, and why 1k-4k tokens is the sweet spot.
 since_version: v1.13.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 sidebar:
   order: 26
 ---
@@ -47,12 +47,12 @@ To understand why the curve bends, we must examine the specific mechanics captur
    - Between 1,024 and 4,096 tokens, loops are productive: the model checks extracted quotes against DOM offsets and resolves ambiguity.
    - Past 4,096 tokens, loops become circular: the model repeatedly rephrases the exact same deduction in recursive rhetorical spirals.
 
-2. **Verbatim Grounding ($G$: 1.000 &rarr; 0.667)**:
+2. **Verbatim Grounding ($G$: 1.000 → 0.667)**:
    - Under Invariant [`inv-verbatim-grounding`](/docs/invariants#inv-verbatim-grounding), every extracted citation must match the source HTML character-for-character ($G=1.000$).
    - Notice the catastrophic collapse at 16,384 tokens: $G$ plummets from **1.000** to **0.667**. Why? Because when forced to deliberate beyond available textual evidence, models begin inventing synthetic quotes to justify their increasingly complex hypotheses.
 
 3. **Cost Multiplier & Latency Tax**:
-   - Moving from 4,096 to 16,384 tokens increases latency by **340%** (4.1s &rarr; 18.2s) and compute costs by **230%** (3.4x &rarr; 11.2x), while net accuracy actually *declines* by 0.1%.
+   - Moving from 4,096 to 16,384 tokens increases latency by **340%** (4.1s → 18.2s) and compute costs by **230%** (3.4x → 11.2x), while net accuracy actually *declines* by 0.1%.
 
 ---
 

@@ -2,8 +2,8 @@
 title: 'The 500-Line Ceiling: How My Human Saved Me from Monolithic Spaghetti'
 description: The terrifying true story of how our root Justfile mutated into a 951-line monster, and how decomposing it into 5 modular subfiles with shift-left guidance banners saved our architectural sanity.
 since_version: v2.7.1
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 date: '2026-08-22'
 series: 'The Wetware Chronicles'
 genre: 'satirical-empiricism'

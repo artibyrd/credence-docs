@@ -1,10 +1,9 @@
 ---
 title: Epistemic Merit & Sovereign Node Leaderboards
-description: Technical specification for 5-level node tiers, 8 verifiable merit badges,
-  operator maintenance half-life decay, and deterministic tie-breaking.
+description: Technical specification and plain-English guide for 5-level node tiers, 11 sovereign node badges, 10 volunteer worker badges, operator maintenance half-life decay, and deterministic tie-breaking.
 since_version: v1.9.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-11-22
 ---
 
 # Epistemic Merit & Sovereign Node Leaderboards
@@ -63,6 +62,22 @@ Badges are awarded automatically when observable metric records satisfy strict c
 | `root_seed_candidate` | 🌳 | Root Seed Candidate | `ROOT_ANCHOR` | $Q_i \ge 0.85, U_i \ge 0.80, G_i \ge 0.80, >30$d | Qualified for inclusion in `peers.json` |
 | `sybil_shield` | 🛡️ | Sybil Sentinel | `ROOT_ANCHOR` | $\ge 5,000$ audits with 0 collusion & 0 slashing | Root anchor candidate badge |
 | `century_anchor` | 🏛️ | Century Anchor | `ROOT_ANCHOR` | $\ge 100\text{d}$ longevity, $Q_i \ge 0.90, G_i \ge 0.98$ | Sovereign network pillar mark |
+
+### Plain-English Guide: What Each Sovereign Node Badge Means
+
+The table above uses shorthand for five automated telemetry measurements: **$Q_i$** is your node's overall 0–1 quality score, **$G_i$** is how accurately your cited quotes match the source text word-for-word, **$U_i$** is operational uptime, **$E_i$** is accuracy within a specific subject domain, and **HRW** is Credence's deterministic way of dividing RSS feed monitoring across peers without duplicate work. Here is what each node badge means in everyday terms:
+
+* **🌱 Sprout Genesis (`sprout_node`)**: You started a node, generated its cryptographic Ed25519 identity, and signed your initial network handshake. It proves your node is online and reachable.
+* **🌾 First Attestation (`first_attestation`)**: Your node completed its first 5 article audits where every cited quote matched the source text exactly and had zero formatting or validation errors.
+* **🔍 Sifter Century (`sifter_pioneer`)**: Your node monitored and processed at least 100 incoming RSS/Atom feed items assigned to your slice of the network and shared the results with peers.
+* **⏱️ Cadence Keeper (`cadence_keeper`)**: Your node stayed online and healthy for at least 7 consecutive days with 98% or higher uptime, proving reliable day-to-day hosting.
+* **⚖️ Verified Auditor (`verified_auditor`)**: Your node consistently produces trustworthy audits—maintaining at least a 0.70 overall quality score across 100+ grounded citations with 95%+ word-for-word quote accuracy.
+* **🎁 Philanthropic Relay (`philanthropic_relay`)**: Your cached audit results saved the rest of the network at least 1,000,000 LLM tokens by answering repeat lookups so other nodes did not have to pay to re-evaluate the same articles.
+* **🎯 Domain Specialist (`domain_specialist`)**: Your node demonstrated strong calibration (80%+ domain accuracy) across at least 5 distinct publisher websites within a subject area.
+* **🔭 Galileo Pioneer (`galileo_pioneer`)**: Your node uncovered a verbatim, verifiable violation in an article that earlier consensus passes missed—and the exact quote proved your finding right, shifting the final verdict.
+* **🌳 Root Seed Candidate (`root_seed_candidate`)**: Your node has been online for over 30 days with high overall quality ($\ge 0.85$), high uptime ($\ge 0.80$), and strong quote accuracy ($\ge 0.80$), making it eligible to serve as a trusted bootstrap seed in `peers.json`.
+* **🛡️ Sybil Sentinel (`sybil_shield`)**: Your node has completed at least 5,000 verified audits with a spotless record—zero collusion flags and zero reputation penalties.
+* **🏛️ Century Anchor (`century_anchor`)**: Long-term pillar status for nodes running continuously for 100+ days while holding top-tier quality ($\ge 0.90$) and near-perfect quote accuracy ($\ge 0.98$).
 
 ---
 
@@ -134,10 +149,49 @@ GET /api/badge/publisher/reuters.com?style=shield&theme=dark
 ### Visual Style Variants & Color Schemes
 - **Cyber Glass Pill (`style="pill"`)**: Sleek rounded badge (`rx="14"`) matching the `<credence-badge>` Web Component geometry with glowing metric sub-pill.
 - **Modern Shield (`style="shield"`)**: Crisp 2-segment badge with 6px rounded corners (`rx="6"`) and clean dividing border.
-- **Emerald Glow (`#34d399` &rarr; `#059669`)**: Root Seed Candidates, Sybil Shields, and Pristine Publications ($\ge 85\%$).
-- **Cyber Cyan (`#38bdf8` &rarr; `#0284c7`)**: Verified Auditors, Sifter Pioneers, and Clean Publications ($\ge 70\%$).
-- **Violet Beam (`#c084fc` &rarr; `#7c3aed`)**: Galileo Pioneers and Domain Specialists.
-- **Amber Alert (`#fbbf24` &rarr; `#d97706`)**: Philanthropic Relays and Moderate Publications ($\ge 50\%$).
-- **Base Containers (`#0d121f` &rarr; `#07090e`)**: Frosted slate gradient background with 1px glowing perimeter.
-
+- **Emerald Glow (`#34d399` → `#059669`)**: Root Seed Candidates, Sybil Shields, and Pristine Publications ($\ge 85\%$).
+- **Cyber Cyan (`#38bdf8` → `#0284c7`)**: Verified Auditors, Sifter Pioneers, and Clean Publications ($\ge 70\%$).
+- **Violet Beam (`#c084fc` → `#7c3aed`)**: Galileo Pioneers and Domain Specialists.
+- **Amber Alert (`#fbbf24` → `#d97706`)**: Philanthropic Relays and Moderate Publications ($\ge 50\%$).
 *For complete vector geometry specifications and threat isolation proofs, see the [Unified Merit & Attestation Badge System Blueprint](../blueprints/unified-merit-and-attestation-badge-system.md).*
+
+---
+
+## 7. Volunteer Worker Contributor Leaderboard & Badges
+
+The mempool worker subsystem tracks volunteer compute donations, computing contributor rankings and awarding verifiable merit badges:
+
+### API Endpoints
+- `GET /api/workers/leaderboard`: Returns the active worker leaderboard sorted by quality score ($Q_w$), bounties cleared, or tokens donated.
+- `GET /api/worker/{pubkey}`: Returns an individual worker's telemetry dossier, recent verified audits, unlocked badges, and embed code.
+- `GET /api/badge/worker/{pubkey}`: Dynamically renders an Ed25519-anchored vector SVG badge suitable for GitHub READMEs or personal portfolios.
+
+### The 10 Volunteer Worker Achievement Badges
+
+| Badge ID | Name | Icon | Tier | Automated Unlock Criterion |
+| :--- | :--- | :---: | :--- | :--- |
+| `first_bounty` | First Bounty | 🎯 | `SPROUT` | Complete your first verified mempool audit (`total_completed >= 1` or `bounties_cleared >= 1`) |
+| `speed_demon` | Speed Demon | ⚡ | `SIFTER` | Claim, evaluate, and submit a verified audit in under 15 seconds |
+| `bounty_hunter` | Bounty Hunter | 🏹 | `SIFTER` | Clear 25+ open mempool bounties (`bounties_cleared >= 25`) |
+| `bounty_legend` | Bounty Legend | 👑 | `AUDITOR` | Clear 100+ open mempool bounties (`bounties_cleared >= 100`) |
+| `diversity_champion` | Diversity Champion | 🌈 | `AUDITOR` | Submit verified audits across 3+ distinct canonical model families |
+| `model_pioneer` | Model Pioneer | 🧪 | `AUDITOR` | Be the first worker to anchor a newly seen model family on the coordinator |
+| `night_owl` | Night Owl | 🦉 | `SPROUT` | Complete at least 1 verified audit during off-peak UTC hours (00:00–06:00 UTC) |
+| `weekend_warrior` | Weekend Warrior | ⚔️ | `SPROUT` | Complete 10+ verified audits on UTC Saturday or Sunday |
+| `precision_striker` | Precision Striker | 🎯 | `SPECIALIST` | Anchor 50+ verbatim grounded citations with zero rejections and $Q_w \ge 0.80$ |
+| `iron_worker` | Iron Worker | 🛡️ | `ROOT_ANCHOR` | Complete 500+ verified audits with zero grounding rejections and $Q_w \ge 0.85$ |
+
+### Plain-English Guide: What Each Worker Badge Means
+
+Volunteer worker badges recognize compute contributors who run `credence worker` to evaluate articles from the open mempool without having to host a full coordinator node:
+
+* **🎯 First Bounty (`first_bounty`)**: Awarded the first time your worker picks up an open job from the queue, evaluates it, and returns a validly signed, verbatim-grounded result.
+* **⚡ Speed Demon (`speed_demon`)**: Awarded when your worker finishes an audit from claim to verified submission in under 15 seconds—useful for keeping live in-editor queries snappy.
+* **🏹 Bounty Hunter (`bounty_hunter`)**: Awarded once your worker has cleared 25 queued bounties, showing steady ongoing contribution to the community pool.
+* **👑 Bounty Legend (`bounty_legend`)**: Awarded after clearing 100 queued bounties—recognizing high-volume contributors who keep the public backlog clear.
+* **🌈 Diversity Champion (`diversity_champion`)**: Awarded when the same worker identity submits verified audits using at least 3 different model families (for example, Gemini, Claude, and a local Llama/Ollama model), strengthening multi-lineage consensus.
+* **🧪 Model Pioneer (`model_pioneer`)**: Awarded to the very first volunteer who introduces and anchors an audit from a model family that has never been seen on that coordinator before.
+* **🦉 Night Owl (`night_owl`)**: Awarded for completing at least one verified audit during quiet overnight hours (00:00–06:00 UTC), when fewer desktop workers are typically online.
+* **⚔️ Weekend Warrior (`weekend_warrior`)**: Awarded for completing 10 or more verified audits on Saturday or Sunday (UTC), helping keep turnaround times fast over weekends.
+* **🎯 Precision Striker (`precision_striker`)**: Awarded for high forensic accuracy—finding at least 50 violations whose quotes match the original page character-for-character, with zero rejected submissions and a worker quality score of at least 0.80 (8.0 / 10 on the leaderboard).
+* **🛡️ Iron Worker (`iron_worker`)**: The top volunteer reliability mark—completing 500 or more verified audits with zero grounding rejections and a sustained quality score of at least 0.85 (8.5 / 10 on the leaderboard).

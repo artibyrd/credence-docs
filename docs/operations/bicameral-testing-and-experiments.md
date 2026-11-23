@@ -2,8 +2,8 @@
 title: Bicameral Testing & Autonomous Experimentation Handbook
 description: Operational reference for executing dual-tier shadow auditing, environment configuration verification, and white-label mesh federation experiments.
 since_version: v1.19.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 ---
 
 # Bicameral Testing & Autonomous Experimentation Handbook

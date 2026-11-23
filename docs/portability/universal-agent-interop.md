@@ -3,8 +3,8 @@ title: Universal Agent Interoperability (Claude, Cursor, Cline, Windsurf)
 description: Connecting Credence FastMCP 2.0 to Claude Desktop, Cursor, Windsurf,
   Cline, LangGraph, and CrewAI without vendor lock-in.
 since_version: v1.0.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 ---
 
 # Universal Agent Interoperability (Claude, Cursor, Cline, Windsurf)
@@ -98,7 +98,7 @@ tool_node = ToolNode(tools)
 ## 5. External Specifications & Agent Ecosystem References
 
 ### 📚 Official AI Agent & IDE Documentation
-* **Model Context Protocol**: [Official MCP Specification](https://modelcontextprotocol.io/) &bull; [MCP Architecture Overview](https://modelcontextprotocol.io/docs/concepts/architecture)
+* **Model Context Protocol**: [Official MCP Specification](https://modelcontextprotocol.io/) • [MCP Architecture Overview](https://modelcontextprotocol.io/docs/concepts/architecture)
 * **Anthropic**: [Claude Desktop MCP Quickstart](https://docs.anthropic.com/en/docs/agents-and-tools/mcp)
 * **Cursor**: [Cursor AI Editor & MCP Tools](https://docs.cursor.com/context/model-context-protocol)
 * **Windsurf**: [Codeium Windsurf IDE Cascade Architecture](https://codeium.com/windsurf)

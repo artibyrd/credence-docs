@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Operator Telemetry & Mesh Dashboard'
 description: Real-time operator metrics, WebSocket ring buffer aggregation, D3/SVG vector telemetry, and zero-mock production boundary.
 since_version: v1.12.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 sidebar:
   order: 11
 ---
@@ -157,3 +157,13 @@ is_grounded = evaluate_grounding_exactness(
 )
 assert is_grounded is True
 ```
+
+---
+
+## 11. Contributor Telemetry Deck & Leaderboards (`credence.nexus`)
+
+In addition to node vitals, `credence.nexus` provides real-time observability into the distributed volunteer worker fleet:
+
+1. **Live Mempool Odometer**: Active queue depth, estimated wait time, completed audits throughput, and cumulative community tokens donated.
+2. **Volunteer Worker Leaderboard**: Sortable rankings by tokens donated, bounties cleared, and quality score ($Q_w$). Filterable by model family.
+3. **Interactive Contributor Dossiers (`#worker/{pubkey}`)**: Modal inspection of an individual worker's cryptographic identity, model family, turnaround latency, verbatim grounding history, unlocked badges, and 1-click embed codes.

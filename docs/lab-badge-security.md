@@ -3,8 +3,8 @@ title: 'Playground 14: Adversarial Badge Security Lab (Break the Badge)'
 description: Interactive zero-build sandbox testing the anti-tamper defenses of <credence-badge> against Bait-and-Switch, signature forgery, and domain spoofing.
 category: Interactive Playgrounds
 since_version: v2.1.0
-verified_version: v2.21.1
-last_verified: 2026-09-08
+verified_version: v2.22.0
+last_verified: 2026-09-13
 ---
 
 # Playground 14: Adversarial Badge Security Lab (Break the Badge) 🛡️
