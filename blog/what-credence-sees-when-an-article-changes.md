@@ -5,7 +5,7 @@ description: A deep forensic analysis of how Credence evaluates content updates 
   poisoned comments.
 category: Sovereign Essays
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 since_version: v2.1.0
 ---
 

@@ -3,7 +3,7 @@ title: 'Technical Blueprint: Autonomous Standards Ratification & Evolution Proto
 description: Decentralized, empirical, and machine-driven governance architecture for adopting, calibrating, and evolving epistemic standard catalogs without human committee bottlenecks.
 since_version: v2.16.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 ---
 
 # Technical Blueprint: Autonomous Standards Ratification & Evolution Protocol

@@ -4,7 +4,7 @@ description: Mathematical proofs of the Domain Authority Weighted Median, Byzant
   3f+1 tolerance, and the Galileo Rule.
 since_version: v1.0.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 ---
 
 # The Mathematics of Robust Consensus

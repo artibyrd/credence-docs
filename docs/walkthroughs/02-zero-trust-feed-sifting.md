@@ -4,7 +4,7 @@ description: End-to-end multi-interface walkthrough for dynamic RSS/Atom autodis
   pre-flight forensic audits, and real-time sifting daemons.
 since_version: v1.0.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 sidebar:
   order: 2
 ---

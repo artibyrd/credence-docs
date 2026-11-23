@@ -3,7 +3,7 @@ title: 'Epistemic Protocol Specification: Domain Reputation, Soft Quarantine & R
 description: State machine transitions, half-life decay, exponential backoff, and evidentiary redemption for flagged publisher domains.
 since_version: v1.13.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 sidebar:
   order: 8
 ---

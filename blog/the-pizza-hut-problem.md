@@ -6,7 +6,7 @@ description: Why static domain whitelists create dangerous single points of epis
   protect decentralized swarms.
 since_version: v1.0.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 date: '2026-08-18'
 author: The Credence Network Engineering Group
 ---

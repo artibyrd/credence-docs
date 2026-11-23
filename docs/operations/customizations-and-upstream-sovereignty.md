@@ -5,7 +5,7 @@ description: Architectural blueprint for keeping the open-source Credence core c
   graphs, and sovereign organization deployments.
 since_version: v1.0.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 ---
 
 # Managing Customizations vs. Core Upstream

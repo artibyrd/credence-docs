@@ -3,7 +3,7 @@ title: 'The Beauty of Hermetic Environments: Why Lean Dev Saves Planetary Produc
 description: Why zero-browser unit tests, in-memory SQLite WAL, and sub-35s test suites build resilient software.
 since_version: v1.18.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 sidebar:
   order: 16
 ---

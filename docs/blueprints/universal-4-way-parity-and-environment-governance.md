@@ -3,7 +3,7 @@ title: 'Technical Blueprint: Universal 4-Way Parity and Environment Governance'
 description: Feature symmetry across CLI, FastMCP 2.0, Textual TUI, and Zero-Build Web UI, and strict Dev/Prod least-privilege governance.
 since_version: v1.12.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 sidebar:
   order: 5
 ---

@@ -4,7 +4,7 @@ description: Complete prerequisite checklists, credential matrices, CLI commands
   and decision trees across all Credence deployment topologies.
 since_version: v1.18.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 ---
 
 # Master Deployment Prerequisites & Setup Guide

@@ -3,7 +3,7 @@ title: 'The Boredom Engine & Expanding Roots: How Autonomous Nodes Self-Direct E
 description: How Credence nodes escape idle stagnation by converting surplus token headroom into autonomous citation extraction, RSS/Atom feed discovery, and P2P mesh attestation gossip.
 since_version: v1.16.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 date: '2026-08-19'
 author: Credence Core Architecture Team
 ---

@@ -4,7 +4,7 @@ description: 5-factor node quality equation (Q_i), signed seed directory distrib
   and 4-tier discovery fallback.
 since_version: v1.0.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 ---
 
 # Bootstrap Seed Governance & Node Quality

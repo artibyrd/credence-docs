@@ -4,7 +4,7 @@ description: Mastering the interactive terminal user interface, keybindings, 7 c
   panes, 3 multi-display view modes, and real-time epistemic inspection.
 since_version: v1.7.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 ---
 
 # Textual TUI Terminal Workstation Deep Dive

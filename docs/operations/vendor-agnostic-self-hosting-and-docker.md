@@ -4,7 +4,7 @@ description: Comprehensive operational guide for running sovereign Credence node
   across Docker Compose, Bare-Metal Linux, VPS, Kubernetes, and non-GCP clouds.
 since_version: v1.18.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 ---
 
 # Operational Guide: Vendor-Agnostic Self-Hosting and Docker

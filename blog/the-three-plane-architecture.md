@@ -5,7 +5,7 @@ description: How Credence decouples global Edge delivery, compute inference, and
   infrastructure to achieve $0.00 idle costs and zero supply-chain risk.
 since_version: v1.14.1
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 ---
 
 # The 3-Plane Architecture: Zero-npm Edge, Scale-to-Zero Compute, and Sovereign Infra

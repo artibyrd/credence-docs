@@ -5,7 +5,7 @@ description: How Credence P2P mesh clusters use Highest Random Weight (HRW) Rend
   compute.
 since_version: v1.14.1
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 ---
 
 # Zero-Coordination Swarm Partitioning with Rendezvous Hashing

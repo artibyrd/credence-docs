@@ -4,7 +4,7 @@ description: How decentralized peer observation audits create transparent, unfor
   accountability for digital publishers and newsrooms.
 since_version: v1.0.0
 verified_version: v2.22.0
-last_verified: 2026-09-13
+last_verified: 2026-11-22
 ---
 
 # The Domain Credence Index (DCI): The Web's Honor Roll & Wall of Shame
