@@ -1,7 +1,7 @@
 ---
 title: '08. Antigravity Customizations & Repo-Specific Skill Overlays'
 description: Adopt the standalone artibyrd/antigravity-customizations plugin suite à la carte and tailor generalized agent workflows to any repository using self-contained .agents/overrides/ skill overlays with zero vendor lock-in.
-since_version: v2.22.1
+since_version: v2.23.0
 verified_version: v2.23.0
 last_verified: 2026-11-23
 tags:
@@ -30,49 +30,76 @@ read_time: 10 min
 
 ![Figure 1.1: Three-layer skill resolution stack combining optional antigravity-customizations plugins, self-contained repository overlays in .agents/overrides/, and harness-agnostic domain skills with Tier 2 enforcement gates](assets/illustrations/antigravity-customizations-overlay-architecture.svg)
 
-Credence is engineered under a clear portability doctrine: **Optimized for Antigravity, compatible with other harnesses.** Contributors working in **Google Antigravity** enjoy first-class plugin discovery, native lifecycle guardrails, and an optional standalone companion workflow suite ([`artibyrd/antigravity-customizations`](https://github.com/artibyrd/antigravity-customizations)). Contributors working in **Claude Code, Cursor, Codex, or OpenHands** receive the exact same Credence invariants, domain skills, and automated verification gates with zero vendor lock-in.
+Credence follows a clear portability doctrine: **Optimized for Antigravity, compatible with other harnesses.** Contributors working in **Google Antigravity** get first-class plugin discovery, native lifecycle guardrails, and an optional companion workflow suite ([`artibyrd/antigravity-customizations`](https://github.com/artibyrd/antigravity-customizations)). Contributors using **Claude Code, Cursor, Codex, or OpenHands** receive the exact same Credence invariants, domain skills, and automated verification gates—with zero vendor lock-in.
 
 > [!TIP]
-> **Want to reuse the generalized workflow suite on your own repositories?** [`artibyrd/antigravity-customizations`](https://github.com/artibyrd/antigravity-customizations) is a completely standalone, MIT-licensed, repo-agnostic Antigravity plugin collection (**20 plugins: 18 skills + 2 native hooks**) that works out of the box on any codebase—no Credence dependencies required.
+> **Looking to reuse these workflows on your own projects?** [`artibyrd/antigravity-customizations`](https://github.com/artibyrd/antigravity-customizations) is a standalone, MIT-licensed, repository-agnostic plugin collection (**20 plugins: 18 skills and 2 native hooks**) that works out of the box on any codebase with no Credence dependencies.
 
 ---
 
 ## 1. Core Positioning: Optimized for Antigravity, Compatible with Other Harnesses
 
-Many teams fall into one of two traps when scaling AI-assisted engineering: either they hardcode proprietary IDE configs into the repository (locking out contributors on other tools), or they strip away all harness-native capabilities to chase a lowest-common-denominator prompt file.
+Teams scaling AI-assisted engineering often fall into one of two traps: either they bake proprietary IDE configuration into the repository (locking out contributors on other tools), or they strip away harness-native capabilities to chase a lowest-common-denominator prompt file.
 
-Credence avoids both traps by enforcing **Four Platform Agnosticism & Zero-Lock-In Guardrails** across `credence`, `credence-docs`, and `credence-agent`:
+Credence avoids both traps with **Four Zero-Lock-In Guardrails** enforced across the core engine, documentation, and agent plugin repositories:
 
-| Guardrail | Architectural Contract | How It Preserves Zero Lock-In |
-| :--- | :--- | :--- |
-| **1. Zero Hard Harness Dependency** | Every core Credence invariant is enforced by harness-agnostic Tier 2 code (`just check`, `pytest`, `ruff`, `mypy`, `terraform validate`, git `commit-msg` hook) and open-standard `AGENTS.md`. | `antigravity-customizations` is strictly an *optional companion suite*; `just check` and `just agent-check` pass 100% on machines where neither Antigravity nor `agy` is installed (`agy plugin validate --strict` runs only when `agy` is detected on `PATH`). |
-| **2. Self-Contained Overlays** | Every `.agents/overrides/<skill-name>.md` file is written as complete, declarative Credence policy in pure Markdown under `.agents/` (never `.gemini/`). | In Antigravity with `antigravity-customizations`, generalized skills load the overlay automatically. In Claude Code, Cursor, Codex, or OpenHands—or Antigravity without the companion suite—`AGENTS.md` points directly to `.agents/overrides/` as on-demand Credence subsystem rulebooks. |
-| **3. Harness-Neutral Invariants** | `AGENTS.md` and [The Invariant Bible](/docs/invariants) never mandate Antigravity-only filesystem paths or proprietary slash commands as hard requirements. | Under [`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts), temporary scripts live in *any* off-repo scratch directory (such as Antigravity's session scratch folder or `/tmp/`), never inside tracked repository directories. |
-| **4. Open Agent Skills Standard** | Credence's 6 retained domain skills in `credence-agent/skills/` use pure Markdown with strictly `name` and `description` YAML frontmatter. | Conforms to the open Agent Skills specification across Antigravity, Claude Code, Cursor, and Codex; `credence-agent/plugin.json` is merely a thin optional metadata wrapper for native Antigravity plugin discovery. |
+1. **Zero Hard Harness Dependency:** Every core Credence invariant is enforced by harness-agnostic verification—our parallel `just check` suite (pytest, Ruff, Mypy, Terraform validation, and standard Git commit-message hooks) alongside the open `AGENTS.md` contract. The `antigravity-customizations` suite is strictly optional, and local QA passes 100% on machines where Antigravity is not installed (strict plugin schema validation runs automatically only when the `agy` CLI is present).
+2. **Self-Contained Overlays:** Every project overlay in `.agents/overrides/` is written as complete, declarative Markdown policy—never placed inside vendor-specific IDE folders. In Antigravity, generalized skills layer the overlay automatically; in Claude Code, Cursor, Codex, or OpenHands, `AGENTS.md` points straight to the same Markdown files as on-demand subsystem rulebooks.
+3. **Harness-Neutral Invariants:** Neither `AGENTS.md` nor [The Invariant Bible](/docs/invariants) mandates Antigravity-only filesystem paths or proprietary slash commands. Under [`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts), ad-hoc scripts live in *any* off-repo scratch directory—such as Antigravity's session scratch folder or `/tmp/`—keeping tracked repositories clean on every tool.
+4. **Open Agent Skills Standard:** Credence's six domain skills use pure Markdown with minimal standard frontmatter (`name` and `description`), conforming to the open Agent Skills specification across harnesses. The `plugin.json` manifest is only a thin optional wrapper enabling native Antigravity plugin discovery.
 
-### Dual-Harness Resolution Experience
+### How the Experience Compares Across Harnesses
 
 | Capability | Google Antigravity (Native Optimized) | Claude Code / Cursor / Codex / OpenHands |
 | :--- | :--- | :--- |
-| **Root Invariants (`<800` tokens)** | Loaded from `AGENTS.md` | Loaded from `AGENTS.md` |
-| **Credence Domain Skills (6)** | Auto-discovered via `credence-agent/plugin.json` (`skills/`) | Loaded directly from open-standard `credence-agent/skills/*/SKILL.md` |
-| **Project Rulebooks & Deltas (6)** | Layered automatically over `antigravity-customizations` | Read on demand from `.agents/overrides/<skill>.md` |
-| **Lifecycle Guardrail Hooks** | Native `PreToolUse` (`git-guardrails`) + `PostToolUse`/`Stop` (`workspace-hygiene-hooks`) | Harness-agnostic git `commit-msg` hook + `just check` |
-| **Deterministic Verification** | `just check` + optional `agy plugin validate --strict` | `just check` (100% pass without `agy` installed) |
+| **Root Invariants** | Compact `<800`-token `AGENTS.md` | Same compact `AGENTS.md` |
+| **Credence Domain Skills (6)** | Auto-discovered via `credence-agent/plugin.json` | Loaded directly from open-standard Markdown skills |
+| **Project Overlays (6)** | Layered automatically over generalized skills | Read on demand from `.agents/overrides/` |
+| **Lifecycle Guardrails** | Native pre/post tool hooks plus Git hooks | Standard Git commit hooks plus `just check` |
+| **Deterministic Verification** | `just check` plus optional strict plugin check | `just check` (100% pass without `agy` installed) |
 
 ---
 
 ## 2. Meet `artibyrd/antigravity-customizations`: 20 Standalone À La Carte Plugins
 
-Rather than coupling general-purpose software engineering workflows (TDD, 3-axis code review, bug diagnosis, PR briefs, release hygiene) to Credence's epistemic auditing repository, those generalized workflows live in [`artibyrd/antigravity-customizations`](https://github.com/artibyrd/antigravity-customizations)—a modular, version-controlled library of **20 standalone Google Antigravity plugins** designed for **any** repository.
+General-purpose engineering workflows—like vertical-slice TDD, multi-axis code review, structured bug diagnosis, and visual PR briefs—do not belong coupled to Credence's epistemic auditing engine. Instead, they live in [`artibyrd/antigravity-customizations`](https://github.com/artibyrd/antigravity-customizations), a modular library of **20 standalone Antigravity plugins** built for **any** repository.
 
-Every folder under `plugins/` is scoped to one coherent workflow so teams can adopt a 4-plugin starter pack or load all 20 plugins à la carte:
+Each plugin lives in its own folder under `plugins/` and owns one coherent workflow, so you can adopt a lean 4-plugin starter pack or load the full catalog à la carte.
 
-| Plugin Category | Count | Included Plugins |
-| :--- | :---: | :--- |
-| **Core Lifecycle Skills** | 8 | `domain-modeling` (`GLOSSARY.md` & ADRs), `artifact-governance` (append-only ledgers & off-repo scratch), `plan-model-advisor` (pre-coding model/effort & `/teamwork` brief), `tdd` (two-phase vertical-slice TDD), `code-review` (3-axis parallel diff review), `pr-brief` (visual-first PR bodies & Mk1 checklists), `release-lifecycle` (4-phase release & `/learn`), `knowledge-governance` (`<800`-token `AGENTS.md` & Demotion Highway) |
-| **Always-On Guardrail Hooks** | 2 | `git-guardrails` (`PreToolUse` hard-blocking destructive git commands & prompting on push), `workspace-hygiene-hooks` (`PostToolUse` auto-format via `ruff`/`prettier`/`gofmt`/`rustfmt` + `Stop` stray-root-file check) |
-| **Situational Diagnostics, Design & Ops Skills** | 10 | `diagnosing-bugs`, `architecture-review` (Deep Modules & hotspot audits), `reality-check-audit` (cross-model adversarial audit), `fresh-reader` (zero-context doc cascade), `writing-for-agents`, `session-handoff`, `bootstrap-approvals` (safe one-pass prefix priming), `repo-bootstrap`, `prototype`, `wizard` |
+### Core Development Lifecycle (8 Skills)
+
+| Plugin | What It Does |
+| :--- | :--- |
+| `domain-modeling` | Sharpens ubiquitous language, maintains a lightweight domain glossary, and records architectural decision records. |
+| `artifact-governance` | Enforces append-only implementation plans and walkthroughs while keeping temporary scratch scripts off-repo. |
+| `plan-model-advisor` | Recommends optimal model tiers, reasoning effort, and multi-agent swarm layouts before implementation starts. |
+| `tdd` | Drives two-phase vertical-slice test-driven development against pre-agreed public seams and offline boundaries. |
+| `code-review` | Runs a three-axis parallel diff review covering engineering standards, spec fidelity, and security boundaries. |
+| `pr-brief` | Drafts visual-first pull request summaries with before/after evidence, blast radius, and human review checklists. |
+| `release-lifecycle` | Guides the four-phase release flow from local QA and dev verification through release tags and `/learn` retrospectives. |
+| `knowledge-governance` | Keeps `AGENTS.md` under its 800-token ceiling using the Demotion Highway and structured admission gates. |
+
+### Always-On Guardrail Hooks (2 Hooks)
+
+| Plugin | What It Does |
+| :--- | :--- |
+| `git-guardrails` | Intercepts destructive Git commands before execution and prompts for confirmation prior to pushes. |
+| `workspace-hygiene-hooks` | Auto-formats edited files with the repo's native formatter (Ruff, Prettier, gofmt, or rustfmt) and flags stray root files on turn end. |
+
+### Diagnostics, Design & Repository Operations (10 Skills)
+
+| Plugin | What It Does |
+| :--- | :--- |
+| `diagnosing-bugs` | Runs a six-phase root-cause loop: minimal reproduction, ranked falsifiable hypotheses, targeted logging, and seam regression tests. |
+| `architecture-review` | Audits codebases for Ousterhout Deep Modules, interface trade-offs, and oversized files needing internal decomposition. |
+| `reality-check-audit` | Performs an adversarial cross-model assessment hunting mocked telemetry, doc-to-code drift, and governance bloat. |
+| `fresh-reader` | Audits documentation across four reader personas—from newcomer to domain expert—to eliminate curse-of-knowledge gaps. |
+| `writing-for-agents` | Provides style and structure principles for concise, high-signal agent instructions, skills, and plugin specs. |
+| `session-handoff` | Compacts a long conversation into a crisp, zero-fluff handoff brief for fresh sessions or cross-model continuations. |
+| `bootstrap-approvals` | Dynamically discovers safe read-only workspace commands for one-pass approval priming with zero mutating prefixes. |
+| `repo-bootstrap` | Interactively scaffolds a lean `AGENTS.md`, modular `Justfile`, and governance starter layout for new repositories. |
+| `prototype` | Builds throwaway interactive HTML demos to test state models or compare UI variations before committing to production code. |
+| `wizard` | Generates step-by-step interactive bash wizards for manual tasks only a human can perform, such as provisioning secrets. |
 
 ### Quick Start: Install À La Carte on Any Machine
 
@@ -83,7 +110,7 @@ Every folder under `plugins/` is scoped to one coherent workflow so teams can ad
 git clone https://github.com/artibyrd/antigravity-customizations.git ~/Projects/antigravity-customizations
 ```
 
-Add an absolute path entry to `~/.gemini/config/plugins.json` (use `include_only` to start with a lean 4-plugin Starter Pack, or omit `include_only` to load all 20 plugins):
+Add an absolute path entry to `~/.gemini/config/plugins.json`. Use `include_only` to start with a lean 4-plugin Starter Pack, or omit `include_only` to load all 20 plugins:
 
 ```json
 {
@@ -110,25 +137,25 @@ agy plugin install ./plugins/plan-model-advisor
 :::
 
 > [!NOTE]
-> **Personal preferences stay out of git:** Machine-specific model tier preferences (such as `quality-first`, `balanced`, or `quota-saver` for `plan-model-advisor`) belong in your personal `~/.gemini/GEMINI.md`, never inside a shared repository's `AGENTS.md`.
+> **Personal preferences stay out of Git:** Machine-specific model tier preferences (such as quality-first, balanced, or quota-saver routing for `plan-model-advisor`) belong in your personal `~/.gemini/GEMINI.md`, never inside a shared repository's `AGENTS.md`.
 
 ---
 
 ## 3. The Repo-Specific Skill Overlay Pattern (`.agents/overrides/`)
 
-Once a team adopts generalized skills across multiple projects, a classic tension emerges: **how do you enforce repository-specific rules** (like Credence's `compute_*` naming ontology, 7-manifest version synchronization, or strict PR title scopes) **without forking the upstream skill?**
+Once a team adopts generalized skills across multiple projects, a classic tension emerges: **how do you enforce repository-specific rules**—like Credence's naming ontology, 7-manifest version parity, or strict PR title scopes—**without forking the upstream skill?**
 
 ### Why Overlays Beat Shadowing and Wrappers
 
 | Pattern | Mechanism | Verdict |
 | :--- | :--- | :--- |
-| **Skill Shadowing** | Copy a same-named `SKILL.md` into `.agents/skills/<name>/` to override the global plugin | **Rejected.** Forks upstream logic, blocks improvements from `antigravity-customizations`, and recreates multi-repo drift. |
-| **Wrapper Skills** | Create `credence-release`, `credence-architecture`, etc. delegating to general skills | **Rejected.** Doubles always-loaded skill catalog tokens, introduces trigger ambiguity, and creates hard cross-plugin coupling. |
-| **Progressive Skill Overlays** | Keep one generalized skill upstream; store thin repo-specific deltas in `.agents/overrides/<skill-name>.md` | **Adopted.** Zero shadowing, zero always-on token cost, 100% platform-agnostic pure Markdown, and actionable standalone. |
+| **Skill Shadowing** | Copy a same-named `SKILL.md` into the repo to override the global plugin. | **Rejected.** Forks upstream logic, blocks future improvements, and reintroduces cross-repo drift. |
+| **Wrapper Skills** | Create project-prefixed wrapper skills that delegate to general ones. | **Rejected.** Doubles always-loaded catalog tokens, creates trigger ambiguity, and couples plugins tightly. |
+| **Progressive Skill Overlays** | Keep one generalized skill upstream; place thin repo-specific deltas in `.agents/overrides/<skill-name>.md`. | **Adopted.** Zero shadowing, zero always-on token cost, pure Markdown, and actionable standalone on any harness. |
 
 ### The 3-Section Delta Contract
 
-Any repository tailoring a generalized skill creates `.agents/overrides/<skill-name>.md`—plain Markdown that is **never** named `SKILL.md`, so Antigravity does not index it as a competing skill and it consumes **0 always-on tokens** until needed:
+Any repository customizing a generalized skill adds a plain Markdown file at `.agents/overrides/<skill-name>.md`. Because it is **never** named `SKILL.md`, Antigravity will not index it as a competing skill, and it consumes **zero always-on tokens** until loaded:
 
 ```markdown
 # <Skill Name> — <Repo> Project Overlay
@@ -143,82 +170,82 @@ Any repository tailoring a generalized skill creates `.agents/overrides/<skill-n
 - List optional base-skill steps or artifacts intentionally skipped in this repo.
 ```
 
-### Two-Layer Discovery Guarantee (Belt + Suspenders)
+### Two-Layer Discovery Guarantee (Belt and Suspenders)
 
-1. **Upstream Generalized Skills (`antigravity-customizations`):** Customizable core skills (`architecture-review`, `artifact-governance`, `bootstrap-approvals`, `code-review`, `domain-modeling`, `knowledge-governance`, `pr-brief`, `release-lifecycle`, and `tdd`) begin with a single 1-line preflight rule checking `.agents/overrides/<skill-name>.md` and proceeding cleanly when no overlay exists.
-2. **Repository `AGENTS.md` (~15 tokens):** A single pointer line instructs *any* agent harness to consult `.agents/overrides/<skill>.md` for project-specific overrides and subsystem guides—guaranteeing discovery even when `antigravity-customizations` is not installed.
+1. **Upstream Preflight Check:** Nine core skills in `antigravity-customizations`—covering architecture, TDD, code review, PR briefs, releases, domain modeling, artifacts, knowledge governance, and command approvals—open with a 1-line preflight checking for `.agents/overrides/<skill-name>.md` and proceeding normally when none exists.
+2. **Repository `AGENTS.md` Pointer (~15 tokens):** A single pointer line tells *any* agent harness to consult `.agents/overrides/` for project-specific overrides and subsystem rulebooks—guaranteeing discovery even when `antigravity-customizations` is not installed.
 
 ---
 
 ## 4. Credence Ecosystem Topology: 6 Domain Skills + 6 Self-Contained Overlays
 
-To eliminate 4-way skill drift across repositories and conform to native Antigravity plugin discovery, Credence consolidated its agent instructions into a single canonical source of truth inside `credence-agent`:
+To eliminate four-way skill drift across repositories and align with native Antigravity plugin discovery, Credence consolidated its agent instructions into a single canonical source of truth inside `credence-agent`.
 
-### Retained Credence Domain Skills (`credence-agent/skills/`)
+### Retained Credence Domain Skills
 
-Only workflows strictly unique to Credence's epistemic network remain as domain skills:
+Only workflows unique to Credence's epistemic network remain as domain skills under `credence-agent/skills/<skill-name>/SKILL.md`:
 
-| Domain Skill | Path | Domain Ownership |
-| :--- | :--- | :--- |
-| **`invariant-audit`** | `credence-agent/skills/invariant-audit/SKILL.md` | 7-manifest parity, Ed25519 `attestations.json`, Living Canon naming, Tier 2 gates, Autonomous RFC Standards Governance |
-| **`epistemic-benchmark`** | `credence-agent/skills/epistemic-benchmark/SKILL.md` | Golden 12 cross-profile evaluation, Gemini 4 / 3.8 `thinkingLevel` calibration, model catalog freshness |
-| **`forensic-audit`** | `credence-agent/skills/forensic-audit/SKILL.md` | Cluster swarms (3–6 rules/pass), optional parallel `run_workflow` orchestration, $G=1.00$ DOM grounding, sourcing ratios |
-| **`cloudrun-ops`** | `credence-agent/skills/cloudrun-ops/SKILL.md` | GCP Cloud Run compute plane, Workload Identity Federation (WIF), scale-to-zero rollbacks |
-| **`mesh-cluster`** | `credence-agent/skills/mesh-cluster/SKILL.md` | 13-node Watts-Strogatz P2P mesh testing, $Q_i$ scoring, Byzantine $3f+1$ cartel isolation |
-| **`white-label-ops`** | `credence-agent/skills/white-label-ops/SKILL.md` | Sovereign federation scaffolding (`credence init-org`) and multi-cloud Terraform templates |
+| Domain Skill | Domain Ownership |
+| :--- | :--- |
+| `invariant-audit` | Enforces 7-manifest version parity, Ed25519 doc attestations, Living Canon naming, Tier 2 gates, and autonomous RFC governance. |
+| `epistemic-benchmark` | Runs the Golden 12 cross-profile evaluation suite, calibrates Gemini 4 and 3.8 thinking levels, and audits model catalog freshness. |
+| `forensic-audit` | Drives multi-pass cluster swarms (with optional parallel workflow orchestration), verbatim DOM grounding ($G=1.00$), and sourcing ratios. |
+| `cloudrun-ops` | Manages the Google Cloud Run compute plane, Workload Identity Federation authentication, and scale-to-zero rollbacks. |
+| `mesh-cluster` | Operates local 13-node Watts-Strogatz P2P mesh simulations, node quality scoring ($Q_i$), and Byzantine cartel isolation. |
+| `white-label-ops` | Scaffolds sovereign federation organizations via `credence init-org` and validates multi-cloud Terraform templates. |
 
-### Self-Contained Credence Project Overlays (`credence-agent/overrides/`)
+### Self-Contained Credence Project Overlays
 
-Duplicative generalized skills (`bootstrap-approvals`, `knowledge-governance`, and `architecture-governance`) were retired and replaced with 6 self-contained overlays:
+Three duplicative generalized skills were retired and replaced with six self-contained overlays under `credence-agent/overrides/` (each named after the base skill it tailors):
 
-| Overlay File | Tailored Base Skill | Credence-Specific Policy Preserved |
-| :--- | :--- | :--- |
-| **`architecture-review.md`** | `architecture-review` | `compute_*` naming ontology, subpackage map, Epistemic Lensing, `<credence-badge>` anti-spoofing, Cyan Shield SVG dark tokens, clean URL `HTMLRewriter`, `.ws-scroll-pane` / `:has()`, Deep Modules + `~500 LOC` soft trigger + 1,000-LOC rail |
-| **`knowledge-governance.md`** | `knowledge-governance` | 5-level documentation disclosure hierarchy, `since_version`/`verified_version`/`last_verified` frontmatter provenance, `just audit-demotions`, `just challenge-invariant`, demotion test gate |
-| **`release-lifecycle.md`** | `release-lifecycle` | 7-manifest `just sync-version`, Ed25519 attestations, `credence-docs/docs/changelog.md` & `docs/roadmap.md`, `deploy-dev.yml` Cloud Run probe, topological `credence-docs → credence-agent → credence` merge order |
-| **`pr-brief.md`** | `pr-brief` | Conventional PR title format `[vX.Y.Z] <type>(<scope>): <summary>` and Credence's 6 strict subsystem scopes |
-| **`bootstrap-approvals.md`** | `bootstrap-approvals` | Safe read-only `core` vs. `hosted` `Justfile` recipe groupings with zero mutating "Spicy Prefixes" |
-| **`domain-modeling.md`** | `domain-modeling` | Direct pointer to Credence's canonical [`terminology-and-ontology-lexicon.md`](/docs/blueprints/terminology-and-ontology-lexicon) alongside lazy `docs/adr/` adoption |
+| Overlay File | Credence-Specific Policy Preserved |
+| :--- | :--- |
+| `architecture-review.md` | Pure calculation naming ontology, subpackage layout, Epistemic Lensing UX, embeddable badge anti-spoofing, dark-theme SVG design tokens, edge URL rewriting, and the Deep Modules 500-LOC soft trigger with a 1,000-LOC safety rail. |
+| `knowledge-governance.md` | Five-level documentation disclosure hierarchy, frontmatter version provenance fields, demotion audits, invariant challenge workflows, and Tier 2 demotion test gates. |
+| `release-lifecycle.md` | Seven-manifest version sync, Ed25519 attestation signing, changelog and roadmap symmetry, live Dev Cloud Run probes, and strict topological multi-repo merge ordering. |
+| `pr-brief.md` | Release-tagged conventional PR titles (`[vX.Y.Z] <type>(<scope>): <summary>`) and Credence's six strict subsystem scopes. |
+| `bootstrap-approvals.md` | Safe read-only core versus hosted `Justfile` recipe groupings with zero mutating prefixes. |
+| `domain-modeling.md` | Direct pointer to Credence's canonical [Terminology & Ontology Lexicon](/docs/blueprints/terminology-and-ontology-lexicon) alongside lazy adoption of architectural decision records. |
 
-*(Because Credence adopts harness-neutral off-repo scratch scripts under [`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts), `artifact-governance` requires no Credence overlay.)*
+*(Because Credence adopts harness-neutral off-repo scratch scripts under [`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts), the `artifact-governance` skill works out of the box with no Credence overlay.)*
 
-### Multi-Repo Layout & `.gemini/` Hygiene
+### Multi-Repo Layout & Vendor IDE Hygiene
 
-* **Umbrella workspace (`credence-ecosystem/`):** Exposes `.agents/overrides -> ../credence-agent/overrides` (symlink) and `.agents/skills.json` pointing to `credence-agent/skills`.
-* **Standalone `credence/` clone parity:** Carries a lightweight synced `credence/.agents/overrides/` subset maintained via `just sync-overlays` and verified by a deterministic Tier 2 SHA-256 parity test so standalone `artibyrd/credence` clones work identically without drift.
-* **Vendor IDE dotfolder hygiene:** Antigravity `v2.17.0+` moved per-project settings to `<project>/.gemini/config.json`. All three Credence repositories explicitly ignore `.gemini/`, `.vscode/`, `.cursor/`, and `.idea/` in `.gitignore` and enforce a Tier 2 governance gate preventing vendor IDE dotfolders or machine-local home paths from ever entering git history.
+* **Umbrella workspace (`credence-ecosystem/`):** Exposes `.agents/overrides` as a symlink to `credence-agent/overrides` and points `.agents/skills.json` directly at `credence-agent/skills`.
+* **Standalone `credence/` clone parity:** Carries a lightweight synced `credence/.agents/overrides/` subset updated via `just sync-overlays` and verified by a deterministic Tier 2 SHA-256 parity test—ensuring standalone clones behave identically without drift.
+* **Vendor IDE dotfolder hygiene:** Starting with Antigravity v2.17.0, per-project settings moved to `<project>/.gemini/config.json`. All three Credence repositories explicitly ignore Antigravity's `.gemini/` directory alongside other editor folders (such as VS Code, Cursor, and JetBrains) in `.gitignore`, backed by a Tier 2 gate blocking IDE config directories and machine-local home paths from ever entering Git history.
 
 ---
 
 ## 5. Key Workflow Upgrades Adopted from Generalized Patterns
 
-Consolidating overlapping skills also upgraded four core engineering patterns across Credence:
+Consolidating overlapping skills also upgraded four foundational engineering practices across Credence:
 
-1. **Deep Modules + 1,000-LOC Anti-God-File Rail:** Instead of forcing rigid 500-LOC splits that splinter cohesive logic into shallow wrapper files, Credence adopts Ousterhout Deep Modules with `~500 LOC` as a soft *internal* decomposition trigger inside `architecture-review`, backed by a hard 1,000-LOC anti-god-file safety rail in Tier 2 tests.
-2. **Harness-Neutral Off-Repo Scratch Scripts ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts)):** Inline shell blobs (`python -c`, `bash -c`) and tracked repo scratch directories remain prohibited, while ad-hoc scripts live cleanly outside git in the harness's session scratch directory (such as Antigravity's `brain/<conversation-id>/scratch/`) or `/tmp/`.
-3. **Vertical-Slice TDD Compatibility ([`inv-cart-before-horse`](/docs/invariants#inv-cart-before-horse)):** Shared contracts, schemas, and public test seams are agreed upfront before parallel downstream work; implementation proceeds in thin vertical behavioral slices (red seam test → minimal model + API/UI slice → green) before authoring walkthroughs or case studies.
-4. **Dynamic Approval Priming & Native Lifecycle Hooks:** Obsolete subprocess wrapper scripts (`scripts/bootstrap_approvals.py`) are retired in favor of discrete top-level read passes governed by the No-Spicy-Prefixes boundary law, paired with complementary `git-guardrails` and `workspace-hygiene-hooks` plugins alongside Credence's git `commit-msg` hook.
+1. **Deep Modules & 1,000-LOC Anti-God-File Rail:** Instead of forcing rigid 500-LOC splits that fracture cohesive logic into shallow wrapper files, Credence adopts Ousterhout Deep Modules—keeping ~500 LOC as a soft *internal* decomposition trigger during architecture reviews, backed by a hard 1,000-LOC safety rail in Tier 2 tests.
+2. **Harness-Neutral Off-Repo Scratch Scripts ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts)):** Inline shell one-liners (such as `python -c` or `bash -c`) and tracked scratch folders inside repos remain forbidden, while ad-hoc scripts live cleanly outside Git in the harness's session scratch directory or `/tmp/`.
+3. **Vertical-Slice TDD Compatibility ([`inv-cart-before-horse`](/docs/invariants#inv-cart-before-horse)):** Shared contracts, schemas, and public test seams are agreed upfront before parallel work begins; implementation proceeds in thin vertical behavioral slices—failing seam test, minimal slice, green—before writing walkthroughs or case studies.
+4. **Dynamic Approval Priming & Native Lifecycle Hooks:** Obsolete subprocess wrapper scripts are retired in favor of discrete top-level read passes governed by the No-Spicy-Prefixes boundary law, paired with optional `git-guardrails` and `workspace-hygiene-hooks` plugins alongside Credence's standard Git commit-message hook.
 
 ---
 
 ## 6. Verification & Diagnostic Gates
 
-Verify skill schemas, overlay parity, `.gemini/` hygiene, and documentation integrity locally in parallel:
+Verify skill schemas, overlay parity, vendor IDE hygiene, and documentation integrity locally in parallel:
 
 ```bash
 # Run the full parallel pre-commit QA gauntlet (works with or without agy installed)
 just check
 
-# Run targeted skill & overlay schema verification
+# Run targeted skill and overlay schema verification
 just agent-check
 ```
 
 | Verification Layer | Target Invariant | Enforcement Mechanism | Scope |
 | :--- | :--- | :--- | :--- |
-| **Context Economy** | [`inv-progressive-disclosure`](/docs/invariants#inv-progressive-disclosure) | `<800` token ceiling on `AGENTS.md` + 0-token `.agents/overrides/` | All harnesses |
-| **Human Authority** | [`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball) | Gated `Justfile` mutators + optional `git-guardrails` hook | All harnesses |
-| **Clean Scratch Ritual** | [`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts) | Off-repo scratch scripts; zero inline shell blobs or tracked scratch dirs | All harnesses |
-| **Vertical-Slice Order** | [`inv-cart-before-horse`](/docs/invariants#inv-cart-before-horse) | Shared contracts & public test seams precede downstream work & case studies | All harnesses |
+| **Context Economy** | [`inv-progressive-disclosure`](/docs/invariants#inv-progressive-disclosure) | Under-800-token `AGENTS.md` ceiling and zero-token overlays | All harnesses |
+| **Human Authority** | [`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball) | Gated `Justfile` mutators and optional Git guardrail hooks | All harnesses |
+| **Clean Scratch Ritual** | [`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts) | Off-repo scratch scripts with zero inline blobs or tracked scratch folders | All harnesses |
+| **Vertical-Slice Order** | [`inv-cart-before-horse`](/docs/invariants#inv-cart-before-horse) | Shared contracts and public test seams precede downstream work and studies | All harnesses |
 | **Release & Learning** | [`inv-4phase-release-learning`](/docs/invariants#inv-4phase-release-learning) | Local QA → Dev PR Triad → Mk1 Review → Merge/Prod → `/learn` → Patch | All harnesses |
 
 ---
