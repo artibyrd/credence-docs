@@ -2,7 +2,7 @@
 title: '08. Antigravity Customizations & Repo-Specific Skill Overlays'
 description: Adopt the standalone artibyrd/antigravity-customizations plugin suite à la carte and tailor generalized agent workflows to any repository using self-contained .agents/overrides/ skill overlays with zero vendor lock-in.
 since_version: v2.22.1
-verified_version: v2.22.1
+verified_version: v2.23.0
 last_verified: 2026-11-23
 tags:
 - agentic

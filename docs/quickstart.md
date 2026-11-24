@@ -2,8 +2,8 @@
 title: "The Credence Graduation Path & Quickstart Directory"
 description: "Explore the 3 ways to use Credence and follow the progressive graduation path from FastMCP assistant to volunteer worker to sovereign coordinator node."
 since_version: v1.0.0
-verified_version: v2.22.1
-last_verified: 2026-11-22
+verified_version: v2.23.0
+last_verified: 2026-11-23
 ---
 
 # The Credence Graduation Path & Quickstart Directory 🧭

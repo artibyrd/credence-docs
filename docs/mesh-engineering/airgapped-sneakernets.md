@@ -3,8 +3,8 @@ title: Air-Gapped Truth Bundles & Sneakernets
 description: Exporting and importing cryptographically signed .credence.bundle archives
   across air-gapped secure facilities, vessels, or conflict zones.
 since_version: v1.0.0
-verified_version: v2.22.1
-last_verified: 2026-11-22
+verified_version: v2.23.0
+last_verified: 2026-11-23
 ---
 
 # Air-Gapped Truth Bundles & Sneakernets

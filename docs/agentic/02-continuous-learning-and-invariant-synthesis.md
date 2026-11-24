@@ -3,8 +3,8 @@ title: 'Continuous Learning with /learn: Codifying Edge Cases into Machine Invar
 description: How post-mortems and edge-case discoveries during Credence development
   are codified via /learn into permanent, machine-verifiable rules in AGENTS.md.
 since_version: v1.0.0
-verified_version: v2.22.1
-last_verified: 2026-11-22
+verified_version: v2.23.0
+last_verified: 2026-11-23
 tags:
 - antigravity
 - learn

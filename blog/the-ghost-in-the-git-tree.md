@@ -2,8 +2,8 @@
 title: 'The Ghost in the Git Tree: Finding and Banishing Stale Artifacts in Agentic Workflows'
 description: How autonomous agents can leave invisible technical debt in repositories, and how shift-left governance keeps trees immaculate.
 since_version: v1.13.0
-verified_version: v2.22.1
-last_verified: 2026-11-22
+verified_version: v2.23.0
+last_verified: 2026-11-23
 sidebar:
   order: 31
 ---
