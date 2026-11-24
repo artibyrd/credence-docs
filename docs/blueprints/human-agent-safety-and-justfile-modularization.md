@@ -2,8 +2,8 @@
 title: Human/Agent Workflow Safety & Justfile Modularization
 description: Architectural blueprint for safe autonomous agent pairing, discrete Justfile recipe topologies, parallel QA gates, and brain scratch script execution.
 since_version: v2.13.0
-verified_version: v2.22.1
-last_verified: 2026-11-22
+verified_version: v2.23.0
+last_verified: 2026-11-23
 ---
 
 # Human/Agent Workflow Safety & Justfile Modularization
@@ -19,7 +19,7 @@ Autonomous AI coding agents operate at extreme velocity, executing hundreds of f
 
 | Safety Domain | Approval Status | Typical Workflows | Invariant Guardrail |
 | :--- | :--- | :--- | :--- |
-| **Autonomous Zone** | Pre-Approved / Always Allow | `just lint`, `just format`, `just test-unit`, `just test-docs`, `just status`, `just git-diff`, `just cloud-status`, `just cloud-probe`, `<brain>/scratch/<name>.py` | 100% Read-Only, Hermetic, Zero Destructive Drift |
+| **Autonomous Zone** | Pre-Approved / Always Allow | `just lint`, `just format`, `just test-unit`, `just test-docs`, `just status`, `just git-diff`, `just cloud-status`, `just cloud-probe`, off-repo scratch scripts | 100% Read-Only, Hermetic, Zero Destructive Drift |
 | **Human Review Gate** | Gated / Manual Mk1 Sign-Off | `just branch <name>`, `just commit <msg>`, `just pr-create <title>`, `just pr-merge`, `just cloud-deploy-prod`, `just cloud-rollback`, `just release <ver> <msg>` | [`inv-mk1-eyeball`](/docs/invariants#inv-mk1-eyeball), Commit-Before-Deploy, Sovereign Human Authority |
 
 ---
@@ -47,11 +47,10 @@ Credence resolves this via **Discrete Recipe Decoupling**:
 
 ---
 
-## 3. Sub-300 LOC Modular Architecture
+## 3. Sub-300 LOC Modular Justfile Architecture
 
-To enforce the **500 LOC Ceiling Law (The Invariant Bible)** and decouple open-source contributor workflows from maintainer-specific cloud deployment pipelines, the Justfile suite is partitioned into 6 focused modules:
+Pairing **Ousterhout Deep Modules** (`~500 LOC` soft internal decomposition trigger, 1,000-LOC anti-god-file rail) with clean separation between open-source contributor workflows and maintainer-specific cloud deployment pipelines, the Justfile suite is partitioned into 6 focused modules:
 
-credence/
 | Modular Justfile Module | Purpose & Contained Recipes | Max Permitted Lines |
 | :--- | :--- | :---: |
 | `Justfile` | Root entrypoint with modern settings & imports | `< 30 LOC` |
@@ -83,49 +82,45 @@ check: lint test-unit test-docs tf-validate agent-check
 
 ---
 
-## 5. Zero-Blob Brain Scratch Invariant ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))
+## 5. Harness-Neutral Off-Repo Scratch Invariant ([`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts))
 
-When an agent needs to execute an ad-hoc Python or bash script requiring human approval (`BypassSandbox: true`), sending multi-line inline blobs (`python -c "..."`) creates severe usability failures:
-1. **Unreadable Modal UI**: Long escaped strings flood the IDE approval modal, making forensic human review impossible.
+When an agent needs to execute an ad-hoc Python or bash script, sending multi-line inline blobs (`python -c "..."`, `bash -c "..."`) or writing throwaway files into the tracked repository root creates severe usability and hygiene failures:
+1. **Unreadable Modal UI**: Long escaped strings flood IDE approval dialogs, making forensic human review impossible.
 2. **Approval Cache Invalidation**: Any single-character edit changes the command string, re-prompting the user for approval on every iteration.
+3. **Git Working-Tree Pollution**: Manual repo-root `/scratch/` directories risk accidental commits and lock workflows into a single harness convention.
 
-Under [`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts), all ad-hoc scripts MUST be written to standalone files in the session's artifact brain directory:
+Under [`inv-clean-scratch-scripts`](/docs/invariants#inv-clean-scratch-scripts), all temporary scripts MUST be written outside the git working tree—either in your agent harness's off-repo session scratch directory (e.g., Antigravity's `<appDataDir>/brain/<conversation-id>/scratch/<name>.py`) or `/tmp/<name>.py`—never inside tracked repository directories:
 
 ```bash
-# Correct Canonical Pattern
-python3 /home/pendragon/.gemini/antigravity/brain/<conversation-id>/scratch/<name>.py
+# Canonical Harness-Neutral Pattern (outside git working tree)
+python3 /tmp/<name>.py
+# Or inside an Antigravity session scratch folder:
+python3 <appDataDir>/brain/<conversation-id>/scratch/<name>.py
 ```
 
-* **Context Recovery**: Keeping the script within the session brain directory preserves exact execution history for post-mortem analysis and learning synthesis (`/learn`).
-* **Single-Approval Iteration**: The human developer approves the command once with "Always Allow"; subsequent agent edits to the file execute without re-prompting.
+* **Zero Repo Pollution**: Keeps the git working tree 100% clean across Antigravity, Claude Code, Cursor, and Codex.
+* **Single-Approval Iteration**: The human developer previews and approves the standalone script path cleanly without unreadable inline blobs.
 
 ---
 
-## 6. Workspace Command Approval Bootstrapping
+## 6. Dynamic Command Approval Priming (`bootstrap-approvals`) & Native Lifecycle Hooks
 
-When setting up a fresh development workspace or resetting command approval caches, running individual commands manually to populate the IDE approval list is tedious.
+When setting up a fresh development workspace or resetting IDE command approval caches, wrapper scripts (such as the retired `scripts/bootstrap_approvals.py`) fail because IDE approval caches only inspect top-level tool calls and ignore subprocess invocations hidden inside helper scripts (**Subprocess Isolation**).
 
-Credence provides two discrete, scope-isolated bootstrapping runners:
+Credence replaces static wrapper scripts with a complementary, zero-lock-in combination of dynamic approval priming and native lifecycle hooks (see **[08. Antigravity Customizations & Skill Overlays](../agentic/08-antigravity-customizations-and-skill-overlays.md)**):
 
-### 1. Open-Source Core Developer Scope (Fork-Safe)
-For open-source contributors and developers working locally with zero cloud dependencies:
+### 1. Dynamic `bootstrap-approvals` Skill + Credence Scope Overlay
+* **Dynamic Workspace Discovery:** The optional `bootstrap-approvals` plugin from [`artibyrd/antigravity-customizations`](https://github.com/artibyrd/antigravity-customizations) discovers safe, read-only commands dynamically and presents a **Mandatory Confirmation Table** before executing discrete top-level shell passes one by one so the operator can click **"Always Allow"** once per safe prefix.
+* **Credence Scope Overlay (`.agents/overrides/bootstrap-approvals.md`):** Documents Credence's safe read-only `core` (fork-safe local QA, `just check`, `just lint`, `just test-unit`, `just test-docs`, `just status`, `just git-diff`) versus `hosted` (maintainer read-only telemetry: `just cloud-status`, `just edge-status`, `just tf-validate`, `just doctor`, `just cloud-probe`) `Justfile` recipe groupings—strictly enforcing zero mutating **"Spicy Prefixes"** (never priming `git checkout`, `git branch`, `gh pr`, `poetry version`, `poetry run`, or bare `curl`).
 
-```bash
-just bootstrap-approvals
-# Or directly via Python:
-python3 scripts/bootstrap_approvals.py --scope core --execute
-```
-Sequentially triggers harmless read-only passes across preflight toolchains, parallel quality gates (`just check`, `just lint`, `just format`), hermetic unit tests (`just test-unit`, `just test-docs`), agent health checks, and read-only git/PR inspection commands.
+### 2. Complementary Native Antigravity Hooks + Git `commit-msg` Hook
+Credence pairs optional native Antigravity lifecycle hook plugins with its harness-agnostic git hook so safety works across every environment:
 
-### 2. Maintainer Hosted Infrastructure Scope
-For Artibyrd maintainers managing Google Cloud Run, Cloudflare Edge, Terraform, and live URL health verification:
-
-```bash
-just bootstrap-approvals-hosted
-# Or directly via Python:
-python3 scripts/bootstrap_approvals.py --scope hosted --execute
-```
-Sequentially triggers read-only cloud telemetry (`just cloud-status`, `just edge-status`, `just tf-validate`, `just doctor`), environment-aware Dev/Prod probes (`just cloud-probe credence-dev dev`, `just cloud-probe credence-server prod`), and direct HTTP health endpoint probes (`curl -sI ...`).
+| Guardrail Layer | Hook Lifecycle / Mechanism | Enforcement Behavior | Harness Scope |
+| :--- | :--- | :--- | :--- |
+| **`git-guardrails`** | Antigravity `PreToolUse` | Hard-blocks (`deny`) destructive git ops (`push --force`, `reset --hard`, `clean -f`, `branch -D`, `checkout .`, `restore .`) and forces interactive confirmation (`force_ask`) on standard `git push`. | Optional Antigravity plugin |
+| **`workspace-hygiene-hooks`** | Antigravity `PostToolUse` & `Stop` | Auto-formats edited workspace files via `ruff`/`prettier`/`gofmt`/`rustfmt` after writes and checks for stray root files before finishing a turn. | Optional Antigravity plugin |
+| **`credence-agent/scripts/install_hooks.py`** | Standard Git `commit-msg` hook | Enforces Credence's conventional commit format and 6 subsystem scopes (`governance`, `forensics`, `mesh`, `crypto`, `ui`, `ops`). | Universal (all harnesses & terminals) |
 
 ---
 
@@ -166,24 +161,21 @@ If a broad prefix like `gcloud config` or `rm` is approved, the prefix match ina
 ### Architectural Safeguard
 1. **Zero Raw Cloud Mutators**: Raw cloud management commands are strictly barred from auto-approvable catalogs.
 2. **Encapsulation in Read-Only Recipes**: Cloud telemetry and auth inspections must be encapsulated inside structured, read-only Justfile recipes (e.g. `just auth-check gcloud` or `just cloud-status`) that cannot be hijacked to run arbitrary cloud mutations.
-3. **Hermetic Command Shapes**: All cataloged shapes outside `just` must be pure read operations (`git status -s`, `git diff --stat`, `grep -i ...`, `poetry version`).
+3. **Hermetic Command Shapes**: All cataloged shapes outside `just` must be pure read operations (`git status -s`, `git diff --stat`, `grep -i ...`)—never broad or mutating prefixes such as `git checkout`, `git branch`, `gh pr`, `poetry version`, `poetry run`, or bare `curl`.
 
 ---
 
 ## 9. Continuous Bootstrap Trajectory Harvest in the Learning Lifecycle
 
-The bootstrap catalog is not static; it evolves alongside developer patterns during the **4-Phase Release & Lean Learning Lifecycle** (`/learn`).
+The approval scope overlay evolves alongside developer patterns during the **4-Phase Release & Lean Learning Lifecycle** (`/learn`):
 
-CONTINUOUS BOOTSTRAP COMMAND HARVEST CYCLE (/learn)
-[Session Workflows & Agent Operations]
 | Bootstrap Approval Phase | System Action | Safety Verification Rule |
 | :--- | :--- | :--- |
-| **1. Session Trajectory Audit** | Scans `transcript.jsonl` tool calls | Identifies required operator approval shapes |
-| **2. Prefix-Safe Filtering** | Validates binary command prefix | Verifies read-only & non-destructive scope |
-| **3. Catalog Synchronization** | Updates `scripts/bootstrap_approvals.py` | Auto-graduated for one-click operator priming |
-and `bootstrap-approvals/SKILL.md`
+| **1. Session Trajectory Audit** | Scans session tool-call history | Identifies recurring read-only operator approval shapes |
+| **2. Prefix-Safe Filtering** | Validates binary subcommand prefix | Enforces strict No-Spicy-Prefixes read-only boundary |
+| **3. Overlay Synchronization** | Updates `.agents/overrides/bootstrap-approvals.md` | Keeps `core` vs. `hosted` `Justfile` groupings accurate without wrapper scripts |
 
-During each `/learn` run, the agent audits its session trajectory for recurring safe inspection commands (e.g., `grep`, `head`, `wc`, selective `git checkout`) and graduates them into the primary bootstrapping catalog for future workspace velocity.
+During each `/learn` retrospective, the agent audits recurring safe read-only `Justfile` recipes and updates `.agents/overrides/bootstrap-approvals.md` rather than duplicating upstream skill logic.
 
 ---
 

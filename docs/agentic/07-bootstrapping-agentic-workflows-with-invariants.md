@@ -2,8 +2,8 @@
 title: '07. Bootstrapping Agentic Workflows with Universal Invariants'
 description: How to extract and bootstrap Universal Agentic Invariants to supercharge AI pair programming in any new project without domain bloat.
 since_version: v2.16.8
-verified_version: v2.22.1
-last_verified: 2026-11-22
+verified_version: v2.23.0
+last_verified: 2026-11-23
 tags:
 - agentic
 - invariants

@@ -5,8 +5,8 @@ description: 'An in-depth post-mortem and architectural essay on building Creden
   with Google Antigravity: Planning mode, zero-npm longevity, multi-model Pareto optimization,
   and continuous /learn invariant synthesis.'
 since_version: v1.0.0
-verified_version: v2.22.1
-last_verified: 2026-11-22
+verified_version: v2.23.0
+last_verified: 2026-11-23
 tags:
 - antigravity
 - agentic-workflow

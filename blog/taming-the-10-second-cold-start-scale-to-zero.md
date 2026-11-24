@@ -4,8 +4,8 @@ title: 'Taming the 10-Second Cold Start: How We Cut Python Cloud Run Startup by 
 description: Forensic teardown of Python serverless boot bottlenecks, unmasking the
   silent Poetry tax, and unlocking sub-2.5s scale-to-zero cold starts.
 since_version: v1.15.0
-verified_version: v2.22.1
-last_verified: 2026-11-22
+verified_version: v2.23.0
+last_verified: 2026-11-23
 ---
 
 # Taming the 10-Second Cold Start: How We Cut Python Cloud Run Startup by 80% at $0.00 Idle Cost

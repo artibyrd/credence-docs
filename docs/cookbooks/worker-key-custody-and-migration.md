@@ -2,8 +2,8 @@
 title: "Cookbook: Worker Key Custody & Machine Migration"
 description: "How to backup, export, import, and manage your Ed25519 worker identity key to preserve your leaderboard rank, badges, and reputation across machines."
 since_version: "v2.22.0"
-verified_version: v2.22.1
-last_verified: 2026-11-22
+verified_version: v2.23.0
+last_verified: 2026-11-23
 ---
 
 # Cookbook: Worker Key Custody & Machine Migration

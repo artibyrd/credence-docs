@@ -2,8 +2,8 @@
 title: 'Operational Guide: Zero-Downtime Canary and Blue-Green Deployments'
 description: Traffic splitting, automated revision rollbacks, telemetry health gates, and blue-green Cloud Run deploys.
 since_version: v1.14.0
-verified_version: v2.22.1
-last_verified: 2026-11-22
+verified_version: v2.23.0
+last_verified: 2026-11-23
 sidebar:
   order: 16
 ---

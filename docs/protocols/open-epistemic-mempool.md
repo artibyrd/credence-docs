@@ -2,8 +2,8 @@
 title: "Protocol: The Open Epistemic Mempool Queue & Multi-Model Consensus"
 description: "Architectural specification of the decentralized audit job queue, atomic lease state machine, multi-model Bayesian consensus quorum, and the Galileo Rule."
 since_version: "v2.22.0"
-verified_version: v2.22.1
-last_verified: 2026-11-22
+verified_version: v2.23.0
+last_verified: 2026-11-23
 ---
 
 # Protocol: The Open Epistemic Mempool Queue & Multi-Model Consensus

@@ -2,8 +2,8 @@
 title: 'Technical Blueprint: Multi-Model Evaluation Comparison Matrix'
 description: Longitudinal model provenance tracking, pairwise score deltas, taxonomy violation diffs, and multi-model sovereignty.
 since_version: v2.18.0
-verified_version: v2.22.1
-last_verified: 2026-11-22
+verified_version: v2.23.0
+last_verified: 2026-11-23
 sidebar:
   order: 23
 ---
@@ -23,9 +23,12 @@ In high-stakes news auditing, different AI model families and offline engines po
 | Engine / Model Adapter | Primary Strength | Typical Confidence | Compute Profile |
 | :--- | :--- | :--- | :--- |
 | **Offline Structural Heuristics (`v1.1.0`)** | Deterministic syntax patterns, generic bylines, undisclosed pass-throughs | Bounded at $\le 25\%$ | $0.00 token cost, offline execution |
-| **Gemini 3.7 Flash** | Rapid contextual analysis, complex journalistic context, 4k thinking budget | $90\% - 98\%$ | Low latency, balanced cost |
-| **Claude 3.7 Sonnet / GPT-4o** | Subtle dialectical fallacies, rhetorical nuance, complex legal analysis | $92\% - 99\%$ | Ultra-precision, deep reasoning |
+| **Gemini 3.8 Flash (`gemini-3.8-flash`)** | Rapid contextual analysis & triage using qualitative `thinkingLevel` (`minimal`–`medium`) | $90\% - 98\%$ | Low latency, `FREE`/`ECONOMY`/`BALANCED` primary |
+| **Gemini 4 Family (`gemini-4-hydrogen` / `neon` / `carbon`)** | Escalated journalistic reasoning & investigative forensics with `thinkingLevel` (`low`–`high`) | $93\% - 99\%$ | Antigravity-aligned `BALANCED` escalation & `ULTRA` tier |
+| **Claude / GPT-4o** | Subtle dialectical fallacies, rhetorical nuance, cross-family arbitration | $92\% - 99\%$ | Multi-family consensus diversity |
 | **DeepSeek R1 / Ollama** | Open-weights sovereign verification, air-gapped forensic auditing | $88\% - 95\%$ | Sovereign local compute |
+
+*(Legacy models such as `gemini-3.7-flash`, `gemini-2.5-flash-lite`, `gemini-2.0-flash-lite`, and `gemini-1.5-pro` remain registered in `model_registry.py` as `deprecated`/`retired` exclusively for historical replay and legacy pricing attribution.)*
 
 When an article snapshot undergoes multiple evaluation passes over time (for instance, an initial zero-cost heuristic pass followed by an evaluator LLM sweep), Credence records each pass immutably in SQLite and computes a **Model Comparison Matrix**.
 
@@ -167,4 +170,39 @@ In Credence `v2.22.0`, multi-model evaluation scales from local passes to a dist
    - Passes are weighted by model reliability ($Q_{\text{model}}$) and worker reputation ($Q_w$).
    - Consensus requires agreement across $\ge 3$ distinct model families and distinct cryptographic keys.
    - Grounded findings ($G=1.00$) from specialist models are protected via the **Galileo Rule override**, ensuring authentic discoveries cannot be silenced by ungrounded majorities.
+
+---
+
+## 9. Canonical Model Registry, Gemini 4 `thinkingLevel` & Offline Freshness Gate
+
+Rapid model deprecations and API schema changes (such as the Gemini 4 cutover from integer `thinkingBudget` to qualitative `thinkingLevel`) require deterministic, shift-left lifecycle governance rather than scattered hardcoded strings.
+
+### 1. Single Source of Truth (`credence/pipeline/model_registry.py`)
+Every supported and historical model is declared once in `credence/pipeline/model_registry.py` with structured metadata:
+* **`supported_surfaces`**: Active availability across `gemini-api`, `vertex-model-garden`, `antigravity-harness`, `anthropic`, `openai`, and `ollama`.
+* **`thinking_mode`**: `"level"` (Gemini 4 & 3.8), `"budget"` (legacy Gemini 2.5 / 3.7 replay), or `"none"`.
+* **`pricing_per_million`**: Prompt, completion, and thinking token rates—`MODEL_PRICING_PER_MILLION` in `credence/pipeline/governor.py` is derived directly from `model_registry.py` so pricing and lifecycle metadata never drift.
+* **`status`, `sunset_date`, `replacement_model`**: Marks `"active"`, `"deprecated"`, or `"retired"` status and tracks approaching provider cutover horizons.
+
+### 2. Strict `thinkingLevel` vs. `thinkingBudget` Mutual Exclusion
+Modern Gemini 4 and Gemini 3.8 APIs reject payloads containing both `thinkingLevel` and `thinkingBudget` with `400 Bad Request`. `compute_thinking_config(model_name, thinking_budget, thinking_level)` in `credence/pipeline/adapters.py` consults `model_registry.py` and enforces strict mutual exclusion:
+
+| Model Generation | `thinking_mode` | Emitted `thinkingConfig` Payload | Legacy Budget Mapping |
+| :--- | :---: | :--- | :--- |
+| **Gemini 4 & Gemini 3.8** (`gemini-3.8-flash`, `gemini-4-hydrogen`, `gemini-4-neon`, `gemini-4-carbon`) | `"level"` | `{"thinkingLevel": "minimal" \| "low" \| "medium" \| "high"}` (never emits `thinkingBudget`) | `0` → `"minimal"`, `<= 1024` → `"low"`, `<= 4096` → `"medium"`, `> 4096` → `"high"` |
+| **Legacy Gemini 2.5 / 3.7** (historical replay & Vertex Model Garden) | `"budget"` | `{"thinkingBudget": N}` when `thinking_budget > 0` and no `thinking_level` is set | Preserves integer token budget directly |
+
+### 3. Antigravity-Aligned Active `COST_PROFILES`
+All four active presets in `credence/config.py` align 100% with both the Gemini API and Google's active Antigravity model catalog (other registered API or Vertex Model Garden models such as `gemini-3.5-flash-lite` or `gemini-4-argon` remain selectable via explicit env/CLI override):
+
+| Cost Profile | Primary Model (`thinkingLevel`) | Escalation Model (`thinkingLevel`) | Triage Model (`thinkingLevel`) |
+| :--- | :--- | :--- | :--- |
+| **`FREE`** | `gemini-3.8-flash` (`minimal`) | `gemini-3.8-flash` (`minimal`) | `gemini-3.8-flash` (`minimal`) |
+| **`ECONOMY`** | `gemini-3.8-flash` (`low`) | `gemini-3.8-flash` (`low`) | `gemini-3.8-flash` (`minimal`) |
+| **`BALANCED`** | `gemini-3.8-flash` (`medium`) | `gemini-4-neon` (`medium`) | `gemini-3.8-flash` (`minimal`) |
+| **`ULTRA`** | `gemini-4-neon` (`high`) | `gemini-4-carbon` (`high`) | `gemini-4-hydrogen` (`low`) |
+
+### 4. Offline Tier 2 Sunset Gate & On-Demand Catalog Check
+* **Hermetic CI Gate (`test_model_catalog_freshness_and_sunset_dates`):** Runs automatically on every `just check` in `<0.1s` with zero network I/O. It fails immediately if any active `COST_PROFILES` preset or CLI default references a non-active model, a model within 30 days of `sunset_date`, a model missing `"antigravity-harness"` surface alignment, or a model absent from `MODEL_PRICING_PER_MILLION`.
+* **On-Demand CLI & Justfile Recipe:** Operators audit active presets, pricing parity, and sunset horizons offline at any time via `credence models check` (or `just check-models`), and can append `--live` when `GEMINI_API_KEY` is configured to query Google's live models endpoint for newly released or retired IDs.
 
