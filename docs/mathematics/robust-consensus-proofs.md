@@ -3,8 +3,8 @@ title: The Mathematics of Robust Consensus
 description: Mathematical proofs of the Domain Authority Weighted Median, Byzantine
   3f+1 tolerance, and the Galileo Rule.
 since_version: v1.0.0
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 ---
 
 # The Mathematics of Robust Consensus
@@ -63,6 +63,17 @@ In an arithmetic mean, a single compromised node submitting $S=100.0$ shifts the
 $$S_{\text{consensus}} \ge \min_{v \in V_e} (\text{severity}_v \times \text{confidence}_v)$$
 
 4. Node $e$ is exempted from outlier trimming (`is_outlier = False`), guaranteeing that verified factual discovery cannot be silenced by uninformed majorities. $\blacksquare$
+
+### 3.1 Anti-Weaponization: Rolling-Window Concordance & Divergence Acceleration Dampening
+
+An adversary who farms high lifetime concordance over hundreds of benign evaluations—or gradually drifts away from consensus via slow-drip manipulation—must not be able to weaponize the Galileo floor indefinitely. Credence bounds Galileo authority with three dynamic controls:
+
+1. **Rolling-Window Concordance Floor**: Effective concordance is capped at the minimum of lifetime concordance and the trailing 20-evaluation window:
+   $$C_{\text{effective}} = \min(C_{\text{lifetime}}, C_{\text{recent, 20}})$$
+2. **Divergence Acceleration Dampening ($D_e \in [0, 1]$)**: Comparing recent consensus deviations against the node's prior window and pre-window baseline detects both sudden bait-and-switch spikes and sustained slow-drip drift. The Galileo expertise floor scales linearly with $D_e$:
+   $$E_{\text{floor}} = 0.70 \times G_e \times D_e$$
+   Legitimate first-time discoveries retain $D_e = 1.0$, whereas sustained adversarial divergence drives $D_e \to 0.0$ and collapses the floor.
+3. **Automated Slashing**: After 3 consecutive zero-dampening windows (`consecutive_zero_dampening >= 3`), the engine automatically slashes domain expertise and worker quality, isolating compromised veteran nodes while preserving legitimate one-off whistleblower discoveries.
 
 ---
 

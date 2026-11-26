@@ -2,8 +2,8 @@
 title: "Protocol: The Open Epistemic Mempool Queue & Multi-Model Consensus"
 description: "Architectural specification of the decentralized audit job queue, atomic lease state machine, multi-model Bayesian consensus quorum, and the Galileo Rule."
 since_version: "v2.22.0"
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 ---
 
 # Protocol: The Open Epistemic Mempool Queue & Multi-Model Consensus
@@ -49,24 +49,24 @@ To guarantee epistemic diversity and prevent sybil attacks:
 
 ---
 
-## 4. Bayesian Consensus & The Galileo Rule Override
+## 4. Bayesian Consensus & The Hardened Galileo Rule
 
-When target quorum is fulfilled, the coordinator computes the consensus verdict:
+When target quorum is fulfilled, the coordinator delegates consensus aggregation to `BayesianConsensusAggregator.compute_consensus(...)` and classifies the resulting score using canonical 5-tier verdict bands (`classify_verdict`):
 
-### The Median Baseline
-For $K$ independent evaluations with suspicion scores $S_1, S_2, \dots, S_K$, the baseline consensus is the median:
-$$S_{\text{median}} = \operatorname{median}(S_1, S_2, \dots, S_K)$$
+### Authority-Weighted Median Baseline
+For $K$ independent evaluations with suspicion scores $S_1, S_2, \dots, S_K$ and domain-authority weights $W_1, W_2, \dots, W_K$ derived from each worker's quality score $Q_w$ (penalized for grounding failures and divergence slashes), rolling-window concordance, and subject expertise:
+$$S_{\text{median}} = \operatorname{WeightedMedian}\big((S_1, W_1), \dots, (S_K, W_K)\big)$$
 
-The median provides inherent Byzantine resilience against outlier models or hallucinations.
+The weighted median provides inherent Byzantine resilience against unverified outliers, low-reputation Sybils, and hallucinations.
 
-### The Galileo Rule ($G=1.00$ Override)
-A fundamental tenet of epistemology is that **unanimous consensus cannot overwrite empirical truth**: if ten observers claim the sky is green, but one observer presents a calibrated photograph with mathematical proof, reality belongs to the proof.
+### The Hardened Galileo Rule ($G=1.00$ Authority-Gated Override)
+A fundamental tenet of epistemology is that **unanimous ungrounded consensus cannot overwrite empirical truth**: if an established specialist presents verbatim-grounded evidence ($G=1.00$) that a silent swarm missed ($S_{\text{swarm}} \le 15.0$), reality belongs to the verified evidence.
 
-In Credence, if an evaluation submits verified, character-for-character verbatim quotes ($G=1.00$) citing specific taxonomy violations (e.g., deceptive billing, fabricated quotes, unnamed source fallacies), the **Galileo Rule** overrides the clean consensus:
-
-$$\text{If } \exists \text{ grounded violations and } S_{\text{median}} < 25.0 \implies S_{\text{consensus}} = \max(S_{\max}, 45.0)$$
-
-This invariant guarantees that a compromised or gullible quorum cannot launder a deceptive article by simply failing to notice its violations.
+To prevent weaponization by fresh Sybils or compromised veteran nodes executing bait-and-switch / slow-drip attacks, the mempool enforces four coupled safeguards:
+1. **No Zero-Reputation Hijack**: Unconditional `max(max(scores), 45.0)` score overriding is prohibited. Only verified authorities with earned expertise and active acceleration dampening can trigger a Galileo override.
+2. **Rolling-Window Concordance & Divergence Acceleration Dampening**: Each worker tracks a rolling window of recent deviations from consensus (`recent_deviations_json`) plus a pre-window baseline. Effective concordance is bounded by $\min(C_{\text{lifetime}}, C_{\text{recent}})$, and sustained divergence drives an acceleration dampening factor toward `0.0`, scaling down the Galileo floor (`0.70 * grounding_ratio * dampening`) and triggering automated reputation slashing after 3 consecutive zero-dampening windows.
+3. **Single-Lineage Quorum Escalation**: When a Galileo override is triggered by a single model family lineage and the quorum cap (`4`) has not yet been reached, the coordinator marks the job `provisional_galileo` and escalates `target_quorum` by `+1` so an independent model family can corroborate or refute the finding before final ratification.
+4. **Canonical 5-Tier Verdicts**: Mempool consensus maps directly through `classify_verdict` rather than a coarse 3-band split, maintaining parity with CLI, mesh, and web surfaces.
 
 ---
 
@@ -80,6 +80,7 @@ This invariant guarantees that a compromised or gullible quorum cannot launder a
 | **Hallucinated Quotes** | Fail-closed grounding assertion $G=1.00$: every quote must exist verbatim in coordinator source text; failures reject with `HTTP 422` and slash worker $Q_w$. | Vector 4 & 8 |
 | **Stored XSS Injection** | Reject HTML tags, event handlers, and dangerous URI schemes on submit; sanitize worker aliases; render via safe DOM APIs (`textContent`). | Vector 5 & 13 |
 | **Signature Forgery & Replay** | RFC 8785 Ed25519 verification bound to `worker_pubkey`, claimed `job.url`, `content_sha256`, and active unexpired lease. | Vector 6 & 12 |
+| **Zero-Reputation Galileo Hijack & Slow-Drip Drift** | Delegate mempool consensus to `BayesianConsensusAggregator`, enforce rolling-window concordance, divergence acceleration dampening, automated slashing after 3 consecutive zero-dampening windows, and single-lineage `+1` quorum escalation. | Vector 15 |
 
 ---
 

@@ -3,8 +3,8 @@ title: 'The Domain Credence Index (DCI): The Web''s Honor Roll & Wall of Shame'
 description: How decentralized peer observation audits create transparent, unforgeable
   accountability for digital publishers and newsrooms.
 since_version: v1.0.0
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 ---
 
 # The Domain Credence Index (DCI): The Web's Honor Roll & Wall of Shame

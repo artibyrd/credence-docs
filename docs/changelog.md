@@ -2,11 +2,25 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 ---
 
 # Release Changelog
+
+## [2.24.0] - 2026-11-26
+
+### Added
+- **Galileo Rule Attack Vector Mitigation & Rolling-Window Expertise Hardening (`credence`, `credence-docs`)**:
+  - Added rolling-window concordance (`min(lifetime_concordance, recent_concordance)`), `compute_divergence_acceleration_dampening`, acceleration-dampened Galileo floor (`0.70 * grounding_ratio * dampening`), and automated `slash_domain_expertise()` after 3 consecutive zero-dampening windows in `credence/subjects/expertise.py`.
+  - Extended `DomainMetric`, `WorkerRecord`, and `AuditJob` in `credence/models.py` with additive, idempotent SQLite migrations in `credence/db.py` (`recent_deviations_json`, `consecutive_zero_dampening`, `divergence_slashes_count`, `consensus_evaluations_count`, `median_deviations_sum`, and optional `AuditJob.subject_id`).
+  - Hardened `BayesianConsensusAggregator` in `credence/mesh/consensus.py` with acceleration dampening, `<= 15.0` silent-swarm anchoring, `galileo_override`, `galileo_escalated_nodes`, and backward-compatible deviation kwargs.
+  - Added single-lineage Galileo `+1` quorum escalation (`provisional_galileo`, cap `4`), live worker divergence slashing, and Vector 15 / 13-node mesh cartel tests across `tests/unit/subjects/test_subject_consensus.py`, `tests/integration/test_mempool_cluster_simulation.py`, `tests/integration/test_worker_redteam_gauntlet.py`, and `tests/integration/test_mesh_byzantine_cartel.py`.
+
+### Fixed
+- **Zero-Reputation Mempool Galileo Hijack & Verdict Band Drift (`credence`, `credence-docs`)**:
+  - Removed the unconditional `max(max(scores), 45.0)` score override in `credence/server/api/queue_guards.py`, delegating mempool consensus directly to `BayesianConsensusAggregator.compute_consensus(...)` and replacing the coarse 3-band split with canonical 5-tier `classify_verdict`.
+  - Updated `credence-docs/docs/protocols/open-epistemic-mempool.md` and `credence-docs/docs/mathematics/robust-consensus-proofs.md` to match the hardened Galileo Rule and Vector 15 defenses.
 
 ## [2.23.1] - 2026-11-23
 

@@ -2,8 +2,8 @@
 title: "Quickstart: Volunteer Worker Daemon (Open Mempool Compute)"
 description: "Donate spare compute, claim mempool audit bounties, earn cryptographic merit badges, and climb the leaderboard with uvx in under 2 minutes."
 since_version: v2.22.0
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 ---
 
 # Quickstart: Volunteer Worker Daemon (Open Mempool Compute) 🐝
