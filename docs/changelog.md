@@ -2,11 +2,23 @@
 title: Release Changelog
 description: Version history, release notes, and milestone accomplishments across the Credence network.
 since_version: v1.0.0
-verified_version: v2.24.0
+verified_version: v2.24.1
 last_verified: 2026-11-26
 ---
 
 # Release Changelog
+
+## [2.24.1] - 2026-11-26
+
+### Changed
+- **PR-Before-Mk1-Eyeball Governance Alignment (`credence`, `credence-agent`, `credence-docs`)**:
+  - Amended `inv-mk1-eyeball` and `inv-commit-before-deploy` across all ecosystem `AGENTS.md` files and `credence-docs/docs/invariants.md` to eliminate the contradiction between feature-branch PR staging and human release gating: staged Triad PRs, CI checks, and live Dev deploy verification now explicitly run *before* requesting Mk1 Eyeball sign-off, while `main` merges, release tags, and production deploys require explicit human approval.
+  - Added the **PR-Before-Mk1-Eyeball Rule** override to `credence-agent/overrides/pr-brief.md` and `credence-agent/overrides/release-lifecycle.md` (synced to `credence/.agents/overrides/`).
+
+### Fixed
+- **Relocated `.venv` Stale Shebang Resilience & Preflight Detection (`credence`)**:
+  - Updated `credence/just/quality.just` and `credence/just/release.just` to invoke `poetry run python -m pytest` and `poetry run python -m mypy` so local `just check` and `just sync-version` runs remain immune to relocated console-script shebangs.
+  - Enhanced `just preflight poetry` in `credence/just/preflight.just` to fail fast with an actionable remediation command when `.venv/bin/pytest` or `.venv/bin/mypy` references a nonexistent interpreter path.
 
 ## [2.24.0] - 2026-11-26
 

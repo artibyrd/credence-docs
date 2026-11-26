@@ -2,7 +2,7 @@
 title: 'The Compute Ontology Revolution: Why Pure Math Belongs in compute_* Functions'
 description: How standardizing on compute_* naming across Python, TypeScript, and Rust eliminates state mutation bugs.
 since_version: v1.13.0
-verified_version: v2.24.0
+verified_version: v2.24.1
 last_verified: 2026-11-26
 sidebar:
   order: 23

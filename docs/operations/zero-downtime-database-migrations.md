@@ -2,7 +2,7 @@
 title: 'Operational Guide: Zero-Downtime Database Migrations'
 description: SQLite WAL online migrations, PostgreSQL Alembic phased schema evolution, and backwards-compatible table cutover.
 since_version: v1.14.0
-verified_version: v2.24.0
+verified_version: v2.24.1
 last_verified: 2026-11-26
 sidebar:
   order: 14

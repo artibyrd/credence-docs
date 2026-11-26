@@ -3,7 +3,7 @@ title: 'The Invariant Bible: Living Canon of System-Wide Invariants & Protocols'
 description: Canonical reference for all mathematical rules, runtime safety guardrails,
   cryptographic protocols, and presentation invariants governing Credence.
 since_version: v1.0.0
-verified_version: v2.24.0
+verified_version: v2.24.1
 last_verified: 2026-11-26
 tags:
 - invariants
@@ -222,8 +222,8 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
   <h3><a href="#docs/invariants#inv-mk1-eyeball">The Invariant Bible: Human Review Gate ("Mk1 Eyeball")</a></h3>
 </div>
 <div class="invariant-human-pane">
-  <p class="invariant-headline">All code commits, PR merges, and production deploys require explicit human review and sign-off.</p>
-  <div class="invariant-rationale"><strong>Why It Matters:</strong> Maintains human sovereignty, prevents autonomous hallucinations from slipping into production, and ensures accountability.</div>
+  <p class="invariant-headline">Staged feature PRs and live Dev verification precede human review; all PR merges into main, release tags, and production deploys require explicit Mk1 Eyeball sign-off.</p>
+  <div class="invariant-rationale"><strong>Why It Matters:</strong> Maintains human sovereignty, provides a digestible PR review surface exercised against live Dev workflows, and prevents unreviewed changes from slipping into production.</div>
 </div>
 <details class="agent-translation">
   <summary class="agent-summary"><span class="agent-icon">🤖</span> <strong>Agent Deontic Specification</strong> <span class="agent-slug-pill"><code>inv-mk1-eyeball</code></span></summary>
@@ -231,12 +231,12 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
     <div class="agent-spec-section">
       <span class="agent-spec-label">Deontic Execution Rules:</span>
       <ul class="agent-rules-list">
-        <li><span class='deontic-forbidden'>FORBIDDEN</span> to execute <code>git commit</code>, tag, or deploy autonomously without explicit human sign-off.</li>
-        <li><span class='deontic-must'>MUST</span> present diff summaries and live verification links before requesting approval.</li>
+        <li><span class='deontic-must'>MUST</span> commit feature-branch work, open staged Triad PRs, run CI + Dev deploy (<code>deploy-dev.yml</code>), and verify live Dev endpoints BEFORE requesting Mk1 Eyeball approval.</li>
+        <li><span class='deontic-forbidden'>FORBIDDEN</span> to merge PRs into <code>main</code>, push release tags, or trigger production deploys without explicit human sign-off.</li>
       </ul>
     </div>
     <div class="agent-spec-meta">
-      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>git commit, git push, release workflows</code></div>
+      <div class="agent-meta-item"><strong>Trigger Scopes:</strong> <code>pr-create, pr-merge, git tag, release workflows</code></div>
       <div class="agent-meta-item"><strong>Verification Gate:</strong> <code>tests/governance/test_docs_integrity.py</code></div>
     </div>
   </div>
@@ -2108,7 +2108,7 @@ Mandatory invariants, mathematical formulas, runtime guardrails, and agentic eng
 | **[`inv-version-governance`](#inv-version-governance)** | Inv 3 | 🌐 Universal | Class γ | Continuous Changelog & Semantic Version Governance | Every notable feature, blueprint, or fix upda... |
 | **[`inv-hermetic-unit-tests`](#inv-hermetic-unit-tests)** | Inv 4 | 🌐 Universal | Class β | Hermetic Unit Test Isolation & Zero-Browser CI | Unit test suites run 100% in-memory with zero... |
 | **[`inv-scoped-verification`](#inv-scoped-verification)** | Inv 5 | 🌐 Universal | Class β | Scoped Verification for Docs-Only Changes | Documentation and static asset edits use ligh... |
-| **[`inv-mk1-eyeball`](#inv-mk1-eyeball)** | Inv 6 | 🌐 Universal | Class α | Human Review Gate ("Mk1 Eyeball") | All code commits, PR merges, and production d... |
+| **[`inv-mk1-eyeball`](#inv-mk1-eyeball)** | Inv 6 | 🌐 Universal | Class α | Human Review Gate ("Mk1 Eyeball") | Open staged PRs & verify Dev deploy BEFORE Mk1 review; merges, tags, and prod deploys require sign-off. |
 | **[`inv-clean-scratch-scripts`](#inv-clean-scratch-scripts)** | Inv 46 | 🌐 Universal | Class α | Clean Off-Repo Scratch Script Approvals | Zero inline shell blobs or tracked scratch dirs; write temp scripts off-repo (session scratch dir or `/tmp/`). |
 | **[`inv-untrusted-ingestion`](#inv-untrusted-ingestion)** | Inv 8 | 🌐 Universal | Class α | Untrusted Ingestion Boundary & Network Defense | External network ingestion rejects internal m... |
 | **[`inv-xml-safety`](#inv-xml-safety)** | Inv 10 | 🌐 Universal | Class β | XML ElementTree Traversal Safety | XML tree parsers check element existence expl... |
