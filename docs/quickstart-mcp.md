@@ -2,8 +2,8 @@
 title: "Quickstart: FastMCP 2.0 AI Assistant (Claude & Cursor)"
 description: "Equip Claude Desktop, Cursor IDE, Antigravity, and AI swarms with Credence real-time fact checking and the Epistemic Brake in under 60 seconds."
 since_version: v2.22.0
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 ---
 
 # Quickstart: FastMCP 2.0 AI Assistant (Claude & Cursor) ⚡

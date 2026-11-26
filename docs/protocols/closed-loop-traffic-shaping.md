@@ -3,8 +3,8 @@ title: Closed-Loop Routing & P2P Traffic Shaping
 description: Technical specification for connecting epistemic merit to P2P network
   bandwidth, rate limits, /24 subnet clustering, and zero-cost caching.
 since_version: v1.0.0
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 ---
 
 # Closed-Loop Routing & P2P Traffic Shaping

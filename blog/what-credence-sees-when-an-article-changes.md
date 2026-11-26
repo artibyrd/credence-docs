@@ -4,8 +4,8 @@ description: A deep forensic analysis of how Credence evaluates content updates 
   time, contrasting honest editorial corrections with deceptive stealth edits and
   poisoned comments.
 category: Sovereign Essays
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 since_version: v2.1.0
 ---
 

@@ -2,8 +2,8 @@
 title: 'Operational Guide: PostgreSQL Cloud Scaling & Connection Pooling'
 description: SQLAlchemy 2.0 asyncpg connection pooling, PgBouncer setup, read replica routing, and planetary scaling.
 since_version: v1.14.0
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 sidebar:
   order: 17
 ---

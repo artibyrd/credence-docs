@@ -4,8 +4,8 @@ title: 'Scaling System Invariants: How We Prevented Context Bloat and Attention 
 description: Why flat AGENTS.md rulebooks fail at scale, and how a 3-tier governance
   architecture with shift-left automated tests preserves LLM reasoning precision.
 since_version: v1.15.0
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 ---
 
 # Scaling System Invariants: How We Prevented Context Bloat and Attention Dilution in Autonomous AI Coding

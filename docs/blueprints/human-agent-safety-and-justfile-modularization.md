@@ -2,8 +2,8 @@
 title: Human/Agent Workflow Safety & Justfile Modularization
 description: Architectural blueprint for safe autonomous agent pairing, discrete Justfile recipe topologies, parallel QA gates, and brain scratch script execution.
 since_version: v2.13.0
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 ---
 
 # Human/Agent Workflow Safety & Justfile Modularization

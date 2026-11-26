@@ -4,8 +4,8 @@ description: Comprehensive visual and structural sitemap covering all 5 sovereig
   domains, 12 interactive playgrounds, The Invariant Bible, investigative essays,
   and documentation guides across the Credence network.
 since_version: v1.13.0
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 ---
 
 # Ecosystem Master Sitemap 🗺️

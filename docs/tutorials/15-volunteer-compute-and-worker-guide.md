@@ -2,8 +2,8 @@
 title: "Tutorial 15: Volunteer Compute & Worker Fleet Guide"
 description: "How to contribute spare compute to the open epistemic mempool, climb the volunteer leaderboard, and earn cryptographic achievement badges."
 since_version: "v2.22.0"
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 ---
 
 # Tutorial 15: Volunteer Compute & Worker Fleet Guide

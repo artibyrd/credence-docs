@@ -3,8 +3,8 @@ title: Cloud Run Deployment & Dual-Tier Monitoring Guide
 description: Deploying to Google Cloud Run with Terraform, $15/mo budget cap, scale-to-zero
   compute, Workload Identity Federation, and automated CI/CD.
 since_version: v1.8.0
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 ---
 
 # Cloud Run Deployment & Dual-Tier Monitoring Guide

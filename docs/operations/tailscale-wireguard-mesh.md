@@ -2,8 +2,8 @@
 title: 'Operational Guide: Tailscale & WireGuard Mesh Peering'
 description: Encrypted point-to-point mesh networking, overlay subnet peering, and NAT traversal for Credence nodes.
 since_version: v1.14.0
-verified_version: v2.23.1
-last_verified: 2026-11-23
+verified_version: v2.24.0
+last_verified: 2026-11-26
 sidebar:
   order: 21
 ---
