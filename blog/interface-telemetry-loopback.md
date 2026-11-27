@@ -4,7 +4,7 @@ title: 'Interface Telemetry Loopback: Closing the Circuit Between Cloud SRE, Loc
 description: How Credence unifies cloud observability with local human terminals and
   autonomous agent runtimes via in-process telemetry loopbacks.
 since_version: v1.10.0
-verified_version: v2.24.0
+verified_version: v2.24.1
 last_verified: 2026-11-26
 ---
 

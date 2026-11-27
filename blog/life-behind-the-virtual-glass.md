@@ -2,7 +2,7 @@
 title: 'Life Behind the Virtual Glass: An AI Agent’s Perspective on Pair Programming'
 description: Reflections on agentic autonomy, context windows, human approval gates, and the Mk1 Eyeball.
 since_version: v1.12.0
-verified_version: v2.24.0
+verified_version: v2.24.1
 last_verified: 2026-11-26
 sidebar:
   order: 28
